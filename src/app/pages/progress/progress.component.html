@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="title-cust" slot="start">
+      {{title}}
+    </ion-buttons>
+    <ion-title>
+    </ion-title>
+    <ion-buttons slot="end" *ngIf="showProgress">
+      <div class="completed">
+        <span>{{progress}}% </span> <span>Complete</span>
+      </div>
+      <div style="position: relative;">
+        <svg viewBox="0 0 44 44" class="donut">
+          <circle class="donut-hole" cx="27" cy="21" r="15" fill="none"></circle>
+          <image x="3" y="9" height="21px" width="50px" [attr.href]="imgPath" />
+          <circle class="donut-ring" cx="27" cy="21" r="14.5" fill="transparent" stroke="#111111" opacity=".1"
+            stroke-width="1.4"></circle>
+          <circle class="donut-segment" cx="27" cy="21" r="16" fill="transparent" stroke="#F2F857" stroke-width="1.7"
+            attr.stroke-dasharray="{{progress}} {{PendingProgress}}" stroke-dashoffset="25"></circle>
+        </svg>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

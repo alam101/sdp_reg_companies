@@ -1,0 +1,262 @@
+.mainDiv{
+    height: 100%;
+    width: 100%;
+}
+
+ion-content::part(background){
+    --background: var(--theme-newHeader);
+}
+
+// ion-content::part(scroll){
+//     overflow-y: hidden;   
+// }
+
+.slider_div{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    // padding-left: 5%;
+    position: relative;
+}
+
+
+.content_div{
+    min-height:85%;
+    width: 100%;
+    background: var(--white);
+    border-radius: 30px 30px 0px 0px;
+    padding:20px 0px;
+}
+
+.content_sub_div{
+    padding:0px 5%;
+}
+
+.slider_page{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.heading_title{
+    font-size: var(--medium-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    /* margin: 10px 5%; */
+    font-weight: 500;
+}
+
+.title-text{
+    font-size: var(--regular-font);
+   font-family: var(--theme-newFont);
+   color: var(--black);
+   margin:10px 5%;
+}
+
+.title{
+    font-size: var(--medium-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    font-weight: 700;
+    margin: 0px  ;
+}
+
+.sub_title{
+    width:70% ;
+    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    margin: 10px 0px 0px ;
+    font-weight: 400;
+   
+}
+
+
+.condition_card{
+    background: var(--lightGrey);
+    border: 1.5px solid var(--card-border);
+    border-radius: 10px;
+    padding: 20px ;
+    margin: 30px 5%;
+    
+}
+
+
+.card_div{
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    // margin: 30px 5% 0px;
+
+
+    ion-radio{
+        // --color:var(--theme-color);
+        --color-checked:var(--theme-color);
+       }
+}
+
+.card_image{
+    height: 65px;
+    position: absolute;
+    right: -10px;
+    top: -40px;
+}
+
+.cal_calculation_div{
+    width: 100%;
+}
+
+.cal_main_div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cal_col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card_cal_image{
+    height: 15px;
+    object-fit: contain;
+}
+
+.cal_title{
+    font-size: var(--regularM-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    font-weight: 700;
+    margin: 0px  ;
+}
+
+.cal_sub_title{
+    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    margin: 10px 0px 5px ;
+    font-weight: 400;
+   
+}
+
+.muscle_image{
+    width: 80%;
+    object-fit: contain;
+    margin-left: 10%;
+ 
+}
+
+.between_time{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-Top:3px solid var(--card-border);
+}
+
+.note_div{
+    background: #F2F2F2;
+    width: 100%;
+    padding: 5px 20px;
+    margin-bottom: 10px;
+
+    p{
+        font-size: var(--xsmall-font);
+    }
+}
+
+.footer_div{
+    margin: 50px 5% 20px;
+}
+
+.terms{
+    font-size: var(--regular-font);
+    font-family: var(--theme-newFont);
+    color: var(--normal-color);
+}
+
+
+ion-checkbox{
+    margin-inline-end: 10px;
+    --border-radius: 5px;
+    --border-width: 2px;
+    --border-color:var(--theme-newButton);
+    --background: var(--radio-background);
+    --background-checked:var(--theme-newButton);
+    --border-color-checked: var(--theme-newButton);
+    --checkmark-color: var(--white);
+}
+
+.ion_item{
+    --padding-start:0px;
+}
+
+// .go_btn_div{
+//     margin-top:20px;
+// }
+
+// .go_btn{
+//     height: 50px;
+//     width: 80%;
+//     &::part(native){
+//         --background: var(--theme-newButton);
+//         text-transform: none;
+//         box-shadow: var(--btnShaddow);
+//         color: var(--white);
+//         font-family: var(--theme-newFont);
+//     }
+// }
+
+.go_btn_div{
+    margin-top:50px;
+}
+
+.go_btn{
+    height: 50px;
+    width: 100%;
+    &::part(native){
+        --background: var(--theme-newButton);
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--white);
+        font-family: var(--theme-newFont);
+    }
+}
+
+
+
+.back_btn{
+    height: 50px;
+    width: 80%;
+    &::part(native){
+        --background: var(--white);
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--theme-newButton);;
+        font-family: var(--theme-newFont);
+        border-color: var(--theme-newButton);
+    }
+}
+
+.desease_div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.Fat_image{
+    height: 80px;
+}
+
+.arrow_image{
+    width: 8px;
+}
+
+

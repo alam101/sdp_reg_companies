@@ -1,0 +1,24 @@
+<app-header>
+
+    <ion-row style="margin-top: 1rem;">
+       <ion-col class="ion-text-center ion-align-self-center" size="12">
+           <span *ngIf="numberI==1" class="medium">Food Choices</span>
+           <span *ngIf="numberI==2" class="medium">Diseases/ Allergies</span>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12" class="ion-text-center">
+           <div class="small line-height">
+            <span *ngIf="numberI==1">Please share us your food choices  for creation of your diet plan!</span>
+            <span *ngIf="numberI==2">Do you have any of following diseases or Allergies ?</span>
+           </div>
+       </ion-col>
+    </ion-row>
+</app-header>
+
+<ion-content class="container" padding="true" margin="true">
+    <div >
+     <app-user-info (numberInput)="numberInput($event)" (userAction)="gotoNext($event)"></app-user-info>
+    </div>
+
+</ion-content>

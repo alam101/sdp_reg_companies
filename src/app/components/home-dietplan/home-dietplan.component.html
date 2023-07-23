@@ -1,0 +1,23 @@
+<div
+[ngClass]="{'heart-beat-animation': !isDetox && (((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110), 'low-heart-beat-animation' : !isDetox && !isAnalysisPageVisited}">
+
+<circle-progress radius="55"
+  percent="{{(suggestedCalories.totalCalories*100)/suggestedCalories.recomended}}"
+  outerStrokeGradient="{{((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) <= 110 && selectedDietPlan == 'weightLoss' ? true : false}}"
+  [outerStrokeGradientStopColor]="isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : detoxThemeColor: 
+  !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : selectedThemeColor"
+  [innerStrokeColor]="'rgb(125,125,125,0.2)'"
+  [outerStrokeColor]="isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : detoxThemeColor: 
+  !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : selectedThemeColor" backgroundColor="#fff"
+  outerStrokeWidth="5" innerStrokeWidth="5" title="{{roundingVal(suggestedCalories.totalCalories)}}"
+  [titleFontSize]="22"
+  titleColor="{{isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : detoxThemeColor: 
+  !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : selectedThemeColor}}"
+  [titleFontWeight]="500" subtitle="Diet Plan"
+  subtitleColor="{{isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : detoxThemeColor:  
+  !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : selectedThemeColor}}" [subtitleFontWeight]="400"
+  [subtitleFontSize]="15" units="kcal" [unitsFontSize]="10" [unitsFontWeight]="400"
+  unitsColor="{{isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : detoxThemeColor: 
+  !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : selectedThemeColor}}">
+</circle-progress>
+</div>

@@ -1,0 +1,259 @@
+@import "../../../theme/fonts.scss";
+
+.width-50 {
+    width: 50%;
+  }
+ .parent{
+   margin-left:1rem;
+   margin-right: 1rem;
+   margin-top: 1rem;
+ }
+ .trash-container{
+  width: 40px;height: 40px; background: red;
+  border-radius: 25px;
+  .trash{
+    color: #fff;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 1.5rem;
+    content: '';
+    padding-top: 17%;
+    padding-left: 20%;
+  }
+}
+img{
+  max-width: 100%;
+}
+ion-item{
+  h2{
+    font-family: $font;
+    color:#4a4949;
+    margin-top: .5rem;
+   font-size: 1rem;
+  }
+  ion-avatar{
+    width: 30px;
+    height: 30px;
+  }
+
+  ion-label{
+    font-size: .9rem;
+    font-family: $font;
+    color:#565656;
+  }
+  span{
+    font-size: .9rem;
+    font-family: $font;
+    color:#565656;
+  }
+  ion-icon{
+    font-size: 1rem;
+  }
+}
+.first-caps::first-letter{
+  text-transform: uppercase;
+  }
+  h2{
+font-weight: bold;
+  }
+
+ .portion-entry{
+  padding: 0 5px;
+  border-radius: 25px;
+  margin-top: 5px;
+ 
+  .input-portion{
+    --padding-top: 5px;
+    background: #F6F7FC;
+    --padding-bottom: 5px;
+    border: none;
+    color: #000;
+    top: 5PX;
+    position: relative;
+    width: 40px;
+    text-align: center;
+  }
+ }
+
+ .pic-food-heart{
+  width: 14px;
+  height: auto;
+  right: 0;
+  top: 0px;
+  position: absolute;
+}
+
+.pic-food-heart-healthy {
+  width: 16px !important;
+  margin-right: 5px;
+  // margin-top: 10px;
+  // height: auto !important;
+}
+
+ .backBtn{
+  position: absolute;
+  left: 20vw;
+  top: 40vh;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  border: none;
+  background: red;
+}
+.img-quantity{
+  width: 40%;
+    height: auto;
+}
+.font-color{
+  color: #6B6B6B;
+}
+.nextBtn{
+  position: absolute;
+  right: 20vw;
+  top: 40vh;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  border: none;
+  background: green;
+}
+.qty-color
+{
+  color: #4a49499c;
+    font-size: 16px;
+    font-weight: 700;
+}
+.qty-text
+{
+  color: #8D8E93;
+  font-size: 14px;
+  font-weight: normal;
+}
+.col-hr{
+  border-right: 1px solid #EBEBEB;
+}
+.row-hr{
+  border-bottom: 1px solid #EBEBEB;
+}
+
+.food-name{
+  width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+}
+.img-loaded + ion-spinner {
+  display:none;
+}
+
+ion-card{
+  margin: 17px 25px;
+  border-radius: 11px;
+  box-shadow: none;
+}
+
+.get-button{
+  --background: #01A3A4;
+  --color: #fff;
+  --border-radius: 0px 0px 10px 10px;
+  height: 50px;
+  width: 100%;
+} 
+.plus-minus-detail{
+  top: -2px;
+  position: relative;
+}
+ion-content {
+  --background: #F6F7FC !important;
+  --padding-bottom: 29%;
+  // --background: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;
+
+}
+
+.video-iframe{
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  width: 100vh;
+  overflow-x: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 58vh;
+}
+
+.get-button-icon{
+  color: #fff;
+  background-color: #01a3a4;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  position: absolute;
+  right: 1.2rem;
+  top: 2rem;
+  height: 35px;
+  width: 35px;
+  left: 20%
+}
+
+
+.darkgreen, .legend-9{
+  border-color: #38A534;
+  // background-color: #38A534;
+}
+
+.light-green, .legend-6{
+  border-color: #94EA0A;
+  // background-color: #94EA0A;
+}
+
+.yellow, .legend-3{
+  border-color: #EADC18;
+  background-color: #EADC18;
+}
+
+.yellow-orange, .legend-1{
+  border-color: #ffa500;
+  background-color: #ffa500;
+}
+
+.grey, .legend-0{
+  border-color: #7d7d7d5e;
+}
+
+.legend-top{
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
+.legend{
+  border-left-width: 5px;
+  border-left-style: solid;
+  // height: 56px;
+  // width: 2px;
+  // margin-right: 5px;
+}
+
+.gauge-chart{
+  ion-card{
+    display: inline-block;
+    width: 90%;
+    padding-right: 20px;
+    padding-top: unset;
+    padding-left: unset;
+    padding-bottom: unset;
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+    height: 90px;
+  } 
+}
+
+.detail1{
+  border-right: 1px solid #7377774a;
+  // span{
+  //     font-weight: 700;
+  // }
+}
+
+.pad-top5{
+  padding-top: 5px;
+}

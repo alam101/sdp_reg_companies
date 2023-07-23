@@ -1,0 +1,45 @@
+<div class="offer-bottom-popup">
+  <div>
+    <ion-card>
+      <ion-card-header class="ion-text-center">
+        <ion-card-subtitle>
+           <ion-icon name="close-outline" (click)="close()" style="right: 0;position: absolute;font-size: 2rem;color: #01A3A4;margin:20px;z-index: 999999;"></ion-icon>
+        </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="ion-text-center green-msg">
+            <!-- - <b>100% refund in 3 Months,</b> if you follow* it and does not loose even 5 Kg in 3 months -->
+            <img style="height: 15vh;margin-top: 20px;" src="./assets/img/todays-cal-info.svg">
+          </ion-col>
+        </ion-row>
+        <div class="plan-container">
+          <ion-row>
+            <ion-col><h2 style="font-size: 1rem;"><b>Our calories counter works like this:</b></h2></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span style="font-weight: 500;">
+                <ol [ngStyle]="{'padding-left': isIos ? '8%': '6%'}">
+                  <li>
+                    You can confirm eaten from diet plan by clicking the tick. <br /><br /> No need to search and add the food items.<br /><br />
+                  </li>
+                  <li>
+                    When you add a new item in calories counter, we update the plan also as per that.<br /><br />
+                  </li>
+                  <li>
+                    When you add a new item or update an item in Plan, we consider it eaten only once you confirm by clicking the tick icon.
+                  </li>
+                </ol>
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><h2 style="font-size: 0.9rem;">{{guranteeData?.note}}</h2></ion-col>
+          </ion-row>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</div>

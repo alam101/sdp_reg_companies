@@ -1,0 +1,21 @@
+
+.--footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    ion-toolbar{
+        --background:#fff;
+    }
+    .footer-ios ion-toolbar:first-of-type {
+        --border-width: 0.1px 0 0;
+    }
+    // .footer-row{
+    //     img{
+
+    //     }
+    //     span{
+    //         color:#b3b3b3;
+    //         font-size: .8rem;
+    //     }
+    // }
+}

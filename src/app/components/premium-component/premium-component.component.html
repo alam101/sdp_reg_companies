@@ -1,0 +1,219 @@
+<ion-content>
+  <p class="header_title">Buy 7 days Diet Plan</p>
+
+  <div class="main_div">
+    <ion-icon class="close" name="close-circle" (click)="goBack()"> </ion-icon>
+
+    <div class="w_100">
+      <ion-slides pager="false" [options]="slideOpts" #testSlider>
+     
+        <ion-slide style="text-align: left" [ngClass]="slideIndex !==1 && 'mt_20'">
+          <div class="slide_div">
+            <p class="plan_title">Key Benefits</p>
+            <ion-fab vertical="top" horizontal="start">
+              <ion-fab-button class="parent_fab">
+                <ion-fab-button class="child_fab">
+                  <ion-icon src="../../../assets/newImages/premium_icon.svg"></ion-icon>
+                </ion-fab-button>
+              </ion-fab-button>
+            </ion-fab>
+            <ion-card class="water_main_card center flex_col" style="width: 100%;display: inline-block;"
+              [ngStyle]="{'zoom':slideIndex ===1 ?'110%':'100%'} ">
+              <div class="w_100 left">
+                <div class="h_100 feature_icon_div">
+                  <ion-icon class="feature_icon" src="../../../../assets/newImages/plan_feature.svg"></ion-icon>
+                </div>
+                <div class="w_100">
+                  <p class="feature_Text">30 days AI based Diet Plan Supported by Dietitians</p>
+                </div>
+              </div>
+
+              <ion-icon class="plus_icon" name="add-outline"></ion-icon>
+
+              <div class="w_100 d_flex" style="margin-top: 10px">
+                <div class="h_100 feature_icon_div">
+                  <ion-icon class="feature_icon" src="../../../../assets/newImages/alternative.svg"></ion-icon>
+                </div>
+
+                <div class="w_100">
+                  <p class="feature_Text mar_0" style="font-size: var(--small-font)">
+                    Personalised Diet plan
+                  </p>
+                  <p class="feature_Text mar_0" style="font-size: var(--xsmall-font); font-weight: 200">
+                    Daily Personalised Diet plan as per your inputs
+                  </p>
+                </div>
+              </div>
+
+              <div class="w_100 d_flex" style="margin-top: 20px">
+                <div class="h_100 feature_icon_div">
+                  <ion-icon class="feature_icon" src="../../../../assets/newImages/week_cal.svg"></ion-icon>
+                </div>
+
+                <div class="w_100">
+                  <p class="feature_Text mar_0" style="font-size: var(--small-font)">
+                    Access to numerous alternatives
+                  </p>
+                  <p class="feature_Text mar_0" style="font-size: var(--xsmall-font); font-weight: 200">
+                    Easy to follow the diet with many options
+                  </p>
+                </div>
+              </div>
+
+              <div class="w_100 d_flex" style="margin-top: 20px">
+                <div class="h_100 feature_icon_div">
+                  <ion-icon class="feature_icon" src="../../../../assets/newImages/7day_cal.svg"></ion-icon>
+                </div>
+
+                <div class="w_100">
+                  <p class="feature_Text mar_0" style="font-size: var(--small-font)">
+                    Recipes
+                  </p>
+                  <p class="feature_Text mar_0" style="font-size: var(--xsmall-font); font-weight: 200">
+                    Healthy and easy to make recipes
+                  </p>
+                </div>
+              </div>
+
+              <div class="w_100 d_flex" style="margin-top: 20px">
+                <div class="h_100 feature_icon_div">
+                  <ion-icon class="feature_icon" src="../../../../assets/newImages/diet_session.svg"></ion-icon>
+                </div>
+
+                <div class="w_100">
+                  <p class="feature_Text mar_0" style="font-size: var(--small-font)">
+                    Dietitian Call
+                  </p>
+                  <p class="feature_Text mar_0" style="font-size: var(--xsmall-font); font-weight: 200">
+                    One call with a dietitian
+                  </p>
+                </div>
+              </div>
+
+              <div class="w_100 d_flex" style="margin-top: 20px">
+                <div class="h_100 feature_icon_div">
+                  <ion-icon class="feature_icon" src="../../../../assets/newImages/remember.svg"></ion-icon>
+                </div>
+
+                <div class="w_100">
+                  <p class="feature_Text mar_0" style="font-size: var(--small-font)">
+                    Priority support
+                  </p>
+                  <p class="feature_Text mar_0" style="font-size: var(--xsmall-font); font-weight: 200">
+                    Dietitians on whatsapp to support you
+                  </p>
+                </div>
+               
+              </div>
+
+              <div class="w_100 d_flex" style="margin-top: 20px">
+                <div class="h_100 feature_icon_div">
+                  <ion-icon class="feature_icon" src="../../../../assets/newImages/remember.svg"></ion-icon>
+                </div>
+                <div class="w_100">
+                  <p class="feature_Text mar_0" style="font-size: var(--small-font)">
+                    Weekly Diet plan with download ability
+                  </p>
+                  <p class="feature_Text mar_0" style="font-size: var(--xsmall-font); font-weight: 200">
+                    Plan the groceries in advance 
+                  </p>
+                </div>
+              </div>
+            </ion-card>
+          </div>
+        </ion-slide>
+       
+      </ion-slides>
+    </div>
+
+    <div style="padding: 10px 5%">
+      <ion-card class="dietician_card">
+        <ion-img class="majari" src="../../../../assets/newImages/majari.jpeg"></ion-img>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="8">
+              <p class="dietician_name mar_0">Manjari Chandra</p>
+              <p class="dietician_detail mar_0">Domain Expertise</p>
+            </ion-col>
+            <ion-col size="4" class="right">
+              <p class="watch">
+                <a target="_blank" href="https://www.youtube.com/watch?v=vXBq6YkkSN0">
+                  watch</a>
+              </p>
+              <ion-icon class="play_icon" name="play-circle"></ion-icon>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <p class="dietician_content">
+              Manjari Chandra is our key consultant for this application.
+              <br />
+              <br />
+              Manjari is a Functional Nutritionist, Speaker and writer with
+              expertise in Diabetes reversal. She has worked for leading
+              hospitals of India, namely Max Healthcare , Manipal Hospitals ,
+              Columbia Asia etc.
+              <br />
+              <br />
+              She is Author of the books “Eat Up Clean Up” and “Heal with
+              foods”. Also a Nutrition Expert on “My Gov.in” Website promoted by
+              Prime minister of India.
+              <br />
+            </p>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+     
+      <ion-card class="dietician_card">
+        <ion-img class="majari" src="{{testimonyData?.imgURL}}"></ion-img>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="8">
+              <p class="dietician_name mar_0">{{testimonyData?.name}}</p>
+              <p class="dietician_detail mar_0">{{testimonyData?.title}}</p>
+            </ion-col>
+            <ion-col size="4" class="right">
+              <div (click)="videoClick(testimonyData?.videoURL)">
+                <div class="videodiv center">
+                  <ion-icon name="play-circle-sharp"></ion-icon>
+                </div>
+                <p class="watch">Watch Video</p>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <p class="dietician_content">{{testimonyData?.description}}</p>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+
+    
+    </div>
+
+  </div>
+
+</ion-content>
+<ion-footer style="bottom: 0;
+background: #000000 !important;position: fixed;">
+  <div class="premiun_card center" (click)="intialtransaction(couponList[0]?.discountedAmount)">
+    <ion-grid class="pad_0">
+      <ion-row style="height: 70px">
+        <ion-col size="9" class="bgSet left_col">
+          <p class="premium_disc" style="
+              color: #febf47;
+              font-size: var(--regular-font);
+              font-weight: 500;
+            ">
+            Buy at 
+          </p>
+          <p class="premiun_amount">रु {{(couponList[0]?.discountedAmount)}} / month</p>
+        </ion-col>
+        <ion-col size="3" class="center">
+          <div class="forward_div center">
+            <ion-icon class="forward" name="arrow-forward-outline"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

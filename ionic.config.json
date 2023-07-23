@@ -1,0 +1,7 @@
+{
+  "name": "SDP_registration",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

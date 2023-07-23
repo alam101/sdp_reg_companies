@@ -1,0 +1,11 @@
+<div>
+  <ion-row>
+    <ion-col [size]="10" class="ion-text-left ion-align-self-center">
+      <a (click)="openTerm()" [ngClass]="{'term-validated': !isTerm,'term':isTerm }">Please accept terms and conditions</a>
+    </ion-col>
+    <ion-col class="ion-text-left ion-align-self-end" [size]="2" >
+      <ion-checkbox class="term" (ionChange)="checkboxClick($event)" style="position: relative;top:3px"></ion-checkbox>
+    </ion-col>
+  </ion-row>
+  
+</div>

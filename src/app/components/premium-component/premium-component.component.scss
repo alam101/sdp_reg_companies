@@ -1,0 +1,340 @@
+
+ @import "../../../theme/fonts.scss";
+.main_div{
+    min-height: 100%;
+    background: #fff;
+    border-radius: 40px 40px 0px 0px;
+    padding-bottom: 30px;
+    position: relative;
+}
+.--button-social{
+    --background: #fff;
+    --border-radius: 55%;
+    width: 50px;
+    height: 50px;
+    ion-icon{
+      color:#01A3A4;font-size:2rem;
+    }
+  }
+ .--custom-font{
+    font-size: .851rem;
+ } 
+ion-content{
+    &::part(background){
+        --background:var(--theme-newHeader);
+    }
+}
+
+.dietician_card {
+    margin: 0%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: var(--boxshadow);
+    margin-top: 20px;
+  }
+
+  
+.header_title{
+    font-size: var(--regularM-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+    margin: 5px;
+}
+
+.close{
+    position: absolute;
+    right: 25px;
+    top: -15px;
+    font-size: 35px;
+    color: var(--theme-color);
+    background: white;
+    border-radius: 100%;
+    z-index: 9999;
+}
+
+// -----------------------------plan--------------------------------
+.mt_20{
+    margin-top: 15px;
+}
+.water_main_card{
+    width: 275px;
+    // height: 275px;
+    padding: 20px;
+    position: relative;
+    // height: 300px;
+    justify-content: flex-start !important;
+    box-shadow: var(--boxshadow);
+    background:  #3E3E3E;
+    margin: 0%;
+    border-radius: 10px;
+    min-height: 350px;
+}
+
+.water_main_card3{
+    width: 275px;
+    // height: 275px;
+    padding: 20px;
+    position: relative;
+    // height: 300px;
+    justify-content: flex-start !important;
+    box-shadow: var(--boxshadow);
+    background:  linear-gradient(#4B00A4,#200045);
+    margin: 0%;
+    border-radius: 10px;
+    min-height: 350px;
+}
+
+.water_main_card1{
+    width: 275px;
+    // height: 275px;
+    padding: 20px;
+    position: relative;
+    // height: 300px;
+    justify-content: flex-start !important;
+    box-shadow: var(--boxshadow);
+    background:  #FFDBB1;
+    margin: 0%;
+    border-radius: 10px;
+    min-height: 350px;
+
+}
+
+
+.feature_icon{
+    font-size: 16px;
+    margin: 0px 5px;
+    color: #FEBF47;
+}
+
+.feature_Text{
+    font-size: var(--regular-font);
+    font-family: var(--theme-newFont);
+    font-weight: 400;
+    color: #fff;
+}
+
+.feature_Text1{
+    font-size: var(--regular-font);
+    font-family: var(--theme-newFont);
+    font-weight: 400;
+    color: var(--black);
+}
+
+.plus_icon{
+    font-size: 30px;
+    color:#fff;
+}
+
+.feature_icon_div{
+width: 40px;
+display: flex;
+align-items: flex-start;
+}
+
+.plan_title{
+    font-size: 20px;
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+    margin:5px 0%;
+}
+
+.child_fab{
+    z-index: 99999;
+    --background:#FEBF47;
+    --box-shadow:none;
+    height: 45px;
+    width: 45px;
+}
+
+.parent_fab{
+    z-index: 99999;
+    --background:white;
+    --box-shadow:none;
+    height: 50px;
+    width: 50px;
+}
+
+ion-fab{
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.slide_div{
+    padding: 30px 0px;
+}
+
+.premium_icon{
+    color: black;
+}
+
+
+// ------------------------------plan-----------------------------
+
+.dietician_name{
+    font-size: var(--regularM-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+}
+
+.dietician_detail{
+    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+}
+
+.watch{
+    font-size: var(--xsmall-font);
+    font-family: var(--theme-newFont);
+    font-weight: 700;
+    color: var(--theme-color);
+}
+
+.play_icon{
+   font-size: 30px;
+   color: var(--theme-color);
+   margin-left: 5px;
+}
+
+.dietician_content{
+    font-size: var(--xsmall-font);
+    font-family: var(--theme-newFont);
+    font-weight: 400;
+    color:#333333;
+}
+
+.dietician_card{
+    margin: 0%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: var(--boxshadow);
+    margin-top: 20px;
+}
+
+// ---------------------cards----------------------------
+
+.premiun_card{
+    // border: 1px solid white;
+    // padding:10px;
+    // height: 80px;
+    // margin-top: 10px;
+}
+
+.premiun_amount{
+    color: #FEBF47;
+    font-size: var(--medium-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    margin: 0%;
+}
+
+.premium_disc{
+    color: #febf47;
+    font-size: var(--regular-font);
+    font-weight: 500;
+    font-family: var(--theme-newFont);
+    margin: 0%;
+}
+
+
+ion-footer{
+    background: white;
+   
+    // border-radius: 10px 10px 0px 0px;
+    // background-size: cover;
+ 
+}
+
+.index0{
+    background: #FFDBB1;
+    border-radius: 10px 10px 0px 0px;
+    background-size: cover;
+    .premiun_amount{
+        color: var(--black) !important;
+        font-size: var(--medium-font);
+        font-family: var(--theme-newFont);
+        font-weight: 500;
+        margin: 0%;
+    }
+
+    .premium_disc{
+        color: var(--black) !important;
+        font-size: var(--regular-font);
+        font-weight: 500;
+        font-family: var(--theme-newFont);
+        margin: 0%;
+    }
+}
+.index1{
+    border-radius: 10px 10px 0px 0px;
+    background-size: cover;
+    background: #3E3E3E;
+}
+.index2{
+    border-radius: 10px 10px 0px 0px;
+    background-size: cover;
+    background: #4B00A4;
+}
+
+
+
+.footer-md::before {
+
+    background-image:none !important;
+   
+}
+
+.forward{
+    color: var(--white);
+    background: var(--theme-color);
+    padding: 5px;
+    border-radius: 100%;
+}
+
+.forward_div{
+    background: var(--theme-color);
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
+
+#parallelogram {
+    width: 150px;
+    height: 100px;
+    margin: 0 0 0 -20px;
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
+    background: red;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image {
+    background: grey;
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    -webkit-transform: skew(-20deg);
+    -moz-transform: skew(-20deg);
+    -o-transform: skew(-20deg);
+  }
+
+  .bgSet{
+    // background: url('../../../../assets/newImages/bg1.png');
+    background-size: cover;
+    padding: 15px;
+  }
+
+  .majari{
+     &::part(image){
+        border-radius: 5px;
+     }
+  }

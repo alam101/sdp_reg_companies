@@ -1,0 +1,91 @@
+.water_main_card{
+    width: 90%;
+    left: 0.3rem;
+    height: 275px;
+    padding: 2px;
+    position: relative;
+    // height: 300px;
+    justify-content: flex-start !important;
+    box-shadow: var(--boxshadow);
+    background: var(--graph-background);
+}
+
+
+.header_div{
+    background: var(--goal);
+    border-radius: 5px;
+    width: 100%;
+ 
+
+    ion-img{
+        height:15px !important;
+    }
+
+    p{
+        font-size: var(--small-font);
+        margin: 7px;
+        font-family: var(--theme-newFont);
+        font-weight: 500;
+        color: var(--black);
+    }
+}
+
+.circle_progress_div{
+  position: relative;
+}
+
+.plus_icon{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    font-size: 40px;
+    z-index: 1;
+    border-radius: 100%;
+    background: white;
+    color: var(--theme-newButton);
+  }
+
+.card_cal_image{
+    height: 15px;
+    object-fit: contain;
+}
+
+.protien_text{
+    font-size: var(--xsmall-font);
+        margin: 0px;
+        font-family: var(--theme-newFont);
+        font-weight: 500;
+        color: var(--black);
+}
+
+.protien_unit{
+    font-size: var(--xsmall-font);
+        margin: 0px;
+        font-family: var(--theme-newFont);
+        font-weight: 700;
+        color: var(--black);
+}
+
+.protien_progress{
+    --progress-background:#FA6262;
+    border-radius: 25px;
+    --background: #E0E0E0;
+}
+
+.fat_progress{
+    --progress-background:#EBAC33;
+    border-radius: 25px;
+    --background: #E0E0E0;
+}
+
+.carb_progress{
+    --progress-background:#8B5050;
+    border-radius: 25px;
+    --background: #E0E0E0;
+}
+
+.fiber_progress{
+    --progress-background:#91AC6C;
+    border-radius: 25px;
+    --background: #E0E0E0;
+}

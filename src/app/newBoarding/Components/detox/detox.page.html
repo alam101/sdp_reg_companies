@@ -1,0 +1,88 @@
+<div style="position: relative">
+  <ion-img
+    class="card_logo"
+    src="../../../../assets/newImages/doctor-box.svg"
+  ></ion-img>
+  <ion-card>
+    <div class="header_div d_flex">
+      <!-- <p>
+        Switch to
+        <span class="detox_day"
+          >Detox {{moment(selecteddate).format('DD-MM-YYYY') ===
+          moment(today).format('DD-MM-YYYY') ? 'Today' :
+          moment(selecteddate).format('DD-MM-YYYY') ===
+          moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
+          moment(selecteddate).format('DD MMM')}}</span
+        >
+        {{isDetox?'- Activated':''}}
+      </p> -->
+      <p>Detox</p>
+    </div>
+    <div class="scroll_y">
+      <div class="d_flex card_main_div">
+        <div class="center">
+          <ion-avatar>
+            <ion-img
+              src="../../../../assets/img/detox.jpg"
+              class="card_img"
+            ></ion-img>
+          </ion-avatar>
+        </div>
+        <ion-grid class="w_100">
+          <ion-row class="">
+            <ion-col size="12" class="left">
+              <div style="margin-right: 25px">
+                <p *ngIf="isDetox" class="meal_cal_act">
+                  Detox for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
+                  moment(today).format('DD-MM-YYYY') ? 'Today' :
+                  moment(newSelectedDate).format('DD-MM-YYYY') ===
+                  moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
+                  moment(newSelectedDate).format('DD MMM')}} activated
+                </p>
+                <p class="meal_cal">
+                  Once in a week should be done or plan it a day after you had a
+                  feast/cheat day
+                </p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </ion-card>
+  <div class="center more_button_div" *ngIf="plan">
+    <ion-button
+      *ngIf="isDetox"
+      shape="round"
+      fill="outline"
+      (click)="switchDetox()"
+      >Switch to Normal</ion-button
+    >
+    <ion-button
+      *ngIf="!isDetox"
+      shape="round"
+      fill="outline"
+      (click)="switchDetox()">
+      <span class="detox_day">
+        Detox {{moment(newSelectedDate).format('DD-MM-YYYY') ===
+        moment(today).format('DD-MM-YYYY') ? 'Today' :
+        moment(newSelectedDate).format('DD-MM-YYYY') ===
+        moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
+        moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}} </span>
+        </ion-button>
+  </div>
+  <div *ngIf="!plan" class="center more_button_div">
+    <ion-button
+      shape="round"
+      fill="outline"
+      class="lock_btn"
+      routerLink="/premium-member"
+    >
+      <ion-icon
+        class="lock"
+        src="../../../../assets/newImages/Lock.svg"
+      ></ion-icon>
+      Switch to Detox
+    </ion-button>
+  </div>
+</div>

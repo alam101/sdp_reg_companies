@@ -1,0 +1,53 @@
+<div style="position: relative">
+  <ion-img
+    class="card_logo"
+    src="../../../../assets/newImages/doctor-box.svg"
+  ></ion-img>
+  <ion-card>
+    <div class="header_div d_flex">
+      <p>Appointment with Dietician (1 Free Remaining)</p>
+      <ion-icon
+        *ngIf="!plan"
+        src="../../../../assets/newImages/Lock.svg"
+      ></ion-icon>
+    </div>
+    <div class="scroll_y">
+      <div class="d_flex card_main_div">
+        <div class="center">
+          <ion-img
+            src="../../../../assets/newImages/doctor.png"
+            class="card_img"
+          ></ion-img>
+        </div>
+        <ion-grid class="w_100">
+          <ion-row class="">
+            <ion-col size="10" class="center">
+              <!-- <p class="meal_pro">
+                Appointment with Dietician (1 Free Remaining)
+              </p> -->
+              <p class="meal_cal">
+                Schedule your free appontment to get a deeper analysis of your
+                diet plan
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+    <!-- <div *ngIf="data?.data?.length  === 0">
+        <p class="no_data_title">"Eat Better Not Less"</p>
+        <p class="no_data_subtitle">Your slot is empty.</p>
+        <p class="no_data_subtitle">Add something from the meal options.</p>
+        <ion-img src="../../../../assets/newImages/no-meal.png"></ion-img>
+      </div> -->
+  </ion-card>
+  <div class="right more_button_div">
+    <ion-button
+      shape="round"
+      fill="outline"
+      [disabled]="!plan"
+      (click)="gotoApply()"
+      >Schedule Now</ion-button
+    >
+  </div>
+</div>

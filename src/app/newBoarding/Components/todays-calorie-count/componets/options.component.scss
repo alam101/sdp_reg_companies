@@ -1,0 +1,7 @@
+::ng-deep .popover-container{
+    ion-item{
+        .item-inner{
+          border-bottom: unset !important;
+        }
+    }
+}

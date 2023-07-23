@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+     <ion-button> <img slot="start" src="./assets/img/login-logo.png"></ion-button>
+    </ion-buttons>
+    <ion-title style="font-size: .851rem;">
+      Smart Diet planner
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" style="overflow: hidden;" >
+  <ion-button expand="block" (click)="setOpen(true)">Open</ion-button>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-row><ion-col style="font-size: .851rem;">Is requesting to share following info.</ion-col></ion-row>
+      <ion-list  lines="none">
+        <ion-item>
+          <ion-label style="font-size: .751rem;">Your Paytm profile name</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: .751rem;">Your Phone number</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label style="font-size: .751rem;">Your Email</ion-label>
+        </ion-item>
+
+
+        <ion-row><ion-col style="font-size: .851rem;"> <ion-button color="primary" class="button-full" (click)="confirm()">Allow</ion-button></ion-col></ion-row>
+        <br>
+        <ion-row><ion-col style="font-size: .851rem;"><ion-button color="light" class="button-full" (click)="cancel()">Deny</ion-button></ion-col></ion-row>
+  
+      </ion-list>
+      </ng-template>
+      </ion-modal>
+ 
+        <!-- <ion-buttons slot="end">
+          <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
+        </ion-buttons> -->
+    
+</ion-content>

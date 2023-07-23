@@ -1,0 +1,156 @@
+<ion-card  *ngFor="let diet of diets;let ing=index;">
+  <ion-card-content>
+    <ion-item class="ion-card-header-custom" style="border: 0;--inner-padding-end: 0 !important;"
+      *ngIf="diet.data && diet.data.length > 0">
+      <ion-row style="width: 100%;"> 
+        <!-- <ion-col *ngIf="diet.slot == '2' ||diet.slot == '4' || diet.slot =='7' || diet.slot == '8'"
+          size="1">
+          <img (click)="editDiets(diet,diets)" src="assets/img/edit-pen.svg">
+        </ion-col> -->
+        <ion-col size="6" class="ion-align-self-end text-left"
+          style="min-height: 40px;padding-left:5px;">
+          <span class="medium-text food no-wrap"
+            style="font-size: 1rem;color: '#333'; font-weight: 200;">{{diet.slotName}} </span>
+          <span [innerHTML]="showTime(diet)" class="small-text food"
+            style="display: block; color: #AAA;"></span>
+        </ion-col>
+        <ion-col
+          [size]="(diet.slot == '2' ||diet.slot == '4' || diet.slot =='7' || diet.slot == '8') ? 6 :6 "
+          class="ion-align-self-end text-right" style="min-height: 40px;padding-left:5px;">
+          <span style=" font-size: 1rem;color:'#8C8E93'"
+            class="medium-text food no-wrap">{{roundUpvalue(diet.totalCalories)}} Kcal</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item *ngIf="!diet.data || diet.data.length == 0" class="ion-card-header-custom"
+      style="border: 0;">
+      <ion-row style="width: 100%;">
+        <ion-col class="ion-text-center">
+          <span class="medium-text food no-wrap" style="font-size: 1rem;color: #7d7d7d;">"Eat Better
+            Not Less"</span>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-row *ngIf="diet.data && diet.data.length > 0">
+      <ion-col size="12" class="text-center" style="border-top: 1px solid #eee;"></ion-col>
+    </ion-row>
+   
+    <ion-list *ngIf="diet.data && diet.data.length > 0">
+
+      <div class="custom-height-scroll">
+        <ion-item class="ion-no-padding" *ngFor="let data of diet.data;let xindex=index;"
+          style="--padding-end:15px; --border-color: #EEE" [lines]="xindex==diet.data.length-1?'none':''">
+         
+          <div slot="start" class="legend"
+            [ngClass]="{'legend-9':data.Score =='9', 'legend-6': data.Score =='6', 'legend-3': data.Score =='3' , 'legend-1':data.Score =='1' , 'legend-0': !data.Score || data.Score == '' }">
+
+          </div>
+          <ion-thumbnail style="border: 1px solid #ccc; border-radius: 1rem;">
+            <img src="./assets/img/health1.svg" class="pic-food-heart"
+              *ngIf="selectedDietPlan != 'immunity_booster' && data.recommendedFor && data.recommendedFor.length>0" />
+            <img src="./assets/img/immunity.svg" class="pic-food-heart"
+              *ngIf="selectedDietPlan == 'immunity_booster' && data.Score == '9'" />
+            <img src="./assets/img/health1.svg" class="pic-food-heart"
+              *ngIf="selectedDietPlan == 'immunity_booster' && data.recommendedFor && data.recommendedFor.length> 0 && data.Score != '9'" />
+            <img src="{{image_URL}}{{data.code}}.jpg"
+              *ngIf="!data.foodSource || data.foodSource.toLowerCase() == 'internal'"
+              onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
+              class="pic-food"
+              (click)="gotoFoodDetail(data.code,ing)"  [ngClass]="{'blur-it':(!isPlanActiveForDiet && slotIndex!=ing)}"/>
+            <img src="./assets/img/food-item.png" class="pic-food"
+              *ngIf="data.foodSource && (data.foodSource.toLowerCase() == 'external' || data.foodSource.toLowerCase() == 'personal')"
+              (click)="gotoFoodDetail(data.code,ing)" />
+          </ion-thumbnail>
+          <ion-label class="medium-text" style="white-space: normal">
+            <span class="food-name-container">
+              {{data.portion}} {{data.portion_unit}},
+              <a class="food-name" (click)="gotoFoodDetail(data.code,ing)" [ngClass]="{'blur-it':(!isPlanActiveForDiet && slotIndex!=ing)}">{{data.Food}}</a>
+            </span>
+            <ion-row>
+              <ion-col size="4">
+                <span class="light-text --calories" style="display: flex;">{{data.Calories}}
+                  cals</span>
+              </ion-col>
+              <ion-col>
+                <ion-row>
+                  <ion-col>
+                    <ion-icon (click)="eatenStatusUpdate(data, diet, ing, xindex)"
+                      name="checkmark-circle" class="get-remove-icon" *ngIf="data.eaten > 0"
+                       
+                      [ngStyle]="{'color': currentDateIndex > 0 ? '#7d7d7d' : '#01A3A4'}">
+                    </ion-icon>
+                    <ion-icon (click)="eatenStatusUpdate(data, diet, ing, xindex)"
+                      name="checkmark-circle-outline" class="get-remove-icon"
+                      *ngIf="!data.eaten || data.eaten < 0"
+                      [ngStyle]="{'color': currentDateIndex > 0 ? '#7d7d7d' : '#01A3A4'}"></ion-icon>
+                  </ion-col>
+                  <ion-col>
+                    <ion-icon (click)="removeFoodItem(data, diet)" name="close"
+                      class="get-remove-icon">
+                    </ion-icon>
+                  </ion-col>
+                  <ion-col>
+                   <ion-icon name="refresh" class="get-remove-icon"
+                      [ngStyle]="{'color': (!isPlanActiveForDiet && (slotIndex!=ing) ||  (data.foodSource && (data.foodSource.toLowerCase() == 'external' || data.foodSource.toLowerCase() == 'personal'))) ? 'grey' : '#01A3A4'}"
+                      (click)="refreshFoodItem(data,ing)"></ion-icon> 
+                     
+                  </ion-col>
+                </ion-row>
+                 </ion-col>
+            </ion-row>
+
+          </ion-label>
+         </ion-item>
+      </div>
+    </ion-list>
+    <div *ngIf="!diet.data || diet.data.length == 0">
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <span>Your slot is empty.</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <span>Add something from the meal options.</span>
+        </ion-col>
+      </ion-row>
+      <div class="no-meal-container">
+        <img src="./assets/images/no-meal.png">
+      </div>
+    </div>
+  </ion-card-content>
+  <ion-item class="ion-no-padding ion-item ion-card-footer" lines="none"
+    style="background-color: #F6F7FC; --inner-padding-end:0px">
+
+    <ion-row style="width: 100%; bottom: 0;">
+       <ion-col size="12" class="text-center" style="border-top: 1px solid rgb(228 217 217);" [ngStyle]="{'background':(!isPlanActiveForDiet && (slotIndex!==ing))?'none':'rgb(255,255,255)'}">
+        <ion-button *ngIf="diet.data && diet.data.length > 0" mode="ios"
+          class="button button-cancel button-full color-gray --theme-color"
+          [ngClass]="{'color-black':diet.Locked,'other-meal':!diet.Locked, 'custom-background-fff': (!isPlanActiveForDiet && (slotIndex!==ing))}" shape="round"
+          style="border:none;height: 50px;">
+          <span (click)="selectOption(ing);"
+            [ngClass]="{'custom-color-other':(!isPlanActiveForDiet && (slotIndex==ing)) ||  isPlanActiveForDiet, 'custom-orange custom-background-fff': (!isPlanActiveForDiet && (slotIndex!==ing))}">
+            {{
+            (!isPlanActiveForDiet && (slotIndex==ing)) 
+            || isPlanActiveForDiet ?
+             'Other Meal Option' : 'Update to Premium'
+              }}</span>
+        </ion-button>
+        <ion-button *ngIf="!diet.data || diet.data.length == 0" mode="ios"
+          class="button button-cancel button-full color-gray --theme-color"
+          [ngClass]="{'color-black':diet.Locked,'other-meal':!diet.Locked}" shape="round"
+          style="border:none;height: 50px; --background:rgba(255,255,255);">
+          <span (click)="selectOption(ing);" [ngClass]="{'custom-color-other':true}">Add meal</span>
+        </ion-button>
+         <img (click)="upgradePlan()" class="premium" src="./assets/img/premium.jpg"
+          *ngIf="(!isPlanActiveForDiet && (slotIndex!=ing))">
+        <!-- <img src="assets/img/premium-crown.png" *ngIf="(isPlanActiveForDiet && ing>2 )"
+          class="premium" style="height: 3vh; top:7px" /> -->
+      </ion-col>
+    </ion-row>
+
+  </ion-item>
+</ion-card>
+
+
+<br><br>

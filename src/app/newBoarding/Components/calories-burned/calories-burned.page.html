@@ -1,0 +1,89 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>calories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> -->
+<ion-card
+  class="water_main_card center flex_col"
+  [ngStyle]="{'width':width+'px'}"
+>
+  <div class="header_div center">
+    <ion-img src="../../../../assets/newImages/calory-burned.png"></ion-img>
+    <p>Calories Burned</p>
+  </div>
+  <div class="w_100 h_100 center" style="margin: 20px 0px">
+    <ion-grid style="padding-left: 0%">
+      <ion-row>
+        <ion-col size="7" class="center">
+          <div class="circle_progress_div">
+            <circle-progress
+              [percent]="(total_cal * 100) / this.apiCaloriesFit.targetCaloriesToBurn"
+              [radius]="55"
+              [outerStrokeWidth]="8"
+              [innerStrokeWidth]="8"
+              [outerStrokeColor]="'#FD523D'"
+              [innerStrokeColor]="'#E0E0E0'"
+              [animation]="true"
+              [animationDuration]="300"
+              [clockwise]="true"
+              [title]="total_cal +'/'+ apiCaloriesFit?.targetCaloriesToBurn"
+              [subtitle]="'Kcal'"
+              [showUnits]="false"
+            ></circle-progress>
+            <ion-icon
+              class="plus_icon"
+              name="add-circle"
+              (click)="testGoogleFit()"
+            ></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col size="5" class="center flex_col">
+          <div class="w_100">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/step.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">Steps (1600)</p>
+                <p class="protien_unit">{{total_steps}}</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="protien_progress"
+                value="0.9"
+              ></ion-progress-bar>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px" class="w_100">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/workout.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">Workout (60mins)</p>
+                <p class="protien_unit">30 mins</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="fat_progress"
+                value="0.6"
+              ></ion-progress-bar>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-card>
+<!-- </ion-content> -->

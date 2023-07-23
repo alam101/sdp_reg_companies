@@ -1,0 +1,469 @@
+<ion-header style="overflow: hidden;">
+  <ion-toolbar> 
+    <ion-row>
+      <ion-col size="6">
+        <ion-icon
+          class="back_icon"
+          name="chevron-back-outline"
+          (click)="closeModal()"
+        ></ion-icon>
+      </ion-col>
+      <!-- <ion-col size="8" class="ion-text-center ion-align-self-center">
+        <ion-title class="ion-no-padding">Calories Counter</ion-title>
+      </ion-col> -->
+      <ion-col size="6">
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header> 
+<!-- <ion-header style="height: auto !important;background: #F6F7FC !important;overflow: hidden;">
+</ion-header> -->
+
+<app-header-common [showSearch]="false" [title]="'Calories counter'" ></app-header-common>
+
+
+<ion-content>
+  <!-- <ion-icon name="close-outline" class="close-btn" (click)="onBack()"></ion-icon> -->
+  <ion-toolbar>
+    <!-- [ngClass]="{'detox-section': isDetox, 'immunity-section': selectedDietPlan == 'immunity_booster' && !isDetox, 'weight-loss-plus-section': selectedDietPlan == 'weightLossPlus' && !isDetox, 'post-covid-section': selectedDietPlan == 'post_covid', 'weight-loss': selectedDietPlan == 'weightLoss' && !isDetox, 'cholesterol-section': selectedDietPlan == 'cholesterol' && !isDetox, 'diabetes-section': selectedDietPlan == 'diabetes' && !isDetox, 'hypertension-section': selectedDietPlan == 'hypertension' && !isDetox, 'pcos-section': selectedDietPlan == 'pcos' && !isDetox }" -->
+    <ion-row>
+      <ion-col (click)="prevDate()" class="ion-text-center">
+        <ion-icon class="date-arrows arrow" name="chevron-back-outline" id="date-prev-arrow"
+          [ngClass]="{'detox-section': isDetox, 'immunity-section': selectedDietPlan == 'immunity_booster' && !isDetox, 'weight-loss-plus-section': selectedDietPlan == 'weightLossPlus' && !isDetox, 'post-covid-section': selectedDietPlan == 'post_covid', 'weight-loss': selectedDietPlan == 'weightLoss' && !isDetox, 'cholesterol-section': selectedDietPlan == 'cholesterol' && !isDetox, 'diabetes-section': selectedDietPlan == 'diabetes' && !isDetox, 'hypertension-section': selectedDietPlan == 'hypertension' && !isDetox, 'pcos-section': selectedDietPlan == 'pcos' && !isDetox, 
+        'mucsle': (selectedDietPlan && (selectedDietPlan == 'muscleGain' || (selectedDietPlan.split('_').length > 1 && selectedDietPlan.split('_')[0] == 'muscleGain' ))) && !isDetox,
+        'fat': (selectedDietPlan && (selectedDietPlan == 'fatShredding' || (selectedDietPlan.split('_').length > 1 && selectedDietPlan.split('_')[0] == 'fatShredding')) ) && !isDetox}"></ion-icon>
+      </ion-col>
+
+      <ion-col size="8">
+        <ion-slides #slides2 [options]="slideOptsDate" pager="false" (ionSlideDidChange)="dateSlideChanged($event)">
+          <ion-slide *ngFor="let week of weeks;let i=index;">
+            <span class="date header-date" id="currentDate"
+              [ngClass]="{'detox-section': isDetox, 'immunity-section': selectedDietPlan == 'immunity_booster' && !isDetox, 'weight-loss-plus-section': selectedDietPlan == 'weightLossPlus' && !isDetox, 'post-covid-section': selectedDietPlan == 'post_covid', 'weight-loss': selectedDietPlan == 'weightLoss' && !isDetox, 'cholesterol-section': selectedDietPlan == 'cholesterol' && !isDetox, 'diabetes-section': selectedDietPlan == 'diabetes' && !isDetox, 'hypertension-section': selectedDietPlan == 'hypertension' && !isDetox, 'pcos-section': selectedDietPlan == 'pcos' && !isDetox,
+            'mucsle': (selectedDietPlan && (selectedDietPlan == 'muscleGain' || (selectedDietPlan.split('_').length > 1 && selectedDietPlan.split('_')[0] == 'muscleGain' ))) && !isDetox,
+            'fat': (selectedDietPlan && (selectedDietPlan == 'fatShredding' || (selectedDietPlan.split('_').length > 1 && selectedDietPlan.split('_')[0] == 'fatShredding')) ) && !isDetox }"
+              [ngStyle]="{'color':week.color, 'font-size': '1rem'}">{{week.displayFormat}}</span>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+      <ion-col (click)="nextDate()" class="ion-text-center">
+        <ion-icon class="date-arrows arrow" name="chevron-forward-outline" id="date-next-arrow"
+          [ngClass]="{'detox-section': isDetox, 'immunity-section': selectedDietPlan == 'immunity_booster' && !isDetox, 'weight-loss-plus-section': selectedDietPlan == 'weightLossPlus' && !isDetox, 'post-covid-section': selectedDietPlan == 'post_covid', 'weight-loss': selectedDietPlan == 'weightLoss' && !isDetox, 'cholesterol-section': selectedDietPlan == 'cholesterol' && !isDetox, 'diabetes-section': selectedDietPlan == 'diabetes' && !isDetox, 'hypertension-section': selectedDietPlan == 'hypertension' && !isDetox, 'pcos-section': selectedDietPlan == 'pcos' && !isDetox,
+        'mucsle': (selectedDietPlan && (selectedDietPlan == 'muscleGain' || (selectedDietPlan.split('_').length > 1 && selectedDietPlan.split('_')[0] == 'muscleGain' ))) && !isDetox,
+        'fat': (selectedDietPlan && (selectedDietPlan == 'fatShredding' || (selectedDietPlan.split('_').length > 1 && selectedDietPlan.split('_')[0] == 'fatShredding')) ) && !isDetox}"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+  <!-- <div class="todays-caloire-item text-center"> -->
+  <!-- <ion-row>
+      <ion-col>
+        <canvas id="myChart" width="200" height="200"></canvas>
+      </ion-col>
+      <ion-col>
+        <div class="todays-caloire-item text-center">
+          <ion-card>
+            <canvas id="myChart" width="200" height="200"></canvas>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row> -->
+  <div class="todays-caloire-item text-center">
+    <ion-card style="
+        background: #fff;
+        border-radius: 25px;
+        box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+        margin-top: 10px;
+      ">
+      <ion-icon name="information-circle-outline" class="tracker-info-icon" (click)="openCalInfo()"></ion-icon>
+      <ion-row class="ion-padding-top">
+        <ion-col class="ion-align-self-center" size="3.5">
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col>
+              <ion-label id="burned-label" style="font-size: 0.9rem; font-weight: bold">Suggested</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col style="padding-top: 5px">
+              <ion-label id="burned-value" class="dietDataRecomended">
+                {{dietData?.recomended}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col size="5">
+          <!-- <div style="margin: 5px">
+            <div class="analysis-percent" [ngStyle]="{'color': consumedColor}">
+              {{totalCalories}}
+            </div>
+            <div class="analysis-percent-unit" [ngStyle]="{'color': consumedColor}">
+              kcal
+            </div>
+            <div>
+              <div style="margin: 0 10px 0;">
+                <canvas id="myChart1" width="120" height="120"></canvas>
+              </div>
+            </div>
+          </div> -->
+          <circle-progress radius="55" percent="{{totalTodaysCaloriesPerc}}" outerStrokeGradient="true"
+            outerStrokeGradientStopColor="var(--theme-color)" [innerStrokeColor]="'rgb(125,125,125,0.2)'"
+            outerStrokeColor="var(--theme-color)" backgroundColor="#fff" outerStrokeWidth="5" innerStrokeWidth="5"
+            title="{{totalTodaysCalories}}" titleFontSize="22" titleColor="var(--theme-color)" subtitleColor="var(--theme-color)"
+            showUnits="false" [titleFontWeight]="500" subtitle="Eaten" showSubtitle="true" units="kcal"
+            [unitsFontSize]="10" [unitsFontWeight]="400" unitsColor="var(--theme-color)">
+          </circle-progress>
+        </ion-col>
+        <ion-col class="ion-align-self-center" size="3.5">
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col>
+              <ion-label id="burned-label" style="font-size: 0.9rem; font-weight: bold">Balance</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col style="padding-top: 5px">
+              <ion-label id="burned-value" class="dietDataRecomended">
+                {{dietData?.recomended - totalTodaysCalories}}
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="border-line"> </ion-col>
+      </ion-row>
+
+      <ion-card-content style="padding: 5px 14px">
+        <ion-row>
+          <ion-col>
+            <ion-row>
+              <ion-col class="ion-text-center detail1 padding-left-5">
+                <span class="font-weight700 font-size9">Carbs</span>
+                <br />
+                <img class="plus-minus pad-top5" src="./assets/img/carbs-mini.svg" style="height: 4vh" />
+                <br />
+                <span class="font-size9">{{carbs}} Gm</span>
+              </ion-col>
+              <ion-col class="ion-text-center detail1 padding-right-5">
+                <span class="font-weight700 font-size9">Proteins </span>
+                <br />
+                <img class="plus-minus pad-top5" src="./assets/img/protien-mini.svg" style="height: 4vh" />
+                <br />
+                <span class="font-size9">{{protien}} Gm</span>
+              </ion-col>
+              <ion-col class="ion-text-center padding-left-5">
+                <span class="font-weight700 font-size9">Fats</span>
+                <br />
+                <img class="plus-minus pad-top5" src="./assets/img/fats-mini.svg" style="height: 4vh" />
+                <br />
+                <span class="font-size9">{{fats}} Gm</span>
+              </ion-col>
+              <!-- <ion-col class="ion-text-center padding-left-5">
+                <span class="font-weight700 font-size9">Fiber</span>
+                <br>
+                <img class="plus-minus" src="./assets/img/fiber-mini.svg" />
+                <br>
+                <span class="font-size9">{{foodItem?.Fiber}} Gm</span>
+              </ion-col> -->
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+
+      <ion-card-content>
+        <ion-row class="ion-padding">
+          <ion-col>
+            <!-- <app-manjariboat [activeTip]="activeTip"></app-manjariboat> -->
+            <ion-item lines="none" class="error-container">
+              <ion-avatar slot="start" (click)="openWhatsApp()">
+                <img src="assets/img/manjri_anime.png" />
+              </ion-avatar>
+
+              <span
+                class="header-message-tool ion-text-left"
+                [innerHTML]="activeTip"
+              ></span>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- <div class="todays-caloire-item text-center">
+    <ion-card
+      style="background: #fff;border-radius: 25px;box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important; margin: 5px;" [ngStyle]="{'margin-bottom': calBurnedToday > 0 ? '5px' : '15px'}">
+      <ion-card-content>
+        <div class="ion-card-header-custom" style="border: 0;">
+          <ion-row style="width: 100%;" class="ion-align-items-center" (click)="openCalInfo()">
+            <ion-col size="10" class="text-left" style="padding-left:5px;">
+              <span class="medium-text no-wrap" style="font-size: 1.1rem;color: #03a3a4;">How does our calories count
+                works ?</span>
+            </ion-col>
+            <ion-col size="2" class="text-right" style="padding-left:5px;">
+              <ion-icon name="information-circle-outline" style="color:#03a3a4;font-size: 1.75rem; display: inline-block;
+              vertical-align: middle;"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div> -->
+
+  <div class="todays-caloire-item text-center" *ngIf="calBurnedToday > 0">
+    <ion-card style="
+        background: #fff;
+        border-radius: 25px;
+        box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+        margin: 5px 20px 20px;
+      ">
+      <ion-row class="ion-padding">
+        <ion-col class="ion-align-self-center" size="3" (click)="goToAcitivity();">
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col>
+              <ion-label id="burned-label" style="font-size: 0.9rem"
+                [ngStyle]="{'color': calBurnedToday > -1 ? '#60AFF5' : ''}">{{calBurnedToday}} Kcal</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col style="padding-top: 5px">
+              <ion-label id="burned-label" style="font-size: 0.9rem" class="food medium-text">BURNED</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="ion-align-self-center">
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col>
+              <ion-label id="burned-label" style="font-size: 2rem">-</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="ion-align-self-center" size="3">
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col>
+              <ion-label id="burned-label" style="font-size: 0.9rem">{{totalTodaysCalories}} Kcal</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col style="padding-top: 5px">
+              <ion-label id="burned-label" style="font-size: 0.9rem" class="food medium-text">EATEN</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="ion-align-self-center">
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col>
+              <ion-label id="burned-label" style="font-size: 2rem">=</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="ion-align-self-center" size="3" (click)="goToDeficiet();">
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col>
+              <ion-label id="burned-label" style="font-size: 0.9rem"
+                [ngStyle]="{'color': calBurnedToday > -1 ? '#60AFF5' : ''}">{{calBurnedToday - totalTodaysCalories}}
+                Kcal</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row class="nutrients-title ion-text-center">
+            <ion-col style="padding-top: 5px">
+              <ion-label id="burned-label" style="font-size: 1rem; font-weight: bold" class="food medium-text">DEFICIT
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+
+  <!-- <ion-row>
+      <ion-col size="6">
+        <ion-card style="background: #fff;border-radius: 25px;box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;">
+          <div>
+            <div class="analysis-percent" [ngStyle]="{'color': consumedColor}">
+              {{totalCalories}}
+            </div>
+            <div class="analysis-percent-unit" [ngStyle]="{'color': consumedColor}">
+              kcal
+            </div>
+            <div>
+              <div style="margin: 20px 20px 0;">
+                <canvas id="myChart1" width="100" height="100"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="ion-text-center" style="font-size: 0.8rem;">Recommended</div>
+          <div class="ion-text-center" style="padding-bottom: 10%;font-size: 1.2rem;"><b>{{dietData?.recomended}}</b> kcal</div>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card style="background: #fff;border-radius: 25px;box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;">
+          <div>
+            <div style="margin: 20px 20px 0;">
+              <canvas id="myChart" width="100" height="100"></canvas>
+            </div>
+          </div>
+          <div style="margin: 0 15px 15px;">
+            <ion-row>
+              <ion-col>
+                <div class="pointer-meacros" style="background:#FCAF54"></div>
+              </ion-col>
+              <ion-col>
+                <div class="pointer-meacros" style="background:#14CEB7"></div>
+              </ion-col>
+              <ion-col>
+                <div class="pointer-meacros" style="background:#3498DB"></div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <span  style="font-size: 0.8rem;font-weight: bold;">Fats</span>
+              </ion-col>
+              <ion-col>
+                <span  style="font-size: 0.8rem;font-weight: bold;">Carbs</span>
+              </ion-col>
+              <ion-col>
+                <span style="font-size: 0.8rem;font-weight: bold;">Protiens</span>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <span>{{fats}}g</span>
+              </ion-col>
+              <ion-col>
+                <span>{{carbs}}g</span>
+              </ion-col>
+              <ion-col>
+                <span>{{protien}}g</span>
+              </ion-col>
+            </ion-row>
+          </div>
+          
+        </ion-card>
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row> -->
+  <!-- </div> -->
+
+  <div class="todays-caloire-item text-center" *ngFor="let diet of dietSlotsData;let ing=index;">
+    <ion-card style="background: #fff; border-radius: 25px">
+      <ion-card-content>
+        <div class="ion-card-header-custom" style="border: 0">
+          <ion-row style="width: 100%" class="ion-align-items-center">
+            <ion-col (click)="showDetails(ing)" class="ion-align-self-end">
+              <ion-icon name="chevron-down" style="font-size: 1.5rem"
+                *ngIf="!diet.showDetails && roundUpvalue(diet.consumedCalories)>0"></ion-icon>
+              <ion-icon name="chevron-up" style="font-size: 1.5rem"
+                *ngIf="diet.showDetails && roundUpvalue(diet.consumedCalories)>0"></ion-icon>
+            </ion-col>
+            <ion-col size="6.5" class="text-left" style="padding-left: 5px" (click)="showDetails(ing)">
+              <span class="medium-text food no-wrap" style="font-size: 1rem">{{diet.message}}
+              </span>
+            </ion-col>
+            <ion-col size="3" class="text-right" style="padding-left: 5px">
+              <span style="color: #737777; font-size: 1rem"
+                class="medium-text no-wrap">{{roundUpvalue(diet.consumedCalories)}} kcal</span>
+            </ion-col>
+            <ion-col class="ion-align-self-center ion-text-end">
+              <div style="margin-top: 5px">
+                <ion-icon name="add-circle" (click)="clickAddFoodItem(ing)" class="plusBtn"
+                  *ngIf="currentDateIndex == 6"></ion-icon>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="diet.showDetails" style="width: 150%">
+            <ion-col size="12" class="text-center" style="border-top: 1px solid #eee; margin-left: -20px"></ion-col>
+          </ion-row>
+          <ion-list *ngIf="diet.showDetails">
+            <ion-item *ngFor="let dietData of diet.data;let i=index;" class="ion-no-padding">
+              <ion-thumbnail style="border: 1px solid #ccc; border-radius: 1rem" slot="start"
+                (click)="gotoFoodDetail(dietData.code,ing)">
+                <img src="{{image_URL}}{{dietData.code}}.jpg"
+                  *ngIf="!dietData.foodSource || dietData.foodSource.toLowerCase() == 'internal'" class="pic-food" />
+                <img src="./assets/img/food-item.png" class="pic-food"
+                  *ngIf="dietData.foodSource && (dietData.foodSource.toLowerCase() == 'external' || dietData.foodSource.toLowerCase() == 'personal')" />
+              </ion-thumbnail>
+              <ion-label style="padding-left: 10px" (click)="gotoFoodDetail(dietData.code,ing)">
+                <ion-row>
+                  <ion-col style="white-space: normal; font-size: 0.9rem">
+                    <span class="food-name-container"> {{dietData.Food}} </span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col style="color: #737777; font-size: 0.8rem">
+                    {{dietData.portion}} {{dietData.portion_unit}}
+                  </ion-col>
+                </ion-row>
+
+                <!-- <ion-row> -->
+                <!-- <ion-col size="8.5" (click)="gotoFoodDetail(dietData.code,ing)">
+                    <ion-row>
+                      <ion-col>
+                        <h2 class="one-line">{{dietData.Food}}</h2>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col (click)="showMoreDetails(ing, i)">
+                        <span style="color: #7d7d7d;font-size: 14px;display: inline-flex;">
+                          {{dietData.portion}} {{dietData.portion_unit}}
+                        </span>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col>
+                    <div class="portion-entry">
+                      <span style="color: #737777;margin-right: 5px;" class="middle-content">{{roundUpvalue(dietData.Calories)}} kcal</span>
+                      <ion-icon (click)="removeFoodItem(dietData, diet)" name="close" style="margin-left: 15px;color:#01A3A4;font-size: 1.75rem;"  class="get-remove-icon middle-content">
+                      </ion-icon>
+                    </div>
+                  </ion-col> -->
+
+                <!-- <ion-col size="2" class="ion-text-end">
+                    <h3 style="color: #7d7d7d;">{{roundUpvalue(dietData.Calories)}} kcal</h3>
+                  </ion-col>
+                  <ion-col size="1.5" class="ion-text-end">
+                    <ion-icon name="ellipsis-vertical" style="margin-left: 15px;" (click)="openOptions(ing, i)">
+                    </ion-icon>
+                    <ion-icon (click)="removeFoodItem(dietData, diet)" name="close" style="margin-left: 15px;"  class="get-remove-icon">
+                    </ion-icon>
+                  </ion-col> -->
+                <!-- </ion-row> -->
+                <!-- <ion-row *ngIf="dietData.showDetails">
+                  <ion-col>
+                    <ion-row class="content-size">
+                      <ion-col class="ion-text-center detail padding-right-5" style="padding: 5px;">
+                        {{dietData?.Protien}}
+                        Gm<br> <span>Proteins </span>
+                      </ion-col>
+                      <ion-col class="ion-text-center detail padding-left-5" style="padding: 5px;">{{dietData?.Fat}} Gm
+                        <br>
+                        <span>Fats</span>
+                      </ion-col>
+                      <ion-col class="ion-text-center detail padding-left-5" style="padding: 5px;">{{dietData?.Carbs}}
+                        Gm<br> <span>Carbs</span></ion-col>
+                      <ion-col class="ion-text-center padding-left-5" style="padding: 5px;">{{dietData?.Fiber}} Gm
+                        <br><span><b>Fiber</b></span>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row> -->
+              </ion-label>
+              <div class="portion-entry">
+                <span style="color: #737777; font-size: 1rem" class="middle-content">{{roundUpvalue(dietData.Calories)}}
+                  Kcal</span>
+                <ion-icon (click)="removeFoodItem(dietData, diet)" name="close"
+                  class="get-remove-icon middle-content crossBtn">
+                </ion-icon>
+              </div>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

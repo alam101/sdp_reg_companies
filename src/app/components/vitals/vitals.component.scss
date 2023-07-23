@@ -1,0 +1,67 @@
+@import "../../../theme/variables.scss";
+.--vitals{
+    margin: 1rem;
+    ion-list{
+        ion-item{
+            --inner-padding-bottom: 0;
+            --inner-padding-end: 0;
+            --inner-padding-start: 0;
+            --inner-padding-top: 0;
+            height: 95px;
+            display: -webkit-box;
+            border-top:1px solid #70707044;
+            ion-row{
+                margin: 0;
+                padding: 0;
+            }
+            ion-label{
+                font-size: 1rem;
+                font-weight: 600;
+                color:#263143;
+                margin-right: 2px;
+                text-align: left;
+            }
+            input{
+                border:1px solid #70707044;
+                padding:.2px;
+                border-radius: 5px;
+                width: 45px;
+                height: 35px;
+                display: inline-block;
+                text-align: center;
+            }
+            .kg{
+                width:55px;
+            }
+            .l-name{
+                color:#363939;
+            }
+            .yob{
+                width: 100px;
+            }
+        }
+        ion-item:last-child{
+            border-bottom:1px solid #70707044;
+        }
+    }
+}
+
+.active-gender{
+    padding: 5px;
+   // background: var(--reg-color) !important;
+    border-radius: 9px;
+    width: 70px;
+   // color: #fff !important;
+}
+.inactive-gender{
+    padding: 5px;
+    background: transparent;
+    border: .7px solid #b3b3b3;
+    border-radius: 9px;
+    width: 70px;
+    color: #575757;
+}
+
+.ion-select{
+    border:1px solid #b3b3b3;
+}

@@ -1,0 +1,118 @@
+<ion-header style="min-height: 4.5rem !important;">
+  <ion-toolbar style="--background: #fff;
+  color: #8C8E93;
+  font-size: .871rem;
+  margin: 0 1rem 0 1rem;--min-height: 4.5rem !important;">
+  <ion-buttons slot="start">
+    <p>Smart Diet Planner</p>
+  </ion-buttons>
+    <ion-buttons slot="end" style="right: 2rem;
+    position: relative;">
+      <img src="./assets/img/login-logo.png" slot="end">
+    </ion-buttons>
+   
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col>
+   <div>
+    <video preload="auto" autoplay loop muted webkit-playsinline playsinline class="video-container"
+      poster="./assets/video/login-background.png" >
+      <!-- <source src="./assets/video/login-video2.mp4" types='video/mp4; codecs="h.264"' />  -->
+    </video>
+    <!-- [ngStyle]="{'padding-top': !isKeyBoardShows || !platform.is('ios') ? '0px' : '64px', 'top' : !isKeyBoardShows && platform.is('ios') ? '70%' : '68.5%'}" -->
+   
+  </div>
+</ion-col>
+</ion-row>
+<br><br><br><br><br>
+  <ion-row>
+    <ion-col size="3"></ion-col>
+    <ion-col size="6" class="ion-text-center">
+      <ion-button style="
+          font-size: 1rem !important;
+          --border-radius: 100px !important;
+          width: 100%;
+          display: inline-block;
+          margin-bottom: 1rem;" mode="ios" class="button button-green button-full" shape="round" (click)="signIn()">
+        Login/Registration
+      </ion-button>
+    </ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+ 
+  <div style="    bottom: 0;
+  background: #F7BB41;
+  height: 22px;
+  width: 100%;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;    position: fixed;">
+    <div></div>
+  </div>
+ <!-- <div *ngIf="isModalOpen || isDenyModal" style="top:0;width: 100%;background: #000; opacity: .5;height: 100%;position: absolute;z-index: 9;"></div>
+  <ion-modal [isOpen]="isModalOpen" class="allow-popup" style="height: 50%;">
+    <div>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+           <ion-button> <img slot="start" src="./assets/img/login-logo.png"></ion-button>
+          </ion-buttons>
+          <ion-title style="font-size: .751rem;    width: 400px;
+          padding-left: 0;">
+            Smart Diet planner
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+     
+      <div style="padding-left: 1rem;">
+        <ion-row><ion-col class="ion-text-center" style="font-size: 1rem;">Is requesting to share following info.</ion-col></ion-row>
+       <br><br>
+        <ion-row><ion-col class="ion-text-left" style="font-size: .851rem;">Your Paytm profile name</ion-col></ion-row>
+       
+        <ion-row><ion-col class="ion-text-left" style="font-size: .851rem;">Your Phone number</ion-col></ion-row>
+       
+        <ion-row><ion-col class="ion-text-left"  style="font-size: .851rem;">Your Email</ion-col></ion-row>
+        <br>
+        <br> <br>
+        <ion-row><ion-col style="font-size: .851rem;"> <ion-button style="--background:#00b9f5 !important; --color:#fff" class="button-full" (click)="confirm()">Allow</ion-button></ion-col></ion-row>
+        <br>
+        <ion-row><ion-col style="font-size: .851rem;"><ion-button style="--background:#f3f3f3 !important; --color:#00b9f5 !important" class="button-full" (click)="cancel()">Deny</ion-button></ion-col></ion-row>
+  
+      </div>
+
+      </ng-template>
+    </div>
+      </ion-modal>
+
+      <ion-modal [isOpen]="isDenyModal" class="allow-popup" style="height: 40%;">
+        <div>
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+               <ion-button> <img slot="start" src="./assets/img/login-logo.png"></ion-button>
+              </ion-buttons>
+              <ion-title style="font-size: .751rem;    width: 400px;
+              padding-left: 0;">
+                Smart Diet planner
+              </ion-title>
+            </ion-toolbar>
+          </ion-header>
+         
+          <div style="padding-left: 1rem;">
+            <ion-row><ion-col class="ion-text-left" style="font-size: .851rem;">
+            Granting consent is necessary to proceed further
+            </ion-col></ion-row>
+             <br> <br> <br>
+            <ion-row><ion-col style="font-size: .851rem;"><ion-button style="--background:#00b9f5 !important; --color:#fff" class="button-full" (click)="denyOk()">Okay</ion-button></ion-col></ion-row>
+            <br>
+            <ion-row><ion-col style="font-size: .851rem;"> <ion-button style="--background:#f3f3f3 !important; --color:#00b9f5 !important" class="button-full" (click)="denyCancel()">Cancel</ion-button></ion-col></ion-row>
+          
+          </div>
+    
+          </ng-template>
+        </div>
+          </ion-modal> -->
+</ion-content>

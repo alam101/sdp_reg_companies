@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>Smart Diet Planner</title>
+
+  <base href="/" />
+
+ 
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black" /> -->
+  <meta name="color-scheme" content="#009688" />
+  <meta name = “theme-color” content = #fff>
+  <style>
+    @media (min-width:1281px){
+    body {
+      width: 22% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    left: 39%;
+    }
+    .div{
+        box-shadow: 0 1px 3px 5px #f3f3f3!important;
+        height: 100%!important;
+      }
+      /* ion-popover{
+        width: 30%;
+        left: 35%;
+      } */
+    }
+    @media (min-width:961px){
+      body {
+        width: 22% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    left: 39%;
+    }
+    .div{
+        box-shadow: 0 1px 3px 5px #f3f3f3 !important;
+        height: 100% !important;
+      }
+    }
+    @media (min-width:1025px) {
+      body {
+        width: 22% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    left: 39%;
+    }
+    .div{
+        box-shadow: 0 1px 3px 5px #f3f3f3 !important;
+        height: 100%!important; 
+      }
+    }
+    @media (min-width:641px) {
+      body {
+        width: 22% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    left: 39%;
+    }
+ 
+    ion-popover app-portion-count {
+    background: #000;
+    position: fixed;
+    right: 0;
+    top:none !important;
+}
+    }
+    .div{
+        box-shadow: 0 1px 3px 5px #f3f3f3 !important;
+        height: 100% !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="div" style="height: 100%;">
+  <app-root></app-root>
+</div>
+
+ <script>
+  //  var paytmObject;
+  // function ready(callback) { 
+  //     if (window.JSBridge) {
+  //         callback && callback();
+  //     } else {
+  //         document.addEventListener('JSBridgeReady', callback, false);
+  //     }
+     
+  // }
+
+  // ready(()=> {
+  //   window['JSBridge'].call('paytmFetchAuthCode', {
+  //         clientId: "smart-diet-planner"
+  //     },(result) =>{
+  //         var someStr = result?.data?.authId;   
+  //         localStorage.removeItem("paytmFetchAuthCode");      
+  //         localStorage.setItem('paytmFetchAuthCode', someStr); 
+  
+  //     },(err)=>{
+  //       alert(err);
+  //     });
+  // }); 
+  </script> 
+</body>
+
+</html>

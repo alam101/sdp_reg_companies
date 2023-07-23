@@ -1,0 +1,242 @@
+<ion-content>
+  <div class="mainDiv">
+    <div class="slider_div" *ngIf="!from">
+      <div class="lines"></div>
+      <div class="lines2">
+        <div></div>
+      </div>
+      <div class="slider_page">
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active">2</p>
+        <p class="page_Count">3</p>
+        <p class="page_Count">4</p>
+        <p class="page_Count">5</p>
+      </div>
+    </div>
+    <div class="content_div" [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}">
+      <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
+        <ion-icon class="close_modal_icon" name="close-circle" (click)="modalClose()"></ion-icon>
+      </div>
+      <p class="title-text">
+        We need some of your basic information to provide you correct analysis
+      </p>
+      <p class="title">Gender</p>
+      <div class="content_sub_div">
+        <ion-radio-group [value]="gender" [(ngModel)]="gender" (ionChange)="selectGender($event)">
+          <ion-grid class="pad_0">
+            <ion-row>
+              <ion-col size="6" style="padding-right: 7px">
+                <div class="card_div" (click)="gender='G2'">
+                  <ion-img src="../../../assets/newImages/female.png" class="female_image"></ion-img>
+                  <p class="label">Female</p>
+                  <ion-card class="section-card" [ngClass]="gender === 'G2' && 'card_Border'">
+                    <div class="h_100">
+                      <ion-radio value="G2" mode="ios"></ion-radio>
+                    </div>
+                  </ion-card>
+                </div>
+              </ion-col>
+              <ion-col size="6" style="padding-left: 7px">
+                <div class="card_div" (click)="gender='G1'">
+                  <ion-img src="../../../assets/newImages/male.png" class="male_image"></ion-img>
+                  <p class="label">Male</p>
+                  <ion-card class="section-card" [ngClass]="gender === 'G1' && 'card_Border'">
+                    <div class="h_100">
+                      <ion-radio value="G1" mode="ios"></ion-radio>
+                    </div>
+                  </ion-card>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </div>
+
+      <div class="content_sub_div2">
+        <div class="header_btn_div">
+          <p class="title mar_0">How tall are you?</p>
+          <div class="cmfeet_btn_div">
+            <p class="cmfeet_btn" [ngClass]="heightType==='cm'&& 'activ_cmfeet_btn'" (click)="setHeightType('cm')">
+              Cm
+            </p>
+            <p class="cmfeet_btn" [ngClass]="heightType==='feet'&& 'activ_cmfeet_btn'" (click)="setHeightType('feet')">
+              Feet
+            </p>
+          </div>
+        </div>
+        <div class="main_meter_div">
+          <div class="meter_box_div">
+            <!-- <ion-input
+              class="height_value"
+              name="h"
+              [(ngModel)]="inputHeight"
+              (ngModelChange)="setHeight($event)"
+            ></ion-input> -->
+            <p class="height_value">{{inputHeight}}</p>
+            <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
+          </div>
+          <div class="range_div">
+            <ion-range [min]="minHight" [max]="maxHight" [value]="parseint()" mode="ios" class="pad_0"
+              [step]="heightType==='feet'?0.1:1" (ionChange)="getHeight($event)" (ionChange)="calculateDesiredWeight()">
+            </ion-range>
+            <!--  -->
+          </div>
+        </div>
+      </div>
+
+      <div class="content_sub_div2" style="background: none">
+        <div class="header_btn_div">
+          <p class="title mar_0">How much do you weight ?</p>
+          <div class="cmfeet_btn_div">
+            <p class="cmfeet_btn" [ngClass]="weightType==='kg'&& 'activ_cmfeet_btn'" (click)="setweightType('kg')">
+              Kg
+            </p>
+            <p class="cmfeet_btn" [ngClass]="weightType==='lbs'&& 'activ_cmfeet_btn'" (click)="setweightType('lbs')">
+              Lbs
+            </p>
+          </div>
+        </div>
+        <div class="weight_div">
+          <div class="wight_ui_div">
+            <!-- <ion-img src="../../../assets/newImages/squareRing.svg" class="squareRing_img">
+            </ion-img> -->
+            <ion-img src="../../../assets/newImages/squareRing.svg" class="square_img">
+            </ion-img>
+            <ion-input class="weight_value" name="w" [(ngModel)]="weight" type="number"></ion-input>
+          </div>
+        </div>
+      </div>
+
+      <div class="content_sub_div2">
+        <div class="header_btn_div">
+          <p class="title mar_0">Desired weight ?</p>
+          <div class="cmfeet_btn_div">
+            <p class="cmfeet_btn" [ngClass]="targetweightType==='kg'&& 'activ_cmfeet_btn'"
+              (click)="setTargetweightType('kg')">
+              Kg
+            </p>
+            <p class="cmfeet_btn" [ngClass]="targetweightType==='lbs'&& 'activ_cmfeet_btn'"
+              (click)="setTargetweightType('lbs')">
+              Lbs
+            </p>
+          </div>
+        </div>
+        <div class="weight_div">
+          <div class="wight_ui_div">
+            <!-- <ion-img src="../../../assets/newImages/squareRing.svg" class="squareRing_img">
+            </ion-img> -->
+            <ion-img src="../../../assets/newImages/squareRing.svg" class="square_img">
+            </ion-img>
+            <ion-input class="weight_value" name="w" [(ngModel)]="targetweight" debounce="2000"
+              (ionBlur)="gotoDemographic()" type="number"></ion-input>
+          </div>
+        </div>
+        <!-- <div class="main_scroll_Div">
+          <div class="scroll_div center">
+            <ion-icon
+              name="chevron-back-outline"
+              (click)="setRange('minus')"
+            ></ion-icon>
+
+            <ion-grid>
+              <ion-row class="scroll-x">
+                <ion-col
+                  size="1.72"
+                  *ngFor="let w of weightArray;let i = index"
+                  class="center"
+                  [ngStyle]="i+1 !== weightArray.length && {'border-right': '1px solid var(--white)'} "
+                >
+                  <p class="weight_values">{{setWeightFromArray+w}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <ion-icon
+              name="chevron-forward-outline"
+              (click)="setRange('plus')"
+            ></ion-icon>
+          </div>
+          <div class="finder_img">
+            <div class="rouded_div">
+              <div class="rouded center">
+                <p class="selected_weight_value">{{selectedWeight}}</p>
+              </div>
+              <ion-img src="../../../assets/newImages/targetline.svg"></ion-img>
+              <ion-img
+                src="../../../assets/newImages/target-arrow.svg"
+              ></ion-img>
+            </div>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="content_sub_div3" style="background: none">
+        <div class="header_btn_div" style="margin: 0% 5%">
+          <p class="title mar_0" style="width: Auto">
+            Which year were you born in ?
+          </p>
+        </div>
+        <div class="main_scroll_Div">
+          <div class="scroll_div2 center" style="height: 30px">
+            <!-- <ion-icon
+              name="chevron-back-outline"
+              (click)="setBornRange('minus')"
+            ></ion-icon> -->
+            <ion-grid class="">
+              <ion-row class="scroll-x">
+                <!-- <ion-col size="2.4" *ngFor="let b of bornYear" class="center">
+                  <p class="born_value">{{setbornYear+b}}</p>
+                </ion-col> -->
+              </ion-row>
+            </ion-grid>
+            <!-- <ion-icon
+              name="chevron-forward-outline"
+              (click)="setBornRange('plus')"
+            ></ion-icon> -->
+          </div>
+          <div class="born_btn" (click)="openPicker()">
+            <p>{{selectedbornYear}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="note">
+          *Please note that your information will be stored securely & is
+          confidential
+        </p>
+
+        <ion-item lines="none">
+          <ion-checkbox checked="true" slot="start"></ion-checkbox>
+          <ion-label class="terms">I agree to accept the
+            <span class="condition">Terms and Conditions</span>.</ion-label>
+        </ion-item>
+
+        <div class="go_btn_div" *ngIf="!from">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" class="center">
+                <ion-button class="back_btn" shape="round" fill="outline" (click)="goBack()">Back</ion-button>
+              </ion-col>
+              <ion-col size="6" class="center">
+                <ion-button class="go_btn" shape="round" (click)="goNext()">Next</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="go_btn_div" *ngIf="from">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6" class="center">
+                <ion-button class="back_btn" shape="round" fill="outline" (click)="modalClose()">Cancel</ion-button>
+              </ion-col>
+              <ion-col size="6" class="center">
+                <ion-button class="go_btn" shape="round" (click)="goNext()">Save</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

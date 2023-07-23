@@ -1,0 +1,365 @@
+
+<ion-header class="--options">
+  <ion-toolbar style="height:5.5rem !important">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/new-diet"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar slot="end" placeholder="Search Food For {{heading}}" style="--background: #FFF;z-index: 13;top: 0px;" enterkeyhint="search" (search)="searchByInput($event.target.value)" (ionClear)="clearSearchAndReset()" [(ngModel)]="searchVal">
+    </ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="--offset-bottom: 0px !important; background: #FFF !important;">
+  <div class="parent">
+   
+    <ion-row style="margin-bottom: 15px;" *ngIf="!isNoDataInSearch">
+      <ion-col class="ion-text-center">
+        <span class="indication darkgreen-top recomended-for"> Best</span>
+        <span class="indication light-green-top recomended-for"> Good</span>
+        <span class="indication yellow-top recomended-for"> Average</span>
+        <span class="indication yellow-orange-top recomended-for"> Fair</span>
+        <span class="indication unverified-top recomended-for"> Unverified</span>
+      </ion-col>
+      <!-- <ion-col class="ion-text-start">
+        <span class="recomended-for"> (for weight loss)</span>
+      </ion-col> -->
+    </ion-row>
+    <div class="recomendedfor-you" *ngIf="!isNoDataInSearch">
+      <ion-row *ngIf="flagIndexforHealth>0"
+        [ngClass]="{'margin-top':categoryLength==1 || (isSeeMore && categoryLength>1) }">
+        <ion-col class="ion-text-center ion-align-self-center">
+          <img src="./assets/img/health1.svg" style="vertical-align: middle;width:15px;margin-right:.2rem;"> <span
+            class="recomended-for">Recomended for {{diseases}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="selectedDietPlan == 'immunity_booster'">
+        <ion-col class="ion-text-center ion-align-self-center">
+          <img src="./assets/img/immunity.svg" style="vertical-align: middle;width:15px;margin-right:.2rem;"> <span
+            class="recomended-for">Recomended for Immunity Booster</span>
+        </ion-col>
+      </ion-row>
+    </div>
+    <!-- <div class="search" >
+      <ion-row>
+        <ion-col size="1" class="ion-text-left ion-align-self-end" (click)="filterOption()">
+          <img src="./assets/img/filter.svg">
+        </ion-col>
+        <ion-col size="11" class="ion-text-left" style="border-bottom:1px solid #b3b3b3;">
+          <img src="./assets/img/search-icon.svg" class="search-icon">
+          <ion-input (input)="searchByInput($event.target.value)" style="padding-left:2rem !important;"></ion-input>
+        </ion-col>
+      </ion-row>
+    </div> -->
+    <div class="filter-by-selection" *ngIf="!isNoDataInSearch">
+      <!-- *ngIf="!isFiterOption && categoryLength==1 || (!isFiterOption && isSeeMore && categoryLength>1)"> -->
+      <ion-row>
+        <ion-col class="ion-text-cneter ion-align-self-center" (click)="selectedItemByFiter(0)">
+          <span [ngClass]="{'add-color':itembyFilter==0}">Recomended</span><br>
+          <!-- <div [ngClass]="{'select-item-by-filter':itembyFilter==0}"></div> -->
+        </ion-col>
+        <ion-col class="ion-text-center ion-align-self-center" (click)="selectedItemByFiter(1)">
+          <span [ngClass]="{'add-color':itembyFilter==1}">Low cal</span><br>
+          <!-- <div [ngClass]="{'select-item-by-filter':itembyFilter==1}"></div> -->
+        </ion-col>
+        <ion-col class="ion-text-center ion-align-self-center" (click)="selectedItemByFiter(2)">
+          <span [ngClass]="{'add-color':itembyFilter==2}">High Proteins</span><br>
+          <!-- <div [ngClass]="{'select-item-by-filter':itembyFilter==2}"></div> -->
+        </ion-col>
+        <ion-col class="ion-text-center ion-align-self-center" (click)="selectedItemByFiter(3)">
+          <span [ngClass]="{'add-color':itembyFilter==3}">Low fat</span><br>
+          <!-- <div [ngClass]="{'select-item-by-filter':itembyFilter==3}"></div> -->
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <!-- <div class="next-section">
+      <div *ngIf="unvrifiedData && unvrifiedData.length > 0">
+        <ion-card>
+          <ion-row>
+            <ion-col size="12" class="text-left ion-align-self-end">
+              <h3 class="small-heading">
+                <span style="color:#737777;">Unverified Items</span>
+              </h3>
+            </ion-col>
+          </ion-row>
+          <ion-item class="ion-no-padding" *ngFor="let option of unvrifiedData;let n=index">
+            <div slot="start" class="legend legend-0"></div>
+            <ion-thumbnail slot="start">
+              <img src="./assets/img/food-item.png" class="pic-food" />
+            </ion-thumbnail>
+            <ion-label class="medium-text">
+              <span style="color:#4C5264;font-weight: 400;">{{option.Food}} ({{ onlyportion}}
+                {{option.portion_unit}})</span><br />
+              <span class="light-text">
+                <div style="float: left;width:70px; white-space: nowrap;">
+                  {{option.Calories | number : '1.2-2'}}
+                  cal</div>
+                <div style="float: left;width:100px; white-space: nowrap;" *ngIf="itembyFilter==2">
+                  {{option.Protien| number : '1.2-2' }} gm Protein</div>
+                <div style="float: left;width:70px;white-space: nowrap;" *ngIf="itembyFilter==3">
+                  {{option.Fat | number : '1.2-2'}} gm Fat </div>
+              </span>
+            </ion-label>
+            <div slot="end" class="portion-entry1" style="margin-left: 22px;">
+              <ion-row class="box-add">
+                <ion-col size="3" class="ion-text-center ion-align-self-center">
+                  <span class="plus-minus"
+                    (click)="minusUnverified(n)">-</span>
+                </ion-col>
+                <ion-col size="6" class="ion-text-center ion-align-self-center">
+                  <ion-input type="number" [(ngModel)]="option.portion" ng-pattern="/^([0-9\.]{1,2})?([.]?\d{0,1})?$/)$/"
+                    min="1" max="2" maxlength="1" (ngModelChange)="unverifiedChange($event, n)"  (keypress)="unverifiedChange1($event, n)"
+                    style="background: #F6F7FC; color: black;background-color: white;">
+                  </ion-input>
+                </ion-col>
+                <ion-col size="3" class="ion-text-center ion-align-self-center">
+                  <span class="plus-minus" (click)="plusUnverified(n)"
+                    style="font-size: 1.5rem;">+</span>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-item>
+        </ion-card>
+      </div>
+    </div> -->
+    <div class="no-search-item text-center" *ngIf="isNoDataInSearch">
+      <ion-card style="background: #fff;border-radius: 25px" class="ion-padding">
+        <ion-row>
+          <ion-col class="ion-align-self-center ion-text-center">
+            <ion-row class="margin-top10">
+              <ion-col>
+                <img src="./assets/img/no-result-search.png"/>
+              </ion-col>
+            </ion-row>
+            <ion-row class="margin-top10">
+              <ion-col size="1"></ion-col>
+              <ion-col>
+                <span style="font-size: 1rem;font-weight: bold;color: #737373;">Not found in recommended items for this slot.</span>
+              </ion-col>
+              <ion-col size="1"></ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col size="2" style="padding-top:5px;">
+                <img src="./assets/img/manjri_anime.png"/>
+              </ion-col>
+              <ion-col style="padding-left: 10px;">
+                <div class="box2 sb11">
+                  <span class="unveri-font" *ngIf="totalDataSearchedData.length">Founds {{totalDataSearchedData.length}} unverified items</span>
+                  <span class="unveri-font" *ngIf="!totalDataSearchedData.length">No item found. May use Quick add.</span>
+                  <br />
+                  <span class="info-text">We suggest to eat recommended items</span>
+
+                </div>
+                <!-- <img src="./assets/img/manjri_anime.png"/> -->
+              </ion-col>
+            </ion-row>
+
+            <!-- <ion-row class="margin-top20">
+              <ion-item lines="none">
+                <ion-avatar slot="start">
+                  <img src="./assets/img/manjri_anime.png"/>
+                </ion-avatar>
+                <ion-label class="ion-text-wrap">
+                  <b *ngIf="totalDataSearchedData.length" class="msg-container">Found {{totalDataSearchedData.length}} Unverified items</b>
+                  <b *ngIf="!totalDataSearchedData.length" class="msg-container">Not Found Unverified items also but you can quick add.</b>
+                  <p>We Suggest to eat from recommended items</p>
+                </ion-label>
+              </ion-item>
+              <ion-col size="1"></ion-col>
+            </ion-row> -->
+          </ion-col>
+        </ion-row>
+
+        <div class="margin-top20">
+          <ion-button mode="ios" class="button button-cancel button-full button-layout" shape="round" fill="outline" (click)="clearSearchAndReset()">
+            Continue with recommended 
+            <!-- {{'button.next' |translate}} -->
+          </ion-button>
+        </div>
+
+        <div *ngIf="totalDataSearchedData.length" class="margin-top20">
+          <ion-button mode="ios" class="button button-dander button-full button-layout" shape="round" fill="outline" (click)="gotoCounter()">
+            View {{totalDataSearchedData.length}} unverified items
+            <!-- {{'button.next' |translate}} -->
+          </ion-button>
+        </div>
+        <div *ngIf="!totalDataSearchedData.length" class="margin-top20">
+          <ion-button mode="ios" class="button button-dander button-full button-layout" shape="round" (click)="gotoCounterAddQuick()">
+            Quick Add
+            <!-- {{'button.next' |translate}} -->
+          </ion-button>
+        </div>
+
+      </ion-card>
+    </div>
+
+    <div class="next-section">
+      <div *ngFor="let moption of optionData?.mealOptions;let j=index">
+        <div *ngIf="moption.isCategory">
+          <div *ngFor="let cat of moption.categories; let i=index;">
+            <ion-card *ngIf="cat.food?.length>0">
+
+
+              <span *ngIf="isMeal==moption.optionName">
+                <ion-row>
+                  <ion-col size="12" class="text-left ion-align-self-end" style="margin-left: 10px;">
+                    <h3 class="small-heading">
+                      <span style="color:#01A3A5;" *ngIf="moption.categories?.length>1">{{cat.name}}</span>
+                      <!-- <span *ngIf="seeMore[i] != constantText || moption.categories?.length==1">&nbsp;&nbsp;<a
+                          class="suggest" (click)="gotoSuggestion(cat.name)">(Suggest us!)</a></span> -->
+                      <!-- <span *ngIf="!cat.isOk" style="color:red;"
+                      >Please select!
+                    </span> -->
+
+                    </h3>
+                  </ion-col>
+                </ion-row>
+                <!-- <ion-radio-group [(ngModel)]="selectedCode[i]"> -->
+                  <span *ngFor="let option of cat.food; let k=index">
+                    <ion-item class="ion-no-padding" style="margin: 10px;"
+                      [ngClass]="{'hide-show':k>=2 && !showHideItem[i] && moption.categories?.length>1, 'custom-border-bottom':k==cat.food?.length-1 || k==1}">
+                      <!-- <img src="./assets/img/health2.svg" slot="start"  class="pic-food-heart" *ngIf="option.recommendedFor==undefined && flagIndexforHealth>0" /> -->
+                      <div slot="start" class="legend" [ngClass]="{'legend-9':option.Score =='9', 'legend-6':option.Score =='6', 'legend-3': option.Score =='3' , 'legend-1':option.Score =='1',  'legend-0': !option.Score || option.Score == ''}"></div>
+                      <ion-thumbnail slot="start" (click)="goToFoodDetails(option)">
+                        <!-- <img src="./assets/img/health1.svg" class="pic-food-heart"
+                          *ngIf="(option.recommendedFor?.length>0 && flagIndexforHealth>0) || option.Score =='9'" /> -->
+                        <img src="./assets/img/health1.svg" class="pic-food-heart"
+                          *ngIf="selectedDietPlan != 'immunity_booster' && option.recommendedFor && option.recommendedFor.length>0" />
+                        <img src="./assets/img/immunity.svg" class="pic-food-heart"
+                          *ngIf="selectedDietPlan == 'immunity_booster' && option.Score == '9'" />
+                        <img src="./assets/img/health1.svg" class="pic-food-heart"
+                          *ngIf="selectedDietPlan == 'immunity_booster' && option.recommendedFor && option.recommendedFor.length> 0 && option.Score != '9'" />
+                        <img src="{{image_URL}}{{option.code}}.jpg" class="pic-food" 
+                        onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"/>
+                      </ion-thumbnail>
+                      <ion-label class="medium-text" (click)="goToFoodDetails(option)">
+                        <span style="color:#4C5264;font-weight: 400;">{{option.Food}} ({{ onlyportion}}
+                          {{option.portion_unit}})</span><br />
+                        <span class="light-text">
+                          <div style="float: left;width:70px; white-space: nowrap;">
+                            {{option.Calories | number : '1.2-2'}}
+                            cal</div>
+                          <div style="float: left;width:100px; white-space: nowrap;" *ngIf="itembyFilter==2">
+                            {{option.Protien| number : '1.2-2' }} gm Protein</div>
+                          <div style="float: left;width:70px;white-space: nowrap;" *ngIf="itembyFilter==3">
+                            {{option.Fat | number : '1.2-2'}} gm Fat </div>
+
+                          <!-- <span *ngIf="itembyFilter==2"> Protein</span>
+                      <span *ngIf="itembyFilter==3">{{option.Fat}}gm Fat</span>  -->
+                        </span>
+                      </ion-label>
+                      <!-- <ion-radio slot="end" value="{{option.code}}" mode="md"
+                        (click)="selectedMealCategory(cat.food,option,moption.optionName,cat.name,option.code,option.portion,i)">
+                      </ion-radio> -->
+                      <ion-icon *ngIf="!option.selected" name="ellipse-outline" slot="end" (click)="selectedMealCategory(cat.food,option,moption.optionName,cat.name,option.code,option.portion,i,k)"></ion-icon>
+                      <div slot="end" class="portion-entry1" *ngIf="option.selected" style="margin-left: 22px;">
+                        <ion-row class="box-add">
+                          <ion-col size="3" class="ion-text-center ion-align-self-center">
+                            <span class="plus-minus"
+                              (click)="minusWeight1(i,option.code,cat.name,moption.optionName,k)">-</span>
+                          </ion-col>
+                          <ion-col size="6" class="ion-text-center ion-align-self-center">
+                            <input type="number" [value]="option.portion" ng-pattern="/^([0-9\.]{1,2})?([.]?\d{0,1})?$/)$/"
+                              min="1" max="2" maxlength="1" (ngModelChange)="change($event, i, k)"  (keypress)="change1($event, i, k)"
+                              style="background: #F6F7FC; color: black;background-color: white;"/>
+                          </ion-col>
+                          <ion-col size="3" class="ion-text-center ion-align-self-center">
+                            <span class="plus-minus" (click)="plusWeight1(i,option.code,cat.name,moption.optionName,k)"
+                              style="font-size: 1.5rem;">+</span>
+                          </ion-col>
+                        </ion-row>
+                      </div>
+                    </ion-item>
+                    <ion-item lines="none" *ngIf="k==2 && moption.categories?.length>1 && !this.showHideItem[i]"
+                      (click)="showHide(i)">
+                    <!-- class="border-bottom"> -->
+                      <ion-label>
+                        <a style="text-align: center;display: block;">
+                          <span style="color:#1492E6;font-size:.751rem;">{{seeMore[i]}}</span>
+                        </a>
+                      </ion-label>
+                    </ion-item>
+                    <ion-item lines="none"
+                      *ngIf="k==cat.food?.length-1 && moption.categories?.length>1 && this.showHideItem[i]"
+                      (click)="showHide(i)">
+                    <!-- class="border-bottom"> -->
+                      <ion-label>
+                        <a style="text-align: center;display: block;">
+                          <span style="color:#1492E6;font-size:.751rem;">{{seeMore[i]}}</span>
+                        </a>
+                      </ion-label>
+                    </ion-item>
+                  </span>
+
+                <!-- </ion-radio-group> -->
+              </span>
+            </ion-card>
+          </div>
+        </div>
+        <div *ngIf="!moption.isCategory">
+          <span *ngIf="isMeal==moption.optionName">
+            <ion-radio-group [(ngModel)]="selectedCode1[j]">
+              <span *ngFor="let option of moption.food let k=index;">
+                <ion-item class="ion-no-padding" [ngClass]="{'hide-show':k>=7  && !showHideItem1}">
+
+                  <ion-thumbnail slot="start" (click)="goToFoodDetails(option)">
+                    <img src="{{image_URL}}{{option.code}}.jpg" class="pic-food" 
+                    onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"/>
+                  </ion-thumbnail>
+                  <ion-label class="medium-text" [ngClass]="{'custom-width':option.code==selectedCode1[j]}" (click)="goToFoodDetails(option)">
+                    {{option.Food}} <br />
+                    <span class="light-text">
+                      <b>{{option.Calories}} cal </b>
+                      {{ option.portion}}
+                      {{option.portion_unit}}
+                    </span>
+                  </ion-label>
+                  <ion-radio slot="end" value="{{option.code}}" mode="md"
+                    (click)="selectedMeal(moption.food,option,moption.optionName,null,option.code,option.portion)">
+                  </ion-radio>
+
+                  <div slot="end" class="portion-entry1" *ngIf="option.code==selectedCode1[j]">
+                    <ion-row>
+                      <ion-col size="2" class="text-center ion-align-self-center">
+                        <img src="./assets/icons/minus.png" (click)="minusWeight(option.code)" />
+                      </ion-col>
+
+
+                      <ion-col size="8" class="text-center ion-align-self-center">
+                        <input type="number" [value]="optionSelection" ng-pattern="/^[0-9]{1,2})?$/" min="1"
+                          max="2" maxlength="1" readonly="true" (ngModelChange)="change($event, null, k)"/>
+                      </ion-col>
+                      <ion-col size="2" class="text-center ion-align-self-center">
+                        <img src="./assets/icons/plus1.png" (click)="plusWeight(option.code)" />
+
+                      </ion-col>
+                    </ion-row>
+                  </div>
+                </ion-item>
+                <ion-button (click)="showHide1()" *ngIf="k==7" style="position: absolute;right:15px;">
+                  <span><a>More...</a> </span>
+                </ion-button>
+
+              </span>
+            </ion-radio-group>
+          </span>
+        </div>
+      </div>
+    </div>
+
+   
+  </div>
+
+  
+</ion-content>
+
+  <ion-footer class="btn" style="position: inherit; bottom: 0;">
+    <ion-toolbar>
+      <div *ngIf="!searchingData">
+        <ion-button mode="ios" class="button button-dander button-full" shape="round" fill="outline"
+          [disabled]="requestBody?.length==0" (click)="goto()">
+          Update
+        </ion-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>

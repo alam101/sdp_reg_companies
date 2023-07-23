@@ -1,0 +1,13 @@
+<div class="meal-pref-component">
+  <br>
+  <div class="-box-area -left" *ngFor="let fit of documents; let index = index;" 
+  (click)="selectedPref(index)" 
+  [ngClass]="{'-left':(index+1)%2!==0, '-right':(index+1)%2===0}">
+    <div class="-box">
+      <ion-checkbox mode="md" [checked]="true===selectedIndex[index]"></ion-checkbox>
+   <img src="{{fit?.URL}}" [ngClass]="{'-border':selectedIndex[index]}">
+   </div>
+   <span class="calori">{{fit?.calories_range}}</span>
+  </div>
+  
+</div>

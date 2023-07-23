@@ -1,0 +1,80 @@
+.water_main_card{
+    width: 275px;
+    height: 275px;
+    padding: 2px;
+    position: relative;
+    // height: 300px;
+    justify-content: flex-start !important;
+    box-shadow: var(--boxshadow);
+}
+
+.header_div{
+    background: #FFD6D3;
+    border-radius: 5px;
+    width: 100%;
+ 
+
+    ion-img{
+        height:15px !important;
+    }
+
+    p{
+        font-size: var(--small-font);
+        margin: 7px;
+        font-family: var(--theme-newFont);
+        font-weight: 500;
+        color: var(--black);
+   
+    }
+}
+
+.circle_progress_div{
+  position: relative;
+}
+
+.plus_icon{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    font-size: 40px;
+    z-index: 1;
+    border-radius: 100%;
+    background: white;
+    color: var(--theme-newButton);
+  }
+
+.card_cal_image{
+    height: 18px;
+    width: 18px;
+    object-fit: contain;
+}
+
+.protien_text{
+    font-size: var(--xsmall-font);
+        margin: 0px;
+        font-family: var(--theme-newFont);
+        font-weight: 500;
+        color: var(--black);
+}
+
+.protien_unit{
+    font-size: var(--xsmall-font);
+        margin: 0px;
+        font-family: var(--theme-newFont);
+        font-weight: 700;
+        color: var(--black);
+}
+
+.protien_progress{
+    --progress-background:#877EC9;
+    --background: #E0E0E0;
+    border-radius: 25px;
+}
+
+.fat_progress{
+    --progress-background:#6DC6FD;
+    border-radius: 25px;
+    --background: #E0E0E0;
+}
+
+

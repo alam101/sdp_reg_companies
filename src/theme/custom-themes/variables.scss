@@ -1,0 +1,591 @@
+@import "../../assets/fonts/fonts.scss";
+
+// Fonts
+$font-size: 16px;
+
+$font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+$font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+$font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+$font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+$font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+  Arial, sans-serif;
+
+  $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+
+  body[color-theme="sbi"] {
+      
+    --arrow-color:#01A3A4;
+    --goal: #F5F5F5;
+    --profile-color: #01A3A4;
+    --graph-background:#fff;
+    --close-edit-color: #01A3A4;
+    --new-background: #fafafa;
+    --new-border-color: #f4f4f4;
+    --theme-color-new:#01A3A4;
+    //////Green COLOR /////////DEAFUALT////////
+     //#01A3A4 --test color 
+    --theme-background:#01A3A4; //#00a6a8
+    --theme-header:#01A3A4;
+    --theme-button:#01A3A4;
+    --theme-heading:#01A3A4;
+    --theme-activeBtn:#01A3A4;//#01A3A4       
+    --theme-plusBtn:#01A3A4; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+    --theme-text-color: #01A3A4;//#01A3A4;
+    --theme-plusBtnWaterGuage:#01A3A4;  //#509bed;   
+    --theme-minusBtnWaterGuage:#01A3A4;  //#509bed;  
+    --theme-waterCenterPercent:#01A3A4;  //#509bed;  
+    --theme-colorWhite:#FFFFFF;       
+    --theme-boxAdd:1px solid #01A3A4; //#01A3A5;
+    --theme-color:#01A3A4; //#01A3A5;
+    --theme-backgroundLRG: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+    --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+    --theme-progressBarWhite:#FFFFFF;
+    --theme-colorBGShades:#b9feff; //change this visaly after check the deafulat color;
+    --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+ 
+    ///////////////Font////////////
+    --theme-headingFont:1.2rem; //merger wirth headeing font 
+    //--theme-CardHeadingFont:1.2rem;
+    //--theme-seeAll:0.8rem;//merge with .75
+    --theme-counters:0.75rem;
+    --theme-cardHeading:1rem;
+    --theme-text:0.85rem;
+    --theme-textHeading:0.9rem;
+    --box-shadow:rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    --boxshadow:#00000012 0px 10px 40px;
+}
+
+body[color-theme="spc"] {
+  --theme-background:rgb(208, 90, 0); //#00a6a8
+  --theme-background-1:rgb(208, 90, 0); //#03a3a4 
+  --theme-background-2:rgb(208, 90, 0);//#00a6a8
+}
+
+body[color-theme="birla"] {
+
+  --arrow-color:#01A3A4;
+  --goal: #F5F5F5;
+  --profile-color: #01A3A4;
+  --graph-background:#fff;
+  --close-edit-color: #01A3A4;
+  --new-background: #fafafa;
+  --new-border-color: #f4f4f4;
+  --theme-color-new:#01A3A4;
+
+  --theme-background:#01A3A4; //#00a6a8
+  --theme-header:#01A3A4;
+  --theme-button:#01A3A4;
+  --theme-heading:#01A3A4;
+  --theme-activeBtn:#01A3A4;//#01A3A4       
+  --theme-plusBtn:#01A3A4; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #01A3A4;//#01A3A4;
+  --theme-plusBtnWaterGuage:#01A3A4;  //#509bed;   
+  --theme-minusBtnWaterGuage:#01A3A4;  //#509bed;  
+  --theme-waterCenterPercent:#01A3A4;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #01A3A4; //#01A3A5;
+  --theme-color:#01A3A4; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#b9feff; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+
+
+
+  // new vars
+
+  --theme-color:#01A3A4;
+  --theme-newHeader:#D5A620;
+  --theme-newButton:#01A3A4;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:#FEBF47;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.65rem;  //10px
+  --small-font:0.65rem; //12px
+  --regular-font:0.75rem; //14px
+  --regularM-font:.75rem; //16px
+  --medium-font:.8rem; //18px
+  --large-font:1.1rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#B8E6F5;
+  --normal-color:#393939;
+  --cercle-progress:#B8E6F5;
+
+}
+
+body[color-theme="newmi"] {
+
+  --arrow-color:#D9B2A3;
+  --goal: #F5F5F5;
+  --profile-color: #D9B2A3;
+  --graph-background:#fff;
+  --close-edit-color: #D9B2A3;
+  --new-background: #fafafa;
+  --new-border-color: #f4f4f4;
+  --theme-color-new:#D9B2A3;
+
+  --theme-background:#D9B2A3; //#00a6a8
+  --theme-header:#D9B2A3;
+  --theme-button:#D9B2A3;
+  --theme-heading:#D9B2A3;
+  --theme-activeBtn:#D9B2A3;//#01A3A4       
+  --theme-plusBtn:#D9B2A3; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #D9B2A3;//#01A3A4;
+  --theme-plusBtnWaterGuage:#D9B2A3;  //#509bed;   
+  --theme-minusBtnWaterGuage:#D9B2A3;  //#509bed;  
+  --theme-waterCenterPercent:#D9B2A3;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #D9B2A3; //#01A3A5;
+  --theme-color:#D9B2A3; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #D9B2A3 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#b9feff; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+
+
+
+  // new vars
+
+  --theme-color:#D9B2A3;
+  --theme-newHeader:#D9B2A3;
+  --theme-newButton:#D9B2A3;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:#D9B2A3;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.875rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:1.125rem; //18px
+  --large-font:1.5rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#B8E6F5;
+  --normal-color:#393939;
+  --cercle-progress:#B8E6F5;
+
+}
+
+body[color-theme="beato"] {
+  --arrow-color:#17a2b8;
+  --goal: #F5F5F5;
+  --profile-color: #17a2b8;
+  --graph-background:#fff;
+  --close-edit-color: #17a2b8;
+  --new-background: #fafafa;
+  --new-border-color: #f4f4f4;
+  --theme-color-new:#17a2b8;
+  
+  --theme-background:#17a2b8; //#00a6a8
+  --theme-header:#17a2b8;
+  --theme-button:#17a2b8;
+  --theme-heading:#17a2b8;
+  --theme-activeBtn:#17a2b8;//#01A3A4       
+  --theme-plusBtn:#17a2b8; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #17a2b8;//#01A3A4;
+  --theme-plusBtnWaterGuage:#17a2b8;  //#509bed;   
+  --theme-minusBtnWaterGuage:#17a2b8;  //#509bed;  
+  --theme-waterCenterPercent:#17a2b8;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #17a2b8; //#01A3A5;
+  --theme-color:#17a2b8; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #17a2b8 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+  // new vars
+  --theme-color:#17a2b8;
+  --theme-newHeader:#F2B70B;
+  --theme-newButton:#17a2b8;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:#17a2b8;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#F2B70B;
+  --normal-color:#393939;
+  --cercle-progress:#F2B70B;
+
+}
+
+body[color-theme="infinite"] {
+
+  --arrow-color:#D9B2A3;
+  --arrow-color:#D9B2A3;
+  --goal: #D9B2A3;
+  --profile-color: #D9B2A3;
+
+  --theme-background:#D9B2A3; //#00a6a8
+  --theme-header:#D9B2A3;
+  --theme-button:#D9B2A3;
+  --theme-heading:#D9B2A3;
+  --theme-activeBtn:#D9B2A3;//#01A3A4       
+  --theme-plusBtn:#D9B2A3; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #D9B2A3;//#01A3A4;
+  --theme-plusBtnWaterGuage:#D9B2A3;  //#509bed;   
+  --theme-minusBtnWaterGuage:#D9B2A3;  //#509bed;  
+  --theme-waterCenterPercent:#D9B2A3;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #D9B2A3; //#01A3A5;
+  --theme-color:#D9B2A3; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #D9B2A3 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#b9feff; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+
+
+
+  // new vars
+
+  --theme-color:#D9B2A3;
+  --theme-newHeader:#D9B2A3;
+  --theme-newButton:#D9B2A3;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:#D9B2A3;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.875rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:1.125rem; //18px
+  --large-font:1.5rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#B8E6F5;
+  --normal-color:#393939;
+  --cercle-progress:#B8E6F5;
+
+  --arrow-color:#B8E6F5;
+  --goal: #B8E6F5;
+  --profile-color: #707070;
+  --graph-background:#B8E6F5;
+  --close-edit-color: #B8E6F5;
+  --new-background: #B8E6F5;
+  --new-border-color: #B8E6F5;
+  --theme-color-new:#B8E6F5;
+}
+
+
+body[color-theme="kapiva"] {
+
+  --theme-background:#99b949; //#00a6a8
+  --theme-header:#99b949;
+  --theme-button:#99b949;
+  --theme-heading:#99b949;
+  --theme-activeBtn:#99b949;//#01A3A4       
+  --theme-plusBtn:#99b949; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #99b949;//#01A3A4;
+  --theme-plusBtnWaterGuage:#99b949;  //#509bed;   
+  --theme-minusBtnWaterGuage:#99b949;  //#509bed;  
+  --theme-waterCenterPercent:#99b949;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #99b949; //#01A3A5;
+  --theme-color:#99b949; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #99b949 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+  // new vars
+  --theme-color:#99b949;
+  --theme-newHeader:#F2B70B;
+  --theme-newButton:#99b949;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#F2B70B;
+  --normal-color:#393939;
+  --cercle-progress:#F2B70B;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  --goal: #99b949ab;
+  --profile-color: #99b949;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #59702f;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#59702f;
+}
+
+body[color-theme="traya"] {
+
+  --theme-background:#B7d340; //#00a6a8
+  --theme-header:#B7d340;
+  --theme-button:#B7d340;
+  --theme-heading:#B7d340;
+  --theme-activeBtn:#B7d340;//#01A3A4       
+  --theme-plusBtn:#B7d340; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #B7d340;//#01A3A4;
+  --theme-plusBtnWaterGuage:#B7d340;  //#509bed;   
+  --theme-minusBtnWaterGuage:#B7d340;  //#509bed;  
+  --theme-waterCenterPercent:#B7d340;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #B7d340; //#01A3A5;
+  --theme-color:#B7d340; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #B7d340 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+  // new vars
+  --theme-color:#99b949;
+  --theme-newHeader:#F2B70B;
+  --theme-newButton:#99b949;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#F2B70B;
+  --normal-color:#393939;
+  --cercle-progress:#F2B70B;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  --goal: #B7d340;
+  --profile-color: #B7d340;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #59702f;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#59702f;
+}
+
+body[color-theme="fitelo"] {
+
+  --theme-background:#ff8643; //#00a6a8
+  --theme-header:#ff8643;
+  --theme-button:#ff8643;
+  --theme-heading:#ff8643;
+  --theme-activeBtn:#ff8643;//#01A3A4       
+  --theme-plusBtn:#ff8643; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #ff8643;//#01A3A4;
+  --theme-plusBtnWaterGuage:#ff8643;  //#509bed;   
+  --theme-minusBtnWaterGuage:#ff8643;  //#509bed;  
+  --theme-waterCenterPercent:#ff8643;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #ff8643; //#01A3A5;
+  --theme-color:#ff8643; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #ff8643 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+  // new vars
+  --theme-color:#ff8643;
+  --theme-newHeader:#F2B70B;
+  --theme-newButton:#ff8643;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#F2B70B;
+  --normal-color:#393939;
+  --cercle-progress:#F2B70B;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  --goal: #99e8d3;
+  --profile-color: #ff8643;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #ff8643;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#ff8643;
+}
+
+body[color-theme="common"] {
+
+  --theme-background:#D83176; //#00a6a8
+  --theme-header:#D83176;
+  --theme-button:#D83176;
+  --theme-heading:#D83176;
+  --theme-activeBtn:#D83176;//#01A3A4       
+  --theme-plusBtn:#D83176; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #D83176;//#01A3A4;
+  --theme-plusBtnWaterGuage:#D83176;  //#509bed;   
+  --theme-minusBtnWaterGuage:#D83176;  //#509bed;  
+  --theme-waterCenterPercent:#D83176;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #D83176; //#01A3A5;
+  --theme-color:#D83176; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #D83176 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+  // new vars
+  --theme-color:#D83176;
+  --theme-newHeader:#F2B70B;
+  --theme-newButton:#D83176;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'Rubik', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#F2B70B;
+  --normal-color:#393939;
+  --cercle-progress:#F2B70B;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  --goal: #99e8d3;
+  --profile-color: #D83176;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #D83176;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#D83176;
+}

@@ -1,0 +1,261 @@
+.mainDiv{
+    height: 100%;
+    width: 100%;
+}
+
+ion-content::part(background){
+    --background: var(--theme-newHeader);
+}
+
+// ion-content::part(scroll){
+//     overflow-y: hidden;   
+// }
+
+.slider_div{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    // padding-left: 5%;
+    position: relative;
+}
+
+
+.content_div{
+    min-height:85%;
+    width: 100%;
+    background: var(--white);
+    border-radius: 30px 30px 0px 0px;
+    padding:20px 0px;
+}
+
+.content_sub_div{
+    padding:0px 5%;
+}
+
+.slider_page{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page_Count{
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--white);
+    border-radius: 100%;
+    font-size:var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--theme-newHeader);
+    font-family: var(--theme-newFont);
+}
+
+.page_Count_active{
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--white);
+    border-radius: 100%;
+    font-size:var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-newHeader);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--black);
+    font-family: var(--theme-newFont);
+}
+
+.complete{
+    border: 2px solid var(--black) !important;
+}
+
+.lines{
+    border: 1px solid var(--white);
+    width: 90%;
+    position: absolute;
+}
+
+.lines2{
+   
+    width: 90%;
+    position: absolute;
+
+    div{
+        width: 75%;
+        border: 1px solid var(--black);
+    }
+}
+
+.title-text{
+    font-size: var(--regular-font);
+   font-family: var(--theme-newFont);
+   color: var(--black);
+   margin:10px 5%;
+}
+
+.title{
+    font-size: var(--large-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    font-weight: 700;
+}
+
+.condition_card{
+    background: var(--lightGrey);
+    border: 1.5px solid var(--card-border);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 30px 5%;
+    
+}
+
+.card_div{
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    // margin: 30px 5% 0px;
+
+
+    ion-radio{
+        // --color:var(--theme-color);
+        --color-checked:var(--theme-color);
+       }
+}
+
+
+.fitness{
+    font-size: var(--medium-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    font-weight: 700;
+    margin: 5px 0px;
+}
+
+.section-card{
+    margin: 0%;
+    width: 100%;
+    box-shadow: none;
+    /* border-radius: 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60px;
+    border-bottom: 1px solid var(--card-border);
+    
+}
+
+.card_Border{
+    border:2px solid var(--theme-color)
+}
+
+.desc{
+    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    color: var(--black);
+    font-weight: 300;
+    margin: 0%;
+    width: 60%;
+}
+
+.card_image{
+    height: 80px;
+    object-fit: contain;
+    position: absolute;
+    z-index: 10;
+    right: -10px;
+    bottom: 10px;
+}
+
+.i{
+    background: var(--theme-newButton);
+    padding: 3px 7px;
+    border-radius: 5px;
+    color: var(--white);
+    font-size: 10px;
+    margin-left: 10px;
+}
+
+.label_checkbox{
+    font-size: .7rem;
+    font-family: var(--theme-newFont);
+    color: var(--normal-color);
+    width: 100%;
+    flex-wrap: wrap;
+    white-space: normal;
+}
+.condition{
+    color: var(--theme-color);
+}
+
+ion-checkbox{
+    margin-inline-end: 10px;
+    --border-radius: 5px;
+    --border-width: 2px;
+    --border-color:var(--theme-newButton);
+    --background:var(--radio-background);
+    --background-checked:var(--theme-newButton);
+    --border-color-checked: var(--theme-newButton);
+    --checkmark-color: var(--white);
+    font-size: var(--small-font);
+}
+
+.check_item{
+    --background: transparent;
+    --padding-start:0px !important;
+}
+
+.more_btn{
+    height: 40px;
+    width: 40%;
+    margin-left: 30%;
+    margin-bottom: -30px;
+    &::part(native){
+        --background: var(--white);
+        text-transform: none;
+        box-shadow: none;
+        color: var(--theme-newButton);;
+        font-family: var(--theme-newFont);
+        border-color: var(--theme-newButton);
+    }
+}
+
+.go_btn_div{
+    margin-top:50px;
+}
+
+.go_btn{
+    height: 50px;
+    width: 80%;
+    &::part(native){
+        --background: var(--theme-newButton);
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--white);
+        font-family: var(--theme-newFont);
+    }
+}
+
+
+
+.back_btn{
+    height: 50px;
+    width: 80%;
+    &::part(native){
+        --background: var(--white);
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--theme-newButton);;
+        font-family: var(--theme-newFont);
+        border-color: var(--theme-newButton);
+    }
+}

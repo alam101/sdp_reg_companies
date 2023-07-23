@@ -1,0 +1,247 @@
+<!-- <ion-header  class="--header">
+ 
+</ion-header> -->
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)" id="mainContainer" *ngIf="!streamVideo">
+  <div style="top:1rem; position:relative;">
+    <ion-row>
+      <ion-col size="2"></ion-col>
+      <ion-col size="8" class="ion-text-left ion-align-self-center">
+       <div style="width: 100%;
+       height: 36px;
+       position: relative;
+       border-radius: 1rem;
+       left: 1rem;" class="--goal">
+      <ion-icon name="person-outline" (click)="gotoProfile()" class="--profile-img" style="position: relative;
+      height: 21px;
+      width: 21px;
+      border-radius: 25px;
+      padding: 0.7rem;top: -5px;"></ion-icon>
+       <!-- <img (click)="gotoProfile()" src="./assets/newImages/profile-image.png" style="    position: relative; -->
+       <!-- top: -3px;"> -->
+          <!-- <span (click)="gotoProfile()" *ngIf="!profilePic || profilePic ==''" class="--profile" [ngStyle]="{'right':profileInititals?.length==2?'6%':'9%'}">
+            {{profileInititals}}
+          </span> -->
+          <span style="font-size: .751rem;
+          position: absolute;
+          top: 28%;
+          left: 28%;">My Goal: <b style="font-size: .851rem;">{{profileData?.profile?.subCategory}}</b></span>
+        </div>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </div>
+  <div>
+    
+  <div style="border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;background-color: #fff;z-index:10;">
+  <div style="    top: 2.5rem;
+  position: relative;
+  margin: 0 20%;">
+    <ion-row *ngIf="weeks && weeks.length" class="date-container">
+      <ion-col  class="ion-text-center">
+        <ion-icon class="date-arrows arrow" name="chevron-back-outline" id="date-prev-arrow" *ngIf="currentDateIndex>0" (click)="prevDateNew()"></ion-icon>
+        <ion-icon class="date-arrows arrow color-grey" name="chevron-back-outline" id="date-prev-arrow" *ngIf="currentDateIndex===0"></ion-icon>
+      </ion-col>
+  
+      <ion-col size="8">
+        <ion-slides #slides2 [options]="slideOptsDate" pager="false" (ionSlideDidChange)="dateSlideChanged($event)">
+          <ion-slide *ngFor="let week of weeks;let i=index;">
+            <span class="date header-date" id="currentDate">{{week.displayFormat}}</span>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-icon class="date-arrows arrow" name="chevron-forward-outline" id="date-next-arrow" *ngIf="currentDateIndex<6"  (click)="nextDateNew()"></ion-icon>
+        <ion-icon class="date-arrows arrow color-grey" name="chevron-forward-outline" id="date-next-arrow" *ngIf="currentDateIndex===6"></ion-icon>
+      </ion-col>
+    </ion-row>
+  
+    <!-- <div style="width: 100%; overflow-x: scroll;position: relative;
+    top: -30px;">
+    <ion-row class="row-date"  style="width:144%;border-bottom: 1.5px solid #b3b3b3;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;">
+      <ion-col size=".4"></ion-col>
+      <ion-col size="1.6" class="ion-text-center" (click)="clickDate(day[0],holdeIndex[0])">
+        <div [ngClass]="{'activeColor':isActiveDay==day[0]}">
+          <span style="font-size:.75rem;">Today</span><br>
+          <span style="font-size:.75rem;">{{day[0]}}</span>
+        </div>
+        <div  [ngClass]="{'activeDiv':isActiveDay==day[0]}" style="height: 4px;display: inline-block;"></div>
+      </ion-col>
+      <ion-col size="1.6" class="ion-text-center" (click)="clickDate(day[1],holdeIndex[1])">
+        <div [ngClass]="{'activeColor':isActiveDay==day[1]}">
+        <span style="font-size:.75rem;">Tomorrow</span><br>
+        <span style="font-size:.75rem;">{{day[1]}}</span>
+      </div>
+        <div  [ngClass]="{'activeDiv':isActiveDay==day[1]}" style="height: 4px;display: inline-block;"></div>
+      </ion-col>
+      <ion-col size="1.6" class="ion-text-center" (click)="clickDate(day[2],holdeIndex[2])">
+        <div [ngClass]="{'activeColor':isActiveDay==day[2]}">
+          <span style="font-size:.75rem;">{{dayName[2]}}</span><br>
+          <span style="font-size:.75rem;">{{day[2]}}</span>
+        </div>
+        <div [ngClass]="{'activeDiv':isActiveDay==day[2]}" style="height: 4px;display: inline-block;" ></div>
+      </ion-col>
+      <ion-col size="1.6" class="ion-text-center" (click)="clickDate(day[3],holdeIndex[3])">
+        <div [ngClass]="{'activeColor':isActiveDay==day[3]}">
+          <span style="font-size:.75rem;">{{dayName[3]}}</span><br>
+          <span style="font-size:.75rem;">{{day[3]}}</span>
+        </div>
+        <div  [ngClass]="{'activeDiv':isActiveDay==day[3]}" style="height: 4px;display: inline-block;"></div>
+      </ion-col>
+      <ion-col size="1.6" class="ion-text-center" (click)="clickDate(day[4],holdeIndex[4])">
+        <div [ngClass]="{'activeColor':isActiveDay==day[4]}">
+          <span style="font-size:.75rem;">{{dayName[4]}}</span><br>
+          <span style="font-size:.75rem;">{{day[4]}}</span>
+        </div>
+        <div [ngClass]="{'activeDiv':isActiveDay==day[4]}" style="height: 4px;display: inline-block;"></div>
+      </ion-col>
+      <ion-col size="1.6" class="ion-text-center" (click)="clickDate(day[5],holdeIndex[5])">
+        <div [ngClass]="{'activeColor':isActiveDay==day[5]}">
+          <span style="font-size:.75rem;">{{dayName[5]}}</span><br>
+          <span style="font-size:.75rem;">{{day[5]}}</span>
+        </div>
+        <div [ngClass]="{'activeDiv':isActiveDay==day[5]}" style="height: 6px;display: inline-block;"></div>
+      </ion-col>
+      <ion-col size="1.6" class="ion-text-center" (click)="clickDate(day[6],holdeIndex[6])">
+        <div [ngClass]="{'activeColor':isActiveDay==day[6]}">
+          <span style="font-size:.75rem;">{{dayName[6]}}</span><br>
+          <span style="font-size:.75rem;">{{day[6]}}</span>
+        </div>
+        <div [ngClass]="{'activeDiv':isActiveDay==day[6]}" style="height: 6px;display: inline-block;"></div>
+      </ion-col>
+      <ion-col size=".4"></ion-col>
+    </ion-row>
+  </div> -->
+  </div>
+  <div style="position: relative;top:3.5rem;bottom: 2rem">
+    <ion-row>
+      <ion-col class="ion-text-center --name">
+        Welcome : {{profileName}}
+      </ion-col>
+    </ion-row>
+  </div>
+ 
+  <div style="top:3rem; position:relative;height: 20px;background: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%);">
+    <div>
+      <div class="parent-color">
+
+             <!-- <ion-card style="padding: 1.5rem;
+             height: 40px;
+             min-height: 115px;
+             width: 100%; margin-top: 0;">   
+              <ion-row class="bottom-activities ion-padding-bottom">
+                <ion-col class="ion-text-center ion-align-self-center">
+                  <div>
+                    <span class="--calname">Protein</span><br>
+                    <img src="./assets/img/protien-mini.svg" style="margin-top: 5px;"><br>
+                    <span style="color:#000000;font-size:.8rem;">
+                      {{suggestedCalories.totalProtien}} gm ({{suggestedCalories.totalProtienPer}}%)
+                    </span>
+                  </div>
+                </ion-col>
+                <ion-col class="ion-text-center ion-align-self-center">
+                  <div>
+                    <span class="--calname">Fat</span><br>
+                    <img src="./assets/img/fats-mini.svg"><br>
+                    <span style="color:#000000;font-size:.8rem;">
+                      {{suggestedCalories.totalFat}} gm ({{suggestedCalories.totalFatPer}}%)
+                    </span>
+                  </div>
+                </ion-col>
+                <ion-col class="ion-text-center ion-align-self-center">
+                  <div>
+                    <span class="--calname">Carbs</span><br>
+                    <img src="./assets/img/carbs-mini.svg"><br>
+                    <span style="color:#000000;font-size:.8rem;">
+                      {{suggestedCalories.totalCarbs}} gm ({{suggestedCalories.totalCarbsPer}}%)
+                    </span>
+                  </div>
+                </ion-col>
+              </ion-row>   
+            </ion-card> 
+           -->
+           
+           <div>
+             <app-new-calories *ngIf="!isSkel"
+             [allData]="allData"
+             PlusIconRoute="/todays-calorie-count" 
+             [lifeStyle]="profileData?.lifeStyle"
+             ></app-new-calories>
+             <ion-card *ngIf="isSkel" style="max-height: 400px;
+             height: 315px;
+             width: 90%;
+             display: inline-block;
+             left: 5%;">
+              <ion-skeleton-text animated class="diet-plan-skeleton"></ion-skeleton-text>
+            </ion-card>
+            </div>
+           <div>
+             <ion-row>
+               <ion-col size="8" class="ion-text-left ion-align-self-center">
+                 <span class="diet-for">Diet for {{planDatedisplay}}</span>
+               </ion-col>
+               <ion-col size="4" class="ion-text-right ion-align-self-center">
+                <ion-row style="right:.5rem;position: relative;">
+          
+                  <ion-col class="ion-text-right" size="8">
+                    <div class="round-border" *ngIf="!isDetox" (click)="gotoDownloadPopup()">
+                      <!-- <img src="./assets/img/download-image.png" > -->
+                      <ion-icon name="download-outline" class="download"></ion-icon>
+                      <!-- <ion-icon name="download-outline" style="color:#575757"></ion-icon> -->
+                    </div>
+                  </ion-col>
+                  <ion-col class="ion-text-center" size="4">
+                    <div class="round-border" *ngIf="!isDetox" (click)=" goToAnalysis()">
+                      <!-- <img src="./assets/img/analysis-image.png" > -->
+                      <ion-icon name="pie-chart-outline" class="analysis"></ion-icon>
+                      <!-- <ion-icon name="bar-chart-outline" style="color:#575757"></ion-icon> -->
+                    </div>
+                  </ion-col>
+                  <!-- <ion-col class="ion-text-center" size="4">
+                    <div class="round-border" *ngIf="!isDetox" (click)="changePlan()">
+                      <ion-icon name="git-compare-outline" style="color:#575757"></ion-icon>
+                    </div>
+                  </ion-col> -->
+                </ion-row>
+               </ion-col>
+             </ion-row>
+           </div> 
+           <br>
+          <ion-row>
+            <ion-col>
+                 <app-home-vertical  [isPlanActiveForDiet]="!isPlanActiveForDiet" *ngIf="diets && diets.length != 0 " #child [diets]="diets" (removeItem)="removeFoodItemFromChild($event)"  (refreshDiet)="refreshFoodItemFromChild($event)" (kcounter)="callTotalCounter($event)" (counterData)="kCounterData($event)" 
+                 (consumedProtein)="consumedProteinData($event)" [slotIndex]="activeSlotIndex"></app-home-vertical>
+                 <!-- <app-home-vertical-lock [isPlanActiveForDiet]="isPlanActiveForDiet" *ngIf="diets && diets.length != 0 && !isPlanActiveForDiet" #child [diets]="diets" [slotDiet]="slotDiet" (removeItem)="removeFoodItemFromChild($event)" (refreshDiet)="refreshFoodItemFromChild($event)" (kcounter)="callTotalCounter($event)" [slotIndex]="activeSlotIndex"></app-home-vertical-lock> -->
+                 <div *ngIf="diets && diets.length == 0">
+                 <ion-card style="max-height: 400px;
+                 height: 315px;
+                 width: 90%;
+                 display: inline-block;
+                 left: 5%;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"></ion-skeleton-text>
+                </ion-card>
+                <ion-card style="max-height: 400px;
+                height: 315px;
+                width: 90%;
+                display: inline-block;
+                left: 5%;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"></ion-skeleton-text>
+                </ion-card>
+                <ion-card style="max-height: 400px;
+                height: 315px;
+                width: 90%;
+                display: inline-block;
+                left: 5%;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"></ion-skeleton-text>
+                </ion-card>
+              </div>
+                </ion-col>
+          </ion-row>
+</div></div></div>
+</div>
+</div>
+</ion-content>
+

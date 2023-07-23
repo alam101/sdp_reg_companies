@@ -1,0 +1,84 @@
+<div>
+<div class="--vitals">
+<ion-list lines="none">
+    <ion-item class="ion-no-padding">
+        <img src="./assets/images/gender.png" slot="start">
+        <ion-label [ngClass]="{'cust-red':isvalidated[0]}">Gender</ion-label>
+        <ion-row slot="end">
+            <span *ngFor="let gen of userDetail.gender; let ind=index">
+
+            <ion-col *ngIf="gen.code!='G3'" class="ion-text-center ion-align-self-center" (click)="selectedGender(gen.code,gen.value,ind)">
+                 <div  class="inactive-gender" style="margin-right:.4rem" [ngClass]="{'active-gender':ind==selectedIndex}">{{gen.value}}</div>
+            </ion-col> 
+        
+        </span>
+        </ion-row>
+    </ion-item>
+    <ion-item class="ion-no-padding">
+        <img src="./assets/images/height.png" slot="start">
+        <ion-label [ngClass]="{'cust-red':isvalidated[1]}" style="max-width: 80px;">Height</ion-label>
+         <ion-row slot="end" style="width:200px;">
+            <ion-col class="ion-text-center ion-align-self-center">
+                <ion-select [interfaceOptions]="{'cssClass': '-wider-popover'}" interface="popover" 
+                [compareWith]="compareWith" value="{{selectedItem}}" (ionChange)="optionsFn($event.detail.value);" placeholder="Select Height" style="    display: inline-flex;
+                min-width: 100%;">
+                    <ion-select-option value="{{item.cm}}" *ngFor="let item of options"  style="text-align: center;">{{item.feet}} ft {{item.inch}} in</ion-select-option> 
+                  </ion-select>
+            </ion-col>
+        </ion-row> 
+    </ion-item>
+    <ion-item class="ion-no-padding">
+        <img src="./assets/images/weight.png" slot="start">
+        <ion-label [ngClass]="{'cust-red':isvalidated[2]}">Body Weight</ion-label>
+        <!-- *ngIf="userDetail.weight.unit=='kg'" -->
+        <ion-row slot="end" >
+            <ion-col>
+                <ion-row>
+                    <ion-col class="ion-text-center ion-align-self-center">
+                        <input #weightId type="tel" class="kg" [value]="userDetail.weight?.length==0?0:userDetail.weight[0].value"/></ion-col>
+                    <ion-col class="ion-text-center ion-align-self-center">
+                        <span class="l-name"> Kg</span></ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <!-- <ion-row slot="end" *ngIf="userDetail.weight.unit!='kg'">
+            <ion-col>
+                <ion-row>
+                    <ion-col class="ion-text-center ion-align-self-center">
+                        <input #weightId type="tel" class="kg"  value="{{weight}}"/></ion-col>
+                    <ion-col class="ion-text-center ion-align-self-center">
+                        <span class="l-name">Kg</span></ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row> -->
+    </ion-item>
+    <ion-item class="ion-no-padding">
+        <img src="./assets/images/yob.png" slot="start">
+        <ion-label [ngClass]="{'cust-red':isvalidated[3]}">Year of Birth</ion-label>
+        <ion-row slot="end">
+            <ion-col>
+                <input type="number" #yob class="yob" [value]="yearofBirth"/>
+            </ion-col>
+        </ion-row>
+    </ion-item>
+</ion-list>
+</div>
+<div style="margin-left: .8rem;">
+    <app-term (isTermAccepted)="isTermAccepted($event)" [isTerm]="termAccepted"></app-term>
+</div>
+<div class="action" style="bottom: 56px;
+width: 80%;
+margin: 0 auto;
+position: absolute;
+left: 10%;">
+    <div class="error-validation" >{{message || msgTerm}}</div><br>
+    <ion-row>
+        <ion-col class="ion-text-center">
+            <app-button-previous (gotoPrevious)="gotoPrevious($event)"><div>Previous</div></app-button-previous>
+        </ion-col>
+        <ion-col class="ion-text-center">
+            <app-button (gotoNextEmit)="gotoNext($event)"><div>Next</div></app-button>
+        </ion-col>
+    </ion-row>
+  </div>
+</div>

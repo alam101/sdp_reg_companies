@@ -1,0 +1,35 @@
+
+<div class="--footer">
+    <ion-footer collapse="fade">
+        <ion-toolbar>
+            <ion-row class="footer-row">
+                <ion-col class="ion-text-center ion-align-self-center">
+                    <!-- <img src="./assets/images/home.svg"  *ngIf="active==1"> -->
+                    <!-- <img src="./assets/images/home.svg" *ngIf="active!=1"> -->
+                    <ion-icon name="home" [ngClass]="{'active-icon':active==1}"></ion-icon>
+                    <br>
+                    <span [ngClass]="{'active':active==1}">Home</span>
+                </ion-col>
+                <ion-col class="ion-text-center ion-align-self-center">
+                    <img src="./assets/images/news.svg" *ngIf="active==2">
+                    <img src="./assets/images/news.svg" *ngIf="active!=2">
+                    <br>
+                    <span>News</span>
+                </ion-col>
+                <ion-col class="ion-text-center ion-align-self-center">
+                    <img src="./assets/images/qna.svg" *ngIf="active==3">
+                    <img src="./assets/images/qna.svg" *ngIf="active!=3">
+                    <br>
+                    <span>QnA</span>
+                </ion-col>
+                <ion-col class="ion-text-center ion-align-self-center">
+                    <img src="./assets/images/profile.svg" *ngIf="active==4">
+                    <img src="./assets/images/profile.svg" *ngIf="active!=4">
+                    <br>
+                    <span>Profile</span>
+                </ion-col>
+            </ion-row>
+
+        </ion-toolbar>
+    </ion-footer>
+</div>

@@ -1,0 +1,555 @@
+.water_main_card{
+    height: 275px;
+    padding: 2px;
+    position: relative;
+    // height: 300px;
+    justify-content: flex-start !important;
+    box-shadow: var(--boxshadow);
+}
+
+.header_div{
+    background: #C6EFFF;
+    border-radius: 5px;
+    width: 100%;
+ 
+
+    ion-img{
+        height:15px !important;
+    }
+
+    p{
+        font-size: var(--small-font);
+        margin: 7px;
+        font-family: var(--theme-newFont);
+        font-weight: 500;
+        color: var(--black);
+    }
+}
+
+.water_drop_img{
+    height: 150px;
+   
+    z-index: 1;
+}
+
+.consumed_water{
+    font-size: var(--xsmall-font);
+    color: var(--black);
+    font-family: var(--theme-newFont);
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+}
+
+.recommanded{
+    font-size: var(--xsmall-font);
+    margin: 20px 0px 0px;
+    color: var(--black);
+    font-family: var(--theme-newFont);
+}
+
+.ltr{
+    font-size: var(--small-font);
+    margin: 0px 0px 20px;
+    color: var(--black);
+    font-family: var(--theme-newFont);
+    font-weight: 700;
+}
+
+.water_drop_main_div{
+    margin-top: 20px;
+    position:relative;
+}
+
+.water-animation{
+    *, *:before, *:after {
+      box-sizing: border-box;
+      outline: none;
+    }
+    $bgColor:#020438;
+    $boxColor:#020438;
+    $waterFColor:#4D6DE3;
+    $waterBColor:#C7EEFF;
+  
+    .water_guage_div{
+        transform: rotate(45deg);
+    }
+  
+    .box{
+        height: 102px !important;
+        width: 101px !important;
+        position: absolute;
+        top: 30px;
+        transform: translate(-50%, -50%);
+        // background: #d4eeff;
+        background: var(--white);
+        border: 2px solid #7daef9;
+        border-radius: 80% 0 55% 50%/55% 0 80% 50%;
+        transform: rotate(-45deg);
+        overflow: hidden;
+      .percent{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index:3;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        display: -webkit-flex;
+        align-items:center;
+        justify-content:center; 
+        color:#fff;
+        font-size:64px;
+      } 
+      .water{
+
+        position: absolute;
+        left: 17px;
+        bottom: -59px;
+        z-index: -1;
+        width: 100%;
+        height: 113px;
+        transform: translate(0, 100%);
+        background: #7daef9;
+        transition: all 0.3s;
+
+        &_wave{
+          width: 200%;
+          position: absolute;
+          bottom: 100%;
+          &_back {
+            right: 0;
+            fill: rgb(125,174,249);
+            animation: wave-back 1.4s infinite linear;
+          }
+          &_front {
+            left: 0;
+            fill: rgb(125,174,249);
+            margin-bottom: -1px;
+            animation: wave-front .7s infinite linear;
+          }
+        }
+      }
+  
+    }
+    @keyframes wave-front {
+      100% {
+        transform: translate(-50%, 0);
+      }
+    }
+    
+    @keyframes wave-back {
+      100% {
+        transform: translate(50%, 0);
+      }
+    }
+  }
+
+  .custom-height-width-155{
+    height: 155px !important;
+    width: 155px !important;
+    max-height: 1000px;
+  }
+
+  .water-center-percent{
+  
+    color:var(--theme-waterCenterPercent) !important;    
+  }
+
+  .plus_icon{
+    position: absolute;
+    right: -15px;
+    bottom: -5px;
+    font-size: 40px;
+    z-index: 1;
+    border-radius: 100%;
+    background: white;
+    color: var(--theme-newButton);
+  }
+
+
+
+// ----------------------------------------------------------
+// @import "../../../..//theme/fonts.scss";
+// .habbit-label {
+//     font-size: 1rem;
+//     // color: #333 !important;
+//     //color:#01a3a4 !important;
+//     color:var(--theme-text-color) !important;
+//     white-space: normal;
+//     font-family: $font;
+//     --padding-start: 5px;
+//     // font-weight: bold;
+//   }
+// .more_tip_container{
+//     display: inline-flex;
+//   }
+//   .tip{
+//     height: 65px;
+//     align-self: center;
+//   }
+//   .more_tip{
+//     height: 44px;
+//     align-self: center;
+//   }
+//   .more_text{
+//     font-size: 0.7rem;
+//     font-weight: bold;
+//     color: #509bed;
+//     margin: 0;
+//   }
+  
+//   .more_tip_box{
+//     align-self: center;
+//     text-align: center;
+//   }
+
+  
+  
+//   @media (min-width: 770px) {
+   
+//     .water-weight-section{
+//       height: 356px;
+//     }
+   
+//   }
+  
+// .add{
+//   position: relative;
+//   top: 90px;
+//   font-size: 2.2rem;
+//   //color: #509bed;   
+//   color:var(--theme-plusBtnWaterGuage) !important;
+
+// }
+// .minus{
+//   position: relative;
+//   top: 90px;
+//   font-size: 2.2rem;
+//   left: 5px;
+//  // color: #509bed; 
+//   color:var(--theme-minusBtnWaterGuage) !important;
+// }
+//   .water-plus{
+//     color: #FFF;
+//     --background: #509bed;
+//     height: 30px;
+//     width: 30px;
+//     position: relative;
+//     top: 90px;
+//     --border-radius: 50%;    
+//   span{
+//     font-size: 2.1rem;
+//     position: relative;
+// }
+  
+//   }
+//   .water-minus{
+//     color: #FFF;
+//     --background: #509bed;
+//     height: 30px;
+//     width: 30px;
+//     position: relative;
+//     top: 90px;
+//     --border-radius: 50%;    
+//   span{
+//     font-size: 2.5rem;
+//     position: relative;
+//     bottom: 2px;
+// }
+// }
+  
+//   .custom-height-width-155{
+//     height: 155px !important;
+//     width: 155px !important;
+//     max-height: 1000px;
+//   }
+//   .water-center-percent{
+//     // width: 60%;
+//     // height: 60%;
+//     // left: 20%;
+//     // top: 21%;
+//     // z-index: 14;
+//     // // background: #fff;
+//     // padding-top: 20%;
+//     // /* box-shadow: 0 3px 6px rgb(0 0 0 / 16%); */
+//     // display: inline-block;
+//     // border-radius: 50%;
+//     // position: absolute;
+
+//    // color:#1492E6;
+//     color:var(--theme-waterCenterPercent) !important;    
+//   }
+
+//   * {
+//     // margin: 0px;
+//     padding: 0px;
+//   }
+  
+//   .box {
+//     font-size: .9rem;
+//     margin-left:5px;
+//     margin-top: 15px;
+//     color: black;
+//     width: 100%;
+//     background: #dceffe;
+//     border: none;
+//     padding: 15px;
+//     text-align: center;
+//     font-weight: 500;
+//     position: relative;
+//   }
+
+//   .mr-20{
+//     margin: 20px auto;
+//   }
+  
+//   .sb2:before {
+//     content: "";
+//     width: 0px;
+//     height: 0px;
+//     position: absolute;
+//     border-left: 10px solid transparent;
+//     border-right: 10px solid #dceffe;
+//     border-top: 10px solid #dceffe;
+//     border-bottom: 10px solid transparent;
+//     left: -19px;
+//     top: 6px;
+//   }
+  
+  
+//   .water{
+//     .collaps-view{
+//       padding-top: 0;
+//       h3{
+//         font-size: 0.9rem;
+//         color:#3498DB;
+//         font-family: $font;
+//         font-weight: 500;
+//       }
+//       h2{
+//         font-size: 1.1rem;
+//         color:#F8719F;
+//         font-weight: 500;
+//       }
+//       h5{
+//         font-size: .6rem;
+//         color:#707070;
+//         font-family: $font;
+//       }
+    
+  
+  
+//     }
+//     .expended-view{
+//       .start-time{
+//         border-right:1px solid #b3b3b3;
+//         span:first-child{
+//           color:#707070;
+//           font-family: $font-bold;
+//           font-size: 1.6rem;
+//         }
+//         span:last-child{
+//           color:#333333;
+//           font-family: $font;
+//           font-size: .8rem;
+//         }
+//       } 
+//   }
+  
+//   }
+
+//   .water-weight-section{
+//     background: #F6F7FC;padding:.5rem .5rem 0 .5rem;
+//    // height: 230px;
+//   .water{
+//     // height: 268px;
+//     box-shadow: 0 5px 5px rgba(0,0,0,16%);
+//     .water-header{
+//       padding-top:7px;
+//       h2{
+//         margin:0 !important;
+//         color:#3498DB;
+//         font-size: .8rem;
+//         font-family: $font-bold;
+//       }
+//       .steps{
+//         span{
+//           color:#778CA3;
+//           font-size: .8rem;
+//           font-family: $font-bold;
+//         }
+//         ion-icon{
+//           color:#778CA3;
+//           font-size: .8rem;
+//         }
+//       }
+//     }
+//     ion-card-content{
+//       .footer{
+//       position: absolute;
+//       width: 100%;
+//       bottom: 0;
+//       }
+//     }
+//   }
+//   .weight{
+//     // height: 268px;
+//     width: 99%;
+//     margin-left: 1%;
+//     box-shadow: 0 5px 5px rgba(0,0,0,16%);
+//     .weight-header{
+//       padding-top: 8px;
+//       padding-left: 0;
+//       padding-right: 10px;
+//       h2{
+//         margin:0 !important;
+//         color:#01A3A4;
+//         font-size: .8rem;
+//         font-family: $font-bold;
+//       }
+//       .weight-color{
+//           color:#01A3A4;
+//         }
+//       }
+//     }
+//   }
+  
+//   .water_card{
+//     padding: 10px;
+//     padding-top: 10px;
+//     padding-bottom: 65px;
+//     max-height: unset;
+//     width: 95%;
+//     box-shadow: 0.2rem 0.2rem 0.5rem #b3b3b3;
+//   }
+  
+//   .font-size-1
+//   {
+//  font-size: 1.2rem;
+//  font-weight: 700;
+//   font-family: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+// }
+//   .glass{
+//       color:#707070;
+//   }
+
+//   @keyframes slide-up {
+//     from {
+        
+//         opacity: 1;
+//         line-height: 300px;
+//     }
+//     to {
+        
+//         opacity: 0;
+//         line-height: 25px;
+//         visibility: hidden;
+//     }
+//   }
+  
+//   .slide-up {
+//     animation: slide-up 4s;
+//   }
+  
+//   .custom_toast{
+//       position: absolute;
+//       top: -30%;
+//       left: 50%;
+//       transform: translateX(-50%);
+//       font-size: 15px;
+//       opacity: 0;
+//       color: #509bed;
+//       width: 200px;
+//       font-weight: bolder;
+//   }
+  
+//   .fade-in {
+//     animation: fadeIn ease 10s;
+//     -webkit-animation: fadeIn ease 10s;
+//     -moz-animation: fadeIn ease 10s;
+//     -o-animation: fadeIn ease 10s;
+//     -ms-animation: fadeIn ease 10s;
+//   }
+//   @keyframes fadeIn {
+//     0% {
+//       opacity:0;
+//     }
+//     100% {
+//       opacity:1;
+//     }
+//   }
+  
+//   @-moz-keyframes fadeIn {
+//     0% {
+//       opacity:0;
+//     }
+//     100% {
+//       opacity:1;
+//     }
+//   }
+  
+//   @-webkit-keyframes fadeIn {
+//     0% {
+//       opacity:0;
+//     }
+//     100% {
+//       opacity:1;
+//     }
+//   }
+  
+//   @-o-keyframes fadeIn {
+//     0% {
+//       opacity:0;
+//     }
+//     100% {
+//       opacity:1;
+//     }
+//   }
+  
+//   @-ms-keyframes fadeIn {
+//     0% {
+//       opacity:0;
+//     }
+//     100% {
+//       opacity:1;
+//     }
+//   }
+
+//   ion-content {
+//     --background: #F6F7FC !important;
+//     // --background: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;
+  
+//   }
+// //   ion-card{
+// //     // margin: 30px; 
+// //     margin: 17px 25px;
+// //     border-radius: 30px; 
+// //     box-shadow: none
+// //   }
+  
+//   .water-advice{
+//     position: absolute;
+//     left: 38%;
+//     padding-top: 198px;
+//     line-height: 1;
+//   }
+
+// .info-message-section{
+//   position: absolute;
+//   bottom: -315px;
+//   padding: 0 16px;
+//   width: 100%;
+//   .error-container{
+//     border-radius: 15px;
+//     // border:2px solid #01A3A4 !important;
+//     border:2px solid var(--theme-color) !important;
+//   }
+// }
+
+// .cardSubTitle {
+//   font-size: 1.2rem;
+//   //color:#01a3a4;
+//   color:var(--theme-text-color) !important;
+  
+// }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13.545" height="13.545" viewBox="0 0 13.545 13.545">
+  <g id="bar-chart-outline" transform="translate(0.5 0.5)">
+    <path id="Path_83626" data-name="Path 83626" d="M32,32V44.1a.448.448,0,0,0,.448.448h12.1" transform="translate(-32 -32)" fill="none" stroke="#575757" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <rect id="Rectangle_5201" data-name="Rectangle 5201" width="1.846" height="5.538" rx="0.923" transform="translate(1.846 5.467)" fill="none" stroke="#575757" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <rect id="Rectangle_5202" data-name="Rectangle 5202" width="2.461" height="6.768" rx="1.231" transform="translate(5.538 4.236)" fill="none" stroke="#575757" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <rect id="Rectangle_5203" data-name="Rectangle 5203" width="2.24" height="8.513" rx="1.12" transform="translate(9.847 2.24)" fill="none" stroke="#575757" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+  </g>
+</svg>

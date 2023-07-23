@@ -1,0 +1,4 @@
+@function rem($inPx) {
+  $inRem: $inPx / 16px; // default font size
+  @return #{$inRem}rem;
+}

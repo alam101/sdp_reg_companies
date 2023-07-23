@@ -1,0 +1,19 @@
+@import "../../../theme/fonts.scss";
+
+.parent{
+    background: transparent;
+width: 50px;
+height: 50px;
+text-align: center;
+position: fixed;
+top: 2px;
+left:0px;
+z-index:11;
+}
+.close-circle{
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    position: relative;
+    left: -10px;
+}

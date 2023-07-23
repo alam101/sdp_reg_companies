@@ -1,0 +1,216 @@
+<ion-content>
+  <br />
+  <ion-row>
+    <ion-col class="ion-text-right">
+      <a
+        (click)="next()"
+        style="font-size: 0.851rem; color: #1eabac; margin-right: 1rem"
+        (click)="skip()"
+        >Skip</a
+      >
+    </ion-col>
+  </ion-row>
+  <ion-slides
+    pager="true"
+    [options]="slideOpts"
+    #testSlider
+    (ionSlideDidChange)="do_getActiveSlide($event)"
+  >
+    <ion-slide>
+      <ion-card>
+        <ion-row
+          ><ion-col>
+            <img
+              src="./assets/newImages/f1.png"
+              style="max-height: 288px; height: auto; width: 100%"
+            /> </ion-col
+        ></ion-row>
+        <ion-row
+          style="
+            margin-top: 2rem;
+            margin-left: 1.5rem;
+            margin-right: 1rem;
+            text-align: left;
+          "
+          ><ion-col class="main-header">
+            <b> AI Based Diet Planner </b>
+          </ion-col></ion-row
+        >
+        <ion-row style="margin-left: 1rem; margin-right: 1rem; text-align: left"
+          ><ion-col class="normal-font">
+            <p style="text-align: left">
+              AI generated plan which has been designed by India’s top dietician
+              “Name”
+            </p>
+          </ion-col></ion-row
+        >
+        <!-- <ion-row><ion-col>
+            <ion-button shape="round" class="button-color" style="width: 55%;" (click)="forward()">Next</ion-button>
+          </ion-col></ion-row> -->
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-row
+          ><ion-col>
+            <img
+              src="./assets/newImages/f2.png"
+              style="max-height: 288px; height: auto; width: 100%"
+            /> </ion-col
+        ></ion-row>
+        <ion-row
+          style="
+            margin-top: 1rem;
+            margin-left: 1.5rem;
+            margin-right: 1rem;
+            text-align: left;
+          "
+          ><ion-col class="main-header">
+            Analyse what you eat for faster results
+          </ion-col></ion-row
+        >
+        <ion-row style="margin-left: 1rem; margin-right: 1rem; text-align: left"
+          ><ion-col class="normal-font">
+            <p style="text-align: left; margin-top: 0">
+              We all know the secret to fitness or being healthy is watching
+              what you eat and how much you eat. Track everything to the last
+              nutrient in your food
+            </p>
+          </ion-col></ion-row
+        >
+        <!-- <ion-row>
+            <ion-col style="text-align: left;">
+              <ion-button shape="round" (click)="back()" style="--background: transparent;color: #565655;">
+                <ion-icon name="arrow-back" style="--background: transparent;color: #1EABAC;text-align: left;"></ion-icon>
+                Back</ion-button>
+            </ion-col>
+            <ion-col>
+            <ion-button shape="round"  class="button-color" style="width: 55%;" (click)="forward()">Next</ion-button>
+          </ion-col></ion-row> -->
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-row
+          ><ion-col>
+            <img
+              src="./assets/newImages/f3.png"
+              style="max-height: 288px; height: auto; width: 100%"
+            /> </ion-col
+        ></ion-row>
+        <ion-row
+          style="
+            margin-top: 2rem;
+            margin-left: 1.5rem;
+            margin-right: 1rem;
+            text-align: left;
+          "
+          ><ion-col class="main-header">
+            <b> Get guidance throughout your journey </b>
+          </ion-col></ion-row
+        >
+        <ion-row style="margin-left: 1rem; margin-right: 1rem; text-align: left"
+          ><ion-col class="normal-font">
+            <p style="text-align: left">
+              You will be watched over by our specialists at diet front and
+              physical activity front as well
+            </p>
+          </ion-col></ion-row
+        >
+        <!-- <ion-row>
+            <ion-col style="text-align: left;">
+              <ion-button shape="round" (click)="back()" style="--background: transparent;color: #565655;">
+                <ion-icon name="arrow-back" style="--background: transparent;color: #1EABAC;text-align: left;"></ion-icon>
+                Back</ion-button>
+            </ion-col>
+            <ion-col>
+            <ion-button shape="round"  class="button-color" style="width: 55%;" (click)="forward()">Next</ion-button>
+          </ion-col></ion-row> -->
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card>
+        <ion-row
+          ><ion-col>
+            <img
+              src="./assets/newImages/f4.png"
+              style="max-height: 288px; height: auto; width: 100%"
+            /> </ion-col
+        ></ion-row>
+        <ion-row
+          style="
+            margin-top: 2rem;
+            margin-left: 1.5rem;
+            margin-right: 1rem;
+            text-align: left;
+          "
+          ><ion-col class="main-header">
+            <b> Food that suits your taste palette </b>
+          </ion-col></ion-row
+        >
+        <ion-row style="margin-left: 1rem; margin-right: 1rem; text-align: left"
+          ><ion-col class="normal-font">
+            <p style="text-align: left">
+              We provide plans which are based on your everyday lifestyle with
+              alternatives in real time and recipes which are doable in your
+              kitchen
+            </p>
+          </ion-col></ion-row
+        >
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <ion-row
+    *ngIf="slideIndex==0"
+    style="position: absolute; width: 100%; bottom: 50px; margin: 0 1rem"
+    ><ion-col class="ion-text-center">
+      <ion-button
+        shape="round"
+        class="button-color"
+        style="width: 55%"
+        (click)="forward()"
+        >Next</ion-button
+      >
+    </ion-col></ion-row
+  >
+  <ion-row
+    style="position: absolute; width: 86%; bottom: 50px; margin: 0 1rem"
+    *ngIf="slideIndex!=0"
+  >
+    <ion-col style="text-align: left">
+      <ion-button shape="round" (click)="back()" class="back-button">
+        <ion-icon
+          name="arrow-back"
+          style="--background: transparent; text-align: left"
+        ></ion-icon>
+        Back</ion-button>
+    </ion-col>
+    <ion-col style="text-align: right">
+      <ion-button
+        shape="round"
+        class="button-color"
+        style="width: 70%"
+        (click)="next()"
+      >
+        {{slideIndex!=3?'Next':'Get Started'}}
+      </ion-button>
+    </ion-col></ion-row
+  >
+
+  <div
+    style="
+      bottom: 0;
+      background: #f7bb41;
+      height: 22px;
+      width: 100%;
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
+      position: absolute;
+    "
+  >
+    <div></div>
+  </div>
+</ion-content>

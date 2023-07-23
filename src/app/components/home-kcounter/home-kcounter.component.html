@@ -1,0 +1,18 @@
+<img class="disable-traker-container" src="assets/img/eaten_kcal_main_disabled.svg" *ngIf="currentDateIndex > 0">
+<circle-progress radius="30" percent="{{totalTodaysCalories==0?0:totalTodaysCaloriesPerc}}" [innerStrokeColor]="'rgb(125,125,125,0.2)'" *ngIf="currentDateIndex == 0"
+  outerStrokeGradient="true"
+  [outerStrokeGradientStopColor]="totalTodaysCaloriesPerc < 100 ? '#93EAA9' : totalTodaysCaloriesPerc > 100 && totalTodaysCaloriesPerc <= 110 ? '#FCAF54'  : '#df5151'"
+  outerStrokeColor="{{totalTodaysCaloriesPerc < 100 ? '#45AD04' : totalTodaysCaloriesPerc > 100 && totalTodaysCaloriesPerc <= 110 ? '#FCAF54' : '#df5151'}}"
+  showImage="true" imageSrc="assets/img/eaten_kcal_main.svg" imageHeight="50" imageWidth="50"
+  backgroundColor="#fff" outerStrokeWidth="3" innerStrokeWidth="3"
+  title="{{roundingVal(totalTodaysCalories * 100/tolalCalories)}} " [titleColor]="'#45AD04'" space="-3"
+  subtitle="{{habitList?.length}} habits" [subtitleColor]="'#45AD04'" units="%" [unitsColor]="'#45AD04'">
+</circle-progress>
+<!-- </ion-col>
+</ion-row> -->
+<ion-row>
+  <ion-col class="ion-text-center">
+    <span class="font-size75">{{totalTodaysCalories > 0? totalTodaysCalories.toFixed(0) + ' Kcal': 'KCal Counter'}}
+    </span>
+  </ion-col>
+</ion-row>

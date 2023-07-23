@@ -1,0 +1,85 @@
+@import '../../../theme/fonts.scss';
+
+ion-content{
+  --background:#{$lightYellow1};
+ }
+
+ion-buttons{
+  padding-left:1.125rem;
+  padding-right:1.125rem;
+}
+.completed{
+
+  span:first-child{
+    margin-right:10px;
+    }
+  margin-right:.5rem;
+  font-size: .875rem;
+  span:last-child{
+  color:$yellow-2 !important;
+  }
+}
+.graph-complete{
+  width: 4.5rem;height:4.5rem;border:2px solid green;border-radius:50%;
+  text-align: center;
+  padding-top: 6%;
+
+  
+  
+  img{
+    vertical-align: middle;
+    width: 62%;
+    height: auto;
+  }
+}
+.heading{
+  color:$lipstic;
+  font-size: 1.125rem;
+  font-family: $font;
+}
+.sub-heading{
+  font-style:italic;
+  color: #707070;
+  font-size: 0.8rem;
+  font-family: $font;
+
+}
+.mall-text{
+  font-size: .6rem;
+  font-family: $font;
+  color:$gray;
+}
+// .box{
+//   border:.5px solid $lightGreen;
+//   border-radius: 8px;
+//   background: $white;
+//   text-align: center;
+//   padding:1rem 0 1rem 0;
+//   color:$black;
+//   width:90%;
+//   display: inline-block;
+//   font-family: $font;
+//   font-size: .875rem;
+// }
+// .fill-box{font-weight:bold;
+//   background:$lightGreen;
+//   color:$white;
+//   }
+
+  ion-footer{
+   --background:#{$lightYellow1};
+   
+  }
+  ion-button{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    
+
+  }
+ ion-button{
+    border: 1px solid !important;
+    border-radius: 5px;
+}
+  .width-50{
+    width:50%;
+  }

@@ -1,0 +1,201 @@
+<ion-content>
+  <!-- {{moment(selecteddate).format('MMMM')}} -->
+
+  <p class="month paddingIos" *ngIf="!platform"></p>
+  <div
+    class="main_div"
+    [ngStyle]="{'border-radius':platform ?'0px':'0px','padding-bottom':'0px','margin-top':'-5px'}"
+  >
+  <div style="top:1rem; position:relative;">
+    <ion-row>
+      <ion-col size="1" class="ion-text-left ion-align-self-center"></ion-col>
+      <ion-col size="6" class="ion-text-left ion-align-self-center" >
+        <img  *ngIf="compConfig.logo!=false" src="./assets/companyLogo/fitelo.png" style="border-radius: 50%;
+        width: 50%;
+        position: absolute;
+        top: -25px;
+        left: -14px;">
+
+        <ion-icon *ngIf="compConfig.profile1!=false" name="person-outline" (click)="gotoProfile()" class="--profile-img" style="    position: relative;
+        height: 21px;
+        width: 21px;
+        border-radius: 25px;
+        padding: 0.7rem;
+        top: -5px;
+        box-shadow: 2px 2px 9px #565656"></ion-icon>
+        <ion-icon name="pencil-outline" *ngIf="compConfig.profile1!=false" (click)="gotoProfile()" style="color:var(--profile-color);font-size: 1.2rem;
+        top: -5px;
+        position: relative;"></ion-icon>
+      </ion-col>
+      <ion-col size="4" class="ion-text-left ion-align-self-center" *ngIf="compConfig.date_selection2!=false">
+        <select (change)="selectDate($event)" style="width: 100%;border-color:var(--profile-color);border-radius: 12px;padding: 5px;color:#707070">
+          <option *ngFor="let week of weeks;let i=index;" [value]="i">{{week.displayFormat}}</option>
+        </select>
+      </ion-col>
+      <ion-col size="1" class="ion-text-left ion-align-self-center"></ion-col>
+    </ion-row>
+    <ion-row *ngIf="compConfig.profile2!=false">
+      <ion-col size="2"></ion-col>
+      <ion-col size="8" class="ion-text-left ion-align-self-center">
+       <div style="background: #F5F5F5;
+       width: 100%;
+       height: 36px;
+       position: relative;
+       border-radius: 1rem;
+       left: 1rem;">
+        <ion-icon name="person-outline" (click)="gotoProfile()" class="--profile-img" style="position: relative;
+        height: 21px;
+        width: 21px;
+        border-radius: 25px;
+        padding: 0.7rem;top: -5px;"></ion-icon>
+          <!-- <span (click)="gotoProfile()" *ngIf="!profilePic || profilePic ==''" class="--profile" [ngStyle]="{'right':profileInititals?.length==2?'6%':'9%'}">
+            {{profileInititals}}
+          </span> -->
+          <span  style="font-size: .751rem;
+          position: absolute;
+          top: 28%;
+          left: 28%;">My Goal: <b style="font-size: .851rem;">{{profileData?.profile?.subCategory}}</b></span>
+        </div>
+      </ion-col>
+      <ion-col size="2"></ion-col>
+    </ion-row>
+  </div>
+  <br>
+  <br>
+    <div style="position: relative;margin: 1.5rem 0;" *ngIf="compConfig.date_selection1!=false">
+    <ion-row *ngIf="weeks && weeks.length" class="date-container">
+      <ion-col  class="ion-text-center">
+        <div class="week_array">
+          <div style="float:left" *ngFor="let date of weekArray;" (click)="changeDate(date)" 
+          [ngClass]="moment(date).format('DD-MM-YYYY') == moment(selecteddate).format('DD-MM-YYYY')   && 'isSelectedDate'"
+          [ngStyle]="{'color': moment(date).format('DD-MM-YYYY') == moment(newSelectedDate).format('DD-MM-YYYY')
+           ?'dark-css':'cust-grey' }">
+           <p [ngClass]="{'isSelectedDate':moment(date).format('DD-MM-YYYY') == moment(newSelectedDate).format('DD-MM-YYYY'),'dark-css':moment(date).format('DD-MM-YYYY') !== moment(newSelectedDate).format('DD-MM-YYYY')}">
+            {{moment(date).format('DD-MM-YYYY') ===
+            moment(today).format('DD-MM-YYYY') ? 'Today' :
+            moment(date).format('DD-MM-YYYY') ===
+            moment(tommorow).format('DD-MM-YYYY') ? moment(date).format('ddd') :
+            moment(date).format('ddd')}}
+            <br />{{moment(date).format('DD')}}
+          </p>
+        </div>
+      </div>
+      </ion-col>
+    </ion-row>
+  
+  </div>
+    <!-- <div class="week_array">
+      <p
+        *ngFor=" let date of weekArray"
+        [ngClass]="moment(date).format('DD-MM-YYYY') === moment(selecteddate).format('DD-MM-YYYY')   && 'isSelectedDate'"
+        [ngStyle]="{'color':moment(date).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY') || moment(date).format('DD-MM-YYYY') ===
+        moment(tommorow).format('DD-MM-YYYY')  ?'var(--black)':'grey' }"
+        (click)="changeDate(date)"
+      >
+        {{moment(date).format('DD-MM-YYYY') ===
+        moment(today).format('DD-MM-YYYY') ? 'Today' :
+        moment(date).format('DD-MM-YYYY') ===
+        moment(tommorow).format('DD-MM-YYYY') ? 'Tomorrow' :
+        moment(date).format('ddd')}}
+        <br />{{moment(date).format('DD')}}
+      </p>
+    </div> -->
+    <div style="position: relative;">
+      <ion-row>
+        <ion-col class="ion-text-center --name">
+          Welcome : {{profileName}}
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="center" style="
+    display: inline-block !important;
+    width: 84%;
+    margin-left: 6% !important;">
+      <app-calories
+        [allData]="allData"
+        PlusIconRoute="/todays-calorie-count"
+        [lifeStyle]="profileData?.lifeStyle"
+        (getDietdata)="getDietdata($event)"
+        [isDetox]="isDetox"
+        [plan]="true"
+      ></app-calories>
+    </div>
+    <div class="meal_workout_title_div">
+      <p class="meal_workout_title"> 
+        Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
+        moment(today).format('DD-MM-YYYY') ? 'Today' :
+        moment(newSelectedDate).format('DD-MM-YYYY') ===
+        moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
+        moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}} 
+       
+      </p>
+      <div class="right" *ngIf="!isDetox && compConfig.pie_chart!=false">
+        <!-- <p class="meal_workout_button" (click)="goToAnalysis()">Analysis</p> -->
+        <ion-icon
+        class="meal_workout_button"
+        name="pie-chart"
+        (click)="goToAnalysis()"
+      ></ion-icon> 
+         <ion-icon *ngIf="compConfig.download!=false"
+         class="meal_workout_button"
+          name="cloud-download"
+          (click)="gotoDownloadPopup()"
+        ></ion-icon> 
+        <!-- <p
+          class="meal_workout_button"
+          
+          (click)="gotoDownloadPopup()"
+        >
+          Download
+        </p> -->
+      </div>
+      <div class="right" *ngIf="isDetox">
+        <p class="meal_workout_button" (click)="switchTonormal()">
+          Switch to Normal
+        </p>
+      </div>
+    </div>
+    <div
+      class="meal_workout_div"
+      *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
+    >
+      <div #popover [ngClass]="'target'+i">
+        <app-meal-workout
+          [data]="d"
+          [diets]="diets.diets"
+          [index]="i"
+          [selecteddate]="selecteddate"
+          [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
+          (getCalData)="getCalData($event,i)"
+          [fullShow]="true"
+          [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
+          [plan]="true" 
+          (getDietdata)="getDietdata($event)"
+        ></app-meal-workout>
+      </div>
+    </div>
+
+ <br>
+    <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-1rem;" *ngIf="compConfig.notes!=false">
+      <ion-card style="box-shadow: none;">
+       
+        <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+          Note</ion-card-header>
+        <ion-card-content style="background: var(--goal);">
+          <p style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+            Please follow the diet plan on daily basis.<br>
+            <span *ngIf="compConfig.modifyNotes!=false">
+              <ul style="padding-left: 1rem;">
+                <li>Daily walk of 45 minutes.</li>
+               <li *ngFor="let d of bindDesease()"> {{d}}</li>
+              </ul>
+            </span>
+          </p>
+
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <br>
+   </div>
+</ion-content>

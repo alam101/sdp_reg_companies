@@ -1,0 +1,23 @@
+<app-header>
+    <ion-row>
+        <ion-col class="ion-text-center">
+            <!-- <div class="image-icon"></div> -->
+            <br>
+           
+            <span class="medium">What is your Goals?</span><br>
+            <!-- <span class="small">
+                Select all that Apply
+            </span> -->
+        </ion-col>
+    </ion-row>
+    <br>
+</app-header>
+
+<ion-content class="container">
+    <div >
+<app-goal (goalAction)="gotoNext($event)" (selectGoal)="getSelectedGoal($event)"></app-goal> 
+<!-- <div class="action">
+    <app-button (gotoNextEmit)="gotoNext($event)"><div>Next</div></app-button>
+</div> -->
+</div>
+</ion-content>

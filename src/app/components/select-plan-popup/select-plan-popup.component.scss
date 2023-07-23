@@ -1,0 +1,502 @@
+@import "../../../theme/fonts.scss";
+.back-overlay {
+  background: #000;
+  opacity: 0.5;
+  height: 100%;
+  width: 100%;
+  z-index: 11;
+}
+
+.content-back {
+  background: #fff;
+  width: 90%;
+  z-index: 12;
+  display: inline-block;
+  top: 35%;
+  left: 5%;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.offer-bottom-popup {
+  // width: 100%;
+  // position: absolute;
+  // bottom: 0;
+  // padding: 5px 5px 0px;
+  // background: rgba(239, 239, 239, 0);
+  // /* margin: 10px 10px 0; */
+  // border-top-right-radius: 25px;
+  // border-top-left-radius: 25px;
+  width: 100%;
+  position: absolute;
+  /* bottom: 36%; */
+  padding: 10%;
+  background: rgba(239, 239, 239, 0);
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ion-card {
+  margin: 0;
+  border-radius: 20px;
+  // border-top-left-radius: 15px;
+  // border-top-right-radius: 15px;
+}
+
+ion-card-header{
+  padding: 0;//15px 20px;
+  // border-bottom: 1px solid #b5b5b5;
+
+  ion-card-subtitle{
+    text-transform: none;
+    // font-family: $font-bold;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
+ion-card-content{
+  padding: 10px;
+
+  .logo {
+    margin: auto;
+
+    div {
+      padding: 5px;
+      display: inline-block;
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px 0px rgba(129, 133, 131, 0.50);
+    }
+
+    img{
+      height: 2.2rem;
+      width: 2.2rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .content-header{
+    font-size: 1.5rem;
+    font-family: $font-bold;
+    color: #595C5C;
+
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .green-msg{
+    font-size: 0.9rem;
+    color: #01A3A4;
+  }
+
+  .start-transform-text{
+    // font-family: $font-bold;
+    font-size: 0.95rem;
+  }
+
+  .doubt-text{
+    // font-family: $font-bold;
+    font-size: 0.95rem;
+  }
+
+  .note-msg{
+    font-size: 0.65rem;
+    margin-bottom: 5px;
+  }
+
+  .padding-top-bottom{
+    padding: 5px 10px;
+  }
+
+  .whatsapp{
+    height: 2rem;
+    width: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .subscribe{
+    --background: #01A3A4;
+    color: white;
+    width: 85%;
+    margin: auto;
+    --border-radius: 25px;
+  }
+
+  .strike{
+    text-decoration: line-through;
+    font-family: "gt-america-standard", "Helvetica Neue", Arial, sans-serif;
+    font-size: 1rem;
+  }
+}
+
+.color-gold{
+  color: #D5A620;
+}
+
+
+ion-content {
+  --background: #F6F7FC !important;
+  // --background: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;
+
+}
+
+.personalise-covid{
+  ion-card{
+    display: inline-block;
+    width: 90%;
+    border-radius: 30px;
+    box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+    // margin: 20px;
+    
+  } 
+}
+
+.plan-container{
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin-bottom: 0;
+  padding: 0 10px 10px;
+  max-height: 80vh;
+  overflow: scroll;
+  // height: 175px;
+}
+
+// .immunity-container{
+//     background-image: url('../../assets/img/immunity.jpeg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: right;
+//     margin-top: 0;
+//     height: 200px;
+// }
+
+// .weight-loss-container{
+//     background-image: url('../../assets/img/weight-loss.jpg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: right;
+//     margin-top: 0;
+//     height: 200px;
+// }
+
+// .post-covid-container{
+//     background-image: url('../../assets/img/post_covid.jpg');
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: right;
+//     margin-top: 0;
+//     height: 200px;
+// }
+
+.sub-foodItem-header{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4C5264;
+}
+
+.sub-foodItem-sub-header{
+  font-size: 0.9rem;
+}
+
+.sub-foodItem-btn{
+  border: none !important;
+  width: auto !important;
+  // border-radius: 20px;
+  color: #1492E6;
+  --background: transparent;
+  // --border-radius: 20px;
+  min-width: 80px !important;
+  margin-top: 5px;
+  // font-size: 0.875rem !important;
+  font-family: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+}
+
+.sub-cards{
+  background: #fff;
+  // border-radius: 25px;
+  margin-top: 0;
+}
+
+.ion-card-footer {
+  // position: fixed;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+
+.card-footer{
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  height: 20%;
+  background: #03a3a4;
+}
+.premium {
+  // width: 50px;
+
+  position: absolute;
+  left: 1rem;
+  top: 2px;
+  height: 80%;
+  width: auto;
+}
+
+.qa-day-skeleton{
+  margin-top: 0;
+  padding: 0;
+  height: 300px;
+  width: 90%;
+  display: inline-table;
+  border-radius: 30px;
+  box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+}
+
+.activity-skeleton{
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+}
+
+.weight-loss-button-cancel{
+  --color: #01A3A4;
+  --border-color:#01A3A4;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.weight-loss-button-activate{
+  --background: #01a3a4;
+  --color: #fff;
+  --border-color:#01A3A4;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.immunity-button-cancel{
+  --color: #FD9F33;
+  --border-color:#FD9F33;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.immunity-button-activate{
+  --background: #FD9F33;
+  --color: #fff;
+  --border-color:#FD9F33;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.post-covid-button-cancel{
+  --color: #754B29;
+  --border-color:#754B29;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.post-covid-button-activate{
+  --background: #754B29;
+  --color: #fff;
+  --border-color:#754B29;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.weight-loss-plus-button-cancel{
+  --color: #0B94C1;
+  --border-color:#0B94C1;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.weight-loss-plus-button-activate{
+  --background: #0B94C1;
+  --color: #fff;
+  --border-color:#0B94C1;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.detox-button-cancel{
+  --color: #4CB271;
+  --border-color:#4CB271;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.detox-button-activate{
+  --background: #4CB271;
+  --color: #fff;
+  --border-color:#4CB271;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.diabetes-button-cancel{
+  --color: #D14322;
+  --border-color:#D14322;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.diabetes-button-activate{
+  --background: #D14322;
+  --color: #fff;
+  --border-color:#D14322;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.cholesterol-button-cancel{
+  --color: #A31E79;
+  --border-color:#A31E79;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.cholesterol-button-activate{
+  --background: #A31E79;
+  --color: #fff;
+  --border-color:#A31E79;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.pcos-button-cancel{
+  --color: #FF5A7D;
+  --border-color:#FF5A7D;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.pcos-button-activate{
+  --background: #FF5A7D;
+  --color: #fff;
+  --border-color:#FF5A7D;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.muscle-button-cancel{
+  --color: #0B94C1;
+  --border-color:#0B94C1;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.muscle-button-activate{
+  --background: #0B94C1;
+  --color: #fff;
+  --border-color:#0B94C1;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.fat-button-cancel{
+  --color: #FD980F;
+  --border-color:#FD980F;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.fat-button-activate{
+  --background: #FD980F;
+  --color: #fff;
+  --border-color:#FD980F;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.hypertension-button-cancel{
+  --color: #FF5D56;
+  --border-color:#FF5D56;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.hypertension-button-activate{
+  --background: #FF5D56;
+  --color: #fff;
+  --border-color:#FF5D56;
+  --border-radius: 100px;
+  border-radius: 100px;
+}
+
+.close{
+  right: 0;
+  position: absolute;
+  font-size: 2rem;
+  color: #7d7d7d;
+  z-index: 100000;
+  top: 0px;
+}
+
+.text-title{
+  // font-weight: bold;
+  font-size: 0.925rem;
+}
+
+.text-desc{
+  font-size: 0.925rem;
+}
+
+.text-quote{
+  font-size: 0.925rem;
+  font-style: italic;
+}
+
+.text-desc-note{
+  font-size: 0.875rem;
+  font-style: italic;
+  color:darkgray
+}
+
+.border-top{
+  border-radius: 100px;
+  width: 100%;
+  height: 7px;
+  display: block;
+  margin-top: -15px;
+}
+
+.border-section-btm{
+  border-radius: 100px;
+  width: 88%;
+  height: 7px;
+  display: block;
+  margin-left: 6%;
+}
+
+ion-button{
+  max-height: 2.35rem;
+  font-size: 1rem;
+}
+
+.sub-foodItem-sub-header-custom{
+  font-size: 0.925rem;
+  font-weight: bold;
+}
+
+.main-sec {
+  max-height: 90vh;
+  .plan-container {
+    .bottom-btn{
+      position: absolute;
+      bottom: 0px;
+      background: white;
+      width: 85%;
+      padding: 10px 0px;
+    }
+  }
+
+  .plan-container::-webkit-scrollbar {
+    display: none;
+  }
+}

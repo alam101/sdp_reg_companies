@@ -1,0 +1,41 @@
+<div>
+   
+    <ion-row>
+      <ion-col>
+        <ion-row>
+          <ion-col class="ion-text-left qa-day">Recipe of the day</ion-col>
+        </ion-row>
+       
+        <div class="padding-top-1" >
+          <!-- <video *ngIf="foodDetails.video && foodDetails.video != '--'" [attr.src]="videoUrl" 
+          style="width: 100%;height: 200px;" ></video> -->
+           <iframe *ngIf="foodDetails && foodDetails.video && foodDetails.video != '-' && foodDetails.video != '--'" [src]='videoUrl' frameborder="0"
+            allowfullscreen style="width: 100%;height: 200px;"></iframe> 
+          <br>
+         
+          <ion-row>
+              <ion-col class="ion-text-left title" size="9">{{foodDetails?.Name}} </ion-col>
+              <ion-col class="ion-text-right title">{{foodDetails?.Calories}} Kcals</ion-col>
+            </ion-row>
+            <ion-row >
+              <ion-col>
+                <br>
+                <ion-row class="content-size" >
+                    <ion-col class="ion-text-center detail padding-right-5" >{{foodDetails?.Protien}} Gm 
+                        <br><span>Proteins </span></ion-col>
+                      <ion-col class="ion-text-center detail padding-left-5" >{{foodDetails?.Fat}} Gm <br>
+                        <span>Fats</span></ion-col>
+                      <ion-col class="ion-text-center detail padding-left-5" >{{foodDetails?.Carbs}} Gm<br> <span>Carbs</span></ion-col>
+                      <ion-col class="ion-text-center  padding-left-5" >{{foodDetails?.Fiber}} Gm <br><span><b>Fiber</b></span></ion-col>
+                </ion-row>
+              </ion-col>
+             <!-- <ion-col size="4"></ion-col> -->
+              </ion-row>
+              <br>
+          <!-- <div class="view-more">
+            <a style="color:#60AFF5 !important;">Receipe By: -----</a>
+          </div> -->
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>

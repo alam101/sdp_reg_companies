@@ -1,0 +1,38 @@
+@import "../../../theme/fonts.scss";
+.back-overlay {
+    background: #000;
+    opacity: 0.5;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .--downloadpopup{
+    position: absolute;
+    top: 30%;
+    background: #fff;
+    width: 90%;
+    margin: 0 5%;
+    z-index: 11;
+    border-radius: 20px;
+    padding: 1.5rem;
+    p{
+      font-size: .9rem;
+      color:#565656;
+  }
+
+ 
+    ion-button.confirm{
+      --background:#01A3A4;
+      --color:#fff;
+    }
+  
+
+  .button-outline {
+    --border-color: #01A3A4;
+    --color: #01A3A4;
+
+}
+
+  }
+  

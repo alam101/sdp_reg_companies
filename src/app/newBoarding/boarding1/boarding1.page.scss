@@ -1,0 +1,135 @@
+.mainDiv {
+  // height: 100%;
+  width: 100%;
+}
+
+ion-content::part(background) {
+  --background: var(--white);
+}
+
+// ion-content::part(scroll){
+//     overflow-y: hidden;
+// }
+
+.slider_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header_div {
+  height: 250px;
+  width: 100%;
+  background: var(--theme-newHeader);
+}
+
+.content_div {
+  margin-top: -50px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 30px 30px 0px 0px;
+  padding: 20px 5%;
+}
+
+.slider_page {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page_Count {
+  height: 20px;
+  width: 20px;
+  border: 2px solid var(--white);
+  border-radius: 100%;
+  font-size: var(--xsmall-font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: bold;
+  z-index: 10;
+  background: var(--theme-newHeader);
+  font-family: var(--theme-newFont);
+}
+
+.page_Count_active {
+  height: 20px;
+  width: 20px;
+  border: 2px solid var(--white);
+  border-radius: 100%;
+  font-size: var(--xsmall-font);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-newHeader);
+  font-weight: bold;
+  z-index: 10;
+  background: var(--black);
+  font-family: var(--theme-newFont);
+}
+
+.lines {
+  border: 1px solid var(--white);
+  width: 90%;
+  position: absolute;
+}
+
+.title-text {
+  font-size: var(--regular-font);
+  font-family: var(--theme-newFont);
+  color: var(--black);
+  margin-top: 30px;
+}
+
+.title {
+  font-size: var(--medium-font);
+  font-family: var(--theme-newFont);
+  color: var(--black);
+  font-weight: 700;
+  padding-top: 50px;
+  margin: 0;
+}
+
+.reg_img {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: -134px;
+}
+
+.input {
+  border-bottom: 3px solid var(--card-border);
+  font-size: var(--large-font);
+  font-family: var(--theme-newFont);
+  font-weight: 500;
+  color: var(--black);
+  margin-top: 50px;
+}
+
+.go_btn {
+  height: 50px;
+  width: 70%;
+  &::part(native) {
+    --background: var(--theme-newButton);
+    text-transform: none;
+    box-shadow: var(--btnShaddow);
+    color: var(--white);
+    font-family: var(--theme-newFont);
+  }
+}
+
+.go_btn_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  background: var(--white);
+  width: 100%;
+  margin-top: 35%;
+  // position: absolute;
+  // bottom: 20px;
+  // width: 100%;
+  // height: 100%;
+  // height: 100px;
+}

@@ -1,0 +1,33 @@
+<div class="--user-info">
+  <div *ngFor="let uinfo of userInfo; let ind=index;" >
+      <div>
+      <br>
+     
+      <span *ngFor="let info of uinfo.items;let in=index;" (click)="selectedItem(uinfo,info,ind,in);">
+          <span>
+              <ion-card class="card" [ngClass]="{'active-item': info.isSelected===true,'card-1':uinfo.displayIndex!=0}">
+                  <span class="small" style="white-space: normal;" [innerHtml]="info.value"></span>
+              </ion-card>
+          </span>
+        
+      </span>
+    
+  </div>
+  </div>
+</div>
+<div class="action" style="bottom: 56px;
+width: 80%;
+margin: 0 auto;
+position: absolute;
+left: 10%;">
+  <div class="error-validation">{{showErr}}</div>
+  <ion-row>
+      <ion-col class="ion-text-center">
+          <app-button-previous (gotoPrevious)="gotoPrevious($event)"><div>Previous</div></app-button-previous>
+      </ion-col>
+      <ion-col class="ion-text-center">
+          <app-button (gotoNextEmit)="gotoNext($event)"><div>Next</div></app-button>
+      </ion-col>
+  </ion-row>
+  
+</div>

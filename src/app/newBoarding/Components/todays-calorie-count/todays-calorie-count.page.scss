@@ -1,0 +1,526 @@
+@import "../../../../theme/fonts.scss";
+
+ion-content {
+  --background: #F6F7FC !important;
+  // --background: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;
+}
+
+ion-toolbar{
+  --background: #F6F7FC !important;
+}
+
+.todays-caloire-item{
+    ion-card{
+      display: inline-block;
+      width: 90%;
+      border-radius: 30px;
+      box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+      margin: 5px 20px;
+      // margin: 20px;
+      
+    } 
+  }
+
+  .medium-text {
+    color: #737373;
+    font-size: .9rem;
+    font-family: $font;
+    margin: 0;
+    white-space: nowrap;
+  
+    .light-text {
+      color: rgb(151, 151, 151);
+    }
+  }
+
+  .food {
+    font-weight: 600;
+  }
+
+  .one-line{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #737373;
+  }
+  
+  .detail{
+    border-right: 1px solid #7377774a;
+    // span{
+    //     font-weight: 700;
+    // }
+  }
+
+  .pad-top5{
+    padding-top: 5px;
+  }
+
+  .detail1{
+    border-right: 1px solid #7377774a;
+    // span{
+    //     font-weight: 700;
+    // }
+  }
+
+  .content-size{
+    background: #F6F7FC;
+    font-size: .75rem;
+    font-family: $font;
+    margin-top: 5px;
+  }
+
+  .section-stroke{
+    stroke: #5fbe7d !important;
+  }
+
+  .analysis-percent{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    margin-top: -20px;
+    line-height: 19px;
+    text-align: center;
+    z-index: 999999999999999;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .analysis-percent-unit{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    margin-top: -20px;
+    line-height: 19px;
+    text-align: center;
+    z-index: 999999999999999;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  #myChart1{
+    height: 120px !important;
+    width: 120px !important;
+    display: unset !important;
+    // margin: 17%;
+    // margin: 10% 15% 10% 15% !important;
+  }
+
+  #myChart{
+    height: 100px !important;
+    width: 100px !important;
+    margin: 10%;
+    margin-left: 15%;
+  }
+
+  .pointer-meacros{
+    width: 25px;
+    height: 7px;
+    border-radius: 100px;
+  }
+
+  .detox-normal-plan ion-button{
+    text-transform: inherit;
+    margin: 0px;
+    height: 20px;
+    font-family: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-bottom: 0px;
+    --border-width: 1px !important;
+    box-shadow: 1px 1px 10px 2px #008182;
+    border-radius: 6px;
+    
+     background: #FFF;
+    --color: #01A3A4;
+    border-width: 0px !important;
+    width: 7rem;
+    font-size: 0.8rem;
+  }
+
+  .toggle-btn{
+    ion-card {
+      box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+      border: 1px solid #EEE;
+      border-radius: 35px;
+      height: 26px;
+      font-size: 17px;
+      // margin-top: 0;
+      // margin-bottom: 20px;
+      margin: auto;
+      width: 200px;
+  
+      div {
+          color: white;
+          border-radius: 35px;
+          height: 24px;
+          width: 50%;
+          display: inline-block;
+          // line-height: 2.25;
+  
+          ion-icon,
+          span {
+              display: inline-block;
+              vertical-align: middle;
+          }
+  
+          ion-icon{
+              font-size: 20px;
+          }
+      }
+  
+      .checked {
+          // background: #01A3A4;
+          box-shadow: 0px 5px 10px 0px rgb(129 133 131 / 10%) !important;
+          // transition: transform 300ms linear;
+      }
+  
+      // .active:first-child {
+      //     transform: translateX(100%);
+      // }
+  
+      // .active:nth-child(2) {
+      //     transform: translateX(-100%) //translateX(100%);
+      // }
+  }
+  
+  
+  .unch {
+      // background: white;
+      box-shadow: unset;
+  }
+  
+  .ion-margin-horizontal-5px{
+      margin: 0 5px;
+  }
+  }
+
+
+.immunity-section{
+  --background: #FD9F33 !important;
+}
+
+.detox-section{
+  --background: #4CB271 !important;
+}
+
+.post-covid-section{
+  --background: #754B29 !important;
+}
+
+.weight-loss-plus-section{
+  --background: #0B94C1 !important;
+}
+
+.cholesterol-section{
+  --background: #A31E79 !important;
+}
+
+.diabetes-section{
+  --background: #D14322 !important;
+}
+
+.hypertension-section{
+  --background: #FF5D56 !important;
+}
+
+.pcos-section{
+  --background: #FF5A7D !important;
+}
+
+.cholesterol-section-stroke{
+  --background: #A31E79 !important;
+}
+
+.diabetes-section-stroke{
+  --background: #D14322 !important;
+}
+
+.hypertension-section-stroke{
+  --background: #FF5D56 !important;
+}
+
+.pcos-section-stroke{
+  --background: #FF5A7D !important;
+}
+
+.weight-loss{
+  --background: #01A3A4 !important;
+}
+
+.immunity-section-stroke{
+  --background: #FD9F33 !important;
+}
+
+.detox-section-stroke{
+  stroke: #4CB271 !important;
+}
+
+.post-covid-section-stroke{
+  stroke: #754B29 !important;
+}
+
+.weight-loss-stroke{
+  stroke: #72BDCA !important;
+}
+
+.detox-stroke{
+  stroke: #4cb271 !important;
+}
+
+ion-header.header-ios{
+  height: 3rem !important;
+}
+
+ion-header {
+  height: 3rem !important;
+  ion-toolbar {
+    --min-height: 3rem !important;
+  }
+}
+
+.header-progress-oval{
+  // background-color: #01A3A4;
+  // height: 5rem;
+  height: 3.5rem;
+
+  background-image: url('../../../../assets/images/header-circle.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  // border-radius: 50%;
+  // border-top-left-radius: 0;
+  // border-top-right-radius: 0;
+
+  ion-icon{
+    transform: rotate(90deg);
+    position: relative;
+    bottom: -0.5rem;
+    color: white;
+
+    // .arrow{
+      font-size: 2rem;
+      font-weight: bold;
+    // }
+  }
+
+  .nutrients-title{
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: white;
+    
+    ion-label{
+      width: 4rem;//5rem;
+      display: inline-block;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgb(255, 255, 255, 50%);
+    }
+  }
+}
+
+ion-thumbnail {
+  display: inline-block;
+  margin: 0.5rem 0;
+  margin-right: 0.6rem;
+  width: 68px;
+  height: 58px;
+
+  img {
+    border-radius: 12px;//1rem;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.middle-content{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.food-name-container {
+  color: #737373;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.header-message-tool{
+  color: #333;
+  font-size: 0.8rem;
+}
+
+.error-container{
+  border-radius: 15px;
+  //border:2px solid #01A3A4 !important;
+  border:2px solid var(--theme-color) !important;
+}
+
+.border-line{
+  border-top: 1px solid #707070;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-bottom: 20px;
+  margin-top: 12px;
+  opacity: 0.2;
+}
+
+.close-btn{
+  top: 10px;
+  // position: relative;
+  font-size: 2rem;
+  color: #7d7d7d;
+  z-index: 999999;
+  left: 90%;
+  padding-top: 25px !important;
+  padding-right: 25px !important;
+  float: right;
+    
+}
+
+.date-arrows{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.weight-loss{
+  // --background: #01A3A4 !important;
+  // color: #01A3A4 !important;
+  --background: var(--theme-color)!important;
+  color: var(--theme-color)!important;  
+}
+
+.detox-section{
+  --background: #4CB271 !important;
+  color:  #4CB271 !important;
+}
+
+.weight-loss-plus-section{
+  --background: #0B94C1 !important;
+  color:  #0B94C1 !important;
+}
+
+.post-covid-section{
+  --background: #754B29 !important;
+  color:  #754B29 !important;
+}
+
+.cholesterol-section{
+  --background: #A31E79 !important;
+  color:  #A31E79 !important;
+}
+
+.diabetes-section{
+  --background: #D14322 !important;
+  color:  #D14322 !important;
+}
+
+.hypertension-section{
+  --background: #FF5D56 !important;
+  color:  #FF5D56 !important;
+}
+
+.immunity-section{
+  --background: #FD9F33 !important;
+  color:  #FD9F33 !important;
+}
+
+.detox-section{
+  --background: #4CB271 !important;
+  color:  #4CB271 !important;
+}
+
+.weight-loss-plus-section{
+  --background: #0B94C1 !important;
+  color:  #0B94C1 !important;
+}
+
+.post-covid-section{
+  --background: #754B29 !important;
+  color:  #754B29 !important;
+}
+
+.cholesterol-section{
+  --background: #A31E79 !important;
+  color:  #A31E79 !important;
+}
+
+.diabetes-section{
+  --background: #D14322 !important;
+  color:  #D14322 !important;
+}
+
+.hypertension-section{
+  --background: #FF5D56 !important;
+  color:  #FF5D56 !important;
+}
+
+.mucsle {
+  --background: #0B94C1 !important;
+  color:  #0B94C1 !important;
+}
+
+.fat {
+  --background: #FD980F !important;
+  color:  #FD980F !important;
+}
+
+.pcos-section{
+  --background: #FF5A7D !important;
+  color:  #FF5A7D !important;
+}
+
+::ng-deep .two-lines-noti-msg{
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  height: 42px;
+  margin: 0 auto;
+  font-size: 14px;
+  // line-height: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+::ng-deep .loading-noti-msg{
+  // height: 45px;
+  // position: absolute;
+  // left: -5px;
+  // top: 5px;
+  height: 30px;
+  position: absolute;
+  left: 0px;
+  top: 12px;
+}
+
+.tracker-info-icon{
+  //color: #03a3a4;
+  color:var(--theme-color)!important;
+  font-size: 1.75rem;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.plusBtn{
+  color:var(--theme-color)!important;
+  //color:#01A3A4;
+  font-size: 1.75rem;
+}
+.crossBtn{
+margin-left: 5px;
+//color:#01A3A4;
+color:var(--theme-color)!important;
+font-size: 1.5rem;
+}
+
+.dietDataRecomended{
+ // color: #01a3a4; 
+ color:var(--theme-color)!important;
+  font-size: 1rem
+}

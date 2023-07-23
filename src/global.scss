@@ -1,0 +1,441 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+.h_100{
+  height: 100% !important;
+}
+
+.w_100{
+  width:100%;
+}
+
+.center{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.right{
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+.left{
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+
+.d_flex{
+  display: flex !important;
+}
+
+.flex_col{
+  flex-direction: column !important;
+}
+
+.pad_0{
+  padding: 0% !important;
+}
+
+.mar_0{
+  margin: 0% !important;
+}
+
+.scroll_x {
+  overflow-x: scroll !important;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll_y{
+  overflow-y: scroll !important;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+  bottom: 0px !important;
+  left: 0;
+  width: 100%;
+}
+
+.bottom_shadow{
+
+  background:linear-gradient(to bottom,transparent, #00000012) !important;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  z-index: 1;
+}
+
+.close_modal_icon{
+  color: var(--close-edit-color);
+  font-size: 30px;
+  
+}
+
+
+
+// -----------------------------------------------------------------------
+
+.picker-wrapper.sc-ion-picker-ios {
+
+  bottom: 225px !important;
+  margin: 20% !important;
+  width: 60% !important;
+  height: 220px !important;
+  border-radius: 10px !important;
+  padding: 10px !important;
+  // box-shadow: var(--boxshadow);
+}
+
+.picker-button.sc-ion-picker-ios, .picker-button.ion-activated.sc-ion-picker-ios {
+  color: var(--theme-color) !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+
+}
+
+.picker-toolbar.sc-ion-picker-ios {
+  position: relative !important;
+  left: 0 !important;
+  top: -5px !important;
+  border: none !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+.sc-ion-picker-ios-h {
+  --border-color:none !important ; 
+}
+
+.picker-opt.picker-opt-selected {
+  color: var(--theme-color) !important;
+  // font-size: 25px !important;
+  font-family: var(--theme-newFont) !important;
+  font-weight: 500 !important;
+}
+
+.picker-opt {
+  height: 35px !important;
+  line-height: 35px !important;
+  font-family: var(--theme-newFont) !important;
+  font-weight: 500 !important;
+}
+
+.picker-toolbar-button.sc-ion-picker-ios:first-child {
+  text-align: end !important;
+}
+
+
+
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  margin: 0 !important;
+}
+
+sc-ion-input-ios-h {
+  --padding-top: 10px;
+  --padding-end: 0 !important;
+  --padding-bottom: 10px;
+
+}
+
+.native-input.sc-ion-input-ios {
+  font-size: 14px !important;
+}
+
+.portion_count {
+  --background: transparent;
+}
+.description {
+  padding-left: 5px;
+
+  p {
+    bottom: 10px;
+    position: absolute;
+    margin: 0px;
+    font-size: 0.9em;
+    color: #1492E6 !important;
+
+    a {
+      font-size: 0.9em;
+      color: #1492E6 !important;
+    }
+  }
+}
+
+.description1 {
+  padding-left: 5px;
+
+  p {
+    bottom: 10px;
+    margin: 0px;
+    font-size: 0.9em;
+    text-align: start;
+    height: 31px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    a {
+      text-decoration: none !important;
+    }
+  }
+}
+
+.view-more {
+  text-align: left;
+  font-style: italic;
+
+  p {
+    a {
+      font-size: 0.9em;
+      color: #1492E6 !important;
+      text-decoration: none !important;
+    }
+  }
+}
+
+.detox-modal {
+  padding: 20px;
+}
+
+.click {
+  color: #1492E6 !important
+}
+
+.app-offer-popup {
+  background: transparent;
+
+  .modal-wrapper {
+    background: transparent;
+  }
+
+  app-offer-popup {
+    background: transparent;
+  }
+}
+
+.app-offer-popup:first-of-type {
+  --backdrop-opacity: var(--ion-backdrop-opacity, 0.7);
+}
+
+.app-coupon-popup {
+  background: transparent;
+
+  .modal-wrapper {
+    background: transparent;
+  }
+
+  app-coupon-popup {
+    background: transparent;
+  }
+}
+
+.app-coupon-popup:first-of-type {
+  --backdrop-opacity: var(--ion-backdrop-opacity, 0.7);
+}
+
+.ion-text-underline {
+  text-decoration: underline;
+}
+
+.ion-no-padding-custom {
+  padding: 0 !important;
+}
+
+.ellipse-3lines {
+  display: block;
+  display: -webkit-box;
+  max-width: 100%;
+  max-height: 55px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-rating-popup {
+  background: transparent;
+
+  .modal-wrapper {
+    background: transparent;
+  }
+
+  app-rating-popup {
+    background: transparent;
+  }
+
+  // ion-card{
+  //   border-radius: 25px;
+  // }
+
+  .vertical-align-middle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .vertical-align-middle-width-100 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+}
+
+ion-input{
+  --placeholder-color: #7d7d7da6 !important;
+}
+
+.ios-bottom-safe-area {
+  padding-bottom: var(safe-area-inset-bottom) !important;
+  padding-bottom: env(safe-area-inset-bottom) !important;
+}
+
+.custom-popover{
+  --max-width: 90px !important;
+  }
+
+// body{
+//     margin-top: constant(safe-area-inset-top);
+//     margin-top: env(safe-area-inset-top) !important;
+// }
+// body {
+//   padding: 0 constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left); //iOS 11.2
+//   padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+// }
+ion-header{
+  height: max-content !important;
+}
+
+ion-header.header-ios{
+  height: max-content !important;
+ }
+ 
+ ion-header{
+  height: max-content !important;
+ }
+
+ .parent{
+  background:#F6F7FC;height: 100%;
+  padding-top: 20px !important;
+}
+
+ion-button{
+  // font-size: .751rem !important;
+}
+
+.allow-popup{
+    background: #fff;
+    width: 90%;
+    left: 5%;
+    position: absolute;
+    z-index: 10;
+    border-radius: 5%;
+    top: 21%;
+    div{
+      padding:3%;
+      div{      
+        ion-button{
+        --background:#00b9f5 !important;
+        --color:#fff  !important;
+      }
+    }
+    }
+  }
+ .modal-default app-portion-count.ion-page > ion-content:first-child {
+  width: 85%;
+height: 155px;
+border-radius: 10px;
+left: 8%;
+top: 40%;
+position: absolute;
+  top: 40%;
+ 
+}
+
+
+.logged_popover {
+  background: #000;
+  opacity: .85;
+  
+  app-portion-count{
+    background: #000;
+   
+    ion-content{
+      background: #000;
+     
+     }
+  }
+  .popover-wrapper {
+    .popover-arrow.sc-ion-popover-ios::after {
+      display: none !important;
+    }
+  }
+  .sc-ion-popover-ios {
+    --backdrop-opacity: var(--ion-backdrop-opacity, 0.85) !important;
+  }
+
+  .popover-content.sc-ion-popover-ios {
+    height: 175px !important;
+  }
+}
+::ng-deep ion-backdrop.popover-arrow::after{
+  background: none !important;
+}
+
+
+::ng-deep  .popover-content {
+      border:none;
+  }
+  :host(.popover-desktop) .popover-content{
+    border:none !important;
+  }

@@ -1,0 +1,48 @@
+<div class="--user-info">
+    <div *ngFor="let uinfo of userInfo; let ind=index;" >
+        <div *ngIf="sectionNumber===uinfo.displayIndex && uinfo.displayIndex!=0">
+        <br>
+        <ion-row>
+            <ion-col size="1" class="ion-text-left ion-align-self-center">
+                <img [src]="uinfo.image">
+            </ion-col>
+            <ion-col size="10" class="ion-text-left ion-align-self-center">
+                <span class="medium-low" style="white-space: normal;" >{{uinfo.name}}</span>
+            </ion-col>
+            <ion-col size="1" class="ion-text-right ion-align-self-center">
+                <ion-icon name="information-circle-outline" class="info-icon"></ion-icon>
+            </ion-col>
+        </ion-row>
+        <span *ngFor="let info of uinfo.items;let in=index;" (click)="selectedItem(uinfo,info,ind,in);">
+            <span *ngIf="in<=3">
+                <ion-card class="card" [ngClass]="{'active-item': info.isSelected===true,'card-1':uinfo.displayIndex!=0}">
+                    <span class="small" style="white-space: normal;" [innerHtml]="info.value"></span>
+                </ion-card>
+            </span>
+            <span *ngIf="in>3 && isShowMore[ind]">
+                <ion-card class="card" [ngClass]="{'active-item': info.isSelected===true,'card-1':uinfo.displayIndex!=0}">
+                    <span class="small" style="white-space: normal;" [innerHtml]="info.value"></span>
+                </ion-card>
+            </span>
+        </span>
+        <div (click)="showMore(ind)" *ngIf="uinfo.items?.length>4" style="text-align: center;margin-top:.6rem;margin-bottom:1rem;" class="show-more">
+            <a> Show <span *ngIf="isShowMore[ind]">Less</span><span *ngIf="!isShowMore[ind]">More</span>&nbsp;
+                <ion-icon name="chevron-down-outline" *ngIf="!isShowMore[ind]"></ion-icon>
+                <ion-icon name="chevron-up-outline" *ngIf="isShowMore[ind]"></ion-icon>
+            </a>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="action" style="">
+    <div class="error-validation">{{showErr}}</div>
+    <ion-row>
+        <ion-col class="ion-text-center">
+            <app-button-previous (gotoPrevious)="gotoPrevious($event)"><div>Previous</div></app-button-previous>
+        </ion-col>
+        <ion-col class="ion-text-center">
+            <app-button (gotoNextEmit)="gotoNext($event)"><div>Next</div></app-button>
+        </ion-col>
+    </ion-row>
+    
+</div>

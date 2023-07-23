@@ -1,0 +1,31 @@
+
+<div class="back-overlay">
+
+</div>
+<div class="--downloadpopup">
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <img src="./assets/img/download-big.png">
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <p>Please Confirm to download the plan
+        In PDF format</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <!-- <app-button-previous (gotoPrevious)="cancel($event)"><div>Cancel</div></app-button-previous> -->
+      <ion-button (click)="cancel($event)" fill="outline" 
+      [ngClass]="buttonPre.class" [mode]="buttonPre.mode" [shape]="buttonPre.shape">Cancel</ion-button>
+    </ion-col>
+    <ion-col class="ion-text-center">
+      <!-- <app-button (gotoNextEmit)="gotoNext($event)" ><div>Confirm</div></app-button> -->
+      <ion-button (click)="gotoNext($event)" class="confirm" 
+      [ngClass]="button.class" [mode]="button.mode" [shape]="button.shape">Confirm</ion-button>
+
+    </ion-col>
+  </ion-row>
+</div>

@@ -1,0 +1,16 @@
+<div>
+<ion-card class="goal-card" *ngFor="let goal of goals; let ind=index;" (click)="selectedGoal(goal,ind,goal.code)" [ngClass]="{'active-card':goal.isSelected}">
+  
+<div class="left">  
+    <img [src]="goal.image">
+  </div> 
+  <div class="right">
+            <span class="medium">{{goal?.value1}}</span><br>
+            <span class="small line-height">{{goal.value2}}</span>
+        </div>
+</ion-card>
+<div class="action">
+  <div class="error-validation" >{{message}}</div><br>
+  <app-button (gotoNextEmit)="gotoNext($event)"><div>Next</div></app-button>
+</div>
+</div>

@@ -1,0 +1,158 @@
+<div style="position: relative" *ngIf="loaded && data?.data?.length > 0">
+  <ion-img 
+    class="card_logo"
+    src="../../../../assets/newImages/meal.png"
+  ></ion-img>
+
+  <ion-skeleton-text
+    *ngIf="!loaded"
+    animated
+    class="sketloan"
+  ></ion-skeleton-text>
+  <ion-card
+    *ngIf="loaded"
+    [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
+    [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}"
+  >
+    <div class="header_div">
+      <p>
+        {{data?.message}}
+        <span>
+          <ion-icon name="time-outline"></ion-icon
+          >{{moment(data?.time,'HH:mm').format('hh:mm a')}}
+        </span>
+      </p>
+    </div>
+
+    <div
+      *ngFor="let d of data?.data.slice(0,disabled?1 :data?.data.length );let i = index"
+    >
+      <div
+        class="aditional_div"
+        *ngIf="d?.foodStatus === 'A'
+      "
+      >
+        <p>Additional</p>
+      </div>
+      <div
+        class="d_flex card_main_div"
+        [ngStyle]="{'border-bottom': data?.data.length !== i+1 && '1px solid var(--card-border)','padding-top':d?.foodStatus === 'A' && '0%'}"
+      >
+        <div class="center" (click)="gotoView(d)">
+          <ion-thumbnail>
+            <!-- <ion-img *ngIf="d?.imageUrl && d?.foodSource?.toLowerCase() != 'external'"
+              [src]="d?.imageUrl.replace('.png', '.jpg')" class="card_img"></ion-img> -->
+
+            <img
+              class="card_img"
+              *ngIf="d?.foodSource?.toLowerCase() == 'internal'"
+              src="{{image_URL}}{{d?._id}}.jpg"
+              onerror="this.src='./assets/newImages/food.svg';this.style='object-fit: contain'"
+            />
+            <img
+              class="card_img"
+              style="object-fit: contain"
+              *ngIf="d?.foodSource?.toLowerCase() == 'external'"
+              src="./assets/newImages/food.svg"
+            />
+            <!-- <img
+              class="card_img"
+              *ngIf="d?.foodSource?.toLowerCase() == 'external'"
+              src="./assets/img/food-item.png"
+            /> -->
+          </ion-thumbnail>
+        </div>
+        <ion-grid class="w_100">
+          <ion-row>
+            <ion-col size="10">
+              <p class="meal_pro">{{d?.Food}}</p>
+              <p class="meal_cal">{{d?.portion}} {{d?.portion_unit}}</p>
+            </ion-col>
+
+            <ion-col size="2" class="right" style="align-items: flex-start">
+              <div
+                class="dot_boarder"
+                [ngStyle]="{'border-color':d?.foodType==='Ve' || d?.foodType==='V' ? 'var(--green)' : d?.foodType==='E' ? 'var(--yellow)': d?.foodType==='NV' ?'var(--red)':'lightgrey'}"
+              >
+                <div
+                  class="dot"
+                  [ngStyle]="{'background':d?.foodType==='Ve' || d?.foodType==='V' ? 'var(--green)' : d?.foodType==='E' ? 'var(--yellow)':  d?.foodType==='NV' ?'var(--red)':'lightgrey'}"
+                ></div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <div class="meal_pro_div" style="margin-top: 10px;">
+            <div>
+              <span *ngIf="compConfig.itemCalories!=false">
+              <p class="meal_cal" style="font-weight: 500">
+                {{Math.round(d?.Calories)}} Kcal
+              </p>
+              <ion-progress-bar
+                [ngClass]="d?.option"
+                value="1"
+              ></ion-progress-bar>
+              <p class="choice">{{d?.option}} Choice</p>
+              </span>
+            </div>
+
+            <!-- <ion-icon
+              *ngIf=" d?.eaten > 0"
+              name="close-circle-outline"
+              class="plus_icon"
+              [ngStyle]="{'color':!eat && 'lightgrey'}"
+              (click)="addCal(d,i)"
+            ></ion-icon> -->
+
+            <!-- //two condion for home page// -->
+            <ion-button
+              *ngIf="d?.eaten > 0 "
+              fill="outline"
+              shape="round"
+              class="logged_btn"
+              (click)="loogeAction($event,d,i)"
+            >
+              <ion-icon slot="start" name="checkmark"></ion-icon>
+              Logged
+            </ion-button>
+            <!-- [ngStyle]="{'color':!eat && 'lightgrey'}" -->
+            <ion-icon style="float: right" *ngIf="!d.eaten || d?.eaten < 0"
+              class="plus_icon"
+              (click)="loogeAction($event,d,i)"
+              name="add-circle"
+            ></ion-icon>
+
+            <!-- //two condion for Search page// -->
+            <!-- <ion-icon *ngIf="!d.eaten || d?.eaten < 0" class="plus_icon" [ngStyle]="{'color':!eat && 'lightgrey'}"
+              (click)="addCal(d,i)" name="add-circle"></ion-icon> -->
+
+            <!-- <ion-icon *ngIf="!showPlusBtn" name="ellipsis-horizontal-circle-sharp" class="plus_icon"
+              [ngStyle]="{'color':!eat && 'lightgrey'}" (click)="loogeAction($event,d,i)"></ion-icon> -->
+            <!-- 
+            <ion-button *ngIf="showAddPopup && d?.eaten > 0 " fill="outline" shape="round" class="logged_btn"
+              (click)="addCal(d,i)">
+              <ion-icon slot="start" name="checkmark"></ion-icon>
+              Logged
+            </ion-button> -->
+
+            <!-- <ion-icon *ngIf="showAddPopup" class="plus_icon" [ngStyle]="{'color':!eat && 'lightgrey'}"
+              (click)="addCal(d,i)" name="add-circle"></ion-icon> -->
+          </div>
+        </ion-grid>
+      </div>
+    </div>
+ 
+    <div *ngIf="data?.data?.length  === 0">
+      <p class="no_data_title">"Eat Better Not Less"</p>
+      <p class="no_data_subtitle">Your slot is empty.</p>
+      <p class="no_data_subtitle">Add something from the meal options.</p>
+      <ion-img src="../../../../assets/newImages/no-meal.png"></ion-img>
+    </div>
+  </ion-card>
+
+  <div class="center more_button_div" *ngIf="!fullShow">
+    <ion-button shape="round" fill="outline" (click)="gotoOption()"
+      >View Diet Plan</ion-button
+    >
+  </div>
+</div>

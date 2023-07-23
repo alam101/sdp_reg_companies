@@ -1,0 +1,34 @@
+{
+  "name": "jsbridge",
+  "version": "1.0.10",
+  "description": "JSBridge for jsvascript by yeliex",
+  "main": "src/index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "publish": "rm -rf dist/",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:yeliex/jsbridge.git"
+  },
+  "keywords": [
+    "jsbridge",
+    "androis",
+    "ios",
+    "react-native",
+    "js"
+  ],
+  "author": "yeliex",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0"
+  },
+  "dependencies": {
+    "webpack": "^1.13.1"
+  }
+}

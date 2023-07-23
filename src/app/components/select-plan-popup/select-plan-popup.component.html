@@ -1,0 +1,595 @@
+<!-- <div class="back-overlay">
+</div> -->
+<div class="offer-bottom-popup">
+  <div>
+    <ion-card class="main-sec">
+      <ion-card-header [ngStyle]="{'border-color': plan.id == 'post_covid' ? '#754B29' : planType =='weightLoss' ? '#01a3a4' : planType =='immunity_booster' ? '#FD9F33' :
+        planType =='detox' ? '#4CB271' : plan.id =='diabetes' ? '#D14322' : plan.id =='cholesterol' ? '#A31E79' :
+        plan.id =='hypertension' ? '#FF5D56' : plan.id == 'pcos' ? '#FF5A7D' : 
+        (planType.split('_').length > 0 && planType.split('_')[0] == 'muscleGain') ? '#0B94C1' : 
+        (planType.split('_').length > 0 && planType.split('_')[0] == 'fatShredding') ? '#FD980F' :
+        '#0B94C1'}" style="border-top: 5px solid;">
+        <!-- <span class="border-top"
+          [ngStyle]="{'background-color': planType =='weightLoss' ? '#01a3a4' :  planType =='immunity_booster' ? '#FD9F33' : planType =='detox' ? '#4CB271' : '#0B94C1'}"></span> -->
+        <!-- <ion-card-subtitle>Special Offer expire in <span style="color: #d73e6d;">{{countdownTimerText}}</span><ion-icon name="close-outline" (click)="close(false)"
+          style="float: right;font-size: 1.5rem;"></ion-icon> -->
+        <!-- <ion-card-subtitle> -->
+        <!-- <ion-row>
+              <ion-col size="10" class="ion-text-center"> -->
+        <!-- <span>Special <span style="color: #01A3A4;">Offer</span></span><ion-icon name="close-outline" (click)="close(false)" style="float: right;font-size: 2rem;color: #01A3A4;"></ion-icon> -->
+        <!-- </ion-col>
+              <ion-col>
+                <ion-icon name="close-outline" (click)="close(false)" style="float: right;font-size: 2rem;color: #01A3A4;"></ion-icon>
+              </ion-col> -->
+        <!-- </ion-row> -->
+
+      </ion-card-header>
+
+      <ion-card-content [ngStyle]="{'border-color': plan.id == 'post_covid' ? '#754B29' : planType =='weightLoss' ? '#01a3a4' :  planType =='immunity_booster' ? '#FD9F33' : planType =='detox' ? '#4CB271' : plan.id =='diabetes' ? '#D14322' : plan.id =='cholesterol' ? '#A31E79' : plan.id =='hypertension' ? '#FF5D56' :
+      planType == 'pcos' ? '#FF5A7D' : 
+      (planType.split('_').length > 0 && planType.split('_')[0] == 'muscleGain') ? '#0B94C1' : 
+      (planType.split('_').length > 0 && planType.split('_')[0] == 'fatShredding') ? '#FD980F' :
+        '#0B94C1'}" style="border-bottom: 5px solid;">
+        <!-- <span class="ion-text-center">
+          
+          <ion-icon name="close-outline" (click)="close()" class="close"></ion-icon>
+        </span> -->
+
+        <div class="plan-container" *ngIf="planType =='weightLoss'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img src="./assets/img/weight-loss.jpg" />
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row>
+            <ion-col>
+              <span class="text-title">Being overweight or having excess percentage body fat is a metabolic error that is caused by an increased intake of simple carbohydrates and a sedentary lifestyle.</span>
+              <br /><br />
+              <span class="text-desc">The weight loss plan nutritional recommendations are based on the principles of a balanced diet with limited calories and that is personalized for the user. The diet plan will help maintain the macro and micronutrients in the desired  range. 
+              </span>
+              <br /><br />
+
+              <!-- <span class="text-desc">Changes made on the plan and calories counted for today will get removed on switching to {{plan.name}} plan</span>
+              <br /><br /> -->
+
+              <span class="text-desc-note"><b>Note :</b> The content of this app is provided as an information source
+                and is not intended as a substitute for professional medical advice.</span>
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="weight-loss-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="weight-loss-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container ion-margin-top" *ngIf="planType =='immunity_booster'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row>
+            <ion-col>
+              <span class="text-title">Being overweight or having excess percentage body fat is a metabolic error that is caused by an increased intake of simple carbohydrates and a sedentary lifestyle.</span>
+              <br /><br />
+              <span class="text-desc">Nutritional recommendations are based on the principles of a balanced diet with limited calories and that is personalized for the user. It also takes care of those food elements which improves the immunity.</span>
+              <br /><br />
+
+              <span class="text-desc">The diet plan will help maintain the macro and micronutrients in the desired  range for weight loss and for improving immunity.</span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> {{plan.note}}</span>
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="immunity-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="immunity-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="planType =='post_covid'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row>
+            <ion-col>
+              <span class="text-title">Recommendations under this plan are NOT FOR WEIGHT LOSS but we suggest foods
+                which
+                can help recovery in post covid.</span>
+              <br /><br />
+              <span class="text-desc">We don’t show weight loss trackers in this plan. We don’t suggest a detox plan
+                option in this plan.</span>
+              <br /><br />
+
+              <span class="text-desc">Changes made on the plan and calories counted for today will get removed on switching to {{plan.name}} plan</span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> {{plan.note}}</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="post-covid-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="post-covid-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="planType =='detox'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">Detox Plan</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">Low calories plan to accelerate
+                    weight loss</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img src="./assets/img/detox.jpg" />
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row>
+            <ion-col>
+              <span class="text-title">Detox / Fasting / Low-Calorie plans can be good for healing of the body & to
+                accelerate weight loss. You can do it once or twice a week. Start with once a week.</span>
+              <br /><br />
+              <span class="text-desc">It is not recommended for people with diabetes, cancer, heart disease or any other
+                chronic medical condition. </span>
+              <br /><br />
+
+              <span class="text-desc">Changes made on the plan and calories counted for today will get removed on switching to {{plan.name}} plan</span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> {{plan.note}}</span>
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="detox-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="detox-button-activate" (click)="doActivate(true, 'detox')">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="planType =='diabetes'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}{{plan.subDescLine2}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row>
+            <ion-col>
+              <span class="text-desc">It is caused by insulin resistance and presents as high sugar levels in the blood stream. The nutritional recommendations are based on correcting insulin resistance and reducing inflammation.</span>
+              <br /><br />
+
+              <span class="text-desc">The diet eliminates inflammatory foods such as simple sugar, ultra processed foods, unhealthy fats, excess dairy and focuses on timed and portion controlled meals that are rich in colorful vegetables and fruits, nuts and seeds and unpolished grains and lentils.</span>
+              <br /><br />
+
+              <span class="text-desc">The diet plan will help maintain the macro and micronutrients in the desired  range which can help in resolving metabolic disorder and also eliminating abdominal fat which is one of the most difficult ones to  address.</span>
+              <br /><br />
+              
+              <span class="text-desc-note"><b>Note :</b> {{plan.note}}</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="diabetes-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="diabetes-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="planType =='cholesterol'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}{{plan.subDescLine2}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <br />
+          <ion-row>
+            <ion-col>
+              <span class="text-desc">Being overweight or having excess percentage body fat along with high cholesterol  is a metabolic error that is caused by an increased intake of bad quality fats , excess of simple carbohydrates and a sedentary lifestyle.</span>
+              <br /><br />
+
+              <span class="text-desc">The cholesterol lowering nutritional recommendation includes providing good quality fats and Omega 3 from nuts and oilseeds and the essential micronutrients and FIBRE from plenty of fresh vegetables ,fruits with millets and whole pulses.</span>
+              <br /><br />
+
+              <span class="text-desc">The diet plan will help maintain the micronutrients and minerals in the desired  range which can help in resolving metabolic disorder and also eliminating abdominal fat which is one of the most difficult ones to address.</span>
+              <br /><br />
+              
+              <span class="text-desc-note"><b>Note :</b> {{plan.note}}</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="cholesterol-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="cholesterol-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="planType =='hypertension'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}{{plan.subDescLine2}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <!-- <br /> -->
+          <ion-row>
+            <ion-col>
+              <span class="text-desc">Being overweight or having excess percentage body fat along with hypertension is a metabolic error that is caused by an increased intake of simple carbohydrates and a sedentary lifestyle.</span>
+              <br /><br />
+
+              <span class="text-desc">The nutritional recommendations are based on the concept of DASH DIET (Dietary Approaches to Stop Hypertension).</span>
+              <br /><br />
+
+              <span class="text-desc">The Dietary Approach to Stop Hypertension hinges on reduced Sodium consumption and an increased intake of minerals such Potassium, Magnesium and Fibre which regulate blood pressure.</span>
+              <br /><br />
+
+              <span class="text-desc">The diet plan will help maintain the micronutrients and minerals in the desired  range which can help in resolving metabolic disorder and also eliminating abdominal fat which is one of the most difficult ones to  address.</span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> {{plan.note}}</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="hypertension-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="hypertension-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div class="plan-container" *ngIf="planType =='pcos'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}{{plan.subDescLine2}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <!-- <br /> -->
+          <ion-row>
+            <ion-col>
+              <span class="text-desc">It is a hormone disorder that is caused by insulin resistance and presents as irregular periods, acne, weight gain etc. The PCOS nutritional recommendations are based on correcting insulin resistance and reducing inflammation.</span>
+              <br /><br />
+
+              <span class="text-desc">The diet eliminates inflammatory foods such as simple sugar, ultra processed foods, unhealthy fats, excess dairy and focuses on timed and portion controlled meals that are rich in colorful vegetables and fruits, nuts and seeds and unpolished grains and lentils. </span>
+              <br /><br />
+
+              <span class="text-desc">The diet plan will help maintain the macro and micronutrients in the desired  range which can help in resolving metabolic disorder and also eliminating abdominal fat which is one of the most difficult ones to  address.</span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> {{plan.note}}</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="pcos-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="pcos-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="planType =='weightLossPlus'">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}{{plan.subDescLine2}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <!-- <br /> -->
+          <ion-row>
+            <ion-col>
+              <span class="text-desc">Being overweight or having excess percentage body fat is a metabolic error that is caused by an increased intake of simple carbohydrates and a sedentary lifestyle.</span>
+              <br /><br />
+
+              <span class="text-desc">The weight loss plus nutritional recommendations are based on the HFLC diet in a moderate form and that is personalized for the user. The total Net Carbohydrates per day is closely monitored to accelerate weight loss and reduce insulin resistance.</span>
+              <br /><br />
+
+              <span class="text-desc">Keeping the Net Carbs under  a specific  range helps to eliminate  abdominal fat which is one of the most difficult ones to address.</span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> The content of this app is provided as an information source and is not a substitute for professional advice.</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="weight-loss-plus-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="weight-loss-plus-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="(planType.split('_').length > 0 && planType.split('_')[0] == 'muscleGain')">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}{{plan.subDescLine2}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <!-- <br /> -->
+          <ion-row>
+            <ion-col>
+              <span class="text-desc">The Food we eat has the potential to build our muscles and also to break down the existing muscle for energy purposes. During the Muscle Building process, diet is a major component that needs to be taken care of. </span>
+              <br /><br />
+
+              <span class="text-desc">The extensive workout needs to be supported by an adequate amount of nutrients like energy, protein, water and electrolyte intake. </span>
+              <br /><br />
+
+              <span class="text-desc">Right nutrition can help you recover faster, build muscles and prevent muscle cramps post workout. </span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> The content of this app is provided as an information source and is not a substitute for professional advice.</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="muscle-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="muscle-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <div class="plan-container" *ngIf="(planType.split('_').length > 0 && planType.split('_')[0] == 'fatShredding')">
+          <ion-row>
+            <ion-col class="ion-text-left ion-align-self-center">
+              <ion-row>
+                <ion-col>
+                  <span class="sub-foodItem-header">{{plan.name}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row style="padding-top: 5px;">
+                <ion-col>
+                  <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.subDesc}}{{plan.subDescLine2}}</span>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+              <ion-col>
+                <span class="sub-foodItem-sub-header sub-foodItem-sub-header-custom">{{plan.desc}}</span>
+              </ion-col>
+            </ion-row> -->
+            </ion-col>
+            <ion-col class="ion-text-center ion-align-self-center">
+              <img [src]="plan.img" />
+            </ion-col>
+          </ion-row>
+          <!-- <br /> -->
+          <ion-row>
+            <ion-col>
+              <span class="text-desc">During the muscle building process, there can also be some fat gain. After a few weeks of muscle building phase, the Fat shredding phase occurs. </span>
+              <br /><br />
+
+              <span class="text-desc">Adequate nutrition can help you shred fat without losing your muscle mass. Fat shredding is also known as Cutting phase. Weightlifting and cutting diets can help you lose fats while maintaining muscle mass.</span>
+              <br /><br />
+
+              <span class="text-desc">Calorie deficit with adequate protein, fat and carbs ratio along with a good amount of micronutrients helps you burn your extra fat and reach your goal. This is where we help you</span>
+              <br /><br />
+
+              <span class="text-desc-note"><b>Note :</b> The content of this app is provided as an information source and is not a substitute for professional advice.</span>
+            </ion-col>
+          </ion-row>
+          <br />
+
+          <ion-row class="bottom-btn">
+            <ion-col class="ion-text-center">
+              <ion-button fill="outline" class="fat-button-cancel" (click)="close()">Cancel</ion-button>
+            </ion-col>
+            <ion-col class="ion-text-center">
+              <ion-button class="fat-button-activate" (click)="doActivate(true, plan.id)">Activate</ion-button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-card-content>
+      <!-- <span><span class="border-section-btm"
+          [ngStyle]="{'background-color': planType =='weightLoss' ? '#01a3a4' :  planType =='immunity_booster' ? '#FD9F33' : planType =='detox' ? '#4CB271' : '#0B94C1'}"></span></span> -->
+    </ion-card>
+  </div>
+</div>

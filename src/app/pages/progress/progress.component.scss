@@ -1,0 +1,23 @@
+@import '../../../theme/fonts.scss';
+svg{
+  height: 5.3rem;
+}
+ion-buttons{
+  padding-left:1.125rem;
+  padding-right:1.125rem;
+}
+.completed{
+
+  span:first-child{
+    margin-right:10px;
+    }
+  margin-right:.5rem;
+  font-size: .875rem;
+  left: 21px;
+  position: relative;
+  white-space: nowrap;
+  span:last-child{
+  color:$yellow-2 !important;
+  //color:var(--theme-progressBarWhite) !important;
+  }
+}

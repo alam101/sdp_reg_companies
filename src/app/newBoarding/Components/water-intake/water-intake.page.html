@@ -1,0 +1,74 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>water-intake</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> -->
+<ion-card
+  class="water_main_card center flex_col"
+  [ngStyle]="{'width':width+'px'}"
+>
+  <div class="header_div center">
+    <ion-img src="../../../../assets/newImages/bottle.png"></ion-img>
+    <p>Water Intake</p>
+  </div>
+  <div class="water_drop_main_div center">
+    <div class="water-animation">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        style="display: none"
+      >
+        <symbol id="wave">
+          <path
+            d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"
+          ></path>
+          <path
+            d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"
+          ></path>
+          <path
+            d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"
+          ></path>
+          <path
+            d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"
+          ></path>
+        </symbol>
+      </svg>
+      <div class="box custom-height-width-155">
+        <div class="water_guage_div">
+          <div class="water-center-percent">
+            <br />
+          </div>
+          <div id="water_guage" class="water">
+            <svg viewBox="0 0 560 20" class="water_wave water_wave_back">
+              <use xlink:href="#wave"></use>
+            </svg>
+            <svg viewBox="0 0 560 20" class="water_wave water_wave_front">
+              <use xlink:href="#wave"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-img
+      src="../../../../assets/newImages/water_drop-removebg-preview.png"
+      class="water_drop_img"
+    ></ion-img>
+    <p class="consumed_water">{{drankwater}} lt <br />Consumed</p>
+
+    <ion-icon
+      (click)="fillWaterProgress()"
+      class="plus_icon"
+      name="add-circle"
+    ></ion-icon>
+  </div>
+  <div class="recommanded_div">
+    <p class="recommanded">Recommended</p>
+    <p class="ltr">{{recommendedwater}} litres daily</p>
+  </div>
+</ion-card>
+<!-- </ion-content> -->

@@ -1,0 +1,245 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>calories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> -->
+<ion-card
+  class="water_main_card center flex_col"
+  
+>
+  <div class="header_div center">
+    <ion-img src="../../../../assets/newImages/calori-consume.png"></ion-img>
+    <p>Nutrition Info</p>
+  </div>
+  <div  style="margin: 1rem .6rem; width: 85%;height: 240px;">
+    <ion-grid style="padding-left: 0%" *ngIf="compConfig.caloriesCircle!=false">
+      <ion-row>
+        <ion-col size="6" class="center">
+          <div class="circle_progress_div">
+            <circle-progress
+              [percent]="(100 * this.allData?.totalCal) /
+              this.allData?.targetCal?.recomended"
+              [radius]="55"
+              [outerStrokeWidth]="8"
+              [innerStrokeWidth]="8"
+              [outerStrokeColor]="'#F77100'"
+              [innerStrokeColor]="'#E0E0E0'"
+              [animation]="true"
+              [animationDuration]="300"
+              [clockwise]="true"
+              [title]="allData?.totalCal+'/'+allData?.targetCal?.recomended"
+              [subtitle]="'Kcal'"
+              [showUnits]="false"
+            >
+            </circle-progress>
+            <!-- <ion-icon
+              class="plus_icon"
+              name="add-circle"
+              (click)="gotoDiet()"
+            ></ion-icon> -->
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div>
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/protein.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Protein ({{allData?.targetCal?.totalProtien | number : '1.0-0'
+                  }}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Protien}} gm</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="protien_progress"
+                [value]="allData?.Protien/allData?.targetCal?.totalProtien"
+              ></ion-progress-bar>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/fats.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Fats ({{allData?.targetCal?.totalFat | number : '1.0-0'}}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Fat}} gm</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="fat_progress"
+                [value]="allData?.Fat/allData?.targetCal?.totalFat"
+              ></ion-progress-bar>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/carbs.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Carbs ({{allData?.targetCal?.totalCarbs | number : '1.0-0'
+                  }}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Carbs}} gm</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="carb_progress"
+                [value]="allData?.Carbs/allData?.targetCal?.totalCarbs"
+              ></ion-progress-bar>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/calorie.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Fiber ({{allData?.targetCal?.totalFiber}}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Fiber}} gm</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="fiber_progress"
+                [value]="allData?.Fiber/allData?.targetCal?.totalFiber"
+              ></ion-progress-bar>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid style="padding-left: 0%" *ngIf="compConfig.caloriesCircle===false">
+      <ion-row>
+        <ion-col size="12">
+          <div>
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/protein.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Protein ({{allData?.targetCal?.totalProtien | number : '1.0-0'
+                  }}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Protien}} gm</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="protien_progress"
+                [value]="allData?.Protien/allData?.targetCal?.totalProtien"
+              ></ion-progress-bar>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/fats.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Fats ({{allData?.targetCal?.totalFat | number : '1.0-0'}}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Fat}} gm</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="fat_progress"
+                [value]="allData?.Fat/allData?.targetCal?.totalFat"
+              ></ion-progress-bar>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/carbs.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Carbs ({{allData?.targetCal?.totalCarbs | number : '1.0-0'
+                  }}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Carbs}} gm</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="carb_progress"
+                [value]="allData?.Carbs/allData?.targetCal?.totalCarbs"
+              ></ion-progress-bar>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px">
+            <div style="display: flex">
+              <div class="center">
+                <ion-img
+                  src="../../../../assets/newImages/calorie.png"
+                  class="card_cal_image"
+                ></ion-img>
+              </div>
+              <div style="margin-left: 5px">
+                <p class="protien_text">
+                  Fiber ({{allData?.targetCal?.totalFiber}}gm)
+                </p>
+                <p class="protien_unit">{{allData?.Fiber}} gm</p>
+              </div>
+            </div>
+            <div style="margin-top: 5px">
+              <ion-progress-bar
+                class="fiber_progress"
+                [value]="allData?.Fiber/allData?.targetCal?.totalFiber"
+              ></ion-progress-bar>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-card>
+<!-- </ion-content> -->

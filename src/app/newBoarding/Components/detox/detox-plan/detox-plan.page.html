@@ -1,0 +1,149 @@
+<!-- <div class="offer-bottom-popup">
+  <ion-content>
+    <ion-icon name="close-circle" class="closed" (click)="close()"> </ion-icon>
+    <div class="plan-container">
+      <ion-row>
+        <ion-col class="ion-text-left ion-align-self-center">
+          <ion-row>
+            <ion-col>
+              <span class="sub-foodItem-header">Detox Plan</span>
+            </ion-col>
+          </ion-row>
+          <ion-row style="padding-top: 5px">
+            <ion-col>
+              <span
+                class="sub-foodItem-sub-header sub-foodItem-sub-header-custom"
+                >Low calories plan to accelerate weight loss</span
+              >
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col class="ion-text-center ion-align-self-center">
+          <img src="./assets/img/detox.jpg" />
+        </ion-col>
+      </ion-row>
+      <br />
+      <ion-row>
+        <ion-col>
+          <p class="text-title">
+            Detox / Fasting / Low-Calorie plans can be good for healing of the
+            body & to accelerate weight loss. You can do it once or twice a
+            week. Start with once a week.
+          </p>
+
+          <p class="text-desc">
+            It is not recommended for people with diabetes, cancer, heart
+            disease or any other chronic medical condition.
+          </p>
+
+          <p class="text-desc">
+            Changes made on the plan and calories counted for today will get
+            removed on switching to plan
+          </p>
+
+          <p class="text-desc-note">
+            <b>Note :</b> The content of this app is provided as an information
+            source and is not intended as a substitute for professional medical
+            advice.
+          </p>
+        </ion-col>
+      </ion-row>
+      <br />
+      <ion-row class="bottom-btn">
+        <ion-col class="ion-text-center">
+          <ion-button
+            fill="outline"
+            class="detox-button-cancel"
+            (click)="close()"
+            >Cancel</ion-button
+          >
+        </ion-col>
+        <ion-col class="ion-text-center">
+          <ion-button
+            class="detox-button-activate"
+            (click)="doActivate(true, 'detox')"
+            >Activate</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-content>
+</div> -->
+
+<div class="offer-bottom-popup">
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center"
+          >Detox Plan <br />
+          <span style="text-align: left; font-size: 12px"
+            >Low calories plan to accelerate weight loss</span
+          >
+        </ion-card-title>
+        <ion-icon
+          name="close-circle"
+          class="padding-horizontal-5 close-i success-color"
+          (click)="close()"
+        >
+        </ion-icon>
+      </ion-card-header>
+
+      <ion-card-content style="padding: 0%">
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <img src="../../../../../assets/img/detox.jpg" />
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col
+            class="ion-text-center"
+            style="margin-left: 20px; margin-right: 20px; overflow: scroll"
+          >
+            <p style="text-align: left; font-size: 12px">
+              Detox / Fasting / Low-Calorie plans can be good for healing of the
+              body & to accelerate weight loss. You can do it once or twice a
+              week. Start with once a week.
+              <br />
+              <br />
+              It is not recommended for people with diabetes, cancer, heart
+              disease or any other chronic medical condition.
+              <br />
+              <br />
+              Changes made on the plan and calories counted for today will get
+              removed on switching to plan
+              <br />
+
+              <br />
+              <b>Note :</b>
+              <span style="font-style: italic"
+                >The content of this app is provided as an information source
+                and is not intended as a substitute for professional medical
+                advice.</span
+              >
+              <br />
+              <br />
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="bottom-btn">
+          <ion-col class="ion-text-center">
+            <ion-button
+              fill="outline"
+              class="detox-button-cancel"
+              (click)="close()"
+              >Cancel</ion-button
+            >
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-button
+              class="detox-button-activate"
+              (click)="doActivate(true, 'detox')"
+              >Activate</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</div>

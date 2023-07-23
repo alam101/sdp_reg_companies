@@ -1,0 +1,119 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>meal-pref-page</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content style="--background:#0A1F5B">
+
+  <div class="meal-pref">
+    <ion-card>
+      <ion-card-component>
+        <br>
+        <ion-row>
+          <ion-col class="ion-text-left">
+            <span class="q-font">
+              For which of the slots you’ll prefer Eat Fit?
+            </span>
+          </ion-col>
+        </ion-row><br>
+        <ion-row>
+          <ion-col class="ion-text-left radio_btn_div" size="12" style="padding: 0;">
+            <ion-radio-group style="    width: 90%;"
+            [(ngModel)]="choice">
+            <ion-row>
+              <ion-col class="ion-text-left" size="6">
+                <ion-item lines="none" class="ion-no-padding">
+                  <ion-radio value="Breakfat"></ion-radio>
+                  <ion-label>Breakfat</ion-label>
+              </ion-item>
+              </ion-col>
+              <ion-col class="ion-text-left" size="6">
+                <ion-item lines="none" class="ion-no-padding" >
+                  <ion-radio value="Lunch" ></ion-radio>
+                  <ion-label>Lunch</ion-label>
+              </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-left" size="6">
+                <ion-item lines="none" class="ion-no-padding" >
+                  <ion-radio value="Snacks" ></ion-radio>
+                  <ion-label>Snacks</ion-label>
+              </ion-item>
+              </ion-col >
+              <ion-col class="ion-text-left" size="6">
+                <ion-item lines="none" class="ion-no-padding">
+                  <ion-radio value="Dinner" ></ion-radio>
+                  <ion-label>Dinner</ion-label>
+              </ion-item>
+              </ion-col>
+            </ion-row>
+            </ion-radio-group>
+          </ion-col>
+        </ion-row><br>
+        <ion-row>
+          <ion-col class="ion-text-left">
+            <span class="q-font">
+              Please select the preferred meal for lunch
+            </span>
+          </ion-col>
+        </ion-row><br>
+        <ion-row>
+          <ion-col class="ion-text-left">
+            <div class="go_btn_div">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="3" class="ion-text-left">
+                    <ion-button
+                    style="    width: 80px;
+                    padding-left: 0;"
+                      class="back_btn"
+                      fill="outline"
+                      [ngClass]="{'go_btn':selectedItem==='veg'}"
+                      (click)="selectFootPref('veg')"
+                      >Veg</ion-button
+                    >
+                  </ion-col>
+                  <ion-col size="7" class="ion-text-left">
+                    <ion-button class="back_btn" fill="outline" [ngClass]="{'go_btn':selectedItem==='non-veg'}" (click)="selectFootPref('non-veg')"
+                      >Non-veg</ion-button
+                    >
+                  </ion-col>
+                  <ion-col size="2"></ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </ion-col>
+        </ion-row>
+        <div style="position: relative;">
+          <app-meal-pref [documents]="fit?.documents"></app-meal-pref>
+        </div>
+      </ion-card-component>
+    </ion-card>
+   
+    <div class="footer">
+      <div class="go_btn_div1">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <ion-button
+                class="back_btn1"
+                shape="round"
+                fill="outline"
+                (click)="back()"
+                >Cancel</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" class="center">
+              <ion-button class="go_btn1" shape="round" (click)="goNext()"
+                >Good to go</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>

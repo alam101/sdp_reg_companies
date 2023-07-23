@@ -1,0 +1,375 @@
+<ion-header  style="height: 3rem !important;">
+  <ion-toolbar  style="--min-height: 3rem !important;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/new-diet"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Food Detail
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-card>
+      <div>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <div (click)="videoClick(foodDetails.video)"
+              *ngIf="foodDetails.video && foodDetails.video != '-' && foodDetails.video != '--' && foodDetails.video.indexOf('http') > -1">
+              <iframe [src]='videoUrl' frameborder="0" allowfullscreen
+                style="width: 100%;height: 200px;pointer-events: none;"></iframe>
+            </div>
+
+            <img style="height: 200px;width: 100%;object-fit: cover;"
+              *ngIf="foodDetails.imageUrl && !(foodDetails.video && foodDetails.video != '-' && foodDetails.video != '--' && foodDetails.video.indexOf('http') > -1)"
+              src="{{image_URL}}{{foodDetails.foodItem}}.jpg">
+              <ion-row style="position: absolute;
+              bottom: 16px;right: 10px;" *ngIf="foodDetails?.source && foodDetails?.source != ''">
+                <ion-col>
+                  <div style=" height: 50px;
+                  width: 50px;
+                  background: rgb(255 255 255 / 80%);
+                  border-radius: 100px;">
+                    <img src="./assets/img/link.svg" style="margin-top: 13px;
+                    opacity: 1;
+                    height: 3vh;" />
+                  </div>
+                </ion-col>
+              </ion-row>
+          
+          </ion-col>
+        </ion-row>
+       
+        <ion-row *ngIf="foodDetails?.source || foodDetails.video && foodDetails.video != '-' && foodDetails.video != '--' && foodDetails.video.indexOf('http') > -1">
+          <ion-col class="ion-text-center" style="font-size:0.6rem;">
+            Not must to follow  Recipe. Is shared to guide you for better way of cooking
+          </ion-col>
+        </ion-row>
+        <ion-row style="bottom: 16px;">
+          <ion-col size="0.4"></ion-col>
+          <ion-col class="ion-text-left ion-align-self-start">
+            <ion-item lines="none" class="legend-top" [ngClass]="{'legend-9':foodDetails.Score =='9', 'legend-6':foodDetails.Score =='6', 'legend-3': foodDetails.Score =='3' , 'legend-1':foodDetails.Score =='1' , 'legend-0': !foodDetails.Score || foodDetails.Score == ''}">
+              <span *ngIf="foodDetails.video!=null && foodDetails.video!=''"
+              style="font-weight: bold;font-size: 1rem;">{{foodDetails.Name}}
+              ({{foodDetails.Calories}} cal/ {{filteredItem[0]?.portion_unit}})</span>
+            <span *ngIf="foodDetails.video==null || foodDetails.video==''"
+              style="font-weight: bold;font-size: 1rem;">{{foodDetails.Name}}
+              ({{foodDetails.Calories}} cal/ {{filteredItem[0]?.portion_unit}})</span>
+            <span class="first-caps"
+              *ngIf="foodDetails.video!=null || foodDetails.video==''">{{foodDetails.courtesy}}</span>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="recommendedInData && recommendedInData.length > 0">
+          <ion-col class="ion-text-left" style="font-size:0.7rem;margin: 10px;color: #03a5a7;">
+            <img src="./assets/img/health1.svg" class="pic-food-heart-healthy" /> This is good in <span *ngFor="let item of recommendedInData; let i = index;" [ngStyle]="{'font-weight' : item.isExistingDieases ? 'bold' : 'normal'}">
+              {{item.value}}<span *ngIf="i < recommendedInData.length - 1">, </span>
+            </span>
+            <!-- <span [ngStyle]="{'font-weight' : true ? 'bold' : 'bold'}">{{item}}</span> -->
+            
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="selectedDietPlan == 'immunity_booster' && foodDetails.Score == '9'">
+          <ion-col class="ion-text-left" style="font-size:0.7rem;margin: 10px;color: #03a5a7;">
+            <img src="./assets/img/immunity.svg" class="pic-food-heart-healthy" /> This is good in immunity booster
+            <!-- <span [ngStyle]="{'font-weight' : true ? 'bold' : 'bold'}">{{item}}</span> -->
+            
+          </ion-col>
+        </ion-row>
+
+      </div>
+    </ion-card>
+
+    <div class="gauge-chart" *ngIf="foodSource && foodSource.toUpperCase() != 'PERSONAL' &&  nutriScore">
+      <!-- <ion-row>
+        <ion-col class="text-center">
+          NutriScore: {{100 - nutriScore}}
+        </ion-col>
+      </ion-row> -->
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-card style="margin-top: 0;">
+            <ion-row style="height:100%">
+              <ion-col size="5" style="height:100%">
+                <div
+                  style="position: relative;top: 60%;left: 50%;transform: translate(-50%, -50%) !important;display: block !important;">
+                  <rg-gauge-chart style="display: inline-block;"[canvasWidth]="canvasWidth" [needleValue]="nutriScore" [options]="options">
+                  </rg-gauge-chart>
+                </div>
+              </ion-col>
+              <ion-col size="7" style="height:100%">
+                <div
+                  style="color: #7d7d7d; padding: 5px 0; border-width: 2px; border-style: dashed;border-radius: 10px; position: relative;top: 50%;left: 50%;transform: translate(-50%, -50%) !important;display: block !important;"
+                  [ngStyle]="{ 'border-color' : true ? getColorAndText()?.color : getColorAndText()?.color}">
+                  <div style="font-size: 0.8rem; margin-bottom: 2px;"
+                    [ngStyle]="{color: true ? getColorAndText()?.color: getColorAndText()?.color}">{{getColorAndText()?.text}}</div>
+                  <div style="font-size: 0.8rem;">{{getColorAndText()?.text2}} </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div>
+      <div>
+        <ion-card class="ion-padding" style="margin-top: 0;">
+          <ion-row>
+            <ion-col  class="ion-text-center">
+              <div (click)="refresh()" *ngIf="allOptionData && allOptionData.length > 0">
+                <img src="./assets/images/refreshIcon.svg"><br>
+              </div>
+              <!-- <span>Refresh</span> -->
+            </ion-col>
+            <ion-col>
+              <div class="portion-entry">
+
+                <ion-row>
+                  <ion-col size="3" class="ion-text-center ion-align-self-center" (click)="minus()">
+                    <span class="plus-minus-detail">-</span>
+                    <!-- <img class="plus-minus" (click)="minus()" src="./assets/icons/minus.png" /> -->
+                  </ion-col>
+                  <ion-col size="6" class="text-center ion-align-self-center" style="background: #F6F7FC;height: 30PX;;">
+                    <input type="number" class="input-portion" [value]="portion" 
+                      min="1" max="2" maxlength="1" readonly="true"/>
+                  </ion-col>
+                  <ion-col size="3" class="ion-text-center ion-align-self-center" (click)="plus()">
+                    <span class="plus-minus-detail">+</span>
+                    <!-- <img class="plus-minus" (click)="plus()" src="./assets/icons/plus1.png" /> -->
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-col>
+            <ion-col class="ion-text-center" *ngIf="checkLength>=1">
+              <img src="./assets/images/deleteIcon.svg" (click)="setPortionZeroAndDelete()" class="trash"><br>
+           </ion-col>
+          </ion-row>
+          <div>
+            <ion-row *ngIf="filteredItem && filteredItem.length > 0 && filteredItem[0] && filteredItem[0]?.portion_unit">
+              <ion-col>
+                <ion-item (click)="openclose()" lines="none" class="ion-no-padding" mode="ios">
+
+                  <h2 slot="start"> Nutritional Information <span>(per {{filteredItem[0]?.portion_unit}})</span></h2>
+
+                  <img style="width: 30px;" src="./assets/icons/down.png" slot="end" *ngIf="!isNutritionalShow">
+                  <img style="width: 30px;" src="./assets/icons/up.png" slot="end" *ngIf="isNutritionalShow">
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+                 <ion-row *ngIf="isNutritionalShow">
+              <ion-col>
+                <ion-row>
+                  <ion-col class="ion-text-center detail1 padding-left-5">
+                    <span class="font-weight700 font-size9">Carbs</span>
+                    <br>
+                    <img class="plus-minus pad-top5" src="./assets/img/carbs-mini.svg" style="height: 4vh;"/>
+                    <br>
+                    <span class="font-size9">{{totalCarbs}} Gm</span>
+                  </ion-col>
+                  <ion-col class="ion-text-center detail1 padding-right-5">
+                    <span class="font-weight700 font-size9">Proteins </span>
+                    <br>
+                    <img class="plus-minus pad-top5" src="./assets/img/protien-mini.svg" style="height: 4vh;"/>
+                    <br>
+                    <span class="font-size9">{{totalProtein}} Gm</span>
+                  </ion-col>
+                  <ion-col class="ion-text-center detail1 padding-left-5">
+                    <span class="font-weight700 font-size9">Fats</span>
+                    <br>
+                    <img class="plus-minus pad-top5" src="./assets/img/fats-mini.svg" style="height: 4vh;"/>
+                    <br>
+                    <span class="font-size9">{{totalFat}} Gm</span>
+                  </ion-col>
+                  <ion-col class="ion-text-center padding-left-5">
+                    <span class="font-weight700 font-size9">Fiber</span>
+                    <br>
+                    <img class="plus-minus pad-top5" src="./assets/img/fiber-mini.svg" style="height: 4vh;"/>
+                    <br>
+                    <span class="font-size9">{{totalFiber}} Gm</span>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </div>
+
+
+          <div *ngIf="foodDetails && ((foodDetails.recipe && foodDetails.recipe.length >= 5) || (foodDetails.source && foodDetails.source != ''))">
+            <ion-row class="row-hr">
+              <ion-col>
+                <ion-item (click)="openIngredients()" lines="none" class="ion-no-padding" mode="ios">
+                  <h2 slot="start"> Ingredients</h2>
+                  <img style="width: 30px;" src="./assets/icons/down.png" slot="end" *ngIf="!isopenIngredients">
+                  <img style="width: 30px;" src="./assets/icons/up.png" slot="end" *ngIf="isopenIngredients">
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-list lines="none" *ngIf="isopenIngredients">
+              <ion-item class="ion-no-padding" style="--background: white;">
+                <ion-label style="white-space: normal; background: white;">
+                  <span *ngIf="foodDetails.recipe==null || foodDetails.recipe==''">---</span>
+                  <span *ngIf="foodDetails.source && foodDetails.source != ''">
+                    Source: <span style="color: blue;"
+                      (click)="openLink(foodDetails?.source)">{{foodSourceDomain}}</span>
+                  </span>
+                  <div *ngIf="foodDetails.recipe!='~' && foodDetails.recipe!=null &&  foodDetails.recipe!=''" style="    padding: 0 10px;
+                 width: 100%;;border:none;height:100%; background: white; color: black;"
+                    readonly="readonly">{{foodDetails.recipe}}</div>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+          <div *ngIf="foodDetails && ((foodDetails.steps && foodDetails.steps.length >= 5) || (foodDetails.source && foodDetails.source != ''))">
+            <ion-row class="row-hr">
+              <ion-col>
+                <ion-item (click)="openPreparation()" lines="none" class="ion-no-padding" mode="ios">
+                  <h2 slot="start"> Preparation Method</h2>
+                  <img style="width: 30px;" src="./assets/icons/down.png" slot="end" *ngIf="!isopenPreparation">
+                  <img style="width: 30px;" src="./assets/icons/up.png" slot="end" *ngIf="isopenPreparation">
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-list lines="none" *ngIf="isopenPreparation">
+              <ion-item class="ion-no-padding" style="--background: white;">
+                <ion-label style="white-space: normal; background: white;">
+                  <!-- <span *ngIf="foodDetails.steps==null">---</span>
+                  <span *ngIf="foodDetails.steps==''">---</span> -->
+                  <span *ngIf="foodDetails.steps==null || foodDetails.steps==''">---</span>
+                  <span *ngIf="foodDetails.source && foodDetails.source != ''">
+                    Source: <span style="color: blue;"
+                      (click)="openLink(foodDetails?.source)">{{foodSourceDomain}}</span>
+                  </span>
+                  <div *ngIf="foodDetails.steps!='~' && foodDetails.steps!=null && foodDetails.steps!=''" style="    padding: 0 10px;
+                        width: 100%;border:none;height:100%; background: white; color: black;"
+                    readonly="readonly">{{foodDetails.steps}} </div>
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-card>
+
+        <!-- <br/>
+<br/> -->
+      </div>
+    </div>
+    <div>
+      <ion-card>
+        <ion-row *ngIf="allOptionData && allOptionData.length > 0">
+          <ion-col class="ion-padding">
+            <ion-item lines="none" class="ion-no-padding" mode="ios">
+              <h2 slot="start"> Choose other option</h2>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="allOptionData && allOptionData.length > 0">
+          <!-- <ion-col class="ion-text-center ion-align-self-center" size="1" (click)="slidePrev()">
+                  <ion-icon name="arrow-back"></ion-icon> 
+          </ion-col> -->
+          <ion-col class="ion-text-center" size="12">
+            <ion-slides #Slides [options]="slideOptsTwo">
+
+              <ion-slide *ngFor="let item of allOptionData; let i = index;"
+              class="" >
+                <!-- <img src="./assets/img/health1.svg" class="pic-food-heart" *ngIf="item.recommendedFor?.length>0 || item.Score =='9'" /> -->
+                <img src="./assets/img/health1.svg" class="pic-food-heart"
+                  *ngIf="selectedDietPlan != 'immunity_booster' && item.recommendedFor && item.recommendedFor.length>0" />
+                <img src="./assets/img/immunity.svg" class="pic-food-heart"
+                  *ngIf="selectedDietPlan == 'immunity_booster' && item.Score == '9'" />
+                <img src="./assets/img/health1.svg" class="pic-food-heart"
+                  *ngIf="selectedDietPlan == 'immunity_booster' && item.recommendedFor && item.recommendedFor.length> 0 && item.Score != '9'" />
+                <!-- width: 99%;
+                height: 120px;
+                border-radius: 15px;
+                background: #f3f3f3; -->
+                <div style="
+                top: 11px; height: 165px;
+                position: relative;">
+                  <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>
+                  <img style="height: 100px;width: 100%;border-radius: 15px;" src="{{image_URL}}{{item.code}}.jpg"
+                    (load)="imageLoad()" (error)="imageError()" (click)="fetchFoodSingleItem(item)" class="legend" [ngClass]="{'legend-9':item.Score =='9', 'legend-6':item.Score =='6', 'legend-3': item.Score =='3', 'legend-1':item.Score =='1', 'legend-0': item.Score == '' || !item.Score}">
+                  <div class="food-name">{{item.Food}}</div>
+                  <div class="food-name">{{item.Calories}} Cal</div>
+                </div>                                   
+             
+              </ion-slide>
+            
+            </ion-slides>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="!isOtherOptinsLoaded && allOptionData && allOptionData.length == 0">
+          <ion-col class="ion-text-center" size="12">
+            <ion-slides #Slides [options]="slideOptsTwo">
+              <ion-slide>
+                <div style="top: 11px; height: 150px;position: relative;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"
+                    style="height: 100px;width: 140px;border-radius: 15px;"></ion-skeleton-text>
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div style="top: 11px; height: 150px;position: relative;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"
+                    style="height: 100px;width: 140px;border-radius: 15px;"></ion-skeleton-text>
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div style="top: 11px; height: 150px;position: relative;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"
+                    style="height: 100px;width: 140px;border-radius: 15px;"></ion-skeleton-text>
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div style="top: 11px; height: 150px;position: relative;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"
+                    style="height: 100px;width: 140px;border-radius: 15px;"></ion-skeleton-text>
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div style="top: 11px; height: 150px;position: relative;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"
+                    style="height: 100px;width: 140px;border-radius: 15px;"></ion-skeleton-text>
+                </div>
+              </ion-slide>
+              <ion-slide>
+                <div style="top: 11px; height: 150px;position: relative;">
+                  <ion-skeleton-text animated class="diet-plan-skeleton"
+                    style="height: 100px;width: 140px;border-radius: 15px;"></ion-skeleton-text>
+                </div>
+              </ion-slide>
+            </ion-slides>
+          </ion-col>
+        </ion-row>
+
+        <!-- <ion-col class="ion-text-center  ion-align-self-center" size="1" (click)="slideNext()">
+                  <ion-icon name="arrow-forward">
+                </ion-icon> 
+          </ion-col> -->
+
+      </ion-card>
+
+    </div>
+  </div>
+  <!-- <br><br> -->
+</ion-content>
+<iframe *ngIf="streamVideo" width="100%" height="100%" class="video-iframe" [src]="videoUrl" frameborder="0"
+  allowfullscreen></iframe>
+<ion-icon *ngIf="streamVideo" (click)="closeVideo()" name="close" class="get-button-icon"></ion-icon>
+<!-- <ion-button *ngIf="streamVideo" (click)="closeVideo()" expand="full" class="get-button video-iframe" style="height: 5vh; left: 90%">Close</ion-button> -->
+<ion-footer class="btn">
+  <ion-toolbar>
+    <!-- <div class="width-50" slot="start">
+      <ion-button mode="ios" class="button button-cancel button-full" shape="round" (click)="cancel()">
+        Cancel
+      </ion-button>
+    </div> -->
+    <!-- <ion-title></ion-title> -->
+    <div>
+      <ion-button mode="ios" class="button button-dander button-full" shape="round" fill="outline" (click)="update()">
+        Update
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

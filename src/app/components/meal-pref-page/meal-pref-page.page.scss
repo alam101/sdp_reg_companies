@@ -1,0 +1,133 @@
+.meal-pref{
+    margin-top: 2rem;
+    ion-label{
+        font-size: .875rem;
+        font-family: var(--theme-newFont);
+    }
+    .q-font{
+        font-size: .851rem;
+        font-family: var(--theme-newFont);
+
+    }
+    ion-card{
+        box-shadow: none;
+        margin: 0;
+        padding: 1rem;
+        border-top-left-radius: 1.8rem;
+    border-top-right-radius: 1.8rem;
+       }
+.go_btn_div{
+    position: relative;
+    width: 100%;
+
+    ion-button{
+      height: 50px;
+      padding: 10px;
+    }
+}
+
+.go_btn{
+    height: 50px;
+    width: 70%;
+    &::part(native){
+        --background: var(--theme-newButton) !important;
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--white) !important;
+        font-family: var(--theme-newFont);
+    }
+}
+
+.back_btn{
+    height: 50px;
+    width: 70%;
+    &::part(native){
+        --background: var(--white);
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--theme-newButton);;
+        font-family: var(--theme-newFont);
+        border-color: var(--theme-newButton);
+    }
+}
+
+.radio_div{
+    margin: 0px 20px;
+    ion-radio-group{
+        background: #FAFAFA;
+    }
+    ion-item{
+        --background: #FAFAFA;
+    }
+}
+
+
+
+.radio_btn_div{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   width: 100%;
+   padding: 10px;
+   border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+  
+   ion-radio{
+    // --color:var(--theme-color);
+    --color-checked:var(--theme-color);
+    border: 2px solid var(--theme-newButton);
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    background: #fff;
+   }
+
+   ion-radio[aria-checked="true"]{
+    // --color:var(--theme-color);
+    --color-checked:var(--white);
+    border: 2px solid var(--theme-newButton);
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    background: var(--theme-newButton);
+   }
+
+}
+
+.footer{
+    position: fixed;
+    width: 100%;
+    bottom: 1.5rem;
+.go_btn_div1{
+    margin-top:50px;
+}
+
+.go_btn1{
+    height: 50px;
+    width: 80%;
+    &::part(native){
+        --background: var(--theme-newButton);
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--white);
+        font-family: var(--theme-newFont);
+    }
+}
+
+
+
+.back_btn1{
+    height: 50px;
+    width: 80%;
+    &::part(native){
+        --background: var(--white);
+        text-transform: none;
+        box-shadow: var(--btnShaddow);
+        color: var(--theme-newButton);;
+        font-family: var(--theme-newFont);
+        border-color: var(--theme-newButton);
+    }
+}
+}
+}

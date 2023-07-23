@@ -1,0 +1,183 @@
+<ion-content>
+  <div class="mainDiv">
+    <div class="slider_div" *ngIf="!from">
+      <div class="lines"></div>
+      <div class="lines2">
+        <div></div>
+      </div>
+      <div class="slider_page">
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active">3</p>
+        <p class="page_Count">4</p>
+        <p class="page_Count">5</p>
+      </div>
+    </div>
+    <div
+      class="content_div"
+      [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}"
+    >
+      <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
+        <ion-icon
+          class="close_modal_icon"
+          name="close-circle"
+          (click)="modalClose()"
+        ></ion-icon>
+      </div>
+      <p class="title-text">
+        We would like to understand your activity level on a daily basis for
+        better communication
+      </p>
+      <ion-radio-group
+        value="deasesValue"
+        [(ngModel)]="newModal"
+        (ionChange)="selectActivity($event)"
+      >
+        <div
+          class="card_div"
+          (click)="newModal=activity?.val"
+          *ngFor="let activity of localData?.otherMaster?.activities"
+        >
+          <ion-img
+            [src]="'../../../assets/newImages/'+getImage(activity?.code)"
+            [ngClass]="activity?.code"
+          ></ion-img>
+          <ion-radio
+            class="radio-button"
+            [value]="activity?.val"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === activity?.val && 'card_Border' "
+          >
+            <p class="fitness">{{activity?.val}}</p>
+            <p class="desc">{{activity?.sub_val}}</p>
+          </ion-card>
+        </div>
+
+        <!-- <div class="card_div" (click)="newModal='Lightly Active'">
+          <ion-img
+            src="../../../assets/newImages/lightly-active.png"
+            class="card_image"
+            style="width: 100px !important"
+          ></ion-img>
+          <ion-radio
+            class="radio-button"
+            value="Lightly Active"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === 'Lightly Active' && 'card_Border' "
+          >
+            <p class="fitness">Lightly Active</p>
+            <p class="desc">Walking, Yoga etc.</p>
+          </ion-card>
+        </div>
+
+        <div class="card_div" (click)="newModal='Moderately Active'">
+          <ion-img
+            src="../../../assets/newImages/moderatly-active.png"
+            class="card_image"
+            style="width: 110px !important"
+          ></ion-img>
+          <ion-radio
+            class="radio-button"
+            value="Moderately Active"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === 'Moderately Active' && 'card_Border' "
+          >
+            <p class="fitness">Moderately Active</p>
+            <p class="desc">Train around 3 times a week.</p>
+          </ion-card>
+        </div>
+
+        <div class="card_div" (click)="newModal='Super Active'">
+          <ion-img
+            src="../../../assets/newImages/super-active.png"
+            class="card_image"
+            style="right: 0px !important"
+          ></ion-img>
+          <ion-radio
+            class="radio-button"
+            value="Super Active"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === 'Super Active' && 'card_Border' "
+          >
+            <p class="fitness">Super Active</p>
+            <p class="desc">Train more than 3 times a week.</p>
+          </ion-card>
+        </div>
+
+        <div class="card_div" (click)="newModal='Extremely Active'">
+          <ion-img
+            src="../../../assets/newImages/extrimaly-active.png"
+            class="card_image"
+            style="right: -8px !important"
+          ></ion-img>
+          <ion-radio
+            class="radio-button"
+            value="Extremely Active"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === 'Extremely Active' && 'card_Border' "
+          >
+            <p class="fitness">Extremely Active</p>
+            <p class="desc">Heavy workouts, Heavy physical exercises.</p>
+          </ion-card>
+        </div> -->
+      </ion-radio-group>
+
+      <div class="go_btn_div" *ngIf="!from">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <ion-button
+                class="back_btn"
+                shape="round"
+                fill="outline"
+                (click)="goBack()"
+                >Back</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" class="center">
+              <ion-button class="go_btn" shape="round" (click)="goNext()"
+                >Next</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="go_btn_div" *ngIf="from">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <ion-button
+                class="back_btn"
+                shape="round"
+                fill="outline"
+                (click)="modalClose()"
+                >Cancel</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" class="center">
+              <ion-button class="go_btn" shape="round" (click)="goNext()"
+                >Save</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

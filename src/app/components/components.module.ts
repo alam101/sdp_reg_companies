@@ -1,0 +1,97 @@
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { IonicModule } from "@ionic/angular";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
+import { GoalComponent } from "./goal/goal.component";
+import { ButtonComponent } from "./button/button.component";
+import { VitalsComponent } from "./vitals/vitals.component";
+import { UserInfoComponent } from "./user-info/user-info.component";
+import { BackComponent } from "./back/back.component";
+import { ButtonPreviousComponent } from "./button-previous/button-previous.component";
+import { HomeDietplanComponent } from "./home-dietplan/home-dietplan.component";
+import { HomeKcounterComponent } from "./home-kcounter/home-kcounter.component";
+import { HomeVerticalComponent } from "./home-vertical/home-vertical.component";
+import { HomeWaterComponent } from "./home-water/home-water.component";
+import { RecipeDayComponent } from "./recipe-day/recipe-day.component";
+import { TermComponent } from "./term/term.component";
+import { ActivityComponent } from "./activity/activity.component";
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { ProteinTrackerComponent } from "./protein-tracker/protein-tracker.component";
+import { ChangePlanComponent } from "./change-plan/change-plan.component";
+import { SelectPlanPopupComponent } from "./select-plan-popup/select-plan-popup.component";
+import { DownloadPopupComponent } from "./download-popup/download-popup.component";
+ import { NewCaloriesComponent } from "./new-calories/new-calories.component";
+import { PremiumComponentComponent } from "./premium-component/premium-component.component";
+import { LoginComponent } from "./login/login.component";
+import {MealPrefComponent} from "./meal-pref/meal-pref.component";
+
+@NgModule({
+  declarations: [
+    ButtonPreviousComponent,
+    HeaderComponent,
+    FooterComponent,
+    GoalComponent,
+    ButtonComponent,
+    VitalsComponent,
+    UserInfoComponent,
+    BackComponent,
+    HomeDietplanComponent,
+    HomeKcounterComponent,
+    HomeVerticalComponent,
+    HomeWaterComponent,
+    RecipeDayComponent,
+    TermComponent,
+    ActivityComponent,
+    ProteinTrackerComponent,
+    ChangePlanComponent,
+    SelectPlanPopupComponent,
+    DownloadPopupComponent,
+     NewCaloriesComponent,
+    PremiumComponentComponent,
+    LoginComponent,
+    MealPrefComponent
+   
+  ],
+  imports: [
+    CommonModule, IonicModule.forRoot(),NgCircleProgressModule.forRoot({
+    animation:false,
+    radius:49,
+    innerStrokeWidth:6,
+    outerStrokeWidth:6,
+    space:-6,
+    responsive: false,
+    showTitle: true,
+    titleFontSize:"15",
+    subtitleFontSize:"15",
+    unitsFontSize:"15",
+    renderOnClick:false
+  })],
+  exports: [
+    ButtonPreviousComponent,
+    HeaderComponent,
+    FooterComponent,
+    GoalComponent,
+    ButtonComponent,
+    VitalsComponent,
+    UserInfoComponent,
+    BackComponent,
+    HomeDietplanComponent,
+    HomeKcounterComponent,
+    HomeVerticalComponent,
+    HomeWaterComponent,
+    RecipeDayComponent,
+    TermComponent,
+    ActivityComponent,
+    ProteinTrackerComponent,
+    ChangePlanComponent,
+    SelectPlanPopupComponent,
+    DownloadPopupComponent,
+    NewCaloriesComponent,
+    PremiumComponentComponent,
+    LoginComponent,
+    MealPrefComponent
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+export class ComponentsModule {}

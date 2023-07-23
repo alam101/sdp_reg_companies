@@ -1,0 +1,54 @@
+<app-progress [title]="'Diet Timing'" [totalPage]="4" [pageIndex]="3"></app-progress>
+<app-close-profile></app-close-profile>
+<ion-content>
+  <div class="margin-common">
+    <ion-row class="margin-top-1">
+      <ion-col class="text-center ion-align-self-center">
+        <h2 class="heading">choose Breakfast time </h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="text-center ion-align-self-center">
+        <h4 class="sub-heading">
+        Your fasting duration from dinner/
+          Post dinner will be
+          <b>{{fastingTimeDifference}} </b>hrs.
+        <br/>
+          We recommend 14 hrs.
+ </h4> 
+         
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="margin-top-2">
+      <ion-col class="text-center ion-align-self-center">
+        <img class="gender" src="./assets/icons/Group 156.svg" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="text-center margin-top-1-5" *ngFor="let timing of slotTiming; let i=index;">
+        <div class="box" (click)="selectSlot(timing.value)" [ngClass]="{'fill-box':timing.isSelected==true}">
+          {{timing.text}}
+          <ion-icon name="close-circle" class="box-close" [ngClass]="{'ion-hide': timing.isSelected!=true}"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer class="btn">
+  <ion-toolbar>
+    <div class="width-50" slot="start">
+      <ion-button mode="ios" class="button button-cancel button-full" shape="round" (click)="back()">
+        {{'button.back' |translate}}
+      </ion-button>
+    </div>
+    <!-- <ion-title></ion-title> -->
+    <div class="width-50" slot="end">
+      <ion-button mode="ios" class="button button-dander button-full" shape="round" fill="outline" (click)="goto()">
+        {{'button.next' |translate}}
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

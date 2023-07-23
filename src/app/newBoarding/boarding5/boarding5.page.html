@@ -1,0 +1,176 @@
+<ion-content>
+  <div class="mainDiv">
+    <div class="slider_div" *ngIf="!from">
+      <div class="lines"></div>
+      <div class="lines2">
+        <div></div>
+      </div>
+      <div class="slider_page">
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active">5</p>
+      </div>
+    </div>
+    <div
+      class="content_div"
+      [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}"
+    >
+      <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
+        <ion-icon
+          class="close_modal_icon"
+          name="close-circle"
+          (click)="modalClose()"
+        ></ion-icon>
+      </div>
+      <p class="title-text">
+        Finally, we'd like you to tell us about your food and diet preferences.
+      </p>
+      <p class="title">Diet Preferences</p>
+      <div class="content_sub_div">
+        <ion-radio-group
+          [value]="dietPreferences"
+          [(ngModel)]="dietPreferences"
+          (ionChange)="selectFoodPre($event)"
+        >
+          <ion-grid class="pad_0">
+            <ion-row>
+              <ion-col
+                size="6"
+                style="margin: 8px 0px"
+                [ngStyle]="(i % 2) != 1 ?{  'padding-right': '12px' }:{'padding-Left': '12px'}"
+                *ngFor="let f of localData?.otherMaster.foodPref; let i = index"
+              >
+                <div class="card_div" (click)="dietPreferences=f?.value">
+                  <ion-img
+                    [src]="'../../../assets/newImages/'+getImage(f?.code)"
+                    class="diet_image"
+                  ></ion-img>
+                  <ion-card
+                    class="section-card"
+                    [ngClass]="dietPreferences === f?.value && 'card_Border'"
+                  >
+                    <div class="h_100">
+                      <ion-radio [value]="f?.value" mode="ios"></ion-radio>
+                    </div>
+                    <p class="label">{{f?.value}}</p>
+                  </ion-card>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
+      </div>
+      <p class="title">Country Preferences</p>
+      <div class="country_pref_div">
+        <ion-card
+          class="country_dropdown"
+          (click)="openCountryDrop=!openCountryDrop"
+        >
+          <div class="country_label_div">
+            <ion-img
+              class="flag_img"
+              [src]="'assets/newImages/'+getFlag(country?._id)"
+            ></ion-img>
+            <p class="country_name">{{country?.name}}</p>
+          </div>
+          <ion-icon
+            [name]="openCountryDrop?'chevron-up-outline':'chevron-down-outline'"
+          ></ion-icon>
+        </ion-card>
+        <div class="radio_div" *ngIf="openCountryDrop">
+          <ion-list style="padding: 0%">
+            <div
+              class="radio_btn_div"
+              *ngFor="let c of countryArray;let i = index"
+              [ngClass]="i+1 === countryArray.length && 'radio_btn_div2'"
+              (click)="selectCountry(c)"
+            >
+              <div class="country_label_div">
+                <ion-img
+                  class="flag_list_img"
+                  [src]="'assets/newImages/'+getFlag(c?._id)"
+                ></ion-img>
+                <p class="country_list_name">{{c.name}}</p>
+              </div>
+            </div>
+          </ion-list>
+        </div>
+      </div>
+      <p class="title" *ngIf="country?.name === 'India'">
+        Regional Preferences
+      </p>
+      <div class="country_pref_div" *ngIf="country?.name === 'India'">
+        <ion-grid class="pad_0">
+          <ion-row>
+            <ion-col
+              size="6"
+              style="padding: 3px"
+              *ngFor="let i of localData?.otherMaster?.community"
+            >
+              <ion-card
+                class="regional_card"
+                [ngClass]="i.isSelected  && 'card_Border'"
+              >
+                <ion-item lines="none">
+                  <ion-label class="country_list_name">{{i.value}}</ion-label>
+                  <ion-checkbox
+                    slot="start"
+                    [value]="i.code"
+                    mode="ios"
+                    [checked]="i.isSelected"
+                    class="check-box"
+                    (ionChange)="selectReginal($event,i)"
+                  ></ion-checkbox>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="go_btn_div" *ngIf="!from">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <ion-button
+                class="back_btn"
+                shape="round"
+                fill="outline"
+                (click)="goBack()"
+                >Back</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" class="center">
+              <ion-button class="go_btn" shape="round" (click)="goNext()"
+                >Good To Go</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="go_btn_div" *ngIf="from">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <ion-button
+                class="back_btn"
+                shape="round"
+                fill="outline"
+                (click)="modalClose()"
+                >Cancel</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" class="center">
+              <ion-button class="go_btn" shape="round" (click)="goNext()"
+                >Save</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

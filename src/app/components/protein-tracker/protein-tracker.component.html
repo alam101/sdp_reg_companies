@@ -1,0 +1,18 @@
+<img class="disable-traker-container" src="assets/img/Protien_tracker_disabled.svg" *ngIf="currentDateIndex > 0">
+<circle-progress radius="30" outerStrokeGradient="true" *ngIf="currentDateIndex == 0"
+  outerStrokeGradientStopColor='#FF56A2' percent="{{protienConsumedPer}}"
+  [innerStrokeColor]="'rgb(125,125,125,0.2)'" outerStrokeColor='#AF0CD6'
+  showImage="true" imageSrc="assets/img/Protien-tracker.png" imageHeight="50" imageWidth="50"
+  backgroundColor="#fff" outerStrokeWidth="3" innerStrokeWidth="3"
+  title="{{roundingVal(totalTodaysCalories * 100/tolalCalories)}} " [titleColor]="'#AF0CD6'"
+  subtitle="{{habitList?.length}} habits" [subtitleColor]="'#AF0CD6'" units="%" space="-3"
+  [unitsColor]="'#AF0CD6'">
+</circle-progress>
+<!-- </ion-col>
+</ion-row> -->
+<ion-row>
+  <ion-col class="ion-text-center">
+   
+    <span class="font-size75">{{protienConsumedPer}} Gm Protein</span>
+  </ion-col>
+</ion-row>

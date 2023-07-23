@@ -1,0 +1,60 @@
+<ion-header style="height: 4rem;">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/new-diet"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Diet Plans Options</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-top">
+
+  <div class="personalise-covid text-center" *ngIf="containPlanTypes.length > 0">
+    <div *ngFor="let plan of containPlanTypes;let ing=index;">
+      <!-- && (plan.id == selectedPlan || (selectedPlan.split('_').length > 0 && plan.id.split('_').length > 0 && selectedPlan.split('_')[0] == plan.id.split('_')[0])) -->
+     <ion-card class="plan-container"
+      *ngIf="plan.isVisible"
+      [ngStyle]="{'background-image':' url(' + plan.img + ')', 'margin-top': ing == 0 ? '15px': '', 'background-size' : plan.id == 'diabetes' || plan.id == 'hypertension' ? '200px' : 'contain'}">
+      <div style="border-left: 5px solid;" [ngStyle]="{'border-color': plan.id == 'post_covid' ? '#754B29' :  plan.id =='weightLoss' ? '#01a3a4' : plan.id =='immunity_booster' ? '#FD9F33' : plan.id =='detox' ? '#4CB271' :
+      plan.id =='diabetes' ? '#D14322' : plan.id =='cholesterol' ? '#A31E79' : plan.id =='hypertension' ? '#FF5D56' :  plan.id =='pcos' ? '#FF5A7D':
+      '#0B94C1'}" class="legend-border"></div>
+
+      <ion-row>
+
+        <ion-col class="ion-text-left ion-align-self-center " style="padding: 15px;">
+          <ion-row>
+            <div class="legend"></div>
+
+            <ion-col>
+              <span class="sub-foodItem-header ">{{plan.name}}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row style="padding-top: 5px;">
+            <ion-col>
+              <span class="sub-foodItem-sub-header">{{plan.subDesc}}</span>
+              <span class="sub-foodItem-sub-header sub-foodItem-sub-header2" *ngIf="plan.subDescLine2">{{plan.subDescLine2}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col class="ion-text-center ion-align-self-center">
+        </ion-col>
+      </ion-row>
+
+      <ion-button *ngIf="!(plan.id == selectedPlan || (selectedPlan.split('_').length > 0 && plan.id.split('_').length > 0 && selectedPlan.split('_')[0] == plan.id.split('_')[0]))" shape="round" fill='outline' style="--background: #FFF !important" (click)="gotoEditPlanSelection($event, plan.id, plan, plan.note)"
+        [ngClass]="{'immunity-section-border': (plan.id =='immunity_booster'), 'weight-loss-border' : (plan.id
+        =='weightLoss'), 'weight-loss-plus-section-border': (plan.id =='weightLossPlus'),
+        'post-covid-section-border': ( plan.id  =='post_covid'),
+        'diabetes-section-border': (plan.id =='diabetes'),
+        'cholesterol-section-border': (plan.id =='cholesterol'),
+        'hypertension-section-border': (plan.id =='hypertension'),
+        'pcos-section-border': (plan.id =='pcos'),
+        'mucsle-border': (selectedPlan.split('_').length > 0 && plan.id.split('_').length > 0 && plan.id.split('_')[0] == 'muscleGain' ),
+        'fat-border': (selectedPlan.split('_').length > 0 && plan.id.split('_').length > 0 && plan.id.split('_')[0] == 'fatShredding' )
+        }">
+        {{(plan.id == selectedPlan || (selectedPlan.split('_').length > 0 && plan.id.split('_').length > 0 && selectedPlan.split('_')[0] == plan.id.split('_')[0])) ? 'Activated' : "Activate" }}
+      </ion-button>
+   </ion-card>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,55 @@
+
+// @import '../../../theme/fonts.scss';
+@import "../../../theme/variables.scss";
+.qa-day{
+    font-family: $font-bold;
+    font-size: 1rem;
+    color:#01A3A4;
+}
+
+.description{
+    padding-top:10px;
+    p{
+        font-size: 1rem;
+        font-family: $font;
+        text-align: left;
+        text-justify: auto;
+        color:#4C5264 !important;
+        position: relative;
+    }
+}
+.title{
+    padding-top: 10px;
+    font-family: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 0.95rem !important;
+    padding-left: 0 !important;  
+}
+.padding-top-1{
+    padding-top:10px;
+}
+.qa-day-img{
+    border-radius: 10px;
+ }
+ .view-more{
+    text-align:left;
+    font-size: 1rem;
+    font-family: $font;
+    color:#60AFF5 !important;
+    font-style: italic;
+ }
+.content-size{
+    font-size: .75rem;
+    font-family: $font;
+}
+ .detail{
+    border-right: 1px solid #7377774a;
+    span{
+        font-weight: 700;
+    }
+ }
+ .padding-left-5{
+     padding-left: 5px;
+ }
+ .padding-right-5{
+    padding-right: 5px;
+}

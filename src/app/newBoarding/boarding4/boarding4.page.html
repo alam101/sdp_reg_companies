@@ -1,0 +1,168 @@
+<ion-content>
+  <div class="mainDiv">
+    <div class="slider_div" *ngIf="!from">
+      <div class="lines"></div>
+      <div class="lines2">
+        <div></div>
+      </div>
+      <div class="slider_page">
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active complete">✓</p>
+        <p class="page_Count_active">4</p>
+        <p class="page_Count">5</p>
+      </div>
+    </div>
+    <div
+      class="content_div"
+      [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}"
+    >
+      <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
+        <ion-icon
+          class="close_modal_icon"
+          name="close-circle"
+          (click)="modalClose()"
+        ></ion-icon>
+      </div>
+      <p class="title-text">
+        Any condition of health or allergies so that our suggestions and diet
+        plan is in accordance with this.
+      </p>
+      <div class="condition_card">
+        <div class="card_div">
+          <ion-img
+            src="../../../assets/newImages/healthCondition.png"
+            class="card_image"
+          ></ion-img>
+          <div class="section-card">
+            <p class="fitness">
+              Health condition
+              <!-- <span class="i">i</span> -->
+            </p>
+          </div>
+        </div>
+        <ion-grid>
+          <ion-row>
+            <!-- <ion-col size="12">
+              <ion-item lines="none" class="check_item">
+                <ion-checkbox
+                  slot="start"
+                  [checked]="healthDisabled"
+                  (ionChange)="noneSelection('healths','healthDisabled',$event)"
+                >
+                </ion-checkbox>
+                <ion-label class="label_checkbox">None </ion-label>
+              </ion-item>
+            </ion-col> -->
+            <ion-col
+              size="6"
+              *ngFor="let health of healths.slice(0,this.showData? healths.length:6)"
+              (click)="popupShow(health)"
+            >
+              <ion-item lines="none" class="check_item">
+                <ion-checkbox
+                  [checked]="health.isSelected"
+                  [value]="health.value"
+                  (ionChange)="healthSelection($event,health,health.value)"
+                  [disabled]="health.code === 'K' || health.code === 'L' || health.code === 'M'"
+                  slot="start"
+                >
+                </ion-checkbox>
+                <ion-label class="label_checkbox">{{health.value}} </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-button
+          class="more_btn"
+          shape="round"
+          fill="outline"
+          (click)="showData=!showData"
+          >{{showData?'Show Less':'Show More'}}</ion-button
+        >
+      </div>
+
+      <div class="condition_card" style="margin-top: 70px">
+        <div class="card_div">
+          <ion-img
+            src="../../../assets/newImages/alergies.png"
+            class="card_image"
+          ></ion-img>
+          <div class="section-card">
+            <p class="fitness">
+              Allergies
+              <!-- <span class="i">i</span> -->
+            </p>
+          </div>
+        </div>
+        <ion-grid>
+          <ion-row>
+           
+            <ion-col
+              size="6"
+              *ngFor="let a of allergies.slice(0,showDataAl? allergies.length:6)"
+            >
+              <ion-item lines="none" class="check_item">
+                <ion-checkbox
+                  slot="start"
+                  [checked]="a?.isSelected"
+                  [value]="a?.code"
+                  (ionChange)="allergySelection($event,a)"></ion-checkbox>
+                <ion-label class="label_checkbox">{{a?.value}} </ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-button
+          class="more_btn"
+          shape="round"
+          fill="outline"
+          (click)="showDataAl=!showDataAl"
+          >{{showDataAl?'Show Less':'Show More'}}</ion-button
+        >
+      </div>
+
+      <div class="go_btn_div" *ngIf="!from">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <ion-button
+                class="back_btn"
+                shape="round"
+                fill="outline"
+                (click)="goBack()"
+                >Back</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" class="center">
+              <ion-button class="go_btn" shape="round" (click)="goNext()"
+                >Almost There</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="go_btn_div" *ngIf="from">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" class="center">
+              <ion-button
+                class="back_btn"
+                shape="round"
+                fill="outline"
+                (click)="modalClose()"
+                >Cancel</ion-button
+              >
+            </ion-col>
+            <ion-col size="6" class="center">
+              <ion-button class="go_btn" shape="round" (click)="goNext()"
+                >Save</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>
