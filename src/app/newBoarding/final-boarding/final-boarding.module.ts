@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { FinalBoardingPageRoutingModule } from './final-boarding-routing.module';
 
 import { FinalBoardingPage } from './final-boarding.page';
-
+import { ComponentsModule } from 'src/app/components/components.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FinalBoardingPageRoutingModule
+    FinalBoardingPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [FinalBoardingPage]
 })

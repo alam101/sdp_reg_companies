@@ -1,0 +1,65 @@
+@import "../../../theme/fonts.scss";
+.meal-selected{
+
+    position: relative;
+    .outer-img{
+        position: absolute;
+         top:-10px;
+        right: 2rem;
+        z-index: 11;
+    }
+    .meal-card{
+        background: #fafafa;
+        box-shadow: none;
+        height: 300px;
+        .header{
+            font-size: 1.2rem;
+            font-family: $font-medium;
+            color:#000000;
+        }
+        
+    }
+.inner-content{
+    .meal-item{
+    position: absolute;
+    width: 7%;
+    height: auto;
+    top: -10px;
+    left: 9px;
+    }
+    .veg{
+        position: absolute;
+    right: 0;
+    }
+    width: 100%;
+    border:1px solid #B5C1E3;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    background: #EDF2FF;
+    height: 150px;
+    margin-top: 2rem;
+    .sub-head{
+        font-family: $font-medium;
+        font-size: .751rem;
+        color:#333333;
+    }
+    .sub-time{
+        font-family: $font-medium;
+        font-size: .651rem;
+        color:#333333;
+    }
+
+    .item-img{
+        position: relative;
+        width: auto;
+        height: 100%;
+        border-radius: 5px;
+        top: -4px;
+    }
+    .right-content{
+        font-family: $font-medium;
+        font-size: .751rem;
+        color:#333333;
+    }
+}
+}

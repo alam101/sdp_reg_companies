@@ -25,6 +25,8 @@ import { DownloadPopupComponent } from "./download-popup/download-popup.componen
 import { PremiumComponentComponent } from "./premium-component/premium-component.component";
 import { LoginComponent } from "./login/login.component";
 import {MealPrefComponent} from "./meal-pref/meal-pref.component";
+import { MealSelectedComponent } from "./meal-selected/meal-selected.component";
+import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-inner.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import {MealPrefComponent} from "./meal-pref/meal-pref.component";
      NewCaloriesComponent,
     PremiumComponentComponent,
     LoginComponent,
-    MealPrefComponent
+    MealPrefComponent,
+    MealSelectedComponent,
+    MealSelectedInnerComponent
    
   ],
   imports: [
@@ -90,7 +94,9 @@ import {MealPrefComponent} from "./meal-pref/meal-pref.component";
     NewCaloriesComponent,
     PremiumComponentComponent,
     LoginComponent,
-    MealPrefComponent
+    MealPrefComponent,
+    MealSelectedComponent,
+    MealSelectedInnerComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
