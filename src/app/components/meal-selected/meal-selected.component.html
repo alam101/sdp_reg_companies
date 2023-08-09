@@ -18,10 +18,13 @@
         <img class="meal-item" src="./assets/img/meal-icon.png">
         <ion-row>
           <ion-col size="4">
-            <span class="sub-head">LUNCH</span>
+            <span class="sub-head">{{slot}}</span>
           </ion-col>
           <ion-col size="8">
-           <span class="sub-time">1:00pm to 3:30pm</span>
+            <ion-icon name="time-outline" style="position: relative;
+            top: 3px;
+            right: 5px;"></ion-icon>
+           <span class="sub-time">{{time}}</span>
           </ion-col>
         </ion-row>
         <ion-row style="margin-top: 1rem;margin-bottom: 1rem;">
@@ -29,20 +32,27 @@
         </ion-row>
         <ion-row>
           <ion-col size="4">
-            <img class="item-img" src="./assets/img/meal-s.png">
+            <img class="item-img" src="{{selectedItem?.image_id}}">
           </ion-col>
           <ion-col size="8" class="right-content">
             <ion-row>
               <ion-col size="8" class="ion-text-left">
-                <span>Weightloss Thali</span>
+                <span>{{selectedItem?.category_name}}</span>
               </ion-col>
               <ion-col size="4" class="ion-text-left">
-                <img class="veg" src="./assets/img/veg.png">
+                <div *ngIf="likeFood==='Veg'" class="veg">
+                  <div class="dot"></div>
+                </div>
+                <div *ngIf="likeFood==='Non Veg'" class="non-veg">
+                  <div class="dot"></div>
+                </div>
+                <!-- <img class="veg" *ngIf="likeFood==='Veg'" src="./assets/img/veg.png">
+                <img class="non-veg" *ngIf="likeFood==='Non Veg'" src="./assets/img/non-veg.png"> -->
               </ion-col>
-            </ion-row><br>
+            </ion-row>
             <ion-row>
               <ion-col class="ion-text-left">
-                300-559 Kcal
+                {{selectedItem?.calories_range}} Kcal
                 <br>
                 <span style="color:green">Excellent Choice</span>
               </ion-col>

@@ -525,7 +525,7 @@ body[color-theme="fitelo"] {
   --theme-color-new:#ff8643;
 }
 
-body[color-theme="common"] {
+body[color-theme="eatfit"] {
 
   --theme-background:#D83176; //#00a6a8
   --theme-header:#D83176;
@@ -543,7 +543,7 @@ body[color-theme="common"] {
   --theme-backgroundLRG: -webkit-linear-gradient(top, #D83176 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
   --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
   --theme-progressBarWhite:#FFFFFF;
-  --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
+  --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
   --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
 
 
@@ -555,7 +555,7 @@ body[color-theme="common"] {
   --theme-textHeading:0.9rem;
   // new vars
   --theme-color:#D83176;
-  --theme-newHeader:#F2B70B;
+  --theme-newHeader:#0A1F5B;
   --theme-newButton:#D83176;
   --white:#ffffff;
   --black:#333333;
@@ -575,9 +575,9 @@ body[color-theme="common"] {
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
-  --radio-background:#F2B70B;
+  --radio-background:#fff;
   --normal-color:#393939;
-  --cercle-progress:#F2B70B;
+  --cercle-progress:#0A1F5B;
 
   --arrow-color:#c97b5a;
   --arrow-color:#c97b5a;

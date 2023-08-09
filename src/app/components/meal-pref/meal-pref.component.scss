@@ -39,12 +39,14 @@
     }
     .-left{
         float: left; 
+        clear: both;
     }
     .-right{
         float: right; 
+       
     }
 
-    ion-checkbox{
+    ion-radio{
      position: absolute;
       right: 0;
         height: 20px;
@@ -52,12 +54,13 @@
         border-radius: 5px;
        }
     
-       ion-checkbox[aria-checked="true"]{
+       ion-radio[aria-checked="true"]{
         --color-checked:var(--white);
         --background-checked: var(--theme-newButton);
         border: 2px solid var(--theme-newButton);
-        height: 20px;
-        width: 20px;
+        height: 30px;
+        width: 30px;
         border-radius: 5px;
+        background: var(--theme-newButton);
        }
 }

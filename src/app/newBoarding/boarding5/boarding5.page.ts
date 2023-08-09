@@ -220,8 +220,8 @@ export class Boarding5Page implements OnInit {
                     if (this.from) {
                       return this.modalClose();
                     }
-                    this.storage.set("pendingPage", "/final-boarding");
-                    this.navCtrl.navigateForward(["final-boarding"]);
+                    this.storage.set("pendingPage", "/meal-pref");
+                    this.navCtrl.navigateForward(["meal-pref"]);
                     // this.updateProfile(data);
                   });
 

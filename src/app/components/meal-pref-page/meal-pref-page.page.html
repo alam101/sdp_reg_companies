@@ -4,10 +4,9 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content style="--background:#0A1F5B">
-
+<ion-content style="--background:#0A1F5B;">
   <div class="meal-pref">
-    <ion-card>
+    <ion-card style="padding-bottom: 6rem;">
       <ion-card-component>
         <br>
         <ion-row>
@@ -19,18 +18,18 @@
         </ion-row><br>
         <ion-row>
           <ion-col class="ion-text-left radio_btn_div" size="12" style="padding: 0;">
-            <ion-radio-group style="    width: 90%;"
-            [(ngModel)]="choice">
+            <ion-radio-group mode="md" style="    width: 90%;"
+            [(ngModel)]="choice" (ionChange)="selectSlot($event)">
             <ion-row>
               <ion-col class="ion-text-left" size="6">
                 <ion-item lines="none" class="ion-no-padding">
-                  <ion-radio value="Breakfat"></ion-radio>
+                  <ion-radio value="2" checked="true"></ion-radio>
                   <ion-label>Breakfat</ion-label>
               </ion-item>
               </ion-col>
               <ion-col class="ion-text-left" size="6">
                 <ion-item lines="none" class="ion-no-padding" >
-                  <ion-radio value="Lunch" ></ion-radio>
+                  <ion-radio value="4" ></ion-radio>
                   <ion-label>Lunch</ion-label>
               </ion-item>
               </ion-col>
@@ -38,13 +37,13 @@
             <ion-row>
               <ion-col class="ion-text-left" size="6">
                 <ion-item lines="none" class="ion-no-padding" >
-                  <ion-radio value="Snacks" ></ion-radio>
+                  <ion-radio value="6" ></ion-radio>
                   <ion-label>Snacks</ion-label>
               </ion-item>
               </ion-col >
               <ion-col class="ion-text-left" size="6">
                 <ion-item lines="none" class="ion-no-padding">
-                  <ion-radio value="Dinner" ></ion-radio>
+                  <ion-radio value="7" ></ion-radio>
                   <ion-label>Dinner</ion-label>
               </ion-item>
               </ion-col>
@@ -70,14 +69,14 @@
                     padding-left: 0;"
                       class="back_btn"
                       fill="outline"
-                      [ngClass]="{'go_btn':selectedItem==='veg'}"
-                      (click)="selectFootPref('veg')"
+                      [ngClass]="{'go_btn':selectedItem==='Veg'}"
+                      (click)="selectFootPref('Veg')"
                       >Veg</ion-button
                     >
                   </ion-col>
                   <ion-col size="7" class="ion-text-left">
-                    <ion-button class="back_btn" fill="outline" [ngClass]="{'go_btn':selectedItem==='non-veg'}" (click)="selectFootPref('non-veg')"
-                      >Non-veg</ion-button
+                    <ion-button class="back_btn" fill="outline" [ngClass]="{'go_btn':selectedItem==='Non Veg'}" (click)="selectFootPref('Non Veg')"
+                      >Non Veg</ion-button
                     >
                   </ion-col>
                   <ion-col size="2"></ion-col>
@@ -87,7 +86,22 @@
           </ion-col>
         </ion-row>
         <div style="position: relative;">
-          <app-meal-pref [documents]="fit?.documents"></app-meal-pref>
+          <!-- <app-meal-pref [documents]="fit?.documents" [slots]="choice" [foodPref]="foodPref"></app-meal-pref> -->
+          <div class="meal-pref-component">
+            <br>
+            <ion-radio-group mode="ios" (click)="selectedPref(index,fit)" value="{{choiceSelection}}"
+             *ngFor="let fit of totalItems; let index = index;" >
+            <div class="-box-area -left"  
+            [ngClass]="{'-left':(index+1)%2!==0, '-right':(index+1)%2===0}">
+              <div class="-box">
+                <ion-radio value="{{index}}"></ion-radio>
+             <img src="{{fit?.image_id}}" [ngClass]="{'-border':choiceSelection===index}">
+             </div>
+             <span class="calori">{{fit?.calories_range}}</span>
+            </div>
+          </ion-radio-group>
+          </div> 
+          
         </div>
       </ion-card-component>
     </ion-card>

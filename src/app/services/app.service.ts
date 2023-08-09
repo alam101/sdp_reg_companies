@@ -55,6 +55,11 @@ export class AppService {
     const url = this.baseUrl8443+API.eatfit;
      return this.httpClient.get(url);
    }
+   eatFitUpdate(body):Observable<any>{
+    const url = this.baseUrl8443+API.updateSpecialPref;
+     return this.httpClient.post(url,body);
+   }
+   
   getOnePlan():Observable<any> {
     const url = this.baseUrl + "" + API.getOnePlan;
     return this.httpClient.get(url, {});

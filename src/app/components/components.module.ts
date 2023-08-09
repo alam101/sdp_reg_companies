@@ -24,7 +24,7 @@ import { DownloadPopupComponent } from "./download-popup/download-popup.componen
  import { NewCaloriesComponent } from "./new-calories/new-calories.component";
 import { PremiumComponentComponent } from "./premium-component/premium-component.component";
 import { LoginComponent } from "./login/login.component";
-import {MealPrefComponent} from "./meal-pref/meal-pref.component";
+// import {MealPrefComponent} from "./meal-pref/meal-pref.component";
 import { MealSelectedComponent } from "./meal-selected/meal-selected.component";
 import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-inner.component";
 
@@ -52,7 +52,7 @@ import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-
      NewCaloriesComponent,
     PremiumComponentComponent,
     LoginComponent,
-    MealPrefComponent,
+    // MealPrefComponent,
     MealSelectedComponent,
     MealSelectedInnerComponent
    
@@ -94,7 +94,7 @@ import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-
     NewCaloriesComponent,
     PremiumComponentComponent,
     LoginComponent,
-    MealPrefComponent,
+    // MealPrefComponent,
     MealSelectedComponent,
     MealSelectedInnerComponent
   ],

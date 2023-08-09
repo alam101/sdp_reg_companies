@@ -13,12 +13,53 @@
         box-shadow: none;
         height: 300px;
         .header{
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-family: $font-medium;
             color:#000000;
         }
         
     }
+
+    .veg {
+        position: absolute;
+        right: 0;
+        margin: 0%;
+        border: 2px solid green;
+        height: 15px;
+        width: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .dot {
+            height: 5px;
+            width: 5px;
+            background: green;
+            border-radius: 100%;
+          }
+      }
+
+      .non-veg {
+        position: absolute;
+        right: 0;
+        margin: 0%;
+        border: 2px solid rgb(161, 5, 5);
+        height: 15px;
+        width: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .dot {
+            height: 5px;
+            width: 5px;
+            background: rgb(161, 5, 5);
+            border-radius: 100%;
+          }
+      }
+      
+      
+
 .inner-content{
     .meal-item{
     position: absolute;
@@ -27,10 +68,7 @@
     top: -10px;
     left: 9px;
     }
-    .veg{
-        position: absolute;
-    right: 0;
-    }
+   
     width: 100%;
     border:1px solid #B5C1E3;
     border-radius: 10px;
@@ -52,7 +90,7 @@
     .item-img{
         position: relative;
         width: auto;
-        height: 100%;
+        height: 70%;
         border-radius: 5px;
         top: -4px;
     }

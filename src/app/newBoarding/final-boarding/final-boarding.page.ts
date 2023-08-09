@@ -26,7 +26,9 @@ export class FinalBoardingPage implements OnInit {
   suggestedWeightRange: any;
   couponCode: any = "CU0000";
   achieveValue: any;
-
+  selectedItem:any;
+  slot:any;
+  likeFood:any;
   constructor(
     private navCtrl: NavController,
     private storage: Storage,
@@ -55,8 +57,9 @@ export class FinalBoardingPage implements OnInit {
 
 
   ngOnInit() {
-
-   
+   this.selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
+   this.slot = JSON.parse(localStorage.getItem("slotChoice"));
+   this.likeFood = localStorage.getItem("likeFood");
   }
 
   goNext() {
@@ -87,8 +90,8 @@ export class FinalBoardingPage implements OnInit {
   }
 
   goBack() {
-    this.storage.set("pendingPage", "/boarding5");
-    this.navCtrl.navigateRoot(["/boarding5"]);
+    this.storage.set("pendingPage", "/meal-pref");
+    this.navCtrl.navigateRoot(["/meal-pref"]);
   }
 
   gotoDemographic() {

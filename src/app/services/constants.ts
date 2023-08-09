@@ -14,6 +14,7 @@ export const API = {
     getPaytmProfile:"getUserInfo",
     initiateTransaction: "initiateTransaction",
     eatfit: "eatfit/getCategory",
+    updateSpecialPref:"eatfit/updateSpecialPref",
 
     dietCovidPlans: "v2/dietPlans",
     getOnePlan:"customer/getOnePlan", 

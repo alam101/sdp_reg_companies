@@ -324,7 +324,7 @@
       </div>
 
       <div>
-        <app-meal-selected></app-meal-selected>
+        <app-meal-selected [selectedItem]="selectedItem" [slot]="slot?.name" [time]="slot?.time" [likeFood]="likeFood"></app-meal-selected>
       </div>
       <div class="footer_div">
         <p class="title">Lets get you started with our journey</p>
