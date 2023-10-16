@@ -207,7 +207,8 @@ export class AnalysisComponent implements OnInit {
 
   ionViewWillEnter(){
    
-
+  console.log("suggestedCalories", this.suggestedCalories);
+  
   }
 
   dateSlideChanged(ev) {
@@ -315,6 +316,8 @@ export class AnalysisComponent implements OnInit {
 
   calories ;
   totalCaloriesFunct(diets, totalData, cb) {
+    console.log("totalData",totalData);
+    
     let cal = 0;
     const totalCalories = totalData.totalCalories;
     const totalCarbs = totalData.totalCarbs;
@@ -781,8 +784,10 @@ export class AnalysisComponent implements OnInit {
     }, i == 0 || i % 2 != 0 ? self.loadingMsgImgTime : self.loadingMsgTime);
     self.activeTipMsg = self.senitizeHTML(self.tipMessage[i++]);
   }
-
+  caloriProgress;
   ngOnInit() {
+    console.log("suggestedCalories", this.suggestedCalories);
+  
     this.navigateToUpdrade();
     localStorage.setItem("isAnalysisPageVisited", "true");
     for (var i = 0; i < 7; i++) {
@@ -810,6 +815,8 @@ export class AnalysisComponent implements OnInit {
       }
       this.dateChanged(obj);
     }
+
+   this.caloriProgress = ((this.suggestedCalories.minus10*100)/this.suggestedCalories.plus10) +'%';
   }
 
   setColorNMessage(){
@@ -883,7 +890,7 @@ export class AnalysisComponent implements OnInit {
     this.totalCal = this.snacksTotal + this.breakFastTotal + this.lunchTotal + this.dinnerTotal;
     let ctx = document.getElementById("mainCaloriesChart") as HTMLElement;
       let mainCalChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
           labels: [
             'Breakfast',
@@ -921,7 +928,7 @@ export class AnalysisComponent implements OnInit {
     this.fiberPer = ((parseInt(this.suggestedCalories.totalFiber)*100)/this.maxPerFiber) <= 100 ? Math.round((parseInt(this.suggestedCalories.totalFiber)*100)/this.maxPerFiber) : 100;
     let ctx1 = document.getElementById("mainNutrientsChart");
     let protFatCarbChart = new Chart(ctx1, {
-      type: 'pie',
+      type: 'doughnut',
       data: {
         labels: [
           'Carbs',
@@ -953,7 +960,7 @@ export class AnalysisComponent implements OnInit {
 
     let ctx2 = document.getElementById("fastTimingChart");
     let fastTimingChart = new Chart(ctx2, {
-      type: 'pie',
+      type: 'doughnut',
       data: {
         labels: [
           'After',
@@ -996,7 +1003,7 @@ export class AnalysisComponent implements OnInit {
 
     let ctx3 = document.getElementById("mealTimeChart");
     let mealTimeChart = new Chart(ctx3, {
-      type: 'pie',
+      type: 'doughnut',
       data: {
         labels: [
           'Meal Time',

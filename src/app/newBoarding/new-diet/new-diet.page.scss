@@ -1,6 +1,7 @@
 @import '../../../theme/fonts.scss';
 .dark-css{
-  color: #565656 !important;
+  color: #919191;
+  font-size: .9rem;
  }
 .--profile{
   font-weight: 600;
@@ -667,14 +668,20 @@ ion-content {
 }
 
 .isSelectedDate {
- color: #000 !important;
+ color: #fff !important;
  font-weight: 500 !important;
-  // background: var(--theme-color) !important;
-p{
-  border-bottom: 3px solid var(--theme-color);
-  border-radius: 0px !important ;
+ background: var(--theme-color) !important;
+ font-size: .9rem;
 }
-}
+.isSelectedDate1 {
+  color: #000 !important;
+  font-weight: 500 !important;
+ // background: var(--theme-color) !important;
+ div{
+   border-bottom: 3px solid var(--theme-color);
+   border-radius: 0px !important ;
+ }
+ }
 
 .meal_workout_div {
   padding: 10px;

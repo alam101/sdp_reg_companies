@@ -29,12 +29,16 @@ export class FinalBoardingPage implements OnInit {
   selectedItem:any;
   slot:any;
   likeFood:any;
+  clientId:any="";
   constructor(
     private navCtrl: NavController,
     private storage: Storage,
     private utilities: UTILITIES,
     private appService: AppService
   ) {
+    if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
+      this.clientId="eatfit";
+    }
     this.storage.get("health-journey").then((res: any) => {
       if (res) {
         this.plans = JSON.parse(res);
@@ -90,8 +94,14 @@ export class FinalBoardingPage implements OnInit {
   }
 
   goBack() {
+    if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
     this.storage.set("pendingPage", "/meal-pref");
     this.navCtrl.navigateRoot(["/meal-pref"]);
+    }
+    else{
+      this.storage.set("pendingPage", "/boarding5");
+                    this.navCtrl.navigateForward(["boarding5"]);
+    }
   }
 
   gotoDemographic() {

@@ -13,15 +13,15 @@ import { empty } from "rxjs";
 import { AppService } from "../../../home-service/app.service";
 import { CONSTANTS } from "src/app/core/constants/constants";
 import { UTILITIES } from "src/app/core/utility/utilities";
-import { PortionCountPage } from "../../Components/alternate-diet/portion-count/portion-count.page";
-import { ViewProductPage } from "../../Components/view-product/view-product.page";
+import { PortionCountPage } from "../alternate-diet/portion-count/portion-count.page";
+import { ViewProductPage } from "../view-product/view-product.page";
 
 @Component({
-  selector: "app-meal-workout",
-  templateUrl: "./meal-workout.page.html",
-  styleUrls: ["./meal-workout.page.scss"],
+  selector: "app-meal-workout-c",
+  templateUrl: "./meal-workout-c.page.html",
+  styleUrls: ["./meal-workout-c.page.scss"],
 })
-export class MealWorkoutPage implements OnInit {
+export class MealWorkoutCPage implements OnInit {
   @Input() data: any = {};
   @Input() end_time: any = {};
   @Input() diets: any = [];
@@ -60,6 +60,8 @@ export class MealWorkoutPage implements OnInit {
 this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.image_URL = CONSTANTS.image_URL;
     this.customerId = await this.utilities.getUserData("id");
+    console.log("data::--", this.data);
+    
     this.data.data.forEach((elm) => {
       if (elm.Score === 9) {
         elm.option = "Best";

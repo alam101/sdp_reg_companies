@@ -86,7 +86,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       this.localData = this.utilities.parseJSON(val);
       console.log(this.localData);
       if (this.localData?.otherMaster?.gender.length > 0) {
-        const gender = this.localData.otherMaster.gender.find(
+        const gender = this.localData?.otherMaster?.gender?.find(
           (r) => r.isSelected
         );
         if (gender) {
@@ -124,12 +124,14 @@ export class Boarding2Page implements OnInit,AfterViewInit {
           this.minHight = 4.0;
           this.maxHight = 6.5;
           console.log(h);
+
           h = h.toString().split(".");
           console.log(h);
           const h1: any = (h[1] / 0.0833333).toString().split("0")[0];
           console.log(h1);
           this.inputHeight = `${h[0]}'${h1}"`;
           this.height = `${h[0]}.${h1}`;
+          this.heightSplit = this.height.split(".");
         } else {
           this.inputHeight = h;
           this.height = h;
@@ -228,7 +230,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         },
       ];
       this.localData.otherMaster.diet = {
-        ...this.localData.otherMaster.diet,
+        ...this.localData?.otherMaster?.diet,
         suggestedWeight: this.targetweight,
         param: this.targetweightType,
       };
@@ -263,7 +265,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       //const data = this.utilities.parseJSON(local);
       console.log("response ++++", res);
 
-      if (this.localData.otherMaster.bmi != undefined) {
+      if (this.localData?.otherMaster.bmi != undefined) {
         this.localData.otherMaster.bmi = {
           bmi: parseFloat(res.bmi).toFixed(1),
           suggestedWeight: Math.round(res.suggestedWeight),
@@ -553,14 +555,14 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   selectGender(e) {
     this.storage.get("localData").then((val) => {
       this.localData = JSON.parse(val);
-      this.localData.otherMaster.gender.forEach((element) => {
+      this.localData?.otherMaster?.gender?.forEach((element) => {
         if (element.code === e.detail.value) {
           element.isSelected = true;
         } else {
           element.isSelected = false;
         }
       });
-      if (typeof this.localData.otherMaster !== undefined)
+      if (typeof this.localData?.otherMaster !== undefined)
         this.storage.set("localData", JSON.stringify(this.localData));
     });
   }

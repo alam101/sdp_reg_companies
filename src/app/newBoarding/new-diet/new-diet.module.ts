@@ -7,6 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { NewDietPageRoutingModule } from "./new-diet-routing.module";
 import { CaloriesPageModule } from "../Components/calories/calories.module";
 import { MealWorkoutPageModule } from "../Components/meal-workout/meal-workout.module";
+import { MealWorkoutCPageModule } from "../Components/meal-workout-c/meal-workout-c.module";
 
 import { NewDietPage } from "./new-diet.page";
 import { DetoxPageModule } from "../Components/detox/detox.module";
@@ -22,6 +23,7 @@ import { ComponentsModule } from "src/app/components/components.module";
     NewDietPageRoutingModule,
     CaloriesPageModule,
     MealWorkoutPageModule,
+    MealWorkoutCPageModule,
     DetoxPageModule,
     TodaysCalorieCountPageModule,
     NgCircleProgressModule,

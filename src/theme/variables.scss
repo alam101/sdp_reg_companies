@@ -581,7 +581,7 @@ ion-button {
 
 ion-modal {
   opacity: 1;
-  background: #000;
+  background: rgba(0, 0, 0, 70%);
 }
 
 .no-wrap {
@@ -602,8 +602,8 @@ ion-modal {
   box-shadow: none !important;
 }
 ion-backdrop {
-  opacity: 0.9;
-  background: #000;
+  opacity: 1;
+  background: rgba(0, 0, 0, 70%);
 }
 
 ion-title {
@@ -742,7 +742,8 @@ ion-back-button {
   width: 100%;
   font-size: 1rem;
   font-family: $font-medium;
-  color: rgb(149, 13, 13);
+  color: #fff;
+  --background: rgb(208,87,76);
 }
 .toast-bottom-center {
   bottom: 0;

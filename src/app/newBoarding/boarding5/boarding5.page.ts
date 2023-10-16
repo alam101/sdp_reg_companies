@@ -47,6 +47,11 @@ export class Boarding5Page implements OnInit {
           this.dietPreferences = ele.value;
         }
       });
+      this.localData?.otherMaster?.community.forEach((ele) => {
+        if (ele.isSelected) {
+          this.regionalPref = ele.code;
+        }
+      });
       this.localData?.countries.forEach((ele) => {
         if (ele.isSelected) {
           this.country = ele;
@@ -93,11 +98,13 @@ export class Boarding5Page implements OnInit {
     });
     this.storage.set("localData", this.utilities.parseString(this.localData));
   }
-
+  regionalPref="";
   selectReginal(e, reginal) {
+    console.log("regionalPref", this.regionalPref);
+    
     reginal.isSelected = e.detail.checked;
     console.log(this.localData);
-    if (typeof this.localData.otherMaster !== undefined)
+    if (typeof this.localData?.otherMaster !== undefined)
       this.storage.set("localData", this.utilities.parseString(this.localData));
    
   }
@@ -126,8 +133,19 @@ export class Boarding5Page implements OnInit {
     }
 
     if (this.country._id === "IND") {
+      this.localData?.otherMaster?.community.filter(item=>{
+        if(item.code==this.regionalPref){
+          item.isSelected=true;
+        }
+        else{
+          item.isSelected=false;
+        }
+      });
+
+      this.storage.set("localData", this.utilities.parseString(this.localData));
+    
       const isSelected = this.localData?.otherMaster?.community.find(
-        (f) => f.isSelected
+        (f) => f.isSelected==true
       );
       if (!isSelected) {
         this.utilities.presentToast(
@@ -188,16 +206,19 @@ export class Boarding5Page implements OnInit {
               reqBodyLifeStyle.dietPlanName = healthJourney?.deasesValue.toLowerCase();
             }
           }
+          reqBodyLifeStyle.country = reqBodyLifeStyle.country==undefined? 'IND':reqBodyLifeStyle.country; 
+          const activitiesData = JSON.parse(localStorage.getItem("activities"));
+           reqBodyLifeStyle.activities= {code:activitiesData.code,data:activitiesData.data};
+           const communitiesItem = this.localData?.otherMaster?.community.filter(item=>{
+              return item.isSelected;
+          });
+          localStorage.setItem("communitiesItem", JSON.stringify(communitiesItem));
+           reqBodyLifeStyle.communities= [communitiesItem[0].code,'U']
             this.appService.postLifeStyle(reqBodyLifeStyle).then(
               (success) => {
-
-                
                 const otherMasterData = this.utilities.parseJSON(
                   this.utilities.parseString(success)
                 );
-
-               
-
                 data.otherMaster.calories = {
                   calories: otherMasterData.calories,
                   carb: otherMasterData.carb,
@@ -220,8 +241,15 @@ export class Boarding5Page implements OnInit {
                     if (this.from) {
                       return this.modalClose();
                     }
+                    
+                   if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
                     this.storage.set("pendingPage", "/meal-pref");
                     this.navCtrl.navigateForward(["meal-pref"]);
+                   }
+                   else{
+                    this.storage.set("pendingPage", "/final-boarding");
+                    this.navCtrl.navigateForward(["final-boarding"]);
+                   }
                     // this.updateProfile(data);
                   });
 

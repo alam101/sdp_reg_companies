@@ -2193,7 +2193,7 @@ getDietdata(date) {
    }
    
    console.log("this.diets", this.diets);
-   //debugger;
+   ////debugger;
    this.ionContent.scrollY=false;
    setTimeout(()=>{
     
@@ -5733,7 +5733,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
 
 
   customRoundof(num) {
-    if (num != undefined && num > 0 && num != NaN) {
+    if (num != undefined && num > 0 && !Number.isNaN(num)) {
       return Math.round(num);
     }
     else {

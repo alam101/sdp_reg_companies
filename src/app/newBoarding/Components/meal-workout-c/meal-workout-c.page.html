@@ -9,12 +9,13 @@
     animated
     class="sketloan"
   ></ion-skeleton-text>
+
   <ion-card
     *ngIf="loaded"
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
-    [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}"
+    [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto','background':data.data[0].foodSource==='Eatfit'?'#EDF2FF':'#fff','border-color':data.data[0].foodSource==='Eatfit'?'#B5C1E3':'#fff'}"
   >
-    <div class="header_div">
+   <div class="header_div" >
       <p>
         {{data?.message}}
         <span>
@@ -22,6 +23,7 @@
           >{{moment(data?.time,'HH:mm').format('hh:mm a')}}
         </span>
       </p>
+      <div *ngIf="data.data[0].foodSource==='Eatfit'" style="border-bottom: 1px solid #B5C3EB;margin: .3rem .5rem;"></div>
     </div>
 
     <div
@@ -30,8 +32,7 @@
       <div
         class="aditional_div"
         *ngIf="d?.foodStatus === 'A'
-      "
-      >
+      ">
         <p>Additional</p>
       </div>
       <div
@@ -52,23 +53,20 @@
               *ngIf="d?.foodSource?.toLowerCase() == 'external'"
               src="./assets/newImages/food.svg"
             />
+            <img
+              class="card_img"
+              *ngIf="d?.foodSource?.toLowerCase() == 'eatfit'"
+              src="{{d?.imageUrl}}"
+            />
+            
           </ion-thumbnail>
-          <p class="choice" style="background: #55A148;color:#fff;position: absolute;     top: 8px;
-          border-top-left-radius: 7px;
-          border-top-right-radius: 7px;
-          height: 1rem;
-          font-size: .48rem;
-          width: 100%;
-          text-align: center;
-          padding: 3px;
-          white-space: nowrap;
-      ">{{d?.option}} Choice</p>
+         
         </div>
         <ion-grid class="w_100">
           <ion-row style="margin-top: 5px;margin-left: 5px;">
             <ion-col size="10">
               <p class="meal_pro">{{d?.Food}}</p>
-              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}/ {{Math.round(d?.Calories)}} Kcal</p>
+              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}</p>
             </ion-col>
 
             <ion-col size="2" class="right" style="align-items: flex-start">
@@ -87,11 +85,57 @@
           <div class="meal_pro_div" style="margin-top: 10px;">
             <div>
               <span *ngIf="compConfig.itemCalories!=false">
+              <p class="meal_cal" style="font-weight: 500">
+                {{Math.round(d?.Calories)}} Kcal
+              </p> 
+           <ion-progress-bar
+                [ngClass]="d?.option"
+                value="1">
+           </ion-progress-bar> 
+              <p class="choice">{{d?.option}} Choice</p>
               </span>
             </div>
           
+            <!-- //two condion for home page// -->
+            
+            <!-- [ngStyle]="{'color':!eat && 'lightgrey'}" -->
+        <ion-icon style="float: right" *ngIf="(!d.eaten || d?.eaten < 0) && d.foodSource!=='Eatfit'"
+              class="plus_icon"
+              (click)="loogeAction($event,d,i)"
+              name="add-circle"
+            ></ion-icon>  
+
+            <!-- //two condion for Search page// -->
+           <!-- <ion-icon *ngIf="!d.eaten || d?.eaten < 0" class="plus_icon" [ngStyle]="{'color':!eat && 'lightgrey'}"
+              (click)="addCal(d,i)" name="add-circle"></ion-icon>  -->
+
+            <!-- <ion-icon *ngIf="!showPlusBtn" name="ellipsis-horizontal-circle-sharp" class="plus_icon"
+              [ngStyle]="{'color':!eat && 'lightgrey'}" (click)="loogeAction($event,d,i)"></ion-icon> 
+             -->
+            <ion-icon *ngIf="showAddPopup && d.foodSource!=='Eatfit'" class="plus_icon" [ngStyle]="{'color':!eat && 'lightgrey'}"
+              (click)="addCal(d,i)" name="add-circle"></ion-icon>
+              <ion-button
+          *ngIf="d?.foodSource==='Eatfit'"
+          shape="round"
+          class="logged_btn"
+          style="--background: var(--profile-color);color:#fff;width:85px;height: 37px;
+          font-size: .75rem;
+          right: 0.5rem;
+          position: relative;font-size: .75rem;"
+          (click)="buyItem(d)">
+          Buy
+        </ion-button>
           </div>
-          <div style="float: left;width: 97%;">
+          <ion-button
+          *ngIf="d?.eaten > 0 "
+          shape="round"
+          class="logged_btn"
+          style="--background: var(--profile-color);color:#fff;width:95px;height:25px;font-size: .75rem;"
+          (click)="loogeAction($event,d,i)">
+          Logged
+          <ion-icon style="color:#fff" name="checkmark"></ion-icon>
+        </ion-button>
+          <!-- <div style="float: left;width: 97%;">
             <ion-row>
               <ion-col class="ion-text-left">
               <ion-button
@@ -127,7 +171,7 @@
               </ion-button>
               </ion-col>
             </ion-row>
-          </div>
+          </div> -->
         </ion-grid>
       </div>
      

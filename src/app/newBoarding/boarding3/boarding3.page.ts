@@ -47,14 +47,7 @@ export class Boarding3Page implements OnInit {
       this.localData.otherMaster.leaveForOffice.find(
         (o) => o.code == "LFO3"
       ).isSelected = true;
-      this.localData.otherMaster?.activities.forEach((ele) => {
-        ele.val = ele.value.split("(")[0];
-        ele.sub_val = ele.value.split("(")[1].replace(")", "");
-
-        if (ele.isSelected) {
-          this.newModal = ele.val;
-        }
-      });
+      
     });
   }
  
@@ -88,6 +81,16 @@ export class Boarding3Page implements OnInit {
     this.appService.getProfile().then((res) => {
       console.log(res);
       this.profileData = res;
+      this.localData.otherMaster?.activities.forEach((ele) => {
+        ele.val = ele.value.split("(")[0];
+        ele.sub_val = ele.value.split("(")[1].replace(")", "");
+
+        if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
+          ele.isSelected = true;
+          this.newModal = ele.val;
+          localStorage.setItem("activities",JSON.stringify(ele));
+        }
+      });
     });
   }
 
@@ -95,8 +98,9 @@ export class Boarding3Page implements OnInit {
     console.log(e);
     this.localData?.otherMaster?.activities.forEach((ele) => {
       if (ele.val === e.detail.value) {
-        this.selectedValue = ele;
         ele.isSelected = true;
+        this.selectedValue = ele;
+       localStorage.setItem("activities",JSON.stringify(this.selectedValue));
       } else {
         ele.isSelected = false;
       }

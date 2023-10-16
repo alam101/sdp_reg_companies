@@ -57,7 +57,6 @@ export class ReadQueryComponent implements OnInit {
       return Object.keys(item)[0].toLowerCase()===this.clientId.toLowerCase();
     });
     console.log("clientConfig", data);
-    
     if(data?.length>0){
     localStorage.setItem("clientConfig", JSON.stringify(data[0][this.clientId.toLowerCase()]));
     }

@@ -26,14 +26,15 @@
           <ion-label>My Insights</ion-label>
         </ion-segment-button> -->
       </ion-segment>
-      <div class="w_100 right" style="    top: -3rem;
+      <div class="w_100 left" style="    top: -3rem;
       position: relative;
-      right: 1rem;">
-        <ion-icon
+      right: -10px">
+      <ion-icon name="arrow-back-outline" class="close_modal_icon" (click)="modalClose()"></ion-icon>
+        <!-- <ion-icon
           class="close_modal_icon"
           name="close-circle"
           (click)="modalClose()"
-        ></ion-icon>
+        ></ion-icon> -->
       </div>
     </div>
 
@@ -128,7 +129,8 @@
               <ion-col size="6" style="padding-right: 5px">
                 <div class="condition_card center h_100">
                   <div class="card_div h_100">
-                    <ion-img src="../../../../assets/newImages/bmi.png" class="card_image"></ion-img>
+                    <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/bmi.png" class="card_image"></ion-img>
+                    <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/bmi1.png" class="card_image"></ion-img>
                     <p class="title">Current BMI:</p>
                     <p class="main_title">{{profileData?.demographic?.bmi}}</p>
                     <p class="sub_title">Range 18-25 (Recommended)</p>
@@ -138,7 +140,8 @@
               <ion-col size="6" style="padding-left: 5px">
                 <div class="condition_card h_100">
                   <div class="card_div">
-                    <ion-img src="../../../../assets/newImages/sugg_cal_icon.png" class="card_image"></ion-img>
+                    <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/sugg_cal_icon.png" class="card_image"></ion-img>
+                    <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/Group.png" class="card_image"></ion-img>
                     <p class="title" style="margin-top: 10px">
                       Suggested calories :<br />
                     </p>
@@ -154,7 +157,8 @@
 
         <div class="condition_card" style="margin-top: 20px">
           <div class="card_div">
-            <ion-img src="../../../../assets/newImages/weight_machine.png" class="card_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/weight_machine.png" class="card_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/weights1.png" class="card_image"></ion-img>
             <ion-grid class="w_100 pad_0">
               <ion-row>
                 <ion-col size="6">
@@ -179,7 +183,8 @@
         </div>
         <div class="condition_card" style="margin-top: 20px">
           <div class="card_div">
-            <ion-img src="../../../../assets/newImages/nutritional.png" class="card_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/nutritional.png" class="card_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/healthy-food1.png" class="card_image"></ion-img>
             <p class="title">
               Nutritional <br />
               Requirement <span class="sub_title">(On daily basis)</span>
@@ -187,24 +192,28 @@
             <div class="cal_calculation_div">
               <div class="cal_main_div">
                 <div class="cal_col">
-                  <ion-img src="../../../../assets/newImages/calorie.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/calorie.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/wheat1.png" class="card_cal_image"></ion-img>
                   <p class="cal_sub_title">Fiber</p>
                   <p class="cal_title">{{profileData?.lifeStyle?.fiber}}g</p>
                 </div>
                 <div class="cal_col">
-                  <ion-img src="../../../../assets/newImages/carbs.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/carbs.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/cauliflower1.png" class="card_cal_image"></ion-img>
                   <p class="cal_sub_title">Carbs</p>
                   <p class="cal_title">{{profileData?.lifeStyle?.carb}}g</p>
                 </div>
 
                 <div class="cal_col">
-                  <ion-img src="../../../../assets/newImages/protein.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/protein.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/Vector.png" class="card_cal_image"></ion-img>
                   <p class="cal_sub_title">Protein</p>
                   <p class="cal_title">{{profileData?.lifeStyle?.protien}}g</p>
                 </div>
 
                 <div class="cal_col">
-                  <ion-img src="../../../../assets/newImages/fats.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/fats.png" class="card_cal_image"></ion-img>
+                  <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/pizza1.png" class="card_cal_image"></ion-img>
                   <p class="cal_sub_title">Fats</p>
                   <p class="cal_title">{{profileData?.lifeStyle?.fat}}g</p>
                 </div>
@@ -240,13 +249,36 @@
         </ion-grid>
       </div> -->
 
+      <div class="section-card left" style="flex-direction: row; padding: 5px 15px" *ngIf="compConfig.mealPref==true">
+        <div class="edit_icon_div">
+          <ion-icon (click)="openModel('meal-pref')" class="edit_icon"
+            src="../../../../assets/newImages/icon-edit.svg"></ion-icon>
+        </div>
+        <div style="width: 50">
+          <ion-img *ngIf="compConfig.isProfileIcons==false" [src]="'../../../../assets/newImages/'+getImage(profileData?.lifeStyle?.activities?.code)"
+            class="Activity_image"></ion-img>
+          <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="../../../../assets/newImages/physical.svg"
+            class="Activity_image"></ion-img>
+        </div>
+        <p class="commonText">
+          Meal Preference: <br />
+          <span style="margin-left: 0%">Slot : {{preferedItem?.slot_id?.join(',')}}</span><br>
+          <span style="margin-left: 0%">Preferred Meal: {{preferedItem?.Veg_nonveg}}</span><br>
+          <span style="margin-left: 0%">Meal Name: {{preferedItem?.category_name}}</span><br>
+          <span style="margin-left: 0%">Image: <br><img style="width: 29%;
+            height: auto;" src="{{preferedItem?.image_id}}"></span>
+        </p>
+      </div>
+
       <div class="section-card left" style="flex-direction: row; padding: 5px 15px">
         <div class="edit_icon_div">
           <ion-icon (click)="openModel('boarding3')" class="edit_icon"
             src="../../../../assets/newImages/icon-edit.svg"></ion-icon>
         </div>
         <div style="width: 50">
-          <ion-img [src]="'../../../../assets/newImages/'+getImage(profileData?.lifeStyle?.activities?.code)"
+          <ion-img *ngIf="compConfig.isProfileIcons==false" [src]="'../../../../assets/newImages/'+getImage(profileData?.lifeStyle?.activities?.code)"
+            class="Activity_image"></ion-img>
+          <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="../../../../assets/newImages/physical.svg"
             class="Activity_image"></ion-img>
         </div>
         <p class="commonText">
@@ -262,7 +294,8 @@
         </div>
         <div class="left w_100">
           <div style="width: 50">
-            <ion-img src="../../../../assets/newImages/healthCondition.png" class="Activity_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/healthCondition.png" class="Activity_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="../../../../assets/newImages/healthc.svg" class="Activity_image"></ion-img>
           </div>
           <p class="commonText">
             Health Conditions: <br />
@@ -276,7 +309,8 @@
 
         <div class="left w_100">
           <div style="width: 50">
-            <ion-img src="../../../../assets/newImages/alergies.png" class="Activity_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/alergies.png" class="Activity_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="../../../../assets/newImages/allergies.svg" class="Activity_image"></ion-img>
           </div>
           <p class="commonText">
             Allergies:<br /><span *ngFor=" let d of profileData?.lifeStyle?.diseases" style="margin-left: 0%"><span
@@ -320,7 +354,9 @@
             src="../../../../assets/newImages/icon-edit.svg"></ion-icon>
         </div>
         <div class="left w_100">
-          <ion-img [src]="'../../../../assets/newImages/'+getImage(profileData?.lifeStyle?.foodType?.code)"
+          <ion-img *ngIf="compConfig.isProfileIcons==false" [src]="'../../../../assets/newImages/'+getImage(profileData?.lifeStyle?.foodType?.code)"
+            class="Activity_image"></ion-img>
+          <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 8.5%;" src="../../../../assets/newImages/dietpref.svg"
             class="Activity_image"></ion-img>
           <p class="commonText">
             Meal Preferences:<br /><span style="margin-left: 0%">{{profileData?.lifeStyle?.foodType?.value}}</span>
@@ -328,7 +364,9 @@
         </div>
         <div class="left w_100">
           <div style="width: 50">
-            <ion-img [src]="'../../../../assets/newImages/'+getFlag(profileData?.lifeStyle?.country?._id)"
+            <ion-img *ngIf="compConfig.isProfileIcons==false" [src]="'../../../../assets/newImages/'+getFlag(profileData?.lifeStyle?.country?._id)"
+              class="Activity_image"></ion-img>
+            <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="'../../../../assets/newImages/cuisuine.svg"
               class="Activity_image"></ion-img>
           </div>
           <p class="commonText">

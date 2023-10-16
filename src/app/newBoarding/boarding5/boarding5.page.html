@@ -99,7 +99,7 @@
         </div>
       </div>
       <p class="title" *ngIf="country?.name === 'India'">
-        Regional Preferences
+        Major Regional Preference
       </p>
       <div class="country_pref_div" *ngIf="country?.name === 'India'">
         <ion-grid class="pad_0">
@@ -111,18 +111,18 @@
             >
               <ion-card
                 class="regional_card"
-                [ngClass]="i.isSelected  && 'card_Border'"
+                [ngClass]="(regionalPref===i.code) && 'card_Border'"
               >
                 <ion-item lines="none">
                   <ion-label class="country_list_name">{{i.value}}</ion-label>
-                  <ion-checkbox
+                 <ion-radio-group mode="md"  [(ngModel)]="regionalPref">
+                  <ion-radio
                     slot="start"
                     [value]="i.code"
                     mode="ios"
-                    [checked]="i.isSelected"
                     class="check-box"
-                    (ionChange)="selectReginal($event,i)"
-                  ></ion-checkbox>
+                  ></ion-radio>
+                  </ion-radio-group>
                 </ion-item>
               </ion-card>
             </ion-col>

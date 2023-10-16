@@ -23,16 +23,27 @@ export class NewProfilePage implements OnInit,AfterViewInit {
     private router:Router,
     private utilities: UTILITIES,
   ) {}
-
-  ngOnInit() {}
+  compConfig:any;
+  preferedItem: any;
+  ngOnInit() {
+    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+    console.log("this.compConfig", this.compConfig);
+    this.preferredMeal();
+  }
 
   ngAfterViewInit() {
     this.getProfile();
     this.checkPlan();
     this.gotoDemographic();
+   
     // console.log(this.returnWeek());
   }
-
+  
+  preferredMeal(){
+    this.preferedItem = JSON.parse(localStorage.getItem("selectedItem"));
+   console.log("ALAM:_----",this.preferedItem);
+   
+  }
   returnWeek() {
     //let createdDate = new Date("9-25-2022"); // for month view
     let createdDate = new Date(this.profileData?.profile?.createdDate);
@@ -177,12 +188,12 @@ export class NewProfilePage implements OnInit,AfterViewInit {
         this.profileData.lifeStyle.activities = this.localData?.otherMaster?.activities.find(
           (item) => this.profileData?.lifeStyle?.activities.code === item.code
         );
-
-        this.profileData.lifeStyle.communities = this.localData?.otherMaster?.community.filter(
-          (item) =>
-            this.profileData?.lifeStyle?.communities?.includes(item.code)
+        const communitiesItem = JSON.parse(localStorage.getItem("communitiesItem"));
+        if(communitiesItem!=undefined && communitiesItem!="" && communitiesItem!=null){
+        this.profileData.lifeStyle.communities = communitiesItem.filter(
+          (item) => item.isSelected
         );
-
+        }
         this.profileData.lifeStyle.diseases = this.localData?.otherMaster?.diseases.filter(
           (item) => this.profileData?.lifeStyle?.diseases?.includes(item.code)
         );

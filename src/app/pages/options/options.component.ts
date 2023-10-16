@@ -1277,9 +1277,10 @@ export class OptionsComponent implements OnInit {
     })
 
     selectedPref = [...selectedPref, ...unverifiedList];
+   const  itemCode = [...new Map(selectedPref.map(item => [item['code'], item])).values()]
     const reqData = {
       slot: Number(this.slot),
-      foodCodeList: selectedPref,
+      foodCodeList: itemCode,
       detox:CONSTANTS.isDetox,
       date:CONSTANTS.dietDate,
       country: CONSTANTS.country

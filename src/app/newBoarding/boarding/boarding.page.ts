@@ -130,7 +130,7 @@ clientId="";
       this.achieveValue.deasesValue === ""
     ) {
       this.utilities.presentToast(
-        "please go to next by selecting what you want to achieve."
+        "Please select goal."
       );
       return;
     }

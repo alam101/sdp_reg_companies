@@ -1,6 +1,7 @@
 <ion-content>
   <div class="close-container">
-    <ion-icon name="close-outline" class="close-btn" (click)="onBack()"></ion-icon>
+    <ion-icon name="arrow-back-outline" class="close-btn" (click)="onBack()"></ion-icon>
+    <!-- <ion-icon name="close-outline" class="close-btn" (click)="onBack()"></ion-icon> -->
   </div>
   <div>
     <ion-row *ngIf="weeks && weeks.length" class="date-container">
@@ -34,33 +35,16 @@
         </ion-row>
       </div> -->
   
-      <div class="bar-section calories-section" [ngStyle]="{background: setColor}">
+      <div style="width: 100%; box-shadow: 5px 5px 5px #f3f3f3;padding: .8rem 1.3rem;background: #fff;border-radius: 5px;">
         <ion-row>
-          <ion-col class="ion-text-left" size="2"><span class="score vertical-center">Score</span></ion-col>
-          <ion-col class="ion-text-center ion-align-self-center" size="8.5">
-            <div class="progress-container">
-              <div class="progress-bar" [ngStyle]="{width:totalScore+'%', background: setColor}"></div>
-            </div>
+          <ion-col class="ion-text-center">
+            <div class="recom-text" style="text-align:left;">Calories</div>
+            <div style="width: 100%;background: #EDEDED;height: 6px; border-radius: 25px;margin:.2rem">
+            <div style="height: 5px;background:#F09922;border-radius: 25px;" [style.width.%]="((suggestedCalories.totalCalories*100)/suggestedCalories.recomended)"></div>
+          </div>
+           <span class="recom-text" style="float: left;"> <b>{{suggestedCalories.totalCalories}}</b> /<span style="color:#BFBFBF">{{suggestedCalories.recomended}} Kcal</span></span>
+           <span class="recom-text" style="float: right;color:#F09922;">{{((suggestedCalories.totalCalories*100)/suggestedCalories.recomended).toFixed(1)}}%</span>
           </ion-col>
-          <ion-col class="ion-text-right" size="1.5"><span class="percent-num vertical-center padding-left-10">{{totalScore}}%</span></ion-col>
-        </ion-row>
-        <ion-row>
-          <!-- <ion-col size="1"></ion-col> -->
-          <ion-col>
-            <ion-card class="ion-no-margin ion-margin-top">
-              <ion-item lines="none" class="border-radious15">
-                <ion-avatar slot="start">
-                  <img src="assets/img/manjri_anime.png">
-                </ion-avatar>
-                <!-- <span class="ion-text-left"> -->
-                  <span class="header-message-tool ion-text-left" [innerHTML]="activeTip"></span>
-                <!-- </span> -->
-                
-                  <!-- Hi, I am Manjari Chandra with 24 Yrs Experience in Clinical Nutrition.</span> -->
-              </ion-item>
-            </ion-card>
-          </ion-col>
-          <!-- <ion-col size="1"></ion-col> -->
         </ion-row>
       </div>
       <br>
@@ -72,15 +56,16 @@
             <span class="sub-title">How Much To Eat ?</span>
           </ion-col>
           <ion-col size="2" class="ion-text-right">
-            <span class="circular-progress">
+            <!-- <span class="circular-progress">
               <span class="actual-txt">{{caloriesCheck.points <= 9 ? "0"+ roundingVal(caloriesCheck.points) : roundingVal(caloriesCheck.points) }}</span>
               <span class="total-txt">50</span>
               <svg viewBox="0 0 50 50" class="donut">
                 <circle class="donut-ring" cx="25" cy="25" r="22" fill="transparent" stroke="#CCC" stroke-width="3" />
                 <circle class="donut-ring-progress" cx="25" cy="25" r="22" fill="transparent" stroke="#01A3A4"
                   stroke-width="3" attr.stroke-dasharray="{{caloriesCheck?.progressPer}} {{caloriesCheck?.totalProgressPer}}"/>
-              </svg>
+              </svg> 
             </span>
+            </span> -->
           </ion-col>
         </ion-row>
         <ion-row class="border-top">
@@ -91,28 +76,16 @@
                 !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : '#24EAEB'" -->
             <div [ngClass]="{'heart-beat-animation': (isDetox ? suggestedCalories.totalCalories > detoxMaxValue : ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110)}">
               <circle-progress radius="55" percent="{{(suggestedCalories.totalCalories*100)/suggestedCalories.recomended}}" 
-  
-                
-  
               [innerStrokeColor]="'rgb(125,125,125,0.2)'" 
-
-              
-              [outerStrokeColor]="isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : '#0F8E8E' : 
+            [outerStrokeColor]="isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : '#0F8E8E' : 
               !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : '#0CADAD'"
-
               backgroundColor="#fff" outerStrokeWidth="5" innerStrokeWidth="5"
-
               title="{{roundingVal(suggestedCalories.totalCalories)}}" [titleFontSize]="22" 
-
               titleColor="{{isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : '#0F8E8E' : 
               !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : '#0CADAD'}}"
-
               [titleFontWeight]="500" subtitle="Calories" 
-
               subtitleColor="#595C5C" 
-
               [subtitleFontWeight]="400" [subtitleFontSize]="15" units="kcal" [unitsFontSize]="10" [unitsFontWeight]="400" 
-
               unitsColor="{{isDetox ? suggestedCalories.totalCalories > detoxMaxValue ? 'orange' : '#0F8E8E' : 
               !isDetox && ((suggestedCalories.totalCalories*100)/suggestedCalories.recomended) > 110 ? '#df5151' : '#0CADAD'}}">
             </circle-progress>
@@ -120,13 +93,7 @@
            
            </ion-col>
         </ion-row>
-        <ion-row>
-          <ion-col class="ion-text-center">
-            <div class="recom-text">Recommended</div>
-            <span><span class="recommended-range vertical-center">{{suggestedCalories.minus10}} - {{suggestedCalories.plus10}}</span><span class="recommended-unit vertical-center">KCAL</span></span>
-          </ion-col>
-        </ion-row>
-        <br/>
+       
         <ion-row class="ion-padding-top border-top ion-padding-bottom">
           <ion-col class="pad-top10">
             <ion-row>
@@ -222,7 +189,7 @@
           </ion-col>
         </ion-row>
   
-        <ion-row class="ion-padding border-top" *ngIf="suggestedCalories.totalCalories < suggestedCalories.minus10 || suggestedCalories.totalCalories > suggestedCalories.plus10">
+        <!-- <ion-row class="ion-padding border-top" *ngIf="suggestedCalories.totalCalories < suggestedCalories.minus10 || suggestedCalories.totalCalories > suggestedCalories.plus10">
           <ion-col>
             <ion-item lines="none" class="error-container">
               <ion-avatar slot="start">
@@ -234,9 +201,9 @@
               </span>
             </ion-item>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
-        <ion-row class="ion-padding border-top" *ngIf="suggestedCalories.totalCalories > suggestedCalories.minus10 && suggestedCalories.totalCalories < suggestedCalories.plus10">
+        <!-- <ion-row class="ion-padding border-top" *ngIf="suggestedCalories.totalCalories > suggestedCalories.minus10 && suggestedCalories.totalCalories < suggestedCalories.plus10">
           <ion-col>
             <ion-item lines="none" class="error-container">
               <ion-avatar slot="start">
@@ -247,7 +214,7 @@
               </span>
             </ion-item>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
   
         <!-- <ion-row class="padding-top-1">
           <ion-col class="ion-text-left">
@@ -265,7 +232,7 @@
             <span class="sub-title">What To Eat ?</span>
           </ion-col>
           <ion-col size="2" class="ion-text-right">
-            <span class="circular-progress">
+            <!-- <span class="circular-progress">
               <span class="actual-txt">{{nutrientsCheck.points <= 9 ? "0" + roundingVal(nutrientsCheck.points) : roundingVal(nutrientsCheck.points)}}</span>
               <span class="total-txt">30</span>
               <svg viewBox="0 0 50 50" class="donut">
@@ -274,6 +241,7 @@
                   stroke-width="3" attr.stroke-dasharray="{{nutrientsCheck.progressPer}} {{nutrientsCheck?.totalProgressPer}}"/>
               </svg>
             </span>
+            </span> -->
           </ion-col>
         </ion-row>
         <ion-row class="border-top">
@@ -448,7 +416,7 @@
           </ion-col>
         </ion-row>
      
-        <ion-row class="ion-padding" *ngIf="reduceCarbs || reduceProtein || reduceFiber || reduceFats || increaseCarbs || increaseProtein || increaseFiber || increaseFats">
+        <!-- <ion-row class="ion-padding" *ngIf="reduceCarbs || reduceProtein || reduceFiber || reduceFats || increaseCarbs || increaseProtein || increaseFiber || increaseFats">
           <ion-col>
             <ion-item lines="none" class="error-container">
               <ion-avatar slot="start">
@@ -457,9 +425,9 @@
                 <span class="header-message-tool ion-text-left" [innerHTML]="activeTipMsg"></span>
             </ion-item>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
 
-        <ion-row class="ion-padding" *ngIf="!reduceCarbs && !reduceProtein && !reduceFiber && !reduceFats && !increaseCarbs && !increaseProtein && !increaseFiber && !increaseFats">
+        <!-- <ion-row class="ion-padding" *ngIf="!reduceCarbs && !reduceProtein && !reduceFiber && !reduceFats && !increaseCarbs && !increaseProtein && !increaseFiber && !increaseFats">
           <ion-col>
             <ion-item lines="none" class="error-container">
               <ion-avatar slot="start">
@@ -468,7 +436,7 @@
                   <span class="header-message-tool ion-text-left notes">All nutrients are in right proportion</span>
             </ion-item>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
       </div>
       <br>
   
@@ -481,7 +449,7 @@
           </ion-col>
   
           <ion-col size="2" class="ion-text-right">
-            <span class="circular-progress">
+            <!-- <span class="circular-progress">
               <span class="actual-txt">{{meal.points <=9 ? "0" + roundingVal(meal.points) : roundingVal(meal.points)}}</span>
               <span class="total-txt">20</span>
               <svg viewBox="0 0 50 50" class="donut">
@@ -490,6 +458,7 @@
                   stroke-width="3" attr.stroke-dasharray="{{meal.progressPer}} {{meal?.totalProgressPer}}"/>
               </svg>
             </span>
+            </span> -->
           </ion-col>
   
         </ion-row>
@@ -591,7 +560,7 @@
         </div>
         
   
-        <ion-row class="ion-padding" *ngIf="reduceCarbs || reduceProtein || reduceFiber || reduceFats || increaseCarbs || increaseProtein || increaseFiber || increaseFats">
+        <!-- <ion-row class="ion-padding" *ngIf="reduceCarbs || reduceProtein || reduceFiber || reduceFats || increaseCarbs || increaseProtein || increaseFiber || increaseFats">
           <ion-col>
             <ion-item lines="none" class="error-container">
               <ion-avatar slot="start">
@@ -601,7 +570,7 @@
               <span class="notes" *ngIf="meal.message">{{meal.message}}</span>
             </ion-item>
           </ion-col>
-        </ion-row>
+        </ion-row> -->
         </div>
       <br>
     </div>

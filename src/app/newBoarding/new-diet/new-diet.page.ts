@@ -3,11 +3,11 @@ import { IonSlides, ModalController, NavController, Platform } from "@ionic/angu
 import { Storage } from "@ionic/storage";
 import moment from "moment";
 import { AppService } from "../app.service";
-// import { FeatureExplanationPopupComponent } from "src/app/components/feature-explanation-popup/feature-explanation-popup.component";
 import { CONSTANTS } from "src/app/core/constants/constants";
 import { Utilities } from "../utilities.service";
 import { Router } from "@angular/router";
 import jsPDF from "jspdf";
+
 import { UserOptions } from "jspdf-autotable";
 import { UTILITIES } from "../utils/utilities";
 import { DownloadPopupComponent } from "src/app/components/download-popup/download-popup.component";
@@ -49,7 +49,8 @@ export class NewDietPage implements OnInit,AfterViewInit {
     private router:Router,
     private utilities: UTILITIES,
     private modalController: ModalController,
-    private iab: InAppBrowser
+    private iab: InAppBrowser,
+    private storage: Storage,
   ) {
     this.allData = {
       Carbs: 0,
@@ -93,6 +94,7 @@ export class NewDietPage implements OnInit,AfterViewInit {
   compConfig:any;
   plandata: any;
   futureDateCSS="";
+  fday=0;
   ngOnInit() {
 
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
@@ -119,9 +121,12 @@ export class NewDietPage implements OnInit,AfterViewInit {
     this.tomorrow = this.weeks[1].date;
 
     const creationDate = this.plandata?.profile?.createdDate;
-    
+   
     console.log("new Date(creationDate)",new Date(creationDate),new Date(creationDate).getTime());
     let dnew= new Date(creationDate);
+    this.fday = new Date(new Date().getTime() - dnew.getTime()).getDate(); 
+    console.log("this.fday:-",creationDate,this.fday);
+    let tDate = new Date(); 
     let nxtDate = new Date(dnew.setDate(dnew.getDate()));
     this.weekArray = [
         new Date(dnew),
@@ -138,6 +143,15 @@ export class NewDietPage implements OnInit,AfterViewInit {
         this.selecteddate = dnew;
       }
       else{
+        this.weekArray = [
+          new Date(),
+          new Date(tDate.setDate(tDate.getDate()+1)),
+          new Date(tDate.setDate(tDate.getDate() + 1)),
+          new Date(tDate.setDate(tDate.getDate() + 1)),
+          new Date(tDate.setDate(tDate.getDate() + 1)),
+          new Date(tDate.setDate(tDate.getDate() + 1)),
+          new Date(tDate.setDate(tDate.getDate() + 1)),
+        ];
         this.newSelectedDate = new Date();
         this.futureDateCSS="dark-css";
       }
@@ -147,7 +161,10 @@ export class NewDietPage implements OnInit,AfterViewInit {
   profileName;
   getProfile(){
     this.appServices.getProfile().then(
+      
       profileData => {
+        //debugger;
+        localStorage.setItem("activities",JSON.stringify(profileData["lifeStyle"]["activities"]));
         console.log("profileData",profileData);
         this.profileData = profileData;
           let userData = {
@@ -159,7 +176,6 @@ export class NewDietPage implements OnInit,AfterViewInit {
           photoUrl: null,
           provider: "mobile"
         };
-       // CONSTANTS.email = profileData["profile"]["email"];
         this.profileName=userData.name;
         console.log("getprofile",JSON.stringify(userData));
       });
@@ -456,7 +472,8 @@ export class NewDietPage implements OnInit,AfterViewInit {
       )
       .then((res) => {
         this.diets = res;
-        console.log(this.diets);
+        console.log("alam101",this.diets);
+        this.storage.set("dietData", this.diets);
         this.allData.targetCal = res;
         this.diets.diets.forEach((ele) => {
           ele.data.forEach((element) => {

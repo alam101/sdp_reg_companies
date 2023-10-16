@@ -323,7 +323,7 @@
         </div>
       </div>
 
-      <div>
+      <div *ngIf="clientId==='eatfit'">
         <app-meal-selected [selectedItem]="selectedItem" [slot]="slot?.name" [time]="slot?.time" [likeFood]="likeFood"></app-meal-selected>
       </div>
       <div class="footer_div">
