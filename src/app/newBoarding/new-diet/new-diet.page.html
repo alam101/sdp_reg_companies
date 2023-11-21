@@ -4,26 +4,31 @@
   <p class="month paddingIos" *ngIf="!platform"></p>
   <div
     class="main_div"
-    [ngStyle]="{'border-radius':platform ?'0px':'0px','padding-bottom':'0px','margin-top':'-5px'}"
+    [ngStyle]="{'border-radius':platform ?'0px':'0px','padding-bottom':'0px','margin-top':'-16px'}"
   >
   <div style="top:1rem; position:relative;">
     <ion-row>
       <ion-col>
-        <div style="width: 100%;height: 200px;background: #0B713F;color:#fff;border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem;padding: 1rem;">
+        <div style="width: 100%;height: 200px;color:#fff;border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;padding: 1rem;background:var(--theme-profile-background)" >
           <ion-row>
             <ion-col class="ion-text-left" style="font-size: 1.1rem;">
-             <b>Hi {{profileName}}</b> 
+             <b>{{profileName}}</b> 
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col class="ion-text-left" style="font-size: .9rem;padding-top: .5rem;">
-              Welcome to your daily diet plan for improved and healthy hair!
+              {{compConfig.headerText}}
             </ion-col>
           </ion-row>
       </div>
-      <ion-card style="height: 180px;position: absolute;     top: 39%;
-      width: 91.5%;">
+      <ion-card style="height: 180px;
+      position: absolute;
+      top: 50%;
+      width: 90%;
+      left: 2.5%;
+      margin: 0 auto;
+      right: 2.5%;">
         <ion-card-content style="padding-left: 15px;">
           <ion-row>
             <ion-col class="ion-text-left" >
@@ -39,44 +44,44 @@
             <ion-col>
               <ion-row>
                 <ion-col class="ion-text-left"><strong><span style="color:#414042">Calories</span></strong></ion-col>
-                <ion-col class="ion-text-right"><strong><span style="color:#414042">{{diets?.totalCalories}} Kcal</span></strong></ion-col>
+                <ion-col class="ion-text-right"><strong><span style="color:#414042">{{allData?.totalCal}} Kcal</span></strong></ion-col>
               </ion-row>
               <div style="width: 100%;background:#E9E9E9;height: 10px;border-radius: 10px;">
-              <div style="height: 10px;border-radius: 10px;background: #ffc224;" [style.width.%]="diets?.totalCaloriesPer">
+              <div style="height: 10px;border-radius: 10px;background: #ffc224;max-width: 100%;" [style.width.%]="((allData?.totalCal*100)/profileData?.lifeStyle?.calories)">
               </div>
             </div>
             </ion-col>
           </ion-row>
       <br>
           <ion-row>
-            <ion-col class="ion-text-left" size="3.5">
-              <span style="font-size: 1rem;margin-left:2rem">Carbs</span><br>
+            <ion-col class="ion-text-center" size="3.5">
+              <span style="font-size: 1rem;">Carbs</span><br>
               <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
-                <div style="height: 6px;border-radius: 10px;background: #489C75;" 
-                [style.width.%]="diets?.totalCarbsPer">
+                <div style="height: 6px;border-radius: 10px;background: #489C75;max-width: 100%;" 
+                [style.width.%]="((allData.Carbs*100)/profileData?.lifeStyle?.carb)">
                 </div>
               </div>
-              <span style="font-size: .8rem;">{{diets?.totalCarbs}}g</span>
+              <span style="font-size: .8rem;">{{allData.Carbs}}/{{(profileData?.lifeStyle?.carb)?.toFixed(0)}}g</span>
             </ion-col>
             <ion-col size=".75"></ion-col>
             <ion-col class="ion-text-center" size="3.5">
               <span style="font-size: 1rem;">Protien</span><br>
               <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
-                <div style="height: 6px;border-radius: 10px;background: #DD85E0;"
-                [style.width.%]="diets?.totalProtienPer">
+                <div style="height: 6px;border-radius: 10px;background: #DD85E0;max-width: 100%;"
+                [style.width.%]="((allData?.Protien*100)/profileData?.lifeStyle?.protien)">
                 </div>
               </div>
-              <span style="font-size: .8rem;">{{diets?.totalProtien}}g</span>
+              <span style="font-size: .8rem;">{{allData?.Protien}}/{{(profileData?.lifeStyle?.protien)?.toFixed(0)}}g</span>
             </ion-col>
             <ion-col size=".75"></ion-col>
             <ion-col class="ion-text-center" size="3.5">
               <span style="font-size: 1rem;">Fat</span><br>
               <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
-                <div style="height: 6px;border-radius: 10px;background: #8054D7;"
-                [style.width.%]="diets?.totalFatPer">
+                <div style="height: 6px;border-radius: 10px;background: #8054D7;max-width: 100%;"
+                [style.width.%]="((allData?.Fat*100)/profileData?.lifeStyle?.fat)">
                 </div>
               </div>
-              <span style="font-size: .8rem;">{{diets?.totalFat}}g</span>
+              <span style="font-size: .8rem;">{{allData?.Fat}}/{{(profileData?.lifeStyle?.fat)?.toFixed(0)}}g</span>
             </ion-col>
           </ion-row>
         </ion-card-content>
@@ -185,46 +190,7 @@
       </ion-col>
     </ion-row>
   </div>
-    <!-- <div class="week_array">
-      <p
-        *ngFor=" let date of weekArray"
-        [ngClass]="moment(date).format('DD-MM-YYYY') === moment(selecteddate).format('DD-MM-YYYY')   && 'isSelectedDate'"
-        [ngStyle]="{'color':moment(date).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY') || moment(date).format('DD-MM-YYYY') ===
-        moment(tommorow).format('DD-MM-YYYY')  ?'var(--black)':'grey' }"
-        (click)="changeDate(date)"
-      >
-        {{moment(date).format('DD-MM-YYYY') ===
-        moment(today).format('DD-MM-YYYY') ? 'Today' :
-        moment(date).format('DD-MM-YYYY') ===
-        moment(tommorow).format('DD-MM-YYYY') ? 'Tomorrow' :
-        moment(date).format('ddd')}}
-        <br />{{moment(date).format('DD')}}
-      </p>
-    </div> -->
    
-    <!-- <div *ngIf="compConfig.isBanner!=false" style="border-radius: 4px;background: radial-gradient(1947.96% 77.53% at 77.53% 49.37%, #809DC8 0%, #2E5FA9 100%);margin: 0 1rem;text-align: right;position: relative;">
-      <span style="color: #fff;font-size: .75rem;text-align: left;    position: absolute;
-      left: 11px;
-      top: 25%;font-family: none;">
-      <span style="color: #fff;font-size:1.2rem;font-family:none;">Day {{fday}}</span>
-        <br>
-        Recommended : {{diets.recomended}} Kcal
-      </span>
-      <img src="./assets/img/trayabanner1.png">
-    </div> -->
-    <!-- <div class="center" style="
-    display: inline-block !important;
-    width: 84%;
-    margin-left: 6% !important;">
-      <app-calories
-        [allData]="allData"
-        PlusIconRoute="/todays-calorie-count"
-        [lifeStyle]="profileData?.lifeStyle"
-        (getDietdata)="getDietdata($event)"
-        [isDetox]="isDetox"
-        [plan]="true"
-      ></app-calories>
-    </div> -->
     <div class="meal_workout_title_div">
       <p class="meal_workout_title"> 
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
@@ -233,9 +199,9 @@
         moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
         moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}} 
       </p>
-      <div class="right" *ngIf="!isDetox && compConfig.pie_chart!=false">
+      <div class="right" *ngIf="!isDetox">
         <!-- <p class="meal_workout_button" (click)="goToAnalysis()">Analysis</p> -->
-        <ion-icon
+        <ion-icon *ngIf="compConfig.pie_chart!=false"
         class="meal_workout_button"
         name="pie-chart"
         (click)="goToAnalysis()"
@@ -314,7 +280,7 @@
       </ion-card>
 
     </div>
-    <div *ngIf="compConfig.isBanner!=false" style="border-radius: 4px;background: radial-gradient(2347.70% 93.43% at 93.43% 49.37%, #F0CE8C 0%, #D28510 100%);margin: 1rem;text-align: right;position: relative;">
+    <!-- <div *ngIf="compConfig.isBanner!=false" style="border-radius: 4px;background: radial-gradient(2347.70% 93.43% at 93.43% 49.37%, #F0CE8C 0%, #D28510 100%);margin: 1rem;text-align: right;position: relative;">
       <span style="color: #fff;font-size: .75rem;text-align: left;    position: absolute;
       left: 11px;
       top: 25%;font-family: none;">
@@ -322,6 +288,6 @@
 following the <b>daily diet plan</b> diligently.
       </span>
       <img src="./assets/img/trayabanner2.png">
-    </div>
+    </div> -->
    </div>
 </ion-content>

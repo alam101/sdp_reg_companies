@@ -1,3 +1,4 @@
+@import '../../../../theme/fonts.scss';
 .header_div {
   // background: #FEBF47;
   // border-radius: 5px;
@@ -12,7 +13,7 @@
   p {
     font-size: var(--small-font);
     margin: 0px;
-    font-family: var(--theme-newFont);
+    font-family: $font-medium;
     font-weight: 500;
     color: #333333;
     margin-left: 20px;
@@ -71,7 +72,7 @@ ion-thumbnail {
 .meal_pro {
   font-size: var(--small-font);
   margin: 0px;
-  font-family: var(--theme-newFont);
+  font-family: $font-medium;
   font-weight: 500;
   color: #666666;
   // width: 200px;

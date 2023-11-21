@@ -2,15 +2,16 @@
   <div class="d_flex">
     <div style="width: 60px; position: relative">
       <ion-thumbnail (click)="gotoViews(data)">
-        <ion-img
+        <img
           *ngIf="data?.imageUrl"
-          [src]="data?.imageUrl.replace('.png', '.jpg')"
+          [src]="data?.imageUrl"
+          onerror="this.src='./assets/newImages/food.svg';this.style='object-fit: contain'"
           class="card_img"
-        ></ion-img>
+        />
         <img
           class="card_img"
           *ngIf="data?.foodSource?.toLowerCase() == 'internal'"
-          src="{{image_URL}}{{data?._id}}.jpg"
+          src="{{image_URL}} {{data?._id}}.jpg"
           onerror="this.src='./assets/newImages/food.svg';this.style='object-fit: contain'"
         />
         <img
@@ -41,8 +42,8 @@
     </div>
 
     <div class="meal_pro_div">
-      <p class="meal_pro" style="max-height: 40px">{{data?.Food}}</p>
-      <div class="meal_pro_div d_flex" style="margin-top: 7px; padding: 0%">
+      <p class="meal_pro" style="max-height: 50px;height: 45px;">{{data?.Food}}</p>
+      <div class="meal_pro_div d_flex" style="top: 7px; padding: 0%;position: relative;">
         <div class="w_100">
           <p class="meal_pro" style="font-weight: 500">
             {{Math.round(data?.Calories )}} Kcal

@@ -245,7 +245,8 @@ alternatives(data){
     //   },
     // });
   }
-
+  isShow=false;
+  popup:any;
   async gotoView(d) {
     if (this.disabled) {
       return;
@@ -265,19 +266,23 @@ alternatives(data){
     //   },
     // });
 
-    const modal = await this.modalCtrl.create({
-      component: ViewProductPage,
-      componentProps: {
-        food: d,
-        router: this.router.url.split(";")[0],
-        slot: this.index,
-      },
-    });
+    // const modal = await this.modalCtrl.create({
+    //   component: ViewProductPage,
+    //   componentProps: {
+    //     food: d,
+    //     router: this.router.url.split(";")[0],
+    //     slot: this.index,
+    //   },
+    // });
 
-    modal.present();
-    modal.onDidDismiss().then((res) => {
-      this.getDietdata.emit(CONSTANTS.dietDate);
-    });
+    // modal.present();
+    // modal.onDidDismiss().then((res) => {
+    //   this.getDietdata.emit(CONSTANTS.dietDate);
+    // });
+    console.log("d",d);
+   this.popup = d; 
+    this.isShow=true;
+
   }
 
   async remove(item, eaten, status) {

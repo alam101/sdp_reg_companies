@@ -100,10 +100,13 @@ export class ReadQueryComponent implements OnInit {
       this.storage.get("defaultData").then(res=>{
           res= JSON.parse(res);
         if(gender){
+
+          if(res.otherMaster!==undefined){
        res.otherMaster.gender.filter(item=>{
           return item.code ===gender["code"];
         })[0].isSelected=true;
       }
+    }
       if(bmi){
         res.otherMaster.bmi={bmi:bmi};
       }

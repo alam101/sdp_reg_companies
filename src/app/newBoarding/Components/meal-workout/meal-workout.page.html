@@ -1,8 +1,8 @@
 <div style="position: relative" *ngIf="loaded && data?.data?.length > 0">
-  <ion-img 
+  <!-- <ion-img 
     class="card_logo"
     src="../../../../assets/newImages/meal.png"
-  ></ion-img>
+  ></ion-img> -->
 
   <ion-skeleton-text
     *ngIf="!loaded"
@@ -14,7 +14,8 @@
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
     [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}"
   >
-    <div class="header_div">
+    <div class="header_div" [style.background]="index===0?'#E4F3EC':index===1?'#F2E5D8':index===2?'#FBEEFC':index===3?'#E2F0F6':index===4?'#E4F3EC':index===5?'#F2E5D8':index===6?'
+    #FBEEFC':index===7?'#E2F0F6':'#E4F3EC'">
       <p>
         {{data?.message}}
         <span>
@@ -95,35 +96,31 @@
             <ion-row>
               <ion-col class="ion-text-left">
               <ion-button
-              shape="round"
-              fill="outline"
               class="logged_btn"
               (click)="addCal(d,i)"
-              style="color:var(--theme-color);width:95px;height:25px;font-size: .75rem;"
+              style="--background: var(--profile-color);color:#fff;width:100%;height:30px;font-size: .75rem;--border-radius: 5px;"
               *ngIf="!d.eaten || d?.eaten < 0">
               Log
-              <ion-icon name="add-outline"></ion-icon>
+              <ion-icon name="add-outline" style="color: #fff;margin-left: 5px;"></ion-icon>
             </ion-button>
             <ion-button
             *ngIf="d?.eaten > 0 "
-            shape="round"
             class="logged_btn"
-            style="--background: var(--profile-color);color:#fff;width:95px;height:25px;font-size: .75rem;"
+            style="--background: var(--profile-color);color:#fff;width:100%;height:30px;font-size: .75rem;--border-radius: 5px;"
             (click)="logged(d)">
             Logged
-            <ion-icon style="color:#fff" name="checkmark"></ion-icon>
+            <ion-icon style="color:#fff;margin-left:5px;" name="checkmark"></ion-icon>
           </ion-button>
               </ion-col>
-              <ion-col class="ion-text-right">
+              <ion-col class="ion-text-center">
                 <ion-button
                 *ngIf="!d.eaten || d?.eaten < 0"
-                shape="round"
                 fill="outline"
-                style="color:var(--theme-color);width:95px;height:25px;font-size: .75rem;"
+                style="color:#414042;width:100%;height:30px;font-size: .75rem;--border-radius: 5px;--border-color:#414042;"
                 class="logged_btn"
                 (click)="changed(d)">
                   &nbsp; Alternatives
-                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                  <ion-icon name="chevron-forward-outline" style="color: #414042;margin-left:5px;"></ion-icon>
               </ion-button>
               </ion-col>
             </ion-row>
@@ -146,4 +143,84 @@
       >View Diet Plan</ion-button
     >
   </div>
+</div>
+<div *ngIf="isShow">
+<div style="background: #000;
+position: fixed; top:0;
+height: 100%;width: 100%;
+opacity: .5;z-index: 11;
+left:0;
+right:0;
+"></div>
+<div style="background: #fff;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+position: fixed; top:25%;
+height: 75%;width: 100%;
+z-index: 12;left:0;
+right:0;
+opacity: 1;
+">
+<img src="{{popup?.imageUrl}}" style="width: 100%;height: auto;top:0;position: relative;left:0; border-top-left-radius: 10px;
+border-top-right-radius: 10px;   max-height: 45%;"><br><br>
+<img src="./assets/img/close.png" style="position: absolute;top:.5rem;right:.5rem;" (click)="isShow=false;">
+<div style="position: relative;padding: 1rem;height:40%">
+<ion-row>
+  <ion-col class="ion-text-left">
+    <span style="font-size: 1rem;font-weight: 600;">{{popup?.Food}}</span>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col class="ion-text-left">
+    <span style="font-size: .7rem;color:#a3a3a3">Quantity: {{popup?.portion}} - {{popup?.portion_unit}}    </span>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col class="ion-text-left">
+    <span style="font-size: .7rem;color:#a3a3a3">Calories: {{popup?.Calories}} Kcal - Carbs: {{popup?.Carbs}}g - Protien: {{popup?.Protien}}g - Fat: {{popup?.Fat}}g   </span>
+  </ion-col>
+</ion-row>
+<ion-row style="margin-top: .5rem;">
+  <ion-col class="ion-text-left">
+    <div style="height: 100px;overflow-y: scroll;">
+    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.recipe!=undefined">{{popup?.recipe}}  </span><br>
+    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.steps!=undefined">{{popup?.steps}}  </span>
+  </div>
+  </ion-col>
+</ion-row>
+
+</div>
+<ion-row style="position: absolute;bottom: 1rem;width: 100%;">
+  <ion-col class="ion-text-left">
+    <ion-button
+    *ngIf="!popup.eaten || popup?.eaten < 0"
+    fill="outline"
+    style="color:#414042;width:90%;height:44px;font-size: .75rem;--border-radius: 5px;--border-color:#414042;    margin-left: 1rem;"
+    class="logged_btn"
+    (click)="changed(popup)">
+      &nbsp; Alternatives
+      <ion-icon name="chevron-forward-outline" style="color: #414042;margin-left:5px;"></ion-icon>
+  </ion-button>
+  </ion-col>
+  <ion-col class="ion-text-left">
+  <ion-button
+  class="logged_btn"
+  (click)="addCal(popup,i)"
+  style="--background: var(--profile-color);color:#fff;width:90%;height:44px;font-size: .75rem;--border-radius: 5px;"
+  *ngIf="!popup.eaten || popup?.eaten < 0">
+  Log
+  <ion-icon name="add-outline" style="color: #fff;margin-left: 5px;"></ion-icon>
+</ion-button>
+<ion-button
+*ngIf="popup?.eaten > 0 "
+class="logged_btn"
+style="--background: var(--profile-color);color:#fff;width:90%;height:44px;font-size: .75rem;--border-radius: 5px;"
+(click)="logged(popup)">
+Logged
+<ion-icon style="color:#fff;margin-left:5px;" name="checkmark"></ion-icon>
+</ion-button>
+  </ion-col>
+ 
+</ion-row>
+</div>
 </div>
