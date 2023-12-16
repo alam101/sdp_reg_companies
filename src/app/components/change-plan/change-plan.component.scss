@@ -224,7 +224,7 @@ ion-button {
 .personalisation {
   font-size: 0.85rem;
   font-style: italic;
-  font-family: $font;
+  font-family: var(--font);
   color: #4c5264;
   background: #fff;
 }

@@ -177,7 +177,7 @@
 //     //color:#01a3a4 !important;
 //     color:var(--theme-text-color) !important;
 //     white-space: normal;
-//     font-family: $font;
+//     font-family: var(--font);
 //     --padding-start: 5px;
 //     // font-weight: bold;
 //   }
@@ -324,7 +324,7 @@
 //       h3{
 //         font-size: 0.9rem;
 //         color:#3498DB;
-//         font-family: $font;
+//         font-family: var(--font);
 //         font-weight: 500;
 //       }
 //       h2{
@@ -335,7 +335,7 @@
 //       h5{
 //         font-size: .6rem;
 //         color:#707070;
-//         font-family: $font;
+//         font-family: var(--font);
 //       }
     
   
@@ -346,12 +346,12 @@
 //         border-right:1px solid #b3b3b3;
 //         span:first-child{
 //           color:#707070;
-//           font-family: $font-bold;
+//           font-family: var(--font-bold);
 //           font-size: 1.6rem;
 //         }
 //         span:last-child{
 //           color:#333333;
-//           font-family: $font;
+//           font-family: var(--font);
 //           font-size: .8rem;
 //         }
 //       } 
@@ -371,13 +371,13 @@
 //         margin:0 !important;
 //         color:#3498DB;
 //         font-size: .8rem;
-//         font-family: $font-bold;
+//         font-family: var(--font-bold);
 //       }
 //       .steps{
 //         span{
 //           color:#778CA3;
 //           font-size: .8rem;
-//           font-family: $font-bold;
+//           font-family: var(--font-bold);
 //         }
 //         ion-icon{
 //           color:#778CA3;
@@ -406,7 +406,7 @@
 //         margin:0 !important;
 //         color:#01A3A4;
 //         font-size: .8rem;
-//         font-family: $font-bold;
+//         font-family: var(--font-bold);
 //       }
 //       .weight-color{
 //           color:#01A3A4;

@@ -47,7 +47,8 @@ export class ViewProductPage implements OnInit {
     private router: Router,
     private appServices: AppService,
     private _sanitizer: DomSanitizer,
-    private modalCtrl: ModalController,
+    private readonly modalCtrl: ModalController,
+    private readonly modalCtrl1: ModalController,
     private utilities: UTILITIES,
     private navCtrl: NavController
   ) {}
@@ -59,12 +60,17 @@ export class ViewProductPage implements OnInit {
     console.log("This is FOOD FROM LAST PAGE", this.food);
   }
 
-  close() {
+   close() {
+    
     if (this.fromRoute) {
       this.router.navigate([this.fromRoute, { refresh: new Date().getTime() }]);
     } else {
-      this.modalCtrl.dismiss();
-    }
+      this.modalCtrl1.dismiss({
+        alterdata: {},
+        type: "change",
+        plan: "",
+      });
+      }
   }
 
   checkPlan() {
@@ -245,7 +251,7 @@ export class ViewProductPage implements OnInit {
     }
   }
   gotoPremium() {
-    this.modalCtrl.dismiss();
+    this.modalCtrl1.dismiss();
     this.navCtrl.navigateForward(["/premium-member"]);
   }
 

@@ -2,7 +2,7 @@
 // @import '../../../theme/fonts.scss';
 @import "../../../theme/variables.scss";
 .qa-day{
-    font-family: $font-bold;
+    font-family: var(--font-bold);
     font-size: 1rem;
     color:#01A3A4;
 }
@@ -11,7 +11,7 @@
     padding-top:10px;
     p{
         font-size: 1rem;
-        font-family: $font;
+        font-family: var(--font);
         text-align: left;
         text-justify: auto;
         color:#4C5264 !important;
@@ -33,13 +33,13 @@
  .view-more{
     text-align:left;
     font-size: 1rem;
-    font-family: $font;
+    font-family: var(--font);
     color:#60AFF5 !important;
     font-style: italic;
  }
 .content-size{
     font-size: .75rem;
-    font-family: $font;
+    font-family: var(--font);
 }
  .detail{
     border-right: 1px solid #7377774a;

@@ -20,7 +20,7 @@
                 style="width: 100%;height: 200px;pointer-events: none;"></iframe>
             </div>
 
-            <img style="height: 200px;width: 100%;object-fit: cover;"
+            <img style="height: auto;width: 100%;object-fit: cover;"
               *ngIf="foodDetails.imageUrl && !(foodDetails.video && foodDetails.video != '-' && foodDetails.video != '--' && foodDetails.video.indexOf('http') > -1)"
               src="{{image_URL}}{{foodDetails.foodItem}}.jpg">
               <ion-row style="position: absolute;

@@ -36,7 +36,7 @@ ion-content {
   .medium-text-all {
     color: #333;
     font-size: .9rem !important;
-    font-family: $font;
+    font-family: var(--font);
     margin: 0;
     white-space: normal;
     text-align: left;
@@ -228,13 +228,13 @@ a.moreless {
 .weight-small {
   color: #707070;
   font-size: .8rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 
 .weight-small-diff {
   color: var(--theme-color);
   font-size: .875rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 
 .margin-top-21per {
@@ -392,14 +392,14 @@ a.moreless {
         margin: 0 !important;
         color: #14CEB7;
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .steps {
         span {
           color: #778CA3;
           font-size: .8rem;
-          font-family: $font-bold;
+          font-family: var(--font-bold);
         }
 
         ion-icon {
@@ -431,13 +431,13 @@ a.moreless {
         margin: 0 !important;
         //  color:#ffa500;
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .remaining {
         //   color:#ffa500;
         font-size: .7rem;
-        font-family: $font;
+        font-family: var(--font);
       }
     }
   }
@@ -468,14 +468,14 @@ a.moreless {
         margin: 0 !important;
         color: #3498DB;
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .steps {
         span {
           color: #778CA3;
           font-size: .8rem;
-          font-family: $font-bold;
+          font-family: var(--font-bold);
         }
 
         ion-icon {
@@ -509,7 +509,7 @@ a.moreless {
         margin: 0 !important;
         color: var(--theme-color);
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .weight-color {
@@ -725,13 +725,13 @@ a.moreless {
   font-size: 1rem;
 
   padding: 6px;
-  font-family: $font-medium;
+  font-family: var(--font-medium);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
 }
 
 .message {
   font-size: 1.3rem;
-  font-family: $font;
+  font-family: var(--font);
   color: #fff;
 }
 
@@ -847,7 +847,7 @@ ion-menu-button {
   font-size: 1.1rem;
   color: #333 !important;
   white-space: normal;
-  font-family: $font;
+  font-family: var(--font);
 }
 
 .habbit-arrow {
@@ -871,7 +871,7 @@ ion-menu-button {
 .habbit-prog-label {
   color: #5D5D5D;
   font-size: 0.9rem !important;
-  font-family: $font;
+  font-family: var(--font);
   position: relative;
   left: 0;
   padding-bottom: 3rem;
@@ -885,7 +885,7 @@ ion-menu-button {
 
 .key-mantra {
   font-size: 1.25rem !important;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   color: var(--theme-color);
 }
 
@@ -895,7 +895,7 @@ ion-menu-button {
 
 .add-habbits {
   // color: $lipstic;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   font-size: 0.75rem;
   cursor: pointer;
   color: #707070;
@@ -927,7 +927,7 @@ ion-menu-button {
 
 .button-cancel {
   font-size: 0.875rem !important;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   border-color: #fff !important;
 }
 
@@ -935,7 +935,7 @@ ion-menu-button {
 
   font-size: 0.875rem !important;
   //border-color: #fff;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
 }
 
 .lock {
@@ -1000,7 +1000,7 @@ ion-menu-button {
 .medium-text {
   color: #333;
   font-size: .9rem;
-  font-family: $font;
+  font-family: var(--font);
   margin: 0;
   white-space: nowrap;
 
@@ -1018,7 +1018,7 @@ ion-menu-button {
     h3 {
       font-size: 1rem;
       color: #F8719F;
-      font-family: $font;
+      font-family: var(--font);
       font-weight: 500;
     }
 
@@ -1031,7 +1031,7 @@ ion-menu-button {
     h5 {
       font-size: 1rem;
       color: #707070;
-      font-family: $font;
+      font-family: var(--font);
     }
   }
 
@@ -1041,13 +1041,13 @@ ion-menu-button {
 
       span:first-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: 1.3rem;
       }
 
       span:last-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
       }
     }
@@ -1055,13 +1055,13 @@ ion-menu-button {
     .end-time {
       span:first-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: 1.3rem;
       }
 
       span:last-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
       }
     }
@@ -1071,13 +1071,13 @@ ion-menu-button {
 
       span:first-child {
         color: #F8719F;
-        font-family: $font;
+        font-family: var(--font);
         font-size: 1.5rem;
       }
 
       span:last-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
       }
     }
@@ -1085,13 +1085,13 @@ ion-menu-button {
     .fasting-bottom {
       span:first-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
       }
 
       span:last-child {
         color: #F8719F;
-        font-family: $font;
+        font-family: var(--font);
         font-size: 1rem;
 
       }
@@ -1106,7 +1106,7 @@ ion-menu-button {
     h3 {
       font-size: 0.9rem;
       color: #3498DB;
-      font-family: $font;
+      font-family: var(--font);
       font-weight: 500;
     }
 
@@ -1119,7 +1119,7 @@ ion-menu-button {
     h5 {
       font-size: .6rem;
       color: #707070;
-      font-family: $font;
+      font-family: var(--font);
     }
 
 
@@ -1132,13 +1132,13 @@ ion-menu-button {
 
       span:first-child {
         color: #707070;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
         font-size: 1.5rem;
       }
 
       span:last-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
       }
     }
@@ -1146,13 +1146,13 @@ ion-menu-button {
     .end-time {
       span:first-child {
         color: #707070;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
         font-size: 1.5rem;
       }
 
       span:last-child {
         color: #333333;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
       }
     }
@@ -1162,13 +1162,13 @@ ion-menu-button {
 
       span:first-child {
         color: #F8719F;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
         font-size: 1.5rem;
       }
 
       span:last-child {
         color: #5f5656;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
       }
     }
@@ -1176,13 +1176,13 @@ ion-menu-button {
     .fasting-bottom {
       span:first-child {
         color: #707070;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
         font-size: 1.5rem;
       }
 
       span:last-child {
         color: #F8719F;
-        font-family: $font;
+        font-family: var(--font);
         font-size: .8rem;
 
       }
@@ -1211,7 +1211,7 @@ ion-menu-button {
 .item-text {
   color: #555555;
   font-size: 0.6rem;
-  font-family: $font;
+  font-family: var(--font);
   margin: 0;
   white-space: normal;
   width: 58px;
@@ -1235,7 +1235,7 @@ ion-menu-button {
 .profile-small {
   color: #fff; //rgb(252, 180, 194);
   font-size: .9rem;
-  font-family: $font;
+  font-family: var(--font);
   margin: 0;
   position: relative;
   top: 3px;
@@ -1244,7 +1244,7 @@ ion-menu-button {
 .profile-big {
   color: $white;
   font-size: 1rem;
-  font-family: $font-medium;
+  font-family: var(--font-medium);
   margin: 0;
 }
 
@@ -1308,7 +1308,7 @@ ion-thumbnail {
 .small-text {
   color: $gray;
   font-size: 0.8rem;
-  font-family: $font;
+  font-family: var(--font);
   margin: 0;
 }
 
@@ -1323,7 +1323,7 @@ ion-thumbnail {
 .big-text {
   color: $black;
   font-size: 1.2rem;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   margin: 0;
 }
 
@@ -1347,14 +1347,14 @@ ion-thumbnail {
 .graph-label {
   color: rgb(85, 85, 85);
   font-size: 0.75rem;
-  font-family: $font;
+  font-family: var(--font);
   margin: 0;
 }
 
 .graph-number {
   color: rgb(85, 85, 85);
   font-size: 1.1rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 
 .custom-margin-left-right {
@@ -1377,7 +1377,7 @@ ion-thumbnail {
   width: 100%;
   height: 33px;
   font-weight: bold;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   text-align: center;
   color: var(--theme-color);
   padding-top: 5px;
@@ -1394,7 +1394,7 @@ ion-thumbnail {
   background: #F6F7FC;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 16%);
   color: #141414;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
 }
 
 .x-button-active-1 {
@@ -1408,7 +1408,7 @@ ion-thumbnail {
   background: #F6F7FC;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 16%);
   color: #141414;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
 }
 
 .button-pos {
@@ -1419,7 +1419,7 @@ ion-thumbnail {
 
 .bar-2 {
   font-size: .8rem;
-  font-family: $font;
+  font-family: var(--font);
   float: right;
   color: gray;
 }
@@ -1429,7 +1429,7 @@ ion-thumbnail {
     float: left;
     font-size: .7rem;
     width: 100%;
-    font-family: $font-bold;
+    font-family: var(--font-bold);
 
     .bar-1 {
       float: left;
@@ -1508,27 +1508,27 @@ ion-thumbnail {
     color: #E74C3C;
     float: left;
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
   }
 
   .fill-amber-p {
     color: #FFC200;
     float: left;
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
   }
 
   .fill-green-p {
     color: var(--theme-color);
     float: left;
     font-size: .8rem;
-    font-family: $font-bold;
+    font-family: var(--font-bold);
   }
 
   .bar-percent-c {
     float: left;
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
     color: rgb(242, 248, 87);
 
   }
@@ -1537,14 +1537,14 @@ ion-thumbnail {
     float: left;
     font-size: .8rem;
     color: rgb(125, 226, 239);
-    font-family: $font;
+    font-family: var(--font);
   }
 
   .bar-percent-f {
     float: left;
     font-size: .8rem;
     color: rgb(173, 142, 253);
-    font-family: $font;
+    font-family: var(--font);
   }
 }
 
@@ -1567,7 +1567,7 @@ ion-card {
 
   ion-card-header {
     font-size: 0.875rem;
-    font-family: $font-bold;
+    font-family: var(--font-bold);
 
     ion-row{
       min-height: 3rem;
@@ -1629,14 +1629,14 @@ ion-card.weight-graph {
   div {
     h2 {
       font-size: 0.875rem;
-      font-family: $font-bold;
+      font-family: var(--font-bold);
       color: $gray;
       margin-bottom: 0;
     }
 
     p {
       font-size: 0.875rem;
-      font-family: $font;
+      font-family: var(--font);
       color: #b3b3b3;
     }
   }
@@ -1649,7 +1649,7 @@ ion-card.weight-graph {
 
 .custom-color {
   color: rgb(255, 167, 19);
-  // font-family: $font;
+  // font-family: var(--font);
 }
 
 
@@ -1697,7 +1697,7 @@ ion-card.weight-graph {
   .p {
     color: rgb(85, 85, 85);
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
   }
 
   .parent {
@@ -1748,7 +1748,7 @@ ion-card.weight-graph {
   .p {
     color: rgb(85, 85, 85);
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
   }
 
   .parent {
@@ -2397,7 +2397,7 @@ ion-button.ion-activated .reload_image {
 
   h3.weight-color {
 
-    font-family: $font;
+    font-family: var(--font);
     font-size: .9rem;
     color: var(--theme-color);
     font-weight: 500;
@@ -2405,37 +2405,37 @@ ion-button.ion-activated .reload_image {
 
   .first-sec {
     font-size: 1.1rem;
-    font-family: $font;
+    font-family: var(--font);
     color: #707070;
   }
 
   .first-sec-2 {
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
     color: #707070;
   }
 
   .second-sec {
     font-size: 1.5rem;
-    font-family: $font;
+    font-family: var(--font);
     color: var(--theme-color);
   }
 
   .second-sec-2 {
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
     color: var(--theme-color);
   }
 
   .third-sec {
     font-size: 1.1rem;
-    font-family: $font;
+    font-family: var(--font);
     color: #707070;
   }
 
   .third-sec-2 {
     font-size: .8rem;
-    font-family: $font;
+    font-family: var(--font);
     color: #707070;
   }
 }
@@ -2706,7 +2706,7 @@ ion-fab-list {
 .cal-button {
   width: 100%;
   height: 33px;
-  //  font-family: $font-bold;
+  //  font-family: var(--font-bold);
   text-align: center;
   padding-top: 5px;
   background: #FFF;
@@ -2726,7 +2726,7 @@ ion-fab-list {
   font-weight: bold;
   background: var(--theme-color);
   color: #FFF;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
 }
 
 .cal-header {
@@ -3420,7 +3420,7 @@ ion-header {
 }
 
 .improve{
-  font-family: $font;
+  font-family: var(--font);
   font-size: .8rem;
   color:#707070;
 }
@@ -3589,7 +3589,7 @@ ion-header {
 
 
     .header{
-      font-family: $font-bold;
+      font-family: var(--font-bold);
       font-size: 1rem;
       text-transform: capitalize;
       padding: 15px 15px 10px;
@@ -3822,7 +3822,7 @@ ion-refresher-content {
 
 .content-size{
   font-size: .75rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 .detail{
   border-right: 1px solid #7377774a;
@@ -3869,7 +3869,7 @@ ion-refresher-content {
 }
 
 .qa-day{
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   font-size: 1rem;
   color:var(--theme-color);
 }
@@ -4038,12 +4038,12 @@ ion-refresher-content {
 }
 
 .qa-day{
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   font-size: 1rem;
   color:var(--theme-color);
 }
 .qa-day-see{
-  font-family: $font-medium;
+  font-family: var(--font-medium);
   font-size: 1rem;
   color:#60AFF5;
 }
@@ -4054,7 +4054,7 @@ ion-refresher-content {
   padding-top:10px;
   p{
       font-size: 1rem;
-      font-family: $font;
+      font-family: var(--font);
       text-align: start;
       text-justify: auto;
       float: left;
@@ -4063,7 +4063,7 @@ ion-refresher-content {
   }
 }
 ::ng-deep .desc{
-  font-family: $font;
+  font-family: var(--font);
   font-size:0.9rem;
   // padding-left: 5px;
   display: contents;
@@ -4091,7 +4091,7 @@ ion-refresher-content {
 .view-more{
   text-align:left;
   font-size: 1rem;
-  font-family: $font;
+  font-family: var(--font);
   color:#60AFF5 !important;
   font-style: italic;
 }
@@ -4423,7 +4423,7 @@ ion-refresher-content {
   .wp-prog-label {
     color: #5D5D5D;
     font-size: 0.9rem !important;
-    font-family: $font;
+    font-family: var(--font);
     position: relative;
     left:0;
     padding-bottom: 1rem;

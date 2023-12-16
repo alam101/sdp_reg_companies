@@ -298,7 +298,7 @@ ion-col {
 .main-heading {
   color: #000;
   font-size: 1.1rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 .margin-top-point-5 {
   margin-top: 0.5rem;
@@ -401,7 +401,7 @@ ion-button {
  --background:var(--theme-button) !important;
   --color: #fff;
   font-size: 1.2rem;
-  font-family: $font;
+  font-family: var(--font);
   --border-radius: 5px !important;
   --border-color: #fff;
   --border: 1px solid #fff;
@@ -415,7 +415,7 @@ ion-button {
 --background:var(--theme-button) !important;
   --color: #{$white};
   font-size: 1.2rem;
-  font-family: $font;
+  font-family: var(--font);
   --border-radius: 5px !important;
 }
 
@@ -423,7 +423,7 @@ ion-button {
   //--color: rgb(0,166,168);
   --color: var(--theme-color);
   font-size: 1.2rem;
-  font-family: $font;
+  font-family: var(--font);
   --border-radius: 5px !important;
   --border-color: #{$lipstic};
   --border: 1px solid rgb(0,166,168);
@@ -436,7 +436,7 @@ ion-button {
 .button-fit {
   --color: rgb(0,166,168);
   font-size: 1.2rem;
-  font-family: $font;
+  font-family: var(--font);
   --border-radius: 5px !important;
   --border-color: #{$lipstic};
   --border: 1px solid rgb(0,166,168);
@@ -488,7 +488,7 @@ ion-footer.main {
     --min-height: 3.5rem !important;
     --background: #01A3A4;//#{$lightYellow1};
     --font-size: 1.5rem;
-    --font-family: $font;
+    --font-family: var(--font);
     --border-width: 0 !important;
   }
 }
@@ -498,7 +498,7 @@ ion-footer.btn {
     --min-height: 4.5rem !important;
     --background: #F6F7FC;
     --font-size: 1.5rem;
-    --font-family: $font;
+    --font-family: var(--font);
     --border-width: 0 !important;
   }
 }
@@ -515,7 +515,7 @@ ion-footer.btn-slide-fixed{
     --min-height: 5rem !important;
     --background: #d7e4e4;
     --font-size: 1.5rem;
-    --font-family: $font;
+    --font-family: var(--font);
     --border-width: 0 !important;
   }
 }
@@ -526,7 +526,7 @@ ion-footer.btn-slide {
     --min-height: 5rem !important;
     --background: #d7e4e4;
     --font-size: 1.5rem;
-    --font-family: $font;
+    --font-family: var(--font);
     --border-width: 0 !important;
   }
 }
@@ -627,7 +627,7 @@ ion-back-button {
 
 .title-cust{
   font-size:1.1rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 
 .my-custom-slider .swiper-pagination {
@@ -667,7 +667,7 @@ ion-back-button {
     color: #8a8383;
     width: 90%;
     display: inline-block;
-    font-family: $font;
+    font-family: var(--font);
     font-size: 0.875rem;
     // font-weight: bold;
 }
@@ -679,7 +679,7 @@ ion-back-button {
   //border: 1px solid #01A3A4;
   border: 1px solid var(--theme-color);
   font-size: .875rem;
-  font-family: $font;
+  font-family: var(--font);
 } 
 
 .box-close{
@@ -715,14 +715,14 @@ ion-back-button {
 
 .font-size-875{
   font-size:.875rem;
-  font-family:$font;
+  font-family:var(--font);
 }
 
 .font{
-  font-family:$font;
+  font-family:var(--font);
 }
 .font-bold{
-  font-family:$font-bold;
+  font-family:var(--font-bold);
 }
 
 
@@ -741,7 +741,7 @@ ion-back-button {
   right: 0;
   width: 100%;
   font-size: 1rem;
-  font-family: $font-medium;
+  font-family: var(--font-medium);
   color: #fff;
   --background: rgb(208,87,76);
 }

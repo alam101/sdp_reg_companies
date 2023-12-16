@@ -39,7 +39,7 @@ export class PortionCountPage implements OnInit {
   loaded = false;
  isIOS=false;
   constructor(
-    private modalCtrl: ModalController,
+    private modalCtrl2: ModalController,
     private popCtrl: PopoverController,
     private cdr: ChangeDetectorRef,
     private appService: AppService,
@@ -47,8 +47,7 @@ export class PortionCountPage implements OnInit {
     private navCtrl: NavController,
     private router: Router
   ) {
-
-  }
+ }
   compConfig:any;
   ngOnInit() {
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
@@ -61,13 +60,13 @@ export class PortionCountPage implements OnInit {
   }
 
   closeModal() {
-    this.modalCtrl.dismiss("");
+    this.modalCtrl2.dismiss("");
   }
 
   async addCal(data, i) {
     console.log("DATA----------->>", data);
 
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalCtrl2.create({
       component: PortionCountPage,
       cssClass: "portion_count",
       backdropDismiss: true,
@@ -90,7 +89,7 @@ export class PortionCountPage implements OnInit {
   async replacedModal(data) {
     console.log("DATA----------->>", data);
 
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalCtrl2.create({
       component: PortionCountPage,
       cssClass: "portion_count",
       backdropDismiss: true,
@@ -138,7 +137,7 @@ export class PortionCountPage implements OnInit {
           this.getDietdata.emit(CONSTANTS.dietDate);
           this.utilities.showSuccessToast("Replaced successfully");
           console.log("Dite API called");
-          this.modalCtrl.dismiss("");
+          this.modalCtrl2.dismiss("");
           // this.navCtrl.navigateForward(
           //   ["/tabs/new-diet", { refresh: new Date().getTime() }],
           //   { queryParams: { slot: Number(this.data?.slot) } }
@@ -166,7 +165,7 @@ export class PortionCountPage implements OnInit {
     //   },
     // });
     console.log(this.data);
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalCtrl2.create({
       component: ViewProductPage,
       componentProps: {
         food: d,
@@ -178,7 +177,7 @@ export class PortionCountPage implements OnInit {
 
     modal.present();
     modal.onDidDismiss().then((res) => {
-      this.modalCtrl.dismiss("");
+     // this.modalCtrl2.dismiss("");
     });
   }
 
@@ -205,7 +204,7 @@ export class PortionCountPage implements OnInit {
           this.getDietdata.emit(CONSTANTS.dietDate);
           this.utilities.showSuccessToast(success.message);
           console.log("Dite API called");
-          this.modalCtrl.dismiss("");
+          this.modalCtrl2.dismiss("");
           this.navCtrl.navigateForward([
             "/tabs/new-diet",
             { refresh: new Date().getTime() },
@@ -234,7 +233,7 @@ export class PortionCountPage implements OnInit {
 
   log() {
     console.log("Porton page line no 130", this.data);
-    this.modalCtrl.dismiss(this.data);
+    this.modalCtrl2.dismiss(this.data);
   }
 
   closePopover() {
@@ -290,7 +289,7 @@ export class PortionCountPage implements OnInit {
   }
 
   gotoPremium() {
-    this.modalCtrl.dismiss();
+    this.modalCtrl2.dismiss();
     this.navCtrl.navigateForward(["/premium-member"]);
   }
 }

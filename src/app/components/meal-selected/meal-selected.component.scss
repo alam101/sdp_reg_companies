@@ -14,7 +14,7 @@
         height: 300px;
         .header{
             font-size: 1rem;
-            font-family: $font-medium;
+            font-family: var(--font-medium);
             color:#000000;
         }
         
@@ -77,12 +77,12 @@
     height: 150px;
     margin-top: 2rem;
     .sub-head{
-        font-family: $font-medium;
+        font-family: var(--font-medium);
         font-size: .751rem;
         color:#333333;
     }
     .sub-time{
-        font-family: $font-medium;
+        font-family: var(--font-medium);
         font-size: .651rem;
         color:#333333;
     }
@@ -95,7 +95,7 @@
         top: -4px;
     }
     .right-content{
-        font-family: $font-medium;
+        font-family: var(--font-medium);
         font-size: .751rem;
         color:#333333;
     }

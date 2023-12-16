@@ -59,7 +59,7 @@
 }
 
 .header-date{
-  font-family: $font-medium;
+  font-family: var(--font-medium);
   font-size: .85rem !important;
 }
 .parent-color{
@@ -68,7 +68,7 @@
   position: relative;
 }
 .--name{
-  font-family: $font-medium;
+  font-family: var(--font-medium);
   font-size: .9rem;
 }
 .--viewanalysis{
@@ -128,7 +128,7 @@ ion-content {
   .medium-text-all {
     color: #333;
     font-size: .9rem !important;
-    font-family: $font;
+    font-family: var(--font);
     margin: 0;
     white-space: normal;
     text-align: left;
@@ -325,13 +325,13 @@ a.moreless {
 .weight-small {
   color: #707070;
   font-size: .8rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 
 .weight-small-diff {
   color: #FF980D;
   font-size: .875rem;
-  font-family: $font;
+  font-family: var(--font);
 }
 
 .margin-top-21per {
@@ -489,14 +489,14 @@ a.moreless {
         margin: 0 !important;
         color: #14CEB7;
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .steps {
         span {
           color: #778CA3;
           font-size: .8rem;
-          font-family: $font-bold;
+          font-family: var(--font-bold);
         }
 
         ion-icon {
@@ -528,13 +528,13 @@ a.moreless {
         margin: 0 !important;
         //  color:#ffa500;
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .remaining {
         //   color:#ffa500;
         font-size: .7rem;
-        font-family: $font;
+        font-family: var(--font);
       }
     }
   }
@@ -565,14 +565,14 @@ a.moreless {
         margin: 0 !important;
         color: #3498DB;
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .steps {
         span {
           color: #778CA3;
           font-size: .8rem;
-          font-family: $font-bold;
+          font-family: var(--font-bold);
         }
 
         ion-icon {
@@ -606,7 +606,7 @@ a.moreless {
         margin: 0 !important;
         color: #FF980D;
         font-size: .8rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
       .weight-color {
@@ -624,7 +624,7 @@ a.moreless {
     color:grey;
   }  
   .header-date{
-    font-family: $font-medium;
+    font-family: var(--font-medium);
     font-size: .85rem;
     margin:0;
   }

@@ -46,7 +46,7 @@
             <ion-col>
               <ion-row>
                 <ion-col class="ion-text-left"><strong><span style="color:#414042">Calories</span></strong></ion-col>
-                <ion-col class="ion-text-right"><strong><span style="color:#414042">{{allData?.totalCal}} Kcal</span></strong></ion-col>
+                <ion-col class="ion-text-right"><strong><span style="color:#414042">{{allData?.totalCal}} / {{profileData?.lifeStyle?.calories}} Kcal</span></strong></ion-col>
               </ion-row>
               <div style="width: 100%;background:#E9E9E9;height: 10px;border-radius: 10px;">
               <div style="height: 10px;border-radius: 10px;background: #ffc224;max-width: 100%;" [style.width.%]="((allData?.totalCal*100)/profileData?.lifeStyle?.calories)">

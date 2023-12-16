@@ -1,19 +1,16 @@
+
 @import "../../assets/fonts/fonts.scss";
+@import "../../assets/fonts/stepgo/fonts.scss";
 
-// Fonts
-$font-size: 16px;
-
-$font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
-$font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
-$font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
-$font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
-$font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
-  Arial, sans-serif;
-
-  $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
 
   body[color-theme="sbi"] {
-      
+    --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+    --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+    --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+    --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+    --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+      Arial, sans-serif;
+      $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
     --arrow-color:#01A3A4;
     --goal: #F5F5F5;
     --profile-color: #01A3A4;
@@ -55,14 +52,14 @@ $font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
     --box-shadow:rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     --boxshadow:#00000012 0px 10px 40px;
 }
-
-body[color-theme="spc"] {
-  --theme-background:rgb(208, 90, 0); //#00a6a8
-  --theme-background-1:rgb(208, 90, 0); //#03a3a4 
-  --theme-background-2:rgb(208, 90, 0);//#00a6a8
-}
-
 body[color-theme="birla"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #D83176;
   --arrow-color:#01A3A4;
   --goal: #F5F5F5;
@@ -131,6 +128,13 @@ body[color-theme="birla"] {
 }
 
 body[color-theme="newmi"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #D83176;
   --arrow-color:#D9B2A3;
   --goal: #F5F5F5;
@@ -199,6 +203,13 @@ body[color-theme="newmi"] {
 }
 
 body[color-theme="beato"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #17a2b8;
   --arrow-color:#17a2b8;
   --goal: #F5F5F5;
@@ -263,6 +274,13 @@ body[color-theme="beato"] {
 }
 
 body[color-theme="infinite"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #D9B2A3;
   --arrow-color:#D9B2A3;
   --arrow-color:#D9B2A3;
@@ -336,6 +354,13 @@ body[color-theme="infinite"] {
 
 
 body[color-theme="kapiva"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #0B713F;
   --theme-background:#99b949; //#00a6a8
   --theme-header:#99b949;
@@ -402,6 +427,13 @@ body[color-theme="kapiva"] {
 }
 
 body[color-theme="traya"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #0B713F;
   --theme-background:#B7d340; //#00a6a8
   --theme-header:#B7d340;
@@ -467,6 +499,13 @@ body[color-theme="traya"] {
   --theme-color-new:#59702f;
 }
   body[color-theme="traya-female"] {
+    --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+    --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+    --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+    --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+    --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+      Arial, sans-serif;
+      $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
     --theme-profile-background: #C4695B;
     --theme-background:#E5763E; //#00a6a8
     --theme-header:#E5763E;
@@ -533,6 +572,13 @@ body[color-theme="traya"] {
   
 
 body[color-theme="fitelo"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #0B713F;
   --theme-background:#ff8643; //#00a6a8
   --theme-header:#ff8643;
@@ -599,6 +645,13 @@ body[color-theme="fitelo"] {
 }
 
 body[color-theme="eatfit"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #D83176;
   --theme-background:#D83176; //#00a6a8
   --theme-header:#D83176;
@@ -663,6 +716,13 @@ body[color-theme="eatfit"] {
 }
 
 body[color-theme="alyve"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #8775ed;
   --theme-background:#fe4869; //#00a6a8
   --theme-header:#fe4869;
@@ -729,6 +789,13 @@ body[color-theme="alyve"] {
 }
 
 body[color-theme="plix"] {
+--font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+--font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+--font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+--font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+--font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+  Arial, sans-serif;
+  $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
   --theme-profile-background: #81DC97;
   --theme-background:#81DC97; //#00a6a8
   --theme-header:#81DC97;
@@ -791,21 +858,27 @@ body[color-theme="plix"] {
   --theme-color-new:#81DC97;
 }
 body[color-theme="stepgo"] {
-  --theme-profile-background: #262729;
-  --theme-background: #262729; //#00a6a8
-  --theme-header: #262729;
-  --theme-button:#262729;
-  --theme-heading:#262729;
-  --theme-activeBtn:#262729;//#01A3A4       
-  --theme-plusBtn:#262729; //#01A3A4  water-guage page plus  defualt color--#509bed;          
-  --theme-text-color: #262729;//#01A3A4;
-  --theme-plusBtnWaterGuage:#262729;  //#509bed;   
-  --theme-minusBtnWaterGuage:#262729;  //#509bed;  
-  --theme-waterCenterPercent:#262729;  //#509bed;  
+--font: "stepgo-regular";
+--font-bold: "stepgo-bold";
+--font-light: "Hstepgo-light";
+--font-medium: "stepgo-medium";
+--font-medium-extended: "stepgo-extended";
+  $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+  --theme-profile-background: #0F0F0F;
+  --theme-background: #0F0F0F; //#00a6a8
+  --theme-header: #0F0F0F;
+  --theme-button:#0F0F0F;
+  --theme-heading:#0F0F0F;
+  --theme-activeBtn:#0F0F0F;//#01A3A4       
+  --theme-plusBtn:#0F0F0F; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #0F0F0F;//#01A3A4;
+  --theme-plusBtnWaterGuage:#0F0F0F;  //#509bed;   
+  --theme-minusBtnWaterGuage:#0F0F0F;  //#509bed;  
+  --theme-waterCenterPercent:#0F0F0F;  //#509bed;  
   --theme-colorWhite:#FFFFFF;       
-  --theme-boxAdd:1px solid #262729; //#01A3A5;
-  --theme-color:#262729; //#01A3A5;
-  --theme-backgroundLRG: -webkit-linear-gradient(top, #262729 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-boxAdd:1px solid #0F0F0F; //#01A3A5;
+  --theme-color:#0F0F0F; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #0F0F0F 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
   --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
   --theme-progressBarWhite:#FFFFFF;
   --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
@@ -815,8 +888,8 @@ body[color-theme="stepgo"] {
   --theme-cardHeading:1rem;
   --theme-text:0.85rem;
   --theme-textHeading:0.9rem;
-  --theme-color:#262729;
-  --theme-newHeader: #262729;
+  --theme-color:#0F0F0F;
+  --theme-newHeader: #0F0F0F;
   --theme-newButton: #404040;
   --white:#ffffff;
   --black:#333333;
@@ -826,8 +899,8 @@ body[color-theme="stepgo"] {
   --green:green;
   --yellow:yellow;
   --red:red;
-  --theme-newFont:'gt-america-standard-regular', sans-serif;
-  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --theme-newFont: "stepgo-regular";
+  --ion-font-family: "stepgo-bold";
   --xsmall-font:0.625rem;  //10px
   --small-font:0.75rem; //12px
   --regular-font:0.871rem; //14px
@@ -840,17 +913,15 @@ body[color-theme="stepgo"] {
   --radio-background:#fff;
   --normal-color:#393939;
   --cercle-progress:#0A1F5B;
-
   --arrow-color:#c97b5a;
   --arrow-color:#c97b5a;
-  
   --goal: #404040;
-  --profile-color: #262729;
+  --profile-color: #0F0F0F;
   --graph-background:#f2f1eb;
-  --close-edit-color: #262729;
+  --close-edit-color: #0F0F0F;
   --new-background: #99b9491f;
   --new-border-color: #99b94933;
-  --theme-color-new:#262729;
+  --theme-color-new:#0F0F0F;
 }
 body[color-theme="prana"] {
   --theme-profile-background: #347C17;
@@ -978,3 +1049,13 @@ body[color-theme="trunord"] {
   --new-border-color: #99b94933;
   --theme-color-new:#203682;
 }
+
+// Fonts
+$font-size: 16px;
+$font: "gt-america-standard-regular", "Helvetica Neue", Arial;
+$font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+$font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+$font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+$font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+  Arial, sans-serif;
+  $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;

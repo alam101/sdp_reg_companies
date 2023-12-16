@@ -1054,7 +1054,7 @@
                         "options":[
                         {
                             "name":"Weight Management",
-                            "value":"WeightMaintenance",
+                            "value":"USA_weight_loss_plix",
                             "label":"Helps you reach target weight",
                             "imgUrl":"../../../assets/newImages/weightmanagement.png"
                         }
@@ -1066,19 +1066,19 @@
                         "imgUrl":"../../../assets/newImages/deseasemanagement.png",
                         "options":[{
                             "name":"Improve Immunity",
-                            "value":"immunity_booster",
+                            "value":"USA_immunity_booster_plix",
                             "label":"Helps to Boost Immunity.", 
                             "imgUrl":"../../../assets/newImages/immunity_img.png"
                         },
                         {
                             "name":"Manage Skincare",
-                            "value":"USA_skincare",
+                            "value":"USA_skincare_plix",
                             "label":"Healthy skin, beautiful you.",
                             "imgUrl":"../../../assets/newImages/skincare_img.png"
                         },
                         {
                             "name":"Manage Stress",
-                            "value":"USA_stress",
+                            "value":"USA_stress_plix",
                             "label":"No more Stress",
                             "imgUrl":"../../../assets/newImages/stress_img.png"
                         }

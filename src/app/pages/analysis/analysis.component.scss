@@ -73,13 +73,13 @@ ion-content {
     .score {
       color: #fff;
       font-size: 1rem;
-      font-family: $font-bold;
+      font-family: var(--font-bold);
     }
 
     .percent-num {
       color:#fff;// #01A3A4;
       font-size: 1rem;
-      font-family: $font-bold;
+      font-family: var(--font-bold);
     }
   }
 
@@ -147,7 +147,7 @@ ion-content {
     }
 
     .calories {
-      font-family: $font-bold;
+      font-family: var(--font-bold);
     }
 
     .sub-title{
@@ -159,7 +159,7 @@ ion-content {
 
     .cal-num {
       font-size: 1.2rem;
-      font-family: $font-bold;
+      font-family: var(--font-bold);
       color: #363939;
     }
 
@@ -174,7 +174,7 @@ ion-content {
 
     .total-cal {
       span:first-child {
-        font-family: $font-bold;
+        font-family: var(--font-bold);
         color: #737777;
         font-size: 1.25rem;
       }
@@ -182,7 +182,7 @@ ion-content {
       span:last-child {
         color: #737777;
         font-size: .7rem;
-        font-family: $font-bold;
+        font-family: var(--font-bold);
       }
 
 
@@ -378,7 +378,7 @@ ion-content {
 }
 
 .recommended-range{
-  font-family: $font-bold;
+  font-family: var(--font-bold);
   color: #737777;
   font-size: 1.2rem;
 }
@@ -410,7 +410,7 @@ ion-icon.arrow{
 
 .type-text{
   color: #363939;
-  // font-family: $font-bold;
+  // font-family: var(--font-bold);
   font-weight: 500;
   font-size: 0.8rem;
 }
@@ -475,7 +475,7 @@ ion-icon.arrow{
 .content-title{
   font-size: 1rem;
   color: #363939;
-  font-family: $font-bold;
+  font-family: var(--font-bold);
 }
 
 .fast-recm-title{

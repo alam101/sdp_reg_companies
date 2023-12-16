@@ -26,7 +26,7 @@ img{
 }
 ion-item{
   h2{
-    font-family: $font;
+    font-family: var(--font);
     color:#4a4949;
     margin-top: .5rem;
    font-size: 1rem;
@@ -38,12 +38,12 @@ ion-item{
 
   ion-label{
     font-size: .9rem;
-    font-family: $font;
+    font-family: var(--font);
     color:#565656;
   }
   span{
     font-size: .9rem;
-    font-family: $font;
+    font-family: var(--font);
     color:#565656;
   }
   ion-icon{

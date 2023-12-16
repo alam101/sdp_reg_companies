@@ -13,7 +13,7 @@
   p {
     font-size: var(--small-font);
     margin: 0px;
-    font-family: $font-medium;
+    font-family: var(--font-medium);
     font-weight: 500;
     color: #333333;
     margin-left: 20px;
@@ -72,7 +72,7 @@ ion-thumbnail {
 .meal_pro {
   font-size: var(--small-font);
   margin: 0px;
-  font-family: $font-medium;
+  font-family: var(--font-medium);
   font-weight: 500;
   color: #666666;
   // width: 200px;

@@ -35,7 +35,7 @@ ion-buttons{
 .heading{
   color:$lipstic;
   font-size: 1.125rem;
-  font-family: $font;
+  font-family: var(--font);
 
 }
 
@@ -43,12 +43,12 @@ ion-buttons{
   font-style:italic;
   color: #707070;
   font-size: 0.8rem;
-  font-family: $font;
+  font-family: var(--font);
 
 }
 .mall-text{
   font-size: .6rem;
-  font-family: $font;
+  font-family: var(--font);
   color:$gray;
 }
 // .box{
@@ -60,7 +60,7 @@ ion-buttons{
 //   color:$black;
 //   width:90%;
 //   display: inline-block;
-//   font-family: $font;
+//   font-family: var(--font);
 //   font-size: .875rem;
 // }
 // .fill-box{font-weight:bold;
