@@ -14,7 +14,7 @@
       class="content_div"
       [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}"
     >
-      <div class="w_100 right" *ngIf="from">
+      <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
         <ion-icon
           class="close_modal_icon"
           name="close-circle"
@@ -22,437 +22,92 @@
         ></ion-icon>
       </div>
       <p class="title-text">
-        Lets start by understanding what you want to achieve <span *ngIf="clientId==='traya'">
-          besides the Hair improvement
-        </span>
+        Lets start by understanding what you want to achieve <br>
+        <b>Your Goal</b>
       </p>
-      <p class="title">Your Goal</p>
-
-      <div class="card_div" disabled>
-        <ion-img
-          src="../../../assets/newImages/weightmanagement.png"
-          class="weight_image"
-        ></ion-img>
-        <ion-card
-          class="section-card"
-          (click)="openSection('Weight')"
-          [ngClass]="achieveValue.weightValue && achieveValue.sectionOpen === 'Weight' && 'card_Border' "
+      <ion-radio-group
+        value="deasesValue"
+        [(ngModel)]="newModal"
+        (ionChange)="selectActivity($event)"
+      >
+        <div
+          class="card_div"
+          (click)="newModal=dt?.value"
+          *ngFor="let dt of data[0]?.options;"
         >
-          <ion-checkbox
-            [checked]="achieveValue.weightValue !== '' && achieveValue.sectionOpen === 'Weight'"
-            class="check-box"
-          ></ion-checkbox>
-          <p class="fitness">Weight Management</p>
-          <p class="desc" *ngIf="!achieveValue.weightValue">Eat up, Heal up</p>
-          <p
-            class="radio-btn-title"
-            *ngIf="achieveValue.weightValue == 'WeightLoss'"
+          <img style="    width: 37%;
+          position: absolute;
+          z-index: 1;
+          right: 0;
+          top: 0%;"
+            [src]="dt?.imgUrl"
           >
-            <!-- {{achieveValue.weightValue}} -->
-            Weight Loss
-          </p>
-          <p
-            class="radio-btn-title"
-            *ngIf="achieveValue.weightValue == 'WeightMaintenance'"
+        
+          <ion-radio
+            class="radio-button"
+            [value]="dt?.value"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === dt?.value && 'card_Border' "
           >
-            Weight Maintenance
-          </p>
-        </ion-card>
-        <div
-          class="radio_div"
-          *ngIf="achieveValue.sectionOpen === 'Weight' && opened "
-        >
-          <ion-list style="padding: 0%">
-            <ion-radio-group
-              [(ngModel)]="achieveValue.weightValue"
-              (ngModelChange)="opened = false"
-            >
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="WeightLoss" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Weight Loss</p>
-                      <p class="radio-btn-desc">Lose weight not the mind</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div radio_btn_div2">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="WeightMaintenance" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Weight Maintenance</p>
-                      <p class="radio-btn-desc">Maintain what you achieved</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-            </ion-radio-group>
-          </ion-list>
+            <p class="fitness">{{dt?.name}}</p>
+            <p class="desc">{{dt?.label}}</p>
+          </ion-card>
         </div>
-      </div>
-
-      <div class="card_div" *ngIf="clientId!='traya'">
-        <ion-img
-          src="../../../assets/newImages/fitness.png"
-          class="fitness_image"
-        ></ion-img>
-        <ion-card
-          class="section-card"
-          [ngClass]="achieveValue.fitnessValue && achieveValue.sectionOpen === 'fitness' && 'card_Border' "
-          (click)="openSection('fitness')"
+        <div
+          class="card_div"
+          (click)="newModal=dt1?.value"
+          *ngFor="let dt1 of data[1]?.options;"
         >
-          <ion-checkbox
-            class="check-box"
-            [checked]="achieveValue.fitnessValue !== '' && achieveValue.sectionOpen == 'fitness' "
-          ></ion-checkbox>
-          <p class="fitness">Fitness</p>
-          <p class="desc" *ngIf="!achieveValue.fitnessValue">
-            Exercise is king, nutrition is Queen
-          </p>
-          <p
-            class="radio-btn-title"
-            *ngIf="achieveValue.fitnessValue == 'LeanBody'"
+          <img style="    width: 37%;
+          position: absolute;
+          z-index: 1;
+          right: 0;
+          top: 0%;"
+            [src]="dt1.imgUrl"
           >
-            Lean Body
-          </p>
-          <p
-            class="radio-btn-title"
-            *ngIf="achieveValue.fitnessValue == 'MuscleBuilding'"
+          <ion-radio
+            class="radio-button"
+            [value]="dt1?.value"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === dt1?.value && 'card_Border' "
           >
-            Muscle Building
-          </p>
-        </ion-card>
-        <div
-          class="radio_div"
-          *ngIf="achieveValue.sectionOpen === 'fitness' && opened "
-        >
-          <ion-list style="padding: 0%">
-            <ion-radio-group
-              [(ngModel)]="achieveValue.fitnessValue"
-              (ngModelChange)="opened = false"
-            >
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="MuscleBuilding" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Muscle Building</p>
-                      <p class="radio-btn-desc">Pump and get stronger</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div radio_btn_div2">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="LeanBody" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Lean Body</p>
-                      <p class="radio-btn-desc">
-                        Maintain muscles and lose fat
-                      </p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-            </ion-radio-group>
-          </ion-list>
+            <p class="fitness">{{dt1?.name}}</p>
+            <p class="desc">{{dt1?.label}}</p>
+          </ion-card>
         </div>
-      </div>
-
-      <div class="card_div">
-        <ion-img
-          src="../../../assets/newImages/deseasemanagement.png"
-          class="desease_image"
-        ></ion-img>
-        <ion-card
-          class="section-card"
-          (click)="openSection('Disease')"
-          [ngClass]="achieveValue.deasesValue && achieveValue.sectionOpen === 'Disease' && 'card_Border' "
-        >
-          <ion-checkbox
-            [checked]="achieveValue.deasesValue !== '' && achieveValue.sectionOpen === 'Disease'"
-            class="check-box"
-          ></ion-checkbox>
-          <p class="fitness">Disease Management</p>
-          <p class="desc" *ngIf="!achieveValue.deasesValue">
-            Let food be thy medicine
-          </p>
-          <p class="radio-btn-title" *ngIf="achieveValue.deasesValue">
-            {{achieveValue.deasesValue}}
-          </p>
-        </ion-card>
         <div
-          class="radio_div"
-          *ngIf="achieveValue.sectionOpen === 'Disease'&& opened "
+          class="card_div"
+          (click)="newModal=dt2?.value"
+          *ngFor="let dt2 of data[2]?.options;"
         >
-          <ion-list style="padding: 0%">
-            <ion-radio-group
-              [(ngModel)]="achieveValue.deasesValue"
-              (ngModelChange)="opened = false"
-            >
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Diabetes" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Diabetes</p>
-                      <p class="radio-btn-desc">
-                        Optimize blood glucose levels
-                      </p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="PCOS" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage PCOS</p>
-                      <p class="radio-btn-desc">No more irregular period</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Cholesterol" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Cholesterol</p>
-                      <p class="radio-btn-desc">Reduce LDL and Increase HDL</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div radio_btn_div2">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Hypertension" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Hypertension</p>
-                      <p class="radio-btn-desc">No more high blood pressure</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-            </ion-radio-group>
-          </ion-list>
+          <img style="    width: 37%;
+          position: absolute;
+          z-index: 1;
+          right: 0;
+          top: 0%;"
+            [src]="dt2.imgUrl"
+          >
+          <ion-radio
+            class="radio-button"
+            [value]="dt2?.value"
+            mode="ios"
+          ></ion-radio>
+          <ion-card
+            class="section-card"
+            [ngClass]="newModal === dt2?.value && 'card_Border' "
+          >
+            <p class="fitness">{{dt2?.name}}</p>
+            <p class="desc">{{dt2?.label}}</p>
+          </ion-card>
         </div>
-      </div>
+     </ion-radio-group>
 
-
-      <div class="card_div" *ngIf="clientId=='newmi'">
-        <ion-img
-          src="../../../assets/newImages/deseasemanagement.png"
-          class="desease_image"
-        ></ion-img>
-        <ion-card
-          class="section-card"
-          (click)="openSection('Pregnancy')"
-          [ngClass]="achieveValue.pregnancy && achieveValue.sectionOpen === 'Pregnancy' && 'card_Border' "
-        >
-          <ion-checkbox
-            [checked]="achieveValue.pregnancy !== '' && achieveValue.sectionOpen === 'Pregnancy'"
-            class="check-box"
-          ></ion-checkbox>
-          <p class="fitness">Pregnancy</p>
-          <p class="desc" *ngIf="!achieveValue.pregnancy">
-            Let food be thy medicine
-          </p>
-          <p class="radio-btn-title" *ngIf="achieveValue.pregnancy">
-            {{achieveValue.pregnancy}}
-          </p>
-        </ion-card>
-        <div
-          class="radio_div"
-          *ngIf="achieveValue.sectionOpen === 'Pregnancy'&& opened "
-        >
-          <ion-list style="padding: 0%">
-            <ion-radio-group
-              [(ngModel)]="achieveValue.pregnancy"
-              (ngModelChange)="opened = false"
-            >
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Diabetes" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Diabetes</p>
-                      <p class="radio-btn-desc">
-                        Optimize blood glucose levels
-                      </p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="PCOS" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage PCOS</p>
-                      <p class="radio-btn-desc">No more irregular period</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Cholesterol" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Cholesterol</p>
-                      <p class="radio-btn-desc">Reduce LDL and Increase HDL</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div radio_btn_div2">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Hypertension" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Hypertension</p>
-                      <p class="radio-btn-desc">No more high blood pressure</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-            </ion-radio-group>
-          </ion-list>
-        </div>
-      </div>
-
-      <div class="card_div" *ngIf="clientId=='newmi'">
-        <ion-img
-          src="../../../assets/newImages/deseasemanagement.png"
-          class="desease_image"
-        ></ion-img>
-        <ion-card
-          class="section-card"
-          (click)="openSection('Post-Pregnancy')"
-          [ngClass]="achieveValue.postPregnancy && achieveValue.sectionOpen === 'Post-Pregnancy' && 'card_Border' "
-        >
-          <ion-checkbox
-            [checked]="achieveValue.postPregnancy !== '' && achieveValue.sectionOpen === 'Post-Pregnancy'"
-            class="check-box"
-          ></ion-checkbox>
-          <p class="fitness">Post-Pregnancy</p>
-          <p class="desc" *ngIf="!achieveValue.postPregnancy">
-            Let food be thy medicine
-          </p>
-          <p class="radio-btn-title" *ngIf="achieveValue.postPregnancy">
-            {{achieveValue.postPregnancy}}
-          </p>
-        </ion-card>
-        <div
-          class="radio_div"
-          *ngIf="achieveValue.sectionOpen === 'Post-Pregnancy'&& opened "
-        >
-          <ion-list style="padding: 0%">
-            <ion-radio-group
-              [(ngModel)]="achieveValue.postPregnancy"
-              (ngModelChange)="opened = false"
-            >
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Diabetes" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Diabetes</p>
-                      <p class="radio-btn-desc">
-                        Optimize blood glucose levels
-                      </p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="PCOS" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage PCOS</p>
-                      <p class="radio-btn-desc">No more irregular period</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Cholesterol" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Cholesterol</p>
-                      <p class="radio-btn-desc">Reduce LDL and Increase HDL</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-
-              <div class="radio_btn_div radio_btn_div2">
-                <ion-row class="w_100">
-                  <ion-col size="2" class="radio_btn_col">
-                    <ion-radio value="Hypertension" mode="ios"></ion-radio>
-                  </ion-col>
-                  <ion-col size="10" class="radio_btn_heading">
-                    <div>
-                      <p class="radio-btn-title">Manage Hypertension</p>
-                      <p class="radio-btn-desc">No more high blood pressure</p>
-                    </div>
-                  </ion-col>
-                </ion-row>
-              </div>
-            </ion-radio-group>
-          </ion-list>
-        </div>
-      </div>
-      
       <div class="go_btn_div" *ngIf="!from">
         <ion-grid>
           <ion-row>

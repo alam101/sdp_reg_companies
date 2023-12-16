@@ -601,7 +601,7 @@ export class UTILITIES {
       foodType: foodPref[0]?.code,
       country: data?.country,
       Type: "",
-      dietPlanName: "",
+      dietPlanName: ""
     };
 
     console.log("lifeStyleRequest", reqBody);

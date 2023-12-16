@@ -33,7 +33,9 @@
                 <div class="d_flex card_main_div"
                   [ngStyle]="alter?.addDiet.length !== i+1 && {'border-bottom': '1px solid var(--card-border)'}">
                   <div class="center" (click)="gotoView(d)">
+                    {{d.imageUrl}}
                     <ion-thumbnail>
+                     
                       <ion-img [src]="d?.imageUrl.replace('.png', '.jpg')" class="card_img"></ion-img>
                     </ion-thumbnail>
                   </div>

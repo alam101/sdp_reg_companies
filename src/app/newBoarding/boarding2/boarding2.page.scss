@@ -60,15 +60,36 @@ ion-content::part(background) {
   width: 20px;
   border: 2px solid var(--white);
   border-radius: 100%;
-  font-size: var(--xsmall-font);
+  font-size:var(--xsmall-font);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--theme-newHeader);
   font-weight: bold;
   z-index: 10;
-  background: var(--black);
+  background: var(--white);
   font-family: var(--theme-newFont);
+}
+.lines2 {
+  width: 90%;
+  position: absolute;
+
+  div {
+    width: 25%;
+    border: 1px solid var(--white);
+  }
+}
+.card_div {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  ion-radio {
+    // --color:var(--theme-color);
+    --color-checked: var(--white);
+  }
 }
 
 .complete {
@@ -79,16 +100,6 @@ ion-content::part(background) {
   border: 1px solid var(--white);
   width: 90%;
   position: absolute;
-}
-
-.lines2 {
-  width: 90%;
-  position: absolute;
-
-  div {
-    width: 25%;
-    border: 1px solid var(--black);
-  }
 }
 
 .title-text {
@@ -124,18 +135,7 @@ ion-content::part(background) {
   border: 2px solid var(--theme-color);
 }
 
-.card_div {
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
 
-  ion-radio {
-    // --color:var(--theme-color);
-    --color-checked: var(--theme-color);
-  }
-}
 
 .female_image {
   height: 120px;

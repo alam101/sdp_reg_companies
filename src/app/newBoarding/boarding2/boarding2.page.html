@@ -31,7 +31,7 @@
                   <p class="label">Female</p>
                   <ion-card class="section-card" [ngClass]="gender === 'G2' && 'card_Border'">
                     <div class="h_100">
-                      <ion-radio value="G2" mode="ios"></ion-radio>
+                      <ion-radio value="G2" mode="ios" style="--color-checked: var(--theme-color);"></ion-radio>
                     </div>
                   </ion-card>
                 </div>
@@ -42,7 +42,7 @@
                   <p class="label">Male</p>
                   <ion-card class="section-card" [ngClass]="gender === 'G1' && 'card_Border'">
                     <div class="h_100">
-                      <ion-radio value="G1" mode="ios"></ion-radio>
+                      <ion-radio value="G1" mode="ios" style="--color-checked: var(--theme-color);"></ion-radio>
                     </div>
                   </ion-card>
                 </div>
@@ -172,7 +172,7 @@
       <div class="content_sub_div3" style="background: none">
         <div class="header_btn_div" style="margin: 0% 5%">
           <p class="title mar_0" style="width: Auto">
-            Which year were you born in ?
+            Which year were you born in (e.g. 1995)?
           </p>
         </div>
         <div class="main_scroll_Div">
@@ -193,8 +193,20 @@
               (click)="setBornRange('plus')"
             ></ion-icon> -->
           </div>
-          <div class="born_btn" (click)="openPicker()">
-            <p>{{selectedbornYear}}</p>
+          <div class="born_btn">
+            <!-- <p>{{selectedbornYear}}</p> -->
+              <ion-input
+                class="weight_value"
+                style="color:var(--theme-newButton) !important;
+                background: #fff;
+                width: 105px;
+                border: 5px solid #ffc893;
+                border-radius: 1rem;"
+                name="w"
+                [(ngModel)]="targetYear"
+                debounce="1000"
+                type="number"
+              ></ion-input>
           </div>
         </div>
       </div>

@@ -110,6 +110,8 @@ export class Boarding5Page implements OnInit {
   }
 
   getFlag(type) {
+    console.log("ttttt:-",type);
+    
     switch (type) {
       case "IND":
         return "india-flag.png";
@@ -121,6 +123,8 @@ export class Boarding5Page implements OnInit {
         return "Australia-flag.png";
       case "EGY":
         return "Egypt-flag.png";
+      case "UAE":
+        return "uae.jpeg";
     }
   }
  
@@ -167,53 +171,54 @@ export class Boarding5Page implements OnInit {
             const reqBodyLifeStyle = this.utilities.getLifeStyleRequest(
               data.otherMaster
             );
-            if(localStorage.getItem("clientId")==="traya"){
-              reqBodyLifeStyle.dietPlanName = "trayaHealth";
-            }
-            else{
-            if (
-              healthJourney?.weightValue &&
-              healthJourney?.weightValue == "WeightLoss"
-            ) {
-              //reqBodyLifeStyle.Type = "weightLoss";
-              reqBodyLifeStyle.dietPlanName = "weightLoss";
-            }
-            if (
-              healthJourney?.weightValue &&
-              healthJourney?.weightValue == "WeightMaintenance"
-            ) {
-              //reqBodyLifeStyle.Type = "maintenance";
-              reqBodyLifeStyle.dietPlanName = "weightLoss";
-            }
+          //   if(localStorage.getItem("clientId")==="traya"){
+          //     reqBodyLifeStyle.dietPlanName = "trayaHealth";
+          //   }
+          //   else{
+          //   if (
+          //     healthJourney?.weightValue &&
+          //     healthJourney?.weightValue == "WeightLoss"
+          //   ) {
+          //     //reqBodyLifeStyle.Type = "weightLoss";
+          //     reqBodyLifeStyle.dietPlanName = "weightLoss";
+          //   }
+          //   if (
+          //     healthJourney?.weightValue &&
+          //     healthJourney?.weightValue == "WeightMaintenance"
+          //   ) {
+          //     //reqBodyLifeStyle.Type = "maintenance";
+          //     reqBodyLifeStyle.dietPlanName = "weightLoss";
+          //   }
 
-            if (
-              healthJourney?.fitnessValue &&
-              healthJourney?.fitnessValue == "MuscleBuilding"
-            ) {
-              //reqBodyLifeStyle.Type = "muscleGain";
-              reqBodyLifeStyle.dietPlanName = "muscleGain_morning";
-            }
-            if (
-              healthJourney?.fitnessValue &&
-              healthJourney?.fitnessValue == "LeanBody"
-            ) {
-              //reqBodyLifeStyle.Type = "fatShredding";
-              reqBodyLifeStyle.dietPlanName = "fatShredding_morning";
-            }
+          //   if (
+          //     healthJourney?.fitnessValue &&
+          //     healthJourney?.fitnessValue == "MuscleBuilding"
+          //   ) {
+          //     //reqBodyLifeStyle.Type = "muscleGain";
+          //     reqBodyLifeStyle.dietPlanName = "muscleGain_morning";
+          //   }
+          //   if (
+          //     healthJourney?.fitnessValue &&
+          //     healthJourney?.fitnessValue == "LeanBody"
+          //   ) {
+          //     //reqBodyLifeStyle.Type = "fatShredding";
+          //     reqBodyLifeStyle.dietPlanName = "fatShredding_morning";
+          //   }
 
-            if (healthJourney?.deasesValue) {
-              //reqBodyLifeStyle.Type = "weightLoss";
-              reqBodyLifeStyle.dietPlanName = healthJourney?.deasesValue.toLowerCase();
-            }
-          }
-          reqBodyLifeStyle.country = reqBodyLifeStyle.country==undefined? 'IND':reqBodyLifeStyle.country; 
+          //   if (healthJourney?.deasesValue) {
+          //     //reqBodyLifeStyle.Type = "weightLoss";
+          //     reqBodyLifeStyle.dietPlanName = healthJourney?.deasesValue.toLowerCase();
+          //   }
+          // }
+          reqBodyLifeStyle.dietPlanName = localStorage.getItem("goals");
+          reqBodyLifeStyle.country = this.country?._id; 
           const activitiesData = JSON.parse(localStorage.getItem("activities"));
            reqBodyLifeStyle.activities= {code:activitiesData.code,data:activitiesData.data};
            const communitiesItem = this.localData?.otherMaster?.community.filter(item=>{
-              return item.isSelected;
+              return item?.isSelected;
           });
           localStorage.setItem("communitiesItem", JSON.stringify(communitiesItem));
-           reqBodyLifeStyle.communities= [communitiesItem[0].code,'U']
+           reqBodyLifeStyle.communities= communitiesItem[0]?.code===undefined?['U']:[communitiesItem[0]?.code,'U'];
             this.appService.postLifeStyle(reqBodyLifeStyle).then(
               (success) => {
                 const otherMasterData = this.utilities.parseJSON(
@@ -276,8 +281,14 @@ export class Boarding5Page implements OnInit {
         ele.isSelected = false;
       }
     });
+    // this.localData?.countries.forEach((ele) => {
+    //   if (ele.isSelected) {
+    //     this.country = ele;
+    //   }
+    // });
     if (typeof this.localData.otherMaster !== undefined)
       this.storage.set("localData", this.utilities.parseString(this.localData));
     this.openCountryDrop = !this.openCountryDrop;
+
   }
 }

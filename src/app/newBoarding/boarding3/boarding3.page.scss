@@ -56,7 +56,7 @@ ion-content::part(background){
     font-family: var(--theme-newFont);
 }
 
-.page_Count_active{
+.page_Count_active {
     height: 20px;
     width: 20px;
     border: 2px solid var(--white);
@@ -68,9 +68,31 @@ ion-content::part(background){
     color: var(--theme-newHeader);
     font-weight: bold;
     z-index: 10;
-    background: var(--black);
+    background: var(--white);
     font-family: var(--theme-newFont);
-}
+  }
+  .lines2 {
+    width: 90%;
+    position: absolute;
+  
+    div {
+      width: 25%;
+      border: 1px solid var(--white);
+    }
+  }
+  .card_div {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: 3%;
+    ion-radio {
+      // --color:var(--theme-color);
+      --color-checked: var(--white);
+    }
+  }
+  
 
 .complete{
     border: 2px solid var(--black) !important;
@@ -82,16 +104,7 @@ ion-content::part(background){
     position: absolute;
 }
 
-.lines2{
-   
-    width: 90%;
-    position: absolute;
 
-    div{
-        width: 50%;
-        border: 1px solid var(--black);
-    }
-}
 
 .title-text{
     font-size: var(--regular-font);
@@ -107,20 +120,7 @@ ion-content::part(background){
     font-weight: 700;
 }
 
-.card_div{
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    margin: 30px 5% 0px;
 
-
-    ion-radio{
-        // --color:var(--theme-color);
-        --color-checked:var(--theme-color);
-       }
-}
 
 
 .fitness{
@@ -169,7 +169,7 @@ ion-content::part(background){
 
 
 .AC1{
-    width: 120px;
+    width: 85px;
     object-fit: contain;
     position: absolute;
     z-index: 10;
@@ -177,7 +177,7 @@ ion-content::part(background){
     bottom: 10px;
 }
 .AC2{
-    width: 100px;
+    width: 85px;
     object-fit: contain;
     position: absolute;
     z-index: 10;
@@ -185,7 +185,7 @@ ion-content::part(background){
     bottom: 10px;
 }
 .AC3{
-    width: 110px;
+    width: 85px;
     object-fit: contain;
     position: absolute;
     z-index: 10;
@@ -193,7 +193,7 @@ ion-content::part(background){
     bottom: 10px;
 }
 .AC4{
-    width: 120px;
+    width: 85px;
     object-fit: contain;
     position: absolute;
     z-index: 10;
@@ -201,7 +201,7 @@ ion-content::part(background){
     bottom: 10px;
 }
 .AC5{
-    width: 120px;
+    width: 85px;
     object-fit: contain;
     position: absolute;
     z-index: 10;

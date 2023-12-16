@@ -14,13 +14,15 @@ export class Boarding1Page implements OnInit,AfterViewInit {
   prof;
   regex: RegExp = /^[A-Za-z0-9 ]+$/;
   isNameValid = true;
-
+  client="";
   constructor(
     private router: Router,
     private storage: Storage,
     private utilities: UTILITIES,
     private appService: AppService
-  ) {}
+  ) {
+    this.client = localStorage.getItem("clientId");
+  }
 
   ngOnInit() {}
   ngAfterViewInit() {

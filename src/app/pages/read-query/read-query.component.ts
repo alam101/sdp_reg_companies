@@ -97,39 +97,38 @@ export class ReadQueryComponent implements OnInit {
       const diseases = resData?.lifeStyle?.diseases;
       const communities = resData?.lifeStyle?.communities;
       const foodPref = resData?.lifeStyle?.foodType; 
-      this.storage.get("defaultData").then(res=>{
-          res= JSON.parse(res);
+      let res1 = localStorage.getItem("defaultData");
+         const res= JSON.parse(res1);
         if(gender){
-
-          if(res.otherMaster!==undefined){
-       res.otherMaster.gender.filter(item=>{
+          if(res?.otherMaster!==undefined){
+          res.otherMaster.gender.filter(item=>{
           return item.code ===gender["code"];
         })[0].isSelected=true;
       }
     }
-      if(bmi){
+      if(bmi && res?.otherMaster?.bmi!=undefined){
         res.otherMaster.bmi={bmi:bmi};
       }
-      if(age){
+      if(age && res?.age!=undefined){
         age.year=(new Date().getFullYear()-age.avg_age).toString();
         res.age=age;
       }
-      if(height){
-        res.otherMaster.height.push(height);
+      if(height && res?.otherMaster?.height!=undefined){
+        res?.otherMaster?.height.push(height);
         console.log("res.otherMaster.gender",res.otherMaster.gender);
       }
-      if(suggestedweight){
+      if(suggestedweight && res?.otherMaster?.diet!=undefined){
         res.otherMaster.diet = {suggestedWeight:suggestedweight,param:''};
       }
-      if(weight){
+      if(weight && res?.otherMaster?.weight!=undefined){
         res.otherMaster.weight.push(weight);
       }
-      if(activities?.length>0){
+      if(activities?.length>0 && res?.otherMaster?.activities!=undefined){
         res.otherMaster.activities.filter(item=>{
           return item.code ===activities["code"];
         })[0].isSelected=true;
       }
-      if(diseases){
+      if(diseases && res?.otherMaster?.diseases!=undefined){
         for (let index = 0; index < diseases.length; index++) {
         res.otherMaster.diseases.filter((item)=>{
              if(item.code === diseases[index]){
@@ -140,7 +139,7 @@ export class ReadQueryComponent implements OnInit {
         }
        
       }
-      if(communities){
+      if(communities && res?.otherMaster?.community!=undefined){
         for (let index = 0; index < communities.length; index++) {
           res.otherMaster.community.filter((item)=>{
                if(item.code === communities[index]){
@@ -150,7 +149,7 @@ export class ReadQueryComponent implements OnInit {
            
           }
       }
-      if(foodPref){
+      if(foodPref && res?.otherMaster?.foodPref!=undefined){
           res.otherMaster.foodPref.filter((item)=>{
                if(item.code === foodPref){
                 item.isSelected=true;
@@ -192,8 +191,6 @@ export class ReadQueryComponent implements OnInit {
       this.router.navigate(["/boarding1"]);
     }
    
-    });
-
    
   }
    fetchProfile(){
@@ -209,7 +206,7 @@ export class ReadQueryComponent implements OnInit {
     if(this.token!=''){
     this.appService.defaultData().subscribe(res=>{
       console.log("defaultData::",res);
-      this.storage.set("defaultData",JSON.stringify(res));
+      localStorage.setItem("defaultData",JSON.stringify(res));
       
       localStorage.setItem("tkn",this.token);
       this.fetchProfile();

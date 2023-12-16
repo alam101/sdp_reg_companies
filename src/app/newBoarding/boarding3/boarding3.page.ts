@@ -138,6 +138,7 @@ export class Boarding3Page implements OnInit {
       // foodType: this.profileData?.lifeStyle?.foodType,
       //};
       foodType: this.profileData?.lifeStyle?.foodType,
+      dietPlanName: localStorage.getItem("goals")
     };
     console.log(reqBody);
     this.appService.postLifeStyle(reqBody).then((success) => {

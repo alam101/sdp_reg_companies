@@ -5,29 +5,14 @@ import { ModalController, NavController } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import { UTILITIES } from "src/app/core/utility/utilities";
-
+import  compJson from '../../../assets/comp_config.json';
 @Component({
   selector: "app-boarding",
   templateUrl: "./boarding.page.html",
   styleUrls: ["./boarding.page.scss"],
 })
 export class BoardingPage implements OnInit,AfterViewInit {
-  from = "";
-  sectionOpen = "";
-  achieveValue = {
-    fitnessValue: "",
-    weightValue: "",
-    deasesValue: "",
-    sectionOpen: "",
-    pregnancy: "",
-    postPregnancy:""
-  };
-  fitnessValue: any = "";
-  weightValue = "";
-  deasesValue = "";
-  pregnancy ="";
-  postPregnancy ="";
-  opened = false;
+  from:any="";
   data: any;
 clientId="";
   constructor(
@@ -46,16 +31,19 @@ clientId="";
     console.log("localStorage.getItem('clientId')",localStorage.getItem('clientId'));
     
     this.clientId=localStorage.getItem('clientId');
+    this.newModal = localStorage.getItem("goals");
   }
 
   ngOnInit() {
-   
+    console.log("clientConfig:-", compJson);
+    const dt = compJson.filter((item,index)=>{
+      console.log("clientConfig:-", compJson);
+        return Object.keys(item)[0].toLowerCase()===localStorage.getItem("clientId").toLowerCase();
+      });
+
+    this.data = dt[0][`${localStorage.getItem("clientId").toLowerCase()}`]["goals"];
+    console.log(" this.data", this.data);
   }
-
-  modalClose() {
-      this.router.navigate(['new-profile']);
-   }
-
   goBack() {
    if(this.from){
     this.router.navigate(['new-profile']);
@@ -68,151 +56,32 @@ clientId="";
   }
 
   ngAfterViewInit() {
-    this.storage.get("health-journey").then((val) => {
-      this.data = JSON.parse(val);
-      console.log("val", this.data);
-      if (this.data) {
-        this.achieveValue = this.data;
-      }
-    });
+ 
   }
 
-  openSection(type) {
-    // this.opened = !this.opened;
-    // if (this.sectionOpen === type) {
-    //   this.sectionOpen = "";
-    // } else {
-    //   this.sectionOpen = type;
-    // }
-    this.achieveValue.sectionOpen = type;
-    this.opened = true;
-
-    if (type === "fitness") {
-      this.achieveValue.weightValue = "";
-      this.achieveValue.deasesValue = "";
-      this.achieveValue.pregnancy = "";
-      this.achieveValue.postPregnancy = "";
-    }
-
-    if (type === "Weight") {
-      this.achieveValue.fitnessValue = "";
-      this.achieveValue.deasesValue = "";
-      this.achieveValue.pregnancy = "";
-      this.achieveValue.postPregnancy = "";
-    }
-
-    if (type === "Disease") {
-      this.achieveValue.fitnessValue = "";
-      this.achieveValue.weightValue = "";
-      this.achieveValue.pregnancy = "";
-      this.achieveValue.postPregnancy = "";
-    }
-    if (type === "Pregnancy") {
-      this.achieveValue.fitnessValue = "";
-      this.achieveValue.weightValue = "";
-      this.achieveValue.deasesValue = "";
-      this.achieveValue.postPregnancy = "";
-    }
-    if (type === "Post-Pregnancy") {
-      this.achieveValue.fitnessValue = "";
-      this.achieveValue.weightValue = "";
-      this.achieveValue.deasesValue = "";
-      this.achieveValue.pregnancy = "";
-    }
-  }
-
+  newModal;
   goNext() {
-    if (
-      this.achieveValue.fitnessValue === "" &&
-      this.achieveValue.weightValue === "" &&
-      this.achieveValue.pregnancy === "" &&
-      this.achieveValue.postPregnancy === "" &&
-      this.achieveValue.deasesValue === ""
-    ) {
-      this.utilities.presentToast(
-        "Please select goal."
-      );
-      return;
-    }
-    this.storage.set("health-journey", JSON.stringify(this.achieveValue));
-    console.log("DATAAAA,", this.achieveValue);
-    console.log(this.utilities.camelize(this.achieveValue.weightValue));
     let reqBody: any = {};
     let reqBodyDiet: any = {};
-    
-    if (
-      this.achieveValue.weightValue &&
-      this.achieveValue.weightValue == "WeightLoss"
-    ) {
-      reqBody.dietPlanType = 'weightLoss';
-      reqBodyDiet.dietPlanName =  this.clientId==='traya'? 'trayaHealth': 'weightLoss';
-      reqBody.category = "weightLoss";
-      reqBody.subCategory = this.achieveValue.weightValue.toLowerCase();
-    }
+    reqBody.dietPlanType = this.newModal;
+    reqBodyDiet.dietPlanName = this.newModal;
+    reqBody.category = this.newModal;
+    reqBody.subCategory = this.newModal;
 
-    if (
-      this.achieveValue.weightValue &&
-      this.achieveValue.weightValue == "WeightMaintenance"
-    ) {
-      reqBody.dietPlanType = "maintenance";
-      reqBodyDiet.dietPlanName = this.clientId==='traya'? 'trayaHealth': 'weightLoss';
-      reqBody.category = "maintenance";
-      reqBody.subCategory = this.achieveValue.weightValue.toLowerCase();
-    }
-
-    if (
-      this.achieveValue.fitnessValue &&
-      this.achieveValue.fitnessValue == "MuscleBuilding"
-    ) {
-      reqBody.dietPlanType = "muscleGain";
-      reqBodyDiet.dietPlanName = "muscleGain_morning";
-      reqBody.category = "muscleGain";
-      reqBody.subCategory = this.achieveValue.fitnessValue.toLowerCase();
-    }
-
-    if (
-      this.achieveValue.fitnessValue &&
-      this.achieveValue.fitnessValue == "LeanBody"
-    ) {
-      reqBody.dietPlanType = "fatShredding";
-      reqBodyDiet.dietPlanName = "fatShredding_morning";
-      reqBody.category = "fatShredding";
-      reqBody.subCategory = this.achieveValue.fitnessValue.toLowerCase();
-    }
-
-    if (
-      this.achieveValue.pregnancy) {
-      reqBody.dietPlanType = "Pregnancy";
-      reqBodyDiet.dietPlanName = "Pregnancy";
-      reqBody.category = "Pregnancy";
-      reqBody.subCategory = this.achieveValue.pregnancy.toLowerCase();
-    }
-    if (
-      this.achieveValue.postPregnancy) {
-      reqBody.dietPlanType = "postPregnancy";
-      reqBodyDiet.dietPlanName = "postPregnancy";
-      reqBody.category = "post-Pregnancy";
-      reqBody.subCategory = this.achieveValue.postPregnancy.toLowerCase();
-    }
-
-    if (this.achieveValue.deasesValue) {
-
-      reqBody.dietPlanType = 'weightLoss';
-      reqBodyDiet.dietPlanName =  this.clientId==='traya'? 'trayaHealth': this.achieveValue.deasesValue.toLowerCase();
-      reqBody.category = "diseseManagement";
-      reqBody.subCategory = this.achieveValue.deasesValue.toLowerCase();
-    }
-
+    localStorage.setItem("goals",reqBody.dietPlanType);
     console.log(reqBody);
     this.appservice.updateProfile(reqBody).then((success) => {
       this.appservice.dietPlan(reqBodyDiet).then((res) => {
         if (this.from) {
-          return this.modalClose();
         }
         this.storage.set("pendingPage", "/boarding2");
 
         this.router.navigate(["/boarding2"]);
       });
     });
+  }
+
+  modalClose(){
+
   }
 }

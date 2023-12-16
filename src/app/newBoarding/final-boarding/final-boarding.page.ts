@@ -6,6 +6,7 @@ import { UTILITIES } from "src/app/core/utility/utilities";
 import { CONSTANTS } from "src/app/core/constants/constants";
 import { AppService } from "../app.service";
 
+
 @Component({
   selector: "app-final-boarding",
   templateUrl: "./final-boarding.page.html",
@@ -128,17 +129,18 @@ export class FinalBoardingPage implements OnInit {
           //this.dateBy = dietData.dateBy;
 
           this.plan = data.otherMaster.diet;
-          if (data.otherMaster.height[0]?.param == "in") {
+         
+          if (data.otherMaster.height[0]?.param == "in" || data.otherMaster.height[0]?.unit == "in") {
             this.suggestedWeightRange = Math.ceil(
-              parseInt(data.otherMaster.height[0].value) * 2.54 - 100
+              (parseInt(data.otherMaster.height[0].value) * 2.54) - 100
             );
           }
-          else if (data.otherMaster.height[0].unit == "cm") {
+          else if (data.otherMaster.height[0]?.param == "cm" || data.otherMaster.height[0]?.unit == "cm") {
             this.suggestedWeightRange = Math.ceil(
               parseInt(data.otherMaster.height[0].value) - 100
             );
           }
-
+          console.log("data.otherMaster.height[0].value", data.otherMaster.height[0].value, this.suggestedWeightRange);
           if (this.plan.dateBy != undefined) {
             console.log(this.plan.dateBy);
             this.dateBy = this.plan.dateBy.split("-");

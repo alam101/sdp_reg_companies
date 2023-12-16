@@ -21,6 +21,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   parseInt(arg0: any) {
     throw new Error("Method not implemented.");
   }
+  targetYear= new Date().getFullYear()-18;
   poundValue = 0.453592;
   profileData: any;
   gender = "";
@@ -103,6 +104,10 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       if (this.localData?.age) {
         this.selectedbornYear = this.localData.age.year;
       }
+      if (this.localData?.age) {
+        // this.selectedbornYear = this.localData.age.year;
+         this.targetYear = this.localData.age.year;
+       }
     });
     this.getProfile();
   }
@@ -195,7 +200,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 }
 
   goNext() {
-    let age = 2022 - parseInt(this.selectedbornYear);
+    let age = new Date().getFullYear() - this.targetYear;
     const data = {
       age: { code: "A1", label: "15 to 18 years", avg_age: age },
       gender: {
@@ -234,7 +239,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         suggestedWeight: this.targetweight,
         param: this.targetweightType,
       };
-      this.localData.age = { age, year: this.selectedbornYear };
+      this.localData.age = { age, year: this.targetYear };
       if (typeof this.localData !== undefined)
         this.storage.set("localData", JSON.stringify(this.localData));
     }
@@ -256,8 +261,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       this.utilities.presentToast("Please enter your target weight.");
       return;
     }
-    if (!this.selectedbornYear) {
-      this.utilities.presentToast("Please select your born year.");
+    if (this.targetYear<new Date().getFullYear()-65 || this.targetYear>new Date().getFullYear()-18) {
+      this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-65)+" , max:"+(new Date().getFullYear()-18)+"]");
       return;
     }
 
@@ -553,6 +558,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   }
 
   selectGender(e) {
+    console.log("e.detail.value",e.detail.value);
+    
     this.storage.get("localData").then((val) => {
       this.localData = JSON.parse(val);
       this.localData?.otherMaster?.gender?.forEach((element) => {
