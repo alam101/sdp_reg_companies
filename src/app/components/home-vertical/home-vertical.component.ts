@@ -2392,6 +2392,7 @@ export class HomeVerticalComponent implements  OnInit,OnChanges, OnDestroy {
       country: CONSTANTS.country
     };
     console.log("reqBody", reqBody);
+    debugger
     this.appServices.postOptionFoodList(reqBody).then(
       success => {
         // this.utilities.hideLoader();
@@ -2637,9 +2638,7 @@ export class HomeVerticalComponent implements  OnInit,OnChanges, OnDestroy {
   isManjhari:any=false;
 videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
   async ngOnInit() {
-      if(this.diets!=[]){
-        
-      }
+     
   }
 
  
@@ -2702,6 +2701,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
  
 
   eatenStatusUpdate(item, slot, slotIndex, foodIndex){
+    debugger;
     if(this.currentDateIndex == 0){
       let foodCodeList = [];
       let eatenStatus = false;

@@ -21,6 +21,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   parseInt(arg0: any) {
     throw new Error("Method not implemented.");
   }
+  terms=true;
   targetYear= new Date().getFullYear()-18;
   poundValue = 0.453592;
   profileData: any;
@@ -200,6 +201,10 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 }
 
   goNext() {
+     if(!this.terms){
+      this.utilities.presentToast("Please accept terms & conditions!");
+        return;
+     }
     let age = new Date().getFullYear() - this.targetYear;
     const data = {
       age: { code: "A1", label: "15 to 18 years", avg_age: age },
@@ -674,6 +679,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     console.log(e);
   }
 
+  gotoTerm(){
+    window.open("https://fitrofy.com/terms-conditions/","_blank");
+  }
   setRange(type: string) {
     console.log(type);
     if (type === "plus") {

@@ -28,9 +28,9 @@
       <ion-thumbnail>
         <img *ngIf="data?.foodSource?.toLowerCase() != 'external' && data?.imageUrl" class="card_img"
           [src]="data?.imageUrl.replace('png','jpg')"
-          onerror="this.src='./assets/newImages/food.svg';this.style='object-fit: contain'" />
+          onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'" />
         <img class="card_img" style="object-fit: contain" *ngIf="data?.foodSource?.toLowerCase() == 'external'"
-          src="./assets/newImages/food.svg" />
+          src="./assets/newImages/null.jpg" />
       </ion-thumbnail>
 
       <ion-grid class="w_100" style="margin-top: 10px">

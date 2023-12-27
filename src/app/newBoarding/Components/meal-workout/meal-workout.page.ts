@@ -296,7 +296,7 @@ alternatives(data){
         foodCodeList: [
           {
             code: item.itemCode,
-            portion: 0,
+            portion: 1,
             eaten: eaten,
           },
         ],
@@ -331,6 +331,7 @@ alternatives(data){
             code: item.itemCode,
             portion: Number(item.portion),
             eaten: eaten,
+            foodSource: "internal"
           },
         ],
         isUpdateDiet: true,

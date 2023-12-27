@@ -6,7 +6,12 @@
 ion-content::part(background) {
   --background: var(--theme-newHeader);
 }
-
+.condition {
+  font-size: var(--regular-font);
+  font-family: var(--theme-newFont) !important;
+  color: var(--theme-color);
+  cursor: pointer;
+}
 // ion-content::part(scroll){
 //     overflow-y: hidden;
 // }
@@ -365,9 +370,7 @@ ion-range {
   font-family: var(--theme-newFont);
   color: var(--normal-color);
 }
-.condition {
-  color: var(--theme-color);
-}
+
 
 ion-checkbox {
   margin-inline-end: 10px;

@@ -45,13 +45,13 @@
               class="card_img"
               *ngIf="d?.foodSource?.toLowerCase() == 'internal'"
               src="{{image_URL}}{{d?._id}}.jpg"
-              onerror="this.src='./assets/newImages/food.svg';this.style='object-fit: contain'"
+              onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
             />
             <img
               class="card_img"
               style="object-fit: contain"
               *ngIf="d?.foodSource?.toLowerCase() == 'external'"
-              src="./assets/newImages/food.svg"
+              src="./assets/newImages/null.jpg"
             />
             <img
               class="card_img"

@@ -45,13 +45,13 @@
               class="card_img"
               *ngIf="d?.foodSource?.toLowerCase() == 'internal'"
               src="{{image_URL}}{{d?._id}}.jpg"
-              onerror="this.src='./assets/newImages/food.svg';this.style='object-fit: contain'"
+              onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
             />
             <img
               class="card_img"
               style="object-fit: contain"
               *ngIf="d?.foodSource?.toLowerCase() == 'external'"
-              src="./assets/newImages/food.svg"
+              src="./assets/newImages/null.jpg"
             />
           </ion-thumbnail>
           <p class="choice" style="background: #55A148;color:#fff;position: absolute;     top: 8px;
@@ -129,8 +129,8 @@
       </div>
      
     </div>
- 
-    <div *ngIf="data?.data?.length  === 0">
+   
+    <div *ngIf="data?.data?.length == 0">
       <p class="no_data_title">"Eat Better Not Less"</p>
       <p class="no_data_subtitle">Your slot is empty.</p>
       <p class="no_data_subtitle">Add something from the meal options.</p>
