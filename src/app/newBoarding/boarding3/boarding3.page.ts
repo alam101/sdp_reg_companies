@@ -37,16 +37,16 @@ export class Boarding3Page implements OnInit {
    
   newModal = "";
   ngOnInit() {
-    this.getProfile();
     this.storage.get("localData").then((val) => {
       this.localData = this.utilities.parseJSON(val);
       console.log("Local data ", this.localData);
-      this.localData.otherMaster.wakeup.data.find(
-        (o) => o.code == "W5"
-      ).isSelected = true;
-      this.localData.otherMaster.leaveForOffice.find(
-        (o) => o.code == "LFO3"
-      ).isSelected = true;
+      this.getProfile();
+      // this.localData.otherMaster.wakeup.data.find(
+      //   (o) => o.code == "W5"
+      // ).isSelected = true;
+      // this.localData.otherMaster.leaveForOffice.find(
+      //   (o) => o.code == "LFO3"
+      // ).isSelected = true;
       
     });
   }
@@ -84,7 +84,6 @@ export class Boarding3Page implements OnInit {
       this.localData.otherMaster?.activities.forEach((ele) => {
         ele.val = ele.value.split("(")[0];
         ele.sub_val = ele.value.split("(")[1].replace(")", "");
-
         if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
           ele.isSelected = true;
           this.newModal = ele.val;
