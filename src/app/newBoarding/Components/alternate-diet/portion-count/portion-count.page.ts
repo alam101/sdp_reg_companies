@@ -109,6 +109,7 @@ export class PortionCountPage implements OnInit {
   }
 
   async replaced(item) {
+
     if (this.currentDateIndex == 0) {
     //  this.utilities.logEvent("Counter_add_home", {});
 
@@ -182,6 +183,7 @@ export class PortionCountPage implements OnInit {
   }
 
   async eatenStatusUpdate(item, eaten) {
+
     if (this.currentDateIndex == 0) {
      // this.utilities.logEvent("Counter_add_home", {});
 

@@ -15,7 +15,7 @@ import { SmallMealCardPageModule } from "../../small-meal-card/small-meal-card.m
     FormsModule,
     IonicModule,
     PortionCountPageRoutingModule,
-    SmallMealCardPageModule,
+    SmallMealCardPageModule
   ],
   declarations: [PortionCountPage],
 })

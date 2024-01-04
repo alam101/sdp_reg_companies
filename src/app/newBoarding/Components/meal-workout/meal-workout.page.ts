@@ -125,6 +125,7 @@ alternatives(data){
   //this.gotoView(data?.data?.updatedData);
 }
   async addCal(data, i) {
+   
     const modal = await this.modalCtrl.create({
       component: PortionCountPage,
       cssClass: "portion_count",
@@ -143,6 +144,7 @@ alternatives(data){
   }
 
   async loogeAction(event, d, i) {
+
     if (this.disabled) {
       return;
     }
@@ -319,6 +321,14 @@ alternatives(data){
   }
 
   async eatenStatusUpdate(item, eaten, status) {
+   
+    console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
+    
+     if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
+     setTimeout(()=>{ this.utilities.showErrorToast("Can not Log for future dates!");
+    },0);
+    }
+    else{ 
     if (this.currentDateIndex == 0) {
       let foodCodeList = [];
      // this.utilities.logEvent("Counter_add_home", {});
@@ -349,6 +359,7 @@ alternatives(data){
           console.log("details error", err);
         }
       );
+    }
     }
   }
 

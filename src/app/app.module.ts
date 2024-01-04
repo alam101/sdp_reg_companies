@@ -15,6 +15,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CommonModule } from '@angular/common';
 import { GaugeChartModule } from 'angular-gauge-chart';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
     GaugeChartModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
-   
+    BrowserAnimationsModule
   ],
   providers: [
     {
