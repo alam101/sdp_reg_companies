@@ -182,9 +182,31 @@ export class ReadQueryComponent implements OnInit {
         window.open('https://app.smartdietplanner.com','_blank');
       }
       console.log("localProfileObject::",localProfileObject);
-      if(localProfileObject["diet"]!=undefined){
+      if(localProfileObject["demographic"]?.gender?.code!=undefined &&
+        localProfileObject["demographic"]?.age?.code!=undefined && 
+        localProfileObject["demographic"]?.height?.value!=undefined &&
+        localProfileObject["demographic"]?.weight?.value!=undefined &&
+        localProfileObject["lifeStyle"]?.activities?.code!=undefined  &&
+        (localProfileObject["lifeStyle"]?.foodType!="" && localProfileObject["lifeStyle"]?.foodType!=undefined)
+        ){
+         if((localProfileObject["lifeStyle"]?.country!=="" && localProfileObject["lifeStyle"]?.country!==undefined)){
+          if(localProfileObject["lifeStyle"]?.country==="IND"){
+          if(localProfileObject["lifeStyle"]?.communities?.length>0){
+            this.router.navigate(["/new-diet"]);
+          }
+          else{
+            this.router.navigate(["/boarding5"]);
+          }
+         } 
+         else{
+          this.router.navigate(["/new-diet"]);
+         }
+        }
+        else{
+          this.router.navigate(["/boarding5"]);
+        }
        // this.router.navigate(["/dietplan"]);
-       this.router.navigate(["/new-diet"]);
+      
    
       }
     else{

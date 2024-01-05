@@ -133,8 +133,11 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
           h = h.toString().split(".");
           console.log(h);
-          const h1: any = (h[1] / 0.0833333).toString().split("0")[0];
-          console.log(h1);
+          let h1: any = (h[1] / 0.0833333).toString().split("0")[0];
+          console.log("alam:--",h1);
+          if(isNaN(h1)){
+            h1 = 0;
+          }
           this.inputHeight = `${h[0]}'${h1}"`;
           this.height = `${h[0]}.${h1}`;
           this.heightSplit = this.height.split(".");
