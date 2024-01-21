@@ -183,8 +183,14 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
 <ion-row style="margin-top: .5rem;">
   <ion-col class="ion-text-left">
     <div style="height: 100px;overflow-y: scroll;">
-    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.recipe!=undefined">{{popup?.recipe}}  </span><br>
-    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.steps!=undefined">{{popup?.steps}}  </span>
+    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.recipe!=undefined">
+      <textarea style="width: 100% ;border:none;" col="5" rows="10"
+             readonly="readonly">{{popup?.recipe}}</textarea>  
+      </span><br>
+    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.steps!=undefined">
+      <textarea style="width: 100% ;border:none;" col="5" rows="10"
+      readonly="readonly">{{popup?.steps}}</textarea> 
+    </span>
   </div>
   </ion-col>
 </ion-row>

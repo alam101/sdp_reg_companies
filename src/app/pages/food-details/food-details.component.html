@@ -199,7 +199,7 @@
             <ion-row class="row-hr">
               <ion-col>
                 <ion-item (click)="openIngredients()" lines="none" class="ion-no-padding" mode="ios">
-                  <h2 slot="start"> Ingredients</h2>
+                  <h2 slot="start"> Ingredients ---</h2>
                   <img style="width: 30px;" src="./assets/icons/down.png" slot="end" *ngIf="!isopenIngredients">
                   <img style="width: 30px;" src="./assets/icons/up.png" slot="end" *ngIf="isopenIngredients">
                 </ion-item>
@@ -214,9 +214,11 @@
                     Source: <span style="color: blue;"
                       (click)="openLink(foodDetails?.source)">{{foodSourceDomain}}</span>
                   </span>
-                  <div *ngIf="foodDetails.recipe!='~' && foodDetails.recipe!=null &&  foodDetails.recipe!=''" style="    padding: 0 10px;
+                  <!-- <div *ngIf="foodDetails.recipe!='~' && foodDetails.recipe!=null &&  foodDetails.recipe!=''" style="    padding: 0 10px;
                  width: 100%;;border:none;height:100%; background: white; color: black;"
-                    readonly="readonly">{{foodDetails.recipe}}</div>
+                    readonly="readonly">{{foodDetails.recipe}}</div> -->
+                  <textarea *ngIf="foodDetails.recipe!='~' && foodDetails.recipe!=null &&  foodDetails.recipe!=''" style="    padding: 0 10px;
+                  width: 100%;;border:none;height:100%; background: white; color: black;" readonly="readonly" >{{foodDetails.recipe}}</textarea>  
                 </ion-label>
               </ion-item>
             </ion-list>
@@ -242,9 +244,12 @@
                     Source: <span style="color: blue;"
                       (click)="openLink(foodDetails?.source)">{{foodSourceDomain}}</span>
                   </span>
-                  <div *ngIf="foodDetails.steps!='~' && foodDetails.steps!=null && foodDetails.steps!=''" style="    padding: 0 10px;
+                  <!-- <div *ngIf="foodDetails.steps!='~' && foodDetails.steps!=null && foodDetails.steps!=''" style="    padding: 0 10px;
                         width: 100%;border:none;height:100%; background: white; color: black;"
-                    readonly="readonly">{{foodDetails.steps}} </div>
+                    readonly="readonly">{{foodDetails.steps}} </div> -->
+                    <textarea *ngIf="foodDetails.steps!='~' && foodDetails.steps!=null && foodDetails.steps!=''" style="    padding: 0 10px;
+                    width: 100%;border:none;height:100%; background: white; color: black;" readonly="readonly" >{{foodDetails.steps}}</textarea>  
+           
                 </ion-label>
               </ion-item>
             </ion-list>

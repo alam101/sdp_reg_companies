@@ -176,8 +176,8 @@
         <div>
           <div class="d_flex">
             <!-- <p >{{data?.recipe }}</p> -->
-
-            <p [innerHTML]="data?.recipe"></p>
+            <textarea style="width: 100% ;border:none;" col="5" rows="10"
+             readonly="readonly">{{data?.recipe}}</textarea>  
           </div>
         </div>
       </ion-card>
@@ -215,7 +215,9 @@
       <ion-card class="Ingredients_div" *ngIf="showMathod">
         <div>
           <div class="d_flex">
-            <p>{{data?.steps }}</p>
+            <!-- <p>{{data?.steps }}</p> -->
+            <textarea style="width: 100% ;border:none;" col="5" rows="10"
+             readonly="readonly">{{data?.steps}}</textarea>  
           </div>
         </div>
       </ion-card>

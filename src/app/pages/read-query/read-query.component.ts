@@ -97,6 +97,7 @@ export class ReadQueryComponent implements OnInit {
       const diseases = resData?.lifeStyle?.diseases;
       const communities = resData?.lifeStyle?.communities;
       const foodPref = resData?.lifeStyle?.foodType; 
+      localStorage.setItem("goals",resData?.lifeStyle?.dietPlanName);
       let res1 = localStorage.getItem("defaultData");
          const res= JSON.parse(res1);
         if(gender){
