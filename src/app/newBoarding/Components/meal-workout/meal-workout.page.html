@@ -17,10 +17,15 @@
           <ion-icon name="time-outline"></ion-icon
           >{{moment(data?.time,'HH:mm').format('hh:mm a')}}
         </span>
+        <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
+          <a (click)="logSlot(data,index)"  style="font-size: .8rem; color: var(--theme-profile-background); margin-left: .5rem; border: 1px solid var(--theme-profile-background); border-radius: 5px;padding: 2px 5px;     position: absolute;
+          right: 8px;
+          top: 7px;"> Log Slot</a>
+    
+        </span>
       </p>
     </div>
-
-    <div
+      <div
       *ngFor="let d of data?.data.slice(0,disabled?1 :data?.data.length );let i = index"
     >
       <div
@@ -197,8 +202,16 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
 
 </div>
 <ion-row style="position: absolute;bottom: 1rem;width: 100%;">
-  <ion-col class="ion-text-left">
-    <ion-button
+  <ion-col size="4" class="ion-text-left ion-align-self-end">
+    <div class="center">
+      <div class="add_remove_btn center">
+        <ion-icon name="remove" (click)="addRemove('remove')"></ion-icon>
+        <p style="text-align: right;">{{popup?.portion}}</p>
+        <ion-icon name="add" (click)="addRemove('add')"></ion-icon>
+      </div>
+     
+    </div>
+    <!-- <ion-button
     *ngIf="!popup.eaten || popup?.eaten < 0"
     fill="outline"
     style="color:#414042;width:90%;height:44px;font-size: .75rem;--border-radius: 5px;--border-color:#414042;    margin-left: 1rem;"
@@ -206,13 +219,18 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
     (click)="changed(popup)">
       &nbsp; Alternatives
       <ion-icon name="chevron-forward-outline" style="color: #414042;margin-left:5px;"></ion-icon>
-  </ion-button>
+  </ion-button> -->
   </ion-col>
-  <ion-col class="ion-text-left">
+  <ion-col size="4" class="ion-text-left"> <p class="portion" style="margin-top: 10px;font-size: .8rem;">{{popup?.portion_unit}}</p></ion-col>
+  <ion-col size="4" class="ion-text-center ion-align-self-start">
   <ion-button
   class="logged_btn"
   (click)="addCal(popup,i)"
-  style="--background: var(--profile-color);color:#fff;width:90%;height:44px;font-size: .75rem;--border-radius: 5px;"
+  style="--background: var(--profile-color);color:#fff;width: 88%;
+  height: 40px;
+  font-size: .75rem;
+  --border-radius: 5px;
+  margin-right: 1rem;"
   *ngIf="!popup.eaten || popup?.eaten < 0">
   Log
   <ion-icon name="add-outline" style="color: #fff;margin-left: 5px;"></ion-icon>
@@ -220,7 +238,12 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
 <ion-button
 *ngIf="popup?.eaten > 0 "
 class="logged_btn"
-style="--background: var(--profile-color);color:#fff;width:90%;height:44px;font-size: .75rem;--border-radius: 5px;"
+style="--background: var(--profile-color);color: #fff;
+width: 88%;
+height: 40px;
+font-size: .75rem;
+--border-radius: 5px;
+margin-right: 1rem;"
 (click)="logged(popup)">
 Logged
 <ion-icon style="color:#fff;margin-left:5px;" name="checkmark"></ion-icon>

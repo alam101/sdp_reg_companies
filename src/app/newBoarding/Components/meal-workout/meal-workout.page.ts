@@ -124,22 +124,35 @@ alternatives(data){
   //this.changed(data?.data?.updatedData);
   //this.gotoView(data?.data?.updatedData);
 }
+addRemove(type) {
+  let calCount = this.popup?.Calories / this.popup.portion;
+  if (type === "add") {
+    this.popup.portion = Number(this.popup?.portion || 0) + 0.5;
+  } else {
+    if (Number(this.popup?.portion) !== 0.5) {
+      this.popup.portion = Number(this.popup?.portion || 0) - 0.5;
+      // this.data.portion = 0;
+    }
+  }
+  this.popup.Calories = calCount * this.popup.portion;
+}
   async addCal(data, i) {
-   
-    const modal = await this.modalCtrl.create({
-      component: PortionCountPage,
-      cssClass: "portion_count",
-      backdropDismiss: true,
-      componentProps: {
-        alterdata: data,
-        type: "add",
-      },
-    });
-    await modal.present();
-    const modaldata = await modal.onDidDismiss();
-    const d = modaldata?.data;
-    if (d) {
-      this.eatenStatusUpdate(d, 2, "Logged successfully");
+    // const modal = await this.modalCtrl.create({
+    //   component: PortionCountPage,
+    //   cssClass: "portion_count",
+    //   backdropDismiss: true,
+    //   componentProps: {
+    //     alterdata: data,
+    //     type: "add",
+    //   },
+    // });
+    // await modal.present();
+    // const modaldata = await modal.onDidDismiss();
+    // const d = modaldata?.data;
+    console.log("xxx:--",data,i);
+    
+    if (data) {
+      this.eatenStatusUpdate(data, 2, "Logged successfully");
     }
   }
 
@@ -287,6 +300,9 @@ alternatives(data){
 
   }
 
+  logSlot(d,index){ 
+    this.eatenStatusUpdate1(d,index);
+  }
   async remove(item, eaten, status) {
     if (this.currentDateIndex == 0) {
       let foodCodeList = [];
@@ -320,6 +336,52 @@ alternatives(data){
     }
   }
 
+  async eatenStatusUpdate1(item,slot) {
+   
+    console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
+    
+     if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
+     setTimeout(()=>{ this.utilities.showErrorToast("Can not Log for future dates!");
+    },0);
+    }
+    else{ 
+      let foodCodeList = [];
+        let dataTotal = [];
+     // this.utilities.logEvent("Counter_add_home", {});
+     debugger;
+      for (let index = 0; index < item.data.length; index++) {
+        dataTotal.push(
+          {
+            code: item.data[index].itemCode,
+            portion: Number(item.data[index].portion),
+            eaten: 2,
+            foodSource: "internal"
+          }
+        )
+      }
+      const datas = {
+        date: CONSTANTS.dietDate,
+        slot: Number(slot),
+        foodCodeList: dataTotal,
+        isUpdateDiet: true,
+      };
+    //  this.utilities.logEvent("update_food_details", datas);
+      // this.appServices.updateEatenFoodItems(data).then(
+      this.appServices.postOptionFoodList(datas).then(
+        (success: any) => {
+          this.getDietdata.emit(CONSTANTS.dietDate);
+          this.utilities.showSuccessToast(status);
+           this.todaysCalCount();
+         // this.getDietdata(CONSTANTS.dietDate);
+        //  console.log("");
+        },
+        (err) => {
+          console.log("details error", err);
+        }
+      );
+   
+    }
+  }
   async eatenStatusUpdate(item, eaten, status) {
    
     console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));

@@ -31,6 +31,12 @@
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
                         "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                    },
+                    {
+                        "name":"Weight Maintenance",
+                        "value":"WeightMaintenance",
+                        "label":"Maintain what you achieved",
+                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
                     }
                 ]
                 },
@@ -134,6 +140,38 @@
                     "Increase fiber intake"
                 ]
                 }
+            ],
+            "countries": [
+                    {
+                    "_id":"IND",
+                    "name":"India",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"USA",
+                    "name":"United states of America",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"CAN",
+                    "name":"Canada",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"AUS",
+                    "name":"Australia",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"EGY",
+                    "name":"Egypt",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"UAE",
+                    "name":"UAE",
+                    "isActive":true
+                    }         
             ]
         }
 
@@ -171,6 +209,12 @@
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
                         "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                    },
+                    {
+                        "name":"Weight Maintenance",
+                        "value":"WeightMaintenance",
+                        "label":"Maintain what you achieved",
+                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
                     }
                 ]
                 },
@@ -274,6 +318,38 @@
                     "Increase fiber intake"
                 ]
                 }
+            ],
+            "countries": [
+                    {
+                    "_id":"IND",
+                    "name":"India",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"USA",
+                    "name":"United states of America",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"CAN",
+                    "name":"Canada",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"AUS",
+                    "name":"Australia",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"EGY",
+                    "name":"Egypt",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"UAE",
+                    "name":"UAE",
+                    "isActive":true
+                    }         
             ]
         }
     },
@@ -311,147 +387,11 @@
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
                         "imgUrl":"../../../assets/newImages/weightmanagement.png"
-                    }
-                
-                ]
-                },
-                {
-                    "heading":"Fitness",
-                    "label":" Exercise is king, nutrition is Queen",
-                    "imgUrl":"../../../assets/newImages/fitness.png",
-                    "options":[{
-                        "name":"Muscle Building",
-                        "value":"muscleGain",
-                        "label":"Pump and get stronger",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
                     },
                     {
-                        "name":"Lean Body",
-                        "value":"fatShredding",
-                        "label":" Maintain muscles and lose fat",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
-                    }
-                ]
-                },
-                {
-                    "heading":"Disease Management",
-                    "label":"Let food be thy medicine ",
-                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
-                    "options":[{
-                        "name":"Manage Diabetes",
-                        "value":"diabetes",
-                        "label":" Optimize blood glucose levels ", 
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
-                    },
-                    {
-                        "name":"Manage PCOS",
-                        "value":"pcos",
-                        "label":" No more irregular period",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
-                    },
-                    {
-                        "name":"Manage Cholesterol",
-                        "value":"cholesterol",
-                        "label":"No more high blood pressure",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
-                    },
-                    {
-                        "name":"Manage Hypertension",
-                        "value":"hypertension",
-                        "label":"No more high blood pressure",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
-                    }
-                ]
-                }
-            ],
-            "deseases":[
-                {
-                    "desease": "D",
-                    "description": [
-                        "Avoid ragi/ white bread/ jowar",
-                        "Eat frequent meals with 2-3 hours of gap",
-                        "Add vit B12 rich food in diet ",
-                        "Monitor HBA1C , kidney test after 3 months"
-                    ]
-                },
-                {
-                    "desease": "B",
-                    "description": ["Less Salt", "Do not sprinkle salt"]
-                },
-                {
-                    "desease": "P",
-                    "description": [
-                        "Avoid high Glycemic index foods like ragi/ white bread/ white rice"
-                    ,"If you have taken hormonal theraphy in past, please reduce the fat intake"
-                ]
-                },
-                {
-                    "desease": "T",
-                    "description": [
-                     " Avoid soy, brocolli, cabbage and all cruciferous food"
-                    ,"Avoid soy contain breads (white or brown). Please check bread ingredients"
-                    ,"Avoid taking antacids with thyroid medicines "
-                    ,"Monitor thyroid profile after every 3 months "
-                ]
-                },
-                {
-                    "desease": "G",
-                    "description": [
-                        "Add vitamin B12 rich food in diet ",
-                        "Get your iron and vitamin B12 test done after every 6 months",
-                        "Avoid gluten for lifetime"
-                    ]
-                },
-                {
-                    "desease": "ML",
-                    "description": [
-                        " Say no to milk and milk products but can take curd/ paneer ",
-                    "Get your iron and vitamin B12 tests done after every 6 months"]
-                },
-                {
-                    "desease": "A",
-                    "description": [" Increase intake of water/ fluids ",
-                    "Stop retention of stool or avoid painful evacuation of stool ",
-                    "Increase fiber intake"
-                ]
-                }
-            ]
-        }
-        
-    },
-    {
-        "traya-female": {
-            "logo": false,
-            "profile1": true,
-            "profile2": false,
-            "consumed_cal": true,
-            "cal_count": true,
-            "download": false,
-            "pie_chart": false,
-            "alternative": true,
-            "video": true,
-            "date_selection1": true,
-            "date_selection2": true,
-            "goal": true,
-            "notes": false,
-            "modifyNotes": false,
-            "caloriesCircle": true,
-            "itemCalories": true,
-            "isBanner":true,
-            "isProfileIcons":true,
-            "isEditProfile":false,
-            "dietComponent":false,
-            "mealPref":false,
-            "headerText":"Welcome to your daily diet plan for improved and healthy hair!",
-            "goals":[
-                {
-                    "heading":"Weight Management",
-                    "label":"Eat up, Heal up",
-                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
-                    "options":[{
-                        "name":"Weight Loss",
-                        "value":"weightLoss",
-                        "label":"Lose weight not the mind",
+                        "name":"Weight Maintenance",
+                        "value":"WeightMaintenance",
+                        "label":"Maintain what you achieved",
                         "imgUrl":"../../../assets/newImages/weightmanagement.png"
                     }
                 ]
@@ -556,6 +496,217 @@
                     "Increase fiber intake"
                 ]
                 }
+            ],
+            "countries": [
+                    {
+                    "_id":"IND",
+                    "name":"India",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"USA",
+                    "name":"United states of America",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"CAN",
+                    "name":"Canada",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"AUS",
+                    "name":"Australia",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"EGY",
+                    "name":"Egypt",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"UAE",
+                    "name":"UAE",
+                    "isActive":true
+                    }         
+            ]
+        }
+        
+    },
+    {
+        "traya-female": {
+            "logo": false,
+            "profile1": true,
+            "profile2": false,
+            "consumed_cal": true,
+            "cal_count": true,
+            "download": false,
+            "pie_chart": false,
+            "alternative": true,
+            "video": true,
+            "date_selection1": true,
+            "date_selection2": true,
+            "goal": true,
+            "notes": false,
+            "modifyNotes": false,
+            "caloriesCircle": true,
+            "itemCalories": true,
+            "isBanner":true,
+            "isProfileIcons":true,
+            "isEditProfile":true,
+            "dietComponent":false,
+            "mealPref":false,
+            "headerText":"Welcome to your daily diet plan for improved and healthy hair!",
+            "goals":[
+                {
+                    "heading":"Weight Management",
+                    "label":"Eat up, Heal up",
+                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                    "options":[{
+                        "name":"Weight Loss",
+                        "value":"weightLoss",
+                        "label":"Lose weight not the mind",
+                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                    },
+                    {
+                        "name":"Weight Maintenance",
+                        "value":"WeightMaintenance",
+                        "label":"Maintain what you achieved",
+                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                    }
+                ]
+                },
+                {
+                    "heading":"Fitness",
+                    "label":" Exercise is king, nutrition is Queen",
+                    "imgUrl":"../../../assets/newImages/fitness.png",
+                    "options":[{
+                        "name":"Muscle Building",
+                        "value":"muscleGain",
+                        "label":"Pump and get stronger",
+                        "imgUrl":"../../../assets/newImages/fitness.png"
+                    },
+                    {
+                        "name":"Lean Body",
+                        "value":"fatShredding",
+                        "label":" Maintain muscles and lose fat",
+                        "imgUrl":"../../../assets/newImages/fitness.png"
+                    }
+                ]
+                },
+                {
+                    "heading":"Disease Management",
+                    "label":"Let food be thy medicine ",
+                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                    "options":[{
+                        "name":"Manage Diabetes",
+                        "value":"diabetes",
+                        "label":" Optimize blood glucose levels ", 
+                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                    },
+                    {
+                        "name":"Manage PCOS",
+                        "value":"pcos",
+                        "label":" No more irregular period",
+                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                    },
+                    {
+                        "name":"Manage Cholesterol",
+                        "value":"cholesterol",
+                        "label":"No more high blood pressure",
+                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                    },
+                    {
+                        "name":"Manage Hypertension",
+                        "value":"hypertension",
+                        "label":"No more high blood pressure",
+                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                    }
+                ]
+                }
+            ],
+            "deseases":[
+                {
+                    "desease": "D",
+                    "description": [
+                        "Avoid ragi/ white bread/ jowar",
+                        "Eat frequent meals with 2-3 hours of gap",
+                        "Add vit B12 rich food in diet ",
+                        "Monitor HBA1C , kidney test after 3 months"
+                    ]
+                },
+                {
+                    "desease": "B",
+                    "description": ["Less Salt", "Do not sprinkle salt"]
+                },
+                {
+                    "desease": "P",
+                    "description": [
+                        "Avoid high Glycemic index foods like ragi/ white bread/ white rice"
+                    ,"If you have taken hormonal theraphy in past, please reduce the fat intake"
+                ]
+                },
+                {
+                    "desease": "T",
+                    "description": [
+                     " Avoid soy, brocolli, cabbage and all cruciferous food"
+                    ,"Avoid soy contain breads (white or brown). Please check bread ingredients"
+                    ,"Avoid taking antacids with thyroid medicines "
+                    ,"Monitor thyroid profile after every 3 months "
+                ]
+                },
+                {
+                    "desease": "G",
+                    "description": [
+                        "Add vitamin B12 rich food in diet ",
+                        "Get your iron and vitamin B12 test done after every 6 months",
+                        "Avoid gluten for lifetime"
+                    ]
+                },
+                {
+                    "desease": "ML",
+                    "description": [
+                        " Say no to milk and milk products but can take curd/ paneer ",
+                    "Get your iron and vitamin B12 tests done after every 6 months"]
+                },
+                {
+                    "desease": "A",
+                    "description": [" Increase intake of water/ fluids ",
+                    "Stop retention of stool or avoid painful evacuation of stool ",
+                    "Increase fiber intake"
+                ]
+                }
+            ],
+            "countries": [
+                    {
+                    "_id":"IND",
+                    "name":"India",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"USA",
+                    "name":"United states of America",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"CAN",
+                    "name":"Canada",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"AUS",
+                    "name":"Australia",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"EGY",
+                    "name":"Egypt",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"UAE",
+                    "name":"UAE",
+                    "isActive":true
+                    }         
             ]
         }
         
@@ -593,6 +744,12 @@
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
                         "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                    },
+                    {
+                        "name":"Weight Maintenance",
+                        "value":"WeightMaintenance",
+                        "label":"Maintain what you achieved",
+                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
                     }
                 ]
                 },
@@ -696,6 +853,38 @@
                     "Increase fiber intake"
                 ]
                 }
+            ],
+            "countries": [
+                    {
+                    "_id":"IND",
+                    "name":"India",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"USA",
+                    "name":"United states of America",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"CAN",
+                    "name":"Canada",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"AUS",
+                    "name":"Australia",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"EGY",
+                    "name":"Egypt",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"UAE",
+                    "name":"UAE",
+                    "isActive":true
+                    }         
             ]
         }
 
@@ -735,6 +924,12 @@
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
                         "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                    },
+                    {
+                        "name":"Weight Maintenance",
+                        "value":"WeightMaintenance",
+                        "label":"Maintain what you achieved",
+                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
                     }
                 ]
                 },
@@ -838,6 +1033,38 @@
                     "Increase fiber intake"
                 ]
                 }
+            ],
+            "countries": [
+                    {
+                    "_id":"IND",
+                    "name":"India",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"USA",
+                    "name":"United states of America",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"CAN",
+                    "name":"Canada",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"AUS",
+                    "name":"Australia",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"EGY",
+                    "name":"Egypt",
+                    "isActive":true
+                    },
+                    {
+                    "_id":"UAE",
+                    "name":"UAE",
+                    "isActive":true
+                    }         
             ]
         }
       },
@@ -874,6 +1101,12 @@
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
+                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        },
+                        {
+                            "name":"Weight Maintenance",
+                            "value":"WeightMaintenance",
+                            "label":"Maintain what you achieved",
                             "imgUrl":"../../../assets/newImages/weightmanagement.png"
                         }
                     ]
@@ -978,6 +1211,38 @@
                         "Increase fiber intake"
                     ]
                     }
+                ],
+                "countries": [
+                        {
+                        "_id":"IND",
+                        "name":"India",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"USA",
+                        "name":"United states of America",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"CAN",
+                        "name":"Canada",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"AUS",
+                        "name":"Australia",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"EGY",
+                        "name":"Egypt",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"UAE",
+                        "name":"UAE",
+                        "isActive":true
+                        }         
                 ]
           }
         },
@@ -1004,7 +1269,7 @@
                 "isEditProfile":false,
                 "dietComponent":false,
                 "mealPref":false,
-                "headerText":"Welcome to your daily diet plan",
+                "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
                         "heading":"Weight Management",
@@ -1013,7 +1278,7 @@
                         "options":[
                         {
                             "name":"Weight Management",
-                            "value":"weight_loss_plix",
+                            "value":"USA_weight_loss_plix",
                             "label":"Helps you reach target weight",
                             "imgUrl":"../../../assets/newImages/weightmanagement.png"
                         }
@@ -1025,19 +1290,19 @@
                         "imgUrl":"../../../assets/newImages/deseasemanagement.png",
                         "options":[{
                             "name":"Improve Immunity",
-                            "value":"immunity_booster_plix",
+                            "value":"USA_immunity_booster_plix",
                             "label":"Helps to Boost Immunity.", 
                             "imgUrl":"../../../assets/newImages/immunity_img.png"
                         },
                         {
                             "name":"Manage Skincare",
-                            "value":"skincare_plix",
+                            "value":"USA_skincare_plix",
                             "label":"Healthy skin, beautiful you.",
                             "imgUrl":"../../../assets/newImages/skincare_img.png"
                         },
                         {
                             "name":"Manage Stress",
-                            "value":"stress_plix",
+                            "value":"USA_stress_plix",
                             "label":"No more Stress",
                             "imgUrl":"../../../assets/newImages/stress_img.png"
                         }
@@ -1095,6 +1360,38 @@
                         "Increase fiber intake"
                     ]
                     }
+                ],
+                "countries": [
+                        {
+                        "_id":"IND",
+                        "name":"India",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"USA",
+                        "name":"United states of America",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"CAN",
+                        "name":"Canada",
+                        "isActive":false
+                        },
+                        {
+                        "_id":"AUS",
+                        "name":"Australia",
+                        "isActive":false
+                        },
+                        {
+                        "_id":"EGY",
+                        "name":"Egypt",
+                        "isActive":false
+                        },
+                        {
+                        "_id":"UAE",
+                        "name":"UAE",
+                        "isActive":false
+                        }         
                 ]
             }
             
@@ -1122,7 +1419,7 @@
                 "isEditProfile":false,
                 "dietComponent":false,
                 "mealPref":false,
-                "headerText":"Welcome to your daily diet plan",
+                "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
                         "heading":"Weight Management",
@@ -1132,6 +1429,12 @@
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
+                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        },
+                        {
+                            "name":"Weight Maintenance",
+                            "value":"WeightMaintenance",
+                            "label":"Maintain what you achieved",
                             "imgUrl":"../../../assets/newImages/weightmanagement.png"
                         }
                     ]
@@ -1236,6 +1539,38 @@
                         "Increase fiber intake"
                     ]
                     }
+                ],
+                "countries": [
+                        {
+                        "_id":"IND",
+                        "name":"India",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"USA",
+                        "name":"United states of America",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"CAN",
+                        "name":"Canada",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"AUS",
+                        "name":"Australia",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"EGY",
+                        "name":"Egypt",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"UAE",
+                        "name":"UAE",
+                        "isActive":true
+                        }         
                 ]
             }
             
@@ -1263,7 +1598,7 @@
                 "isEditProfile":false,
                 "dietComponent":false,
                 "mealPref":false,
-                "headerText":"Welcome to your daily diet plan",
+                "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
                         "heading":"Weight Management",
@@ -1273,6 +1608,12 @@
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
+                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        },
+                        {
+                            "name":"Weight Maintenance",
+                            "value":"WeightMaintenance",
+                            "label":"Maintain what you achieved",
                             "imgUrl":"../../../assets/newImages/weightmanagement.png"
                         }
                     ]
@@ -1377,6 +1718,38 @@
                         "Increase fiber intake"
                     ]
                     }
+                ],
+                "countries": [
+                        {
+                        "_id":"IND",
+                        "name":"India",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"USA",
+                        "name":"United states of America",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"CAN",
+                        "name":"Canada",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"AUS",
+                        "name":"Australia",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"EGY",
+                        "name":"Egypt",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"UAE",
+                        "name":"UAE",
+                        "isActive":true
+                        }         
                 ]
             }
             
@@ -1401,10 +1774,10 @@
                 "itemCalories": true,
                 "isBanner":true,
                 "isProfileIcons":true,
-                "isEditProfile":false,
+                "isEditProfile":true,
                 "dietComponent":false,
                 "mealPref":false,
-                "headerText":"Welcome to your daily diet plan",
+                "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
                         "heading":"Weight Management",
@@ -1414,6 +1787,12 @@
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
+                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        },
+                        {
+                            "name":"Weight Maintenance",
+                            "value":"WeightMaintenance",
+                            "label":"Maintain what you achieved",
                             "imgUrl":"../../../assets/newImages/weightmanagement.png"
                         }
                     ]
@@ -1518,6 +1897,38 @@
                         "Increase fiber intake"
                     ]
                     }
+                ],
+                "countries": [
+                        {
+                        "_id":"IND",
+                        "name":"India",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"USA",
+                        "name":"United states of America",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"CAN",
+                        "name":"Canada",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"AUS",
+                        "name":"Australia",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"EGY",
+                        "name":"Egypt",
+                        "isActive":true
+                        },
+                        {
+                        "_id":"UAE",
+                        "name":"UAE",
+                        "isActive":true
+                        }         
                 ]
             }
             

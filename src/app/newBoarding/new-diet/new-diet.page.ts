@@ -70,7 +70,54 @@ export class NewDietPage implements OnInit,AfterViewInit {
     this.getProfile();
     this.companyLogoBase64 = this.compConfig.companyLogoBase64;
   }
-  
+  logSlot(d,slot){
+    this.eatenStatusUpdate(d,slot);
+  }
+  async eatenStatusUpdate(item,slot) {
+   
+    console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
+    
+     if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
+     setTimeout(()=>{ this.utilities.showErrorToast("Can not Log for future dates!");
+    },0);
+    }
+    else{ 
+      let foodCodeList = [];
+        let dataTotal = [];
+     // this.utilities.logEvent("Counter_add_home", {});
+      for (let index = 0; index < item.data.length; index++) {
+        dataTotal.push(
+          {
+            code: item.data[index].itemCode,
+            portion: Number(item.data[index].portion),
+            eaten: 2,
+            foodSource: "internal"
+          }
+        )
+      }
+      const datas = {
+        date: CONSTANTS.dietDate,
+        slot: Number(slot),
+        foodCodeList: dataTotal,
+        isUpdateDiet: true,
+      };
+    //  this.utilities.logEvent("update_food_details", datas);
+      // this.appServices.updateEatenFoodItems(data).then(
+      this.appServices.postOptionFoodList(datas).then(
+        (success: any) => {
+       //   this.getDietdata.emit(CONSTANTS.dietDate);
+       //   this.utilities.showSuccessToast(status);
+          // this.todaysCalCount();
+          this.getDietdata(CONSTANTS.dietDate);
+          console.log("");
+        },
+        (err) => {
+          console.log("details error", err);
+        }
+      );
+   
+    }
+  }
   tempdesease:any=[];
   bindDesease(){
     this.tempdesease=[];

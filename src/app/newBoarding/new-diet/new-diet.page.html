@@ -13,7 +13,8 @@
         border-bottom-right-radius: 1rem;padding: 1rem;background:var(--theme-profile-background)" >
           <ion-row>
             <ion-col class="ion-text-left" style="font-size: 1.1rem;">
-             <b>{{profileName}} <ion-icon *ngIf="compConfig?.isEditProfile"  (click)="gotoProfile()" name="pencil-outline" style="position: relative;
+             <b>{{profileName}} 
+              <ion-icon *ngIf="compConfig?.isEditProfile"  (click)="gotoProfile()" name="pencil-outline" style="position: relative;
               width: 5%;
               top: 0.2rem;"></ion-icon></b> 
             </ion-col>

@@ -30,6 +30,32 @@
     margin: 0px 5px -2px;
   }
 }
+.add_remove_btn {
+  background: var(--profile-color);
+  border-radius: 25px;
+  min-width: 108px;
+  height: 40px;
+  margin-right: 0.5rem;
+  margin-left: .2rem;
+  
+
+  ion-icon {
+    color: var(--white);
+    font-size: 20px;
+    margin: 5px;
+    font-weight: bold !important;
+    --ionicon-stroke-width: 45px !important;
+  }
+
+  p {
+    margin: 0% 5px;
+    color: var(--white);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    font-size: var(--regularM-font);
+  }
+}
+
 
 .scroll_y {
   max-height: 200px;

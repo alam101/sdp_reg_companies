@@ -137,4 +137,18 @@ export class AppService {
     const url = 'https://app.smartdietplanner.com/api/authenticateExternal?key=NEWMI2022';
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
+
+  postOptionFoodList(foodCodeList) {
+
+    let url;
+    if(this.isNew){
+      foodCodeList["customerId"] = CONSTANTS.email,
+      url = APIS.refreshBaseUrl + "" + APIS.optionSelectionNew;
+    }else{
+      url = APIS.BASEURL + "" + APIS.optionSelection;
+    }
+
+    return this.httpClient.post(url, foodCodeList, {}).toPromise();
+  }
+  
 }
