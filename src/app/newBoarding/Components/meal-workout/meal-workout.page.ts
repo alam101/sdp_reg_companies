@@ -42,7 +42,7 @@ export class MealWorkoutPage implements OnInit {
   parseFloat: any = parseFloat;
   Math: any = Math;
   image_URL = "";
-
+  logunlog='Log Slot';
   currentDateIndex: any = 0;
 
   constructor(
@@ -85,15 +85,19 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
       this.loaded = true;
     }, 500);
   }
-
-  // addCal(data, i) {
-  //   if (!this.eat) {
-  //     return;
-  //   }
-  //   console.log("add cal called", data);
-  //   this.eatenStatusUpdate(data, this.data, this.index, i);
-  // }
-
+ 
+  returnIsEaten(dataItem){
+   const dt = dataItem.filter(item=>{
+      return item.eaten<=0;
+     })
+     if(dt?.length>0){
+       this.logunlog="Log Slot";
+     }
+     else{
+       this.logunlog="Logged";
+     }
+     return this.logunlog;
+   }
   async changed(data) {
     console.log("data111111", data);
    
@@ -266,34 +270,6 @@ addRemove(type) {
     if (this.disabled) {
       return;
     }
-    // food-detail
-    // this.navCtrl.navigateForward(["/food-detail"], {
-    //   // this.navCtrl.navigateForward(["/view-product"], {
-    //   queryParams: {
-    //     foodCode: JSON.stringify([d]),
-    //     mainCode: d._id,
-    //     param: this.data?.message,
-    //     portion: d.portion,
-    //     slot: this.index,
-    //     isV: true,
-    //     category: d.category,
-    //     router: this.router.url.split(";")[0],
-    //   },
-    // });
-
-    // const modal = await this.modalCtrl.create({
-    //   component: ViewProductPage,
-    //   componentProps: {
-    //     food: d,
-    //     router: this.router.url.split(";")[0],
-    //     slot: this.index,
-    //   },
-    // });
-
-    // modal.present();
-    // modal.onDidDismiss().then((res) => {
-    //   this.getDietdata.emit(CONSTANTS.dietDate);
-    // });
     console.log("d",d);
    this.popup = d; 
     this.isShow=true;
@@ -348,13 +324,13 @@ addRemove(type) {
       let foodCodeList = [];
         let dataTotal = [];
      // this.utilities.logEvent("Counter_add_home", {});
-     debugger;
+    
       for (let index = 0; index < item.data.length; index++) {
         dataTotal.push(
           {
             code: item.data[index].itemCode,
             portion: Number(item.data[index].portion),
-            eaten: 2,
+            eaten: this.logunlog ==='Log Slot'? 2: -1,
             foodSource: "internal"
           }
         )
@@ -372,6 +348,7 @@ addRemove(type) {
           this.getDietdata.emit(CONSTANTS.dietDate);
           this.utilities.showSuccessToast(status);
            this.todaysCalCount();
+           this.logunlog = this.logunlog==='Log Slot'? "Logged": "Log Slot";
          // this.getDietdata(CONSTANTS.dietDate);
         //  console.log("");
         },

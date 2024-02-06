@@ -226,7 +226,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         ischecked: true,
       },
     };
-    if (this.localData) {
+    if (this.localData?.otherMaster?.height) {
       this.localData.otherMaster.height = [
         {
           value: this.convertToInFromCM(),
@@ -278,7 +278,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       //const data = this.utilities.parseJSON(local);
       console.log("response ++++", res);
 
-      if (this.localData?.otherMaster.bmi != undefined) {
+      if (this.localData?.otherMaster?.bmi != undefined) {
         this.localData.otherMaster.bmi = {
           bmi: parseFloat(res.bmi).toFixed(1),
           suggestedWeight: Math.round(res.suggestedWeight),

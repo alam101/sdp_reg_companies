@@ -451,21 +451,21 @@ export class NewDietPage implements OnInit,AfterViewInit {
   }
   async gotoDownloadPopup(){
    
-    let me = this;
-    const modal = await me.modalController.create({
-      component: DownloadPopupComponent,
-      backdropDismiss: true,
-      cssClass: 'app-offer-popup',
-      componentProps: { }
-    });
-    modal.onDidDismiss().then((data: any) => {
-      if(localStorage.getItem("isDownload")=="1"){
-        localStorage.setItem("isDownload","0");
+    // let me = this;
+    // const modal = await me.modalController.create({
+    //   component: DownloadPopupComponent,
+    //   backdropDismiss: true,
+    //   cssClass: 'app-offer-popup',
+    //   componentProps: { }
+    // });
+    // modal.onDidDismiss().then((data: any) => {
+    //   if(localStorage.getItem("isDownload")=="1"){
+    //     localStorage.setItem("isDownload","0");
       this.downloadDietPlan();
       
-      }
-    })
-    return await modal.present();
+    //   }
+    // })
+    // return await modal.present();
   }
 
   gotoApply(url, type) {

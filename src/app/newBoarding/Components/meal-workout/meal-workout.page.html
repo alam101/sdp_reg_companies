@@ -20,7 +20,7 @@
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
           <a (click)="logSlot(data,index)"  style="font-size: .8rem; color: var(--theme-profile-background); margin-left: .5rem; border: 1px solid var(--theme-profile-background); border-radius: 5px;padding: 2px 5px;     position: absolute;
           right: 8px;
-          top: 7px;"> Log Slot</a>
+          top: 7px;"> {{returnIsEaten(data?.data)}}</a>
     
         </span>
       </p>
@@ -30,9 +30,7 @@
     >
       <div
         class="aditional_div"
-        *ngIf="d?.foodStatus === 'A'
-      "
-      >
+        *ngIf="d?.foodStatus === 'A'">
         <p>Additional</p>
       </div>
       <div
@@ -202,7 +200,7 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
 
 </div>
 <ion-row style="position: absolute;bottom: 1rem;width: 100%;">
-  <ion-col size="4" class="ion-text-left ion-align-self-end">
+  <ion-col size="6" class="ion-text-center ion-align-self-end">
     <div class="center">
       <div class="add_remove_btn center">
         <ion-icon name="remove" (click)="addRemove('remove')"></ion-icon>
@@ -221,8 +219,10 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
       <ion-icon name="chevron-forward-outline" style="color: #414042;margin-left:5px;"></ion-icon>
   </ion-button> -->
   </ion-col>
-  <ion-col size="4" class="ion-text-left"> <p class="portion" style="margin-top: 10px;font-size: .8rem;">{{popup?.portion_unit}}</p></ion-col>
-  <ion-col size="4" class="ion-text-center ion-align-self-start">
+  <ion-col size="2" class="ion-text-left"> <p class="portion" style="margin-top: 10px;font-size: .8rem;">
+    <!-- {{popup?.portion_unit}} -->
+  </p></ion-col>
+  <ion-col size="4" class="ion-text-left ion-align-self-start">
   <ion-button
   class="logged_btn"
   (click)="addCal(popup,i)"
