@@ -86,13 +86,14 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     //this.utilities.logEvent("Register_02BasicInfo", {});
     this.storage.get("localData").then((val) => {
       this.localData = this.utilities.parseJSON(val);
-      console.log(this.localData);
+     console.log(this.localData);
       if (this.localData?.otherMaster?.gender.length > 0) {
         const gender = this.localData?.otherMaster?.gender?.find(
           (r) => r.isSelected
         );
         if (gender) {
           this.gender = gender.code;
+          
         }
       }
 
@@ -118,6 +119,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       console.log(res);
       this.profileData = res;
       this.targetweight = this.profileData?.demographic?.suggestedWeight;
+      if(this.profileData?.demographic?.age?.avg_age){
+        this.targetYear = new Date().getFullYear() - this.profileData?.demographic?.age?.avg_age;
+      }
       if (this.profileData?.demographic?.height) {
         this.heightType =
           this.profileData?.demographic?.height?.unit === "in" ? "feet" : "cm";
@@ -157,6 +161,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         }
 
         console.log(this.height, this.inputHeight);
+
       }
     });
   }

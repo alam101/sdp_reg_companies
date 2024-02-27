@@ -307,7 +307,7 @@
           </p>
         </div>
 
-        <div class="left w_100">
+        <div class="left w_100" *ngIf="compConfig.isAllergies==true">
           <div style="width: 50">
             <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/alergies.png" class="Activity_image"></ion-img>
             <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="../../../../assets/newImages/allergies.svg" class="Activity_image"></ion-img>

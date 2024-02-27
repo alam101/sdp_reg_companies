@@ -21,6 +21,7 @@
             "isProfileIcons":false,
             "isEditProfile":false,
             "dietComponent":false,
+            "isAllergies":true,
             "goals":[
                 {
                     "heading":"Weight Management",
@@ -198,6 +199,7 @@
             "isProfileIcons":false,
             "isEditProfile":false,
             "dietComponent":false,
+            "isAllergies":true,
             "headerText":"Welcome to your daily diet plan.",
             "goals":[
                 {
@@ -376,6 +378,7 @@
             "isEditProfile":true,
             "dietComponent":false,
             "mealPref":false,
+            "isAllergies":false,
             "headerText":"Welcome to your daily diet plan for improved and healthy hair!",
             "goals":[
                 {
@@ -555,6 +558,7 @@
             "isEditProfile":true,
             "dietComponent":false,
             "mealPref":false,
+            "isAllergies":false,
             "headerText":"Welcome to your daily diet plan for improved and healthy hair!",
             "goals":[
                 {
@@ -733,6 +737,7 @@
             "isProfileIcons":false,
             "isEditProfile":false,
             "dietComponent":true,
+            "isAllergies":true,
             "headerText":"Welcome to your daily diet plan.",
             "goals":[
                 {
@@ -913,6 +918,7 @@
             "isEditProfile":false,
             "dietComponent":true,
             "mealPref":true,
+            "isAllergies":true,
             "headerText":"Welcome to your daily diet plan.",
             "goals":[
                 {
@@ -1091,6 +1097,7 @@
                 "isEditProfile":true,
                 "dietComponent":false,
                 "mealPref":false,
+                "isAllergies":true,
                 "headerText":"Welcome to your daily diet plan.",
                 "goals":[
                     {
@@ -1269,6 +1276,7 @@
                 "isEditProfile":false,
                 "dietComponent":false,
                 "mealPref":false,
+                "isAllergies":true,
                 "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
@@ -1419,6 +1427,7 @@
                 "isEditProfile":false,
                 "dietComponent":false,
                 "mealPref":false,
+                "isAllergies":true,
                 "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
@@ -1598,6 +1607,7 @@
                 "isEditProfile":false,
                 "dietComponent":false,
                 "mealPref":false,
+                "isAllergies":true,
                 "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
@@ -1777,6 +1787,7 @@
                 "isEditProfile":true,
                 "dietComponent":false,
                 "mealPref":false,
+                "isAllergies":true,
                 "headerText":"Welcome to your daily diet plan!",
                 "goals":[
                     {
@@ -1933,6 +1944,6 @@
             }
             
         }
-
+       
         
 ]
