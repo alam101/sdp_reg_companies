@@ -524,28 +524,40 @@ export class NewDietPage implements OnInit,AfterViewInit {
         console.log("alam101",this.diets);
         this.storage.set("dietData", this.diets);
         this.allData.targetCal = res;
-        this.diets.diets.forEach((ele) => {
-          ele.data.forEach((element) => {
-            if (element.eaten > 0) {
-              this.allData.totalCal = Math.ceil(
-                Number(this.allData.totalCal + element.Calories)
-              );
-              this.allData.Carbs = Math.ceil(
-                Number(this.allData.Carbs + element.Carbs)
-              );
-              this.allData.Fat = Math.ceil(
-                Number(this.allData.Fat + element.Fat)
-              );
-              this.allData.Fiber = Math.ceil(
-                Number(this.allData.Fiber + element.Fiber)
-              );
-              this.allData.Protien = Math.ceil(
-                Number(this.allData.Protien + element.Protien)
-              );
-            }
+        if(this.diets.diets?.length>0){
+          this.diets.diets.forEach((ele) => {
+            if(ele?.data?.length>0){
+            ele?.data.forEach((element) => {
+              if (element.eaten > 0) {
+                this.allData.totalCal = Math.ceil(
+                  Number(this.allData.totalCal + element.Calories)
+                );
+                this.allData.Carbs = Math.ceil(
+                  Number(this.allData.Carbs + element.Carbs)
+                );
+                this.allData.Fat = Math.ceil(
+                  Number(this.allData.Fat + element.Fat)
+                );
+                this.allData.Fiber = Math.ceil(
+                  Number(this.allData.Fiber + element.Fiber)
+                );
+                this.allData.Protien = Math.ceil(
+                  Number(this.allData.Protien + element.Protien)
+                );
+              }
+          
+            });
+           }
+          else{
+            this.utilities.presentAlert("Food Items are not available. Please refresh!");
+          }
           });
-        });
-
+        }
+        else{
+          this.utilities.presentAlert("Slots are not available. Please refresh!");
+        }
+     
+        
         this.cdr.detectChanges();
       });
   }
