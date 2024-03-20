@@ -526,6 +526,8 @@ export class NewDietPage implements OnInit,AfterViewInit {
         this.allData.targetCal = res;
         if(this.diets.diets?.length>0){
           this.diets.diets.forEach((ele) => {
+            console.log("sssssss:-",ele?.data);
+            
             if(ele?.data?.length>0){
             ele?.data.forEach((element) => {
               if (element.eaten > 0) {
@@ -548,9 +550,7 @@ export class NewDietPage implements OnInit,AfterViewInit {
           
             });
            }
-          else{
-            this.utilities.presentAlert("Food Items are not available. Please refresh!");
-          }
+          
           });
         }
         else{
