@@ -1,0 +1,211 @@
+.back_btn{
+    color: black;
+    font-family: var(--theme-newFont);
+    font-size: var(--regularM-font);
+    text-transform: none;
+
+    ion-icon{
+        color: var(--theme-color);
+    }
+}
+
+.ion_content_div{
+  // background: var(--theme-newHeader);
+  // min-height: 100%;
+  margin-top: 50px;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  // top: -15px;
+  font-size: 35px;
+  color: var(--theme-color);
+  background: white;
+  border-radius: 100%;
+  z-index: 9999;
+}
+
+.main_div {
+  min-height: 100%;
+  background: var(--white);
+  border-radius: 40px 40px 0px 0px;
+  // padding-bottom: 30px;
+  position: relative;
+ padding: 50px 10px 0px 10px;
+}
+
+ion-header{
+    background: white;
+    box-shadow: 0px 2px 2px #00000029 !important;
+    margin-top: 50px;
+
+    ion-toolbar{
+        --background: white;
+        padding-top: 0 !important;
+        top:1.5rem;
+        ion-title{
+            color: var(--black);
+            font-size: 22px;
+            font-family: var(--theme-newFont);
+            font-weight: 700;
+            padding: 0%;
+            
+        }
+
+       img{
+            height: 80px;
+            object-fit: contain;
+        }
+        .searchbar {
+            border: 1px solid var(--theme-color);
+            color: var(--black);
+            font-size: var(--small-font);
+            padding: 0%;
+            --border-radius: 25px;
+            border-radius: 25px;
+            --box-shadow: none;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .filter_div{
+            margin: 10px 0px;
+            
+            ion-button{
+                
+                &::part(native){
+                    border-color: var(--theme-color);
+                    text-transform: none;
+                    color:var(--black) ;
+                    font-size: var(--small-font);
+                    --padding-start: 10px; 
+                    --padding-end: 10px;
+                    height: 30px;
+                    border-width: 1px;
+                }
+            }
+        }
+    }
+}
+
+.change {
+    color: var(--black);
+    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    // margin-left: 10px;
+    margin-bottom: 2px;
+  }
+  
+  .change2 {
+    color: #707070;
+    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    font-weight: 400;
+    margin-top: 0%;
+    margin-bottom: 5px;
+   
+  }
+
+  .healthy{
+    color: #38a534;
+    font-size: var(--xsmall-font);
+    margin-top: 0%;
+    font-weight: 700;
+  }
+
+  .no_data_title {
+    font-size: var(--regular-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+  }
+  
+  .no_data_subtitle {
+    font-size: var(--small-font);
+    margin: 0px;
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+  }
+
+  .tgl_title {
+    font-size: var(--xsmall-font);
+    margin: 0px;
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+  }
+  
+  .VE {
+    height: 10px;
+    width: 40px;
+    padding: 0px;
+    --handle-width: 15px;
+    --handle-height: 15px;
+    --handle-max-height: auto;
+    --handle-spacing: 6px;
+    overflow: visible;
+    contain: none;
+  
+    &::part(handle) {
+      background: var(--green);
+      border-radius: 4px;
+      box-shadow: none;
+    }
+  }
+  .VE::part(track) {
+    background: #ddd;
+  }
+  .VE.toggle-checked::part(track) {
+    background: var(--green);
+  }
+  
+  .V {
+    height: 10px;
+    width: 40px;
+    padding: 0px;
+    --handle-width: 15px;
+    --handle-height: 15px;
+    --handle-max-height: auto;
+    --handle-spacing: 6px;
+    overflow: visible;
+    contain: none;
+    &::part(handle) {
+      background: #94ea0a;
+      border-radius: 4px;
+      box-shadow: none;
+    }
+  }
+  .V::part(track) {
+    background: #ddd;
+  }
+  .V.toggle-checked::part(track) {
+    background: #94ea0a;
+  }
+  
+  .NV {
+    height: 10px;
+    width: 40px;
+    padding: 0px;
+    --handle-width: 15px;
+    --handle-height: 15px;
+    --handle-max-height: auto;
+    --handle-spacing: 6px;
+    overflow: visible;
+    contain: none;
+    &::part(handle) {
+      background: var(--red);
+      border-radius: 4px;
+      box-shadow: none;
+    }
+  }
+  .NV::part(track) {
+    background: #ddd;
+  }
+  
+  .NV.toggle-checked::part(track) {
+    background: var(--red);
+  }

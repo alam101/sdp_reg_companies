@@ -80,9 +80,9 @@ export class ViewProductPage implements OnInit {
       let newDate: any = new Date().getTime();
       // console.log(exp, newDate);
 
-      if (exp > newDate) {
-        this.plandata.isPlanActive = true;
-      }
+      // if (exp > newDate) {
+      //   this.plandata.isPlanActive = true;
+      // }
     });
   }
 

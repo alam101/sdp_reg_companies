@@ -1,0 +1,179 @@
+<!-- <div class="ion_content_div">
+  <div
+    class="main_div"
+    [ngStyle]="{'border-radius':platform ?'0px':'40px 40px 0px 0px'}"
+  > -->
+<ion-icon
+  class="close"
+  name="close-circle"
+  (click)="goBack()"
+  [ngStyle]="{'top':platform ?'3rem':'3rem'}"
+></ion-icon>
+<ion-header>
+  <!-- <ion-button fill="clear" class="back_btn" (click)="goBack()"
+    ><ion-icon slot="start" name="arrow-back-outline"></ion-icon
+    >Back</ion-button
+  > -->
+  <div style="margin: 1rem 5%">
+    <ion-toolbar>
+      <ion-title style="position: relative;text-align: left;">{{selectedCat?.name}}</ion-title>
+      <p class="change2">
+        {{type === 'H'? 'Home based':type === 'P'?'Groceries':'Restaurant'}}
+      </p>
+      <ion-searchbar
+      mode="md" 
+        class="searchbar"
+        [(ngModel)]="search"
+        (ngModelChange)="searchFood($event)"
+      ></ion-searchbar>
+      <div class="left filter_div">
+        <div *ngFor="let t of dataTypeList" style="width: 60px">
+          <ion-toggle
+            [ngClass]="t.name"
+            [(ngModel)]="t.isChecked"
+            (ngModelChange)="filterDataType($event,t)"
+            [disabled]="allRestaurant.length === 0 && !this.dataType"
+          ></ion-toggle>
+          <p class="tgl_title">{{t.title}}</p>
+        </div>
+
+        <!-- <ion-button fill="outline" shape="round"
+          ><ion-icon
+            slot="end"
+            src="../../../../assets/newImages/filter.svg"
+          ></ion-icon
+          >Filter</ion-button
+        >
+
+        <ion-button fill="outline" shape="round"
+          ><ion-icon
+            slot="end"
+            src="../../../../assets/newImages/sort.svg"
+          ></ion-icon
+          >Sort by</ion-button
+        > -->
+      </div>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="h_100">
+    <ion-grid class="pad_0 h_100">
+      <ion-row class="h_100">
+        <ion-col size="3" class="pad_0 h_100">
+          <ion-card class="index_card">
+            <div class="avtar_div scroll_y h_100">
+              <div
+                class="left flex_col avtar_div2"
+                *ngFor="let hb of allproducts"
+              >
+                <div
+                  class="main_avtar_div center"
+                  *ngIf="!hb?.subCategory"
+                  (click)="selectCat(hb)"
+                >
+                  <div class="activeCat" *ngIf="selectedCat === hb"></div>
+                  <ion-avatar class="avtar">
+                    <img
+                      src="{{hb?.imageId}}"
+                      onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
+                    />
+                  </ion-avatar>
+                </div>
+
+                <p
+                  (click)="selectCat(hb)"
+                  *ngIf="!hb?.subCategory"
+                  class="meal_cal alter_name"
+                  [ngStyle]="{'color':selectedCat === hb?'var(--theme-color)':'var(--black)'}"
+                >
+                  {{hb?.name}}
+                </p>
+
+                <div
+                  class="center flex_col w_100"
+                  *ngFor="let h of hb?.subCategory"
+                  (click)="selectCat(h)"
+                >
+                  <div class="main_avtar_div center">
+                    <div class="activeCat" *ngIf="selectedCat === h"></div>
+                    <ion-avatar class="avtar">
+                      <img
+                        src="{{h?.imageId}}"
+                        onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
+                      />
+                    </ion-avatar>
+                  </div>
+
+                  <p
+                    class="meal_cal alter_name"
+                    [ngStyle]="{'color':selectedCat === h?'var(--theme-color)':'var(--black)'}"
+                  >
+                    {{h?.name}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+        <ion-col size="9" class="h_100">
+          <div class="index_card">
+            <ion-content>
+              <!-- <div class="scroll_y h_100"> -->
+              <div *ngIf="type !== 'R'">
+                <div *ngIf="loaded">
+                  <div style="padding: 5px 10px" *ngFor="let t of [1,2,3,4,5]">
+                    <app-filter-card [loaded]="loaded"></app-filter-card>
+                  </div>
+                </div>
+
+                <div
+                  *ngFor="let d of allRestaurant;let i = index"
+                  style="padding: 5px 10px"
+                >
+                  <app-filter-card
+                    [data]="d"
+                    [loaded]="loaded"
+                    [slot]="slot"
+                  ></app-filter-card>
+                </div>
+              </div>
+
+              <div *ngIf="allRestaurant?.length  === 0 && !loaded">
+                <p class="no_data_title">"No data found"</p>
+                <!-- <p class="no_data_subtitle">Your slot is empty.</p>
+                <p class="no_data_subtitle">
+                  Add something from the meal options.
+                </p> -->
+                <ion-img
+                  src="../../../../assets/newImages/no-meal.png"
+                ></ion-img>
+              </div>
+
+              <ion-grid class="pad_0" *ngIf="type==='R'">
+                <ion-row>
+                  <ion-col size="6" *ngFor="let d of allRestaurant">
+                    <app-restaurant-card
+                      [data]="d"
+                      [slot]="slot"
+                    ></app-restaurant-card>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <!-- </div> -->
+              <!-- <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+                <ion-infinite-scroll-content
+                  loadingText="Please wait..."
+                  loadingSpinner="bubbles"
+                ></ion-infinite-scroll-content>
+              </ion-infinite-scroll> -->
+            </ion-content>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+<!-- </div>
+</div> -->

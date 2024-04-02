@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import {  Routes } from '@angular/router';
 import { FightSliderPage } from './fight-slider/fight-slider.page';
-
 export const APP_ROUTES: Routes = [
   {
     path:'',
@@ -100,7 +99,48 @@ export const APP_ROUTES: Routes = [
       import("../app/components/meal-pref-page/meal-pref-page.module").then(
         (m) => m.MealPrefPagePageModule
       )
-  }
+  },
+
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'selectslot-popup',
+    loadChildren: () => import('./selectslot-popup/selectslot-popup.module').then( m => m.SelectslotPopupPageModule)
+  },
+  {
+    path: 'view-product',
+    loadChildren: () => import('./view-product/view-product.module').then( m => m.ViewProductPageModule)
+  },
+  {
+    path: 'view-suggestions',
+    loadChildren: () => import('./view-suggestions/view-suggestions.module').then( m => m.ViewSuggestionsPageModule)
+  },
+  {
+    path: 'alternate-diet',
+    loadChildren: () => import('./alternate-diet/alternate-diet.module').then( m => m.AlternateDietPageModule)
+  },
+  {
+    path: 'alternate-search',
+    loadChildren: () => import('./alternate-search/alternate-search.module').then( m => m.AlternateSearchPageModule)
+  },
+  {
+    path: 'filter-card',
+    loadChildren: () => import('./components/filter-card/filter-card.module').then( m => m.FilterCardPageModule)
+  },
+  {
+    path: 'restaurant-card',
+    loadChildren: () => import('./components/restaurant-card/restaurant-card.module').then( m => m.RestaurantCardPageModule)
+  },
+  {
+    path: 'small-meal-card',
+    loadChildren: () => import('./components/small-meal-card/small-meal-card.module').then( m => m.SmallMealCardPageModule)
+  },
+  {
+    path: 'meal-workout',
+    loadChildren: () => import('./components/meal-workout/meal-workout.module').then( m => m.MealWorkoutPageModule)
+  },
 ];
 
 @NgModule({})

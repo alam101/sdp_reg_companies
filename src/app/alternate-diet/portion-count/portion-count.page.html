@@ -1,0 +1,172 @@
+<!-- --------------------------add modal------------------------------------- -->
+
+<ion-content *ngIf="type === 'add'">
+  <div class="center flex_col portion_count_maindiv">
+    <ion-icon
+      class="close_icon"
+      name="close-circle"
+      (click)="closeModal()"
+    ></ion-icon>
+  
+    <p class="meal_pro">{{data?.Food}}</p>
+    <div class="center" style="margin-left: 55px">
+      <div class="add_remove_btn center">
+        <ion-icon name="remove" (click)="addRemove('remove')"></ion-icon>
+        <p>{{data?.portion}}</p>
+        <ion-icon name="add" (click)="addRemove('add')"></ion-icon>
+      </div>
+      <p class="portion" *ngIf="data.foodSource=='R' || data.foodSource=='P'">{{data?.portion_unit}} ({{data.portion_gms}} {{data.measuring_unit}})</p>
+      <p class="portion" *ngIf="data.foodSource!=='R' && data.foodSource!=='P'">{{data?.portion_unit}}</p>
+    </div>
+    <p class="meal_pro">{{(data?.Calories * data?.portion)?.toFixed(2) }} Kcal</p>
+    <div class="w_100 center log_btn_div">
+      <p class="log_btn" (click)="log()">Log food item</p>
+    </div>
+  </div>
+</ion-content>
+
+<!-- -----------------------------------logged popover---------------------------------------- -->
+
+<ion-content *ngIf="type==='logged'" class="content">
+  <div class="d_flex flex_col" *ngIf="data?.foodStatus !== 'A'">
+    <ion-button
+      shape="round"
+      class="buttons"
+      *ngIf="!data.eaten || data.eaten < 0"
+      (click)="loggedAction('track')"
+    >
+      Log</ion-button
+    >
+
+    <ion-button
+      shape="round"
+      class="buttons"
+      *ngIf="data.eaten && data.eaten > 0"
+      (click)="loggedAction('unlog')"
+    >
+      <!-- <ion-icon slot="start" name="checkmark"></ion-icon> -->
+      Un-log
+    </ion-button>
+
+    <ion-button
+      shape="round"
+      class="buttons"
+      *ngIf="!data.eaten || data.eaten < 0"
+      (click)="loggedAction('alter')"
+    >
+      Alternatives</ion-button
+    >
+
+    <ion-button
+      shape="round"
+      class="buttons"
+      *ngIf="data.eaten && data.eaten > 0"
+      (click)="loggedAction('edit')"
+      >Edit Qty
+    </ion-button>
+
+    <ion-button shape="round" class="buttons" (click)="loggedAction('info')"
+      >Food Info</ion-button
+    >
+    <!-- <ion-button shape="round" class="buttons" (click)="loggedAction('remove')">Remove</ion-button> -->
+  </div>
+  <div class="d_flex flex_col" *ngIf="data?.foodStatus === 'A'">
+    <ion-button shape="round" class="buttons" (click)="loggedAction('edit')"
+      >Edit Qty
+    </ion-button>
+    <ion-button shape="round" class="buttons" (click)="loggedAction('remove')"
+      >Remove</ion-button
+    >
+  </div>
+
+  <div class="w_100 center">
+    <!-- <ion-button shape="round" class="buttons_cancel" (click)="closePopover()"> -->
+    <ion-icon
+      name="close-circle-outline"
+      (click)="closePopover()"
+      class="close_circle"
+    ></ion-icon>
+    <!-- </ion-button> -->
+  </div>
+</ion-content>
+
+<!-- -----------------------------change modal----------------------------------------- -->
+
+<div *ngIf="type === 'change' " class="change_main_div">
+  <div class="center">
+    <span class="border_line"></span>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10" class="left">
+        <ion-icon
+          class="back_icon"
+          name="arrow-back-sharp"
+          (click)="closeModal()"
+        ></ion-icon>
+        <p class="change">Alternatives for "{{data?.Food}}"</p>
+      </ion-col>
+      <ion-col size="2" class="right">
+        <ion-icon
+          class="close"
+          name="close-sharp"
+          (click)="closeModal()"
+        ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-searchbar
+  mode="md" 
+    class="searchbar"
+    placeholder="Search in Alternatives"
+    [(ngModel)]="searchData"
+    (ngModelChange)="filterData($event)"
+  ></ion-searchbar>
+  <p class="change">
+    {{filterDataArr?.length ===0 ? '': filterDataArr?.length}} Alternatives
+    available
+  </p>
+  <div class="h_100">
+    <ion-content class="change_content" style="overflow-y: scroll;--padding-bottom: 50%;">
+      <div style="height: 120px;">
+        <ion-grid class="pad_0">
+          <ion-row>
+            <ion-col size="6" *ngIf="!loaded">
+              <ion-skeleton-text animated class="sketloan"></ion-skeleton-text>
+            </ion-col>
+            <!-- <ion-col
+              size="6"
+              *ngFor="let d of filterDataArr.slice(0,plan?filterDataArr.length+1:2)"
+            > -->
+            <ion-col size="6" *ngFor="let d of filterDataArr">
+              <app-small-meal-card
+                (replacedModal)="replacedModal($event)"
+                [mealData]="d"
+                [slot]="this.data?.slot"
+                (gotoView)="gotoView($event)"
+              >
+              </app-small-meal-card>
+            </ion-col>
+          </ion-row>
+          <!-- <ion-row *ngIf="!plan&&filterDataArr.length > 0">
+            <div class="center more_button_div">
+              <ion-button
+                shape="round"
+                fill="outline"
+                class="lock_btn"
+                (click)="gotoPremium()"
+              >
+                <ion-icon
+                  class="lock"
+                  src="../../../../assets/newImages/Lock.svg"
+                ></ion-icon>
+                {{filterDataArr.length-2}} More
+              </ion-button>
+            </div>
+          </ion-row> -->
+        </ion-grid>
+      </div>
+    </ion-content>
+  </div>
+</div>

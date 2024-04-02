@@ -1,0 +1,97 @@
+.product_card {
+    margin: 5px;
+    margin-top: 10px;
+    padding: 5px;
+    box-shadow: var(--boxshadow);
+    width: 120px;
+    border-radius: 8px;
+  
+    .img_div{
+         height: 100px;
+         border:2px solid var(--card-border);
+         border-radius: 8px;
+         padding: 5px;
+
+         ion-img{
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+          border-radius: 10px;
+         }
+
+         img{
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+          border-radius: 10px;
+         }
+    }
+
+    ion-icon {
+      color: var(--theme-newButton);
+      font-size: 25px;
+      background: var(--white);
+      border-radius: 100%;
+    }
+  }
+
+  .change {
+    color: var(--black);
+    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    // margin-left: 10px;
+    margin-bottom: 2px;
+  }
+  
+  .change2 {
+    color: #707070;
+    font-size: var(--xsmall-font);
+    font-family: var(--theme-newFont);
+    font-weight: 400;
+    margin: 0%;
+    // margin-left: 10px;
+  }
+
+  .healthy{
+    color: #38a534;
+    font-size: var(--xsmall-font);
+    margin-top: 0%;
+  }
+
+  .Best {
+    --progress-background: #38a534;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Good {
+    --progress-background: #94ea0a;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Average {
+    --progress-background: #eadc18;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Fair {
+    --progress-background: #ffa500;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Unverified {
+    --progress-background: #7d7d7d5e;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Bad{
+    --progress-background: red;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }

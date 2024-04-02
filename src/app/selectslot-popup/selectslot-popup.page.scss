@@ -1,0 +1,24 @@
+.slot-heading {
+  font-size: var(--regularM-font);
+  margin: 0px;
+  margin-bottom: 5px;
+  font-family: var(--theme-newFont);
+  font-weight: 500;
+  color: var(--black);
+  // width: 200px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.plus_icon {
+  font-size: 30px;
+  z-index: 1;
+  border-radius: 100%;
+  background: white;
+  color: var(--theme-newButton);
+  margin-right: 0px;
+}
+
+.line-height {
+  height: 55px;
+}

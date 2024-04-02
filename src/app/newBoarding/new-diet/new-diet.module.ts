@@ -15,6 +15,7 @@ import { TodaysCalorieCountPageModule } from "../Components/todays-calorie-count
 // import { NewCaloriesComponent } from "src/app/components/new-calories/new-calories.component";
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ComponentsModule } from "src/app/components/components.module";
+import { Tabs1PageModule } from "src/app/tabs1/tabs1.module";
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +28,8 @@ import { ComponentsModule } from "src/app/components/components.module";
     DetoxPageModule,
     TodaysCalorieCountPageModule,
     NgCircleProgressModule,
-    ComponentsModule
+    ComponentsModule,
+    Tabs1PageModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [NewDietPage],

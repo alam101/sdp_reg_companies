@@ -1,0 +1,57 @@
+<ion-card class="card">
+  <div class="d_flex">
+    <div style="width: 60px; position: relative">
+      <ion-thumbnail (click)="gotoViews(data)" class="center">
+        <img
+        class="card_img"
+        [src]="data?.imageUrl"
+        onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
+      />
+        
+      
+      </ion-thumbnail>
+     
+    </div>
+
+    <div class="meal_pro_div">
+      <p class="meal_pro" style="height: 45px">{{data?.Food}}</p>
+      <div class="meal_pro_div d_flex" style="margin-top: 7px; padding: 0%">
+        <div class="w_100">
+          <p class="meal_pro" style="font-weight: 500">
+            {{Math.round(data.Calories * this.data.portion)}} Kcal
+            <!-- * data?.portion -->
+          </p>
+          <ion-progress-bar
+            [ngClass]="data?.option === 'Below average'?'Fair':data?.option === 'Not recommended'?'Bad':data?.option "
+            value="1"
+          ></ion-progress-bar>
+        </div>
+
+       
+        <ion-icon
+          class="plus_icon"
+          (click)="replaced()"
+          name="add-circle-outline"
+        ></ion-icon>
+        <!--  <div
+            class="dot_boarder"
+            [ngStyle]="{'border-color':data?.foodType==='Ve' || data?.foodType==='V' ? 'var(--green)' : data?.foodType==='E' ? 'var(--yellow)': 'var(--red)'}"
+          >
+            <div
+              class="dot"
+              [ngStyle]="{'background':data?.foodType==='Ve' || data?.foodType==='V' ? 'var(--green)' : data?.foodType==='E' ? 'var(--yellow)': 'var(--red)'}"
+            ></div>
+          </div>-->
+        <!-- </div> -->
+      </div>
+
+      <!-- <div class="right">
+        <ion-icon
+          class="plus_icon"
+          (click)="replacedModal(d,true)"
+          name="add-circle-outline"
+        ></ion-icon>
+      </div> -->
+    </div>
+  </div>
+</ion-card>

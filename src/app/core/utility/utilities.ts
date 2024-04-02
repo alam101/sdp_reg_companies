@@ -10,6 +10,8 @@ import { ToastrService } from "ngx-toastr";
   providedIn: "root"
 })
 export class UTILITIES {
+  modalInst = [];
+  i = 0;
   private loaderObj: any;
   isLoading = true;
   private months = [
@@ -55,6 +57,27 @@ export class UTILITIES {
       })
       .replace(/\s+/g, str);
   }
+
+
+ 
+
+  showToastforMessage(message) {
+    this.toastr.info(message, "Locked", {
+      closeButton: true,
+      timeOut: 3000,
+      positionClass: "toast-top-center",
+    });
+  }
+  storeModal(x) {
+    this.modalInst[this.i] = x;
+    this.i++;
+  }
+  closeModal() {
+    for (var i = 0; i < this.modalInst.length; i++) {
+      this.modalInst[i].dismiss();
+    }
+  }
+
 
   getUserData(type = "") {
     return new Promise((resolve, reject) => {
@@ -881,4 +904,5 @@ export class UTILITIES {
       return false;
     }
   }
+  
 }

@@ -1,0 +1,17 @@
+<ion-card class="product_card" (click)=" viewRestaurant()">
+  <div class="img_div center">
+    <img
+      src="{{data?.logo}}"
+      onerror="this.src='./assets/images/externalImages/null.jpg';this.style='object-fit: contain'"
+    />
+  </div>
+  <div style="height: 45px">
+    <p class="change">{{data?.brand}}</p>
+    <p class="change2">Healthy food, salad...</p>
+  </div>
+
+  <p class="change healthy" style="color: #38a534">
+    {{data?.totalHealthyItems}} Better choices
+  </p>
+  <ion-progress-bar class="Best" value="1"></ion-progress-bar>
+</ion-card>

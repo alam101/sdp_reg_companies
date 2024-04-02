@@ -1,0 +1,233 @@
+.change_main_div {
+    padding: 10px;
+    min-height: 100%;
+  }
+  
+  .change_content {
+    &::part(background) {
+      background: var(--white) !important;
+    }
+  
+    &::part(scroll) {
+     min-height: max-content;
+    }
+  }
+  
+  .border_line {
+    width: 60px;
+    border: 2px solid #6e6e6e;
+    border-radius: 25px;
+    // margin: 10px;
+  }
+  
+  .back_icon {
+    font-size: 25px;
+    color: var(--theme-color);
+  }
+  
+  .change {
+    color: var(--black);
+    font-size: var(--regularM-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    margin-left: 10px;
+  }
+  
+  .close {
+    font-size: 30px;
+    color: var(--black);
+  }
+  
+  .searchbar {
+    border: 1px solid var(--theme-color);
+    color: var(--black);
+    padding: 0%;
+    --border-radius: 25px;
+    border-radius: 25px;
+    --box-shadow: none;
+  }
+  
+  .card {
+    box-shadow: var(--boxshadow);
+    border-radius: 10px;
+    border-bottom: var(--boxshadow);
+    padding: 5px;
+    margin: 5px;
+    min-width: 150px
+  }
+  
+  .card_img {
+    object-fit: cover;
+    &::part(image) {
+      border-radius: 5px;
+    }
+  }
+  
+  ion-thumbnail {
+    // --size: 65px;
+    height: 72px;
+    width: 56px;
+    --border-radius: 7px;
+   position: relative
+   
+  }
+  
+  .meal_pro_div {
+    width: 100%;
+    padding-left: 5px;
+  }
+  
+  .meal_cal {
+    font-size: var(--small-font);
+    margin: 0px;
+    font-family: var(--theme-newFont);
+    font-weight: 300;
+    color: #666666;
+  }
+  
+  .meal_pro {
+    font-size: var(--small-font);
+    margin: 0px;
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: #666666;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    // width: 200px;
+  }
+  
+  .Best {
+    --progress-background: #38a534;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Good {
+    --progress-background: #94ea0a;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Average {
+    --progress-background: #eadc18;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Fair {
+    --progress-background: #ffa500;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Unverified {
+    --progress-background: #7d7d7d5e;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .Bad{
+    --progress-background: red;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  .plus_icon {
+    font-size: 25px;
+    z-index: 1;
+    border-radius: 100%;
+    background: white;
+    color: #999999;
+    // color: var(--theme-color);
+    margin-right: 0px;
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+  }
+  
+  .more_button_div {
+    margin-top: 10px;
+    z-index: 999;
+    width: 100%;
+    // position: absolute;
+    // bottom: -10px;
+  
+    ion-button {
+      --border-color: #707070;
+      color: #707070;
+      font-size: var(--xsmall-font);
+      text-transform: none;
+      --background: var(--white);
+      --border-width: 1px;
+      height: 25px;
+      width: 140px;
+    }
+  
+    .up_down_icon {
+      border: 1px solid var(--theme-color);
+      border-radius: 100px;
+      padding: 2px;
+      color: var(--theme-color);
+      background: var(--white);
+      box-shadow: var(--boxshadow);
+    }
+  }
+  
+  .lock {
+    color: var(--black);
+    font-size: 25px;
+    margin: 0px 0px 0px 5px;
+  }
+  
+  .lock_btn {
+    width: 75px !important;
+    --padding-start: 0px !important;
+    --padding-end: 5px !important;
+  }
+  
+  .dot_boarder {
+    margin: 0%;
+    border: 2px solid var(--theme-color);
+    height: 15px;
+    width: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dot {
+    height: 5px;
+    width: 5px;
+    background: var(--theme-color);
+    border-radius: 100%;
+  }
+  
+  .veg_div{
+    position: absolute;
+    top: 1px;
+    right: 2px;
+    background: white;
+    height: 18px;
+    width: 19px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rest_logo{
+    position: absolute;
+    bottom: -20px;
+    height: 35px;
+    width: 35px;
+    box-shadow: var(--boxshadow);
+
+    ion-img{
+      height: 35px;
+      width: 35px;
+      object-fit: contain;
+    }
+  }
+  

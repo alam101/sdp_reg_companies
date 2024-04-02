@@ -1,0 +1,101 @@
+<div style="position: relative">
+  <ion-skeleton-text
+    *ngIf="loaded"
+    animated
+    class="sketloan"
+  ></ion-skeleton-text>
+  <ion-card *ngIf="!loaded">
+    <div>
+      <div
+        class="aditional_div"
+        *ngIf="data?.foodStatus === 'A'
+      "
+      >
+        <p>Additional</p>
+      </div>
+      <div class="d_flex card_main_div">
+        <div class="center">
+          <ion-thumbnail
+            style="position: relative"
+            class="center"
+            (click)="gotoView(data)"
+          >
+            <img
+              class="card_img"
+              src="{{data?.imageId}}"
+              onerror="this.src='./assets/images/externalImages/null.jpg';this.style='object-fit: contain'"
+            />
+            <!-- <ion-avatar class="rest_logo">
+              <img
+                *ngIf="data?.foodSource === 'P'"
+                src="{{data?.brandLogo}}"
+                onerror="this.src='./assets/images/externalImages/null.jpg';this.style='object-fit: contain'"
+              />
+            </ion-avatar> -->
+          </ion-thumbnail>
+        </div>
+        <ion-grid class="w_100">
+          <ion-row>
+            <ion-col size="10">
+              <p class="meal_pro">{{data?.Food}}</p>
+              <!-- <p class="meal_cal">{{data?.portion}} {{data?.portion_unit}}</p> -->
+              <p class="meal_cal" *ngIf="data.foodSource=='R' || data.foodSource=='P'">
+                {{data?.portion}} {{data?.portion_unit || data?.portionUnit}} ({{data?.portion_gms}} {{data?.measuring_unit}})
+              </p>
+              <p class="meal_cal" *ngIf="data.foodSource!=='R' && data.foodSource!=='P'">
+                {{data?.portion}} {{data?.portion_unit || data?.portionUnit}}
+              </p>
+            </ion-col>
+
+            <ion-col size="2" class="right" style="align-items: flex-start">
+              <div
+                class="dot_boarder"
+                [ngStyle]="{'border-color':data?.foodType==='Ve' || data?.foodType==='V' ? 'var(--green)' : data?.foodType==='E' ? 'var(--yellow)': data?.foodType==='NV' ?'var(--red)':'lightgrey'}"
+              >
+                <div
+                  class="dot"
+                  [ngStyle]="{'background':data?.foodType==='Ve' || data?.foodType==='V' ? 'var(--green)' : data?.foodType==='E' ? 'var(--yellow)':  data?.foodType==='NV' ?'var(--red)':'lightgrey'}"
+                ></div>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <div class="meal_pro_div" style="margin-top: 10px">
+            <div>
+              <p class="meal_cal" style="font-weight: 500">
+                {{Math.round(data?.Calories * data?.portion)}} Kcal
+              </p>
+              <ion-progress-bar
+                [ngClass]="data?.option === 'Below average'?'Fair':data?.option === 'Not recommended'?'Bad':data?.option "
+                value="1"
+              ></ion-progress-bar>
+              <p class="choice">{{data?.option}} Choice</p>
+            </div>
+            <ion-button
+              *ngIf="data?.eaten > 0 "
+              fill="outline"
+              shape="round"
+              class="logged_btn"
+              (click)="addCal(data)"
+            >
+              <ion-icon slot="start" name="checkmark"></ion-icon>
+              Logged
+            </ion-button>
+            <ion-icon
+              *ngIf="!data?.eaten || data?.eaten < 0"
+              class="plus_icon"
+              (click)="addCal(data)"
+              name="add-circle"
+            ></ion-icon>
+          </div>
+        </ion-grid>
+      </div>
+    </div>
+    <div *ngIf="data?.data?.length  === 0 && !loaded">
+      <p class="no_data_title">"Eat Better Not Less"</p>
+      <p class="no_data_subtitle">Your slot is empty.</p>
+      <p class="no_data_subtitle">Add something from the meal options.</p>
+      <ion-img src="../../../../assets/newImages/no-meal.png"></ion-img>
+    </div>
+  </ion-card>
+</div>

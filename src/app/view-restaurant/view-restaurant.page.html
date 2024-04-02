@@ -1,0 +1,85 @@
+<!-- <div
+    class="main_div"
+    [ngStyle]="{'border-radius':platform ?'0px':'40px 40px 0px 0px'}"
+  > -->
+<ion-icon
+  class="close"
+  name="close-circle"
+  (click)="goBack()"
+  [ngStyle]="{'top':platform ?'2.5rem':'2.5rem'}"
+></ion-icon>
+
+<ion-header>
+  <!-- <ion-button fill="clear" class="back_btn" (click)="goBack()"
+      ><ion-icon slot="start" name="arrow-back-outline"></ion-icon
+      >Back</ion-button
+    > -->
+  <div style="margin: 1.5rem 5%">
+    <ion-toolbar>
+      <ion-row>
+        <ion-col size="8">
+          <ion-title>{{data?.brand}}</ion-title>
+          <p class="change2">Restaurant</p>
+          <!-- <p class="change healthy">
+            {{data?.totalHealthyItems}} healthy items
+          </p> -->
+        </ion-col>
+        <ion-col size="4" class="right">
+          <img
+            [src]="data?.logo"
+            onerror="this.src='./assets/images/externalImages/null.jpg';this.style='object-fit: contain'"
+          />
+        </ion-col>
+      </ion-row>
+
+      <ion-searchbar
+      mode="md" 
+        class="searchbar"
+        [(ngModel)]="search"
+        (ngModelChange)="searchFood($event)"
+      ></ion-searchbar>
+      <div class="left filter_div">
+        <div *ngFor="let t of dataTypeList" style="width: 60px">
+          <ion-toggle
+            [ngClass]="t.name"
+            [(ngModel)]="t.isChecked"
+            (ngModelChange)="filterDataType($event,t)"
+            [disabled]="allRestProduct.length === 0 && !this.dataType"
+          ></ion-toggle>
+          <p class="tgl_title">{{t.title}}</p>
+        </div>
+       
+      </div>
+    </ion-toolbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div style="margin: 20px">
+    <div *ngIf="loaded">
+      <div style="padding: 5px 10px" *ngFor="let t of [1,2,3,4,5]">
+        <app-filter-card [loaded]="loaded"></app-filter-card>
+      </div>
+    </div>
+    <div
+      *ngFor="let d of allRestProduct;let i = index"
+      style="margin-bottom: 10px"
+    >
+      <app-filter-card
+        [data]="d"
+        [loaded]="loaded"
+        [slot]="slot"
+      ></app-filter-card>
+    </div>
+    <div *ngIf="allRestProduct?.length  === 0 && !loaded">
+      <p class="no_data_title">"No data found"</p>
+      <!-- <p class="no_data_subtitle">Your slot is empty.</p>
+      <p class="no_data_subtitle">
+        Add something from the meal options.
+      </p> -->
+      <ion-img src="../../../../assets/newImages/no-meal.png"></ion-img>
+    </div>
+  </div>
+</ion-content>
+<!-- </div>
+</div> -->

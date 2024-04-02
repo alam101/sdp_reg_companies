@@ -2,12 +2,14 @@ export const APIS = {
     // baseurl:  "https://test.fightitaway.com:8444/", 
     // userBaseUrl:"https://test.fightitaway.com/api/",
     // mainUrl: "https://test.fightitaway.com"
-   
+    baseurlApi:  "https://app.smartdietplanner.com:4444/api/",
     baseurl:  "https://app.smartdietplanner.com:8443/", 
     userBaseUrl:"https://app.smartdietplanner.com/api/", 
     mainUrl: "https://app.smartdietplanner.com" 
 }
 export const SUBAPIS = {
+    saveDietRecall: "saveDietRecall?userId=",
+    getDietRecall: "getDietRecall?userId=",
     login: "login",
     refs: "refs",
     summary: "summary",

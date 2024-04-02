@@ -77,9 +77,9 @@ export class NewProfilePage implements OnInit,AfterViewInit {
       let newDate: any = new Date().getTime();
       console.log(exp, newDate);
 
-      if (exp > newDate) {
-        this.plandata.isPlanActive = true;
-      }
+      // if (exp > newDate) {
+      //   this.plandata.isPlanActive = true;
+      // }
       console.log("plan==========>", res);
     });
   }

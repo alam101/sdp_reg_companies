@@ -1,0 +1,37 @@
+<!-- <ion-header>
+  <ion-toolbar> </ion-toolbar>
+</ion-header> -->
+<div class="left back_icon_div paddingIos">
+  <ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+  <p (click)="goBack()">Back</p>
+</div>
+<div style="padding: 5px 5%; background: var(--white)">
+  <p class="meal_title">Track calories from recommended items</p>
+  <!-- <p class="meal_cal">Best personalised alternatives for you</p> -->
+</div>
+<ion-content>
+  <!-- <div class="meal_workout_title_div">
+    <p class="meal_workout_title">Diet for today</p>
+    <p class="meal_workout_button" (click)="goToAnalysis()">Diet info</p>
+  </div> -->
+  <div class="meal_workout_div" *ngFor="let d of diets.diets;let i = index">
+    <app-meal-workout [data]="d" [diets]="diets.diets" [index]="i" [selecteddate]="selecteddate"
+      [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
+      (getCalData)="getCalData($event,i)" [fullShow]="true"
+      [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
+      [plan]="plandata?.isPlanActive" (getDietdata)="getDietdata($event)" [showAddPopup]="true" from="alter">
+    </app-meal-workout>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="search_footer">
+    <p class="search_heading">Planning to eat something else?</p>
+    <div class="seach_div">
+      <ion-searchbar mode="md" class="searchbar" placeholder="Search for Food" (click)="gotoSearch()"></ion-searchbar>
+    </div>
+    <p class="search_subheading">
+      You can search from our database of 84+ thousand food items
+    </p>
+  </div>
+</ion-footer>

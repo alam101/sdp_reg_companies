@@ -1,4 +1,16 @@
 
+export const APIS = {
+    baseurl:  "https://app.smartdietplanner.com:8444/", 
+    userBaseUrl:"https://app.smartdietplanner.com/api/", 
+    mainUrl: "https://app.smartdietplanner.com" ,
+    baseurl4444:  "https://app.smartdietplanner.com:4444",
+    baseurlApi:  "https://app.smartdietplanner.com:4444/api/",
+    BASEURL8445: "https://app.smartdietplanner.com:8445/",
+  BASEURL8444: "https://app.smartdietplanner.com:8444/",
+  refreshBaseUrl: "https://app.smartdietplanner.com:8443/api/",
+  WP_BASEURL:"https://smartdietplanner.com/wp-json/wp/v2/posts",
+}
+
 export const API = {
 
     BASEURL8444:'https://app.smartdietplanner.com:8444/',

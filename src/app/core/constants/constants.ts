@@ -7,7 +7,12 @@ export const ProfileInfo = {
   profilePic:""
 }
 export const CONSTANTS = {
+  defaultImg: "https://app.smartdietplanner.com/images/externalImages/null.jpg",
   islocal: true,
+  updateTargetCal: "api/updateTargetCalories?calories=",
+  updateSlotRemarks: "updateRemarks?userId=",
+  getSlotRemarks: "getRemarks?userId=",
+  beatoAPI:"https://portalapi.internal.beatoapp.com/merchant/v1/diet/recall_api",
   url: "./assets/apis/Master.json",
   isPlanActiveParent: false,
   isDetox:false,
@@ -40,9 +45,15 @@ export const CONSTANTS = {
 };
 //"http://ec2-34-209-64-202.us-west-2.compute.amazonaws.com/api/"
 export const APIS = {
+  searchFoodItem:"searchFoodItem",
+  copyDietPlanWeekly:"copyDietPlanWeekly",
+  BASEURL8445: "https://app.smartdietplanner.com:8445/",
+  BASEURL8444: "https://app.smartdietplanner.com:8444/",
+  refreshBaseUrl: "https://app.smartdietplanner.com:8443/api/",
+  authenticateExternal:'authenticateExternal',
+  getTokenExternal:'getTokenExternal',
    BASEURL: "https://app.smartdietplanner.com/api/", //
-   refreshBaseUrl: "https://app.smartdietplanner.com:8443/api/",
-//  BASEURL: "https://test.fightitaway.com/api/", //https://app.smartdietplanner.com
+ //  BASEURL: "https://test.fightitaway.com/api/", //https://app.smartdietplanner.com
 //  refreshBaseUrl: "https://test.fightitaway.com:8443/api/",
   WP_BASEURL:"https://smartdietplanner.com/wp-json/wp/v2/posts",
   defaultDetail: "defaultDetail",
