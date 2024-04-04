@@ -360,7 +360,7 @@ export class ViewProductPage implements OnInit, AfterViewInit {
         this.utilities.closeModal();
       setTimeout(()=>{
         this.navCtrl.navigateForward([
-          "/tabs/new-diet",
+          "/new-diet",
           { refresh: new Date().getTime() },
         ]);
       },10) 

@@ -293,14 +293,17 @@ following the <b>daily diet plan</b> diligently.
       <img src="./assets/img/trayabanner2.png">
     </div> -->
    </div>
+   <ion-footer style="position: fixed;bottom:0;width: 95%;left:2.5%">
+    <div class="search_div center">
+      <ion-searchbar
+      mode="md" 
+        class="searchbar"
+        placeholder="Search for a Food"
+        (click)="gotoSearch()"
+      ></ion-searchbar>
+    </div>
+  </ion-footer>
 </ion-content>
-<ion-footer style="    background: red;
-position: absolute;
-bottom: 0;
-height: 50px;">
-  <ion-row>
-    <ion-col>
-      <app-tabs1></app-tabs1>
-    </ion-col>
-  </ion-row>
-</ion-footer>
+
+
+

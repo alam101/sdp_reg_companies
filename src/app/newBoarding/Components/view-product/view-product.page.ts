@@ -281,7 +281,7 @@ export class ViewProductPage implements OnInit {
         console.log("Dite API called");
 
         // this.navCtrl.navigateForward(
-        //   ["/tabs/new-diet", { refresh: new Date().getTime() }],
+        //   ["/new-diet", { refresh: new Date().getTime() }],
         //   { queryParams: { slot: Number(this.data?.slot) } }
         // );
       },

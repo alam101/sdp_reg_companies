@@ -428,6 +428,28 @@ position: absolute;
     height: 175px !important;
   }
 }
+
+.small-modal-slot {
+  background-image:none;
+  
+  &::part(content) {
+    background: transparent !important;
+  }
+  .modal-wrapper {
+    position: absolute;
+    bottom: 0;
+    min-height: initial;
+    top: initial;
+    height: 320px;
+    border-radius: 20px 20px 0px 0px;
+  }
+  app-selectslot-popup{
+    top:50%;
+  }
+  .sc-ion-modal-md {
+    --backdrop-opacity: var(--ion-backdrop-opacity, 0.85) !important;
+  }
+}
 ::ng-deep ion-backdrop.popover-arrow::after{
   background: none !important;
 }
@@ -439,3 +461,4 @@ position: absolute;
   :host(.popover-desktop) .popover-content{
     border:none !important;
   }
+

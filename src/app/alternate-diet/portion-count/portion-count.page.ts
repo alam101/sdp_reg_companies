@@ -137,7 +137,7 @@ export class PortionCountPage implements OnInit {
           console.log("Dite API called");
           this.modalCtrl.dismiss("");
           // this.navCtrl.navigateForward(
-          //   ["/tabs/new-diet", { refresh: new Date().getTime() }],
+          //   ["/new-diet", { refresh: new Date().getTime() }],
           //   { queryParams: { slot: Number(this.data?.slot) } }
           // );
         },
@@ -202,7 +202,7 @@ export class PortionCountPage implements OnInit {
           console.log("Dite API called");
           this.modalCtrl.dismiss("");
           this.navCtrl.navigateForward([
-            "/tabs/new-diet",
+            "/new-diet",
             { refresh: new Date().getTime() },
           ]);
         },

@@ -104,7 +104,7 @@ export class FilterCardPage implements OnInit {
 
             this.utilities.closeModal();
             this.navCtrl.navigateForward([
-              "/tabs/new-diet",
+              "/new-diet",
               { refresh: new Date().getTime() },
             ]);
           },
@@ -164,7 +164,7 @@ export class FilterCardPage implements OnInit {
             // this.modalCtrl.dismiss({});
             this.utilities.closeModal();
             this.navCtrl.navigateForward([
-              "/tabs/new-diet",
+              "/new-diet",
               { refresh: new Date().getTime() },
             ]);
           },

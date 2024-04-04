@@ -228,7 +228,7 @@ export class MealWorkoutPage implements OnInit {
 
   gotoOption() {
   if(this.planType==="premium"){
-    this.navCtrl.navigateForward(["/tabs/new-diet"]);
+    this.navCtrl.navigateForward(["/new-diet"]);
   }
   else{
     this.utilities.showToastforMessage("Only for Premium !");

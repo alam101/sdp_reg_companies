@@ -251,7 +251,7 @@ signIn(){
           this.router.navigate(['/boarding1']);
         });
       }
-      else if(resData.diet==undefined || resData.diet=={} || resData.diet==null){
+      else if(resData.diet==undefined || !resData.diet || resData.diet==null){
         this.router.navigate(['/boarding1']);
       }
      

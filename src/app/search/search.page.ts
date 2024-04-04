@@ -497,7 +497,7 @@ show3=true;
             // this.modalCtrl.dismiss({});
             this.utilities.closeModal();
             this.navCtrl.navigateForward([
-              "/tabs/new-diet",
+              "/new-diet",
               { refresh: new Date().getTime() },
             ]);
           },
@@ -562,7 +562,7 @@ show3=true;
             // data.eaten = 2;
             this.modalCtrl.dismiss({});
             this.navCtrl.navigateForward([
-              "/tabs/new-diet",
+              "/new-diet",
               { refresh: new Date().getTime() },
             ]);
           },

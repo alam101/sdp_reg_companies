@@ -5,14 +5,14 @@ import moment from "moment";
 import { AppService } from "../app.service";
 import { CONSTANTS } from "src/app/core/constants/constants";
 import { Utilities } from "../utilities.service";
+import { UTILITIES as UTILS } from "src/app/core/utility/utilities";
 import { Router } from "@angular/router";
 import jsPDF from "jspdf";
-
 import { UserOptions } from "jspdf-autotable";
 import { UTILITIES } from "../utils/utilities";
 import { DownloadPopupComponent } from "src/app/components/download-popup/download-popup.component";
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-
+import { SearchPage } from '../../search/search.page';
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
@@ -51,6 +51,7 @@ export class NewDietPage implements OnInit,AfterViewInit {
     private modalController: ModalController,
     private iab: InAppBrowser,
     private storage: Storage,
+    private utilss: UTILS
   ) {
     this.allData = {
       Carbs: 0,
@@ -64,12 +65,14 @@ export class NewDietPage implements OnInit,AfterViewInit {
     this.clientId = localStorage.getItem("clientId");
 
   }
+
   ngAfterViewInit() {
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
     this.companyLogoBase64 = this.compConfig.companyLogoBase64;
   }
+ 
   logSlot(d,slot){
     this.eatenStatusUpdate(d,slot);
   }
@@ -145,7 +148,6 @@ export class NewDietPage implements OnInit,AfterViewInit {
   futureDateCSS="";
   fday=0;
   ngOnInit() {
-
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
     
@@ -466,6 +468,26 @@ export class NewDietPage implements OnInit,AfterViewInit {
     //   }
     // })
     // return await modal.present();
+  }
+  async gotoSearch() {
+    const modal = await this.modalController.create({
+      component: SearchPage,
+      //cssClass: "change_item",
+      backdropDismiss: true,
+      componentProps: {
+        // slot: "",
+        //alterdata: data,
+        //type: "change",
+      },
+    });
+    this.utilss.storeModal(modal);
+    await modal.present();
+    const modaldata = await modal.onDidDismiss();
+
+    const d = modaldata?.data;
+    // if (d) {
+    //   this.getDietdata.emit(CONSTANTS.dietDate);
+    // }
   }
 
   gotoApply(url, type) {

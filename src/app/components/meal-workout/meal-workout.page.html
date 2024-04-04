@@ -40,6 +40,7 @@
         [ngStyle]="{'border-bottom': data?.data.length !== i+1 && '1px solid var(--card-border)','padding-top':d?.foodStatus === 'A' && '0%'}"
       >
         <div class="center" (click)="gotoView(d)">
+         -- {{d?.imageUrl}}
           <ion-thumbnail>
             <img
               class="card_img"
