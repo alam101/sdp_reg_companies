@@ -17,6 +17,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { ComponentsModule } from "src/app/components/components.module";
 import { SearchPageModule } from "src/app/search/search.module";
 import { PortionCountPageModule } from "../Components/alternate-diet/portion-count/portion-count.module";
+import { AppointentPageModule } from "src/app/appointent/appointent.module";
 // import { Tabs1PageModule } from "src/app/tabs1/tabs1.module";
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { PortionCountPageModule } from "../Components/alternate-diet/portion-cou
     NgCircleProgressModule,
     ComponentsModule,
     SearchPageModule,
-  PortionCountPageModule
+  PortionCountPageModule,
+  AppointentPageModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [NewDietPage],

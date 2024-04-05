@@ -10,7 +10,8 @@ import { UTILITIES } from "src/app/core/utility/utilities";
 import { PortionCountPage } from "../../alternate-diet/portion-count/portion-count.page";
 import { SelectslotPopupPage } from "../../selectslot-popup/selectslot-popup.page";
 import { ViewProductPage } from "../../view-product/view-product.page";
-
+import {BehaviorSubject} from "rxjs";
+import { BroadcastService } from "src/app/broadcast.service";
 @Component({
   selector: "app-filter-card",
   templateUrl: "./filter-card.page.html",
@@ -27,13 +28,16 @@ export class FilterCardPage implements OnInit {
   Math: any = Math;
   image_URL = "";
   currentDateIndex: any = 0;
-
+   
   constructor(
     private utilities: UTILITIES,
     private appServices: AppService,
     private modalCtrl: ModalController,
-    private navCtrl: NavController
-  ) {}
+    private navCtrl: NavController,
+    private broadcastService:BroadcastService
+  ) {
+    
+  }
 
   async ngOnInit() {
     this.image_URL = CONSTANTS.image_URL;
@@ -103,6 +107,8 @@ export class FilterCardPage implements OnInit {
             // } else
 
             this.utilities.closeModal();
+           // this.messageSubject.next('reload');
+            this.broadcastService.boradcast("reload");
             this.navCtrl.navigateForward([
               "/new-diet",
               { refresh: new Date().getTime() },
@@ -162,7 +168,8 @@ export class FilterCardPage implements OnInit {
           (res) => {
             console.log("food code update", res);
             // this.modalCtrl.dismiss({});
-            this.utilities.closeModal();
+            this.utilities.closeModal();          
+            this.broadcastService.boradcast("reload");
             this.navCtrl.navigateForward([
               "/new-diet",
               { refresh: new Date().getTime() },

@@ -15,6 +15,7 @@ import { CONSTANTS } from "src/app/core/constants/constants";
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { PortionCountPage } from "../../Components/alternate-diet/portion-count/portion-count.page";
 import { ViewProductPage } from "../../Components/view-product/view-product.page";
+import { BroadcastService } from "src/app/broadcast.service";
 
 @Component({
   selector: "app-meal-workout",
@@ -52,7 +53,8 @@ export class MealWorkoutPage implements OnInit {
     private navCtrl: NavController,
     private router: Router,
     private modalCtrl: ModalController,
-    private popCtrl: PopoverController
+    private popCtrl: PopoverController,
+    private broadcastService: BroadcastService
   ) {}
 
   compConfig:any;
@@ -116,7 +118,8 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     await modal.present();
     const modaldata = await modal.onDidDismiss();
     const d = modaldata?.data;
-    this.getDietdata.emit(CONSTANTS.dietDate);
+   // this.getDietdata.emit(CONSTANTS.dietDate);
+   this.broadcastService.boradcast("reload");
     // if (d) {
     //   this.eatenStatusUpdate(d, 2, "Updated successfully");
     // }
@@ -389,8 +392,9 @@ addRemove(type) {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
-          this.getDietdata.emit(CONSTANTS.dietDate);
-          this.utilities.showSuccessToast(status);
+         // this.getDietdata.emit(CONSTANTS.dietDate);
+         // this.utilities.showSuccessToast(status);
+          this.broadcastService.boradcast("reload");
           // this.todaysCalCount();
           console.log("247 called");
         },

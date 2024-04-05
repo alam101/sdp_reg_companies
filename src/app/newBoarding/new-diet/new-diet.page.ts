@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ErrorHandler, Injectable, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, ChangeDetectorRef, Component, ErrorHandler, Injectable, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { IonSlides, ModalController, NavController, Platform } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import moment from "moment";
@@ -13,12 +13,14 @@ import { UTILITIES } from "../utils/utilities";
 import { DownloadPopupComponent } from "src/app/components/download-popup/download-popup.component";
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SearchPage } from '../../search/search.page';
+import { BroadcastService } from "src/app/broadcast.service";
+import { Subscription } from 'rxjs';
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
   styleUrls: ["./new-diet.page.scss"],
 })
-export class NewDietPage implements OnInit,AfterViewInit {
+export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   clientId="";
   moment: any = moment;
   diets: any = [];
@@ -41,6 +43,7 @@ export class NewDietPage implements OnInit,AfterViewInit {
   weekArray = [];
   isDetox = false;
   companyLogoBase64="";
+  subscription: Subscription;
   constructor(
     private appServices: AppService,
     private cdr: ChangeDetectorRef,
@@ -51,8 +54,14 @@ export class NewDietPage implements OnInit,AfterViewInit {
     private modalController: ModalController,
     private iab: InAppBrowser,
     private storage: Storage,
-    private utilss: UTILS
+    private utilss: UTILS,
+    private broadcastService: BroadcastService
   ) {
+
+    this.subscription =  this.broadcastService.getMessage().subscribe(res=>{
+      console.log("res");
+      this.ionViewWillEnter();
+    })
     this.allData = {
       Carbs: 0,
       Fat: 0,
@@ -65,8 +74,27 @@ export class NewDietPage implements OnInit,AfterViewInit {
     this.clientId = localStorage.getItem("clientId");
 
   }
-
+  ngOnDestroy() {
+    // Unsubscribe to prevent memory leaks
+    this.subscription.unsubscribe();
+  }
+  ionViewWillEnter() {
+    if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
+      this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
+    } else {
+      this.selecteddate = new Date();
+    }
+    CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
+    this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
+    this.getProfile();
+  }
   ngAfterViewInit() {
+   
+    if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
+      this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
+    } else {
+      this.selecteddate = new Date();
+    }
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
@@ -148,6 +176,7 @@ export class NewDietPage implements OnInit,AfterViewInit {
   futureDateCSS="";
   fday=0;
   ngOnInit() {
+
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
     

@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { GaugeChartModule } from 'angular-gauge-chart';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BroadcastService } from './broadcast.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     },
     SettingsService,
     AuthGuard,
-    InAppBrowser
+    InAppBrowser,
+    BroadcastService
   ],
   bootstrap: [AppComponent]
 })

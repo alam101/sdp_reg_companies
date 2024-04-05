@@ -13,6 +13,7 @@
     *ngIf="loaded && data.data?.length>0"
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
     [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}"
+    
   >
     <div class="header_div">
       <p>
@@ -40,8 +41,7 @@
         [ngStyle]="{'border-bottom': data?.data.length !== i+1 && '1px solid var(--card-border)','padding-top':d?.foodStatus === 'A' && '0%'}"
       >
         <div class="center" (click)="gotoView(d)">
-         -- {{d?.imageUrl}}
-          <ion-thumbnail>
+           <ion-thumbnail>
             <img
               class="card_img"
               [src]="d?.imageUrl"
@@ -143,6 +143,7 @@
       <ion-img src="../../../../assets/newImages/no-meal.png"></ion-img>
     </div>
   </ion-card>
+  
   <div *ngIf="data.data?.length===0"><ion-grid  class="pad_0 ios hydrated"><ion-row 
         class="ios hydrated"><ion-col  size="6" class="left ios hydrated" ng-reflect-size="6"
           style="flex: 0 0 calc(calc(6 / var(--ion-grid-columns, 12)) * 100%); width: calc(calc(6 / var(--ion-grid-columns, 12)) * 100%); max-width: calc(calc(6 / var(--ion-grid-columns, 12)) * 100%);">

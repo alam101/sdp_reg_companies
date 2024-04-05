@@ -202,6 +202,7 @@
         moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
         moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}} 
       </p>
+    
       <div class="right" *ngIf="!isDetox">
         <!-- <p class="meal_workout_button" (click)="goToAnalysis()">Analysis</p> -->
         <ion-icon *ngIf="compConfig.pie_chart!=false"
@@ -229,6 +230,12 @@
       </div>
     </div>
    
+   <app-appointent *ngIf="compConfig?.isDietitian"
+   [plan]="plandata?.isPlanActive || false"
+   [profileData]="profileData?.profile"
+   [duration]="plandata?.trail"
+ ></app-appointent>
+ <br>
     <div
       class="meal_workout_div"
       *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
@@ -283,27 +290,27 @@
       </ion-card>
 
     </div>
-    <!-- <div *ngIf="compConfig.isBanner!=false" style="border-radius: 4px;background: radial-gradient(2347.70% 93.43% at 93.43% 49.37%, #F0CE8C 0%, #D28510 100%);margin: 1rem;text-align: right;position: relative;">
-      <span style="color: #fff;font-size: .75rem;text-align: left;    position: absolute;
-      left: 11px;
-      top: 25%;font-family: none;">
-        <b>For optimal results</b>, we recommend<br>
-following the <b>daily diet plan</b> diligently.
-      </span>
-      <img src="./assets/img/trayabanner2.png">
-    </div> -->
+   
    </div>
-   <ion-footer style="position: fixed;bottom:0;width: 95%;left:2.5%">
-    <div class="search_div center">
-      <ion-searchbar
-      mode="md" 
-        class="searchbar"
-        placeholder="Search for a Food"
-        (click)="gotoSearch()"
-      ></ion-searchbar>
-    </div>
-  </ion-footer>
+  
+
 </ion-content>
+<ion-footer *ngIf="compConfig?.isSearch" style="position: fixed;
+bottom: 0;
+width: 100%;
+left: 0;
+background: #fff;
+height: 63px;
+padding-top: 4px;
+box-shadow: 7px 5px 15px #000;">
+ <div class="search_div center">
+   <ion-searchbar
+   mode="md" 
+     class="searchbar"
+     placeholder="Search for a Food"
+     (click)="gotoSearch()"
+   ></ion-searchbar>
+ </div>
+</ion-footer>
 
-
-
+<app-filter-card></app-filter-card>

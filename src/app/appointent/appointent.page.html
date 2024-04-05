@@ -1,0 +1,100 @@
+<div style="position: relative">
+  <ion-img
+    class="card_logo"
+    src="../../../../assets/newImages/doctor-box.svg"
+  ></ion-img>
+  <ion-card *ngIf="from !== 'activity'">
+    <div class="header_div d_flex">
+      <p>Consult for customised Diet plan</p>
+    </div>
+    <div class="scroll_y">
+      <div class="d_flex card_main_div">
+        <div class="center">
+          <ion-avatar>
+            <ion-img
+              src="../../../../assets/newImages/manisha.jpg"
+              class="card_img"
+            ></ion-img>
+          </ion-avatar>
+        </div>
+        <ion-grid class="w_100">
+          <ion-row class="">
+            <ion-col size="11" class="left">
+              <div style="margin-right: 25px">
+                <p class="meal_cal" *ngIf="plan">
+                  Consult with our post graduate qualified and Experienced
+                  Dietitian for customised plan
+                </p>
+
+                <p class="meal_cal" *ngIf="!plan">
+                  I am Manisha Gupta. I am a qualified & an experienced
+                  dietitian. May book a consult to understand our Program
+                </p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-icon
+          *ngIf="plan"
+          class="calandar"
+          name="calendar-outline"
+          (click)="gotoApply('https://calendly.com/dietitian_manisha','diet')"
+        ></ion-icon>
+        <ion-icon
+          *ngIf="!plan"
+          class="calandar"
+          name="calendar-outline"
+          (click)="gotoApplyFree('https://calendly.com/dietitian_manisha','diet')"
+        ></ion-icon>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card *ngIf="from === 'activity'">
+    <div class="header_div d_flex">
+      <p>Consult for customised workout plan</p>
+    </div>
+
+    <div>
+      <div
+        class="scroll_y"
+        *ngFor="let d of data let i = index"
+        [ngStyle]="{'border-bottom': data?.length !== i+1 && '1px solid var(--card-border)'}"
+      >
+        <div class="d_flex card_main_div">
+          <div class="center">
+            <ion-avatar>
+              <ion-img [src]="d?.img" class="card_img"></ion-img>
+            </ion-avatar>
+          </div>
+          <ion-grid class="w_100">
+            <ion-row class="">
+              <ion-col size="12" class="left">
+                <div style="margin-right: 25px">
+                  <div *ngIf="from === 'activity'">
+                    <p class="meal_pro">{{d?.name}}</p>
+                    <p class="meal_cal">{{d?.expert}}</p>
+                    <p class="meal_cal">{{d?.experience}}</p>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <ion-icon
+            *ngIf="plan"
+            class="calandar"
+            name="calendar-outline"
+            (click)="gotoApply(d?.calendy,'workout')"
+          >
+          </ion-icon>
+          <ion-icon
+            *ngIf="!plan"
+            class="locked"
+            name="lock-closed-outline"
+            (click)="gotoPremium()"
+          ></ion-icon>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+</div>
