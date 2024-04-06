@@ -16,7 +16,17 @@
     border-radius: 30px;
     text-align: center;
 }
-
+.searchbar{
+  border: 1px solid var(--theme-color);
+    color: var(--black);
+    font-size: var(--small-font);
+    padding: 0;
+    --border-radius: 25px;
+    border-radius: 25px;
+    --box-shadow: none;
+    width: 90%;
+    margin: 10px 5%;
+}
 .week_array {
   justify-content: space-between;
  

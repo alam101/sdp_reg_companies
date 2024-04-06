@@ -193,7 +193,12 @@
       </ion-col>
     </ion-row>
   </div>
-   
+  <app-appointent *ngIf="compConfig?.isDietitian"
+  [plan]="true"
+  [profileData]="profileData?.profile"
+  [duration]="plandata?.trail"
+></app-appointent>
+
     <div class="meal_workout_title_div">
       <p class="meal_workout_title"> 
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
@@ -230,11 +235,7 @@
       </div>
     </div>
    
-   <app-appointent *ngIf="compConfig?.isDietitian"
-   [plan]="plandata?.isPlanActive || false"
-   [profileData]="profileData?.profile"
-   [duration]="plandata?.trail"
- ></app-appointent>
+  
  <br>
     <div
       class="meal_workout_div"
@@ -302,7 +303,9 @@ left: 0;
 background: #fff;
 height: 63px;
 padding-top: 4px;
-box-shadow: 7px 5px 15px #000;">
+box-shadow: 7px 5px 15px #000;
+border-top-left-radius: 10px;
+    border-top-right-radius: 10px;">
  <div class="search_div center">
    <ion-searchbar
    mode="md" 
