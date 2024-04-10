@@ -549,7 +549,7 @@ export class AppService {
   }
   getOnePlan1(token) {
 
-    const url = APP.baseurl + "" + APIS.getOnePlan;
+    const url = APP.mainUrl + "" + APIS.getOnePlan;
   console.log("manual header", token);
   const headers = new HttpHeaders().set("authorization",`bearer ${token}`);
   return this.httpClient1.get(url, {headers:headers}).toPromise();
@@ -557,7 +557,7 @@ export class AppService {
   
   getOnePlan() {
 
-    const url = APP.baseurl + "" + APIS.getOnePlan;
+    const url = APP.mainUrl + "" + APIS.getOnePlan;
     
     return this.httpClient.get(url, {}).toPromise();
   }

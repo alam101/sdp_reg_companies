@@ -6,6 +6,7 @@ import {Storage} from '@ionic/storage-angular';
 import { SettingsService } from 'src/app/services/settings.service';
 import { LoadingController } from '@ionic/angular';
 import  compJson from '../../../assets/comp_config.json';
+import {CONSTANTS} from '../../core/constants/constants';
 @Component({
   selector: 'app-read-query',
   templateUrl: './read-query.component.html',
@@ -174,6 +175,7 @@ export class ReadQueryComponent implements OnInit {
       }
       else{
       localStorage.setItem("userid",resData?.profile?.email);
+      CONSTANTS.email = resData?.profile?.email;
       }
       setTimeout(() => {
         this.dismissLoader();

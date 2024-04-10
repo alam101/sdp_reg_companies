@@ -1,4 +1,4 @@
-<ion-content  >
+<ion-content>
   <!-- {{moment(selecteddate).format('MMMM')}} -->
 
   <p class="month paddingIos" *ngIf="!platform"></p>
@@ -199,7 +199,7 @@
   [duration]="plandata?.trail"
 ></app-appointent>
 
-    <div class="meal_workout_title_div">
+    <div class="meal_workout_title_div" *ngIf="firstConsult!==false">
       <p class="meal_workout_title"> 
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(today).format('DD-MM-YYYY') ? 'Today' :
@@ -207,7 +207,7 @@
         moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
         moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}} 
       </p>
-    
+      
       <div class="right" *ngIf="!isDetox">
         <!-- <p class="meal_workout_button" (click)="goToAnalysis()">Analysis</p> -->
         <ion-icon *ngIf="compConfig.pie_chart!=false"
@@ -220,23 +220,19 @@
           name="cloud-download"
           (click)="gotoDownloadPopup()"
         ></ion-icon> 
-        <!-- <p
-          class="meal_workout_button"
-          
-          (click)="gotoDownloadPopup()"
-        >
-          Download
-        </p> -->
+       
       </div>
       <div class="right" *ngIf="isDetox">
         <p class="meal_workout_button" (click)="switchTonormal()">
           Switch to Normal
         </p>
-      </div>
+      
+    </div>
     </div>
    
   
  <br>
+ <div *ngIf="firstConsult!==false">
     <div
       class="meal_workout_div"
       *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
@@ -270,7 +266,7 @@
       </div>
     </div>
 
- <br>
+ 
     <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-1rem;" *ngIf="compConfig.notes!=false">
       <ion-card style="box-shadow: none;">
        
@@ -293,7 +289,26 @@
     </div>
    
    </div>
-  
+   <div *ngIf="firstConsult===true" >
+    <img src="./assets/images/nutritionist.jpg" style="width: auto;height: 100%;">
+    <br><br>
+    <div>
+      <ion-card style="box-shadow: none;">
+       
+        <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+          Remarks</ion-card-header>
+        <ion-card-content style="background: #f5df7f;">
+          <p style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+            Please schedule the call with Dietitian. <br>Diet plan along with instructions will be available after the consult
+
+          </p>
+
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+   </div>
+  </div>
 
 </ion-content>
 <ion-footer *ngIf="compConfig?.isSearch" style="position: fixed;

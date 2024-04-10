@@ -69,16 +69,18 @@ export class Boarding1Page implements OnInit,AfterViewInit {
       this.prof["profile"]["family_name"] = data.LastName;
       this.prof["profile"]["firstName"] = data.FirstName;
       this.prof["profile"]["lastName"] = data.LastName;
+      
     } else {
       this.prof["profile"] = {};
       this.prof["profile"]["name"] =
         data.LastName != ""
           ? data.FirstName + " " + data.LastName
           : data.FirstName;
-      this.prof["profile"]["given_name"] = data.FirstName;
+      this.prof["profile"]["given_name"] = "for testing:---";
       this.prof["profile"]["family_name"] = data.LastName;
       this.prof["profile"]["firstName"] = data.FirstName;
       this.prof["profile"]["lastName"] = data.LastName;
+      
     }
 
     this.storage.set("newProfilePic", JSON.stringify(this.prof["profile"]));

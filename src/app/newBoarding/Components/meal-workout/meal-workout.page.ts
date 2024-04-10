@@ -293,7 +293,7 @@ addRemove(type) {
         foodCodeList: [
           {
             code: item.itemCode,
-            portion: 1,
+            portion: 0,
             eaten: eaten,
           },
         ],
