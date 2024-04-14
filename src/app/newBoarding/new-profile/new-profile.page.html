@@ -357,7 +357,7 @@
           <ion-img *ngIf="compConfig.isProfileIcons==false" [src]="'../../../../assets/newImages/'+getImage(profileData?.lifeStyle?.foodType?.code)"
             class="Activity_image"></ion-img>
           <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 8.5%;" src="../../../../assets/newImages/dietpref.svg"
-            class="Activity_image"></ion-img>
+            class="Activity_image" style="width:auto;"></ion-img>
           <p class="commonText">
             Meal Preferences:<br /><span style="margin-left: 0%">{{profileData?.lifeStyle?.foodType?.value}}</span>
           </p>

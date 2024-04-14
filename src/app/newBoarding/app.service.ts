@@ -109,6 +109,7 @@ export class AppService {
   }
 
   postLifeStyle(reqBody) {
+   // reqBody.lifeStyle.firstConsult= localStorage.getItem("clientId")==="orthocure"? false:null;
     const url = APIS.BASEURL + '' + APIS.updateLifeStyle;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
