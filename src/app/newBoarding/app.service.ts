@@ -151,5 +151,11 @@ export class AppService {
 
     return this.httpClient.post(url, foodCodeList, {}).toPromise();
   }
+
+  fetchCustDailyDiets(data: any) {
+    // id = id ? id : 'IND';
+    const url = APIS.refreshBaseUrl + '' + APIS.fetchCustDailyDiets + `?fromDate=${data.fromDate}&dateRange=${data.dateRange}`;
+    return this.httpClient.get(url, {}).toPromise();
+  }
   
 }

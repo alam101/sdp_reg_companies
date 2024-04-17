@@ -659,6 +659,16 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   changePlan(){
     this.router.navigate(['change-plan']);
   }
+
+  caloryChart() {
+    this.router.navigate(["calory-chart"], {
+      queryParams: {
+        profileName: this.profileName,
+        compConfig: JSON.stringify(this.compConfig),
+        profileData: JSON.stringify(this.profileData)
+      }
+    });
+  }
 }
 
 

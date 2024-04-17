@@ -128,6 +128,7 @@ export const APIS = {
   /* Seprate Apis to save data in DB */
   saveFasting: 'saveFasting',
   getFasting: 'getFasting',
+  fetchCustDailyDiets: 'fetchCustDailyDiets'
 
   // end
 };
