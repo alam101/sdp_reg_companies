@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Chart } from "chart.js";
+import { Chart, registerables } from "chart.js";
 import moment from "moment";
 import { AppService } from '../../newBoarding/app.service';
 
@@ -20,12 +20,14 @@ export class CaloryChartPage implements OnInit {
   defaultDate: any;
   isValidDate: boolean = false;
   defaultDateRange: any;
+  maxCalories:any;
 
   constructor(
     private router: Router,
     private appServices: AppService,
     private route: ActivatedRoute,
   ) {
+    Chart.register(...registerables);
     let now = moment();
     let dateRange = moment(new Date()).day() + 1;
     let sunday: any = now.clone().weekday(0);
@@ -35,7 +37,7 @@ export class CaloryChartPage implements OnInit {
     this.defaultDate = moment().format('ll');
     this.defaultDateRange = `${new Date().toLocaleString('default', { month: 'long' })} ${new Date(sunday).getDate()} - ${new Date(lastDay).getDate()}`;
     this.isValidDate = false;
-
+    this.getProfile();
     this.customDailyDiets(fromDate, dateRange);
     this.route.queryParams.subscribe(res => {
       this.profileName = res.profileName;
@@ -46,6 +48,15 @@ export class CaloryChartPage implements OnInit {
       console.log('this.profileData = ', this.profileData);
     });
   }
+
+  getProfile(){
+    this.appServices.getProfile().then(
+      
+      (profileData : any) => {
+        this.maxCalories = 400;//profileData?.lifeStyle.calories;
+      });
+
+   }
 
   // ionViewWillEnter() {
   //   this.customDailyDiets();
@@ -80,6 +91,7 @@ export class CaloryChartPage implements OnInit {
 
     let labelToSet = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
     let dataToset: any = [0, 0, 0, 0, 0, 0, 0];
+    let dataToset1: any = [0, 0, 0, 0, 0, 0, 0];
     let backgroundColorToSet: any = ["", "", "", "", "", "", ""];
     for (let i = 0; i < this.custDailyDiets.length; i++) {
       const element = this.custDailyDiets[i];
@@ -92,7 +104,16 @@ export class CaloryChartPage implements OnInit {
             element.data.scoreColor == 'red' ? '#ff0000' :
               element.data.scoreColor == 'orange' ? '#ffa500' : '';
 
-      dataToset[day - 1] = element.data.totalEatenCalories || 0;
+      // element.data.totalEatenCalories < 400 ? 
+        // dataToset[day - 1] = element.data.totalEatenCalories - 400 || 0 : 
+        //   dataToset1[day - 1] = element.data.totalEatenCalories || 0;
+
+          if(element.data.totalEatenCalories > this.maxCalories){
+            dataToset[day - 1] = this.maxCalories;
+            dataToset1[day - 1] = element.data.totalEatenCalories - this.maxCalories;
+          }else{
+            dataToset[day - 1] = element.data.totalEatenCalories;
+          }
       backgroundColorToSet[day - 1] = bgColor || "";
     }
 
@@ -102,23 +123,68 @@ export class CaloryChartPage implements OnInit {
         labels: labelToSet,
         datasets: [{
           data: dataToset,
-          backgroundColor: backgroundColorToSet,
+          backgroundColor: '#D4B2FF',
+          borderRadius: 100,
+          // borderWidth: 0
+        },{
+          data: dataToset1,
+          backgroundColor: '#751FD3',
           borderRadius: 20,
-          borderWidth: 0
+          // borderWidth: 0
         }]
       },
       options: {
-        animation: {
-          duration: 2000
+        plugins: {
+          legend: {
+              display: false
+          }
         },
         scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
+          x: {
+            // type: 'linear',
+            stacked: true,
+            grid: {
+              color: 'rgba(0,0,0,0)',
             }
-          }]
+            // display: false,
+          },
+          y: {
+            stacked: true,
+            grid: {
+              color: 'rgba(0,0,0,0.1)',
+            },
+            ticks: {
+              // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+              // callback: function(val, index) {
+              //   console.log("val ", val)
+              //   return val;
+              //   // Hide every 2nd tick label
+              //   // return index % 2 === 0 ? this.getLabelForValue(val) : '';
+              // },
+              // color: 'red',
+            }
+          }
         }
       }
+      // options: {
+      //   // legend: {
+      //   //   display: false
+      //   // },
+      //   // animation: {
+      //   //   duration: 2000
+      //   // },
+      //   scales: {
+      //     // yAxes: [{
+      //     //   pointLabels: {
+      //     //     beginAtZero: true
+      //     //   }
+      //     // }]
+      //     // yAxis: {
+      //     //   min: 0,
+      //     //   max: 100,
+      //     // }
+      //   }
+      // }
     });
   }
 
@@ -129,7 +195,8 @@ export class CaloryChartPage implements OnInit {
     let sunday: any = moment(new Date(this.defaultDate)).clone().weekday(0);
     let lastDay: any = moment(new Date(this.defaultDate)).clone().weekday(6);
     this.defaultDateRange = `${new Date(sunday).toLocaleString('default', { month: 'long' })} ${sunday.date()} - ${lastDay.date()}`;
-
+    this.barChart.destroy();
+    this.customDailyDiets(moment(new Date(lastDay)).format("DDMMYYYY"), 7);
   }
 
 }

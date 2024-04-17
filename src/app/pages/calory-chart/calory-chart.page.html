@@ -16,22 +16,40 @@
             {{compConfig.headerText}}
           </ion-col>
         </ion-row>
-        <div>
-          <ion-button (click)="dateRangeChange(defaultDate, 'back')" shape="round">
-            <ion-icon name="chevron-back-outline"></ion-icon>
+        <div class="text-center">
+          <ion-button (click)="dateRangeChange(defaultDate, 'back')" shape="round" fill="clear">
+            <ion-icon name="chevron-back-outline" class="color-white"></ion-icon>
           </ion-button>
           <span>{{defaultDateRange}}</span>
           <!-- [disabled]="isValidDate" -->
-          <ion-button (click)="dateRangeChange(defaultDate, 'forward')" shape="round">
-            <ion-icon name="chevron-forward-outline"></ion-icon>
+          <ion-button (click)="dateRangeChange(defaultDate, 'forward')" shape="round" fill="clear">
+            <ion-icon name="chevron-forward-outline" class="color-white"></ion-icon>
           </ion-button>
         </div>
       </div>
-      <ion-card class="canvas-card">
-        <ion-card-content style="padding-left: 15px;">
-          <canvas #barCanvas style="position: relative; height:20vh; width:40vw"></canvas>
-        </ion-card-content>
-      </ion-card>
+      <div class="canvas-card">
+        <ion-card >
+          <ion-card-content style="padding-left: 15px;">
+            <!-- <canvas id="barCanvas" width="40vw" height="20vh"></canvas> -->
+            <canvas #barCanvas style="position: relative; height:20vh; width:40vw"></canvas>
+            <ion-row class="margin-top-1">
+              <ion-col class="ion-text-center ion-align-self-center">
+                <ion-icon name="ellipse" class="consumed-label"></ion-icon> <span>Consumed</span>
+              </ion-col>
+              <ion-col class="ion-text-center ion-align-self-center">
+                <ion-icon name="ellipse" class="exceeded-label"></ion-icon> <span>Exceeded</span>
+              </ion-col>
+              <ion-col class="ion-text-center ion-align-self-center">
+                <ion-icon name="ellipse" class="daily-limit-label"></ion-icon> <span>Daily limit</span>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <span  class="ion-text-center ion-align-self-center">
+          Calories are an estimate of energy gained from food and drinks tracked regularly
+        </span>
+      </div>
+    
     </ion-col>
   </ion-row>
 </ion-content>
