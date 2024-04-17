@@ -199,7 +199,7 @@
   [duration]="plandata?.trail"
 ></app-appointent>
 
-    <div class="meal_workout_title_div" *ngIf="firstConsult!==false">
+    <div class="meal_workout_title_div" *ngIf="firstConsult!==false" style="margin-bottom: 2rem;">
       <p class="meal_workout_title"> 
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(today).format('DD-MM-YYYY') ? 'Today' :
@@ -276,8 +276,19 @@
             Please follow the diet plan on daily basis.<br>
             <span *ngIf="compConfig.modifyNotes!=false">
               <ul style="padding-left: 1rem;">
-                <li>Daily walk of 45 minutes.</li>
+                <span *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && profileData?.lifeStyle?.instructions.nornalDay===''">
+               <li>Daily walk of 45 minutes.</li>
                <li *ngFor="let d of bindDesease()"> {{d}}</li>
+               </span>
+               <li *ngIf="diets?.dietPlanName?.toLowerCase().includes('detox') && instructions.detoxDay!==''">
+                {{instructions.detoxDay}}
+               </li>
+               <li *ngIf="diets?.dietPlanName?.toLowerCase().includes('cheat') && instructions.cheatDay!==''">
+                {{instructions.cheatDay}}
+               </li>
+               <li *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && profileData?.lifeStyle?.instructions.nornalDay!==''">
+                {{instructions.nornalDay}}
+               </li>
               </ul>
             </span>
           </p>
@@ -299,9 +310,8 @@
         <ion-card-content style="background: #f5df7f;">
           <p style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
             Please schedule the call with Dietitian. <br>Diet plan along with instructions will be available after the consult
-
           </p>
-
+         
         </ion-card-content>
       </ion-card>
 

@@ -240,6 +240,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   profileData:any;
   profileName;
   firstConsult=null;
+  instructions:any={};
   getProfile(){
     this.appServices.getProfile().then(
       
@@ -258,8 +259,11 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
           provider: "mobile"
         };
         this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
+        this.instructions = this.profileData?.lifeStyle?.instructions;
         this.profileName=userData.name;
         console.log("getprofile",JSON.stringify(userData));
+        console.log("alam:-", profileData["lifeStyle"]);
+        
       });
 
    }

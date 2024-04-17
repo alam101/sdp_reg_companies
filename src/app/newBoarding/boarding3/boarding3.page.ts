@@ -122,6 +122,7 @@ export class Boarding3Page implements OnInit {
         code: this.selectedValue.code,
         data: this.selectedValue.data,
       },
+
       //diseases: this.profileData?.lifeStyle?.diseases,
       //communities: this.profileData?.lifeStyle?.communities,
       diseases:
@@ -139,7 +140,9 @@ export class Boarding3Page implements OnInit {
       //};
       firstConsult: localStorage.getItem("clientId")==="orthocure"? false:null,
       foodType: this.profileData?.lifeStyle?.foodType,
-      dietPlanName: localStorage.getItem("goals")
+      dietPlanName: localStorage.getItem("goals"),
+      consultQA: this.profileData?.lifeStyle?.consultQA===undefined?[]:this.profileData?.lifeStyle?.consultQA,
+      instructions: this.profileData?.lifeStyle?.instructions===undefined?'':this.profileData?.lifeStyle?.instructions
     };
     console.log(reqBody);
     this.appService.postLifeStyle(reqBody).then((success) => {

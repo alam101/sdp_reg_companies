@@ -270,6 +270,8 @@ trayaAllergies=[];
           : this.profileData?.lifeStyle?.communities,
       foodType: this.profileData?.lifeStyle?.foodType,
       firstConsult: localStorage.getItem("clientId")==="orthocure"? false:null,
+      consultQA: this.profileData?.lifeStyle?.consultQA===undefined?[]:this.profileData?.lifeStyle?.consultQA,
+      instructions: this.profileData?.lifeStyle?.instructions===undefined?'':this.profileData?.lifeStyle?.instructions
     };
     console.log(reqBody);
     this.appservice.postLifeStyle(reqBody).then((success) => {

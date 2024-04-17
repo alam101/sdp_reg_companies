@@ -58,8 +58,14 @@ export class Boarding5Page implements OnInit {
         }
       });
     });
-  }
 
+    this.appService.getProfile().then((res:any)=>{
+      this.lifeStyle = res.lifeStyle;
+    },err=>{
+
+    });
+  }
+lifeStyle:any;
   modalClose() {
     this.router.navigate(['new-profile']);
   }
@@ -217,6 +223,8 @@ export class Boarding5Page implements OnInit {
            const communitiesItem = this.localData?.otherMaster?.community.filter(item=>{
               return item?.isSelected;
           });
+          reqBodyLifeStyle.consultQA = this.lifeStyle?.consultQA===undefined?[]:this.lifeStyle?.consultQA,
+          reqBodyLifeStyle.instructions = this.lifeStyle?.instructions===undefined?{}:this.lifeStyle?.instructions;
           localStorage.setItem("communitiesItem", JSON.stringify(communitiesItem));
            reqBodyLifeStyle.communities= communitiesItem[0]?.code===undefined?['U']:[communitiesItem[0]?.code,'U'];
             this.appService.postLifeStyle(reqBodyLifeStyle).then(
