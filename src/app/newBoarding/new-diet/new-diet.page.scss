@@ -649,7 +649,13 @@ a.moreless {
   
   
 }
+textarea:focus, input:focus{
+  outline: 0;
+}
 
+*:focus {
+  outline: 0;
+}
 ion-content {
   &::part(background) {
     --background: var(--theme-newHeader);

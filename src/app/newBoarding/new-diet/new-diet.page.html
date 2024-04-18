@@ -193,7 +193,7 @@
       </ion-col>
     </ion-row>
   </div>
-  <app-appointent *ngIf="compConfig?.isDietitian"
+  <app-appointent *ngIf="compConfig?.isDietitian && isPlanExpired!==true"
   [plan]="true"
   [profileData]="profileData?.profile"
   [duration]="plandata?.trail"
@@ -231,26 +231,14 @@
     </div>
    
 
- <div *ngIf="firstConsult!==false">
-    <div
-      class="meal_workout_div"
-      *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
-    >
-   
-      <div #popover [ngClass]="'target'+i">
-        <app-meal-workout *ngIf="compConfig.dietComponent!==true"
-          [data]="d"
-          [diets]="diets.diets"
-          [index]="i"
-          [selecteddate]="selecteddate"
-          [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
-          (getCalData)="getCalData($event,i)"
-          [fullShow]="true"
-          [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
-          [plan]="true" 
-          (getDietdata)="getDietdata($event)"
-        ></app-meal-workout>
-        <app-meal-workout-c  *ngIf="compConfig.dietComponent"
+ <div *ngIf="firstConsult!==false && isPlanExpired===false">
+  <div
+    class="meal_workout_div"
+    *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
+  >
+ 
+    <div #popover [ngClass]="'target'+i">
+      <app-meal-workout *ngIf="compConfig.dietComponent!==true"
         [data]="d"
         [diets]="diets.diets"
         [index]="i"
@@ -260,46 +248,79 @@
         [fullShow]="true"
         [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
         [plan]="true" 
-        (getDietdata)="getDietdata($event)">
-        </app-meal-workout-c>
-      </div>
+        (getDietdata)="getDietdata($event)"
+      ></app-meal-workout>
+      <app-meal-workout-c  *ngIf="compConfig.dietComponent"
+      [data]="d"
+      [diets]="diets.diets"
+      [index]="i"
+      [selecteddate]="selecteddate"
+      [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
+      (getCalData)="getCalData($event,i)"
+      [fullShow]="true"
+      [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
+      [plan]="true" 
+      (getDietdata)="getDietdata($event)">
+      </app-meal-workout-c>
     </div>
+  </div>
 
+
+  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-1rem;" *ngIf="compConfig.notes!=false">
+    <ion-card >
+      <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+        Instructions</ion-card-header>
+      <ion-card-content style="background: var(--goal);">
+        <p *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && profileData?.lifeStyle?.instructions.nornalDay===''" style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+          Please follow the diet plan on daily basis.<br>
+          <span *ngIf="compConfig.modifyNotes!=false">
+            <ul>
+             <li>Daily walk of 45 minutes.</li>
+             <li *ngFor="let d of bindDesease()"> {{d}}</li>
+            </ul>
+          </span>
+        </p>
+        <span>
+          <ul style="padding-left: 0;height: 140px;    font-size: .9rem;
+          ">
+            <li style="list-style-type: none;outline:0px none transparent;height: 100%;" *ngIf="diets?.dietPlanName?.toLowerCase().includes('detox') && instructions.detoxDay!==''">
+              <textarea readonly="true" style="width: 100%;height: 100%; border:none;resize: none;">{{instructions.detoxDay}}</text area>
+            </li>
+            <li style="list-style-type: none;outline:0px none transparent;height: 100%;" *ngIf="diets?.dietPlanName?.toLowerCase().includes('cheat') && instructions.cheatDay!==''">
+              <textarea readonly="true" style="width: 100%;height: 100%; border:none;resize: none;">{{instructions.cheatDay}}</textarea>
+              
+            </li>
+            <li style="list-style-type: none;outline:0px none transparent;height: 100%;" *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && profileData?.lifeStyle?.instructions.nornalDay!==''">
+              <textarea  readonly="true" style="width: 100%;height: 100%; border:none;resize: none;"> {{instructions.nornalDay}}</textarea>
+            </li>
+          </ul>
+        </span>
+      </ion-card-content>
+    </ion-card>
+  </div>
  
-    <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-1rem;" *ngIf="compConfig.notes!=false">
-      <ion-card style="box-shadow: none;">
+ </div>
+  
+ <div *ngIf="isPlanExpired===true">
+  <img src="./assets/newImages/expiredplan.png" style="width: auto;height: auto;">
+  <div>
+    <ion-card style="box-shadow: none;">
+     
+      <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+        Remarks</ion-card-header>
+      <ion-card-content style="background: #f5df7f;">
+        <p style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+          Your plan is expired as per our records. Please connect us 
+          (<a (click)="openDial(compConfig?.compPhone)">{{compConfig?.compPhone}}</a>) for the renewal of same
+        </p>
        
-        <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
-          Note</ion-card-header>
-        <ion-card-content style="background: var(--goal);">
-          <p style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
-            Please follow the diet plan on daily basis.<br>
-            <span *ngIf="compConfig.modifyNotes!=false">
-              <ul style="padding-left: 1rem;">
-                <span *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && profileData?.lifeStyle?.instructions.nornalDay===''">
-               <li>Daily walk of 45 minutes.</li>
-               <li *ngFor="let d of bindDesease()"> {{d}}</li>
-               </span>
-               <li *ngIf="diets?.dietPlanName?.toLowerCase().includes('detox') && instructions.detoxDay!==''">
-                {{instructions.detoxDay}}
-               </li>
-               <li *ngIf="diets?.dietPlanName?.toLowerCase().includes('cheat') && instructions.cheatDay!==''">
-                {{instructions.cheatDay}}
-               </li>
-               <li *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && profileData?.lifeStyle?.instructions.nornalDay!==''">
-                {{instructions.nornalDay}}
-               </li>
-              </ul>
-            </span>
-          </p>
+      </ion-card-content>
+    </ion-card>
 
-        </ion-card-content>
-      </ion-card>
-
-    </div>
-   
-   </div>
-   <div *ngIf="firstConsult===false" >
+  </div>
+ </div>
+ <br>
+   <div *ngIf="compConfig?.isDietitian===true &&  firstConsult===false && isPlanExpired===false" >
     <img src="./assets/images/nutritionist.jpg" style="width: auto;height: auto;">
 
     <div>
@@ -318,7 +339,7 @@
     </div>
    </div>
   </div>
-
+  <br>  
 </ion-content>
 <ion-footer *ngIf="compConfig?.isSearch" style="position: fixed;
 bottom: 0;

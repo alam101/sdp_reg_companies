@@ -1,21 +1,35 @@
+<ion-icon
+class="close"
+name="close-circle"
+(click)="goBack()"
+[ngStyle]="{'top':platform ?'15px':'15px'}"
+>
+</ion-icon>
 <ion-content>
-  <br />
-  <ion-icon
-    class="close"
-    name="close-circle"
-    (click)="goBack()"
-    [ngStyle]="{'top':platform ?'15px':'15px'}"
-  >
-  </ion-icon>
+
   <div>
-    <ion-searchbar
-    mode="md" 
-      class="searchbar"
-      (ionClear)="clearSearch()"
-      (search)="searchAllApiData($event.target.value,1)"
-      placeholder="Search for Food"
-    >
-    </ion-searchbar>
+    <ion-row style="margin-top: 3rem;">
+      <ion-col size="10" class="ion-text-left" style="border: 1px solid #b3b3b3;padding-left: .5rem;
+      border-radius: 1rem;">
+        <!-- <ion-searchbar
+          mode="ios" 
+          class="searchbar"
+          (ionClear)="clearSearch()"
+          [(ngModel)]="searchValue"
+          placeholder="Search for Food"
+        >
+        </ion-searchbar> -->
+        <ion-input  class="sc-ion-input-ios" [(ngModel)]="searchValue"  placeholder="Search for Food" style="font-size: .8rem;"></ion-input>
+      </ion-col>
+      <ion-col size="2" class="ion-text-left">
+        <ion-icon name="search" (click)="searchAllApiData(searchValue,1)" style="position: absolute;
+        top: 15%;
+        left: .5rem;
+        font-size: 2rem;
+        color: var(--theme-color);"></ion-icon>
+      </ion-col>
+    </ion-row>
+   
    
   </div>
 
