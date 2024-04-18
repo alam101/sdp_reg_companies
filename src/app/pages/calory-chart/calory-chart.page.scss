@@ -23,3 +23,44 @@
 .color-white{
     color: #fff;
 }
+
+.date-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #757575;
+}
+
+.choice-type {
+    font-size: 12px;
+    font-weight: 600;
+    color: #212121;
+}
+
+.calory-consumed {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.calory-status {
+    font-size: 10px;
+    font-weight: 400;
+    ion-icon {
+        font-size: 14px;
+    }
+}
+
+.green-text {
+    color: #6CC65D;
+}
+
+.red-text {
+    color: #DC362E;
+}
+
+.yellow-text {
+    color: #F8A008;
+}
+
+.calory-status-icon {
+    font-size: 36px;
+}

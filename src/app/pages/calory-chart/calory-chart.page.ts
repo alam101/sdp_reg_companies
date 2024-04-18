@@ -37,8 +37,10 @@ export class CaloryChartPage implements OnInit {
     this.defaultDate = moment().format('ll');
     this.defaultDateRange = `${new Date().toLocaleString('default', { month: 'long' })} ${new Date(sunday).getDate()} - ${new Date(lastDay).getDate()}`;
     this.isValidDate = false;
-    this.getProfile();
-    this.customDailyDiets(fromDate, dateRange);
+    this.getProfile(()=>{
+      this.customDailyDiets(fromDate, dateRange);
+    });
+    
     this.route.queryParams.subscribe(res => {
       this.profileName = res.profileName;
       this.compConfig = JSON.parse(res.compConfig);
@@ -49,11 +51,12 @@ export class CaloryChartPage implements OnInit {
     });
   }
 
-  getProfile(){
+  getProfile(cb){
     this.appServices.getProfile().then(
       
       (profileData : any) => {
-        this.maxCalories = 400;//profileData?.lifeStyle.calories;
+        this.maxCalories = profileData?.lifeStyle.calories;
+        cb();
       });
 
    }
@@ -71,6 +74,10 @@ export class CaloryChartPage implements OnInit {
       console.log('fetchCustDailyDietsResponse: ', fetchCustDailyDietsResponse);
       if (fetchCustDailyDietsResponse) {
         this.custDailyDiets = fetchCustDailyDietsResponse;
+        this.custDailyDiets.forEach(ele => {
+          ele["displayDate"] = moment(moment(ele.date, "DD-MM-YYYY")).format('dddd, MMMM D');
+          ele["restCalories"] = this.maxCalories - ele.data.totalEatenCalories;
+        })
         this.barChartMethod();
       }
     },
