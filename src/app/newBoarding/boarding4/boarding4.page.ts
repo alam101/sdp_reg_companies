@@ -269,7 +269,7 @@ trayaAllergies=[];
           ? []
           : this.profileData?.lifeStyle?.communities,
       foodType: this.profileData?.lifeStyle?.foodType,
-      firstConsult: localStorage.getItem("clientId")==="orthocure"? false:null,
+      firstConsult: localStorage.getItem("clientId")==="orthocure" ? (this.profileData?.lifeStyle?.firstConsult===undefined?false:this.profileData?.lifeStyle?.firstConsult):null,
       consultQA: this.profileData?.lifeStyle?.consultQA===undefined?[]:this.profileData?.lifeStyle?.consultQA,
       instructions: this.profileData?.lifeStyle?.instructions===undefined?'':this.profileData?.lifeStyle?.instructions
     };

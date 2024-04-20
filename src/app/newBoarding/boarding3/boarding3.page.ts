@@ -138,7 +138,7 @@ export class Boarding3Page implements OnInit {
           
       // foodType: this.profileData?.lifeStyle?.foodType,
       //};
-      firstConsult: localStorage.getItem("clientId")==="orthocure"? false:null,
+      firstConsult: localStorage.getItem("clientId")==="orthocure" ? (this.profileData?.lifeStyle?.firstConsult===undefined?false:this.profileData?.lifeStyle?.firstConsult):null,
       foodType: this.profileData?.lifeStyle?.foodType,
       dietPlanName: localStorage.getItem("goals"),
       consultQA: this.profileData?.lifeStyle?.consultQA===undefined?[]:this.profileData?.lifeStyle?.consultQA,

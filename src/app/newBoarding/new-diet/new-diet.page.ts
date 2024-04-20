@@ -270,6 +270,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
         }
         this.instructions = this.profileData?.lifeStyle?.instructions;
+   
         this.profileName=userData.name;
    
         console.log("getprofile",JSON.stringify(userData));
@@ -434,7 +435,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         columns: columns,
         headStyles: { halign: 'center', textColor: '#FFF', fillColor: '#FFF', cellPadding: 5, fontSize: 14 },
         bodyStyles: { valign: 'middle', textColor: "#000000", fontSize: 12 },
-        foot: [[{ content: "This is as per https://www.smartdietplanner.com/terms-conditions/", colSpan: 4, }]],
+        foot: [[{ content: "", colSpan: 4, }]],
         footStyles :{ halign: 'center', textColor: '#FFF', fillColor: '#01A3A4', fontStyle: 'italic', cellPadding: 1, fontSize: 12},
 
         didParseCell: (data) => {

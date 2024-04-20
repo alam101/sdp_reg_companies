@@ -621,7 +621,7 @@ export class UTILITIES {
       prefWorkOutTime:
         workOutTime && workOutTime.length ? workOutTime[0]?.name : "",
       communities: communityArray,
-      firstConsult: localStorage.getItem("clientId")==="orthocure"? false:null,
+      firstConsult: null,
       foodType: foodPref[0]?.code,
       country: data?.country,
       Type: "",

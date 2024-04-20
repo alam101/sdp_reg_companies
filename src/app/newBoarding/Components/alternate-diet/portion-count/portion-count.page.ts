@@ -109,7 +109,7 @@ export class PortionCountPage implements OnInit {
   }
 
   async replaced(item) {
-
+  debugger;
     if (this.currentDateIndex == 0) {
     //  this.utilities.logEvent("Counter_add_home", {});
 

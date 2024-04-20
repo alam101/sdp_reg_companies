@@ -223,6 +223,7 @@ lifeStyle:any;
            const communitiesItem = this.localData?.otherMaster?.community.filter(item=>{
               return item?.isSelected;
           });
+          reqBodyLifeStyle.firstConsult= localStorage.getItem("clientId")==="orthocure" ? (this.lifeStyle?.firstConsult===undefined?false:this.lifeStyle?.firstConsult):null,
           reqBodyLifeStyle.consultQA = this.lifeStyle?.consultQA===undefined?[]:this.lifeStyle?.consultQA,
           reqBodyLifeStyle.instructions = this.lifeStyle?.instructions===undefined?{}:this.lifeStyle?.instructions;
           localStorage.setItem("communitiesItem", JSON.stringify(communitiesItem));
