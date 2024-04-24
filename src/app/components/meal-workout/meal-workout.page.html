@@ -87,7 +87,7 @@
                 [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option "
                 value="1"
               ></ion-progress-bar>
-              <p class="choice">{{d?.option}} Choice</p>
+              <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option ">{{d?.option}} Choice</p>
             </div>
 
             <!-- <ion-icon

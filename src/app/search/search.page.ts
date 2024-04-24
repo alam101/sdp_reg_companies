@@ -299,12 +299,16 @@ show3=true;
       this.tempData1 = [];
       this.tempData2 = [];
       this.tempData3 = [];
-      this.allSearchData = {};
+     // this.allSearchData = {};
       
     }
     
    console.log("evt",evt);
-   
+   if(evt===undefined || evt===''){
+    return;
+   }
+   else{
+    this.allSearchData = {};
     this.searchText = evt;
     this.appService.getAllRestaurantbyName(evt, pag).then((res: any) => {
       console.log("res",res);
@@ -346,6 +350,7 @@ show3=true;
   
       console.log(this.allSearchData);
     });
+  }
   }
 
   filterList(evt) {

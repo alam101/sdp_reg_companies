@@ -51,7 +51,8 @@
               src="./assets/newImages/null.jpg"
             />
           </ion-thumbnail>
-          <p class="choice" style="background: #55A148;color:#fff;position: absolute;     top: 8px;
+          <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option " 
+          style="color:#fff;position: absolute;     top: 8px;
           border-top-left-radius: 7px;
           border-top-right-radius: 7px;
           height: 1rem;

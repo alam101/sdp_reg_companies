@@ -17,7 +17,7 @@
     </div>
 
     <div class="content_div">
-      <ion-img *ngIf="client!='plix'"
+      <ion-img *ngIf="client!='plix' && client!='orthocure'"
         src="../../../assets/newImages/registration.svg"
         class="reg_img"
       ></ion-img>
@@ -28,6 +28,13 @@
         left: 38%;
         top: 5rem;
         border-radius: 1rem;">
+         <img *ngIf="client==='orthocure'"
+         src="./assets/newImages/orthocure.png"
+         style="width: 50%;
+         position: absolute;
+         left: 24%;
+         top: 5rem;
+         border-radius: 1rem;">
      
       <h3 class="title-text ion-text-center">Hey, answer a few questions to help us get your personlised plan</h3>
 

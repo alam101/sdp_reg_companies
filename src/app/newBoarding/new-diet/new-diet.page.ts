@@ -99,8 +99,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
     this.companyLogoBase64 = this.compConfig.companyLogoBase64;
+    this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
   }
- 
+  defaultPlanCheck=false;
   logSlot(d,slot){
     this.eatenStatusUpdate(d,slot);
   }
@@ -175,16 +176,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   plandata: any;
   futureDateCSS="";
   fday=0;
-  ngOnInit() {
-
-    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
-    console.log("this.compConfig", this.compConfig);
-    
-    this.getProfile();
-
+  isPlanExpired=false;
+  getOnePlan(){
     this.appServices.getOnePlan().subscribe((res) => {
       this.plandata = res;
-   
     this.weeks = [];
     for (var i = 0; i < 7; i++) {
       let date = moment().add(i, "days");
@@ -237,14 +232,28 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       }
     });
   }
+  ngOnInit() {
+
+    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+    console.log("this.compConfig", this.compConfig);
+    
+    this.getProfile();
+     this. getOnePlan();
+   
+  }
   profileData:any;
   profileName;
   firstConsult=null;
+  instructions:any={};
+  openDial(phonenumber){
+    window.open("tel:"+phonenumber+"","_system");
+  }
   getProfile(){
     this.appServices.getProfile().then(
       
       profileData => {
         //debugger;
+       
         localStorage.setItem("activities",JSON.stringify(profileData["lifeStyle"]["activities"]));
         console.log("profileData",profileData);
         this.profileData = profileData;
@@ -257,9 +266,16 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
           photoUrl: null,
           provider: "mobile"
         };
+        if(this.compConfig.isDietitian){
         this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
+        }
+        this.instructions = this.profileData?.lifeStyle?.instructions;
+   
         this.profileName=userData.name;
+   
         console.log("getprofile",JSON.stringify(userData));
+        console.log("alam:-", profileData["lifeStyle"]);
+        
       });
 
    }
@@ -419,7 +435,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         columns: columns,
         headStyles: { halign: 'center', textColor: '#FFF', fillColor: '#FFF', cellPadding: 5, fontSize: 14 },
         bodyStyles: { valign: 'middle', textColor: "#000000", fontSize: 12 },
-        foot: [[{ content: "This is as per https://www.smartdietplanner.com/terms-conditions/", colSpan: 4, }]],
+        foot: [[{ content: "", colSpan: 4, }]],
         footStyles :{ halign: 'center', textColor: '#FFF', fillColor: '#01A3A4', fontStyle: 'italic', cellPadding: 1, fontSize: 12},
 
         didParseCell: (data) => {
@@ -610,11 +626,21 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
           this.utilities.presentAlert("Slots are not available. Please refresh!");
         }
      
-        
+        this.getProfile();
+       this.getOnePlanForDefaultDate();
         this.cdr.detectChanges();
       });
   }
 
+  getOnePlanForDefaultDate(){
+    this.appServices.getOnePlan().subscribe((res) => {
+      this.plandata = res;
+      if(this.defaultPlanCheck===true){
+      this.isPlanExpired = moment().toDate() <= moment(this.plandata.defaultExpDate).toDate()?false:true;
+      }
+      console.log(this.isPlanExpired,moment().toDate(),moment(this.plandata.defaultExpDate).toDate());
+    },err=>{});
+  }
   getCalData(e, i) {
     console.log("getCalData called e", e);
     console.log(this.diets);

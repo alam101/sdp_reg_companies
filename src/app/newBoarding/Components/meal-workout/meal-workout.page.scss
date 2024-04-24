@@ -131,44 +131,44 @@ ion-thumbnail {
 }
 
 .protien_progress {
-  --progress-background: #376c23;
-  border-radius: 25px;
+  background: #376c23;
+ 
   width: 50px;
   margin: 2px 0px;
 }
 .Best {
-  --progress-background: #38a534;
-  border-radius: 25px;
+  background: #38a534;
+
   width: 50px;
   margin: 2px 0px;
 }
 .Good {
-  --progress-background: #94ea0a;
-  border-radius: 25px;
+  background: #94ea0a;
+ 
   width: 50px;
   margin: 2px 0px;
 }
 .Average {
-  --progress-background: #eadc18;
-  border-radius: 25px;
+  background: #eadc18;
+
   width: 50px;
   margin: 2px 0px;
 }
 .Fair {
-  --progress-background: #ffa500;
-  border-radius: 25px;
+  background: #ffa500;
+ 
   width: 50px;
   margin: 2px 0px;
 }
 .Unverified {
-  --progress-background: #7d7d7d5e;
-  border-radius: 25px;
+  background: #7d7d7d5e;
+ 
   width: 50px;
   margin: 2px 0px;
 }
 .Bad{
-  --progress-background: red;
-  border-radius: 25px;
+  background: red;
+ 
   width: 50px;
   margin: 2px 0px;
 }
