@@ -105,6 +105,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   logSlot(d,slot){
     this.eatenStatusUpdate(d,slot);
   }
+  goToInsites(){
+    this.router.navigate(["/calory-chart"]);
+  }
   async eatenStatusUpdate(item,slot) {
    
     console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
