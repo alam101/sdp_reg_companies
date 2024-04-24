@@ -2009,9 +2009,9 @@ getDietdata(date) {
   goToTodaysCaloriesCounter(flag){
     if(this.currentDateIndex == 0){
       if(flag){
-      //  this.utilities.logEvent("Counter_click_header", {});
+       this.utilities.logEvent("onboarding_Counter_click_header", {});
       }else{
-      //  this.utilities.logEvent("Counter_click_tracker", {});
+        this.utilities.logEvent("onboarding_Counter_click_tracker", {});
       }
       this.router.navigate(['todays-calorie-count'],{queryParams:{params:'v',prm:this.activeSlotIndex}});
     } else{
@@ -3511,9 +3511,9 @@ getDietdata(date) {
         } else {
          // this.utilities.showSuccessToast("In " + slot.slotName + ", item is added");
         }
-       // if (type == "less100") this.utilities.logEvent("less_than_100_foodItem_added", {});
-       // else if (type == "highProtien") this.utilities.logEvent("high_protien_foodItem_added", {});
-       // else this.utilities.logEvent("healthy_foodItem_added", {});
+        if (type == "less100") this.utilities.logEvent("onboarding_less_than_100_foodItem_added", {});
+        else if (type == "highProtien") this.utilities.logEvent("onboarding_high_protien_foodItem_added", {});
+        else this.utilities.logEvent("onboarding_healthy_foodItem_added", {});
         this.fetchDiet(CONSTANTS.isDetox, CONSTANTS.dietDate);
         this.ionContent.scrollToTop();
         this.slides.slideTo(slotIndex, 200);
@@ -4995,7 +4995,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
     if(this.currentDateIndex == 0){
       let foodCodeList = [];
       let eatenStatus = false;
-  //    this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
       slot.data.filter((ele) => {
         if (ele.itemCode == item.itemCode){
           if(ele.eaten > 0) eatenStatus = false;
@@ -5022,7 +5022,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
         date: CONSTANTS.dietDate
       };
       console.log("reqBody", reqBody);
-   //   this.utilities.logEvent("update_food_details", reqBody);
+      this.utilities.logEvent("onboarding_update_food_details", reqBody);
       this.appServices.updateEatenFoodItems(reqBody).then(
         success => {
           console.log("detail", success);
@@ -5135,7 +5135,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
       country: CONSTANTS.country
     };
     console.log("reqBody", reqBody);
- //   this.utilities.logEvent("update_food_details", reqBody);
+    this.utilities.logEvent("onboarding_update_food_details", reqBody);
     this.appServices.postOptionFoodList(reqBody).then(
       success => {
         this.utilities.hideLoader();
@@ -5152,7 +5152,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
   removeDietSlot(i) {
     ////this.utilities.presentLoading();
     console.log("Clicked index ", i);
- //   this.utilities.logEvent("DietPlan_07aDeleteFromMainPage", {})
+   this.utilities.logEvent("onboarding_DietPlan_07aDeleteFromMainPage", {})
     let foodCodeList = [];
 
     let reqBody = {
@@ -5163,7 +5163,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
       country: CONSTANTS.country
     };
     console.log("reqBody", reqBody);
-  //  this.utilities.logEvent("update_food_details", reqBody);
+    this.utilities.logEvent("onboarding_update_food_details", reqBody);
     this.appServices.postOptionFoodList(reqBody).then(
       success => {
         // this.utilities.hideLoader();
@@ -5185,7 +5185,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
   }
   refreshFoodItem(dataItem, index) {
   //  this.ionContent.scrollToPoint(0,parseInt(localStorage.getItem("scrollVal")),10);
-   //   this.utilities.logEvent("DietPlan_07cUpdateFromRefresh", {});
+      this.utilities.logEvent("onboarding_DietPlan_07cUpdateFromRefresh", {});
       if (index > 2 || (this.showProtienTracker && index > 0)) {
         // if (!this.isPlanActiveForDiet) {
         //   // this.router.navigate(['upgrade-plan']);
@@ -5600,16 +5600,16 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
     let interval;
     if (type == 'plus') {
       percent1++;
-      // this.utilities.logEvent("water", { drank: 1 })
-     // this.utilities.logEvent("Tracker_03Water", { drank: 1 })
-    //  this.utilities.logEvent("Tracker_03aAddWater", { drank: 1 })
+       this.utilities.logEvent("onboarding_water", { drank: 1 })
+      this.utilities.logEvent("onboarding_Tracker_03Water", { drank: 1 })
+      this.utilities.logEvent("onboarding_Tracker_03aAddWater", { drank: 1 })
     } else {
       percent1--;
       if (this.drankwater <= 0) {
         return true;
       }
-      // this.utilities.logEvent("water", { drank: -1 })
-    //  this.utilities.logEvent("Tracker_03Water", { drank: -1 })
+       this.utilities.logEvent("onboarding_water", { drank: -1 })
+      this.utilities.logEvent("onboarding_Tracker_03Water", { drank: -1 })
     }
     this.customNotification("#glass_text_water", type == 'plus' ? "+250 ml Well done!" : "-250 ml Oops!");
     // cnt.innerHTML = percent1;
@@ -5999,7 +5999,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
               CONSTANTS.isDetox = this.isDetox = true;
             }, 500);
           //  ////this.utilities.presentLoading();
-         //   this.utilities.logEvent("click_detox", {})
+            this.utilities.logEvent("onboarding_click_detox", {})
             this.fetchDietPlan();
           }
           this.setToggleButtons()
@@ -6176,9 +6176,9 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
       detox: !this.isDetox,
       date: find.detoxDate
     };
-    // this.utilities.logEvent("update_detox_status", reqBody);
-  //  if (this.isDetox) this.utilities.logEvent("DietPlan_03ChangeDetox", reqBody);
- //   else this.utilities.logEvent("DietPlan_04ChangeNormal", reqBody);
+     this.utilities.logEvent("onboarding_update_detox_status", reqBody);
+    if (this.isDetox) this.utilities.logEvent("onboarding_DietPlan_03ChangeDetox", reqBody);
+    else this.utilities.logEvent("onboarding_DietPlan_04ChangeNormal", reqBody);
     this.appService.updateDetoxStatus(reqBody).subscribe((res) => {
       this.utilities.hideLoader();
       this.appService.calories().subscribe((res) => {
@@ -6469,10 +6469,10 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
 
   gotoNutriScore() {
     if(CONSTANTS.isPlanActiveParent){
-    //  this.utilities.logEvent("Nutricheck_click_homebanner_premium", {});
+      this.utilities.logEvent("onboarding_Nutricheck_click_homebanner_premium", {});
       this.router.navigate(["nutri-score"]);
     }else{
-  //    this.utilities.logEvent("Nutricheck_click_homebanner_free", {});
+      this.utilities.logEvent("onboarding_Nutricheck_click_homebanner_free", {});
      // this.paymentSubscribeModel('nutri diet plan');
     }
   }

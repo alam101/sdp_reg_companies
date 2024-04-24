@@ -111,7 +111,7 @@ export class PortionCountPage implements OnInit {
   async replaced(item) {
   debugger;
     if (this.currentDateIndex == 0) {
-    //  this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
 
       const datas = {
         date: CONSTANTS.dietDate,
@@ -132,7 +132,7 @@ export class PortionCountPage implements OnInit {
         ],
         isUpdateDiet: true,
       };
-    //  this.utilities.logEvent("update_food_details", datas);
+      this.utilities.logEvent("onboarding_update_food_details", datas);
       this.appService.postOptionFoodList(datas).then(
         (success: any) => {
           this.getDietdata.emit(CONSTANTS.dietDate);
@@ -185,7 +185,7 @@ export class PortionCountPage implements OnInit {
   async eatenStatusUpdate(item, eaten) {
 
     if (this.currentDateIndex == 0) {
-     // this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
 
       const datas = {
         date: CONSTANTS.dietDate,
@@ -199,7 +199,7 @@ export class PortionCountPage implements OnInit {
         ],
         isUpdateDiet: true,
       };
-    //  this.utilities.logEvent("update_food_details", datas);
+     this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appService.postOptionFoodList(datas).then(
         (success: any) => {

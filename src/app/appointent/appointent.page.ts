@@ -70,9 +70,9 @@ export class AppointentPage implements OnInit {
     if (this.duration !== -1) {
       u = "https://calendly.com/sdpdietitian";
     }
-    // else {
-    //   this.utilities.logEvent("Click_consultations_scheduled_paid", {});
-    // }
+    else {
+      this.utilities.logEvent("Click_consultations_scheduled_paid", {});
+    }
     this.iab.create(u, "_sysyem");
   }
 

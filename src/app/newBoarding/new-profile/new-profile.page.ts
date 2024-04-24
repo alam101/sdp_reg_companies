@@ -26,6 +26,7 @@ export class NewProfilePage implements OnInit,AfterViewInit {
   compConfig:any;
   preferedItem: any;
   ngOnInit() {
+    this.utilities.logEvent("Tracker_profileUpdate", {});
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
     this.preferredMeal();

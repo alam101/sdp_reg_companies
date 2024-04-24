@@ -121,8 +121,10 @@
         border-top-right-radius: 5px;
   }
 }
-ion-content {
+.bottom-offset{
   --offset-bottom: -3rem !important;
+}
+ion-content {
   --background: #fff !important;
   // --background: -webkit-linear-gradient(top, #FF980D 50%, #F6F7FC 50%)!important;
   .blur-it{

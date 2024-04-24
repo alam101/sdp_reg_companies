@@ -285,7 +285,7 @@ addRemove(type) {
   async remove(item, eaten, status) {
     if (this.currentDateIndex == 0) {
       let foodCodeList = [];
-     // this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
 
       const datas = {
         date: CONSTANTS.dietDate,
@@ -299,7 +299,7 @@ addRemove(type) {
         ],
         isUpdateDiet: true,
       };
-     // this.utilities.logEvent("update_food_details", datas);
+      this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
@@ -326,7 +326,7 @@ addRemove(type) {
     else{ 
       let foodCodeList = [];
         let dataTotal = [];
-     // this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
     
       for (let index = 0; index < item.data.length; index++) {
         dataTotal.push(
@@ -344,7 +344,7 @@ addRemove(type) {
         foodCodeList: dataTotal,
         isUpdateDiet: true,
       };
-    //  this.utilities.logEvent("update_food_details", datas);
+      this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
@@ -373,7 +373,7 @@ addRemove(type) {
     else{ 
     if (this.currentDateIndex == 0) {
       let foodCodeList = [];
-     // this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
 
       const datas = {
         date: CONSTANTS.dietDate,
@@ -388,7 +388,7 @@ addRemove(type) {
         ],
         isUpdateDiet: true,
       };
-    //  this.utilities.logEvent("update_food_details", datas);
+      this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {

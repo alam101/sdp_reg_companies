@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 // import { OAuthModule } from 'angular-oauth2-oidc';
 
-
+import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { AppRoutingModule, APP_ROUTES } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home-entry/home.module';
@@ -38,6 +38,7 @@ import { BroadcastService } from './broadcast.service';
       useClass: AuthInterceptor,
       multi: true
     },
+    FirebaseX,
     SettingsService,
     AuthGuard,
     InAppBrowser,

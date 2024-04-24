@@ -116,7 +116,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     else{ 
       let foodCodeList = [];
         let dataTotal = [];
-     // this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("Counter_add_home", {});
       for (let index = 0; index < item.data.length; index++) {
         dataTotal.push(
           {
@@ -133,7 +133,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         foodCodeList: dataTotal,
         isUpdateDiet: true,
       };
-    //  this.utilities.logEvent("update_food_details", datas);
+      this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
@@ -233,7 +233,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     });
   }
   ngOnInit() {
-
+    this.utilities.logEvent("onboarding_dietplanPage", {});
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
     
