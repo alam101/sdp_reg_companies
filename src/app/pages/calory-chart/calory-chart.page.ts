@@ -146,6 +146,7 @@ export class CaloryChartPage implements OnInit {
     }
     console.log('fetchCustDailyDietsResponse: ', backgroundColorToSet);
     let self = this;
+    let limitAdded = false;
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
@@ -179,6 +180,7 @@ export class CaloryChartPage implements OnInit {
           },
           y: {
             stacked: true,
+            suggestedMax: self.maxCalories,
             grid: {
               color: (ctx)=>{
                 if(ctx.tick.value == self.maxCalories) return 'rgb(220 54 46)'
@@ -190,7 +192,11 @@ export class CaloryChartPage implements OnInit {
                 if (value && values[index+1] && values[index+1].value && self.maxCalories > value && self.maxCalories < values[index+1].value){
                   values.splice(index, 1); 
                   values.push({value:self.maxCalories, label: self.maxCalories})
+                  limitAdded = true;
                   // values[index+1] = {value:self.maxCalories, label: self.maxCalories};
+                }
+                if(!limitAdded && index + 1 == values.length){
+                  values.push({value:self.maxCalories, label: self.maxCalories})
                 }
                 return value;
               },
