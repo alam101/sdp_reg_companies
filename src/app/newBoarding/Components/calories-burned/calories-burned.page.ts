@@ -139,7 +139,7 @@ export class CaloriesBurnedPage implements OnInit {
                             !localStorage.getItem("setSteps")
                           ) {
                             localStorage.setItem("setSteps", "true");
-                      //      this.utilities.logEvent("steps_captured", {});
+                           this.utilities.logEvent("onboarding_steps_captured", {});
                           }
                           if (resnew.value >= 0) {
                             if (!localStorage.getItem("startActivity")) {

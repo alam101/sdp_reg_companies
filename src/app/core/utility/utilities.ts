@@ -5,6 +5,7 @@ import { Storage } from "@ionic/storage";
 import { AlertController, LoadingController } from "@ionic/angular";
 import moment from "moment";
 import { CONSTANTS } from "../constants/constants";
+import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { ToastrService } from "ngx-toastr";
 @Injectable({
   providedIn: "root"
@@ -34,9 +35,20 @@ export class UTILITIES {
     private storage: Storage,
     public loadingController: LoadingController,
     private platform: Platform,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private firebaseX: FirebaseX,
   ) {}
 
+  async logEvent(eventName, eventData) {
+    let eveName = (await this.isDeviceiOS())
+      ? "iOS_" + eventName
+      : this.isDeviceAndroid()
+      ? "Android_" + eventName
+      : "Web_" + eventName;
+   // if (this.fb) await this.fb.logEvent(eveName, eventData);
+    if (this.firebaseX) await this.firebaseX.logEvent(eveName, eventData);
+  }
+  
   changeTime(time) {
     let times = time.split(":");
     return parseInt(times[0]) + 12 + ":" + times[1];

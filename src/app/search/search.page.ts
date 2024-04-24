@@ -69,7 +69,9 @@ export class SearchPage implements OnInit {
     this.dataInitList();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.utilities.logEvent("onboarding_Tracker_search", {});
+  }
   plandata:any;
   checkPlan() {
     this.appService.getOnePlan().then((res) => {

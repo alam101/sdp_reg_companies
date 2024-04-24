@@ -325,7 +325,7 @@ export class FoodDetailsComponent implements OnInit {
 
   update() {
     this.utilities.presentLoading();
-  //  this.utilities.logEvent("DietPlan_07aUpdateFromDetails", {})
+    this.utilities.logEvent("onboarding_DietPlan_07aUpdateFromDetails", {})
     let data = JSON.parse(this.allFood);
     let foodCodeList = [];
     let code = "";
@@ -383,7 +383,7 @@ export class FoodDetailsComponent implements OnInit {
         country: CONSTANTS.country
       };
       console.log("reqBody", reqBody);
-    //  this.utilities.logEvent("update_food_details", reqBody);
+      this.utilities.logEvent("onboarding_update_food_details", reqBody);
       this.appServices.postOptionFoodList(reqBody).then(
         success => {
           console.log("detail", success);

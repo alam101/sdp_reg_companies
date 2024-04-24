@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content [ngClass]="{'bottom-offset':compConfig?.isSearch===true}">
   <!-- {{moment(selecteddate).format('MMMM')}} -->
 
   <p class="month paddingIos" *ngIf="!platform"></p>
@@ -271,7 +271,7 @@
       <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
         Instructions</ion-card-header>
       <ion-card-content style="background: var(--goal);">
-        <p *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && profileData?.lifeStyle?.instructions?.nornalDay===''" style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+        <p *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && (profileData?.lifeStyle?.instructions?.nornalDay=='' || profileData?.lifeStyle?.instructions?.nornalDay==undefined)" style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
           Please follow the diet plan on daily basis.<br>
           <span *ngIf="compConfig.modifyNotes!=false">
             <ul>

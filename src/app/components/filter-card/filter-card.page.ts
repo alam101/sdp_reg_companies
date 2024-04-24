@@ -103,7 +103,7 @@ export class FilterCardPage implements OnInit {
             console.log("food code update", res);
             // this.modalCtrl.dismiss({});
             // if (d?.imgType === "H") {
-            //   this.utilities.logEvent("Click_search_whats_on_your_mind", {});
+              this.utilities.logEvent("onboarding_Click_search_whats_on_your_mind", {});
             // } else
 
             this.utilities.closeModal();

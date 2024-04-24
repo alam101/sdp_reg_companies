@@ -83,7 +83,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   
     
   ngAfterViewInit() {
-    //this.utilities.logEvent("Register_02BasicInfo", {});
+    this.utilities.logEvent("onboarding_Register_02BasicInfo", {});
     this.storage.get("localData").then((val) => {
       this.localData = this.utilities.parseJSON(val);
      console.log(this.localData);

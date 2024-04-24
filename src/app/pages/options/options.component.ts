@@ -166,7 +166,7 @@ export class OptionsComponent implements OnInit {
   searchedWithGetData = false;
   searchByInput(evt){
     // this.keyboard.hide();
-    // this.utilities.logEvent("search_other_options", {});
+     this.utilities.logEvent("onboarding_search_other_options", {});
     // if(evt != '') this.clearFilterForUpdate = true;
     // else this.clearFilterForUpdate = false;
     let filteredData = [];
@@ -200,7 +200,7 @@ export class OptionsComponent implements OnInit {
 
   searchingData = false;
   getAllForSearch(searchTerm, flag){
-    // this.utilities.logEvent("Counter_search_all", {});
+     this.utilities.logEvent("onboarding_Counter_search_all", {});
     this.appService.searchFoodItemByName(searchTerm).then((resp)=>{
       let internalData = resp["internalFoods"];
       let externalData = resp["externalFoods"];
@@ -788,7 +788,7 @@ export class OptionsComponent implements OnInit {
 
   getSelectedOption(optionIndex,optionName, categories) {
     //   this.dataWithRef = data;
-    // this.utilities.logEvent("sort_other_options", {});       
+     this.utilities.logEvent("onboarding_sort_other_options", {});       
     let roast = 0;
     const foodCodeArr = this.foodCode.split(",");
     const portions = this.portions.split(",");
@@ -1298,7 +1298,7 @@ export class OptionsComponent implements OnInit {
             this.storage.set("optionsData",this.optionData).then(()=>{
               this.getWordPressOtions();
             })
-            // this.utilities.logEvent("DietPlan_07bUpdateFromOptions", reqData); 
+             this.utilities.logEvent("onboarding_DietPlan_07bUpdateFromOptions", reqData); 
             this.fetchDiet(CONSTANTS.isDetox, CONSTANTS.dietDate, success["dietplan"]);
           },
           err => {

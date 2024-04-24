@@ -285,7 +285,7 @@ alternatives(data){
   async remove(item, eaten, status) {
     if (this.currentDateIndex == 0) {
       let foodCodeList = [];
-     // this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
 
       const datas = {
         date: CONSTANTS.dietDate,
@@ -299,7 +299,7 @@ alternatives(data){
         ],
         isUpdateDiet: true,
       };
-     // this.utilities.logEvent("update_food_details", datas);
+      this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
@@ -318,7 +318,7 @@ alternatives(data){
   async eatenStatusUpdate(item, eaten, status) {
     if (this.currentDateIndex == 0) {
       let foodCodeList = [];
-     // this.utilities.logEvent("Counter_add_home", {});
+     this.utilities.logEvent("onboarding_Counter_add_home", {});
 
       const datas = {
         date: CONSTANTS.dietDate,
@@ -332,7 +332,7 @@ alternatives(data){
         ],
         isUpdateDiet: true,
       };
-    //  this.utilities.logEvent("update_food_details", datas);
+      this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {

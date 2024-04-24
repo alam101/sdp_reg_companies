@@ -251,7 +251,7 @@ lifeStyle:any;
                   .set("localData", this.utilities.parseString(data))
                   .then(() => {
                     this.utilities.hideLoader();
-                 //   this.utilities.logEvent("complete_lifestyle", {});
+                    this.utilities.logEvent("onboarding_complete_lifestyle", {});
                     if (this.from) {
                       return this.modalClose();
                     }

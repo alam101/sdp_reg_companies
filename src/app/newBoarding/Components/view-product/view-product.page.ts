@@ -256,7 +256,7 @@ export class ViewProductPage implements OnInit {
   }
 
   async replaced(item) {
-  //  this.utilities.logEvent("Counter_add_home", {});
+    this.utilities.logEvent("onboarding_Counter_add_home", {});
 
     const datas = {
       date: CONSTANTS.dietDate,

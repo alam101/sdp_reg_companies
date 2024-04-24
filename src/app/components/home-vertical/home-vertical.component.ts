@@ -1448,9 +1448,9 @@ export class HomeVerticalComponent implements  OnInit,OnChanges, OnDestroy {
   goToTodaysCaloriesCounter(flag){
     if(this.currentDateIndex == 0){
       if(flag){
-     //   this.utilities.logEvent("Counter_click_header", {});
+        this.utilities.logEvent("onboarding_Counter_click_header", {});
       }else{
-     //   this.utilities.logEvent("Counter_click_tracker", {});
+        this.utilities.logEvent("onboarding_Counter_click_tracker", {});
       }
       this.router.navigate(['todays-calorie-count']);
     } else{
@@ -1985,9 +1985,9 @@ export class HomeVerticalComponent implements  OnInit,OnChanges, OnDestroy {
     var dayValue = selectedDay.formatDate;
     CONSTANTS.dietDate = dayValue;
   
-    // this.utilities.logEvent("DietPlan_02ChangeDate", {
-    //   date: CONSTANTS.dietDate
-    // });
+     this.utilities.logEvent("onboarding_DietPlan_02ChangeDate", {
+      date: CONSTANTS.dietDate
+    });
    
     this.storage.get("dietData").then((res)=>{
       let dietData = res && res[CONSTANTS.dietDate];
@@ -2705,7 +2705,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
     if(this.currentDateIndex == 0){
       let foodCodeList = [];
       let eatenStatus = false;
-   //   this.utilities.logEvent("Counter_add_home", {});
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
       slot.data.filter((ele) => {
         if (ele.itemCode == item.itemCode){
           if(ele.eaten > 0) eatenStatus = false;
@@ -2732,7 +2732,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
         date: CONSTANTS.dietDate
       };
       console.log("reqBody", reqBody);
-    //  this.utilities.logEvent("update_food_details", reqBody);
+     this.utilities.logEvent("onboarding_update_food_details", reqBody);
       this.appServices.updateEatenFoodItems(reqBody).then(
         success => {
           console.log("detail", success);
@@ -2820,7 +2820,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
   removeDietSlot(i) {
     //this.utilities.presentLoading();
     console.log("Clicked index ", i);
-  //  this.utilities.logEvent("DietPlan_07aDeleteFromMainPage", {})
+    this.utilities.logEvent("onboarding_DietPlan_07aDeleteFromMainPage", {})
     let foodCodeList = [];
 
     let reqBody = {
@@ -2831,7 +2831,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
       country: CONSTANTS.country
     };
     console.log("reqBody", reqBody);
-  //  this.utilities.logEvent("update_food_details", reqBody);
+    this.utilities.logEvent("onboarding_update_food_details", reqBody);
     this.appServices.postOptionFoodList(reqBody).then(
       success => {
         // this.utilities.hideLoader();
@@ -3111,7 +3111,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
  
 
   customRoundof(num) {
-    if (num != undefined && num > 0 && num != NaN) {
+    if (num != undefined && num > 0 && !Number.isNaN(num)) {
       return Math.round(num);
     }
     else {
