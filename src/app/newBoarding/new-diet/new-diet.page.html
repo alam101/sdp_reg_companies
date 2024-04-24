@@ -24,11 +24,6 @@
               {{compConfig.headerText}}
             </ion-col>
           </ion-row>
-          <ion-button>
-            <div (click)="caloryChart()">
-              New Design
-            </div>
-          </ion-button>
       </div>
       <ion-card style="height: 180px;
       position: absolute;
@@ -215,10 +210,15 @@
       
       <div class="right" *ngIf="!isDetox">
         <!-- <p class="meal_workout_button" (click)="goToAnalysis()">Analysis</p> -->
-        <ion-icon *ngIf="compConfig.pie_chart!=false"
+        <!-- <ion-icon *ngIf="compConfig.pie_chart!=false"
         class="meal_workout_button"
         name="pie-chart"
         (click)="goToAnalysis()"
+      ></ion-icon>  -->
+      <ion-icon *ngIf="compConfig.pie_chart!=false"
+        class="meal_workout_button"
+        name="pie-chart"
+        (click)="caloryChart()"
       ></ion-icon> 
          <ion-icon *ngIf="compConfig.download!=false"
          class="meal_workout_button"

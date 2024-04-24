@@ -21,6 +21,8 @@ export class CaloryChartPage implements OnInit {
   isValidDate: boolean = false;
   defaultDateRange: any;
   maxCalories:any;
+  Math: any = Math;
+  averageCal = 0;
 
   constructor(
     private router: Router,
@@ -41,9 +43,6 @@ export class CaloryChartPage implements OnInit {
       this.profileName = res.profileName;
       this.compConfig = JSON.parse(res.compConfig);
       this.profileData = JSON.parse(res.profileData);
-      console.log('this.profileName = ', this.profileName);
-      console.log('this.compConfig = ', this.compConfig);
-      console.log('this.profileData = ', this.profileData);
     });
   }
 
@@ -111,6 +110,8 @@ export class CaloryChartPage implements OnInit {
     let dataToset: any = [0, 0, 0, 0, 0, 0, 0];
     let dataToset1: any = [0, 0, 0, 0, 0, 0, 0];
     let backgroundColorToSet: any = ["", "", "", "", "", "", ""];
+    let counter = 0;
+    let totalCalories = 0;
     for (let i = 0; i < this.custDailyDiets.length; i++) {
       const element = this.custDailyDiets[i];
 
@@ -133,6 +134,15 @@ export class CaloryChartPage implements OnInit {
             dataToset[day - 1] = element.data.totalEatenCalories;
           }
       backgroundColorToSet[day - 1] = bgColor || "";
+      if(element.data.totalEatenCalories) {
+        totalCalories = totalCalories + element.data.totalEatenCalories;
+        counter++;
+      }
+    }
+    if(totalCalories && counter){
+      this.averageCal = totalCalories/counter
+    }else{
+      this.averageCal = 0;
     }
     console.log('fetchCustDailyDietsResponse: ', backgroundColorToSet);
     let self = this;
