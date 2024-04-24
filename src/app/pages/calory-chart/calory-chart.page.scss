@@ -1,0 +1,118 @@
+.canvas-card {
+    height: auto;
+    position: absolute;
+    top: 30%;
+    width: 90%;
+    left: 2.5%;
+    margin: 0 auto;
+    right: 2.5%;
+}
+
+.consumed-label{
+    color: #D4B2FF;
+}
+
+.exceeded-label{
+    color: #751FD3;
+}
+
+.daily-limit-label{
+    color: #DC362E;
+}
+
+.color-white{
+    color: #fff;
+}
+
+.date-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #757575;
+}
+
+.choice-type {
+    font-size: 14px;
+    font-weight: 600;
+    color: #212121;
+}
+
+.consumed-calory-container {
+    display: flex;
+    gap: 5px;
+
+    ion-icon {
+        font-size: 14px;
+    }
+
+    .calory-status {
+        color: #757575;
+        font-size: 12px;
+        font-weight: 400;
+    }
+}
+
+.calory-consumed {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.green-text {
+    color: #6CC65D;
+}
+
+.red-text {
+    color: #DC362E;
+}
+
+.yellow-text {
+    color: #F8A008;
+}
+
+.calory-status-icon {
+    font-size: 24px;
+}
+
+.indicator-icon-container{
+    // box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    background: #FFFEFE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E3E9EB;
+}
+
+.info-text{
+    color: #B2B2B2;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.records-title {
+    font-size: 20px;
+    margin: 0 16px;
+    font-weight: 600;
+}
+
+.diet-item {
+    border-bottom: 1px solid #E3E9EB;
+    --inner-padding-end: 0;
+}
+
+.date-change {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.status-mark {
+    font-size: 11px;
+    font-weight: 400;
+    color: #8C8C8C;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+}

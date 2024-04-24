@@ -141,6 +141,10 @@ export const APP_ROUTES: Routes = [
     path: 'meal-workout',
     loadChildren: () => import('./components/meal-workout/meal-workout.module').then( m => m.MealWorkoutPageModule)
   },
+  {
+    path: 'calory-chart',
+    loadChildren: () => import('./pages/calory-chart/calory-chart.module').then( m => m.CaloryChartPageModule)
+  },
 ];
 
 @NgModule({})

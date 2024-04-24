@@ -6,7 +6,7 @@ import { OptionsAnalysisComponent } from '../analysis/componets/options.componen
 import { Storage, } from '@ionic/storage';
 import { IonSlides } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
-import { Chart } from "chart.js";
+import { Chart, registerables } from "chart.js";
 import moment from "moment";
 import { UTILITIES } from '../../core/utility/utilities';
 import { AppService } from '../../home-service/app.service';
@@ -192,6 +192,7 @@ export class AnalysisComponent implements OnInit {
   slotIndex=-1;
   constructor(private route: ActivatedRoute, private storage: Storage, private popoverController: PopoverController, private router: Router,
     private modalController: ModalController,private utilities: UTILITIES,private appService: AppService,private _sanitizer: DomSanitizer) { 
+      Chart.register(...registerables);
       this.route.queryParams.subscribe(res=>{
         this.slotIndex = res["params"];
         console.log("slotsss",this.slotIndex);
@@ -888,7 +889,7 @@ export class AnalysisComponent implements OnInit {
     this.protiensSortArray.sort((a, b) =>{ return (a.Protien < b.Protien ? 1 : -1)});
 
     this.totalCal = this.snacksTotal + this.breakFastTotal + this.lunchTotal + this.dinnerTotal;
-    let ctx = document.getElementById("mainCaloriesChart") as HTMLElement;
+    let ctx : any = document.getElementById("mainCaloriesChart") as HTMLElement;
       let mainCalChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
@@ -914,9 +915,9 @@ export class AnalysisComponent implements OnInit {
         options: {
           // cutoutPercentage: 80,
           radius: "100%",
-          legend: {
-            display: false
-          },
+          // legend: {
+          //   display: false
+          // },
           //cutoutPercentage: 40,
           responsive: true,
         }
@@ -926,7 +927,7 @@ export class AnalysisComponent implements OnInit {
     this.fatsPer = ((parseInt(this.suggestedCalories.totalFat)*100)/this.maxPerFats) <= 100 ? Math.round((parseInt(this.suggestedCalories.totalFat)*100)/this.maxPerFats) : 100;
     this.protienPer = ((parseInt(this.suggestedCalories.totalProtien)*100)/this.maxPerProtien) <= 100 ? Math.round((parseInt(this.suggestedCalories.totalProtien)*100)/this.maxPerProtien) : 100;
     this.fiberPer = ((parseInt(this.suggestedCalories.totalFiber)*100)/this.maxPerFiber) <= 100 ? Math.round((parseInt(this.suggestedCalories.totalFiber)*100)/this.maxPerFiber) : 100;
-    let ctx1 = document.getElementById("mainNutrientsChart");
+    let ctx1 : any = document.getElementById("mainNutrientsChart");
     let protFatCarbChart = new Chart(ctx1, {
       type: 'doughnut',
       data: {
@@ -950,15 +951,15 @@ export class AnalysisComponent implements OnInit {
       options: {
         // cutoutPercentage: 80,
         radius: "100%",
-        legend: {
-          display: false
-        },
+        // legend: {
+        //   display: false
+        // },
         //cutoutPercentage: 40,
         responsive: true,
       }
     });
 
-    let ctx2 = document.getElementById("fastTimingChart");
+    let ctx2 : any= document.getElementById("fastTimingChart");
     let fastTimingChart = new Chart(ctx2, {
       type: 'doughnut',
       data: {
@@ -980,9 +981,9 @@ export class AnalysisComponent implements OnInit {
       options: {
         // cutoutPercentage: 80,
         radius: "100%",
-        legend: {
-          display: false
-        },
+        // legend: {
+        //   display: false
+        // },
         //cutoutPercentage: 40,
         responsive: true,
       }
@@ -1001,7 +1002,7 @@ export class AnalysisComponent implements OnInit {
     let full = 8634059;
     let per = (100 * parseInt(currentFast) / full).toFixed(2);
 
-    let ctx3 = document.getElementById("mealTimeChart");
+    let ctx3 : any = document.getElementById("mealTimeChart");
     let mealTimeChart = new Chart(ctx3, {
       type: 'doughnut',
       data: {
@@ -1023,9 +1024,9 @@ export class AnalysisComponent implements OnInit {
       options: {
         // cutoutPercentage: 80,
         radius: "100%",
-        legend: {
-          display: false
-        },
+        // legend: {
+        //   display: false
+        // },
         //cutoutPercentage: 40,
         responsive: true,
       }
