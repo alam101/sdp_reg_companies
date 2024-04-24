@@ -28,14 +28,10 @@ export class CaloryChartPage implements OnInit {
     private route: ActivatedRoute,
   ) {
     Chart.register(...registerables);
-    let now = moment();
     let dateRange = moment(new Date()).day() + 1;
-    let sunday: any = now.clone().weekday(0);
-    let lastDay: any = now.clone().weekday(dateRange - 1);
 
     let fromDate = moment(new Date()).format("DDMMYYYY");
-    this.defaultDate = moment().format('ll');
-    this.defaultDateRange = `${new Date().toLocaleString('default', { month: 'long' })} ${new Date(sunday).getDate()} - ${new Date(lastDay).getDate()}`;
+    this.setDateRange(dateRange);
     this.isValidDate = false;
     this.getProfile(()=>{
       this.customDailyDiets(fromDate, dateRange);
@@ -49,6 +45,16 @@ export class CaloryChartPage implements OnInit {
       console.log('this.compConfig = ', this.compConfig);
       console.log('this.profileData = ', this.profileData);
     });
+  }
+
+  setDateRange(dateRange){
+    let now = moment();
+    let sunday: any = now.clone().weekday(0);
+    let lastDay: any = now.clone().weekday(dateRange - 1);
+    this.defaultDate = moment().format('ll');
+    let lastDateMonth = `${new Date().toLocaleString('default', { month: 'long' })}` != `${new Date(lastDay).toLocaleString('default', { month: 'long' })}` ? 
+                  `${new Date(lastDay).toLocaleString('default', { month: 'long' })}`: ''
+    this.defaultDateRange = `${new Date().toLocaleString('default', { month: 'long' })} ${new Date(sunday).getDate()} - ${lastDateMonth} ${new Date(lastDay).getDate()}`;
   }
 
   getProfile(cb){
@@ -70,13 +76,18 @@ export class CaloryChartPage implements OnInit {
       fromDate: date,
       dateRange: range
     }
-    this.appServices.fetchCustDailyDiets(obj).then((fetchCustDailyDietsResponse) => {
+    this.appServices.fetchCustDailyDiets(obj).then((fetchCustDailyDietsResponse:any) => {
       console.log('fetchCustDailyDietsResponse: ', fetchCustDailyDietsResponse);
       if (fetchCustDailyDietsResponse) {
-        this.custDailyDiets = fetchCustDailyDietsResponse;
+        this.custDailyDiets = fetchCustDailyDietsResponse.filter((ele)=> ele.data.totalEatenCalories);
         this.custDailyDiets.forEach(ele => {
           ele["displayDate"] = moment(moment(ele.date, "DD-MM-YYYY")).format('dddd, MMMM D');
-          ele["restCalories"] = this.maxCalories - ele.data.totalEatenCalories;
+          ele["restCalories"] = Math.abs(this.maxCalories - ele.data.totalEatenCalories);
+          // ele.data["colorHash"] =  ele.data.scoreColor == 'dark green' ? '#38A534' :
+          // ele.data.scoreColor == 'light green' ? '#94EA0A' :
+          //   ele.data.scoreColor == 'yellow' ? '#EADC18' :
+          //     ele.data.scoreColor == 'red' ? '#ff0000' :
+          //       ele.data.scoreColor == 'orange' ? '#ffa500' : '';
         })
         this.barChartMethod();
       }
@@ -123,7 +134,8 @@ export class CaloryChartPage implements OnInit {
           }
       backgroundColorToSet[day - 1] = bgColor || "";
     }
-
+    console.log('fetchCustDailyDietsResponse: ', backgroundColorToSet);
+    let self = this;
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
@@ -158,17 +170,25 @@ export class CaloryChartPage implements OnInit {
           y: {
             stacked: true,
             grid: {
-              color: 'rgba(0,0,0,0.1)',
+              color: (ctx)=>{
+                if(ctx.tick.value == self.maxCalories) return 'rgb(220 54 46)'
+                else return 'rgba(0,0,0,0.1)'
+              },
             },
             ticks: {
-              // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-              // callback: function(val, index) {
-              //   console.log("val ", val)
-              //   return val;
-              //   // Hide every 2nd tick label
-              //   // return index % 2 === 0 ? this.getLabelForValue(val) : '';
-              // },
-              // color: 'red',
+              callback: function(value, index, values) {
+                if (value && values[index+1] && values[index+1].value && self.maxCalories > value && self.maxCalories < values[index+1].value){
+                  values.splice(index, 1); 
+                  values.push({value:self.maxCalories, label: self.maxCalories})
+                  // values[index+1] = {value:self.maxCalories, label: self.maxCalories};
+                }
+                return value;
+              },
+              color: (ctx)=>{
+                if(ctx.tick.value == self.maxCalories) {
+                  return 'rgb(220 54 46)'
+                }
+              }
             }
           }
         }
@@ -201,8 +221,11 @@ export class CaloryChartPage implements OnInit {
     this.defaultDate = type == "forward" ? new Date(dateRange).getTime() + dateRef : new Date(dateRange).getTime() - dateRef;
     let sunday: any = moment(new Date(this.defaultDate)).clone().weekday(0);
     let lastDay: any = moment(new Date(this.defaultDate)).clone().weekday(6);
-    this.defaultDateRange = `${new Date(sunday).toLocaleString('default', { month: 'long' })} ${sunday.date()} - ${lastDay.date()}`;
-    this.barChart.destroy();
+    let lastDateMonth = `${new Date(sunday).toLocaleString('default', { month: 'long' })}` != `${new Date(lastDay).toLocaleString('default', { month: 'long' })}` ? 
+                  `${new Date(lastDay).toLocaleString('default', { month: 'long' })}`: ''
+    this.defaultDateRange = `${new Date(sunday).toLocaleString('default', { month: 'long' })} ${sunday.date()} -  ${lastDateMonth} ${lastDay.date()}`;
+    if(this.barChart) this.barChart.destroy();
+    this.barChart = null;
     this.customDailyDiets(moment(new Date(lastDay)).format("DDMMYYYY"), 7);
   }
 
