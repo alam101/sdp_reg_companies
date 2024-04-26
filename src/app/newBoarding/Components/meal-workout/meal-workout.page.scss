@@ -279,4 +279,24 @@ ion-thumbnail {
   }
 }
 
+.cal_calculation_div {
+  width: 100%;
+}
 
+.cal_main_div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.cal_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card_cal_image {
+  height: 15px;
+  object-fit: contain;
+  
+}

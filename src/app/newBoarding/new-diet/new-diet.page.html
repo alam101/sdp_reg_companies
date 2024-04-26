@@ -209,7 +209,7 @@
       </p>
       
       <div class="right" *ngIf="!isDetox">
-        <p class="meal_workout_button" style="font-size: .8rem;" (click)="goToInsites()">Insights</p>
+        <p class="meal_workout_button" *ngIf="compConfig?.inSights" style="font-size: .8rem;" (click)="goToInsites()">Insights</p>
         <!-- <p class="meal_workout_button" (click)="goToAnalysis()">Analysis</p> -->
         <!-- <ion-icon *ngIf="compConfig.pie_chart!=false"
         class="meal_workout_button"

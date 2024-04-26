@@ -68,8 +68,6 @@ export class AppService {
     const url = this.baseUrl + "" + API.profile;
     return this.httpClient.get(url, {});
   }
-  //https://app.smartdietplanner.com:8444/initiateTransaction?txnAmount=1.00&currency=INR&custId=9867461050
-
   initialTransactions(reqPayload):Observable<any> {
     const url = API.BASEURL8444 + API.initiateTransaction+`?txnAmount=${reqPayload.amount}&currency=INR&custId=${reqPayload.custId}`;
     return this.httpClient.post(url,{});
