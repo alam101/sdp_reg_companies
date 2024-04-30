@@ -268,13 +268,47 @@ addRemove(type) {
     // });
   }
   isShow=false;
-  popup:any;
+  popup:any; 
+  instructionsArray=[];
+  gredientArray=[];
+  wrapFirstWordWithBold(text) {
+    // Using regular expression to match the first word followed by ":"
+    let replacedText = text.includes(':')?text.replace(/^(.*?):\s*(.*)$/, "<span class='custom-style1'>$1</span> <span class='custom-style2'>$2</span>"):""+text+"<br>";
+    return replacedText;
+}
   async gotoView(d) {
     if (this.disabled) {
       return;
     }
     console.log("d",d);
    this.popup = d; 
+   
+   this.gredientArray = this.popup.recipe.replace(/\:+/g, ":<br>")
+   .split("\n").filter(item => item.trim() !== '');
+
+   for (let index = 0; index < this.gredientArray.length; index++) {
+    this.gredientArray[index] = this.wrapFirstWordWithBold(this.gredientArray[index]);
+    
+   }
+   console.log("this.gredientArray",this.gredientArray);
+
+   this.instructionsArray = this.popup.steps.replace("\n\n","\n")
+   .replace("Step 1","1.")
+   .replace("Step 2","2.")
+   .replace("Step 3","3.")
+   .replace("Step 4","4.")
+   .replace("Step 5","5.")
+   .replace("Step 6","6.")
+   .replace("Step 7","7.")
+   .replace("Step 8","8.")
+   .replace("Step 9","9.")
+   .replace("Step 10","10.")
+   .replace("Step 11","11.")
+   .replace("Step 12","12.")
+   .replace("Step 13","13.")
+   .replace("Step 14","14.")
+   .replace("Step 15","15.")
+   .replace("Step 16","16.").split(/\d+\./).filter(item => item.trim() !== '');
     this.isShow=true;
 
   }

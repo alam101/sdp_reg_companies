@@ -159,7 +159,7 @@
             "date_selection1": true,
             "date_selection2": false,
             "goal": false,
-            "notes": true,
+            "notes": false,
             "modifyNotes": true,
             "caloriesCircle": false,
             "itemCalories": false,
@@ -171,7 +171,7 @@
             "isSearch":false,
             "isDietitian": false,
             "inSights": false,
- "compPhone": "",
+            "compPhone": "",
             "defaultPlanCheck": false,
             "headerText":"Welcome to your daily diet plan.",
             "goals":[

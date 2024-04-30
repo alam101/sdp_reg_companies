@@ -286,7 +286,7 @@
             </ul>
           </span>
         </p>
-        <span>
+        <span *ngIf="instructions!==''">
            <ul style="padding-left: 0;height: 140px;    font-size: .9rem;" *ngIf="diets?.dietPlanName?.toLowerCase().includes('cheat')===true">
            <li style="list-style-type: none;outline:0px none transparent;height: 100%;" >
             <textarea readonly="true" style="width: 100%;height: 100%; border:none;resize: none;">{{instructions?.cheatDay}}</textarea>

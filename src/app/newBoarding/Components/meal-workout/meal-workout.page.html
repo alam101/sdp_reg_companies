@@ -158,6 +158,8 @@ height: 100%;width: 100%;
 z-index: 12;left:0;
 right:0;
 opacity: 1;
+overflow-y: scroll;
+height: 100%;
 ">
 <div style="height: 36%;
 max-height: 50%;
@@ -165,127 +167,34 @@ position: relative;">
 <img src="{{popup?.imageUrl}}" style="top:0;position: relative;left:0; border-top-left-radius: 10px;
 border-top-right-radius: 10px;object-fit: cover;       width: 100%;
     height: 100%;">
- <div style="position: absolute;bottom:0;background: #fff;height: 30px; box-shadow: 0px 0px 6px #fff, 6px -22px 25px #fff;
+ <div style="position: absolute;bottom:0;
+ background: #fff;height: 30px; 
+ box-shadow: 0px 0px 6px #fff, 6px -22px 25px #fff;
  width: 100%;"></div>   
 </div>
 
-<img src="./assets/img/close.png" style="position: absolute;top:.5rem;right:.5rem;" (click)="isShow=false;">
-<div style="position: relative;padding: 1rem;height:40%">
-<ion-row>
-  <ion-col class="ion-text-left">
-    <span style="font-size: 1.2rem;font-weight: 500;">{{popup?.Food}}</span>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col>
-    <div _ngcontent-nob-c158="" class="cal_calculation_div">
-      <div _ngcontent-nob-c158="" class="cal_main_div">
-        <div _ngcontent-nob-c158="" class="cal_col">
-          <p _ngcontent-nob-c158="" class="cal_sub_title">Fiber</p>
-          <div>
-          <ion-img  src="../../../../assets/newImages/calorie.png" class="card_cal_image md hydrated">
-          </ion-img>
-        </div>
-          <p _ngcontent-nob-c158="" class="cal_title"> 1.20g </p></div>
-          <div _ngcontent-nob-c158="" class="cal_col">
-            <p _ngcontent-nob-c158="" class="cal_sub_title">Carbs</p>
-            <div>
-            <ion-img _ngcontent-nob-c158="" src="../../../../assets/newImages/carbs.png" class="card_cal_image md hydrated"></ion-img>
-            </div>
-            <p _ngcontent-nob-c158="" class="cal_title"> 2.10 g </p></div>
-            <div _ngcontent-nob-c158="" class="cal_col">
-              <p _ngcontent-nob-c158="" class="cal_sub_title">Protein</p>
-              <div>
-              <ion-img _ngcontent-nob-c158="" src="../../../../assets/newImages/protein.png" class="card_cal_image md hydrated"></ion-img>
-              </div>
-              <p _ngcontent-nob-c158="" class="cal_title"> 2.10g </p></div>
-              <div _ngcontent-nob-c158="" class="cal_col">
-                <p _ngcontent-nob-c158="" class="cal_sub_title">Fats</p>
-                <div>
-                <ion-img _ngcontent-nob-c158="" src="../../../../assets/newImages/fats.png" class="card_cal_image md hydrated"></ion-img>
-                </div>
-               <p _ngcontent-nob-c158="" class="cal_title"> 6.20g </p></div></div></div>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col class="ion-text-left">
-    <span style="font-size: .7rem;color:#a3a3a3">Quantity: {{popup?.portion}} - {{popup?.portion_unit}}    </span>
-  </ion-col>
-</ion-row>
-<ion-row>
-  <ion-col class="ion-text-left">
-    <span style="font-size: .7rem;color:#a3a3a3">Calories: {{popup?.Calories}} Kcal - Carbs: {{popup?.Carbs}}g - Protien: {{popup?.Protien}}g - Fat: {{popup?.Fat}}g   </span>
-  </ion-col>
-</ion-row>
-
-<ion-row>
-  <ion-col>
-    <div class="condition_card" style="margin-top: 30px">
-      <div class="card_div w_100" >
-        <ion-grid class="w_100">
-          <ion-row>
-            <ion-col size="6" class="center">
-              <p class="meal_pro">Ingredients</p>
-            </ion-col>
-            <ion-col size="6" class="center" style="position: relative">
-              <ion-img
-                src="../../../../assets/newImages/ingradients.svg"
-                class="card_image"
-              ></ion-img>
-            </ion-col>
-             
-          </ion-row>
-        </ion-grid>  
-      </div>
-    </div>
-  </ion-col>
-</ion-row>
-
-<ion-row style="margin-top: .5rem;">
-  <ion-col class="ion-text-left">
-    <div style="height: 100px;overflow-y: scroll;">
-    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.recipe!=undefined">
-      <textarea style="width: 100% ;border:none;" col="5" rows="10"
-             readonly="readonly">{{popup?.recipe}}</textarea>  
-      </span><br>
-    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.steps!=undefined">
-      <textarea style="width: 100% ;border:none;" col="5" rows="10"
-      readonly="readonly">{{popup?.steps}}</textarea> 
-    </span>
-  </div>
-  </ion-col>
-</ion-row>
-
-</div>
-<ion-row style="position: absolute;bottom: 1rem;width: 100%;">
-  <ion-col size="6" class="ion-text-center ion-align-self-end">
+<img src="./assets/img/close.png" style="position: absolute;top:.5rem;right:.5rem;width:13%;" (click)="isShow=false;">
+<div>
+  <ion-row style="position: relative;top: 0;width: 94%;">
+  <ion-col size="4" class="ion-text-left">
     <div class="center">
       <div class="add_remove_btn center">
         <ion-icon name="remove" (click)="addRemove('remove')"></ion-icon>
         <p style="text-align: right;">{{popup?.portion}}</p>
         <ion-icon name="add" (click)="addRemove('add')"></ion-icon>
       </div>
-     
     </div>
-    <!-- <ion-button
-    *ngIf="!popup.eaten || popup?.eaten < 0"
-    fill="outline"
-    style="color:#414042;width:90%;height:44px;font-size: .75rem;--border-radius: 5px;--border-color:#414042;    margin-left: 1rem;"
-    class="logged_btn"
-    (click)="changed(popup)">
-      &nbsp; Alternatives
-      <ion-icon name="chevron-forward-outline" style="color: #414042;margin-left:5px;"></ion-icon>
-  </ion-button> -->
   </ion-col>
-  <ion-col size="2" class="ion-text-left"> <p class="portion" style="margin-top: 10px;font-size: .8rem;">
-    <!-- {{popup?.portion_unit}} -->
+  <ion-col size="4" class="ion-text-left ion-align-self-center"> <p class="portion" style="font-size: .8rem;">
+    {{popup?.portion_unit}}
   </p></ion-col>
-  <ion-col size="4" class="ion-text-left ion-align-self-start">
+  <ion-col size="4" class="ion-text-right">
   <ion-button
   class="logged_btn"
   (click)="addCal(popup,i)"
-  style="--background: var(--profile-color);color:#fff;width: 88%;
-  height: 40px;
+  style="--background: var(--profile-color);color:#fff;
+      width: 65%;
+    height: 30px;
   font-size: .75rem;
   --border-radius: 5px;
   margin-right: 1rem;"
@@ -297,8 +206,8 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
 *ngIf="popup?.eaten > 0 "
 class="logged_btn"
 style="--background: var(--profile-color);color: #fff;
-width: 88%;
-height: 40px;
+    width: 65%;
+    height: 30px;
 font-size: .75rem;
 --border-radius: 5px;
 margin-right: 1rem;"
@@ -309,5 +218,121 @@ Logged
   </ion-col>
  
 </ion-row>
+<div style="position: relative;padding: 1rem;height:40%">
+<ion-row>
+  <ion-col class="ion-text-left">
+    <span style="font-size: 1.2rem;font-weight: 500;">{{popup?.Food}}</span>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col class="ion-text-left">
+    <span style="font-size: 1rem;color:#767676;    top: .2rem;
+    position: relative;">Calories: {{popup?.Calories}} Kcal </span>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col class="ion-text-left">
+    <ion-progress-bar
+    [ngClass]="popup?.option"
+    value="1"
+  ></ion-progress-bar>
+  <p *ngIf="popup?.Score" class="choice">
+    {{popup?.option}} Choice
+  </p>
+</ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <div _ngcontent-nob-c158="" class="cal_calculation_div">
+      <div _ngcontent-nob-c158="" class="cal_main_div">
+        <div _ngcontent-nob-c158="" class="cal_col">
+          <p _ngcontent-nob-c158="" class="cal_sub_title">Fiber</p>
+          <div>
+           
+          <ion-img  src="../../../../assets/newImages/calorie.png " class="card_cal_image md hydrated">
+          </ion-img>
+        </div>
+          <p _ngcontent-nob-c158="" class="cal_title"> {{popup?.Fiber?.toFixed(1)}} g </p></div>
+          <div _ngcontent-nob-c158="" class="cal_col">
+            <p _ngcontent-nob-c158="" class="cal_sub_title">Carbs</p>
+            <div>
+            <ion-img _ngcontent-nob-c158="" src="../../../../assets/newImages/carbs.png" class="card_cal_image md hydrated"></ion-img>
+            </div>
+            <p _ngcontent-nob-c158="" class="cal_title"> {{popup?.Carbs?.toFixed(1)}} g </p></div>
+            <div _ngcontent-nob-c158="" class="cal_col">
+              <p _ngcontent-nob-c158="" class="cal_sub_title">Protein</p>
+              <div>
+              <ion-img _ngcontent-nob-c158="" src="../../../../assets/newImages/protein.png" class="card_cal_image md hydrated"></ion-img>
+              </div>
+              <p _ngcontent-nob-c158="" class="cal_title"> {{popup?.Protien?.toFixed(1)}} g </p></div>
+              <div _ngcontent-nob-c158="" class="cal_col">
+                <p _ngcontent-nob-c158="" class="cal_sub_title">Fats</p>
+                <div>
+                <ion-img _ngcontent-nob-c158="" src="../../../../assets/newImages/fats.png" class="card_cal_image md hydrated"></ion-img>
+                </div>
+               <p _ngcontent-nob-c158="" class="cal_title"> {{popup?.Fat?.toFixed(1)}} g </p></div></div></div>
+  </ion-col>
+</ion-row>
+
+<fieldset style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
+  <legend style="color:var(--theme-color);font-size: 1.1rem;">Ingredients</legend>
+<ion-row>
+  <ion-col>
+    <div class="condition_card" style="margin-top: 10px">
+      <div class="card_div w_100" >
+        <ion-grid class="w_100">
+          <ion-row>
+            <ion-col>
+              <div style="overflow-y: scroll;width:100%;">
+                <div style="
+                display: flex;
+                flex-wrap: wrap;" *ngIf="popup?.recipe!=undefined">
+                  <div 
+                  style="width: 33.3%;
+                  border-right: 1px solid #f3f3f3;
+                  padding: 1rem .4rem;    display: inline-block;
+                  vertical-align: top;" 
+                  *ngFor="let recipe of gredientArray; let index=index;">
+                  <div [innerHtml]="recipe">
+                  </div>
+                  </div>  
+                </div>
+                  </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>  
+      </div>
+    </div>
+  </ion-col>
+</ion-row>
+</fieldset>
+<br>
+<fieldset style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
+  <legend style="color:var(--theme-color);font-size: 1.1rem;">Instructions</legend>
+<ion-row style="margin-top: .5rem;">
+  <ion-col class="ion-text-left">
+    <div style="overflow-y: scroll;">
+     
+    <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.steps!=undefined">
+      <div style="width: 100% ;border:none;">
+        <div class="container">
+          <div class="milestone" *ngFor="let step of instructionsArray; let index=index;">
+            <div class="step">{{index+1}}</div>
+            <div class="content">
+              <!-- <div class="date">2022</div> -->
+              <div class="date">{{step}}</div>
+            </div>
+          </div>
+         
+        </div>
+      </div> 
+    </span>
+  </div>
+  </ion-col>
+</ion-row>
+</fieldset>
+</div>
+
+</div>
 </div>
 </div>

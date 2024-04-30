@@ -33,8 +33,8 @@
 .add_remove_btn {
   background: var(--profile-color);
   border-radius: 25px;
-  min-width: 108px;
-  height: 40px;
+  min-width: 90px;
+    height: 30px;
   margin-right: 0.5rem;
   margin-left: .2rem;
   
@@ -94,6 +94,7 @@ ion-thumbnail {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  color:#333;
 }
 
 .meal_pro {
@@ -286,7 +287,7 @@ ion-thumbnail {
 .cal_main_div {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  // margin-top: 20px;
 }
 
 .cal_col {
@@ -299,4 +300,142 @@ ion-thumbnail {
   height: 15px;
   object-fit: contain;
   
+}
+
+
+
+
+
+.container {
+  width: 300px;
+  margin: 3rem 1rem auto;
+}
+
+.milestone {
+  // display: flex;
+  align-items: center;
+  padding: 1px 1.5rem 0 1.5rem;
+  border-left: 2px solid var(--theme-color);
+  height: auto;
+  
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--theme-color);
+  color: #fff;
+  font-size: .875rem;
+  align-items: center;
+  text-align: center;
+  left: -40px;
+  position: relative;
+  top: -30px;
+  padding-top: 2%;
+}
+
+.content {
+  top: -4rem;
+  position: relative;
+}
+
+.date {
+  font-size: .875rem;
+  margin-bottom: .8rem;
+}
+
+.event {
+  font-size: .8rem;
+  margin-bottom: .8rem;
+}
+
+/* Optional: Add animations */
+.milestone:hover {
+  background-color: #f0f0f0;
+}
+
+.fiber-icon {
+  width: 100px; /* Adjust the size of the icon */
+  height: 100px;
+}
+
+.fiber-icon path {
+  fill: #000; /* Default color of the icon */
+}
+
+/* Change the color of the icon when hovered */
+.fiber-icon:hover path {
+  fill: #00f; /* Change the color to blue on hover */
+}
+.cal_sub_title {
+  color:#000;
+}
+.cal_title {
+  color:#707070;
+  font-size: .9rem;
+}
+.protien_progress {
+  --progress-background: #376c23;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+}
+.Best {
+  --progress-background: #38a534;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+  display: inline-flex;
+}
+.Good {
+  --progress-background: #94ea0a;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+  display: inline-flex;
+}
+.Average {
+  --progress-background: #eadc18;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+  display: inline-flex;
+}
+.average {
+  --progress-background: #eadc18;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+  display: inline-flex;
+}
+.Fair {
+  --progress-background: #ffa500;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+  display: inline-flex;
+}
+.Unverified {
+  --progress-background: lightgray;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+  display: inline-flex;
+}
+
+.choice {
+  font-size: var(--small-font);
+  margin: 0px;
+  font-family: var(--theme-newFont);
+  font-weight: bold;
+  color: #376c23;
+}
+
+.Bad {
+  --progress-background: red;
+  border-radius: 25px;
+  width: 50px;
+  margin: 2px 0px;
+  display: inline-flex;
 }
