@@ -16,6 +16,7 @@ import { UTILITIES } from "src/app/core/utility/utilities";
 import { PortionCountPage } from "../../Components/alternate-diet/portion-count/portion-count.page";
 import { ViewProductPage } from "../../Components/view-product/view-product.page";
 import { BroadcastService } from "src/app/broadcast.service";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: "app-meal-workout",
@@ -45,13 +46,15 @@ export class MealWorkoutPage implements OnInit {
   image_URL = "";
   logunlog='Log Slot';
   currentDateIndex: any = 0;
-
+  videoUrl: any;
+  streamVideo = false;
   constructor(
     private utilities: UTILITIES,
     private storage: Storage,
     private appServices: AppService,
     private navCtrl: NavController,
     private router: Router,
+    private _sanitizer: DomSanitizer,
     private modalCtrl: ModalController,
     private popCtrl: PopoverController,
     private broadcastService: BroadcastService
@@ -87,7 +90,20 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
       this.loaded = true;
     }, 500);
   }
- 
+  senitizedData(videoUrl) {
+    this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
+   
+  }
+  videoClick(data) {
+    this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(data);
+    this.streamVideo = true;
+    this.isShow = false;
+    
+  }
+  closeVideo(){
+    this.isShow = true;
+    this.streamVideo = false;
+  }
   returnIsEaten(dataItem){
    const dt = dataItem.filter(item=>{
       return item.eaten<=0;
@@ -281,8 +297,21 @@ addRemove(type) {
       return;
     }
     console.log("d",d);
+    if (!d.recipe && d?.video?.includes("http")) {
+      d.recipe = "As per video";
+    }
+    if (!d.recipe && !d?.video?.includes("http")) {
+      d.recipe = "--";
+    }
+
+    if (!d.steps && d?.video?.includes("http")) {
+      d.steps = "As per video";
+    }
+    if (!d.steps && !d?.video?.includes("http")) {
+      d.steps = "--";
+    }
    this.popup = d; 
-   
+   this.senitizedData(d.video);
    this.gredientArray = this.popup.recipe.replace(/\:+/g, ":<br>")
    .split("\n").filter(item => item.trim() !== '');
 

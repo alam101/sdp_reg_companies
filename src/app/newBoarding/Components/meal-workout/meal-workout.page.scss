@@ -369,7 +369,8 @@ ion-thumbnail {
   fill: #00f; /* Change the color to blue on hover */
 }
 .cal_sub_title {
-  color:#000;
+  color:#333;
+  font-size: .9rem;
 }
 .cal_title {
   color:#707070;
@@ -438,4 +439,57 @@ ion-thumbnail {
   width: 50px;
   margin: 2px 0px;
   display: inline-flex;
+}
+.close_icon {
+  font-size: 25px;
+}
+
+.videodiv {
+  height: 50px;
+  width: 60px;
+  border-radius: 5px;
+  background: transparent;
+  top: -8rem;
+  position: relative;
+  right: 10rem;
+}
+
+.video_div {
+  position: absolute;
+  right: 0px;
+  bottom: 15px;
+}
+.video-iframe {
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  width: 100vh;
+  overflow-x: hidden;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  height: 58vh;
+  z-index: 11;
+
+}
+
+.get-button-icon {
+  color: #fff;
+  background-color: #01a3a4;
+  border: 2px solid #fff;
+  border-radius: 100px;
+  position: fixed;
+  /* left: 1.2rem; */
+  top: 5px;
+  height: 35px;
+  width: 35px;
+  left: 7px;
+  z-index: 12;
+}
+
+.play-circle-sharp{
+  position: absolute;
+  top:0;
+  z-index:112;
+  background: transparent;
+  color:red;
 }

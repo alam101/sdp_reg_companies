@@ -372,8 +372,12 @@
           <p class="commonText">
             Regional Preferences in Food: <br /><span
               style="margin-left: 0%">{{profileData?.lifeStyle?.country?.name}},</span><span
-              *ngFor="let c of this.profileData?.lifeStyle?.communities">{{c?.value}},</span>
+              *ngFor="let c of profileData?.lifeStyle?.communities"> 
+              {{c?.value}},</span>
           </p>
+          {{
+            profileData?.lifeStyle?.communities.toArray()
+          }}
         </div>
       </div>
       <!-- 

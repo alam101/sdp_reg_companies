@@ -167,16 +167,24 @@ position: relative;">
 <img src="{{popup?.imageUrl}}" style="top:0;position: relative;left:0; border-top-left-radius: 10px;
 border-top-right-radius: 10px;object-fit: cover;       width: 100%;
     height: 100%;">
- <div style="position: absolute;bottom:0;
- background: #fff;height: 30px; 
+ <div style="position: absolute;
+ background:transparent;height: 30px; 
  box-shadow: 0px 0px 6px #fff, 6px -22px 25px #fff;
  width: 100%;"></div>   
+  <div class="video_div" *ngIf="popup.video && popup.video.includes('http')">
+    <div (click)="videoClick(popup.video)">
+      <div class="videodiv center">
+        <ion-icon name="play-circle-sharp" style="color:red; font-size: 3.5rem;"></ion-icon>
+      </div>
+    </div>
+  </div>
 </div>
 
 <img src="./assets/img/close.png" style="position: absolute;top:.5rem;right:.5rem;width:13%;" (click)="isShow=false;">
 <div>
-  <ion-row style="position: relative;top: 0;width: 94%;">
-  <ion-col size="4" class="ion-text-left">
+  <ion-row style="position: relative;top: 0;width: 94%;padding-top: 1rem;">
+    <ion-col size=".5"></ion-col>
+  <ion-col size="3.5" class="ion-text-right">
     <div class="center">
       <div class="add_remove_btn center">
         <ion-icon name="remove" (click)="addRemove('remove')"></ion-icon>
@@ -185,8 +193,10 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
       </div>
     </div>
   </ion-col>
-  <ion-col size="4" class="ion-text-left ion-align-self-center"> <p class="portion" style="font-size: .8rem;">
-    {{popup?.portion_unit}}
+  <ion-col size="4" class="ion-text-left ion-align-self-center"> <p class="portion" style="font-size: 1rem;position: relative;
+    top: -10px;">
+    {{popup?.portion_unit}}  
+
   </p></ion-col>
   <ion-col size="4" class="ion-text-right">
   <ion-button
@@ -195,7 +205,7 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
   style="--background: var(--profile-color);color:#fff;
       width: 65%;
     height: 30px;
-  font-size: .75rem;
+    font-size: .9rem;
   --border-radius: 5px;
   margin-right: 1rem;"
   *ngIf="!popup.eaten || popup?.eaten < 0">
@@ -208,7 +218,7 @@ class="logged_btn"
 style="--background: var(--profile-color);color: #fff;
     width: 65%;
     height: 30px;
-font-size: .75rem;
+    font-size: .9rem;
 --border-radius: 5px;
 margin-right: 1rem;"
 (click)="logged(popup)">
@@ -218,10 +228,10 @@ Logged
   </ion-col>
  
 </ion-row>
-<div style="position: relative;padding: 1rem;height:40%">
+<div style="position: relative;padding: 0 1rem;height:40%">
 <ion-row>
   <ion-col class="ion-text-left">
-    <span style="font-size: 1.2rem;font-weight: 500;">{{popup?.Food}}</span>
+    <span style="font-size: 1rem;font-weight: 600;">{{popup?.Food}}</span>
   </ion-col>
 </ion-row>
 <ion-row>
@@ -275,7 +285,7 @@ Logged
 </ion-row>
 
 <fieldset style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
-  <legend style="color:var(--theme-color);font-size: 1.1rem;">Ingredients</legend>
+  <legend style="color:var(--theme-color);font-size: 1.1rem; font-weight: 600;">Ingredients</legend>
 <ion-row>
   <ion-col>
     <div class="condition_card" style="margin-top: 10px">
@@ -290,7 +300,7 @@ Logged
                   <div 
                   style="width: 33.3%;
                   border-right: 1px solid #f3f3f3;
-                  padding: 1rem .4rem;    display: inline-block;
+                  padding: .5rem .4rem;    display: inline-block;
                   vertical-align: top;" 
                   *ngFor="let recipe of gredientArray; let index=index;">
                   <div [innerHtml]="recipe">
@@ -308,7 +318,7 @@ Logged
 </fieldset>
 <br>
 <fieldset style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
-  <legend style="color:var(--theme-color);font-size: 1.1rem;">Instructions</legend>
+  <legend style="color:var(--theme-color);font-size: 1.1rem;font-weight: 600;">Instructions</legend>
 <ion-row style="margin-top: .5rem;">
   <ion-col class="ion-text-left">
     <div style="overflow-y: scroll;">
@@ -336,3 +346,19 @@ Logged
 </div>
 </div>
 </div>
+
+<iframe
+*ngIf="streamVideo"
+width="100%"
+height="100%"
+class="video-iframe"
+[src]="videoUrl"
+frameborder="0"
+allowfullscreen
+></iframe>
+<ion-icon
+*ngIf="streamVideo"
+(click)="closeVideo()"
+name="close"
+class="get-button-icon marginIos"
+></ion-icon>
