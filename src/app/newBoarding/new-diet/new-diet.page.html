@@ -251,6 +251,7 @@
         [selecteddate]="selecteddate"
         [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
         (getCalData)="getCalData($event,i)"
+        (isdisplayFooter)="isdisplayFooter($event)"
         [fullShow]="true"
         [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
         [plan]="true" 
@@ -349,7 +350,7 @@
   </div>
   <br>  
 </ion-content>
-<ion-footer *ngIf="compConfig?.isSearch" style="position: fixed;
+<ion-footer *ngIf="compConfig?.isSearch && displayFooter===true" style="position: fixed;
 bottom: 0;
 width: 100%;
 left: 0;
