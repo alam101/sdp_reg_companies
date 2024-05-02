@@ -174,13 +174,14 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
   <div class="video_div" *ngIf="popup.video && popup.video.includes('http')">
     <div (click)="videoClick(popup.video)">
       <div class="videodiv center">
-        <ion-icon name="play-circle-sharp" style="color:red; font-size: 3.5rem;"></ion-icon>
+        <img src = './assets/img/playbutton.png'>
+        <!-- <ion-icon name="play-circle-sharp" style="color:red; font-size: 3.5rem;"></ion-icon> -->
       </div>
     </div>
   </div>
 </div>
 
-<img src="./assets/img/close.png" style="position: absolute;top:.5rem;right:.5rem;width:13%;" (click)="isShow=false;">
+<img src="./assets/img/close.png" style="position: absolute;top:.5rem;right:.5rem;width:13%;" (click)="close()">
 <div>
   <ion-row style="position: relative;top: 0;width: 94%;padding-top: 1rem;">
     <ion-col size=".5"></ion-col>
@@ -216,7 +217,7 @@ border-top-right-radius: 10px;object-fit: cover;       width: 100%;
 *ngIf="popup?.eaten > 0 "
 class="logged_btn"
 style="--background: var(--profile-color);color: #fff;
-    width: 65%;
+    width: 75%;
     height: 30px;
     font-size: .9rem;
 --border-radius: 5px;
@@ -284,7 +285,7 @@ Logged
   </ion-col>
 </ion-row>
 
-<fieldset style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
+<fieldset *ngIf="gredientArray?.length>=1" style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
   <legend style="color:var(--theme-color);font-size: 1.1rem; font-weight: 600;">Ingredients</legend>
 <ion-row>
   <ion-col>
@@ -317,7 +318,7 @@ Logged
 </ion-row>
 </fieldset>
 <br>
-<fieldset style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
+<fieldset *ngIf="instructionsArray?.length>1" style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
   <legend style="color:var(--theme-color);font-size: 1.1rem;font-weight: 600;">Instructions</legend>
 <ion-row style="margin-top: .5rem;">
   <ion-col class="ion-text-left">
@@ -326,10 +327,9 @@ Logged
     <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.steps!=undefined">
       <div style="width: 100% ;border:none;">
         <div class="container">
-          <div class="milestone" *ngFor="let step of instructionsArray; let index=index;">
+          <div [ngClass]="{'milestone':(instructionsArray?.length-1)>index,'milestone1':(instructionsArray?.length-1)===index}" *ngFor="let step of instructionsArray; let index=index;">
             <div class="step">{{index+1}}</div>
             <div class="content">
-              <!-- <div class="date">2022</div> -->
               <div class="date">{{step}}</div>
             </div>
           </div>
@@ -341,6 +341,7 @@ Logged
   </ion-col>
 </ion-row>
 </fieldset>
+<br><br>
 </div>
 
 </div>

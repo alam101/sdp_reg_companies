@@ -38,6 +38,7 @@ export class MealWorkoutPage implements OnInit {
   customerId: any;
   @Output() getCalData = new EventEmitter();
   @Output() getDietdata = new EventEmitter();
+  @Output() isdisplayFooter=new EventEmitter<boolean>();
   totalCal: number = 0;
   moment: any = moment;
   loaded = false;
@@ -62,6 +63,7 @@ export class MealWorkoutPage implements OnInit {
 
   compConfig:any;
   async ngOnInit() {
+   
 this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.image_URL = CONSTANTS.image_URL;
     this.customerId = await this.utilities.getUserData("id");
@@ -101,8 +103,13 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     
   }
   closeVideo(){
-    this.isShow = true;
+     this.isShow = true;
     this.streamVideo = false;
+   
+  }
+  close(){
+    this.isdisplayFooter.emit(true);
+    this.isShow = false;
   }
   returnIsEaten(dataItem){
    const dt = dataItem.filter(item=>{
@@ -120,7 +127,7 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("data111111", data);
    
     data.slot = this.index;
-
+   
     const modal = await this.modalCtrl.create({
       component: PortionCountPage,
       cssClass: "change_item",
@@ -134,6 +141,7 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     await modal.present();
     const modaldata = await modal.onDidDismiss();
     const d = modaldata?.data;
+    
    // this.getDietdata.emit(CONSTANTS.dietDate);
    this.broadcastService.boradcast("reload");
     // if (d) {
@@ -141,6 +149,7 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     // }
   }
 logged(d){
+  this.isdisplayFooter.emit(true);
   this.remove(d, -1, "Removed successfully");
 }
 alternatives(data){
@@ -148,6 +157,7 @@ alternatives(data){
   //this.gotoView(data?.data?.updatedData);
 }
 addRemove(type) {
+  this.isdisplayFooter.emit(true);
   let calCount = this.popup?.Calories / this.popup.portion;
   if (type === "add") {
     this.popup.portion = Number(this.popup?.portion || 0) + 0.5;
@@ -160,6 +170,7 @@ addRemove(type) {
   this.popup.Calories = calCount * this.popup.portion;
 }
   async addCal(data, i) {
+    this.isdisplayFooter.emit(true);
     // const modal = await this.modalCtrl.create({
     //   component: PortionCountPage,
     //   cssClass: "portion_count",
@@ -289,7 +300,7 @@ addRemove(type) {
   gredientArray=[];
   wrapFirstWordWithBold(text) {
     // Using regular expression to match the first word followed by ":"
-    let replacedText = text.includes(':')?text.replace(/^(.*?):\s*(.*)$/, "<span class='custom-style1'>$1</span> <span class='custom-style2'>$2</span>"):""+text+"<br>";
+    let replacedText = text.includes(':')?text.replace(/^(.*?):\s*(.*)$/, "<span class='custom-style1'>$1</span> <span class='custom-style2'>$2</span>"):"<span class='custom-style1'>"+text+"</span><br>";
     return replacedText;
 }
   async gotoView(d) {
@@ -297,6 +308,7 @@ addRemove(type) {
       return;
     }
     console.log("d",d);
+    this.isdisplayFooter.emit(false);
     if (!d.recipe && d?.video?.includes("http")) {
       d.recipe = "As per video";
     }
@@ -339,7 +351,7 @@ addRemove(type) {
    .replace("Step 15","15.")
    .replace("Step 16","16.").split(/\d+\./).filter(item => item.trim() !== '');
     this.isShow=true;
-
+    
   }
 
   logSlot(d,index){ 

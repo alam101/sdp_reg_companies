@@ -15,6 +15,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SearchPage } from '../../search/search.page';
 import { BroadcastService } from "src/app/broadcast.service";
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
@@ -23,6 +24,7 @@ import { Subscription } from 'rxjs';
 export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   clientId="";
   moment: any = moment;
+  displayFooter=false;
   diets: any = [];
   selecteddate: any = new Date();
   newSelectedDate: any = new Date();
@@ -72,7 +74,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       calConsumed: 0,
     };
     this.clientId = localStorage.getItem("clientId");
-
+    this.displayFooter = true;
   }
   ngOnDestroy() {
     // Unsubscribe to prevent memory leaks
@@ -87,6 +89,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
+    
+  }
+  isdisplayFooter(event){
+    this.displayFooter=event;
   }
   ngAfterViewInit() {
    
