@@ -153,12 +153,12 @@ export class CaloryChartPage implements OnInit {
         labels: labelToSet,
         datasets: [{
           data: dataToset,
-          backgroundColor: '#D4B2FF',
+          backgroundColor: backgroundColorToSet,
           borderRadius: 100,
           // borderWidth: 0
         },{
           data: dataToset1,
-          backgroundColor: '#751FD3',
+          backgroundColor: '#ff0000',
           borderRadius: 20,
           // borderWidth: 0
         }]
