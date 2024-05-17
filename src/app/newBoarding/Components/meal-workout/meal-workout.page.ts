@@ -324,8 +324,7 @@ addRemove(type) {
     }
    this.popup = d; 
    this.senitizedData(d.video);
-   this.gredientArray = this.popup.recipe.replace(/\:+/g, ":<br>")
-   .split("\n").filter(item => item.trim() !== '');
+   this.gredientArray = this.popup.recipe.replace(/\:+/g, ":<br>").split("\n").filter(item => item.trim() !== '');
 
    for (let index = 0; index < this.gredientArray.length; index++) {
     this.gredientArray[index] = this.wrapFirstWordWithBold(this.gredientArray[index]);
