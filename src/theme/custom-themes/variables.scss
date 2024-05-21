@@ -1231,13 +1231,12 @@ body[color-theme="orthocure"] {
   --theme-color-new:#bbd3ff;  
 }
 body[color-theme="aviva"] {
-  --font: "aviva-regular", "Helvetica Neue", Arial, sans-serif;
-  --font-bold: "aviva-bold", "Helvetica Neue", Arial, sans-serif;
-  --font-light: "aviva-light", "Helvetica Neue", Arial, sans-serif;
-  --font-medium: "aviva-medium", "Helvetica Neue", Arial, sans-serif;
-  --font-medium-extended: "aviva-extendedMedium", "Helvetica Neue",
-    Arial, sans-serif;
-    $sans-font-regular: "aviva-ragular", "Helvetica Neue", Arial, sans-serif;
+  --font: "aviva-regular", sans-serif;
+  --font-bold: "aviva-bold", sans-serif;
+  --font-light: "aviva-light", sans-serif;
+  --font-medium: "aviva-medium", sans-serif;
+  --font-medium-extended: "aviva-extendedMedium",  sans-serif;
+    $sans-font-regular: "aviva-ragular", sans-serif;
   --theme-profile-background: #004fb6;
   --theme-background:#004fb6; //#00a6a8
   --theme-header:#004fb6;
