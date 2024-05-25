@@ -159,7 +159,7 @@
             "date_selection1": true,
             "date_selection2": false,
             "goal": false,
-            "notes": false,
+            "notes": true,
             "modifyNotes": true,
             "caloriesCircle": false,
             "itemCalories": false,
@@ -168,9 +168,9 @@
             "isEditProfile":true,
             "dietComponent":false,
             "isLogAll":true,
-            "isSearch":false,
+            "isSearch":true,
             "isDietitian": false,
-            "inSights": false,
+            "inSights": true,
             "compPhone": "",
             "defaultPlanCheck": false,
             "headerText":"Welcome to your daily diet plan.",
@@ -2162,7 +2162,7 @@
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/lean_body.png"
                         }
                     ]
                     },
@@ -2174,13 +2174,13 @@
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
                         },
                         {
                             "name":"Manage Cholesterol",
@@ -2192,7 +2192,7 @@
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
                         }
                     ]
                     }

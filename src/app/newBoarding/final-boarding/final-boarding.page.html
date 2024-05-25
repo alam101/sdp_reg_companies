@@ -2,7 +2,10 @@
   <div class="mainDiv">
     <div class="slider_div">
       <div class="slider_page">
-        <p class="heading_title">
+        <p class="heading_title" *ngIf="clientId!='aviva'">
+          Thank You! <br />We appreciate your dedication.
+        </p>
+        <p class="heading_title" *ngIf="clientId=='aviva'" style="color: #fff !important;">
           Thank You! <br />We appreciate your dedication.
         </p>
       </div>
@@ -338,7 +341,7 @@
         <div class="go_btn_div">
           <ion-grid>
             <ion-row>
-              <ion-col size="6" class="center">
+              <ion-col size="6" class="left">
                 <ion-button
                   class="back_btn"
                   shape="round"
@@ -347,7 +350,7 @@
                   >Back</ion-button
                 >
               </ion-col>
-              <ion-col size="6" class="center">
+              <ion-col size="6" class="right">
                 <ion-button class="go_btn" shape="round" (click)="goNext()"
                   >Start Journey</ion-button
                 >

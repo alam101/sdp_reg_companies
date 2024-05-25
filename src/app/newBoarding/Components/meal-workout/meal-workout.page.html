@@ -18,7 +18,7 @@
           >{{moment(data?.time,'HH:mm').format('hh:mm a')}}
         </span>
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
-          <a (click)="logSlot(data,index)"  style="font-size: .8rem; color: var(--theme-profile-background); margin-left: .5rem; border: 1px solid var(--theme-profile-background); border-radius: 5px;padding: 2px 5px;     position: absolute;
+          <a (click)="logSlot(data,index)"  style="font-size: .8rem; color: var(--profile-color); margin-left: .5rem; border: 1px solid var(--profile-color); border-radius: 5px;padding: 2px 5px;     position: absolute;
           right: 8px;
           top: 7px;"> {{returnIsEaten(data?.data)}}</a>
     
