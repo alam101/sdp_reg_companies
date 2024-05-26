@@ -160,6 +160,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     }
   }
   tempdesease:any=[];
+
   bindDesease(){
     this.tempdesease=[];
     for (let index = 0; index < this.profileData.lifeStyle.diseases.length; index++) {
@@ -247,6 +248,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     console.log("this.compConfig", this.compConfig);
     
     this.getProfile();
+   
      this. getOnePlan();
    
   }
@@ -284,7 +286,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
    
         console.log("getprofile",JSON.stringify(userData));
         console.log("alam:-", profileData["lifeStyle"]);
-        
+        this. bindDesease();
       });
 
    }
