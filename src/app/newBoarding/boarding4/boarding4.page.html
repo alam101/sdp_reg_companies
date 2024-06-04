@@ -58,7 +58,7 @@
               *ngFor="let health of healths.slice(0,this.showData? healths.length:6)"
               (click)="popupShow(health)"
             >
-              <ion-item lines="none" class="check_item">
+              <ion-item lines="none" class="check_item" *ngIf="health.code !== 'K' && health.code !== 'L' && health.code !== 'M'">
                 <ion-checkbox
                   [checked]="health.isSelected"
                   [value]="health.value"

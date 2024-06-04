@@ -366,7 +366,7 @@
           <div style="width: 50">
             <ion-img *ngIf="compConfig.isProfileIcons==false" [src]="'../../../../assets/newImages/'+getFlag(profileData?.lifeStyle?.country?._id)"
               class="Activity_image"></ion-img>
-            <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="'../../../../assets/newImages/cuisuine.svg"
+            <ion-img *ngIf="compConfig.isProfileIcons!=false" style="width: 50%;" src="../../../../assets/newImages/cuisuine.svg"
               class="Activity_image"></ion-img>
           </div>
           <p class="commonText">
@@ -380,75 +380,7 @@
           }}
         </div>
       </div>
-      <!-- 
-      <div
-        class="section-card left"
-        style="flex-direction: row; padding: 5px 15px"
-      >
-        <div class="edit_icon_div">
-          <ion-icon
-            (click)="openModel(Boarding5Page)"
-            class="edit_icon"
-            src="../../../../assets/newImages/icon-edit.svg"
-          ></ion-icon>
-        </div>
-        <div style="width: 50">
-          <ion-img
-            [src]="'assets/newImages/'+getFlag(profileData?.lifeStyle?.country?._id)"
-            class="flag_img"
-          ></ion-img>
-        </div>
-        <p class="commonText">
-          Regional Preferences in Food: <br /><span style="margin-left: 0%"
-            >{{profileData?.lifeStyle?.country?.name}},</span
-          ><span *ngFor="let c of this.profileData?.lifeStyle?.communities"
-            >{{c.value}},</span
-          >
-        </p>
-      </div> -->
-
-      <!-- <div
-        class="section-card left"
-        style="flex-direction: row; padding: 5px 15px"
-      >
-        <div class="edit_icon_div">
-          <ion-icon
-            class="edit_icon"
-            src="../../../../assets/newImages/icon-edit.svg"
-          ></ion-icon>
-        </div>
-        <div style="width: 50">
-          <ion-img
-            src="../../../assets/newImages/fitness.png"
-            class="fitness_image"
-          ></ion-img>
-        </div>
-        <p class="commonText">
-          Workout Time:<br /><span style="margin-left: 0%">Morning</span>
-        </p>
-      </div>
-
-      <div
-        class="section-card left"
-        style="flex-direction: row; padding: 5px 15px"
-      >
-        <div class="edit_icon_div">
-          <ion-icon
-            class="edit_icon"
-            src="../../../../assets/newImages/icon-edit.svg"
-          ></ion-icon>
-        </div>
-        <ion-img
-          src="../../../assets/newImages/fitness.png"
-          class="fitness_image"
-        ></ion-img>
-        <p class="commonText">
-          Meal Time: <br /><span style="margin-left: 0%"
-            >Start: 8:30am <br />End: 9:30am</span
-          >
-        </p>
-      </div> -->
-    </div>
+     </div>
 
     <div *ngIf="segment === 'insight' ">
       <div class="center">

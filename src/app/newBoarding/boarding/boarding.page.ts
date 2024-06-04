@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ModalController, NavController } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
-import { UTILITIES } from "src/app/core/utility/utilities";
 import  compJson from '../../../assets/comp_config.json';
 @Component({
   selector: "app-boarding",
@@ -20,9 +19,6 @@ clientId="";
     private router: Router,
     private appservice: AppService,
     private storage: Storage,
-    private location: Location,
-    private utilities: UTILITIES,
-    private modalCtrl: ModalController,
     private activatedRoute:ActivatedRoute
   ) {
     this.activatedRoute.queryParams.subscribe(res=>{
