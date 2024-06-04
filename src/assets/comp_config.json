@@ -2527,6 +2527,147 @@
                 ]
             }
     
+        },
+        {
+            "bluebein": {
+                "logo": false,
+                "profile1": false,
+                "profile2": true,
+                "consumed_cal": true,
+                "cal_count": true,
+                "download": true,
+                "pie_chart": false,
+                "alternative": true,
+                "video": true,
+                "date_selection1": true,
+                "date_selection2": false,
+                "goal": true,
+                "notes": false,
+                "modifyNotes": false,
+                "caloriesCircle": true,
+                "itemCalories": true,
+                "isBanner":false,
+                "isProfileIcons":true,
+                "isEditProfile":true,
+                "dietComponent":false,
+                "isLogAll":true,
+                "isSearch":false,
+                "isDietitian": false,
+                "inSights": true,
+                "compPhone": "",
+                "headerText":"Welcome to your daily diet plan.",
+                "defaultPlanCheck": false,
+                "companyLogoBase64":"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",
+                "goals":[
+                    {
+                        "heading":"Weight Management",
+                        "label":"Eat up, Heal up",
+                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "options":[{
+                            "name":"Weight Loss",
+                            "value":"weightLoss_blubin",
+                            "label":"Lose weight not the mind",
+                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        }
+                    ]
+                    },
+                    {
+                        "heading":"Fitness",
+                        "label":" Exercise is king, nutrition is Queen",
+                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "options":[{
+                            "name":"Muscle Building",
+                            "value":"musclebuildmorning_blubin",
+                            "label":"Pump and get stronger",
+                            "imgUrl":"../../../assets/newImages/fitness.png"
+                        },
+                        {
+                            "name":"Lean Body",
+                            "value":"leanbodymorning_blubin",
+                            "label":" Maintain muscles and lose fat",
+                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                        }
+                    ]
+                    },
+                    {
+                        "heading":"Disease Management",
+                        "label":"Let food be thy medicine ",
+                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "options":[{
+                            "name":"Manage Diabetes",
+                            "value":"diabetes_blubin",
+                            "label":" Optimize blood glucose levels ", 
+                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                        },
+                        {
+                            "name":"Manage Cholesterol",
+                            "value":"cholesterol_blubin",
+                            "label":"No more high blood pressure",
+                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                        },
+                        {
+                            "name":"Manage Skincare",
+                            "value":"skin_blubin",
+                            "label":"Healthy skin, beautiful you.",
+                            "imgUrl":"../../../assets/newImages/skincare_img.png"
+                        }
+                    ]
+                    }
+                ],
+                "deseases":[
+                    {
+                        "desease": "D",
+                        "description": [
+                            "Avoid ragi/ white bread/ jowar",
+                            "Eat frequent meals with 2-3 hours of gap",
+                            "Add vit B12 rich food in diet ",
+                            "Monitor HBA1C , kidney test after 3 months"
+                        ]
+                    },
+                    {
+                        "desease": "B",
+                        "description": ["Less Salt", "Do not sprinkle salt"]
+                    },
+                    {
+                        "desease": "P",
+                        "description": [
+                            "Avoid high Glycemic index foods like ragi/ white bread/ white rice"
+                        ,"If you have taken hormonal theraphy in past, please reduce the fat intake"
+                    ]
+                    },
+                    {
+                        "desease": "T",
+                        "description": [
+                         " Avoid soy, brocolli, cabbage and all cruciferous food"
+                        ,"Avoid soy contain breads (white or brown). Please check bread ingredients"
+                        ,"Avoid taking antacids with thyroid medicines "
+                        ,"Monitor thyroid profile after every 3 months "
+                    ]
+                    },
+                    {
+                        "desease": "G",
+                        "description": [
+                            "Add vitamin B12 rich food in diet ",
+                            "Get your iron and vitamin B12 test done after every 6 months",
+                            "Avoid gluten for lifetime"
+                        ]
+                    },
+                    {
+                        "desease": "ML",
+                        "description": [
+                            " Say no to milk and milk products but can take curd/ paneer ",
+                        "Get your iron and vitamin B12 tests done after every 6 months"]
+                    },
+                    {
+                        "desease": "A",
+                        "description": [" Increase intake of water/ fluids ",
+                        "Stop retention of stool or avoid painful evacuation of stool ",
+                        "Increase fiber intake"
+                    ]
+                    }
+                ]
+            }
+    
         }
 
 
