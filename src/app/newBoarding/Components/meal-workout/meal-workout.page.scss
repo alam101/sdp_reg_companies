@@ -130,7 +130,14 @@ ion-thumbnail {
   background: var(--theme-color);
   border-radius: 100%;
 }
-
+.isFuture-button{
+  --background: gray !important;
+  --color: #000 !important;
+}
+.isFuture{
+  color: gray !important;
+  border-color: gray !important;
+}
 .protien_progress {
   background: #376c23;
  

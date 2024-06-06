@@ -59,7 +59,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     private utilss: UTILS,
     private broadcastService: BroadcastService
   ) {
-
+    localStorage.setItem("currentDate",new Date().getTime()+"");
     this.subscription =  this.broadcastService.getMessage().subscribe(res=>{
       console.log("res");
       this.ionViewWillEnter();
@@ -565,6 +565,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   changeDate(date) {
     this.selecteddate = date;
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
+    const dt = new Date(this.selecteddate).getTime();
+    localStorage.setItem("currentDate",dt+"");
     this.newSelectedDate = date;
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
    
