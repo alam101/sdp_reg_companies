@@ -14,7 +14,7 @@ import {CONSTANTS} from '../../core/constants/constants';
 })
 export class ReadQueryComponent implements OnInit {
   token="";
-  clientId="newmi";
+  clientId: any; //="newmi";
   type="0";
   selectedTheme: String;
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
@@ -228,7 +228,7 @@ export class ReadQueryComponent implements OnInit {
      });
    }
   defaultData(){
-    if(this.token!=''){
+    if(this.token!='' && this.token != 'null'){
     this.appService.defaultData().subscribe(res=>{
       console.log("defaultData::",res);
       localStorage.setItem("defaultData",JSON.stringify(res));

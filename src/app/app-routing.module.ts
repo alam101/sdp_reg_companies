@@ -145,6 +145,10 @@ export const APP_ROUTES: Routes = [
     path: 'calory-chart',
     loadChildren: () => import('./pages/calory-chart/calory-chart.module').then( m => m.CaloryChartPageModule)
   },
+  {
+    path: 'corporate-otp',
+    loadChildren: () => import('./pages/corporate-otp/corporate-otp.module').then( m => m.CorporateOtpPageModule)
+  },
 ];
 
 @NgModule({})

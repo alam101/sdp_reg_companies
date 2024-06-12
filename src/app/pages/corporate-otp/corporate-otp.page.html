@@ -1,0 +1,63 @@
+<ion-content>
+  <div class="header"></div>
+  <ion-icon name="close-sharp" class="close_icon" routerLink="/login"></ion-icon>
+  <div class="--parent">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <span class="verify">We have sent a verification code to</span>
+      </ion-col>
+    </ion-row>
+    <br />
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <span class="email">{{email}}</span>
+      </ion-col>
+    </ion-row>
+
+    <div style="position: relative; margin-top: 3rem">
+      <input type="tel" class="otp-catch" [ngStyle]="{'letter-spacing':width/6+'px'}" maxlength="6" [(ngModel)]="otp1"
+        (input)="checkInput()" />
+      <ion-row>
+        <ion-col size="1.8" class="ion-text-center">
+          <div class="input-box" [ngClass]="{'shadow-active':isActive}"></div>
+        </ion-col>
+        <ion-col size=".2"></ion-col>
+        <ion-col size="1.8" class="ion-text-center">
+          <div class="input-box" [ngClass]="{'shadow-active':isActive}"></div>
+        </ion-col>
+        <ion-col size=".2"></ion-col>
+        <ion-col size="1.8" class="ion-text-center">
+          <div class="input-box" [ngClass]="{'shadow-active':isActive}"></div>
+        </ion-col>
+        <ion-col size=".2"></ion-col>
+        <ion-col size="1.8" class="ion-text-center">
+          <div class="input-box" [ngClass]="{'shadow-active':isActive}"></div>
+        </ion-col>
+        <ion-col size=".2"></ion-col>
+        <ion-col size="1.8" class="ion-text-center">
+          <div class="input-box" [ngClass]="{'shadow-active':isActive}"></div>
+        </ion-col>
+        <ion-col size=".2"></ion-col>
+        <ion-col size="1.8" class="ion-text-center">
+          <div class="input-box" [ngClass]="{'shadow-active':isActive}"></div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <br />
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <span class="expire"> OTP will expire in
+          <span class="timer"> <b>00:{{countDown}}</b> </span> Sec
+        </span>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 5rem">
+      <ion-col class="ion-text-center">
+        <span class="verify">Didn’t receive the code?
+          <span *ngIf="countDown!='00'">Resend Now</span>
+          <a style="color: #263143; font-weight: 500" *ngIf="countDown=='00'" (click)="resendOtp()">Resend Now</a>
+        </span>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -576,5 +576,12 @@ export const constantsJson = {
       "id": 36,
       "state": "Daman And Diu"
     }
+  ],
+  VerifyClient :[
+    {
+      "clientId": "plix",
+      "apiUrl": "https://nodeapi.smartdietplanner.com/api/",
+      "clientKey": "PLIX2023"
+    }
   ]
 }

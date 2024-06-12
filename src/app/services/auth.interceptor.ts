@@ -33,7 +33,7 @@ import {
         headerSettings[key] = request.headers.getAll(key);
       }
       this.userToken = localStorage.getItem("tkn");
-      if(request.url.indexOf("geolocation-db.com") !== -1){
+      if(request.url.indexOf("geolocation-db.com") !== -1 || request.url.indexOf("phone/validateMobile/") !== -1 || request.url.indexOf("sendOTP") !== -1 || request.url.indexOf("verifyOTP") !== -1){
         return next.handle(changedRequest).toPromise();
       }
       headerSettings["Authorization"] = "bearer " + this.userToken;
