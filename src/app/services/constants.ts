@@ -97,6 +97,6 @@ export const API = {
   
     /* Seprate Apis to save data in DB */
     saveFasting:"saveFasting",
-    getFasting:"getFasting"
-  
+    getFasting:"getFasting",
+    verifyClientUser: "phone/validateMobile/"
 }

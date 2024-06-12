@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 // import { OAuthModule } from 'angular-oauth2-oidc';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { AppRoutingModule, APP_ROUTES } from './app-routing.module';
@@ -24,6 +25,8 @@ import { BroadcastService } from './broadcast.service';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HomeModule,
     RouterModule.forRoot(APP_ROUTES),

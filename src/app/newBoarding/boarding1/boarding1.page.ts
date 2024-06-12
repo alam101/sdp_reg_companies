@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import { UTILITIES } from "src/app/core/utility/utilities";
+import { LoadingController } from "@ionic/angular";
 
 @Component({
   selector: "app-boarding1",
@@ -19,9 +20,13 @@ export class Boarding1Page implements OnInit,AfterViewInit {
     private router: Router,
     private storage: Storage,
     private utilities: UTILITIES,
-    private appService: AppService
+    private appService: AppService,
+    private loading:LoadingController
   ) {
     this.client = localStorage.getItem("clientId");
+    setTimeout(() => {
+      this.dismissLoader();
+    }, 1000);
   }
 
   ngOnInit() {}
@@ -34,6 +39,14 @@ export class Boarding1Page implements OnInit,AfterViewInit {
           : "";
       this.name = this.name.replace("' '", "").replace(/[^A-Za-z0-9 ]/g, "");
       this.isNameValid = true;
+    });
+  }
+
+  dismissLoader() {
+    this.loading.dismiss().then((response) => {
+        console.log('Loader closed!', response);
+    }).catch((err) => {
+        console.log('Error occured : ', err);
     });
   }
 
