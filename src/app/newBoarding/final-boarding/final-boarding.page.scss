@@ -1,6 +1,7 @@
 .mainDiv{
     height: 100%;
     width: 100%;
+    background: var(--theme-color);
 }
 
 ion-content::part(background){
@@ -44,7 +45,7 @@ ion-content::part(background){
 .heading_title{
     font-size: var(--medium-font);
     font-family: var(--theme-newFont);
-    color: var(--black);
+    color: var(--white);
     /* margin: 10px 5%; */
     font-weight: 500;
 }
@@ -259,4 +260,6 @@ ion-checkbox{
     width: 8px;
 }
 
-
+.aviva-header-image {
+    height: 8vh;
+}

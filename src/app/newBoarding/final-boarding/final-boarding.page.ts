@@ -65,6 +65,7 @@ export class FinalBoardingPage implements OnInit {
    this.selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
    this.slot = JSON.parse(localStorage.getItem("slotChoice"));
    this.likeFood = localStorage.getItem("likeFood");
+   this.clientId = localStorage.getItem('clientId');
   }
 
   goNext() {

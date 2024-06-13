@@ -11,13 +11,18 @@
           <p class="page_Count">5</p>
         </div>
       </div> -->
-
-      <h3 class="title ion-text-center">Let us start!</h3>
+      <ion-row *ngIf="client==='aviva'" class="header-container">
+        <ion-col size="12" class="ion-no-padding">
+          <img class="aviva-logo" *ngIf="client==='aviva'" src="./assets/newImages/aviva-logo.png">
+        </ion-col>
+      </ion-row>
+      
+      <h3 class="title ion-text-center"></h3>
       
     </div>
 
     <div class="content_div">
-      <ion-img *ngIf="client!='plix' && client!='orthocure'"
+      <ion-img *ngIf="client!='plix' && client!='orthocure' && client!='aviva'"
         src="../../../assets/newImages/registration.svg"
         class="reg_img"
       ></ion-img>
