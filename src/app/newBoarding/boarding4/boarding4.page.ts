@@ -82,6 +82,8 @@ trayaAllergies=[];
         ) {
           this.healths = this.localData.otherMaster.diseases.filter((ele) => {
             if (
+              ele.code.toLowerCase() != "pd" &&
+              ele.code.toLowerCase() != "k" &&
               ele.code.toLowerCase() != "p" &&
               ele.code.toLowerCase() != "m" &&
               ele.code.toLowerCase() != "l"

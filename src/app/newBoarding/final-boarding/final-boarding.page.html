@@ -5,7 +5,7 @@
         <p class="heading_title">
           Thank You! <br />We appreciate your dedication.
         </p>
-       
+        <ion-img *ngIf="clientId == 'aviva'" src="../../../../assets/newImages/nutritional.png" class="aviva-header-image"></ion-img>
       </div>
     </div>
     <div class="content_div">
@@ -14,7 +14,7 @@
       </p>
       <div class="condition_card">
         <div class="card_div">
-          <ion-img
+          <ion-img *ngIf="clientId != 'aviva'"
             src="../../../../assets/newImages/bmi.png"
             class="card_image"
           ></ion-img>
@@ -27,7 +27,7 @@
 
       <div class="condition_card">
         <div class="card_div">
-          <ion-img
+          <ion-img *ngIf="clientId != 'aviva'"
             src="../../../../assets/newImages/weight_machine.png"
             class="card_image"
           ></ion-img>
@@ -45,7 +45,7 @@
 
       <div class="condition_card">
         <div class="card_div">
-          <ion-img
+          <ion-img *ngIf="clientId != 'aviva'"
             src="../../../../assets/newImages/nutritional.png"
             class="card_image"
           ></ion-img>

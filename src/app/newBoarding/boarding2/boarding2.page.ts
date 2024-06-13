@@ -56,6 +56,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   selectedbornYear: any = this.setbornYear + this.bornYear[2];
 
   localData: any = {};
+  clientId: any;
 
   constructor(
     private navCtrl: NavController,
@@ -70,7 +71,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     private router:Router,
     private activatedRoute:ActivatedRoute
     ) {
-      this.activatedRoute.queryParams.subscribe(res=>{
+    this.clientId=localStorage.getItem('clientId');
+    this.activatedRoute.queryParams.subscribe(res=>{
         this.from = res['from'];
       })
     }
@@ -283,9 +285,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       //const data = this.utilities.parseJSON(local);
       console.log("response ++++", res);
 
-      if (this.localData?.otherMaster?.bmi != undefined) {
+      if (this.localData?.otherMaster?.bmi != undefined || this.localData?.otherMaster?.bmi != "NaN") {
         this.localData.otherMaster.bmi = {
-          bmi: parseFloat(res.bmi).toFixed(1),
+          bmi: parseFloat(this.localData?.otherMaster?.bmi.bmi).toFixed(1),
           suggestedWeight: Math.round(res.suggestedWeight),
           category: res.category,
         };

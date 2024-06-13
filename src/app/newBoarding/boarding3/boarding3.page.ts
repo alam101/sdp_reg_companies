@@ -16,6 +16,8 @@ export class Boarding3Page implements OnInit {
   selectedValue: any = {};
   localData: any;
   profileData: any;
+  clientId: any;
+
   constructor(
     private navCtrl: NavController,
     private location: Location,
@@ -37,6 +39,7 @@ export class Boarding3Page implements OnInit {
    
   newModal = "";
   ngOnInit() {
+    this.clientId = localStorage.getItem('clientId');
     this.storage.get("localData").then((val) => {
       this.localData = this.utilities.parseJSON(val);
       console.log("Local data ", this.localData);
@@ -54,15 +57,15 @@ export class Boarding3Page implements OnInit {
   getImage(type) {
     switch (type) {
       case "AC1":
-        return "sedentary.png";
+        return this.clientId == 'aviva' ? "aviva-images/activity-1.png" : "sedentary.png";
       case "AC2":
-        return "lightly-active.png";
+        return this.clientId == 'aviva' ? "aviva-images/activity-2.png" : "lightly-active.png";
       case "AC3":
-        return "moderatly-active.png";
+        return this.clientId == 'aviva' ? "aviva-images/activity-3.png" : "moderatly-active.png";
       case "AC4":
-        return "super-active.png";
+        return this.clientId == 'aviva' ? "aviva-images/activity-4.png" : "super-active.png";
       case "AC5":
-        return "extrimaly-active.png";
+        return this.clientId == 'aviva' ? "aviva-images/activity-5.png" : "extrimaly-active.png";
     }
   }
 

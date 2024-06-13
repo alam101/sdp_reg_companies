@@ -1,8 +1,16 @@
 <ion-content>
   <div class="mainDiv">
-    <div class="slider_div" *ngIf="!from">
-      <div class="lines"></div>
-      <div class="slider_page">
+    <div class="slider_div" *ngIf="!from"><!-- clientId -->
+      <div *ngIf="clientId == 'aviva'" class="aviva-lines"></div>
+      <div *ngIf="clientId == 'aviva'" class="slider_page">
+        <p class="aviva_page_Count_active">1</p>
+        <p class="aviva_page_Count">2</p>
+        <p class="aviva_page_Count">3</p>
+        <p class="aviva_page_Count">4</p>
+        <p class="aviva_page_Count">5</p>
+      </div>
+      <div *ngIf="clientId != 'aviva'" class="lines"></div>
+      <div *ngIf="clientId != 'aviva'" class="slider_page">
         <p class="page_Count_active">1</p>
         <p class="page_Count">2</p>
         <p class="page_Count">3</p>
@@ -35,14 +43,6 @@
           (click)="newModal=dt?.value"
           *ngFor="let dt of data[0]?.options;"
         >
-          <img style="    width: 30%;
-          position: absolute;
-          z-index: 1;
-          right: 0;
-          top: 0%;"
-            [src]="dt?.imgUrl"
-          >
-        
           <ion-radio
             class="radio-button"
             [value]="dt?.value"
@@ -52,8 +52,12 @@
             class="section-card"
             [ngClass]="newModal === dt?.value && 'card_Border' "
           >
-            <p class="fitness">{{dt?.name}}</p>
-            <p class="desc">{{dt?.label}}</p>
+            <div>
+              <p class="fitness">{{dt?.name}}</p>
+              <p class="desc">{{dt?.label}}</p>
+            </div>
+            
+            <img style="max-width: unset; height: 11.5vh;" [src]="dt?.imgUrl">
           </ion-card>
         </div>
         <div
@@ -61,13 +65,6 @@
           (click)="newModal=dt1?.value"
           *ngFor="let dt1 of data[1]?.options;"
         >
-          <img style="    width: 30%;
-          position: absolute;
-          z-index: 1;
-          right: 0;
-          top: 0%;"
-            [src]="dt1.imgUrl"
-          >
           <ion-radio
             class="radio-button"
             [value]="dt1?.value"
@@ -77,8 +74,12 @@
             class="section-card"
             [ngClass]="newModal === dt1?.value && 'card_Border' "
           >
-            <p class="fitness">{{dt1?.name}}</p>
-            <p class="desc">{{dt1?.label}}</p>
+            <div>
+              <p class="fitness">{{dt1?.name}}</p>
+              <p class="desc">{{dt1?.label}}</p>
+            </div>
+            <img style="max-width: unset; height: 11.5vh;"[src]="dt1.imgUrl"
+          >
           </ion-card>
         </div>
         <div
@@ -86,13 +87,6 @@
           (click)="newModal=dt2?.value"
           *ngFor="let dt2 of data[2]?.options;"
         >
-          <img style="    width: 30%;
-          position: absolute;
-          z-index: 1;
-          right: 0;
-          top: 0%;"
-            [src]="dt2.imgUrl"
-          >
           <ion-radio
             class="radio-button"
             [value]="dt2?.value"
@@ -102,8 +96,11 @@
             class="section-card"
             [ngClass]="newModal === dt2?.value && 'card_Border' "
           >
-            <p class="fitness">{{dt2?.name}}</p>
-            <p class="desc">{{dt2?.label}}</p>
+            <div>
+              <p class="fitness">{{dt2?.name}}</p>
+              <p class="desc">{{dt2?.label}}</p>
+            </div>
+            <img style="max-width: unset; height: 11.5vh;" [src]="dt2.imgUrl">
           </ion-card>
         </div>
      </ion-radio-group>

@@ -71,6 +71,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
    this.likeFood = localStorage.getItem("likeFood");
    console.log("clientId", this.clientId);
    
+   this.clientId = localStorage.getItem('clientId');
   }
 
   goNext() {
