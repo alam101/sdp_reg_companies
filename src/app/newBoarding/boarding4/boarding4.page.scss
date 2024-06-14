@@ -43,9 +43,56 @@ ion-content::part(background){
 .page_Count{
     height: 20px;
     width: 20px;
+    border: 2px solid var(--white);
+    border-radius: 100%;
+    font-size:var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--theme-newHeader);
+    font-family: var(--theme-newFont);
+}
+
+.page_Count_active {
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--white);
+    border-radius: 100%;
+    font-size: var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-newHeader);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--white);
+    font-family: var(--theme-newFont);
+}
+
+.aviva-page-count-active {
+    height: 20px;
+    width: 20px;
     border: 2px solid var(--theme-text-color);
     border-radius: 100%;
     font-size:var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-newHeader);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--theme-text-color);
+    font-family: var(--theme-newFont);
+}
+.aviva-page_Count {
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--theme-text-color);
+    border-radius: 100%;
+    font-size: var(--xsmall-font);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,30 +103,15 @@ ion-content::part(background){
     font-family: var(--theme-newFont);
 }
 
-.page_Count_active {
-    height: 20px;
-    width: 20px;
-    border: 2px solid var(--theme-text-color);
-    border-radius: 100%;
-    font-size:var(--xsmall-font);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--theme-text-color);
-    font-weight: bold;
-    z-index: 10;
-    background: var(--white);
-    font-family: var(--theme-newFont);
-  }
-  .lines2 {
+.lines2 {
     width: 90%;
     position: absolute;
-  
+
     div {
-      width: 25%;
-    //   border: 1px solid var(--white);
+        width: 25%;
+        border: 1px solid var(--white);
     }
-  }
+}
   .card_div {
     position: relative;
     display: flex;
@@ -93,17 +125,47 @@ ion-content::part(background){
     }
   }
 
-.complete{
-    // border: 2px solid var(--black) !important;
+.complete {
+    border: 2px solid var(--white) !important;
 }
 
-.lines{
+.aviva-complete {
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--theme-text-color);
+    border-radius: 100%;
+    font-size: var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--green);
+    font-family: var(--theme-newFont);
+}
+
+.aviva-lines{
     border: 1px solid var(--theme-text-color);
     width: 90%;
     position: absolute;
 }
 
+.lines{
+    border: 1px solid var(--white);
+    width: 90%;
+    position: absolute;
+}
 
+.aviva-lines2 {
+    width: 90%;
+    position: absolute;
+
+    div {
+        width: 25%;
+        border: 1px solid var(--theme-text-color);
+    }
+}
 
 .title-text{
     font-size: var(--regular-font);

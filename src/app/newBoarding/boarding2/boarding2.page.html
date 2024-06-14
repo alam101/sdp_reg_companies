@@ -1,16 +1,16 @@
 <ion-content>
   <div class="mainDiv">
     <div class="slider_div" *ngIf="!from">
-      <div class="lines"></div>
+      <div [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'" class=""></div>
       <div class="lines2">
         <div></div>
       </div>
       <div class="slider_page">
-        <p class="page_Count_active complete">✓</p>
-        <p class="page_Count_active">2</p>
-        <p class="page_Count">3</p>
-        <p class="page_Count">4</p>
-        <p class="page_Count">5</p>
+        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'" class="">✓</p>
+        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page-count-active' : 'page_Count_active'" class="">2</p>
+        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'" class="">3</p>
+        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'" class="">4</p>
+        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'" class="">5</p>
       </div>
     </div>
     <div class="content_div" [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}">
