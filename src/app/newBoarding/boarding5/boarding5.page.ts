@@ -169,9 +169,9 @@ lifeStyle:any;
     this.storage.get("localData").then((local) => {
       const data = this.utilities.parseJSON(local);
 
-      this.storage.get("health-journey").then((res) => {
-        console.log("+res+", JSON.parse(res));
-        let healthJourney = JSON.parse(res);
+      // this.storage.get("health-journey").then((res) => {
+        // console.log("+res+", JSON.parse(res));
+        // let healthJourney = JSON.parse(res);
         this.storage
           .set("localData", this.utilities.parseString(data))
           .then(() => {
@@ -279,7 +279,7 @@ lifeStyle:any;
             );
           });
         // });
-      });
+      // });
     });
   }
 

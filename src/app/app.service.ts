@@ -966,4 +966,13 @@ public emailOnly(email): boolean {
     return this.httpClient.post(url,userData, {}).toPromise();
   }
 
+  fetchCustomerDetail(email):Observable<any>{
+    const url =  "https://app.smartdietplanner.com:8445/api/fetchCustomerDetails";
+    return this.httpClient.get(url);
+  }
+
+  externalToken(key:string, data?):Observable<any>{
+    const url = APIS.BASEURL + APIS.getTokenExternal + `?key=${key}&userId=${data}`;
+    return this.httpClient.get(url);
+  }
 }

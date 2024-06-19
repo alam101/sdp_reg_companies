@@ -580,7 +580,9 @@ export const constantsJson = {
   VerifyClient :[
     {
       "clientId": "plix",
-      "apiUrl": "https://nodeapi.smartdietplanner.com/api/",
+      "orderId": "plix",
+      "authUrl": "https://nodeapi.smartdietplanner.com/api/",
+      "apiUrl": "https://plixlifefcstagehapi.farziengineer.co/graphql/?source=website",
       "clientKey": "PLIX2023"
     }
   ]

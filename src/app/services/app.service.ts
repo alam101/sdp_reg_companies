@@ -37,11 +37,11 @@ export class AppService {
     
     return this.httpClient.post(url+`?key=${key}`,payload,{headers:{}});
   }
-  externalToken(key:string):Observable<any>{
-    const url = this.baseUrl+API.getTokenExternal;
+  externalToken(key:string, data?):Observable<any>{
+    const url = this.baseUrl+API.getTokenExternal + `?key=${key}&userId=${data}`;
     console.log(url);
     
-    return this.httpClient.get(url+`?key=${key}`);
+    return this.httpClient.get(url);
   }
   fetchUserDetail(email):Observable<any>{
     const url =  this.externalBaseUrl+API.fetchCustomerDetails;
@@ -108,6 +108,10 @@ export class AppService {
     };
     const url = clientUrl + API.verifyClientUser + data;
     return this.httpClient.get(url, options).toPromise();
+  }
+
+  verifyClientSpecific(clientUrl, data) {
+    return this.httpClient.post(clientUrl, JSON.stringify(data)).toPromise();
   }
   
 }

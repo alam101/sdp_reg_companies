@@ -5,6 +5,7 @@ import { AppService } from 'src/app/services/app.service';
 import { Storage } from "@ionic/storage";
 import { message, CONSTANTS, ProfileInfo, APIS } from '../../core/constants/constants';
 import { UTILITIES } from 'src/app/core/utility/utilities';
+import { constantsJson} from '../../core/constants/constants';
 
 @Component({
   selector: 'component-login',
@@ -27,7 +28,9 @@ export class LoginComponent implements OnInit {
   phoneNumber;
   customerId: any;
   customerUrl:any;
+  authUrl:any;
   showErrorMsg: boolean = false;
+  clientKey: any;
 
   constructor(
     private loading:LoadingController,
@@ -45,13 +48,11 @@ export class LoginComponent implements OnInit {
        localStorage.setItem("firstday","");
       //  this.token = res.token;
        this.type = res.type;
-       this.clientId = res.clientId;
+       this.clientId = res.clientId || res.clientid;
        this.customerUrl = res.customerUrl;
-        if(res.customerId) {
-          this.customerId = res.customerId;
-          localStorage.setItem("customerId", res.customerId);
-        }
-      if(res.clientId==undefined){
+       this.authUrl = res.authUrl;
+       this.clientKey = res.clientKey;
+      if(this.clientId==undefined){
        this.clientId =localStorage.getItem("clientId")
        }
        else{
@@ -122,32 +123,32 @@ export class LoginComponent implements OnInit {
       this.utilities.showErrorToast("Please enter phone number");
       return false;
     }
-    // if (this.customerId) {
-      let phoneNumberBlock = phoneNumber.internationalNumber.split(/ (.*)/);
-      let countryCode = phoneNumberBlock[0].match(/\d+/g).join("");
-      let phonNumber = phoneNumberBlock[1].match(/\d+/g).join("");
-      let phoneNumberStr = countryCode + "-" + phonNumber;
-      if (phonNumber.length != 10) {
-        this.utilities.showErrorToast("Please enter valid phone number");
-        return false;
-      } else {
-        this.appService.verifyWithClient(this.customerUrl, phoneNumberStr).then((verifyWithClientResponse: any) => {
-          console.log('verifyWithClientError: ', verifyWithClientResponse);
-          if (verifyWithClientResponse && verifyWithClientResponse.customerID) {
-            this.signIn(phoneNumber, verifyWithClientResponse.customerID);
-          } else {
-            // this.utilities.showErrorToast("Could not verify from Order details. If there is an error at our end, please connect with our support team.");
-            this.showErrorMsg = true;
-            return false;
-          }
-        })
-          .catch(verifyWithClientError => {
-            console.log('verifyWithClientError: ', verifyWithClientError);
-          })
+    let phoneNumberBlock = phoneNumber.internationalNumber.split(/ (.*)/);
+    let countryCode = phoneNumberBlock[0].match(/\d+/g).join("");
+    let phonNumber = phoneNumberBlock[1].match(/\d+/g).join("");
+    let phoneNumberStr = countryCode + "-" + phonNumber;
+    if (phonNumber.length != 10) {
+      this.utilities.showErrorToast("Please enter valid phone number");
+      return false;
+    } else {
+      let obj = {
+        "query": `query{  fitrofy(phone:\"+${countryCode}${phonNumber}\"){    validCustomer    orderId    errorMessage  }}`,
+        "variables": {}
       }
-    // } else {
-    //   this.signIn(phoneNumber);
-    // }
+      this.appService.verifyClientSpecific(this.customerUrl, obj).then((verifyClientSpecificResponse: any) => {
+        if (verifyClientSpecificResponse && verifyClientSpecificResponse.data && verifyClientSpecificResponse.data.fitrofy && verifyClientSpecificResponse.data.fitrofy.orderId) {
+          let orderId = verifyClientSpecificResponse.data.fitrofy.orderId;
+          localStorage.setItem('orderId', orderId);
+          this.signIn(phoneNumber);
+        } else {
+          this.showErrorMsg = true;
+          return false;
+        }
+      })
+        .catch(verifyClientSpecificError => {
+          console.log('verifyClientSpecificError: ', verifyClientSpecificError);
+        })
+    }
   }
 
   signIn(phoneNumber, customerID?) {
@@ -173,10 +174,10 @@ export class LoginComponent implements OnInit {
           queryParams: {
             email: phoneNumberString,
             phoneDetails: JSON.stringify(phone),
-            customerID: customerID || ""
+            customerID: customerID || "",
+            clientKey: this.clientKey
           },
         });
-        // this.checkOTP(phone, phoneNumberString);
       })
       .catch((err) => {
         this.utilities.hideLoader();

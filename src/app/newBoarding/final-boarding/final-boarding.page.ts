@@ -72,7 +72,9 @@ export class FinalBoardingPage implements OnInit {
   //  this.appService.getOnePlan().subscribe(res=>{
   //    console.log("getoneplan()",res);
       /** enable for other company */
-      this.navCtrl.navigateForward(["new-diet"]);
+      let clientId=localStorage.getItem("clientId");
+      if(!clientId) this.navCtrl.navigateForward(["new-diet"]);
+      else  location.href =`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`;
       /** enable for paytm */
       // if(res["profile"]["planType"]==undefined){
       //   this.navCtrl.navigateForward(['/boarding1']);
@@ -233,39 +235,39 @@ export class FinalBoardingPage implements OnInit {
   ditePlanAPIcall() {
     this.storage.get("health-journey").then((achieveValue) => {
       console.log("res=========>>");
-
-      this.achieveValue = JSON.parse(achieveValue);
+      this.achieveValue = achieveValue ? JSON.parse(achieveValue) : null;
       let reqBodyDiet = {
         dietPlanName: "",
       };
-      if (
+      if (this.achieveValue &&
         this.achieveValue.weightValue &&
         this.achieveValue.weightValue == "WeightLoss"
       ) {
         reqBodyDiet.dietPlanName = "weightLoss";
       }
       if (
+        this.achieveValue &&
         this.achieveValue.weightValue &&
         this.achieveValue.weightValue == "WeightMaintenance"
       ) {
         reqBodyDiet.dietPlanName = "weightLoss";
       }
 
-      if (
+      if (this.achieveValue &&
         this.achieveValue.fitnessValue &&
         this.achieveValue.fitnessValue == "MuscleBuilding"
       ) {
         reqBodyDiet.dietPlanName = "muscleGain_morning";
       }
 
-      if (
+      if (this.achieveValue &&
         this.achieveValue.fitnessValue &&
         this.achieveValue.fitnessValue == "LeanBody"
       ) {
         reqBodyDiet.dietPlanName = "fatShredding_morning";
       }
 
-      if (this.achieveValue.deasesValue) {
+      if (this.achieveValue && this.achieveValue.deasesValue) {
         reqBodyDiet.dietPlanName = this.achieveValue.deasesValue.toLowerCase();
       }
 
