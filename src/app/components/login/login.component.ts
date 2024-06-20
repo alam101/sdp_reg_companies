@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
   authUrl:any;
   showErrorMsg: boolean = false;
   clientKey: any;
+  supportNumber: any;
+  supportUrl: any;
 
   constructor(
     private loading:LoadingController,
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
        console.log("res",res.token);
        localStorage.setItem("firstday","");
       //  this.token = res.token;
+       this.supportNumber = res.supportNumber;
        this.type = res.type;
        this.clientId = res.clientId || res.clientid;
        this.customerUrl = res.customerUrl;
@@ -65,6 +68,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("tkn",this.token);
         }
         
+        this.supportUrl = `whatsapp://send?phone=${this.supportNumber}`;
       });
     }
     else{

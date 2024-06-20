@@ -51,8 +51,9 @@
   <div class="parent">
     <ion-row class="input-row" *ngIf="currentCountryCode">
       <ion-col size="12" class="ion-text-center">
+        <ion-text class="ion-padding-vertical">Enter registered mobile number with {{clientId}} order</ion-text>
         <form class="centerCode">
-          <ion-item class="input_item" lines="none">
+          <ion-item class="input_item ion-margin-top" lines="none">
             <ion-intl-tel-input
               id="phone-number"
               name="phone-number"
@@ -74,7 +75,7 @@
           >Send OTP
         </ion-button>
         <p class="error-message" *ngIf="showErrorMsg">Could not verify from Order details. If there is an error at our end, please connect with our 
-          <a target="_blank" href="whatsapp://send?phone=+919099299148">
+          <a target="_blank" [href]="supportUrl">
             support</a> team.
         </p>
       </ion-col>
