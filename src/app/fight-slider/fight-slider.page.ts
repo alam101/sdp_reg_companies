@@ -15,6 +15,7 @@ export class FightSliderPage{
  slideIndex=0;
   clientDataImage: boolean;
   customerId: any;
+  supportNumber: any;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -28,6 +29,7 @@ export class FightSliderPage{
             return ele.clientId == res.clientId;
           })
           if (clientObj && clientObj.length) {
+            this.supportNumber = clientObj[0]['supportNumber'];
             let customerUrl = clientObj[0]['apiUrl'];
             let authUrl = clientObj[0]['authUrl'];
             let clientKey = clientObj[0]['clientKey'];
@@ -43,6 +45,7 @@ export class FightSliderPage{
             return ele.clientId == res.clientId;
           });
           if (clientObj && clientObj.length) {
+            this.supportNumber = clientObj[0]['supportNumber'];
             let customerUrl = clientObj[0]['apiUrl'];
             localStorage.setItem("clientId", res.clientId);
             this.toggleAppTheme(res.clientId, res, customerUrl);
@@ -67,7 +70,8 @@ export class FightSliderPage{
           clientId: this.clientId,
           customerUrl: customerUrl || "",
           authUrl: authUrl || "",
-          clientKey: clientKey
+          clientKey: clientKey,
+          supportNumber: this.supportNumber
         },
       });
     }

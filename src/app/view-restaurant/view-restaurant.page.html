@@ -38,7 +38,7 @@
         [(ngModel)]="search"
         (ngModelChange)="searchFood($event)"
       ></ion-searchbar>
-      <div class="left filter_div">
+      <!-- <div class="left filter_div">
         <div *ngFor="let t of dataTypeList" style="width: 60px">
           <ion-toggle
             [ngClass]="t.name"
@@ -49,7 +49,7 @@
           <p class="tgl_title">{{t.title}}</p>
         </div>
        
-      </div>
+      </div> -->
     </ion-toolbar>
   </div>
 </ion-header>

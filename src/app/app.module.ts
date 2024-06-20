@@ -18,6 +18,7 @@ import { GaugeChartModule } from 'angular-gauge-chart';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BroadcastService } from './broadcast.service';
+import { ViewProductPageModule } from 'src/app/view-product/view-product.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BroadcastService } from './broadcast.service';
     GaugeChartModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ViewProductPageModule
   ],
   providers: [
     {
