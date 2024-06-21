@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("tkn",this.token);
         }
         
-        this.supportUrl = `whatsapp://send?phone=${this.supportNumber}`;
+        this.supportUrl = `https://api.whatsapp.com/send?phone=${this.supportNumber}&text=''`;
       });
     }
     else{
@@ -106,10 +106,15 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter(){
     this.appService.getCurrentLocation().then((location: any) => {
       this.utilities.hideLoader();
-      this.currentCountryCode = location["country_code"].toLowerCase();
-      CONSTANTS.location_country = location["country_name"];
+      if(location && location["country_code"] && location["country_name"]){
+        this.currentCountryCode = location["country_code"].toLowerCase();
+        CONSTANTS.location_country = location["country_name"];
+      }
     });
   }
 // signIn(){
