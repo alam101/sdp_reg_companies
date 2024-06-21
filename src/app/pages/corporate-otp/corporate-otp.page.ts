@@ -88,7 +88,7 @@ export class CorporateOtpPage implements OnInit {
   }
 
   async verifyOTP() {
-    this.utiltites.showLoading();
+    // this.utiltites.showLoading();
     let inputOtp = this.otp2;
 
     this.appService
