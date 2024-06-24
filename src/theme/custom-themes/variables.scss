@@ -1417,6 +1417,68 @@ body[color-theme="kenko"] {
   --new-border-color: #99b94933;
   --theme-color-new:#fbce60;  
 }
+body[color-theme="elderfly"] {
+  --theme-profile-background: #25142d;
+  --theme-background:#25142d; //#00a6a8
+  --theme-header:#25142d;
+  --theme-button:#25142d;
+  --theme-heading:#25142d;
+  --theme-activeBtn:#25142d;//#01A3A4       
+  --theme-plusBtn:#25142d; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #25142d;//#01A3A4;
+  --theme-plusBtnWaterGuage:#25142d;  //#509bed;   
+  --theme-minusBtnWaterGuage:#25142d;  //#509bed;  
+  --theme-waterCenterPercent:#25142d;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #25142d; //#01A3A5;
+  --theme-color:#25142d; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #25142d 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#CD8B00; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem;
+
+  --theme-color:#25142d;
+  --theme-newHeader:#25142d;
+  --theme-newButton:#69003a;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#69003a;
+  --arrow-color:#25142d;
+  --goal: #25142d;
+  --profile-color: #69003a;
+  --graph-background:#69003a;
+  --close-edit-color:#69003a;
+  --new-background: #69003a;
+  --new-border-color: #99b94933;
+  --theme-color-new:#69003a;  
+}
+
+
 
 // Fonts
 $font-size: 16px;
