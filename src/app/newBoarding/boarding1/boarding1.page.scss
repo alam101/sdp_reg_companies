@@ -41,13 +41,13 @@ ion-content::part(background) {
 .page_Count {
   height: 20px;
   width: 20px;
-  border: 2px solid var(--white);
+  border: 2px solid var(--theme-milestone);
   border-radius: 100%;
   font-size: var(--xsmall-font);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--theme-milestone);
   font-weight: bold;
   z-index: 10;
   background: var(--theme-newHeader);
@@ -57,13 +57,13 @@ ion-content::part(background) {
 .page_Count_active {
   height: 20px;
   width: 20px;
-  border: 2px solid var(--white);
+  border: 2px solid var(--theme-milestone);
   border-radius: 100%;
   font-size: var(--xsmall-font);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--theme-newHeader);
+  color: var(--theme-milestone2);
   font-weight: bold;
   z-index: 10;
   background: var(--black);
@@ -71,7 +71,7 @@ ion-content::part(background) {
 }
 
 .lines {
-  border: 1px solid var(--white);
+  border: 1px solid var(--theme-milestone);
   width: 90%;
   position: absolute;
 }
@@ -86,7 +86,7 @@ ion-content::part(background) {
 .title {
   font-size: var(--medium-font);
   font-family: var(--theme-newFont);
-  color: var(--white);
+  color: var(--theme-theme-headerText);
   font-weight: 700;
   padding-top: 50px;
   margin: 0;

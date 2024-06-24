@@ -121,7 +121,7 @@ ion-segment {
     font-size: var(--medium-font);
     font-family: var(--theme-newFont);
     font-weight: 500;
-    color: var(--black);
+    color: var(--theme-titleProfile);
     margin: 0%;
 }
 
@@ -183,7 +183,7 @@ ion-segment {
   }
 
   .lines {
-    border: 1px solid #E3E3E3;
+    border: 1px solid var(--theme-milestone);
     width: 100%;
     position: absolute;
   }
@@ -193,21 +193,20 @@ ion-segment {
     position: absolute;
   
     div {
-   
-      border: 1px solid var(--black);
+      border: 1px solid var(--theme-milestone);
     }
   }
 
   .page_Count {
     height: 10px;
     width: 10px;
-    border: 2px solid var(--white);
+    border: 2px solid var(--theme-milestone);
     border-radius: 100%;
     font-size: var(--xsmall-font);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    color: var(--theme-milestone);
     font-weight: bold;
     z-index: 10;
     background: var(--theme-newHeader);
@@ -217,13 +216,13 @@ ion-segment {
   .page_Count_active {
     height: 10px;
     width: 10px;
-    border: 2px solid var(--white);
+    border: 2px solid var(--theme-milestone);
     border-radius: 100%;
     font-size: var(--xsmall-font);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--theme-newHeader) ;
+    color: var(--theme-milestone2);
     font-weight: bold;
     z-index: 10;
     background: #F2903C;
@@ -238,7 +237,7 @@ ion-segment {
     font-size: var(--xsmall-font);
     font-family: var(--theme-newFont);
     font-weight: 500;
-    color: var(--black-light);
+    color: var(--theme-titleProfile);
     margin: 0%;
     margin-top: 5px;
     margin-bottom: 0;
@@ -277,7 +276,7 @@ ion-segment {
 .title{
     font-size: var(--small-font);
     font-family: var(--theme-newFont);
-    color: var(--black);
+    color: var(--theme-titleProfile);
     font-weight: 700;
     margin: 0px  ;
 }
@@ -285,7 +284,7 @@ ion-segment {
 .sub_title{
     font-size: var(--xsmall-font);
     font-family: var(--theme-newFont);
-    color: var(--black);
+    color: var(--theme-titleProfile);
     margin: 10px 0px 0px ;
     font-weight: 400;
    
@@ -374,7 +373,7 @@ ion-segment {
 .cal_title{
     font-size: var(--regularM-font);
     font-family: var(--theme-newFont);
-    color: var(--black);
+    color: var(--theme-titleProfile);
     font-weight: 700;
     margin: 0px  ;
 }
@@ -382,7 +381,7 @@ ion-segment {
 .cal_sub_title{
     font-size: var(--small-font);
     font-family: var(--theme-newFont);
-    color: var(--black);
+    color: var(--theme-titleProfile);
     margin: 10px 0px 5px ;
     font-weight: 400;
    

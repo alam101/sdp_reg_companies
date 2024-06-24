@@ -37,6 +37,8 @@ export class FinalBoardingPage implements OnInit {
     private utilities: UTILITIES,
     private appService: AppService
   ) {
+console.log("cccccc:-",localStorage.getItem("clientId"));
+
     if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
       this.clientId="eatfit";
     }
@@ -54,7 +56,8 @@ export class FinalBoardingPage implements OnInit {
         this.localData = JSON.parse(res);
       }
     });
-
+    
+    
     this.gotoDemographic();
     this.termsandCond();
     this.ditePlanAPIcall();
@@ -62,10 +65,12 @@ export class FinalBoardingPage implements OnInit {
 
 
   ngOnInit() {
+    this.clientId = localStorage.getItem("clientId");
    this.selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
    this.slot = JSON.parse(localStorage.getItem("slotChoice"));
    this.likeFood = localStorage.getItem("likeFood");
-   this.clientId = localStorage.getItem('clientId');
+   console.log("clientId", this.clientId);
+   
   }
 
   goNext() {

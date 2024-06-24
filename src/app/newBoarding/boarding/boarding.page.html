@@ -42,6 +42,14 @@
           (click)="newModal=dt?.value"
           *ngFor="let dt of data[0]?.options;"
         >
+          <img style="    width: 30%;
+          position: absolute;
+          z-index: 1;
+          right: 0;
+          top: 0%;"
+            [src]="dt?.imgUrl"
+          >
+        
           <ion-radio
             class="radio-button"
             [value]="dt?.value"
@@ -64,6 +72,13 @@
           (click)="newModal=dt1?.value"
           *ngFor="let dt1 of data[1]?.options;"
         >
+          <img style="    width: 30%;
+          position: absolute;
+          z-index: 1;
+          right: 0;
+          top: 0%;"
+            [src]="dt1.imgUrl"
+          >
           <ion-radio
             class="radio-button"
             [value]="dt1?.value"
@@ -86,6 +101,13 @@
           (click)="newModal=dt2?.value"
           *ngFor="let dt2 of data[2]?.options;"
         >
+          <img style="    width: 30%;
+          position: absolute;
+          z-index: 1;
+          right: 0;
+          top: 0%;"
+            [src]="dt2.imgUrl"
+          >
           <ion-radio
             class="radio-button"
             [value]="dt2?.value"

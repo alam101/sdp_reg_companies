@@ -89,18 +89,18 @@ export class PortionCountPage implements OnInit {
   async replacedModal(data) {
     console.log("DATA----------->>", data);
 
-    const modal = await this.modalCtrl2.create({
-      component: PortionCountPage,
-      cssClass: "portion_count",
-      backdropDismiss: true,
-      componentProps: {
-        alterdata: data,
-        type: "add",
-      },
-    });
-    await modal.present();
-    const modaldata = await modal.onDidDismiss();
-    const d = modaldata?.data;
+    // const modal = await this.modalCtrl2.create({
+    //   component: PortionCountPage,
+    //   cssClass: "portion_count",
+    //   backdropDismiss: true,
+    //   componentProps: {
+    //     alterdata: data,
+    //     type: "add",
+    //   },
+    // });
+    // await modal.present();
+    // const modaldata = await modal.onDidDismiss();
+    const d = data;//modaldata?.data;
     if (d) {
       console.log("i got this data on porton page", d);
       console.log("i got this data on porton page", this.data);

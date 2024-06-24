@@ -60,10 +60,14 @@ export class MealWorkoutPage implements OnInit {
     private popCtrl: PopoverController,
     private broadcastService: BroadcastService
   ) {}
-
+  isFuture:any;
   compConfig:any;
   async ngOnInit() {
-   
+  
+    if(Number(localStorage.getItem("currentDate"))> new Date().getTime()){
+        this.isFuture=true;
+    }
+    
 this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.image_URL = CONSTANTS.image_URL;
     this.customerId = await this.utilities.getUserData("id");
@@ -170,6 +174,9 @@ addRemove(type) {
   this.popup.Calories = calCount * this.popup.portion;
 }
   async addCal(data, i) {
+    if(this.isFuture){
+      return;
+      }
     this.isdisplayFooter.emit(true);
     // const modal = await this.modalCtrl.create({
     //   component: PortionCountPage,
@@ -354,6 +361,9 @@ addRemove(type) {
   }
 
   logSlot(d,index){ 
+    if(this.isFuture){
+    return;
+    }
     this.eatenStatusUpdate1(d,index);
   }
   async remove(item, eaten, status) {

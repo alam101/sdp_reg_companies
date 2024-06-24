@@ -392,14 +392,12 @@ ion-button{
     }
   }
  .modal-default app-portion-count.ion-page > ion-content:first-child {
-  width: 85%;
-height: 155px;
-border-radius: 10px;
-left: 8%;
-top: 40%;
-position: absolute;
-  top: 40%;
- 
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 155px;
+  width: 90%;
 }
 
 
