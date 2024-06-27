@@ -165,7 +165,9 @@
 }
 
 
-
+.modal-wrapper {
+  height: 100%;
+}
 
 
 
@@ -473,4 +475,9 @@ ion-button{
       
     }
     }
+
+.change_item, .show-modal {
+  --height: 100%;
+  --width: 100%;
+}
   
