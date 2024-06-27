@@ -248,12 +248,14 @@ ion-thumbnail {
   height: 25px;
   width: 70px;
   --border-color: var(--theme-newButton);
-  margin-right: -10px;
+  // margin-right: -10px;
   --padding-start: 0px;
   --padding-end: 0px;
   --border-width: 0.5px;
   --padding-bottom: 2px;
   font-weight: 500;
+  max-width: 180px;
+  min-width: 100px;
 
   ion-icon{
     color: var(--theme-newButton);
@@ -262,6 +264,10 @@ ion-thumbnail {
 
   }
 
+}
+
+.d-flex {
+  display: flex;
 }
 
 

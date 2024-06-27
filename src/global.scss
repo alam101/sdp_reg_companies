@@ -165,8 +165,9 @@
 }
 
 
-
-
+.modal-wrapper {
+  height: 100%;
+}
 
 
 input[type=number]::-webkit-inner-spin-button,
@@ -475,4 +476,9 @@ position: absolute;
       
     }
     }
+
+.change_item, .show-modal {
+  --height: 100%;
+  --width: 100%;
+}
   
