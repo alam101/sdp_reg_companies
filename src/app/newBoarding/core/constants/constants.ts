@@ -128,8 +128,8 @@ export const APIS = {
   /* Seprate Apis to save data in DB */
   saveFasting: 'saveFasting',
   getFasting: 'getFasting',
-  fetchCustDailyDiets: 'fetchCustDailyDiets'
-
+  fetchCustDailyDiets: 'fetchCustDailyDiets',
+  instructionApiUrl: "https://nodeapi.smartdietplanner.com/api/instructions/getByUserId/"
   // end
 };
 export const message = {

@@ -46,6 +46,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   isDetox = false;
   companyLogoBase64="";
   subscription: Subscription;
+  planName: any;
   constructor(
     private appServices: AppService,
     private cdr: ChangeDetectorRef,
@@ -255,7 +256,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   profileData:any;
   profileName;
   firstConsult=null;
-  instructions:any={};
+  instructions:any;
   openDial(phonenumber){
     window.open("tel:"+phonenumber+"","_system");
   }
@@ -280,13 +281,14 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         if(this.compConfig.isDietitian){
         this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
         }
-        this.instructions = this.profileData?.lifeStyle?.instructions;
+        // this.instructions = this.profileData?.lifeStyle?.instructions;
    
         this.profileName=userData.name;
    
         console.log("getprofile",JSON.stringify(userData));
         console.log("alam:-", profileData["lifeStyle"]);
         this. bindDesease();
+        this.getInstructionData(this.profileData.profile.email);
       });
 
    }
@@ -707,6 +709,40 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         profileData: JSON.stringify(this.profileData)
       }
     });
+  }
+  
+  getInstructionData(data) {
+    this.appServices.getInstructionData(data).then((getInstructionDataResponse: any) => {
+      console.log('getInstructionDataResponse: ', getInstructionDataResponse);
+      let reference: any;
+      if (getInstructionDataResponse && getInstructionDataResponse.length > 1) {
+        reference = getInstructionDataResponse.reduce((a, b) => {
+          let obj = new Date(a.createdOn) > new Date(b.createdOn) ? a : b;
+          return obj
+        });
+        console.log('reference obj = ', reference);
+      } else if (getInstructionDataResponse && getInstructionDataResponse.length == 1) {
+        reference = getInstructionDataResponse[0];
+      }
+      if (!this.planName) {
+        this.planName = this.diets.dietPlanName.toLowerCase().includes('cheat') ? "cheat" :
+          this.diets.dietPlanName.toLowerCase().includes('detox') ? "detox" :
+            this.diets.dietPlanName.toLowerCase().includes('normal') ? "normal" : "";
+        if (this.planName && !this.instructions) {
+          Object.keys(reference).forEach(ele => {
+            if (ele.toLowerCase().includes(this.planName)) {
+              this.instructions = reference[ele].replaceAll(/\n/g,"<br>");
+              return;
+            }
+          })
+        }
+      }
+
+
+    })
+      .catch(getInstructionDataError => {
+        console.log('getInstructionDataError: ', getInstructionDataError);
+      })
   }
 }
 
