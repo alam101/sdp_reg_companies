@@ -943,4 +943,36 @@ public emailOnly(email): boolean {
   return true;
 }
 
+  getUserProfile() {
+    const url = APIS.BASEURL + "" + APIS.profile;
+    return this.httpClient.get(url, {}).toPromise();
+  }
+
+  getProfileData(token) {
+    const url = APIS.BASEURL + "" + APIS.profile;
+    const headers = new HttpHeaders().set("authorization",`bearer ${token}`);
+    return this.httpClient.get(url, {headers:headers}).toPromise();
+  }
+
+  authenticateExternal(user, userData) { //CorporateToken(user, config) {
+
+    // let userData = { authToken: "" };
+    // if (user != null) {
+    //   userData = user;
+    // }
+    // const url = APIS.BASEURL + "" + APIS.authUrl + "na&email=" + user.email + "&name='" + user.firstName + " " + user.lastName + "'&firstName=" + user.firstName + "&lastName=" + user.lastName + "&provider=" + user.provider + "&appSource=" + config.app_source;
+    const url = APIS.BASEURL + "" + APIS.authenticateExternal + `?key=${user.clientKey}`//"na&email=" + user.email + "&name='" + user.firstName + " " + user.lastName + "'&firstName=" + user.firstName + "&lastName=" + user.lastName + "&provider=EMAIL&appSource=" + config.app_source;
+
+    return this.httpClient.post(url,userData, {}).toPromise();
+  }
+
+  fetchCustomerDetail(email):Observable<any>{
+    const url =  "https://app.smartdietplanner.com:8445/api/fetchCustomerDetails";
+    return this.httpClient.get(url);
+  }
+
+  externalToken(key:string, data?):Observable<any>{
+    const url = APIS.BASEURL + APIS.getTokenExternal + `?key=${key}&userId=${data}`;
+    return this.httpClient.get(url);
+  }
 }

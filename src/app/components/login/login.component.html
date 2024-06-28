@@ -1,32 +1,29 @@
-<ion-header style="min-height: 4.5rem !important;">
+<!-- <ion-header style="min-height: 4.5rem !important;">
   <ion-toolbar style="--background: #fff;
-  color: #8C8E93;
-  font-size: .871rem;
-  margin: 0 1rem 0 1rem;--min-height: 4.5rem !important;">
-  <ion-buttons slot="start">
-    <p>Diet Plan</p>
-  </ion-buttons>
-    <!-- <ion-buttons slot="end" style="right: 2rem;
-    position: relative;">
-      <img src="./assets/img/login-logo.png" slot="end">
-    </ion-buttons> -->
-   
+    color: #8C8E93;
+    font-size: .871rem;
+    margin: 0 1rem 0 1rem;--min-height: 4.5rem !important;">
+    <ion-buttons slot="start">
+      <p>Diet Plan</p>
+    </ion-buttons>
+
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 <ion-content>
-  <ion-row>
+  <!-- <img src="src/assets/images/no-client-id.jpeg" style="max-height: 288px; height: auto; width: 100%" /> -->
+  <ion-row class="header-content">
     <ion-col>
-   <div>
-    <video preload="auto" autoplay loop muted webkit-playsinline playsinline class="video-container"
-      poster="./assets/video/login-background.png" >
-      <!-- <source src="./assets/video/login-video2.mp4" types='video/mp4; codecs="h.264"' />  -->
-    </video>
-    <!-- [ngStyle]="{'padding-top': !isKeyBoardShows || !platform.is('ios') ? '0px' : '64px', 'top' : !isKeyBoardShows && platform.is('ios') ? '70%' : '68.5%'}" -->
-   
-  </div>
-</ion-col>
-</ion-row>
-<br><br><br><br><br>
+      <div class="ion-text-center ion-text-xl-center header-text">
+        <b>Let us start!</b>
+      </div>
+      <div class="video-parent">
+        <video preload="auto" autoplay loop muted webkit-playsinline playsinline class="video-container"
+          poster="./assets/newImages/registration.svg">
+        </video>
+      </div>
+    </ion-col>
+  </ion-row>
+<!-- 
   <ion-row>
     <ion-col size="3"></ion-col>
     <ion-col size="6" class="ion-text-center">
@@ -49,6 +46,40 @@
   border-top-left-radius: 2rem;
   border-top-right-radius: 2rem;    position: fixed;">
     <div></div>
+  </div> -->
+
+  <div class="parent">
+    <ion-row class="input-row" *ngIf="currentCountryCode">
+      <ion-col size="12" class="ion-text-center">
+        <ion-text class="ion-padding-vertical">Enter registered mobile number with {{clientId}} order</ion-text>
+        <form class="centerCode">
+          <ion-item class="input_item ion-margin-top" lines="none">
+            <ion-intl-tel-input
+              id="phone-number"
+              name="phone-number"
+              [defaultCountryiso]="currentCountryCode"
+              [enableAutoCountrySelect]="true"
+              inputPlaceholder="Phone Number"
+              [(ngModel)]="phoneNumber"
+              #phoneNumberControl="ngModel"
+            >
+            </ion-intl-tel-input>
+          </ion-item>
+        </form>
+
+        <ion-button
+          mode="ios"
+          class="button button-full otp_btn ion-margin-top"
+          shape="round"
+          (click)="verifyWithClient(phoneNumber)"
+          >Send OTP
+        </ion-button>
+        <p class="error-message" *ngIf="showErrorMsg">Could not verify from Order details. If there is an error at our end, please connect with our 
+          <a target="_blank" [href]="supportUrl">
+            support</a> team.
+        </p>
+      </ion-col>
+    </ion-row>
   </div>
  <!-- <div *ngIf="isModalOpen || isDenyModal" style="top:0;width: 100%;background: #000; opacity: .5;height: 100%;position: absolute;z-index: 9;"></div>
   <ion-modal [isOpen]="isModalOpen" class="allow-popup" style="height: 50%;">

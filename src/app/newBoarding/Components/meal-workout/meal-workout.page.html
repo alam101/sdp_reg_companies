@@ -13,10 +13,10 @@
     #FBEEFC':index===7?'#E2F0F6':'#E4F3EC'">
       <p>
         {{data?.message}}
-        <span>
+        <!-- <span>
           <ion-icon name="time-outline"></ion-icon
           >{{moment(data?.time,'HH:mm').format('hh:mm a')}}
-        </span>
+        </span> -->
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
           <a (click)="logSlot(data,index)"  style="font-size: .8rem; 
           color: var(--theme-logslot); 
@@ -95,7 +95,7 @@
           </div>
           <div style="float: left;width: 97%;">
             <ion-row>
-              <ion-col class="ion-text-left">
+              <ion-col class="ion-text-left d-flex">
               <ion-button
               [ngClass]="{'isFuture-button':isFuture}"
               class="logged_btn"

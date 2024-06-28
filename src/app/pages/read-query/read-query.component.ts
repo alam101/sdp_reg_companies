@@ -14,7 +14,7 @@ import {CONSTANTS} from '../../core/constants/constants';
 })
 export class ReadQueryComponent implements OnInit {
   token="";
-  clientId="newmi";
+  clientId: any; //="newmi";
   type="0";
   selectedTheme: String;
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
@@ -24,8 +24,8 @@ export class ReadQueryComponent implements OnInit {
        console.log("res",res.token);
        localStorage.setItem("firstday","");
        this.token = res.token;
-       this.clientId = res.clientId;
-      if(res.clientId==undefined){   
+       this.clientId = res.clientId || res.clientid;
+      if(this.clientId==undefined){   
        this.clientId =localStorage.getItem("clientId");
        this.toggleAppTheme(this.clientId);
        }
@@ -55,10 +55,10 @@ export class ReadQueryComponent implements OnInit {
 
    const data = compJson.filter((item,index)=>{
     console.log("clientConfig:-", Object.keys(item)[0], this.clientId.toLowerCase());
-      return Object.keys(item)[0].toLowerCase()===this.clientId.toLowerCase();
+      return this.clientId && Object.keys(item)[0].toLowerCase()===this.clientId.toLowerCase();
     });
     console.log("clientConfig", data);
-    if(data?.length>0){
+    if(data?.length>0 && this.clientId){
     localStorage.setItem("clientConfig", JSON.stringify(data[0][this.clientId.toLowerCase()]));
     }
     else{
@@ -188,9 +188,9 @@ export class ReadQueryComponent implements OnInit {
       if(localProfileObject["demographic"]?.gender?.code!=undefined &&
         localProfileObject["demographic"]?.age?.code!=undefined && 
         localProfileObject["demographic"]?.height?.value!=undefined &&
-        localProfileObject["demographic"]?.weight?.value!=undefined &&
-        localProfileObject["lifeStyle"]?.activities?.code!=undefined  &&
-        (localProfileObject["lifeStyle"]?.foodType!="" && localProfileObject["lifeStyle"]?.foodType!=undefined)
+        localProfileObject["demographic"]?.weight?.value!=undefined 
+        // localProfileObject["lifeStyle"]?.activities?.code!=undefined  &&
+        // (localProfileObject["lifeStyle"]?.foodType!="" && localProfileObject["lifeStyle"]?.foodType!=undefined)
         ){
          if((localProfileObject["lifeStyle"]?.country!=="" && localProfileObject["lifeStyle"]?.country!==undefined)){
           if(localProfileObject["lifeStyle"]?.country==="IND"){
@@ -228,7 +228,7 @@ export class ReadQueryComponent implements OnInit {
      });
    }
   defaultData(){
-    if(this.token!=''){
+    if(this.token!='' && this.token != 'null'){
     this.appService.defaultData().subscribe(res=>{
       console.log("defaultData::",res);
       localStorage.setItem("defaultData",JSON.stringify(res));

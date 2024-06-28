@@ -56,21 +56,54 @@ ion-content::part(background){
     font-family: var(--theme-newFont);
 }
 
-.page_Count_active{
+.aviva_page_Count{
     height: 20px;
     width: 20px;
-    border: 2px solid var(--theme-milestone);
+    border: 2px solid var(--theme-text-color);
     border-radius: 100%;
     font-size:var(--xsmall-font);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--theme-milestone2);
+    color: var(--theme-text-color);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--theme-newHeader);
+    font-family: var(--theme-newFont);
+}
+
+.page_Count_active{
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--white);
+    border-radius: 100%;
+    font-size:var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-newHeader);
     font-weight: bold;
     z-index: 10;
     background: var(--white);
     font-family: var(--theme-newFont);
 }
+
+.aviva_page_Count_active{
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--theme-text-color);
+    border-radius: 100%;
+    font-size:var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--theme-text-color);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--white);
+    font-family: var(--theme-newFont);
+}
+
 
 .complete{
     border: 2px solid var(--black) !important;
@@ -78,6 +111,12 @@ ion-content::part(background){
 
 .lines{
     border: 1px solid var(--theme-milestone);
+    width: 90%;
+    position: absolute;
+}
+
+.aviva-lines{
+    border: 1px solid var(--theme-text-color);
     width: 90%;
     position: absolute;
 }
@@ -129,19 +168,28 @@ ion-content::part(background){
     color: var(--black);
     font-weight: 700;
     margin: 5px 0px;
-    width: 60%;
+    // width: 60%;
 }
 
 .section-card{
-    margin: 0%;
+    // margin: 0%;
+    // width: 100%;
+    // padding: 15px;
+    // box-shadow: var(--boxshadow);
+    // border-radius: 10px;
+    // height: 105px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
     width: 100%;
+    height: 11.5vh;
+    margin: 0%;
     padding: 15px;
     box-shadow: var(--boxshadow);
     border-radius: 10px;
-    height: 105px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card_Border{
@@ -154,7 +202,7 @@ ion-content::part(background){
     color: var(--black);
     font-weight: 300;
     margin: 0%;
-    width: 60%;
+    // width: 60%;
 }
 
 .card_image{

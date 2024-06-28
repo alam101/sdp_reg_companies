@@ -32,48 +32,48 @@
                 {
                     "heading":"Weight Management",
                     "label":"Eat up, Heal up",
-                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                     "options":[{
                         "name":"Weight Loss",
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                     }
                 ]
                 },
                 {
                     "heading":"Fitness",
                     "label":" Exercise is king, nutrition is Queen",
-                    "imgUrl":"../../../assets/newImages/fitness.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                     "options":[{
                         "name":"Muscle Building",
                         "value":"muscleGain",
                         "label":"Pump and get stronger",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                     },
                     {
                         "name":"Lean Body",
                         "value":"fatShredding",
                         "label":" Maintain muscles and lose fat",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                     }
                 ]
                 },
                 {
                     "heading":"Disease Management",
                     "label":"Let food be thy medicine ",
-                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                     "options":[{
                         "name":"Manage Diabetes",
                         "value":"diabetes",
                         "label":" Optimize blood glucose levels ", 
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                     },
                     {
                         "name":"Manage PCOS",
                         "value":"pcos",
                         "label":" No more irregular period",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                     },
                     {
                         "name":"Manage Cholesterol",
@@ -178,48 +178,48 @@
                 {
                     "heading":"Weight Management",
                     "label":"Eat up, Heal up",
-                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                     "options":[{
                         "name":"Weight Loss",
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                     }
                 ]
                 },
                 {
                     "heading":"Fitness",
                     "label":" Exercise is king, nutrition is Queen",
-                    "imgUrl":"../../../assets/newImages/fitness.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                     "options":[{
                         "name":"Muscle Building",
                         "value":"muscleGain",
                         "label":"Pump and get stronger",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                     },
                     {
                         "name":"Lean Body",
                         "value":"fatShredding",
                         "label":" Maintain muscles and lose fat",
-                        "imgUrl":"../../../assets/newImages/lean_body.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                     }
                 ]
                 },
                 {
                     "heading":"Disease Management",
                     "label":"Let food be thy medicine ",
-                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                     "options":[{
                         "name":"Manage Diabetes",
                         "value":"diabetes",
                         "label":" Optimize blood glucose levels ", 
-                        "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                     },
                     {
                         "name":"Manage PCOS",
                         "value":"pcos",
                         "label":" No more irregular period",
-                        "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                     },
                     {
                         "name":"Manage Cholesterol",
@@ -323,48 +323,48 @@
                 {
                     "heading":"Weight Management",
                     "label":"Eat up, Heal up",
-                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                     "options":[{
                         "name":"Weight Loss",
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                     }
                 ]
                 },
                 {
                     "heading":"Fitness",
                     "label":" Exercise is king, nutrition is Queen",
-                    "imgUrl":"../../../assets/newImages/fitness.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                     "options":[{
                         "name":"Muscle Building",
                         "value":"muscleGain",
                         "label":"Pump and get stronger",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                     },
                     {
                         "name":"Lean Body",
                         "value":"fatShredding",
                         "label":" Maintain muscles and lose fat",
-                        "imgUrl":"../../../assets/newImages/lean_body.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                     }
                 ]
                 },
                 {
                     "heading":"Disease Management",
                     "label":"Let food be thy medicine ",
-                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                     "options":[{
                         "name":"Manage Diabetes",
                         "value":"diabetes",
                         "label":" Optimize blood glucose levels ", 
-                        "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                     },
                     {
                         "name":"Manage PCOS",
                         "value":"pcos",
                         "label":" No more irregular period",
-                        "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                     },
                     {
                         "name":"Manage Cholesterol",
@@ -469,48 +469,48 @@
                 {
                     "heading":"Weight Management",
                     "label":"Eat up, Heal up",
-                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                     "options":[{
                         "name":"Weight Loss",
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                     }
                 ]
                 },
                 {
                     "heading":"Fitness",
                     "label":" Exercise is king, nutrition is Queen",
-                    "imgUrl":"../../../assets/newImages/fitness.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                     "options":[{
                         "name":"Muscle Building",
                         "value":"muscleGain",
                         "label":"Pump and get stronger",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                     },
                     {
                         "name":"Lean Body",
                         "value":"fatShredding",
                         "label":" Maintain muscles and lose fat",
-                        "imgUrl":"../../../assets/newImages/lean_body.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                     }
                 ]
                 },
                 {
                     "heading":"Disease Management",
                     "label":"Let food be thy medicine ",
-                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                     "options":[{
                         "name":"Manage Diabetes",
                         "value":"diabetes",
                         "label":" Optimize blood glucose levels ", 
-                        "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                     },
                     {
                         "name":"Manage PCOS",
                         "value":"pcos",
                         "label":" No more irregular period",
-                        "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                     },
                     {
                         "name":"Manage Cholesterol",
@@ -615,48 +615,48 @@
                 {
                     "heading":"Weight Management",
                     "label":"Eat up, Heal up",
-                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                     "options":[{
                         "name":"Weight Loss",
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                     }
                 ]
                 },
                 {
                     "heading":"Fitness",
                     "label":" Exercise is king, nutrition is Queen",
-                    "imgUrl":"../../../assets/newImages/fitness.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                     "options":[{
                         "name":"Muscle Building",
                         "value":"muscleGain",
                         "label":"Pump and get stronger",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                     },
                     {
                         "name":"Lean Body",
                         "value":"fatShredding",
                         "label":" Maintain muscles and lose fat",
-                        "imgUrl":"../../../assets/newImages/lean_body.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                     }
                 ]
                 },
                 {
                     "heading":"Disease Management",
                     "label":"Let food be thy medicine ",
-                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                     "options":[{
                         "name":"Manage Diabetes",
                         "value":"diabetes",
                         "label":" Optimize blood glucose levels ", 
-                        "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                     },
                     {
                         "name":"Manage PCOS",
                         "value":"pcos",
                         "label":" No more irregular period",
-                        "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                     },
                     {
                         "name":"Manage Cholesterol",
@@ -763,48 +763,48 @@
                 {
                     "heading":"Weight Management",
                     "label":"Eat up, Heal up",
-                    "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                     "options":[{
                         "name":"Weight Loss",
                         "value":"weightLoss",
                         "label":"Lose weight not the mind",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                     }
                 ]
                 },
                 {
                     "heading":"Fitness",
                     "label":" Exercise is king, nutrition is Queen",
-                    "imgUrl":"../../../assets/newImages/fitness.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                     "options":[{
                         "name":"Muscle Building",
                         "value":"muscleGain",
                         "label":"Pump and get stronger",
-                        "imgUrl":"../../../assets/newImages/fitness.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                     },
                     {
                         "name":"Lean Body",
                         "value":"fatShredding",
                         "label":" Maintain muscles and lose fat",
-                        "imgUrl":"../../../assets/newImages/lean_body.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                     }
                 ]
                 },
                 {
                     "heading":"Disease Management",
                     "label":"Let food be thy medicine ",
-                    "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                    "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                     "options":[{
                         "name":"Manage Diabetes",
                         "value":"diabetes",
                         "label":" Optimize blood glucose levels ", 
-                        "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                     },
                     {
                         "name":"Manage PCOS",
                         "value":"pcos",
                         "label":" No more irregular period",
-                        "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                     },
                     {
                         "name":"Manage Cholesterol",
@@ -909,60 +909,60 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -1055,20 +1055,20 @@
                     {
                         "heading":"Weight Management",
                         "label":"Helps you reach target weight",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[
                         {
                             "name":"Weight Management",
                             "value":"weight_loss_plix",
                             "label":"Helps you reach target weight",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Improve Immunity",
                             "value":"immunity_booster_plix",
@@ -1179,60 +1179,60 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -1326,60 +1326,60 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -1473,60 +1473,60 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -1620,60 +1620,66 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
+                        },
+                        {
+                            "name":"Weight Maintenance",
+                            "value":"WeightMaintenance",
+                            "label":"Maintain what you achieved",
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -1799,60 +1805,66 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
+                        },
+                        {
+                            "name":"Weight Maintenance",
+                            "value":"WeightMaintenance",
+                            "label":"Maintain what you achieved",
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -1977,60 +1989,60 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -2123,60 +2135,60 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -2269,60 +2281,60 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
                             "value":"hypertension",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/manage_hypertension.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }
@@ -2415,54 +2427,54 @@
                     {
                         "heading":"Weight Management",
                         "label":"Eat up, Heal up",
-                        "imgUrl":"../../../assets/newImages/weightmanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png",
                         "options":[{
                             "name":"Weight Loss",
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
-                            "imgUrl":"../../../assets/newImages/weightmanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
                         }
                     ]
                     },
                     {
                         "heading":"Fitness",
                         "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/fitness.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
                         "options":[{
                             "name":"Muscle Building",
                             "value":"muscleGain",
                             "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/fitness.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
                         },
                         {
                             "name":"Lean Body",
                             "value":"fatShredding",
                             "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/lean_body.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
                     {
                         "heading":"Disease Management",
                         "label":"Let food be thy medicine ",
-                        "imgUrl":"../../../assets/newImages/deseasemanagement.png",
+                        "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png",
                         "options":[{
                             "name":"Manage Diabetes",
                             "value":"diabetes",
                             "label":" Optimize blood glucose levels ", 
-                            "imgUrl":"../../../assets/newImages/manage_diabetes.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-4.png"
                         },
                         {
                             "name":"Manage PCOS",
                             "value":"pcos",
                             "label":" No more irregular period",
-                            "imgUrl":"../../../assets/newImages/manage_pcos.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-5.png"
                         },
                         {
                             "name":"Manage Cholesterol",
                             "value":"cholesterol",
                             "label":"No more high blood pressure",
-                            "imgUrl":"../../../assets/newImages/deseasemanagement.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-6.png"
                         },
                         {
                             "name":"Manage Hypertension",
@@ -2609,7 +2621,7 @@
                             "name":"Manage Skincare",
                             "value":"skin_blubin",
                             "label":"Healthy skin, beautiful you.",
-                            "imgUrl":"../../../assets/newImages/skincare_img.png"
+                            "imgUrl":"../../../assets/newImages/aviva-images/goal-7.png"
                         }
                     ]
                     }

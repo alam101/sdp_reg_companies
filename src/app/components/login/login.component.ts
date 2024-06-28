@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { AppService } from 'src/app/services/app.service';
 import { Storage } from "@ionic/storage";
+import { message, CONSTANTS, ProfileInfo, APIS } from '../../core/constants/constants';
+import { UTILITIES } from 'src/app/core/utility/utilities';
+import { constantsJson} from '../../core/constants/constants';
 
 @Component({
   selector: 'component-login',
@@ -17,28 +20,42 @@ export class LoginComponent implements OnInit {
   };
   @ViewChild("testSlider") slider;
   slideIndex: any;
-  token="eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlbWFpbCI6IjkxLTk5NTg0Njk4MzQiLCJkZXZpY2VJZCI6IjIxMzIxMzIxIiwiaWF0IjoxNjY4MjQ3NTI2fQ.aHS3MBjX_3yK-VXLUPTDXqvC1-seurwYStS4_iNIvo20miQg2RPSiCXbOaJHqB0l7oHq_RB6JnlP_Eof7R_haA";
-  clientId="birla";
+  token: any; //="eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlbWFpbCI6IjkxLTk5NTg0Njk4MzQiLCJkZXZpY2VJZCI6IjIxMzIxMzIxIiwiaWF0IjoxNjY4MjQ3NTI2fQ.aHS3MBjX_3yK-VXLUPTDXqvC1-seurwYStS4_iNIvo20miQg2RPSiCXbOaJHqB0l7oHq_RB6JnlP_Eof7R_haA";
+  clientId = "";
   type="1";
   isModalOpen = false;
+  currentCountryCode = "in";
+  phoneNumber;
+  customerId: any;
+  customerUrl:any;
+  authUrl:any;
+  showErrorMsg: boolean = false;
+  clientKey: any;
+  supportNumber: any;
+  supportUrl: any;
 
-  
   constructor(
     private loading:LoadingController,
     private routerActive:ActivatedRoute,
     private router: Router,
     private appService:AppService,
     private storage:Storage,
-    private modalController:ModalController
-  ) {
-    if(this.token=="")
+    private modalController:ModalController,
+    private utilities: UTILITIES
+    ) {
+    if(this.token=="" || !this.token)
     {      
       this.routerActive.queryParams.subscribe(res=>{
        console.log("res",res.token);
        localStorage.setItem("firstday","");
-       this.token = res.token;
-       this.clientId = res.clientId;
-      if(res.clientId==undefined){
+      //  this.token = res.token;
+       this.supportNumber = res.supportNumber;
+       this.type = res.type;
+       this.clientId = res.clientId || res.clientid;
+       this.customerUrl = res.customerUrl;
+       this.authUrl = res.authUrl;
+       this.clientKey = res.clientKey;
+      if(this.clientId==undefined){
        this.clientId =localStorage.getItem("clientId")
        }
        else{
@@ -51,14 +68,17 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("tkn",this.token);
         }
         
+        this.supportUrl = `https://api.whatsapp.com/send?phone=${this.supportNumber}&text=''`;
       });
     }
     else{
       localStorage.setItem("clientId",this.clientId);
       this.toggleAppTheme(this.clientId);
-     
+      localStorage.setItem("customerId", this.customerId);
       localStorage.setItem("tkn",this.token);
     }
+    // this.customerId = "aaasjdi123399";
+    // localStorage.setItem("customerId", this.customerId);
   }
   toggleAppTheme(theme) {
     document.body.setAttribute('color-theme', theme);
@@ -84,19 +104,96 @@ export class LoginComponent implements OnInit {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-  async ngOnInit(): Promise<void> {
-     
-    
+
+  ngOnInit() {
   }
-signIn(){
-  this.loadLogin();
-  const interval = setInterval(()=>{
-  if(localStorage.getItem("accesstoken")!=""){
-   clearInterval(interval);
-    this.router.navigate(["/read"],{queryParams:{token:`${localStorage.getItem("accesstoken")}`,clientId:'birla',type:1}});
+
+  ionViewWillEnter(){
+    this.appService.getCurrentLocation().then((location: any) => {
+      this.utilities.hideLoader();
+      if(location && location["country_code"] && location["country_name"]){
+        this.currentCountryCode = location["country_code"].toLowerCase();
+        CONSTANTS.location_country = location["country_name"];
+      }
+    });
   }
-},500);
-}
+// signIn(){
+//   this.loadLogin();
+//   const interval = setInterval(()=>{
+//   if(localStorage.getItem("accesstoken")!=""){
+//    clearInterval(interval);
+//     this.router.navigate(["/read"],{queryParams:{token:`${localStorage.getItem("accesstoken")}`,clientId:'birla',type:1}});
+//   }
+// },500);
+// }
+
+  verifyWithClient(phoneNumber) {
+    if (!phoneNumber) {
+      this.utilities.showErrorToast("Please enter phone number");
+      return false;
+    }
+    let phoneNumberBlock = phoneNumber.internationalNumber.split(/ (.*)/);
+    let countryCode = phoneNumberBlock[0].match(/\d+/g).join("");
+    let phonNumber = phoneNumberBlock[1].match(/\d+/g).join("");
+    let phoneNumberStr = countryCode + "-" + phonNumber;
+    if (phonNumber.length != 10) {
+      this.utilities.showErrorToast("Please enter valid phone number");
+      return false;
+    } else {
+      let obj = {
+        "query": `query{  fitrofy(phone:\"+${countryCode}${phonNumber}\"){    validCustomer    orderId    errorMessage  }}`,
+        "variables": {}
+      }
+      this.appService.verifyClientSpecific(this.customerUrl, obj).then((verifyClientSpecificResponse: any) => {
+        if (verifyClientSpecificResponse && verifyClientSpecificResponse.data && verifyClientSpecificResponse.data.fitrofy && verifyClientSpecificResponse.data.fitrofy.orderId) {
+          let orderId = verifyClientSpecificResponse.data.fitrofy.orderId;
+          localStorage.setItem('orderId', orderId);
+          this.signIn(phoneNumber);
+        } else {
+          this.showErrorMsg = true;
+          return false;
+        }
+      })
+        .catch(verifyClientSpecificError => {
+          console.log('verifyClientSpecificError: ', verifyClientSpecificError);
+        })
+    }
+  }
+
+  signIn(phoneNumber, customerID?) {
+    this.utilities.logEvent("Login-with_Phone", {});
+    if (phoneNumber["dialCode"] == "+91" || phoneNumber["isoCode"] == "in") {
+      let phoneNumberBlock = phoneNumber.internationalNumber.split(/ (.*)/);
+      let countryCode = phoneNumberBlock[0].match(/\d+/g).join("");
+      let phonNumber = phoneNumberBlock[1].match(/\d+/g).join("");
+      let phoneNumberString = countryCode + "-" + phonNumber;
+      let number = phoneNumber.internationalNumber.replaceAll(" ", "");
+      this.sendOTP(phoneNumber, phoneNumberString, customerID);
+    }
+  }
+
+  sendOTP(phone, phoneNumberString, customerID?) {
+    this.utilities.logEvent("login_otp_send", {});
+    // this.utilities.showLoading();
+    this.appService
+      .sendOTP({ customerId: phoneNumberString })
+      .then((succ) => {
+        this.utilities.hideLoader();
+        this.router.navigate(["corporate-otp"], {
+          queryParams: {
+            email: phoneNumberString,
+            phoneDetails: JSON.stringify(phone),
+            customerID: customerID || "",
+            clientKey: this.clientKey
+          },
+        });
+      })
+      .catch((err) => {
+        this.utilities.hideLoader();
+        console.log("rrr", err);
+      });
+  }
+
   loadLogin(){
     localStorage.setItem("accesstoken","");
     ready(()=> {
@@ -218,7 +315,7 @@ signIn(){
       console.log("response profile",resData);
       if(resData.code=="0001"){
         if(localStorage.getItem("default")==null || localStorage.getItem("default")=='' || localStorage.getItem("default")==undefined){
-          this.router.navigate(['/fight-slider']);
+          // this.router.navigate(['/fight-slider']);
         }
         else{
           this.router.navigate(['/boarding1']);

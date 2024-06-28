@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {API} from './constants';
+import {API, APIS} from './constants';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,11 +37,11 @@ export class AppService {
     
     return this.httpClient.post(url+`?key=${key}`,payload,{headers:{}});
   }
-  externalToken(key:string):Observable<any>{
-    const url = this.baseUrl+API.getTokenExternal;
+  externalToken(key:string, data?):Observable<any>{
+    const url = this.baseUrl+API.getTokenExternal + `?key=${key}&userId=${data}`;
     console.log(url);
     
-    return this.httpClient.get(url+`?key=${key}`);
+    return this.httpClient.get(url);
   }
   fetchUserDetail(email):Observable<any>{
     const url =  this.externalBaseUrl+API.fetchCustomerDetails;
@@ -82,6 +82,36 @@ export class AppService {
     return this.httpClient
       .post(API.BASEURL + API.updateExpiryDate, reqBody, {})
       .toPromise();
+  }
+  getCurrentLocation() {
+    return this.httpClient
+      .get("https://geolocation-db.com/json/", {})
+      .toPromise();
+  }
+
+  sendOTP(reqBody) {
+    // reqBody["customerId"] = reqBody.email;
+    console.log("reqBody", reqBody);
+    const url = APIS.refreshBaseUrl + "" + API.sendOTP;
+    return this.httpClient.post(url, reqBody, {}).toPromise();
+  }
+
+  verifyWithClient(clientUrl, data) {
+    // const raw = JSON.stringify({
+    //   "mobileNo": data
+    // })
+    let options = {
+      headers: new HttpHeaders({
+        "secret-key": "your-secret-key",
+      }),
+      // data: raw
+    };
+    const url = clientUrl + API.verifyClientUser + data;
+    return this.httpClient.get(url, options).toPromise();
+  }
+
+  verifyClientSpecific(clientUrl, data) {
+    return this.httpClient.post(clientUrl, JSON.stringify(data)).toPromise();
   }
   
 }

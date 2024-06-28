@@ -2,6 +2,7 @@
 @import "../../assets/fonts/fonts.scss";
 @import "../../assets/fonts/stepgo/fonts.scss";
 @import "../../assets/fonts/aviva/fonts.scss";
+@import "../../assets/fonts/new-fonts-aviva/fonts.scss";
 
   body[color-theme="sbi"] {
     --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
@@ -1334,7 +1335,7 @@ body[color-theme="aviva"] {
   --theme-heading:#ffd900;
   --theme-activeBtn:#ffd900;//#01A3A4       
   --theme-plusBtn:#ffd900; //#01A3A4  water-guage page plus  defualt color--#509bed;          
-  --theme-text-color: #ffd900;//#01A3A4;
+  --theme-text-color: #004fb6;//#01A3A4;
   --theme-plusBtnWaterGuage:#ffd900;  //#509bed;   
   --theme-minusBtnWaterGuage:#ffd900;  //#509bed;  
   --theme-waterCenterPercent:#ffd900;  //#509bed;  
@@ -1350,8 +1351,9 @@ body[color-theme="aviva"] {
   --theme-counters:0.75rem;
   --theme-cardHeading:1rem;
   --theme-text:0.85rem;
-  --theme-textHeading:0.9rem; 
-  --theme-titleProfile:#fff;
+  --theme-textHeading:0.9rem;
+
+  --theme-color:#004fb6;
   --theme-newHeader:#ffd900;
   --theme-newButton:#004fb6;
   --white:#ffffff;

@@ -39,3 +39,21 @@ ion-button.button-outline{
 --border-color: var(--theme-color);
 --color: var(--theme-color);
 }
+
+.no-client-data-content {
+  position: absolute;
+  transform: translate(-50%, -50%) !important;
+  top: 45%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+
+  .no-client-data-image {
+    height: auto;
+    width: 100%;
+  }
+
+  p {
+    margin-top: 0;
+  }
+}

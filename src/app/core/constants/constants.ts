@@ -576,5 +576,15 @@ export const constantsJson = {
       "id": 36,
       "state": "Daman And Diu"
     }
+  ],
+  VerifyClient :[
+    {
+      "clientId": "plix",
+      "orderId": "plix",
+      "authUrl": "https://nodeapi.smartdietplanner.com/api/",
+      "apiUrl": "https://plixlifefcstagehapi.farziengineer.co/graphql/?source=website",
+      "clientKey": "PLIX2023",
+      "supportNumber": "+918369335754"
+    }
   ]
 }

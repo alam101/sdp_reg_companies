@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 // import { OAuthModule } from 'angular-oauth2-oidc';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FirebaseX } from "@ionic-native/firebase-x/ngx";
 import { AppRoutingModule, APP_ROUTES } from './app-routing.module';
@@ -17,6 +18,7 @@ import { GaugeChartModule } from 'angular-gauge-chart';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BroadcastService } from './broadcast.service';
+import { ViewProductPageModule } from 'src/app/view-product/view-product.module';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,16 @@ import { BroadcastService } from './broadcast.service';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HomeModule,
     RouterModule.forRoot(APP_ROUTES),
     GaugeChartModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ViewProductPageModule
   ],
   providers: [
     {

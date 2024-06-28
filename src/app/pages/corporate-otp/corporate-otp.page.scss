@@ -1,0 +1,73 @@
+// @import "../../theme/fonts.scss";
+
+.--parent {
+    display: inline-block;
+    padding: 70px 15px 15px 15px;
+    width: 100%;
+
+    .verify {
+        color: #707070;
+        font-size: var(--regularM-font);
+        font-family: var(--theme-newFont);
+    }
+
+    .email {
+        color: #263143;
+        font-size: var(--medium-font);
+        font-family: var(--theme-newFont);
+        font-weight: bold;
+    }
+
+    .expire {
+        color: #707070;
+        font-size: var(--regularM-font);
+        font-family: var(--theme-newFont);
+    }
+
+    .input-box {
+        border: 1px solid lightgray;
+        border-radius: 100%;
+        padding: 10px;
+        height: 50px;
+    }
+
+    .shadow-active {
+        box-shadow: 0px 1px 2px 2px rgb(0 0 0 / 5%);
+    }
+}
+
+.timer {
+    color: #263143 !important;
+}
+
+.otp-catch {
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 0;
+    background-image: linear-gradient(to left, black 70%, rgba(155, 155, 225, 0) 0%);
+    background-position: bottom;
+    background-size: 16.66% 1px;
+    background-repeat: repeat-x;
+    background-position-x: 16.66%;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    top: 10%;
+    height: 40px;
+    z-index: 11;
+    background: transparent;
+}
+
+.header {
+    height: 20px;
+    background: var(--theme-newHeader);
+    border-radius: 0px 0px 25px 25px;
+}
+
+.close_icon {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    font-size: 25px;
+    color: var(--theme-button);
+}

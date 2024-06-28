@@ -27,7 +27,7 @@
         (ngModelChange)="searchFood($event)"
       ></ion-searchbar>
       <div class="left filter_div">
-        <div *ngFor="let t of dataTypeList" style="width: 60px">
+        <!-- <div *ngFor="let t of dataTypeList" style="width: 60px">
           <ion-toggle
             [ngClass]="t.name"
             [(ngModel)]="t.isChecked"
@@ -35,7 +35,7 @@
             [disabled]="allRestaurant.length === 0 && !this.dataType"
           ></ion-toggle>
           <p class="tgl_title">{{t.title}}</p>
-        </div>
+        </div> -->
 
         <!-- <ion-button fill="outline" shape="round"
           ><ion-icon

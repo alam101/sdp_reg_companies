@@ -33,16 +33,19 @@ import {
         headerSettings[key] = request.headers.getAll(key);
       }
       this.userToken = localStorage.getItem("tkn");
-      if(request.url.indexOf("geolocation-db.com") !== -1){
+      if(request.url.indexOf("geolocation-db.com") !== -1 || request.url.indexOf("phone/validateMobile/") !== -1 || request.url.indexOf("sendOTP") !== -1 || request.url.indexOf("verifyOTP") !== -1){
         return next.handle(changedRequest).toPromise();
       }
-      headerSettings["Authorization"] = "bearer " + this.userToken;
+      if(request.url.indexOf("plixlifefcstagehapi.farziengineer.") !== -1) {
+        headerSettings["Authorization"] = "bearer SoL9oWcXm05wnFPAAB7kwZxYHskwIk";
+      } else {
+        headerSettings["Authorization"] = "bearer " + this.userToken;
+      }
       headerSettings["Content-Type"] = "application/json";
       const newHeader = new HttpHeaders(headerSettings);
       changedRequest = request.clone({
         headers: newHeader
       });
-      console.log("interceptor token", this.userToken);
       return next.handle(changedRequest).toPromise();
     }
   }
