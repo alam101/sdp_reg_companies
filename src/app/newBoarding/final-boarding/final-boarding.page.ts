@@ -42,25 +42,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
     if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
       this.clientId="eatfit";
     }
-    this.storage.get("health-journey").then((res: any) => {
-      if (res) {
-        this.plans = JSON.parse(res);
-        console.log("res...", res);
-      }
-    });
 
-    this.storage.get("localData").then((res: any) => {
-      if (res) {
-        //this.plan = JSON.parse(res);
-        console.log("localData...", JSON.parse(res));
-        this.localData = JSON.parse(res);
-      }
-    });
-    
-    
-    this.gotoDemographic();
-    this.termsandCond();
-    this.ditePlanAPIcall();
   }
 
 
@@ -70,8 +52,26 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
    this.slot = JSON.parse(localStorage.getItem("slotChoice"));
    this.likeFood = localStorage.getItem("likeFood");
    console.log("clientId", this.clientId);
-   
    this.clientId = localStorage.getItem('clientId');
+   this.storage.get("health-journey").then((res: any) => {
+    if (res) {
+      this.plans = JSON.parse(res);
+      console.log("res...", res);
+    }
+  });
+
+  this.storage.get("localData").then((res: any) => {
+    if (res) {
+      //this.plan = JSON.parse(res);
+      console.log("localData...", JSON.parse(res));
+      this.localData = JSON.parse(res);
+    }
+  });
+  
+  
+  this.gotoDemographic();
+  this.termsandCond();
+  //this.ditePlanAPIcall();
   }
 
   goNext() {
@@ -238,49 +238,50 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
       );
   }
 
-  ditePlanAPIcall() {
-    this.storage.get("health-journey").then((achieveValue) => {
-      console.log("res=========>>");
-      this.achieveValue = achieveValue ? JSON.parse(achieveValue) : null;
-      let reqBodyDiet = {
-        dietPlanName: "",
-      };
-      if (this.achieveValue &&
-        this.achieveValue.weightValue &&
-        this.achieveValue.weightValue == "WeightLoss"
-      ) {
-        reqBodyDiet.dietPlanName = "weightLoss";
-      }
-      if (
-        this.achieveValue &&
-        this.achieveValue.weightValue &&
-        this.achieveValue.weightValue == "WeightMaintenance"
-      ) {
-        reqBodyDiet.dietPlanName = "weightLoss";
-      }
+  // ditePlanAPIcall() {
+  //   this.storage.get("health-journey").then((achieveValue) => {
+  //     console.log("res=========>>");
+  //     this.achieveValue = achieveValue ? JSON.parse(achieveValue) : null;
+  //     let reqBodyDiet = {
+  //       dietPlanName: "",
+  //     };
+  //     if (this.achieveValue &&
+  //       this.achieveValue.weightValue &&
+  //       this.achieveValue.weightValue == "WeightLoss"
+  //     ) {
+  //       reqBodyDiet.dietPlanName = "weightLoss";
+  //     }
+  //     if (
+  //       this.achieveValue &&
+  //       this.achieveValue.weightValue &&
+  //       this.achieveValue.weightValue == "WeightMaintenance"
+  //     ) {
+  //       reqBodyDiet.dietPlanName = "weightLoss";
+  //     }
 
-      if (this.achieveValue &&
-        this.achieveValue.fitnessValue &&
-        this.achieveValue.fitnessValue == "MuscleBuilding"
-      ) {
-        reqBodyDiet.dietPlanName = "muscleGain_morning";
-      }
+  //     if (this.achieveValue &&
+  //       this.achieveValue.fitnessValue &&
+  //       this.achieveValue.fitnessValue == "MuscleBuilding"
+  //     ) {
+  //       reqBodyDiet.dietPlanName = "muscleGain_morning";
+  //     }
 
-      if (this.achieveValue &&
-        this.achieveValue.fitnessValue &&
-        this.achieveValue.fitnessValue == "LeanBody"
-      ) {
-        reqBodyDiet.dietPlanName = "fatShredding_morning";
-      }
+  //     if (this.achieveValue &&
+  //       this.achieveValue.fitnessValue &&
+  //       this.achieveValue.fitnessValue == "LeanBody"
+  //     ) {
+  //       reqBodyDiet.dietPlanName = "fatShredding_morning";
+  //     }
 
-      if (this.achieveValue && this.achieveValue.deasesValue) {
-        reqBodyDiet.dietPlanName = this.achieveValue.deasesValue.toLowerCase();
-      }
-
-      // reqBodyDiet.dietPlanName = this.achieveValue.deasesValue.toLowerCase();
-      this.appService.dietPlan(reqBodyDiet).then((res) => {
-        console.log("res", res);
-      });
-    });
-  }
+  //     if (this.achieveValue && this.achieveValue.deasesValue) {
+  //       reqBodyDiet.dietPlanName = this.achieveValue.deasesValue.toLowerCase();
+  //     }
+  //     if(reqBodyDiet.dietPlanName!==""){
+  //     this.appService.dietPlan(reqBodyDiet).then((res) => {
+  //       console.log("res", res);
+  //     });
+  //     }
+  //   });
+  
+  // }
 }

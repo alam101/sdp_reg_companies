@@ -84,7 +84,8 @@ export class Boarding3Page implements OnInit {
     this.appService.getProfile().then((res) => {
       console.log(res);
       this.profileData = res;
-      this.localData.otherMaster?.activities.forEach((ele) => {
+      this.localData.otherMaster.bmi.bmi= this.profileData?.demographic?.bmi;
+            this.localData?.otherMaster?.activities.forEach((ele) => {
         ele.val = ele.value.split("(")[0];
         ele.sub_val = ele.value.split("(")[1].replace(")", "");
         if (this.profileData?.lifeStyle?.activities?.code == ele.code) {

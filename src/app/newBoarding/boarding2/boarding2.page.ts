@@ -285,9 +285,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       //const data = this.utilities.parseJSON(local);
       console.log("response ++++", res);
 
-      if (this.localData?.otherMaster?.bmi != undefined || this.localData?.otherMaster?.bmi != "NaN") {
+      if (this.localData?.otherMaster?.bmi != undefined) {
         this.localData.otherMaster.bmi = {
-          bmi: parseFloat(this.localData?.otherMaster?.bmi.bmi).toFixed(1),
+          bmi: parseFloat(res.bmi),
           suggestedWeight: Math.round(res.suggestedWeight),
           category: res.category,
         };
