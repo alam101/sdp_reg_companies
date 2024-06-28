@@ -1970,7 +1970,7 @@
                 "date_selection1": true,
                 "date_selection2": false,
                 "goal": false,
-                "notes": true,
+                "notes": false,
                 "modifyNotes": true,
                 "caloriesCircle": false,
                 "itemCalories": false,
