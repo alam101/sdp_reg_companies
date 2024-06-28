@@ -157,5 +157,10 @@ export class AppService {
     const url = APIS.refreshBaseUrl + '' + APIS.fetchCustDailyDiets + `?fromDate=${data.fromDate}&dateRange=${data.dateRange}`;
     return this.httpClient.get(url, {}).toPromise();
   }
+
+  getInstructionData(data) {
+    const url = APIS.instructionApiUrl + data;
+    return this.httpClient.get(url, {}).toPromise();
+  }
   
 }

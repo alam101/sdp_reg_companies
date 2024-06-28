@@ -275,12 +275,12 @@
   </div>
 
 
-  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-1rem;" *ngIf="compConfig.notes!=false">
+  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-1rem;" *ngIf="instructions">
     <ion-card >
       <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
         Instructions</ion-card-header>
       <ion-card-content style="background: var(--goal);">
-        <p *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && (profileData?.lifeStyle?.instructions?.nornalDay=='' || profileData?.lifeStyle?.instructions?.nornalDay==undefined)" style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+        <!-- <p *ngIf="!diets?.dietPlanName?.toLowerCase().includes('detox') && !diets?.dietPlanName?.toLowerCase().includes('cheat') && (profileData?.lifeStyle?.instructions?.nornalDay=='' || profileData?.lifeStyle?.instructions?.nornalDay==undefined)" style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
           Please follow the diet plan on daily basis.<br>
           <span *ngIf="compConfig.modifyNotes!=false">
             <ul>
@@ -288,14 +288,15 @@
              <li *ngFor="let d of tempdesease"> {{d}}</li>
             </ul>
           </span>
-        </p>
-        <span *ngIf="instructions!==''">
-           <ul style="padding-left: 0;height: 140px;    font-size: .9rem;" *ngIf="diets?.dietPlanName?.toLowerCase().includes('cheat')===true">
-           <li style="list-style-type: none;outline:0px none transparent;height: 100%;" >
-            <textarea readonly="true" style="width: 100%;height: 100%; border:none;resize: none;">{{instructions?.cheatDay}}</textarea>
-          </li>
-          </ul>
-          <ul style="padding-left: 0;height: 140px;    font-size: .9rem;" *ngIf="diets?.dietPlanName?.toLowerCase().includes('detox')===true">
+        </p> -->
+        <!-- <span> -->
+           <!-- <ul style="padding-left: 0;height: 140px;    font-size: .9rem;"> -->
+           <!-- <li style="list-style-type: none;outline:0px none transparent;height: 100%;" > -->
+            <!-- <textarea readonly="true" style="width: 100%;height: 100%; border:none;resize: none;">{{instructions}}</textarea> -->
+            <div [innerHTML]="instructions"></div>
+          <!-- </li> -->
+          <!-- </ul> -->
+          <!-- <ul style="padding-left: 0;height: 140px;    font-size: .9rem;" *ngIf="diets?.dietPlanName?.toLowerCase().includes('detox')===true">
             <li style="list-style-type: none;outline:0px none transparent;height: 100%;" >
               <textarea readonly="true" style="width: 100%;height: 100%; border:none;resize: none;">{{instructions?.detoxDay}}</textarea>
             </li>
@@ -304,8 +305,8 @@
             <li style="list-style-type: none;outline:0px none transparent;height: 100%;" >
               <textarea  readonly="true" style="width: 100%;height: 100%; border:none;resize: none;"> {{instructions?.nornalDay}}</textarea>
             </li>
-          </ul>
-        </span>
+          </ul> -->
+        <!-- </span> -->
       </ion-card-content>
     </ion-card>
   </div>
