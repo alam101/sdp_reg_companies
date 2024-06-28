@@ -175,7 +175,7 @@ addRemove(type) {
 }
   async addCal(data, i) {
     if(this.isFuture){
-      this.utilities.showErrorToast("Can not add for future dates!");
+      this.utilities.showErrorToast("Can not log for future dates!");
       return;
       }
     this.isdisplayFooter.emit(true);
