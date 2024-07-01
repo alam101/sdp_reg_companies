@@ -1,5 +1,5 @@
 .main_div {
-  padding: 10px 5%;
+  padding: 10px 3%;
 }
 
 .close_icon {
@@ -8,15 +8,16 @@
 
 .videodiv {
   height: 50px;
-  width: 60px;
+  width: 100px;
   border-radius: 5px;
-  background: var(--black);
+  background: transparent;
 }
 
 .video_div {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  top: 50%; /* Position from top */
+  left: 50%; /* Position from left */
+  transform: translate(-50%, -50%);
 }
 
 .logo_div {
@@ -57,7 +58,7 @@
   margin: 0%;
   margin-top: 10px;
   padding: 10px;
-  box-shadow: var(--boxshadow);
+  // box-shadow: var(--boxshadow);
 
   ion-icon {
     color: var(--theme-newButton);
@@ -81,12 +82,13 @@
 }
 
 .meal_pro {
-  font-size: var(--medium-font);
-  margin: 0px;
-  font-family: var(--theme-newFont);
-  font-weight: 500;
-  color: #666666;
-  // width: 200px;
+  font-size: 1rem;
+  font-weight: 600;
+  // font-size: var(--medium-font);
+  // margin: 0px;
+  // font-family: var(--theme-newFont);
+  // font-weight: 500;
+  // color: #666666;
 }
 
 .meal_cal {
@@ -188,14 +190,14 @@
 
 .cal_main_div {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: space-around;
+  // margin: .7rem;
 }
 
 .cal_col {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .card_cal_image {
@@ -204,19 +206,13 @@
 }
 
 .cal_title {
-  font-size: var(--regularM-font);
-  font-family: var(--theme-newFont);
-  color: var(--black);
-  font-weight: 700;
-  margin: 0px;
+  color:#707070;
+  font-size: .9rem;
 }
 
 .cal_sub_title {
-  font-size: var(--small-font);
-  font-family: var(--theme-newFont);
-  color: var(--black);
-  margin: 5px 0px 5px;
-  font-weight: 400;
+  color:#333;
+  font-size: .9rem;
 }
 
 .card_logo {
@@ -435,4 +431,76 @@ ion-thumbnail {
   font-family: var(--theme-newFont);
   font-weight: 300;
   color: #666666;
+}
+
+.container {
+  width: 98%;
+  margin: 3rem 1rem auto;
+}
+
+.milestone {
+  // display: flex;
+  align-items: center;
+  padding: 1px 1.5rem 0 1.5rem;
+  border-left: 2px solid var(--theme-color);
+  height: auto;
+  
+}
+.milestone1 {
+  // display: flex;
+  align-items: center;
+  padding: 1px 1.5rem 0 1.5rem;
+  height: auto;
+  
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--theme-color);
+  color: #fff;
+  font-size: .875rem;
+  align-items: center;
+  text-align: center;
+  left: -40px;
+  position: relative;
+  top: -30px;
+  padding-top: 2%;
+}
+
+.content {
+  top: -4rem;
+  position: relative;
+}
+
+.date {
+  font-size: .751rem;
+  margin-bottom: .8rem;
+}
+
+.add_remove_btn {
+  background: var(--profile-color);
+  border-radius: 25px;
+  min-width: 90px;
+    height: 30px;
+  margin-right: 0.5rem;
+  margin-left: .2rem;
+  
+
+  ion-icon {
+    color: var(--white);
+    font-size: 20px;
+    margin: 5px;
+    font-weight: bold !important;
+    --ionicon-stroke-width: 45px !important;
+  }
+
+  p {
+    margin: 0% 5px;
+    color: var(--white);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    font-size: var(--regularM-font);
+  }
 }
