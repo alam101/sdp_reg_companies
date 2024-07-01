@@ -43,13 +43,13 @@ ion-content::part(background){
 .page_Count{
     height: 20px;
     width: 20px;
-    border: 2px solid var(--theme-text-color);
+    border: 2px solid var(--theme-milestone);
     border-radius: 100%;
-    font-size:var(--xsmall-font);
+    font-size: var(--xsmall-font);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--theme-text-color);
+    color: var(--theme-milestone);
     font-weight: bold;
     z-index: 10;
     background: var(--theme-newHeader);
@@ -59,7 +59,7 @@ ion-content::part(background){
 .page_Count_active {
     height: 20px;
     width: 20px;
-    border: 2px solid var(--theme-text-color);
+    border: 2px solid var(--theme-milestone);
     border-radius: 100%;
     font-size: var(--xsmall-font);
     display: flex;
@@ -127,6 +127,18 @@ ion-content::part(background){
 
 .complete {
     // border: 2px solid var(--white) !important;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    font-size: var(--xsmall-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: bold;
+    z-index: 10;
+    background: var(--green);
+    font-family: var(--theme-newFont);
 }
 
 .aviva-complete {
@@ -152,7 +164,7 @@ ion-content::part(background){
 }
 
 .lines{
-    border: 1px solid var(--theme-text-color);
+    border: 1px solid var(--white);
     width: 90%;
     position: absolute;
 }

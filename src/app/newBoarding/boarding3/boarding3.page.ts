@@ -57,15 +57,15 @@ export class Boarding3Page implements OnInit {
   getImage(type) {
     switch (type) {
       case "AC1":
-        return this.clientId == 'aviva' ? "aviva-images/activity-1.png" : "sedentary.png";
+        return "aviva-images/activity-1.png";
       case "AC2":
-        return this.clientId == 'aviva' ? "aviva-images/activity-2.png" : "lightly-active.png";
+        return "aviva-images/activity-2.png";
       case "AC3":
-        return this.clientId == 'aviva' ? "aviva-images/activity-3.png" : "moderatly-active.png";
+        return "aviva-images/activity-3.png";
       case "AC4":
-        return this.clientId == 'aviva' ? "aviva-images/activity-4.png" : "super-active.png";
+        return "aviva-images/activity-4.png";
       case "AC5":
-        return this.clientId == 'aviva' ? "aviva-images/activity-5.png" : "extrimaly-active.png";
+        return "aviva-images/activity-5.png";
     }
   }
 

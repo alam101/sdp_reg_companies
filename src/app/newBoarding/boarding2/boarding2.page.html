@@ -2,7 +2,7 @@
   <div class="mainDiv">
     <div class="slider_div" *ngIf="!from">
       <div [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'" ></div>
-      <div class="lines2">
+      <div [ngClass]="clientId && (clientId == 'aviva') ? '' : 'lines2'">
         <div></div>
       </div>
       <div class="slider_page">
