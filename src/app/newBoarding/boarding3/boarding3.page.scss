@@ -86,7 +86,7 @@ ion-content::part(background){
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    margin: 3%;
+    margin: 5% 4%;
     ion-radio {
       // --color:var(--theme-color);
       --color-checked: var(--white);
@@ -240,44 +240,44 @@ ion-content::part(background){
 
 
 .AC1{
-    width: 85px;
+    height: 95%;
     object-fit: contain;
     position: absolute;
     z-index: 10;
-    right: 10px;
-    bottom: 10px;
+    right: -10px;
+    bottom: 10%;
 }
 .AC2{
-    width: 85px;
+    height: 95%;
     object-fit: contain;
     position: absolute;
     z-index: 10;
-    right: 10px;
-    bottom: 10px;
+    right: -10px;
+    bottom: 10%;
 }
 .AC3{
-    width: 85px;
+    height: 95%;
     object-fit: contain;
     position: absolute;
     z-index: 10;
-    right: 10px;
-    bottom: 10px;
+    right: -10px;
+    bottom: 10%;
 }
 .AC4{
-    width: 85px;
+    height: 95%;
     object-fit: contain;
     position: absolute;
     z-index: 10;
-    right: 0px;
-    bottom: 10px;
+    right: -10px;
+    bottom: 10%;
 }
 .AC5{
-    width: 85px;
+    height: 95%;
     object-fit: contain;
     position: absolute;
     z-index: 10;
-    right: -8px;
-    bottom: 10px;
+    right: -10px;
+    bottom: 10%;
 }
 
 .go_btn_div{
