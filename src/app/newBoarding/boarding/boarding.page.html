@@ -47,7 +47,7 @@
             [value]="dt?.value"
             mode="ios"
           ></ion-radio>
-          <ion-card
+          <div
             class="section-card"
             [ngClass]="newModal === dt?.value && 'card_Border' "
           >
@@ -56,8 +56,8 @@
               <p class="desc">{{dt?.label}}</p>
             </div>
             
-            <img style="max-width: unset; height: 11.5vh;" [src]="dt?.imgUrl">
-          </ion-card>
+            <img style="min-width: 146px; position: absolute; right: -25px; bottom: -10px; max-width: 25%;" [src]="dt?.imgUrl">
+          </div>
         </div>
         <div
           class="card_div"
@@ -69,7 +69,7 @@
             [value]="dt1?.value"
             mode="ios"
           ></ion-radio>
-          <ion-card
+          <div
             class="section-card"
             [ngClass]="newModal === dt1?.value && 'card_Border' "
           >
@@ -77,9 +77,9 @@
               <p class="fitness">{{dt1?.name}}</p>
               <p class="desc">{{dt1?.label}}</p>
             </div>
-            <img style="max-width: unset; height: 11.5vh;"[src]="dt1.imgUrl"
+            <img style="min-width: 146px; position: absolute; right: -25px; bottom: -10px; max-width: 25%;"[src]="dt1.imgUrl"
           >
-          </ion-card>
+          </div>
         </div>
         <div
           class="card_div"
@@ -91,7 +91,7 @@
             [value]="dt2?.value"
             mode="ios"
           ></ion-radio>
-          <ion-card
+          <div
             class="section-card"
             [ngClass]="newModal === dt2?.value && 'card_Border' "
           >
@@ -99,8 +99,8 @@
               <p class="fitness">{{dt2?.name}}</p>
               <p class="desc">{{dt2?.label}}</p>
             </div>
-            <img style="max-width: unset; height: 11.5vh;" [src]="dt2.imgUrl">
-          </ion-card>
+            <img style="min-width: 146px; position: absolute; right: -25px; bottom: -10px; max-width: 25%;" [src]="dt2.imgUrl">
+          </div>
         </div>
      </ion-radio-group>
 

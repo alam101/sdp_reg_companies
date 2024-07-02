@@ -713,6 +713,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   
   getInstructionData(data) {
     this.appServices.getInstructionData(data).then((getInstructionDataResponse: any) => {
+      this.instructions = "";
       console.log('getInstructionDataResponse: ', getInstructionDataResponse);
       let reference: any;
       if (getInstructionDataResponse && getInstructionDataResponse.length > 1) {
@@ -724,21 +725,14 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       } else if (getInstructionDataResponse && getInstructionDataResponse.length == 1) {
         reference = getInstructionDataResponse[0];
       }
-      if (!this.planName) {
         this.planName = this.diets.dietPlanName.toLowerCase().includes('cheat') ? "cheat" :
-          this.diets.dietPlanName.toLowerCase().includes('detox') ? "detox" :
-            this.diets.dietPlanName.toLowerCase().includes('normal') ? "normal" : "";
-        if (this.planName && !this.instructions) {
-          Object.keys(reference).forEach(ele => {
-            if (ele.toLowerCase().includes(this.planName)) {
-              this.instructions = reference[ele].replaceAll(/\n/g,"<br>");
-              return;
-            }
-          })
-        }
-      }
-
-
+        this.diets.dietPlanName.toLowerCase().includes('detox') ? "detox" : "normal";
+        Object.keys(reference).forEach(ele => {
+          if (ele.toLowerCase().includes(this.planName)) {
+            this.instructions = reference[ele] ? reference[ele].replaceAll(/\n/g,"<br>") : "";
+            return;
+          }
+        })
     })
       .catch(getInstructionDataError => {
         console.log('getInstructionDataError: ', getInstructionDataError);

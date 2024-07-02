@@ -57,15 +57,15 @@ export class Boarding3Page implements OnInit {
   getImage(type) {
     switch (type) {
       case "AC1":
-        return "aviva-images/activity-1.png";
+        return "aviva-images/activity-new-1.png";
       case "AC2":
-        return "aviva-images/activity-2.png";
+        return "aviva-images/activity-new-2.png";
       case "AC3":
-        return "aviva-images/activity-3.png";
+        return "aviva-images/activity-new-3.png";
       case "AC4":
-        return "aviva-images/activity-4.png";
+        return "aviva-images/activity-new-4.png";
       case "AC5":
-        return "aviva-images/activity-5.png";
+        return "aviva-images/activity-new-5.png";
     }
   }
 
