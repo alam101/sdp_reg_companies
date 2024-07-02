@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from "@angular/core";
+import { AfterViewInit, Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { ActivatedRoute, Router } from "@angular/router";
 import {
@@ -12,6 +12,7 @@ import { CONSTANTS } from "src/app/core/constants/constants";
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { PortionCountPage } from "../alternate-diet/portion-count/portion-count.page";
 import { SelectslotPopupPage } from "../selectslot-popup/selectslot-popup.page";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: "app-view-product",
@@ -42,6 +43,10 @@ export class ViewProductPage implements OnInit, AfterViewInit {
   showIng = false;
   showMathod = false;
   loaded = false;
+  gredientArray: any = [];
+  instructionsArray: any = [];
+  logunlog='Log Slot';
+  @Output() getDietdata = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -49,15 +54,37 @@ export class ViewProductPage implements OnInit, AfterViewInit {
     private _sanitizer: DomSanitizer,
     private modalCtrl: ModalController,
     private utilities: UTILITIES,
-    private navCtrl: NavController
-  ) {}
+    private navCtrl: NavController,
+    private storage: Storage,
+    ) {}
 
   ngAfterViewInit(): void {
     this.fetchFood();
     this.checkPlan();
     setTimeout(() => {
-      this.data.steps = this.data?.steps?.replace(/\n/g,"<br>");
-      this.data.recipe = this.data?.recipe?.replace(/\n/g,"<br>");
+      // this.data.steps = this.data?.steps?.replace(/\n/g,"<br>");
+      // this.data.recipe = this.data?.recipe?.replace(/\n/g,"<br>");
+      this.gredientArray = this.data.recipe.replace(/\:+/g, ":<br>").split("\n").filter(item => item.trim() !== '');
+      for (let index = 0; index < this.gredientArray.length; index++) {
+        this.gredientArray[index] = this.wrapFirstWordWithBold(this.gredientArray[index]);
+      }
+      this.instructionsArray = this.data.steps.replace("\n\n", "\n")
+        .replace("Step 1", "1.")
+        .replace("Step 2", "2.")
+        .replace("Step 3", "3.")
+        .replace("Step 4", "4.")
+        .replace("Step 5", "5.")
+        .replace("Step 6", "6.")
+        .replace("Step 7", "7.")
+        .replace("Step 8", "8.")
+        .replace("Step 9", "9.")
+        .replace("Step 10", "10.")
+        .replace("Step 11", "11.")
+        .replace("Step 12", "12.")
+        .replace("Step 13", "13.")
+        .replace("Step 14", "14.")
+        .replace("Step 15", "15.")
+        .replace("Step 16", "16.").split(/\d+\./).filter(item => item.trim() !== '');
       console.log("DATA:---", this.data);
       if (this.data.Score === 9) {
         this.data.option = "Best";
@@ -75,6 +102,11 @@ export class ViewProductPage implements OnInit, AfterViewInit {
         this.data.option = "Unverified";
       }
     }, 1000);
+  }
+  wrapFirstWordWithBold(text) {
+    // Using regular expression to match the first word followed by ":"
+    let replacedText = text.includes(':') ? text.replace(/^(.*?):\s*(.*)$/, "<span class='custom-style1'>$1</span> <span class='custom-style2'>$2</span>") : "<span class='custom-style1'>" + text + "</span><br>";
+    return replacedText;
   }
   ngOnInit() {
     console.log("This is FOOD FROM LAST PAGE", this.food);
@@ -209,7 +241,7 @@ export class ViewProductPage implements OnInit, AfterViewInit {
     }
   }
 
-  async addCal(data) {
+  async addCal(data, i) {
     console.log("data---", data);
     if (this.from === "search" || this.from === "recipe" || !this.slot) {
       const modal = await this.modalCtrl.create({
@@ -224,44 +256,45 @@ export class ViewProductPage implements OnInit, AfterViewInit {
       const modald = await modal.onDidDismiss();
       this.slot = modald?.data?.slot;
       console.log("itemCode:---");
-      const m = await this.modalCtrl.create({
-        component: PortionCountPage,
-        cssClass: "portion_count",
-        backdropDismiss: true,
-        componentProps: {
-          alterdata: data,
-          type: "add",
-        },
-      });
-      await m.present();
-      const modaldata = await m.onDidDismiss();
-      const d = modaldata?.data;
-      if (d) {
-        console.log("i got this to add in data", d);
-        this.eatenStatusUpdate(d, 2, "Logged successfully");
+      // const m = await this.modalCtrl.create({
+      //   component: PortionCountPage,
+      //   cssClass: "portion_count",
+      //   backdropDismiss: true,
+      //   componentProps: {
+      //     alterdata: data,
+      //     type: "add",
+      //   },
+      // });
+      // await m.present();
+      // const modaldata = await m.onDidDismiss();
+      // const d = modaldata?.data;
+      if (data) {
+        console.log("i got this to add in data", data);
+        // this.eatenStatusUpdate(d, 2, "Logged successfully");
+        this.eatenStatusUpdate(data,i, "Logged successfully")
       }
-    } else {
-      const modal = await this.modalCtrl.create({
-        component: PortionCountPage,
-        cssClass: "portion_count",
-        backdropDismiss: true,
-        componentProps: {
-          alterdata: data,
-          type: "add",
-        },
-      });
-      await modal.present();
-      const modaldata = await modal.onDidDismiss();
-      const d = modaldata?.data;
-      if (d) {
-        console.log("i got this to add in data", d);
-        if (this.from === "alter") {
-          this.replaced(d);
-        } else {
-          this.eatenStatusUpdate(d, 2, "Logged successfully");
-        }
-      }
-    }
+    } //else {
+    //   const modal = await this.modalCtrl.create({
+    //     component: PortionCountPage,
+    //     cssClass: "portion_count",
+    //     backdropDismiss: true,
+    //     componentProps: {
+    //       alterdata: data,
+    //       type: "add",
+    //     },
+    //   });
+    //   await modal.present();
+    //   const modaldata = await modal.onDidDismiss();
+    //   const d = modaldata?.data;
+    //   if (d) {
+    //     console.log("i got this to add in data", d);
+    //     if (this.from === "alter") {
+    //       this.replaced(d);
+    //     } else {
+    //       this.eatenStatusUpdate(d, 2, "Logged successfully");
+    //     }
+    //   }
+    // }
   }
   gotoPremium() {
     this.modalCtrl.dismiss();
@@ -303,6 +336,53 @@ export class ViewProductPage implements OnInit, AfterViewInit {
         console.log("details error", err);
       }
     );
+  }
+  async eatenStatusUpdate1(item,slot) {
+   
+    console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
+    
+     if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
+     setTimeout(()=>{ this.utilities.showErrorToast("Can not Log for future dates!");
+    },0);
+    }
+    else{ 
+      let foodCodeList = [];
+        let dataTotal = [];
+      this.utilities.logEvent("onboarding_Counter_add_home", {});
+    
+      for (let index = 0; index < item.data.length; index++) {
+        dataTotal.push(
+          {
+            code: item.data[index].itemCode,
+            portion: Number(item.data[index].portion),
+            eaten: this.logunlog ==='Log Slot'? 2: -1,
+            foodSource: "internal"
+          }
+        )
+      }
+      const datas = {
+        date: CONSTANTS.dietDate,
+        slot: Number(slot),
+        foodCodeList: dataTotal,
+        isUpdateDiet: true,
+      };
+      this.utilities.logEvent("onboarding_update_food_details", datas);
+      // this.appServices.updateEatenFoodItems(data).then(
+      this.appServices.postOptionFoodList1(datas).then(
+        (success: any) => {
+          this.getDietdata.emit(CONSTANTS.dietDate);
+          this.utilities.showSuccessToast(status);
+           this.todaysCalCount();
+           this.logunlog = this.logunlog==='Log Slot'? "Logged": "Log Slot";
+         // this.getDietdata(CONSTANTS.dietDate);
+        //  console.log("");
+        },
+        (err) => {
+          console.log("details error", err);
+        }
+      );
+   
+    }
   }
 
   async eatenStatusUpdate(item, eaten, status) {
@@ -371,5 +451,33 @@ export class ViewProductPage implements OnInit, AfterViewInit {
         console.log("details error", err);
       }
     );
+  }
+  todaysCalCount() {
+    // this.totalTodaysCalories = 0;
+    let totalTodaysCalories = 0;
+    this.storage.get("dietData").then((res) => {
+      let dietPlan = CONSTANTS.isDetox ? "detox" : CONSTANTS.selectedDietPlan;
+      if (
+        res &&
+        res[moment(new Date()).format("DDMMYYYY")] &&
+        res[moment(new Date()).format("DDMMYYYY")][dietPlan]
+      ) {
+        let dietData = res[moment(new Date()).format("DDMMYYYY")][dietPlan];
+        dietData.diets.forEach((ele) => {
+          let slotCalories = 0;
+          ele.data.forEach((ele1) => {
+            if (ele1.eaten > 0) {
+              totalTodaysCalories = totalTodaysCalories + ele1["Calories"];
+            }
+          });
+        });
+        // this.totalTodaysCalories = Math.round(totalTodaysCalories);
+        // this.totalTodaysCaloriesPerc = Math.round(
+        //   (totalTodaysCalories * 100) / dietData["recomended"]
+        // );
+        // this.totalCaloriesPer = dietData["totalCaloriesPer"];
+        // this.tolalCalories = dietData["tolalCalories"];
+      }
+    });
   }
 }
