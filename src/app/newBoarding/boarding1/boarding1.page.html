@@ -16,13 +16,23 @@
           <img class="aviva-logo" *ngIf="client==='aviva'" src="./assets/newImages/aviva-logo.png">
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="client==='yellowsquash'" class="header-container">
+        <ion-col size="12" class="ion-no-padding">
+          <img class="yellowsquash-logo" *ngIf="client==='yellowsquash'" src="./assets/companyLogo/YellowSquash.png">
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="client==='elderfly'" class="header-container">
+        <ion-col size="12" class="ion-no-padding">
+          <img class="elderfly-logo" *ngIf="client==='elderfly'" src="./assets/companyLogo/elderfly.png">
+        </ion-col>
+      </ion-row>
       
       <h3 class="title ion-text-center"></h3>
       
     </div>
 
     <div class="content_div">
-      <ion-img *ngIf="client!='plix' && client!='orthocure' && client!='aviva'"
+      <ion-img *ngIf="client!='plix' && client!='orthocure' && client!='aviva' && client!='yellowsquash' && client!='elderfly'"
         src="../../../assets/newImages/registration.svg"
         class="reg_img"
       ></ion-img>
