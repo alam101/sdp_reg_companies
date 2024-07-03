@@ -480,4 +480,18 @@ export class ViewProductPage implements OnInit, AfterViewInit {
       }
     });
   }
+
+  addRemove(type) {
+    // this.isdisplayFooter.emit(true);
+    let calCount = this.data?.Calories / this.data.portion;
+    if (type === "add") {
+      this.data.portion = Number(this.data?.portion || 0) + 0.5;
+    } else {
+      if (Number(this.data?.portion) !== 0.5) {
+        this.data.portion = Number(this.data?.portion || 0) - 0.5;
+        // this.data.portion = 0;
+      }
+    }
+    this.data.Calories = calCount * this.data.portion;
+  }
 }

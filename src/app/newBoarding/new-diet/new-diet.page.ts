@@ -256,7 +256,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   profileData:any;
   profileName;
   firstConsult=null;
-  instructions:any;
+  instructions:any = [];
   openDial(phonenumber){
     window.open("tel:"+phonenumber+"","_system");
   }
@@ -546,7 +546,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
 
     const d = modaldata?.data;
     // if (d) {
-    //   this.getDietdata.emit(CONSTANTS.dietDate);
+      // this.getDietdata.emit(CONSTANTS.dietDate);
+      this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     // }
   }
 
@@ -713,7 +714,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   
   getInstructionData(data) {
     this.appServices.getInstructionData(data).then((getInstructionDataResponse: any) => {
-      this.instructions = "";
+      this.instructions = [];
       console.log('getInstructionDataResponse: ', getInstructionDataResponse);
       let reference: any;
       if (getInstructionDataResponse && getInstructionDataResponse.length > 1) {
@@ -729,7 +730,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         this.diets.dietPlanName.toLowerCase().includes('detox') ? "detox" : "normal";
         Object.keys(reference).forEach(ele => {
           if (ele.toLowerCase().includes(this.planName)) {
-            this.instructions = reference[ele] ? reference[ele].replaceAll(/\n/g,"<br>") : "";
+            this.instructions = reference[ele] ? reference[ele].split(/\n/g) : [];
             return;
           }
         })
