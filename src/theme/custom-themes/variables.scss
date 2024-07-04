@@ -1728,6 +1728,75 @@ body[color-theme="elderfly"] {
   --theme-milestone:#000;
   --theme-milestone2:#000;
 }
+body[color-theme="brilliant"] {
+  --font: "aviva-regular", sans-serif;
+  --font-bold: "aviva-bold", sans-serif;
+  --font-light: "aviva-light", sans-serif;
+  --font-medium: "aviva-medium", sans-serif;
+  --font-medium-extended: "aviva-extendedMedium",  sans-serif;
+    $sans-font-regular: "aviva-ragular", sans-serif;
+  --theme-profile-background: #000000;
+  --theme-background:#000000; //#00a6a8
+  --theme-header:#000000;
+  --theme-headerText:#fff;
+  --theme-logslot:#A490FF;
+  --theme-button:#000000;
+  --theme-heading:#000000;
+  --theme-activeBtn:#000000;//#01A3A4       
+  --theme-plusBtn:#000000; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #000000;//#01A3A4;
+  --theme-plusBtnWaterGuage:#000000;  //#509bed;   
+  --theme-minusBtnWaterGuage:#000000;  //#509bed;  
+  --theme-waterCenterPercent:#000000;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #000000; //#01A3A5;
+  --theme-color:#A490FF; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #000000 50%, #F6F7FC 50%)!important; 
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#CD8B00; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#fff;
+  --theme-newHeader:#000000;
+  --theme-newButton:#A490FF;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#000000;
+  --arrow-color:#000000;
+  --goal: #000000;
+  --profile-color: #A490FF;
+  --graph-background:#A490FF;
+  --close-edit-color:#A490FF;
+  --new-background: #000000;
+  --new-border-color: #99b94933;
+  --theme-color-new:#A490FF;  
+  --theme-milestone:#000;
+  --theme-milestone2:#000;
+}
 
 
 // Fonts
