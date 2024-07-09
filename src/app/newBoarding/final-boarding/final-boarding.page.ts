@@ -54,6 +54,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
    console.log("clientId", this.clientId);
    this.clientId = localStorage.getItem('clientId');
    this.storage.get("health-journey").then((res: any) => {
+   
     if (res) {
       this.plans = JSON.parse(res);
       console.log("res...", res);
@@ -116,6 +117,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
 
   gotoDemographic() {
     this.utilities.showLoading();
+    debugger;
     this.storage.get("localData").then((local) => {
      
       
@@ -136,7 +138,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
             dateBy: dietData.dateBy,
           };
           //this.dateBy = dietData.dateBy;
-
+debugger;
           this.plan = data.otherMaster.diet;
          
           if (data.otherMaster.height[0]?.param == "in" || data.otherMaster.height[0]?.unit == "in") {

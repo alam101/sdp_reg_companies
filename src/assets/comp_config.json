@@ -1172,7 +1172,7 @@
                 "isSearch":false,
                 "isDietitian": false,
                 "inSights": false,
- "compPhone": "",
+                "compPhone": "",
                 "defaultPlanCheck": false,
                 "goals":[
                     {
@@ -1184,24 +1184,6 @@
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
                             "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
-                        }
-                    ]
-                    },
-                    {
-                        "heading":"Fitness",
-                        "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
-                        "options":[{
-                            "name":"Muscle Building",
-                            "value":"muscleGain",
-                            "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
-                        },
-                        {
-                            "name":"Lean Body",
-                            "value":"fatShredding",
-                            "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },
@@ -1478,24 +1460,6 @@
                             "value":"weightLoss",
                             "label":"Lose weight not the mind",
                             "imgUrl":"../../../assets/newImages/aviva-images/goal-1.png"
-                        }
-                    ]
-                    },
-                    {
-                        "heading":"Fitness",
-                        "label":" Exercise is king, nutrition is Queen",
-                        "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png",
-                        "options":[{
-                            "name":"Muscle Building",
-                            "value":"muscleGain",
-                            "label":"Pump and get stronger",
-                            "imgUrl":"../../../assets/newImages/aviva-images/goal-2.png"
-                        },
-                        {
-                            "name":"Lean Body",
-                            "value":"fatShredding",
-                            "label":" Maintain muscles and lose fat",
-                            "imgUrl":"../../../assets/newImages/aviva-images/goal-3.png"
                         }
                     ]
                     },

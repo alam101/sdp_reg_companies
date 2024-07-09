@@ -184,6 +184,7 @@ export class ReadQueryComponent implements OnInit {
       if(this.type=="2"){
         window.open('https://app.smartdietplanner.com','_blank');
       }
+      debugger;
       console.log("localProfileObject::",localProfileObject);
       if(localProfileObject["demographic"]?.gender?.code!=undefined &&
         localProfileObject["demographic"]?.age?.code!=undefined && 
@@ -194,15 +195,21 @@ export class ReadQueryComponent implements OnInit {
         ){
          if((localProfileObject["lifeStyle"]?.country!=="" && localProfileObject["lifeStyle"]?.country!==undefined)){
           if(localProfileObject["lifeStyle"]?.country==="IND"){
-          if(localProfileObject["lifeStyle"]?.communities?.length>0){
+          if(localProfileObject["lifeStyle"]?.communities?.length>0 
+            && localProfileObject["lifeStyle"]?.foodType!==null 
+            && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==0){
             this.router.navigate(["/new-diet"]);
           }
           else{
             this.router.navigate(["/boarding5"]);
           }
          } 
-         else{
+         else if(localProfileObject["lifeStyle"]?.foodType!==null 
+          && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==0){
           this.router.navigate(["/new-diet"]);
+         }
+         else{
+          this.router.navigate(["/boarding1"]);
          }
         }
         else{

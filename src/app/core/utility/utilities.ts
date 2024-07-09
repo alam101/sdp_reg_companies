@@ -547,7 +547,7 @@ export class UTILITIES {
 
   generateMultiSelectionDouble(data) {
     let arrData = [];
-    for (let index = 0; index < data.length; index++) {
+    for (let index = 0; index < data?.length; index++) {
       if (data[index].isSelected == true) {
         arrData.push(data[index].code);
       }
@@ -558,7 +558,7 @@ export class UTILITIES {
     console.log("request", data);
 
     let arrData = [];
-    for (let index = 0; index < data.length; index++) {
+    for (let index = 0; index < data?.length; index++) {
       if (data[index].isSelected == true) {
         if (data[index].value == "Other") {
           arrData.push({
