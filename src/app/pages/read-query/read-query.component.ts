@@ -213,7 +213,7 @@ export class ReadQueryComponent implements OnInit {
          }
         }
         else{
-          this.router.navigate(["/boarding5"]);
+          this.router.navigate(["/boarding1"]);
         }
        // this.router.navigate(["/dietplan"]);
       
