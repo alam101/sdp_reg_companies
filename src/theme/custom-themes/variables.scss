@@ -57,6 +57,7 @@
     --boxshadow:#00000012 0px 10px 40px;
     --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 body[color-theme="birla"] {
   --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
@@ -135,6 +136,7 @@ body[color-theme="birla"] {
   --cercle-progress:#B8E6F5;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="newmi"] {
@@ -214,6 +216,7 @@ body[color-theme="newmi"] {
   --cercle-progress:#B8E6F5;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="beato"] {
@@ -289,6 +292,7 @@ body[color-theme="beato"] {
   --cercle-progress:#F2B70B;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="infinite"] {
@@ -333,8 +337,6 @@ body[color-theme="infinite"] {
   --theme-textHeading:0.9rem; 
   --theme-titleProfile:#000; 
 
-
-
   // new vars
 
   --theme-color:#D9B2A3;
@@ -373,6 +375,7 @@ body[color-theme="infinite"] {
   --theme-color-new:#B8E6F5;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="kapiva"] {
@@ -451,6 +454,7 @@ body[color-theme="kapiva"] {
   --theme-color-new:#59702f;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="traya"] {
@@ -527,6 +531,7 @@ body[color-theme="traya"] {
   --theme-color-new:#59702f;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="traya-female"] {
@@ -604,6 +609,7 @@ body[color-theme="traya-female"] {
     --theme-color-new:#59702f;
     --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
   
 body[color-theme="fitelo"] {
@@ -682,6 +688,7 @@ body[color-theme="fitelo"] {
   --theme-color-new:#ff8643;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="eatfit"] {
@@ -758,6 +765,7 @@ body[color-theme="eatfit"] {
   --theme-color-new:#D83176;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="alyve"] {
@@ -836,6 +844,7 @@ body[color-theme="alyve"] {
   --theme-color-new:#fe4869;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="plix"] {
@@ -911,6 +920,7 @@ body[color-theme="plix"] {
   --theme-color-new:#81DC97;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="stepgo"] {
@@ -983,6 +993,7 @@ body[color-theme="stepgo"] {
   --theme-color-new:#0F0F0F;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="prana"] {
@@ -1052,6 +1063,7 @@ body[color-theme="prana"] {
   --theme-color-new:#347C17;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="trunord"] {
@@ -1121,6 +1133,7 @@ body[color-theme="trunord"] {
   --theme-color-new:#203682;
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="yolo"] {
@@ -1187,6 +1200,7 @@ body[color-theme="yolo"] {
     --theme-color-new:#1B80B9;  
     --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="truworth"] {
@@ -1252,6 +1266,7 @@ body[color-theme="truworth"] {
   --theme-color-new:#166BC9; 
   --theme-milestone:#fff; 
 --theme-milestone2:#000; 
+--button-text:#fff;
 }
 
 body[color-theme="orthocure"] {
@@ -1317,6 +1332,7 @@ body[color-theme="orthocure"] {
   --theme-color-new:#bbd3ff;  
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="aviva"] {
@@ -1388,7 +1404,9 @@ body[color-theme="aviva"] {
   --theme-color-new:#004fb6;  
   --theme-milestone:#000;
   --theme-milestone2:#000;
+  --button-text:#fff;
 }
+
 
 body[color-theme="redcliffe"] {
   --theme-profile-background: #0f3e6a;
@@ -1453,6 +1471,7 @@ body[color-theme="redcliffe"] {
   --theme-color-new:#e5184e;  
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
+--button-text:#fff;
 }
 
 body[color-theme="kenko"] {
@@ -1519,6 +1538,7 @@ body[color-theme="kenko"] {
   --theme-color-new:#fbce60;  
   --theme-milestone:#fff; 
   --theme-milestone2:#000;
+  --button-text:#fff;
 }
 
 body[color-theme="blubein"] {
@@ -1589,6 +1609,7 @@ body[color-theme="blubein"] {
   --theme-color-new:#00CCEE;  
   --theme-milestone:#000;
   --theme-milestone2:#000;
+  --button-text:#fff;
 }
 body[color-theme="yellowsquash"] {
   --font: "aviva-regular", sans-serif;
@@ -1601,7 +1622,7 @@ body[color-theme="yellowsquash"] {
   --theme-background:#F9D120; //#00a6a8
   --theme-header:#F9D120;
   --theme-headerText:#000;
-  --theme-logslot:#F9D120;
+  --theme-logslot:#000;
   --theme-button:#F9D120;
   --theme-heading:#F9D120;
   --theme-activeBtn:#F9D120;//#01A3A4       
@@ -1658,6 +1679,7 @@ body[color-theme="yellowsquash"] {
   --theme-color-new:#F9D120;  
   --theme-milestone:#000;
   --theme-milestone2:#000;
+  --button-text:#000;
 }
 body[color-theme="elderfly"] {
   --font: "aviva-regular", sans-serif;
@@ -1727,6 +1749,7 @@ body[color-theme="elderfly"] {
   --theme-color-new:#24142D;  
   --theme-milestone:#000;
   --theme-milestone2:#000;
+  --button-text:#fff;
 }
 body[color-theme="brilliant"] {
   --font: "aviva-regular", sans-serif;
@@ -1796,6 +1819,7 @@ body[color-theme="brilliant"] {
   --theme-color-new:#A490FF;  
   --theme-milestone:#000;
   --theme-milestone2:#000;
+  --button-text:#fff;
 }
 body[color-theme="nizcare"] {
   --font: "aviva-regular", sans-serif;
@@ -1865,6 +1889,7 @@ body[color-theme="nizcare"] {
   --theme-color-new:#FFAF34;  
   --theme-milestone:#000;
   --theme-milestone2:#000;
+  --button-text:#fff;
 }
 
 

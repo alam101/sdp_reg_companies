@@ -201,7 +201,7 @@ export class ReadQueryComponent implements OnInit {
             this.router.navigate(["/new-diet"]);
           }
           else{
-            this.router.navigate(["/boarding5"]);
+            this.router.navigate(["/boarding1"]);
           }
          } 
          else if(localProfileObject["lifeStyle"]?.foodType!==null 

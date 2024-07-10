@@ -27,7 +27,7 @@
   height: 25px;
 
   ion-icon {
-    color: var(--white);
+    color: var(--button-text);
     font-size: 20px;
     margin: 5px;
     font-weight: bold !important;
@@ -36,7 +36,7 @@
 
   p {
     margin: 0% 5px;
-    color: var(--white);
+    color: var(--button-text);
     font-family: var(--theme-newFont);
     font-weight: 500;
     font-size: var(--regularM-font);

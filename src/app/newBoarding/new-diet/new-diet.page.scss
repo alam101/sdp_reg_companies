@@ -686,7 +686,7 @@ ion-content {
 }
 
 .isSelectedDate {
- color: #fff !important;
+ color:var(--button-text) !important;
  font-weight: 500 !important;
  background: var(--theme-color) !important;
  font-size: .9rem;
