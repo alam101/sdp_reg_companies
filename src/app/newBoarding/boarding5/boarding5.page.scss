@@ -331,7 +331,7 @@ ion-content::part(background){
         --background: var(--theme-newButton);
         text-transform: none;
         box-shadow: var(--btnShaddow);
-        color: var(--white);
+        color: var(--button-text);
         font-family: var(--theme-newFont);
     }
 }
@@ -359,7 +359,7 @@ ion-content::part(background){
         --background: var(--white);
         text-transform: none;
         box-shadow: var(--btnShaddow);
-        color: var(--theme-newButton);;
+        color: var(--button-text);
         font-family: var(--theme-newFont);
         border-color: var(--theme-newButton);
     }

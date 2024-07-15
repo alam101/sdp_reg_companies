@@ -114,7 +114,7 @@ ion-content::part(background) {
     --background: var(--theme-newButton);
     text-transform: none;
     box-shadow: var(--btnShaddow);
-    color: var(--white);
+    color: var(--button-text);
     font-family: var(--theme-newFont);
   }
 }
