@@ -495,7 +495,7 @@ show3=true;
         datas["foodSource"] =
           datas["foodSource"] === "external" ? "P" : datas["foodSource"];
         // this.appService.updateDietPlan(datas).then(
-    //    debugger;
+    //    //
         this.appService.postOptionFoodList1(datas).then(
           // this.appService.updateEatenFoodItems(datas).then(
           (res) => {

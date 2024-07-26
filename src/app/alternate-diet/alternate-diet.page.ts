@@ -110,7 +110,7 @@ export class AlternateDietPage implements OnInit {
   }
 
   async addCal(data, fromMain) {
- //   debugger;
+ //   //
     console.log("data",data);
     
     const modal = await this.modalCtrl.create({

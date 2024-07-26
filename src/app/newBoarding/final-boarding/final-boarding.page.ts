@@ -68,8 +68,6 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
       this.localData = JSON.parse(res);
     }
   });
-  
-  
   this.gotoDemographic();
   this.termsandCond();
   //this.ditePlanAPIcall();
@@ -80,29 +78,16 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
   //    console.log("getoneplan()",res);
       /** enable for other company */
       let clientId=localStorage.getItem("clientId");
-      if(!clientId) this.navCtrl.navigateForward(["new-diet"]);
-      else  location.href =`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`;
-      /** enable for paytm */
-      // if(res["profile"]["planType"]==undefined){
-      //   this.navCtrl.navigateForward(['/boarding1']);
-      // }
-      // if(res["profile"]["planType"].toLowerCase()==="freemium" ){
-      //   this.navCtrl.navigateForward(["/premium"]);
-      // }
-      // else if (res["profile"]["planType"].toLowerCase()=="premium"){
-      //   this.navCtrl.navigateForward(["new-diet"]);
-      // }
-      // else{
-      //   this.storage.remove("pendingPage");
-      //   this.navCtrl.navigateForward(["/premium"]);
-      // }
-    // },err=>{
-    //   this.navCtrl.navigateForward(["/login"]);
-    // });
-   
-
-    
-  }
+      if(!clientId) 
+        {
+           window.history.replaceState({}, '', '/new-diet');
+           this.navCtrl.navigateForward(["new-diet"]).then(() => {});
+        }
+        else  {
+        window.history.replaceState({}, '', '/new-diet');
+        location.replace(`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`);
+      }
+     }
 
   goBack() {
     if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
@@ -117,10 +102,8 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
 
   gotoDemographic() {
     this.utilities.showLoading();
-    debugger;
-    this.storage.get("localData").then((local) => {
-     
-      
+   
+    this.storage.get("localData").then((local) => {  
       const data = this.utilities.parseJSON(local);
       console.log("local:::",data);
       let countri = this.utilities.getSelectedData(data.countries);
@@ -138,7 +121,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
             dateBy: dietData.dateBy,
           };
           //this.dateBy = dietData.dateBy;
-debugger;
+//
           this.plan = data.otherMaster.diet;
          
           if (data.otherMaster.height[0]?.param == "in" || data.otherMaster.height[0]?.unit == "in") {

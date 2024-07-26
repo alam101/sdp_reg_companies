@@ -2701,7 +2701,7 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
  
 
   eatenStatusUpdate(item, slot, slotIndex, foodIndex){
-    debugger;
+    //
     if(this.currentDateIndex == 0){
       let foodCodeList = [];
       let eatenStatus = false;

@@ -2193,7 +2193,7 @@ getDietdata(date) {
    }
    
    console.log("this.diets", this.diets);
-   ////debugger;
+   //////
    this.ionContent.scrollY=false;
    setTimeout(()=>{
     

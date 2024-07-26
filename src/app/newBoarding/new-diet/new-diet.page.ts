@@ -90,13 +90,12 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
-    
+   
   }
   isdisplayFooter(event){
     this.displayFooter=event;
   }
   ngAfterViewInit() {
-   
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
       this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
     } else {
@@ -264,7 +263,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.appServices.getProfile().then(
       
       profileData => {
-        //debugger;
+        ////
        
         localStorage.setItem("activities",JSON.stringify(profileData["lifeStyle"]["activities"]));
         console.log("profileData",profileData);

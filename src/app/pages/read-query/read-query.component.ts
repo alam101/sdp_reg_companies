@@ -184,7 +184,7 @@ export class ReadQueryComponent implements OnInit {
       if(this.type=="2"){
         window.open('https://app.smartdietplanner.com','_blank');
       }
-      debugger;
+      //
       console.log("localProfileObject::",localProfileObject);
       if(localProfileObject["demographic"]?.gender?.code!=undefined &&
         localProfileObject["demographic"]?.age?.code!=undefined && 
