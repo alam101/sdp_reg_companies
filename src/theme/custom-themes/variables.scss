@@ -797,16 +797,12 @@ body[color-theme="alyve"] {
   --theme-progressBarWhite:#FFFFFF;
   --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
   --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
-
-
-
   --theme-headingFont:1.2rem; //merger wirth headeing font 
   --theme-counters:0.75rem;
   --theme-cardHeading:1rem;
   --theme-text:0.85rem;
   --theme-textHeading:0.9rem; 
   --theme-titleProfile:#000; 
-  // new vars
   --theme-color:#fe4869;
   --theme-newHeader:#fe4869;
   --theme-newButton:#fe4869;
@@ -1405,6 +1401,7 @@ body[color-theme="aviva"] {
   --theme-milestone:#000;
   --theme-milestone2:#000;
   --button-text:#fff;
+  --button-text-back:#004fb6;
 }
 
 
@@ -1539,6 +1536,7 @@ body[color-theme="kenko"] {
   --theme-milestone:#fff; 
   --theme-milestone2:#000;
   --button-text:#fff;
+  --button-text-back:#fbce60;
 }
 
 body[color-theme="blubein"] {
@@ -1610,6 +1608,7 @@ body[color-theme="blubein"] {
   --theme-milestone:#000;
   --theme-milestone2:#000;
   --button-text:#fff;
+  --button-text-back:#00CCEE;
 }
 body[color-theme="yellowsquash"] {
   --font: "aviva-regular", sans-serif;
@@ -1750,6 +1749,7 @@ body[color-theme="elderfly"] {
   --theme-milestone:#000;
   --theme-milestone2:#000;
   --button-text:#fff;
+  --button-text-back:#24142D;
 }
 body[color-theme="brilliant"] {
   --font: "aviva-regular", sans-serif;
@@ -1820,6 +1820,7 @@ body[color-theme="brilliant"] {
   --theme-milestone:#000;
   --theme-milestone2:#000;
   --button-text:#fff;
+  --button-text-back:#A490FF;
 }
 body[color-theme="nizcare"] {
   --font: "aviva-regular", sans-serif;
@@ -1890,6 +1891,7 @@ body[color-theme="nizcare"] {
   --theme-milestone:#000;
   --theme-milestone2:#000;
   --button-text:#fff;
+  --button-text-back:#FFAF34;
 }
 
 

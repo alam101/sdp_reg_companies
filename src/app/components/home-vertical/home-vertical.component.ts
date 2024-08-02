@@ -2392,7 +2392,6 @@ export class HomeVerticalComponent implements  OnInit,OnChanges, OnDestroy {
       country: CONSTANTS.country
     };
     console.log("reqBody", reqBody);
-    debugger
     this.appServices.postOptionFoodList(reqBody).then(
       success => {
         // this.utilities.hideLoader();
