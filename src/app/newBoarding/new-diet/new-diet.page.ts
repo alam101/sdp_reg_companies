@@ -10,7 +10,6 @@ import { Router } from "@angular/router";
 import jsPDF from "jspdf";
 import { UserOptions } from "jspdf-autotable";
 import { UTILITIES } from "../utils/utilities";
-import { DownloadPopupComponent } from "src/app/components/download-popup/download-popup.component";
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SearchPage } from '../../search/search.page';
 import { BroadcastService } from "src/app/broadcast.service";
@@ -146,10 +145,11 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
+          debugger;
        //   this.getDietdata.emit(CONSTANTS.dietDate);
        //   this.utilities.showSuccessToast(status);
           // this.todaysCalCount();
-          this.getDietdata(CONSTANTS.dietDate);
+      //    this.getDietdata(CONSTANTS.dietDate);
           console.log("");
         },
         (err) => {
@@ -510,34 +510,15 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   getCaloriesOfDay(day, index) {
     return day[index] ? day[index].Calories : 0;
   }
-  async gotoDownloadPopup(){
-   
-    // let me = this;
-    // const modal = await me.modalController.create({
-    //   component: DownloadPopupComponent,
-    //   backdropDismiss: true,
-    //   cssClass: 'app-offer-popup',
-    //   componentProps: { }
-    // });
-    // modal.onDidDismiss().then((data: any) => {
-    //   if(localStorage.getItem("isDownload")=="1"){
-    //     localStorage.setItem("isDownload","0");
+  async gotoDownloadPopup(){ 
       this.downloadDietPlan();
-      
-    //   }
-    // })
-    // return await modal.present();
   }
   async gotoSearch() {
     const modal = await this.modalController.create({
       component: SearchPage,
-      //cssClass: "change_item",
       backdropDismiss: true,
       componentProps: {
-        // slot: "",
-        //alterdata: data,
-        //type: "change",
-      },
+       },
     });
     this.utilss.storeModal(modal);
     await modal.present();
@@ -595,8 +576,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       targetCal: {recomended:0},
       calConsumed: 0,
     };
-   // allData: any = {totalCal:0,targetCal:{recomended:0}};
-    this.appServices
+   this.appServices
       .getDietPlans(
         CONSTANTS.isDetox,
         date,
@@ -604,14 +584,15 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         CONSTANTS.defaultCalories
       )
       .then((res) => {
-        this.diets = res;
         console.log("alam101",this.diets);
-        this.storage.set("dietData", this.diets);
-        this.allData.targetCal = res;
+        this.storage.set("dietData", res);
+        localStorage.setItem("dtit",JSON.stringify(res));
+        debugger;
+         this.diets = JSON.parse(localStorage.getItem("dtit"));
+        this.allData.targetCal = this.diets;
         if(this.diets.diets?.length>0){
           this.diets.diets.forEach((ele) => {
-            console.log("sssssss:-",ele?.data);
-            
+            console.log("sssssss:-",ele?.data);          
             if(ele?.data?.length>0){
             ele?.data.forEach((element) => {
               if (element.eaten > 0) {
@@ -643,7 +624,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      
         this.getProfile();
        this.getOnePlanForDefaultDate();
-        this.cdr.detectChanges();
+     
       });
   }
 

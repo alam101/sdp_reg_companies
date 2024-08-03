@@ -1,4 +1,4 @@
-<div style="position: relative" *ngIf="loaded && data?.data?.length > 0">
+<div style="position: relative" >
   <ion-skeleton-text
     *ngIf="!loaded"
     animated
@@ -13,10 +13,7 @@
     #FBEEFC':index===7?'#E2F0F6':'#E4F3EC'">
       <p>
         {{data?.message}}
-        <!-- <span>
-          <ion-icon name="time-outline"></ion-icon
-          >{{moment(data?.time,'HH:mm').format('hh:mm a')}}
-        </span> -->
+      
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
           <a (click)="logSlot(data,index)"  style="font-size: .8rem; 
           color: var(--theme-logslot); 
@@ -91,7 +88,6 @@
               <span *ngIf="compConfig.itemCalories!=false">
               </span>
             </div>
-          
           </div>
           <div style="float: left;width: 97%;">
             <ion-row>

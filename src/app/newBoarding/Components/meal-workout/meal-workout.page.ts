@@ -24,7 +24,7 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["./meal-workout.page.scss"],
 })
 export class MealWorkoutPage implements OnInit {
-  @Input() data: any = {};
+  @Input() data: any={};
   @Input() end_time: any = {};
   @Input() diets: any = [];
   @Input() index: any = [];
@@ -59,7 +59,16 @@ export class MealWorkoutPage implements OnInit {
     private modalCtrl: ModalController,
     private popCtrl: PopoverController,
     private broadcastService: BroadcastService
-  ) {}
+  ) {
+
+    if(!this.data){
+    this.data= JSON.parse(localStorage.getItem("diett"));
+    }
+    else{
+      localStorage.setItem("diett",JSON.stringify(this.data)) ;
+    }
+     
+  }
   isFuture:any;
   compConfig:any;
   async ngOnInit() {
@@ -94,7 +103,7 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     });
     setTimeout(() => {
       this.loaded = true;
-    }, 500);
+    }, 50);
   }
   senitizedData(videoUrl) {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
@@ -480,7 +489,8 @@ addRemove(type) {
         (success: any) => {
          // this.getDietdata.emit(CONSTANTS.dietDate);
          // this.utilities.showSuccessToast(status);
-          this.broadcastService.boradcast("reload");
+         // this.broadcastService.boradcast("reload");
+         this.getDietdata.emit(CONSTANTS.dietDate);
           // this.todaysCalCount();
           console.log("247 called");
         },
