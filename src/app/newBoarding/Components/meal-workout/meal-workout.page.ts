@@ -61,12 +61,12 @@ export class MealWorkoutPage implements OnInit {
     private broadcastService: BroadcastService
   ) {
 
-    if(!this.data){
-    this.data= JSON.parse(localStorage.getItem("diett"));
-    }
-    else{
-      localStorage.setItem("diett",JSON.stringify(this.data)) ;
-    }
+    // if(!this.data){
+    // this.data= JSON.parse(localStorage.getItem("diett"));
+    // }
+    // else{
+    //   localStorage.setItem("diett",JSON.stringify(this.data)) ;
+    // }
      
   }
   isFuture:any;
@@ -103,7 +103,7 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     });
     setTimeout(() => {
       this.loaded = true;
-    }, 50);
+    }, 300);
   }
   senitizedData(videoUrl) {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);

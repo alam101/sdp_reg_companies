@@ -7,7 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { AlternateSearchPageRoutingModule } from "./alternate-search-routing.module";
 
 import { AlternateSearchPage } from "./alternate-search.page";
-import { MealWorkoutPageModule } from "../components/meal-workout/meal-workout.module";
+import { MealWorkoutPageModule } from "../newBoarding/Components/meal-workout/meal-workout.module"; ////meal-workout/meal-workout.module
 
 @NgModule({
   imports: [
