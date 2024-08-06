@@ -103,7 +103,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
-    this.companyLogoBase64 = this.compConfig.companyLogoBase64;
+    this.companyLogoBase64 = this.compConfig?.companyLogoBase64;
     this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
   }
   defaultPlanCheck=false;
@@ -145,7 +145,6 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
-          debugger;
        //   this.getDietdata.emit(CONSTANTS.dietDate);
        //   this.utilities.showSuccessToast(status);
           // this.todaysCalCount();
@@ -498,7 +497,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         didDrawCell: (data) => {
           if (data.section === 'head' && data.column.index === 0) {
             let base64Img = `data:image/png;base64,${this.companyLogoBase64}`;
-            doc.addImage(base64Img, 'PNG', data.cell.x + 2, data.cell.y + 7, 25, 6.5)
+            debugger;
+            if(this.companyLogoBase64!==undefined && this.companyLogoBase64!==''){
+            doc.addImage(base64Img, 'PNG', data.cell.x + 2, data.cell.y + 7, 25, 6.5);
+            }
           }
         }
       });
@@ -587,7 +589,6 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         console.log("alam101",this.diets);
         this.storage.set("dietData", res);
         localStorage.setItem("dtit",JSON.stringify(res));
-        debugger;
          this.diets = JSON.parse(localStorage.getItem("dtit"));
         this.allData.targetCal = this.diets;
         if(this.diets.diets?.length>0){
