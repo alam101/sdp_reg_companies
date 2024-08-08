@@ -129,7 +129,9 @@ export const APIS = {
   saveFasting: 'saveFasting',
   getFasting: 'getFasting',
   fetchCustDailyDiets: 'fetchCustDailyDiets',
-  instructionApiUrl: "https://nodeapi.smartdietplanner.com/api/instructions/getByUserId/"
+  instructionApiUrl: "https://nodeapi.smartdietplanner.com/api/instructions/getByUserId/",
+  nodeBaseUrl: "https://nodeapi.smartdietplanner.com/api/",
+  DietitianActions: "dietitian/latestDietitianActionsForUser?userId="
   // end
 };
 export const message = {

@@ -90,6 +90,11 @@ export class AppService {
     const url = APIS.BASEURL + '' + APIS.profile;
     return this.httpClient.get(url, {}).toPromise();
   }
+  getEditProfilePermission(email) {
+    const url = APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`;
+   
+    return this.httpClient.get(url, {}).toPromise();
+  }
 
   getDefaultData(token) {
     const url = APIS.BASEURL + '' + APIS.defaultDetail;

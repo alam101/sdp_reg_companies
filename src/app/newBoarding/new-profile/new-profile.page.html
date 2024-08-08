@@ -133,7 +133,7 @@
                     <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/bmi1.png" class="card_image"></ion-img>
                     <p class="title">Current BMI:</p>
                     <p class="main_title">{{profileData?.demographic?.bmi}}</p>
-                    <p class="sub_title">Range 18-25 (Recommended)</p>
+                    <p class="sub_title">Range 18.5-25 (Recommended)</p>
                   </div>
                 </div>
               </ion-col>
@@ -376,7 +376,7 @@
               {{c?.value}},</span>
           </p>
           {{
-            profileData?.lifeStyle?.communities.toArray()
+            profileData?.lifeStyle?.communities?.toArray()
           }}
         </div>
       </div>

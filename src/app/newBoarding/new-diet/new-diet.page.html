@@ -196,6 +196,7 @@
   </div>
   <app-appointent *ngIf="compConfig?.isDietitian && isPlanExpired!==true"
   [plan]="true"
+  [deititianName]="deititianName"
   [profileData]="profileData?.profile"
   [duration]="plandata?.trail"
 ></app-appointent>
@@ -351,6 +352,13 @@
    </div>
   </div>
   <br>  
+  <div (click)="gotoWhatsApp()" style="    width: 13%;
+    position: fixed;
+    right: 2%;
+    bottom: 8%;
+    z-index: 11;">
+    <img src="./assets/img/whatsapp.png">
+  </div>
 </ion-content>
 <ion-footer *ngIf="compConfig?.isSearch && displayFooter===true" style="position: fixed;
 bottom: 0;

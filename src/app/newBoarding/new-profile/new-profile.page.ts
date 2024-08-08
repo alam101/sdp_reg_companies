@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { UTILITIES } from "../utils/utilities";
 
 @Component({
@@ -15,14 +15,17 @@ export class NewProfilePage implements OnInit,AfterViewInit {
    profileData: any = {};
   localData: any = {};
   plandata: any;
-
+dietitianName="";
   constructor(
     private modalCtrl: ModalController,
     private storage: Storage,
     private appservice: AppService,
     private router:Router,
     private utilities: UTILITIES,
-  ) {}
+    private route: ActivatedRoute
+  ) {
+   this.dietitianName = route.queryParams["params"];
+  }
   compConfig:any;
   preferedItem: any;
   ngOnInit() {
@@ -136,8 +139,13 @@ export class NewProfilePage implements OnInit,AfterViewInit {
   }
 
   async openModel(component) {
+    if(this.dietitianName!=="" && this.dietitianName!==undefined){
     this.router.navigate([component],{queryParams:{from:'editProfile'}});
         this.getProfile();
+    }
+    else{
+      this.utilities.presentAlert("Dietitian already assigned, for any update please connect with Deititian.");
+    }
   }
   suggestedWeightRange: any=0;
   gotoDemographic() {

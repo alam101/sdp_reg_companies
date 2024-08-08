@@ -102,9 +102,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     }
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
-    this.getProfile();
+  
     this.companyLogoBase64 = this.compConfig?.companyLogoBase64;
     this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
+   
   }
   defaultPlanCheck=false;
   logSlot(d,slot){
@@ -276,6 +277,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
           photoUrl: null,
           provider: "mobile"
         };
+        this.getdietitianDetail(this.profileData.profile.email);
         if(this.compConfig.isDietitian){
         this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
         }
@@ -291,7 +293,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
 
    }
   gotoProfile(){
-    this.router.navigate(['new-profile']);
+    this.router.navigate(['new-profile'],{queryParams:{params: this.deititianName}});
  }
  
 
@@ -509,6 +511,31 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       
     });
   }
+  deititianName="";
+  whatsappNum="";
+  getdietitianDetail(email){
+   
+    this.appServices.getEditProfilePermission(email).then((res:any)=>{
+      debugger;
+      if(res.name!==undefined){
+      this.deititianName = res.name;
+      this.whatsappNum = res.whatsappNum;
+
+      }
+    },err=>{
+
+    })
+  }
+  isIosDevice = this.utilities.isDeviceiOS();
+  gotoWhatsApp(){
+ if(this.isIosDevice){
+      let url = "https://api.whatsapp.com/send?phone=+"+this.whatsappNum+"&&text=I am "+this.profileData.profile.name+", Profile ID:'"+this.profileData.profile.email+"'. I need support.";
+      this.iab.create(url , '_system');
+    }else{
+      let url = "whatsapp://send?phone=+"+this.whatsappNum+"&text=I am "+this.profileData.profile.name+", Profile ID: '"+this.profileData.profile.email+"'. I need support.";
+      this.iab.create(url , '_system');
+    }
+  }
   getCaloriesOfDay(day, index) {
     return day[index] ? day[index].Calories : 0;
   }
@@ -623,7 +650,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
           this.utilities.presentAlert("Slots are not available. Please refresh!");
         }
      
-        this.getProfile();
+       
+        
        this.getOnePlanForDefaultDate();
      
       });

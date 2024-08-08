@@ -16,6 +16,7 @@ export class AppointentPage implements OnInit {
   @Input() profileData: any = {};
   @Input() duration: any;
   @Input() planType:any=true;
+  @Input() dietitianName="";
   constructor(
     private iab: InAppBrowser,
     private navCtrl: NavController,
