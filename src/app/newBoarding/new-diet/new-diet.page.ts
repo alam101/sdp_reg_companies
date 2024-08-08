@@ -499,7 +499,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         didDrawCell: (data) => {
           if (data.section === 'head' && data.column.index === 0) {
             let base64Img = `data:image/png;base64,${this.companyLogoBase64}`;
-            debugger;
+      
             if(this.companyLogoBase64!==undefined && this.companyLogoBase64!==''){
             doc.addImage(base64Img, 'PNG', data.cell.x + 2, data.cell.y + 7, 25, 6.5);
             }
@@ -516,7 +516,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   getdietitianDetail(email){
    
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
-      debugger;
+   
       if(res.name!==undefined){
       this.deititianName = res.name;
       this.whatsappNum = res.whatsappNum;
