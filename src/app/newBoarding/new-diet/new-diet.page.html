@@ -194,7 +194,7 @@
       </ion-col>
     </ion-row>
   </div>
-  <app-appointent *ngIf="compConfig?.isDietitian && isPlanExpired!==true"
+  <app-appointent *ngIf="compConfig?.isDietitian && calendlyVisible===true && isPlanExpired!==true"
   [plan]="true"
   [deititianName]="deititianName"
   [deititianRole]="deititianRole"

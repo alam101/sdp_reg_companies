@@ -320,7 +320,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       } else {
         this.noNextDate = true;
       }
-    })
+    });
   }
 
   selectDate(event) {
@@ -517,6 +517,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   calendlyId="";
   whatappVisible=false;
   gender="";
+  calendlyVisible=false;
   getdietitianDetail(email){
    
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
