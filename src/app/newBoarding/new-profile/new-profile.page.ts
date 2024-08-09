@@ -16,6 +16,7 @@ export class NewProfilePage implements OnInit,AfterViewInit {
   localData: any = {};
   plandata: any;
 dietitianName="";
+dietitianRole="";
   constructor(
     private modalCtrl: ModalController,
     private storage: Storage,
@@ -24,7 +25,13 @@ dietitianName="";
     private utilities: UTILITIES,
     private route: ActivatedRoute
   ) {
-   this.dietitianName = route.queryParams["params"];
+   route.queryParams.subscribe(res=>{
+    this.dietitianName = res["params"];
+    this.dietitianRole = res["role"];
+   
+   });
+  
+   
   }
   compConfig:any;
   preferedItem: any;
@@ -137,14 +144,17 @@ dietitianName="";
         return "leaf@3x.png";
     }
   }
-
+  isShow=false;
+  closePopup(){
+    this.isShow=false;
+  }
   async openModel(component) {
-    if(this.dietitianName!=="" && this.dietitianName!==undefined){
+    if(this.dietitianName==="" || this.dietitianName===undefined){
     this.router.navigate([component],{queryParams:{from:'editProfile'}});
         this.getProfile();
     }
     else{
-      this.utilities.presentAlert("Dietitian already assigned, for any update please connect with Deititian.");
+      this.isShow=true;
     }
   }
   suggestedWeightRange: any=0;

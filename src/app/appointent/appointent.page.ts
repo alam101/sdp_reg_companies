@@ -16,7 +16,10 @@ export class AppointentPage implements OnInit {
   @Input() profileData: any = {};
   @Input() duration: any;
   @Input() planType:any=true;
-  @Input() dietitianName="";
+  @Input() deititianName="";
+  @Input() deititianRole="";
+  @Input() calendlyId="";
+  @Input()gender = false;
   constructor(
     private iab: InAppBrowser,
     private navCtrl: NavController,
@@ -27,7 +30,7 @@ export class AppointentPage implements OnInit {
   ngOnInit() {}
 
   ngOnChanges() {}
-
+ 
   gotoApply(url, type) {
 
     if(!this.planType){

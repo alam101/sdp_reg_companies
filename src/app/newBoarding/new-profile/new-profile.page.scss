@@ -116,7 +116,12 @@ ion-segment {
     color: var(--black);
     margin-bottom: 0%;
 }
-
+.logged_btn{
+    --background: var(--theme-newButton, #3880ff);
+    --color: var(--white);
+    height: 40px;
+    width: 70px;
+  }
 .main_title{
     font-size: var(--medium-font);
     font-family: var(--theme-newFont);

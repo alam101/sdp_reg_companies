@@ -11,8 +11,12 @@
       <div class="d_flex card_main_div">
         <div class="center">
           <ion-avatar>
-            <ion-img
-              src="../../../../assets/newImages/manisha.jpg"
+            <ion-img *ngIf="gender==='Male'"
+              src="../../../../assets/img/dietitian_male.png"
+              class="card_img"
+            ></ion-img>
+            <ion-img *ngIf="gender!=='Male'"
+              src="../../../../assets/img/dietitian_female.png"
               class="card_img"
             ></ion-img>
           </ion-avatar>
@@ -22,11 +26,13 @@
             <ion-col size="11" class="left">
               <div style="margin-right: 25px">
                 <p class="meal_cal" *ngIf="plan">
-                  Consult with our post graduate qualified and Experienced
-                  Dietitian for customised plan
+                  Hello, I'm "{{deititianName}}", your "{{deititianRole}}". You can schedule a 
+                  consultation call with me at your convenience.
+
                 </p>
                 <p class="meal_cal" *ngIf="!plan">
-                  Hello, I'm "{{dietitianName}}", your "Dietitian". You can connect me for the modifications.
+                  Hello, I'm "{{deititianName}}", your "{{deititianRole}}". You can connect me for the modifications.
+               
                 </p>
               </div>
             </ion-col>
@@ -36,13 +42,13 @@
           *ngIf="plan"
           class="calandar"
           name="calendar-outline"
-          (click)="gotoApply('https://calendly.com/dietitian_manisha','diet')"
+          (click)="gotoApply(calendlyId,'diet')"
         ></ion-icon>
         <ion-icon
           *ngIf="!plan"
           class="calandar"
           name="calendar-outline"
-          (click)="gotoApplyFree('https://calendly.com/dietitian_manisha','diet')"
+          (click)="gotoApplyFree(calendlyId,'diet')"
         ></ion-icon>
       </div>
     </div>
@@ -96,3 +102,4 @@
     </div>
   </ion-card>
 </div>
+

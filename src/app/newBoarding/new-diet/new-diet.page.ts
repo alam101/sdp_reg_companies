@@ -293,7 +293,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
 
    }
   gotoProfile(){
-    this.router.navigate(['new-profile'],{queryParams:{params: this.deititianName}});
+    this.router.navigate(['new-profile'],{queryParams:{params: this.deititianName,role:this.deititianRole}});
  }
  
 
@@ -513,14 +513,20 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   }
   deititianName="";
   whatsappNum="";
+  deititianRole="";
+  calendlyId="";
+  whatappVisible=false;
+  gender="";
   getdietitianDetail(email){
    
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
-   
       if(res.name!==undefined){
       this.deititianName = res.name;
+      this.deititianRole = res.role;
+      this.calendlyId = res.calendlyId;
       this.whatsappNum = res.whatsappNum;
-
+      this.whatappVisible = res.whatsappVisible;  
+      this.gender = res.gender;
       }
     },err=>{
 

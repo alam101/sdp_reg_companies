@@ -197,6 +197,9 @@
   <app-appointent *ngIf="compConfig?.isDietitian && isPlanExpired!==true"
   [plan]="true"
   [deititianName]="deititianName"
+  [deititianRole]="deititianRole"
+  [calendlyId] = "calendlyId"
+  [gender] = "gender"
   [profileData]="profileData?.profile"
   [duration]="plandata?.trail"
 ></app-appointent>
@@ -352,10 +355,10 @@
    </div>
   </div>
   <br>  
-  <div (click)="gotoWhatsApp()" style="    width: 13%;
+  <div *ngIf="whatappVisible" (click)="gotoWhatsApp()" style="    width: 13%;
     position: fixed;
     right: 2%;
-    bottom: 8%;
+    bottom: 11%;
     z-index: 11;">
     <img src="./assets/img/whatsapp.png">
   </div>
