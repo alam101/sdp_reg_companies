@@ -355,7 +355,7 @@
    </div>
   </div>
   <br>  
-  <div *ngIf="whatappVisible" (click)="gotoWhatsApp()" style="    width: 13%;
+  <div *ngIf="whatappVisible && compConfig?.showWhatsApp===true" (click)="gotoWhatsApp()" style="    width: 13%;
     position: fixed;
     right: 2%;
     bottom: 11%;

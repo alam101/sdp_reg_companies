@@ -528,6 +528,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       this.whatsappNum = res.whatsappNum;
       this.whatappVisible = res.whatsappVisible;  
       this.gender = res.gender;
+      this.calendlyVisible = res.calendlyVisible;
       }
     },err=>{
 
