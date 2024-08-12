@@ -213,21 +213,21 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     console.log("this.fday:-",creationDate,this.fday);
     let tDate = new Date(); 
     let nxtDate = new Date(dnew.setDate(dnew.getDate()));
-    this.weekArray = [
-        new Date(dnew),
-        new Date(dnew.setDate(dnew.getDate()+1)),
-        new Date(dnew.setDate(dnew.getDate() + 1)),
-        new Date(dnew.setDate(dnew.getDate() + 1)),
-        new Date(dnew.setDate(dnew.getDate() + 1)),
-        new Date(dnew.setDate(dnew.getDate() + 1)),
-        new Date(dnew.setDate(dnew.getDate() + 1)),
-      ];
+    // this.weekArray = [
+    //     new Date(dnew),
+    //     new Date(dnew.setDate(dnew.getDate()+1)),
+    //     new Date(dnew.setDate(dnew.getDate() + 1)),
+    //     new Date(dnew.setDate(dnew.getDate() + 1)),
+    //     new Date(dnew.setDate(dnew.getDate() + 1)),
+    //     new Date(dnew.setDate(dnew.getDate() + 1)),
+    //     new Date(dnew.setDate(dnew.getDate() + 1)),
+    //   ];
     
-      if(dnew.getTime() < new Date().getTime() && this.clientId==='fitelo'){
-        this.newSelectedDate = dnew;
-        this.selecteddate = dnew;
-      }
-      else{
+      // if(dnew.getTime() < new Date().getTime() && this.clientId==='fitelo'){
+      //   this.newSelectedDate = dnew;
+      //   this.selecteddate = dnew;
+      // }
+      // else{
         this.weekArray = [
           new Date(),
           new Date(tDate.setDate(tDate.getDate()+1)),
@@ -239,7 +239,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         ];
         this.newSelectedDate = new Date();
         this.futureDateCSS="dark-css";
-      }
+     // }
     });
   }
   ngOnInit() {
@@ -661,7 +661,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
        
         
        this.getOnePlanForDefaultDate();
-     
+       this.getInstructionData(this.profileData.profile.email);
       });
   }
 

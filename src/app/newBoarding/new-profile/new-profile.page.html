@@ -371,13 +371,19 @@
           </div>
           <p class="commonText">
             Regional Preferences in Food: <br /><span
-              style="margin-left: 0%">{{profileData?.lifeStyle?.country?.name}},</span><span
+              style="margin-left: 0%">{{profileData?.lifeStyle?.country?.name}}</span>
+              
+              <!-- <span
               *ngFor="let c of profileData?.lifeStyle?.communities"> 
-              {{c?.value}},</span>
+              {{c?.value}}</span> -->
+              <br>
+              <span>
+                {{
+                  profileData?.lifeStyle?.communities?.join('')
+                }}
+              </span>
           </p>
-          {{
-            profileData?.lifeStyle?.communities?.join('')
-          }}
+        
         </div>
       </div>
      </div>
@@ -391,7 +397,7 @@
     </div>
   </div>
 <div *ngIf="isShow" style="width:100%;height:100%;position:fixed;z-index:10;opacity:.5;background:#000;top:0;"></div>
-<div *ngIf="isShow" style="width:80%;height:30%;position:absolute;z-index:11;
+<div *ngIf="isShow" style="width:80%;height:30%;position:fixed;z-index:11;
 background: rgb(242, 229, 216);top:0;transform: translate(12%, 70%);border-radius:10px; text-align:center;">
 <div style="background: rgb(242, 229, 216);
     height: 100%;">
