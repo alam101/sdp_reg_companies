@@ -179,7 +179,7 @@ dietitianRole="";
     this.profileData = [];
     this.appservice.getProfile().then((res) => {
       this.profileData = res;
-    
+      this.getCommunities(this.profileData.lifeStyle.communities);
       if (this.profileData?.profile?.subCategory === "weightloss") {
         this.profileData.profile.subCategory = "Weight Loss";
       }
@@ -212,6 +212,7 @@ dietitianRole="";
         this.profileData.lifeStyle.communities = communitiesItem.filter(
           (item) => item.isSelected
         );
+       
         }
         this.profileData.lifeStyle.diseases = this.localData?.otherMaster?.diseases.filter(
           (item) => this.profileData?.lifeStyle?.diseases?.includes(item.code)
@@ -238,5 +239,31 @@ dietitianRole="";
       }
       console.log(this.profileData);
     });
+  }
+
+  communitiesArr=[];
+  getCommunities(communities){
+  
+   for (let index = 0; index < communities.length; index++) {
+     if(communities[index]==='P'){
+       this.communitiesArr.push('North India');
+     }
+     else if(communities[index]==='M'){
+       this.communitiesArr.push('Maharashtra');
+     }
+     else if(communities[index]==='G'){
+       this.communitiesArr.push('Gujarat');
+     }
+     else if(communities[index]==='B'){
+       this.communitiesArr.push('Bengali');
+     }
+     else if(communities[index]==='S'){
+       this.communitiesArr.push('South India');
+     }
+     else{
+      // this.communitiesArr.push('Universal');
+     }
+     
+   }
   }
 }

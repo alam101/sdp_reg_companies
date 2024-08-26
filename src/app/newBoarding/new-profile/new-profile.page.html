@@ -376,10 +376,11 @@
               <!-- <span
               *ngFor="let c of profileData?.lifeStyle?.communities"> 
               {{c?.value}}</span> -->
-              <br>
+              <br><br>
+             Communities: <br>
               <span>
                 {{
-                  profileData?.lifeStyle?.communities?.join('')
+                  communitiesArr?.join(',')
                 }}
               </span>
           </p>

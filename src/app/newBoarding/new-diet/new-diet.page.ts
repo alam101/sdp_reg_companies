@@ -281,6 +281,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         if(this.compConfig.isDietitian){
         this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
         }
+       // this.getCommunities(this.profileData?.lifeStyle?.communities);
         // this.instructions = this.profileData?.lifeStyle?.instructions;
    
         this.profileName=userData.name;
@@ -292,6 +293,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       });
 
    }
+  
   gotoProfile(){
     this.router.navigate(['new-profile'],{queryParams:{params: this.deititianName,role:this.deititianRole}});
  }
@@ -747,7 +749,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         this.diets.dietPlanName.toLowerCase().includes('detox') ? "detox" : "normal";
         Object.keys(reference).forEach(ele => {
           if (ele.toLowerCase().includes(this.planName)) {
+            if(reference[ele].length>10){
             this.instructions = reference[ele] ? reference[ele].split(/\n/g) : [];
+            }
             return;
           }
         })
