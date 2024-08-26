@@ -2103,8 +2103,296 @@ body[color-theme="wellbeing"] {
     --theme-milestone:#fff; 
   --theme-milestone2:#000;
   --button-text:#fff;
-  }
+}
+body[color-theme="individual1"] {
+  --theme-profile-background: #3863AF;
+  --theme-background:#3863AF; //#00a6a8
+  --theme-header:#3863AF;
+  --theme-headerText:#fff;
+  --theme-logslot:#3863AF;
+  --theme-button:#3863AF;
+  --theme-heading:#3863AF;
+  --theme-activeBtn:#3863AF;//#01A3A4       
+  --theme-plusBtn:#3863AF; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #3863AF;//#01A3A4;
+  --theme-plusBtnWaterGuage:#3863AF;  //#509bed;   
+  --theme-minusBtnWaterGuage:#3863AF;  //#509bed;  
+  --theme-waterCenterPercent:#3863AF;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #3863AF; //#01A3A5;
+  --theme-color:#3863AF; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #3863AF 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#CD8B00; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#000; 
 
+  --theme-color:#3863AF;
+  --theme-newHeader:#3863AF;
+  --theme-newButton:#3863AF;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#bbd3ff;
+  --arrow-color:#1B80#3863AF-goal: #3863AF;
+  --profile-color: #3863AF;
+  --graph-background:#bbd3ff;
+  --close-edit-color:#3863AF;
+  --new-background: #bbd3ff;
+  --new-border-color: #99b94933;
+  --theme-color-new:#bbd3ff;  
+  --theme-milestone:#fff; 
+--theme-milestone2:#000;
+--button-text:#fff;
+}
+body[color-theme="individual2"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+  --theme-profile-background: #0B713F;
+  --theme-background:#99b949; //#00a6a8
+  --theme-header:#99b949;
+  --theme-button:#99b949;
+  --theme-heading:#99b949;
+  --theme-headerText:#fff;
+  --theme-logslot:#0B713F;
+  --theme-activeBtn:#99b949;//#01A3A4       
+  --theme-plusBtn:#99b949; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #99b949;//#01A3A4;
+  --theme-plusBtnWaterGuage:#99b949;  //#509bed;   
+  --theme-minusBtnWaterGuage:#99b949;  //#509bed;  
+  --theme-waterCenterPercent:#99b949;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #99b949; //#01A3A5;
+  --theme-color:#99b949; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #99b949 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#000; 
+  // new vars
+  --theme-color:#99b949;
+  --theme-newHeader:#F2B70B;
+  --theme-newButton:#99b949;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#F2B70B;
+  --normal-color:#393939;
+  --cercle-progress:#F2B70B;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  --goal: #99b949ab;
+  --profile-color: #99b949;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #59702f;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#59702f;
+  --theme-milestone:#fff; 
+--theme-milestone2:#000;
+--button-text:#fff;
+}
+body[color-theme="individual3"] {
+  --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+  --theme-profile-background: #8775ed;
+  --theme-background:#fe4869; //#00a6a8
+  --theme-header:#fe4869;
+  --theme-headerText:#fff;
+  --theme-logslot:#8775ed;
+  --theme-button:#fe4869;
+  --theme-heading:#fe4869;
+  --theme-activeBtn:#fe4869;//#01A3A4       
+  --theme-plusBtn:#fe4869; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #fe4869;//#01A3A4;
+  --theme-plusBtnWaterGuage:#fe4869;  //#509bed;   
+  --theme-minusBtnWaterGuage:#fe4869;  //#509bed;  
+  --theme-waterCenterPercent:#fe4869;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #fe4869; //#01A3A5;
+  --theme-color:#fe4869; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #fe4869 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#000; 
+  --theme-color:#fe4869;
+  --theme-newHeader:#fe4869;
+  --theme-newButton:#fe4869;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#0A1F5B;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  --goal: #99e8d3;
+  --profile-color: #fe4869;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #fe4869;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#fe4869;
+  --theme-milestone:#fff; 
+--theme-milestone2:#000;
+--button-text:#fff;
+}
+body[color-theme="individual4"] {
+  --font: "stepgo-regular";
+  --font-bold: "stepgo-bold";
+  --font-light: "Hstepgo-light";
+  --font-medium: "stepgo-medium";
+  --font-medium-extended: "stepgo-extended";
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+    --theme-profile-background: #0F0F0F;
+    --theme-background: #0F0F0F; //#00a6a8
+    --theme-header: #0F0F0F;
+    --theme-headerText:#fff;
+    --theme-logslot:#0F0F0F;
+    --theme-button:#0F0F0F;
+    --theme-heading:#0F0F0F;
+    --theme-activeBtn:#0F0F0F;//#01A3A4       
+    --theme-plusBtn:#0F0F0F; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+    --theme-text-color: #0F0F0F;//#01A3A4;
+    --theme-plusBtnWaterGuage:#0F0F0F;  //#509bed;   
+    --theme-minusBtnWaterGuage:#0F0F0F;  //#509bed;  
+    --theme-waterCenterPercent:#0F0F0F;  //#509bed;  
+    --theme-colorWhite:#FFFFFF;       
+    --theme-boxAdd:1px solid #0F0F0F; //#01A3A5;
+    --theme-color:#0F0F0F; //#01A3A5;
+    --theme-backgroundLRG: -webkit-linear-gradient(top, #0F0F0F 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+    --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+    --theme-progressBarWhite:#FFFFFF;
+    --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
+    --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+    --theme-headingFont:1.2rem; //merger wirth headeing font 
+    --theme-counters:0.75rem;
+    --theme-cardHeading:1rem;
+    --theme-text:0.85rem;
+    --theme-textHeading:0.9rem; 
+    --theme-titleProfile:#000; 
+    --theme-color:#0F0F0F;
+    --theme-newHeader: #0F0F0F;
+    --theme-newButton: #404040;
+    --white:#ffffff;
+    --black:#333333;
+    --black-light:#676767;
+    --lightGrey:#FAFAFA;
+    --card-border:#F4F4F4;
+    --green:green;
+    --yellow:yellow;
+    --red:red;
+    --theme-newFont: "stepgo-regular";
+    --ion-font-family: "stepgo-bold";
+    --xsmall-font:0.625rem;  //10px
+    --small-font:0.75rem; //12px
+    --regular-font:0.871rem; //14px
+    --regularM-font:1rem; //16px
+    --medium-font:.9rem; //18px
+    --large-font:1.2rem;  //24px;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+    --radio-background:#fff;
+    --normal-color:#393939;
+    --cercle-progress:#0A1F5B;
+    --arrow-color:#c97b5a;
+    --arrow-color:#c97b5a;
+    --goal: #404040;
+    --profile-color: #0F0F0F;
+    --graph-background:#f2f1eb;
+    --close-edit-color: #0F0F0F;
+    --new-background: #99b9491f;
+    --new-border-color: #99b94933;
+    --theme-color-new:#0F0F0F;
+    --theme-milestone:#fff; 
+  --theme-milestone2:#000;
+  --button-text:#fff;
+  }
 // Fonts
 $font-size: 16px;
 $font: "gt-america-standard-regular", "Helvetica Neue", Arial;
