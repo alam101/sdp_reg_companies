@@ -551,9 +551,14 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   }
   isdoenloadclicked=false;
   async gotoDownloadPopup(){ 
-     // this.downloadDietPlan();
+     
+     if(this.clientId==='alyve'){
      this.isdoenloadclicked=true;
      this.downloadPdfFromApi();
+     }
+     else{
+      this.downloadDietPlan();
+     }
     
   }
   percent=0.0;
