@@ -549,8 +549,56 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   getCaloriesOfDay(day, index) {
     return day[index] ? day[index].Calories : 0;
   }
+  isdoenloadclicked=false;
   async gotoDownloadPopup(){ 
-      this.downloadDietPlan();
+     // this.downloadDietPlan();
+     this.isdoenloadclicked=true;
+     this.downloadPdfFromApi();
+    
+  }
+  percent=0.0;
+  percentwithPer='0%';
+  iscloseInterval;
+  startInterval(){
+   this.iscloseInterval =  setInterval(() => {
+    if(this.percent%2===0){
+      this.percent = Number(Number(this.percent)+3);
+    }
+    else{
+      this.percent = Number(Number(this.percent)+1);
+    }
+      this.percentwithPer = this.percent+'%';
+      if(this.percent >90){
+        clearInterval(this.iscloseInterval);
+      }
+    }, 1000);
+  }
+  downloadPdfFromApi(){
+    this.startInterval();
+  //  this.utilities.showLdr();
+    this.appServices.downloadPdfFromApi(localStorage.getItem("tkn"),7,
+    moment(this.selecteddate).format("DDMMYYYY").trim(),
+    'alyve.health'
+    ,localStorage.getItem('email')).subscribe((blob) => {
+      this.percentwithPer='100%';
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Alyve_Dietplan.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+     window.URL.revokeObjectURL(url);
+     setTimeout(()=>{
+      this.isdoenloadclicked=false;
+     },2000);
+     clearInterval(this.iscloseInterval);
+   this.utilities.hideLdr();
+    }, (error) => {
+      this.utilities.hideLdr();
+      console.error('Error downloading PDF:', error);
+    });
+
   }
   async gotoSearch() {
     const modal = await this.modalController.create({

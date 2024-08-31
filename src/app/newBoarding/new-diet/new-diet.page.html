@@ -140,7 +140,7 @@
 ></app-appointent>
 
     <div class="meal_workout_title_div" *ngIf="firstConsult!==false" style="margin-bottom: 2rem;">
-      <p class="meal_workout_title"> 
+      <p class="meal_workout_title" style="white-space: nowrap;"> 
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(today).format('DD-MM-YYYY') ? 'Today' :
         moment(newSelectedDate).format('DD-MM-YYYY') ===
@@ -148,7 +148,14 @@
         moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}} 
       </p>
       
-      <div class="right" *ngIf="!isDetox">
+      <div style="display: flex !important;
+    justify-content: flex-end !important;
+    text-align: center;
+    width: 80%;
+    top: -9px;
+    position: relative;
+    align-items: center;
+    margin-right: 5px;" *ngIf="!isDetox">
         <p class="meal_workout_button" *ngIf="compConfig?.inSights" style="font-size: .8rem;" (click)="goToInsites()">Insights</p>
         <!-- <p class="meal_workout_button" (click)="goToAnalysis()">Analysis</p> -->
         <!-- <ion-icon *ngIf="compConfig.pie_chart!=false"
@@ -166,8 +173,14 @@
           name="cloud-download"
           (click)="gotoDownloadPopup()"
         ></ion-icon> 
-       
       </div>
+      <div *ngIf="isdoenloadclicked" style="float:left;width: 20%;height:6px;border:1px solid #b3b3b3;">
+        <div style="float: left;position: relative;
+    font-size: .6rem;color:var(--profile-color);white-space:nowrap;
+    top: -17px;" [ngStyle]="{'width':percentwithPer,'left':percentwithPer}">{{percentwithPer}}</div>
+        <div [ngStyle]="{'width':percentwithPer}"
+        style="background:var(--profile-color);height:5px;"></div>
+       </div>
       <div class="right" *ngIf="isDetox">
         <p class="meal_workout_button" (click)="switchTonormal()">
           Switch to Normal

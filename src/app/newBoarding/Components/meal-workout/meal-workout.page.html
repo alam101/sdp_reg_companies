@@ -5,7 +5,7 @@
     class="sketloan"
   ></ion-skeleton-text>
   <ion-card
-    *ngIf="loaded"
+    *ngIf="loaded && data?.data?.length > 0"
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
     [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}"
   >

@@ -48,6 +48,11 @@ export class AppService {
     const url = APIS.BASEURL + "" + APIS.dietplan;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
+
+  downloadPdfFromApi(token,dateRange,date,comp_id='alyve.health',user_id): Observable<Blob> {
+   const url = APIS.pithanURL+`${APIS.downloadPdfApi}?auth_token=${token}&date_range=${dateRange}&date=${date}&company_id=${comp_id}&user_id=${user_id}` ;
+   return this.httpClient.get(url, {responseType: 'blob'});
+  }
   
   getDietPlans(isDetox, date, country, recommended) {
     if(this.isNew){

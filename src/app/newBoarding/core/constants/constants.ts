@@ -46,6 +46,8 @@ export const APIS = {
   //  BASEURL: "https://test.fightitaway.com/api/", //https://app.smartdietplanner.com
   //  refreshBaseUrl: "https://test.fightitaway.com:8443/api/",
   WP_BASEURL: 'https://smartdietplanner.com/wp-json/wp/v2/posts',
+  pithanURL: 'https://pythonapi.smartdietplanner.com/',
+  downloadPdfApi: 'gen_pdf',
   defaultDetail: 'defaultDetail',
   profile: 'profile',
   dietplan: "update/cust/dietplan",
