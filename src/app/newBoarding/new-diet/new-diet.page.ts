@@ -521,7 +521,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   gender="";
   calendlyVisible=false;
   getdietitianDetail(email){
-   
+    debugger;
+   if (this.compConfig.dietitianAction) {
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
       if(res.name!==undefined){
       this.deititianName = res.name;
@@ -535,6 +536,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     },err=>{
 
     })
+   }
+   
   }
   isIosDevice = this.utilities.isDeviceiOS();
   gotoWhatsApp(){

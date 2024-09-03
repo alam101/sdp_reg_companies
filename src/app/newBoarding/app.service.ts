@@ -96,11 +96,14 @@ export class AppService {
     return this.httpClient.get(url, {}).toPromise();
   }
   getEditProfilePermission(email) {
-    const url = APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`;
-   
+    const url = APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`; 
     return this.httpClient.get(url, {}).toPromise();
   }
-
+  // getEditProfilePermission(email) {
+  //   const url = APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`;
+   
+  //   return this.httpClient.get(url, {}).toPromise();
+  // }
   getDefaultData(token) {
     const url = APIS.BASEURL + '' + APIS.defaultDetail;
     console.log('manual header', token);

@@ -690,7 +690,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   }
 
   gotoTerm(){
-    window.open("https://fitrofy.com/terms-conditions/","_blank");
+    //window.open("https://fitrofy.com/terms-conditions/","_blank");
+    this.router.navigate(["termsandconditions"]);
   }
   setRange(type: string) {
     console.log(type);

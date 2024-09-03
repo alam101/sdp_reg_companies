@@ -129,7 +129,7 @@
       </ion-col>
     </ion-row>
   </div>
-  <app-appointent *ngIf="compConfig?.isDietitian && calendlyVisible===true && isPlanExpired!==true"
+  <app-appointent *ngIf="compConfig?.dietitianAction && compConfig?.isDietitian && calendlyVisible===true && isPlanExpired!==true"
   [plan]="true"
   [deititianName]="deititianName"
   [deititianRole]="deititianRole"
@@ -303,7 +303,7 @@
    </div>
   </div>
   <br>  
-  <div *ngIf="whatappVisible && compConfig?.showWhatsApp===true" (click)="gotoWhatsApp()" style="    width: 13%;
+  <div *ngIf="compConfig.dietitianAction && whatappVisible && compConfig?.showWhatsApp===true" (click)="gotoWhatsApp()" style="    width: 13%;
     position: fixed;
     right: 2%;
     bottom: 11%;

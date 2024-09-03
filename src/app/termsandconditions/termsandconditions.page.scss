@@ -1,0 +1,45 @@
+ion-content {
+    --background: #f8f8f8;
+  }
+  
+  ion-card {
+    margin: 16px;
+  }
+  
+  ion-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  ion-card-content h2{
+    color:#000;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  ion-card-content p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .go_btn {
+    height: 50px;
+    width: 70%;
+    &::part(native) {
+      --background: var(--theme-newButton);
+      text-transform: none;
+      box-shadow: var(--btnShaddow);
+      color: var(--button-text);
+      font-family: var(--theme-newFont);
+    }
+  }
+  .back_btn {
+    height: 50px;
+    width: 70%;
+    &::part(native) {
+      --background: var(--white);
+      text-transform: none;
+      box-shadow: var(--btnShaddow);
+      color: var(--button-text-back);
+      font-family: var(--theme-newFont);
+      border-color: var(--theme-newButton);
+    }
+  }

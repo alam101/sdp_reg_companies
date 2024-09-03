@@ -149,6 +149,10 @@ export const APP_ROUTES: Routes = [
     path: 'corporate-otp',
     loadChildren: () => import('./pages/corporate-otp/corporate-otp.module').then( m => m.CorporateOtpPageModule)
   },
+  {
+    path: 'termsandconditions',
+    loadChildren: () => import('./termsandconditions/termsandconditions.module').then( m => m.TermsandconditionsPageModule)
+  },
 ];
 
 @NgModule({})
