@@ -109,6 +109,9 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
    
   }
+  gotoBuyUrl(url){
+    window.open(url,'_blank');
+  }
   videoClick(data) {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(data);
     this.streamVideo = true;

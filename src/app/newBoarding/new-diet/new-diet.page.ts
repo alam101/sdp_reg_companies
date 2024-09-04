@@ -524,8 +524,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     debugger;
    if (this.compConfig.dietitianAction) {
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
-      if(res.name!==undefined){
-      this.deititianName = res.name;
+      if(res.dietitianName!==undefined){
+      this.deititianName = res.dietitianName;
       this.deititianRole = res.role;
       this.calendlyId = res.calendlyId;
       this.whatsappNum = res.whatsappNum;
@@ -541,13 +541,16 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   }
   isIosDevice = this.utilities.isDeviceiOS();
   gotoWhatsApp(){
- if(this.isIosDevice){
-      let url = "https://api.whatsapp.com/send?phone=+"+this.whatsappNum+"&&text=I am "+this.profileData.profile.name+", Profile ID:'"+this.profileData.profile.email+"'. I need support.";
-      this.iab.create(url , '_system');
-    }else{
-      let url = "whatsapp://send?phone=+"+this.whatsappNum+"&text=I am "+this.profileData.profile.name+", Profile ID: '"+this.profileData.profile.email+"'. I need support.";
-      this.iab.create(url , '_system');
-    }
+
+    let urll=`https://wa.me/+${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID:${this.profileData.profile.email}I need support`;
+//  if(this.isIosDevice){
+     // let url = "https://api.whatsapp.com/send?phone=+"+this.whatsappNum+"&&text=I am "+this.profileData.profile.name+", Profile ID:'"+this.profileData.profile.email+"'. I need support.";
+      this.iab.create(urll , '_system');
+    // }else{
+    //   let 
+    //   let url = "whatsapp://send?phone=+"+this.whatsappNum+"&text=I am "+this.profileData.profile.name+", Profile ID: '"+this.profileData.profile.email+"'. I need support.";
+    //   this.iab.create(url , '_system');
+    // }
   }
   getCaloriesOfDay(day, index) {
     return day[index] ? day[index].Calories : 0;

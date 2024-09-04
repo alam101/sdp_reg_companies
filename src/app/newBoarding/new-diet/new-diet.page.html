@@ -209,7 +209,7 @@
         [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
         [plan]="true" 
         (getDietdata)="getDietdata($event)"
-      ></app-meal-workout>
+        ></app-meal-workout>
       <app-meal-workout-c  *ngIf="compConfig.dietComponent"
       [data]="d"
       [diets]="diets.diets"
