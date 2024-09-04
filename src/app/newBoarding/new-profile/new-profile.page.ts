@@ -150,6 +150,8 @@ dietitianRole="";
         return "brocolly-egg.png";
       case "Ve":
         return "leaf@3x.png";
+        default:
+        return "weightmanagement.png";
     }
   }
   isShow=false;
