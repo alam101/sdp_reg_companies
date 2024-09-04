@@ -126,10 +126,18 @@ dietitianRole="";
         return "extrimaly-active.png";
       case "weightLoss":
         return "weightmanagement.png";
+        case "weightLoss_blubin":
+          return "weightmanagement.png";
       case "maintenance":
         return "weightmanagement.png";
+        case "maintenance_blubin":
+          return "weightmanagement.png";
       case "muscleGain":
         return "fitness.png";
+        case "musclebuildmorning_blubin":
+          return "fitness.png";  
+          case "leanbodymorning_blubin":
+            return "fitness.png";
       case "fatShredding":
         return "fitness.png";
       case "diseseManagement":

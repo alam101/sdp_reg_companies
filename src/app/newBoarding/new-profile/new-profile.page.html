@@ -81,7 +81,7 @@
         </ion-grid>
       </div>
 
-      <!-- <div class="section-card left" style="flex-direction: row; padding: 5px 15px">
+      <div *ngIf="compConfig.goal" class="section-card left" style="flex-direction: row; padding: 5px 15px">
         <div class="edit_icon_div">
           <ion-icon (click)="openModel('boarding')" class="edit_icon"
             src="../../../../assets/newImages/icon-edit.svg"></ion-icon>
@@ -93,7 +93,7 @@
          
             {{profileData?.profile?.subCategory}}</span>
         </p>
-      </div> -->
+      </div>
 
       <div class="section-card">
         <p class="commonText" style="color: var(--black); margin-top: 0%">

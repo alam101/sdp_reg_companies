@@ -69,10 +69,12 @@ clientId="";
     this.appservice.updateProfile(reqBody).then((success) => {
       this.appservice.dietPlan(reqBodyDiet).then((res) => {
         if (this.from) {
+          this.router.navigate(["/new-profile"]);
         }
+        else{
         this.storage.set("pendingPage", "/boarding2");
-
         this.router.navigate(["/boarding2"]);
+        }
       });
     });
   }
