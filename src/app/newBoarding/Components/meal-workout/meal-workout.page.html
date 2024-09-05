@@ -112,7 +112,7 @@
               </ion-col>
               <ion-col class="ion-text-center">
                 <ion-button
-                *ngIf="(!d.eaten || d?.eaten < 0) && d.BuyUrl===''"
+                *ngIf="(!d.eaten || d?.eaten < 0) && (d?.BuyUrl==='' || d?.BuyUrl===undefined)"
                 fill="outline"
                 style="color:#414042;width:100%;height:30px;font-size: .75rem;--border-radius: 5px;--border-color:#414042;"
                 class="logged_btn"
@@ -120,7 +120,7 @@
                   &nbsp; Alternatives
                   <ion-icon name="chevron-forward-outline" style="color: #414042;margin-left:5px;"></ion-icon>
               </ion-button>
-              <ion-button *ngIf="d.BuyUrl!==''" (click)="gotoBuyUrl(d.BuyUrl)"
+              <ion-button *ngIf="d?.BuyUrl !== undefined && d?.BuyUrl!==''" (click)="gotoBuyUrl(d.BuyUrl)"
               class="logged_btn"
               style="--background: var(--profile-color);
               color:var(--button-text);width:100%;height:30px;

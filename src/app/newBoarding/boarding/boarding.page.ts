@@ -80,6 +80,6 @@ clientId="";
   }
 
   modalClose(){
-
-  }
+      this.router.navigate(["/new-profile"]);
+   }
 }

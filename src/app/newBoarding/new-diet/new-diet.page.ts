@@ -521,7 +521,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   gender="";
   calendlyVisible=false;
   getdietitianDetail(email){
-    debugger;
+  
    if (this.compConfig.dietitianAction) {
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
       if(res.dietitianName!==undefined){
@@ -542,7 +542,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   isIosDevice = this.utilities.isDeviceiOS();
   gotoWhatsApp(){
 
-    let urll=`https://wa.me/+${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID:${this.profileData.profile.email}I need support`;
+    let urll=`https://wa.me/+${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
 //  if(this.isIosDevice){
      // let url = "https://api.whatsapp.com/send?phone=+"+this.whatsappNum+"&&text=I am "+this.profileData.profile.name+", Profile ID:'"+this.profileData.profile.email+"'. I need support.";
       this.iab.create(urll , '_system');

@@ -37,6 +37,7 @@ dietitianRole="";
   preferedItem: any;
   ngOnInit() {
     this.utilities.logEvent("Tracker_profileUpdate", {});
+   
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
     this.preferredMeal();
@@ -112,6 +113,7 @@ dietitianRole="";
   modalClose(){
     this.router.navigate(['new-diet']);
   }
+  goalName=[];
   getImage(type) {
     switch (type) {
       case "AC1":
@@ -188,7 +190,11 @@ dietitianRole="";
   getProfile() {
     this.profileData = [];
     this.appservice.getProfile().then((res) => {
+     
       this.profileData = res;
+      this.goalName = this.compConfig.editGoalForDisplay.filter((item:any)=>{
+        return item.value === this.profileData?.profile?.subCategory;
+      })
       this.getCommunities(this.profileData.lifeStyle.communities);
       if (this.profileData?.profile?.subCategory === "weightloss") {
         this.profileData.profile.subCategory = "Weight Loss";
