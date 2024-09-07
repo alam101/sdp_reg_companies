@@ -190,10 +190,9 @@ dietitianRole="";
   getProfile() {
     this.profileData = [];
     this.appservice.getProfile().then((res) => {
-     
       this.profileData = res;
       this.goalName = this.compConfig.editGoalForDisplay.filter((item:any)=>{
-        return item.value === this.profileData?.profile?.subCategory;
+        return item.value === this.profileData?.lifeStyle?.dietPlanName;
       })
       this.getCommunities(this.profileData.lifeStyle.communities);
       if (this.profileData?.profile?.subCategory === "weightloss") {

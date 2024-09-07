@@ -542,15 +542,17 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   isIosDevice = this.utilities.isDeviceiOS();
   gotoWhatsApp(){
 
-    let urll=`https://wa.me/+${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
-//  if(this.isIosDevice){
+   if(this.isIosDevice){
      // let url = "https://api.whatsapp.com/send?phone=+"+this.whatsappNum+"&&text=I am "+this.profileData.profile.name+", Profile ID:'"+this.profileData.profile.email+"'. I need support.";
-      this.iab.create(urll , '_system');
-    // }else{
+     let urll=`https://api.whatsapp.com/send?phone=${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
+     this.iab.create(urll , '_system');
+   }else{
     //   let 
     //   let url = "whatsapp://send?phone=+"+this.whatsappNum+"&text=I am "+this.profileData.profile.name+", Profile ID: '"+this.profileData.profile.email+"'. I need support.";
     //   this.iab.create(url , '_system');
-    // }
+    let urll=`https://wa.me/${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
+    this.iab.create(urll , '_system');
+     }
   }
   getCaloriesOfDay(day, index) {
     return day[index] ? day[index].Calories : 0;
