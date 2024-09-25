@@ -59,6 +59,7 @@ export class Boarding4Page implements OnInit {
       this.getProfile();
     });
   }
+ 
 trayaAllergies=[];
   getProfile() {
     this.appservice.getProfile().then((res) => {

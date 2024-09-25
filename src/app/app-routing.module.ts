@@ -153,6 +153,10 @@ export const APP_ROUTES: Routes = [
     path: 'termsandconditions',
     loadChildren: () => import('./termsandconditions/termsandconditions.module').then( m => m.TermsandconditionsPageModule)
   },
+  {
+    path: 'dietitian-profile',
+    loadChildren: () => import('./dietitian-profile/dietitian-profile.module').then( m => m.DietitianProfilePageModule)
+  },
 ];
 
 @NgModule({})

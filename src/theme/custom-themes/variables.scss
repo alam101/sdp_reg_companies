@@ -2467,6 +2467,83 @@ body[color-theme="individual4"] {
 --theme-milestone2:#000;
 --button-text:#fff;
     }
+    body[color-theme="youmatter"] {
+      --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+  --theme-profile-background: #E8988D;
+  --theme-background:#E8988D; //#00a6a8
+  --theme-headerText:#fff;
+  --theme-logslot:#E8988D;
+  --theme-header:#E8988D;
+  --theme-button:#E8988D;
+  --theme-heading:#E8988D;
+  --theme-activeBtn:#E8988D;//#01A3A4       
+  --theme-plusBtn:#E8988D; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #E8988D;//#01A3A4;
+  --theme-plusBtnWaterGuage:#E8988D;  //#509bed;   
+  --theme-minusBtnWaterGuage:#E8988D;  //#509bed;  
+  --theme-waterCenterPercent:#E8988D;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #E8988D; //#01A3A5;
+  --theme-color:#E8988D; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #E8988D 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#000; 
+  // new vars
+  --theme-color:#E8988D;
+  --theme-newHeader:#E8988D;
+  --theme-newButton:#88a486;
+    --white:#ffffff;
+    --black:#333333;
+    --black-light:#676767;
+    --lightGrey:#FAFAFA;
+    --card-border:#F4F4F4;
+    --green:green;
+    --yellow:yellow;
+    --red:red;
+    --theme-newFont:'gt-america-standard-regular', sans-serif;
+    --ion-font-family: 'gt-america-standard-regular', sans-serif;
+    --xsmall-font:0.625rem;  //10px
+    --small-font:0.75rem; //12px
+    --regular-font:0.871rem; //14px
+    --regularM-font:1rem; //16px
+    --medium-font:.9rem; //18px
+    --large-font:1.2rem;  //24px;
+    --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+    --radio-background:#fff;
+    --normal-color:#393939;
+    --cercle-progress:#0A1F5B;
+  
+    --arrow-color:#88a486;
+    --goal: #88a486;
+    --profile-color: #88a486;
+    --graph-background:#f2f1eb;
+    --close-edit-color: #88a486;
+    --new-background: #99b9491f;
+    --new-border-color: #99b94933;
+    --theme-color-new:#88a486;
+    --theme-milestone:#fff; 
+  --theme-milestone2:#000;
+  --button-text:#fff;
+      }
+
+
   
 // Fonts
 $font-size: 16px;

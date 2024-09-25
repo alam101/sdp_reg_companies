@@ -58,6 +58,7 @@ export class Boarding5Page implements OnInit {
           this.country = ele;
         }
       });
+      debugger;
     });
 
     this.appService.getProfile().then((res:any)=>{
@@ -78,7 +79,7 @@ lifeStyle:any;
     else{
 
     this.storage.set("pendingPage", "/boarding4");
-    this.navCtrl.navigateRoot(["/boarding4"]);
+    this.router.navigate(["/boarding4"]);
     }
   }
 
@@ -96,6 +97,9 @@ lifeStyle:any;
   }
 
   selectFoodPre(e) {
+    this.storage.get("localData").then((res) => {
+      console.log(JSON.parse(res));
+      this.localData = JSON.parse(res);
     this.localData?.otherMaster.foodPref.forEach((ele) => {
       if (ele.value === e.detail.value) {
         ele.isSelected = true;
@@ -104,6 +108,7 @@ lifeStyle:any;
       }
     });
     this.storage.set("localData", this.utilities.parseString(this.localData));
+  });
   }
   regionalPref="";
   selectReginal(e, reginal) {
@@ -144,6 +149,9 @@ lifeStyle:any;
     }
 
     if (this.country._id === "IND") {
+      this.storage.get("localData").then((res) => {
+        console.log(JSON.parse(res));
+        this.localData = JSON.parse(res);
       this.localData?.otherMaster?.community.filter(item=>{
         if(item.code==this.regionalPref){
           item.isSelected=true;
@@ -152,7 +160,7 @@ lifeStyle:any;
           item.isSelected=false;
         }
       });
-
+      
       this.storage.set("localData", this.utilities.parseString(this.localData));
     
       const isSelected = this.localData?.otherMaster?.community.find(
@@ -164,59 +172,18 @@ lifeStyle:any;
         );
         return;
       }
+    });
     }
    
     this.storage.get("localData").then((local) => {
       const data = this.utilities.parseJSON(local);
-
-      // this.storage.get("health-journey").then((res) => {
-        // console.log("+res+", JSON.parse(res));
-        // let healthJourney = JSON.parse(res);
-        this.storage
+     this.storage
           .set("localData", this.utilities.parseString(data))
           .then(() => {
             const reqBodyLifeStyle = this.utilities.getLifeStyleRequest(
               data.otherMaster
             );
-          //   if(localStorage.getItem("clientId")==="traya"){
-          //     reqBodyLifeStyle.dietPlanName = "trayaHealth";
-          //   }
-          //   else{
-          //   if (
-          //     healthJourney?.weightValue &&
-          //     healthJourney?.weightValue == "WeightLoss"
-          //   ) {
-          //     //reqBodyLifeStyle.Type = "weightLoss";
-          //     reqBodyLifeStyle.dietPlanName = "weightLoss";
-          //   }
-          //   if (
-          //     healthJourney?.weightValue &&
-          //     healthJourney?.weightValue == "WeightMaintenance"
-          //   ) {
-          //     //reqBodyLifeStyle.Type = "maintenance";
-          //     reqBodyLifeStyle.dietPlanName = "weightLoss";
-          //   }
-
-          //   if (
-          //     healthJourney?.fitnessValue &&
-          //     healthJourney?.fitnessValue == "MuscleBuilding"
-          //   ) {
-          //     //reqBodyLifeStyle.Type = "muscleGain";
-          //     reqBodyLifeStyle.dietPlanName = "muscleGain_morning";
-          //   }
-          //   if (
-          //     healthJourney?.fitnessValue &&
-          //     healthJourney?.fitnessValue == "LeanBody"
-          //   ) {
-          //     //reqBodyLifeStyle.Type = "fatShredding";
-          //     reqBodyLifeStyle.dietPlanName = "fatShredding_morning";
-          //   }
-
-          //   if (healthJourney?.deasesValue) {
-          //     //reqBodyLifeStyle.Type = "weightLoss";
-          //     reqBodyLifeStyle.dietPlanName = healthJourney?.deasesValue.toLowerCase();
-          //   }
-          // }
+       
           reqBodyLifeStyle.dietPlanName = localStorage.getItem("goals");
           reqBodyLifeStyle.country = this.country?._id; 
           const activitiesData = JSON.parse(localStorage.getItem("activities"));
@@ -297,6 +264,7 @@ lifeStyle:any;
     //   }
     // });
     if (typeof this.localData.otherMaster !== undefined)
+      debugger;
       this.storage.set("localData", this.utilities.parseString(this.localData));
     this.openCountryDrop = !this.openCountryDrop;
 
