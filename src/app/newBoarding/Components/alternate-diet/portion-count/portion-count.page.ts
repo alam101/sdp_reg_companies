@@ -19,6 +19,7 @@ import { CONSTANTS } from "src/app/core/constants/constants";
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { ViewProductPage } from "../../view-product/view-product.page";
 
+
 @Component({
   selector: "app-portion-count",
   templateUrl: "./portion-count.page.html",
@@ -110,6 +111,7 @@ export class PortionCountPage implements OnInit {
 
   async replaced(item) {
   //
+  debugger;
     if (this.currentDateIndex == 0) {
       this.utilities.logEvent("onboarding_Counter_add_home", {});
 
@@ -183,7 +185,7 @@ export class PortionCountPage implements OnInit {
   }
 
   async eatenStatusUpdate(item, eaten) {
-
+   debugger;
     if (this.currentDateIndex == 0) {
       this.utilities.logEvent("onboarding_Counter_add_home", {});
 
