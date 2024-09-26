@@ -58,7 +58,7 @@ export class Boarding5Page implements OnInit {
           this.country = ele;
         }
       });
-      debugger;
+      //
     });
 
     this.appService.getProfile().then((res:any)=>{
@@ -264,7 +264,7 @@ lifeStyle:any;
     //   }
     // });
     if (typeof this.localData.otherMaster !== undefined)
-      debugger;
+      //
       this.storage.set("localData", this.utilities.parseString(this.localData));
     this.openCountryDrop = !this.openCountryDrop;
 

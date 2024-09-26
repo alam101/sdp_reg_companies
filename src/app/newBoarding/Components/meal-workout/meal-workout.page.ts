@@ -381,7 +381,7 @@ addRemove(type) {
     this.eatenStatusUpdate1(d,index);
   }
   async remove(item, eaten, status) {
-    debugger;
+    //
     if (this.currentDateIndex == 0) {
       let foodCodeList = [];
       this.utilities.logEvent("onboarding_Counter_add_home", {});
@@ -416,7 +416,7 @@ addRemove(type) {
   }
 
   async eatenStatusUpdate1(item,slot) {
-    debugger;
+    //
     console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
     
      if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
@@ -463,7 +463,7 @@ addRemove(type) {
     }
   }
   async eatenStatusUpdate(item, eaten, status) {
-   debugger;
+   //
     console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
     
      if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
