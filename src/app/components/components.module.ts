@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from "@ionic/angular";
 import { HeaderComponent } from "./header/header.component";
-import { IonIntlTelInputModule } from 'ion-intl-tel-input';
+// import { IonIntlTelInputModule } from 'ion-intl-tel-input';
 import { FooterComponent } from "./footer/footer.component";
 import { GoalComponent } from "./goal/goal.component";
 import { ButtonComponent } from "./button/button.component";
@@ -60,10 +60,11 @@ import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-
    
   ],
   imports: [
-    IonIntlTelInputModule,
+    // IonIntlTelInputModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule, IonicModule.forRoot(),NgCircleProgressModule.forRoot({
+    CommonModule, 
+    IonicModule.forRoot(),NgCircleProgressModule.forRoot({
     animation:false,
     radius:49,
     innerStrokeWidth:6,

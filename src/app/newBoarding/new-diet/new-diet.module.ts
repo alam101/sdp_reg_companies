@@ -19,6 +19,7 @@ import { SearchPageModule } from "src/app/search/search.module";
 import { PortionCountPageModule } from "../Components/alternate-diet/portion-count/portion-count.module";
 import { AppointentPageModule } from "src/app/appointent/appointent.module";
 // import { Tabs1PageModule } from "src/app/tabs1/tabs1.module";
+import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +35,10 @@ import { AppointentPageModule } from "src/app/appointent/appointent.module";
     ComponentsModule,
     SearchPageModule,
   PortionCountPageModule,
-  AppointentPageModule
+  AppointentPageModule,
+  BackButtonDisableModule.forRoot({
+    preserveScroll: true
+  })
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [NewDietPage],

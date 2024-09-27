@@ -5,7 +5,7 @@ import { Storage } from "@ionic/storage";
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { CONSTANTS } from "src/app/core/constants/constants";
 import { AppService } from "../app.service";
-
+import { Location } from '@angular/common'; 
 
 @Component({
   selector: "app-final-boarding",
@@ -15,6 +15,7 @@ import { AppService } from "../app.service";
 export class FinalBoardingPage implements OnInit {
   moment: any = moment;
   date: any = new Date();
+  randomNumber = Number(Date.now()) * Math.random();
   next3: any = new Date().setMonth(new Date().getMonth() + 3);
   //plan: any;
   localData: any;
@@ -35,7 +36,8 @@ export class FinalBoardingPage implements OnInit {
     private navCtrl: NavController,
     private storage: Storage,
     private utilities: UTILITIES,
-    private appService: AppService
+    private appService: AppService,
+    private location:Location
   ) {
 console.log("cccccc:-",localStorage.getItem("clientId"));
 
@@ -80,12 +82,16 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
       let clientId=localStorage.getItem("clientId");
       if(!clientId) 
         {
-           window.history.replaceState({}, '', '/new-diet');
-           this.navCtrl.navigateForward(["new-diet"]).then(() => {});
+        
+          this.location.replaceState('/','',{});
+         //  this.navCtrl.navigateForward(["new-diet"]).then(() => {});
+         this.navCtrl.navigateForward(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
         }
         else  {
-        window.history.replaceState({}, '', '/new-diet');
-        location.replace(`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`);
+          this.location.replaceState(`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`,'',{});
+      
+        //  this.location.replaceState('/new-diet','params='+Math.floor(this.randomNumber).toString(),{});
+          this.navCtrl.navigateForward(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
       }
      }
 
@@ -155,22 +161,12 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
               });
         });
       });
-      // this.storage.get("profileData").then(val => {
-      //   let profile = JSON.parse(val);
-      // // let selectedCountry = data.countries.filter((ele)=>{
-      // //   return ele.isSelected
-      // // })
-      // })
+
     });
   }
 
   termsandCond() {
-    //this.openTerms=false;
-    // this.termsConditions = true;
-    // if(this.couponCode!="" && this.termsConditions){
-    // this.utilities.presentLoading();
-    //console.log("terms",this.termsConditions);
-    //if(this.termsConditions){
+  
     let reqData = { tnc: "accepted" };
     this.appService.terms(reqData).then(
       (res) => {
@@ -194,15 +190,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
     );
     //  });
   }
-  // else{
-  //   this.utiltites.hideLoader();
-  //   this.utiltites.presentAlert("Please accept the terms & conditions to continue.");
-  // }
-  //}
-  // else{
-  //   this.utiltites.presentAlert("Please select plan.");
-  // }
-  //}
+
 
   payForFree() {
     this.appService
@@ -223,50 +211,5 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
       );
   }
 
-  // ditePlanAPIcall() {
-  //   this.storage.get("health-journey").then((achieveValue) => {
-  //     console.log("res=========>>");
-  //     this.achieveValue = achieveValue ? JSON.parse(achieveValue) : null;
-  //     let reqBodyDiet = {
-  //       dietPlanName: "",
-  //     };
-  //     if (this.achieveValue &&
-  //       this.achieveValue.weightValue &&
-  //       this.achieveValue.weightValue == "WeightLoss"
-  //     ) {
-  //       reqBodyDiet.dietPlanName = "weightLoss";
-  //     }
-  //     if (
-  //       this.achieveValue &&
-  //       this.achieveValue.weightValue &&
-  //       this.achieveValue.weightValue == "WeightMaintenance"
-  //     ) {
-  //       reqBodyDiet.dietPlanName = "weightLoss";
-  //     }
 
-  //     if (this.achieveValue &&
-  //       this.achieveValue.fitnessValue &&
-  //       this.achieveValue.fitnessValue == "MuscleBuilding"
-  //     ) {
-  //       reqBodyDiet.dietPlanName = "muscleGain_morning";
-  //     }
-
-  //     if (this.achieveValue &&
-  //       this.achieveValue.fitnessValue &&
-  //       this.achieveValue.fitnessValue == "LeanBody"
-  //     ) {
-  //       reqBodyDiet.dietPlanName = "fatShredding_morning";
-  //     }
-
-  //     if (this.achieveValue && this.achieveValue.deasesValue) {
-  //       reqBodyDiet.dietPlanName = this.achieveValue.deasesValue.toLowerCase();
-  //     }
-  //     if(reqBodyDiet.dietPlanName!==""){
-  //     this.appService.dietPlan(reqBodyDiet).then((res) => {
-  //       console.log("res", res);
-  //     });
-  //     }
-  //   });
-  
-  // }
 }

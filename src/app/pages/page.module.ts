@@ -5,13 +5,12 @@ import { UserVitalsComponent } from './user-vitals/user-vitals.component';
 import { IonicModule } from '@ionic/angular';
 import { ComponentsModule } from '../components/components.module';
 import { SelectInfoComponent } from './select-info/select-info.component';
-
 import { ActivityMainComponent } from './activity-main/activity-main.component';
 import { VerticalDietplanComponent } from './vertical-dietplan/vertical-dietplan.component';
 import { OptionsComponent } from './options/options.component';
 import { FoodDetailsComponent } from './food-details/food-details.component';
 import { AnalysisComponent } from './analysis/analysis.component';
-import { GaugeChartModule } from 'angular-gauge-chart';
+// import { GaugeChartModule } from 'angular-gauge-chart';
 import { FightSliderPageModule } from '../fight-slider/fight-slider.module';
 
 import {
@@ -20,7 +19,6 @@ import {
   TranslateStore,
   TranslateService
 } from "@ngx-translate/core";
-import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [LandingGoalsComponent,UserVitalsComponent, SelectInfoComponent, 
@@ -31,7 +29,7 @@ import { HttpClient } from '@angular/common/http';
     ComponentsModule,
     FightSliderPageModule,
     IonicModule.forRoot(),
-    GaugeChartModule,
+    // GaugeChartModule,
     TranslateModule.forChild()
   ],
   providers:[ TranslateStore,TranslateService,TranslateModule,TranslateService],

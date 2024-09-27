@@ -14,7 +14,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { SettingsService } from './services/settings.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CommonModule } from '@angular/common';
-import { GaugeChartModule } from 'angular-gauge-chart';
+// import { GaugeChartModule } from 'angular-gauge-chart';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BroadcastService } from './broadcast.service';
@@ -31,7 +31,7 @@ import { ViewProductPageModule } from 'src/app/view-product/view-product.module'
     BrowserModule,
     HomeModule,
     RouterModule.forRoot(APP_ROUTES),
-    GaugeChartModule,
+    // GaugeChartModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
