@@ -83,14 +83,15 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
       if(!clientId) 
         {
         
-          this.location.replaceState('/','',{});
+        //  this.location.replaceState('/','',{});
          //  this.navCtrl.navigateForward(["new-diet"]).then(() => {});
          this.navCtrl.navigateForward(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
         }
         else  {
+        
           this.location.replaceState(`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`,'',{});
-      
-        //  this.location.replaceState('/new-diet','params='+Math.floor(this.randomNumber).toString(),{});
+          
+          this.location.replaceState('/new-diet','params='+Math.floor(this.randomNumber).toString(),{});
           this.navCtrl.navigateForward(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
       }
      }

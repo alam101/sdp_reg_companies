@@ -14,6 +14,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SearchPage } from '../../search/search.page';
 import { BroadcastService } from "src/app/broadcast.service";
 import { Subscription } from 'rxjs';
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-new-diet",
@@ -46,6 +47,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   companyLogoBase64="";
   subscription: Subscription;
   planName: any;
+  randomNumber = Number(Date.now()) * Math.random();
   constructor(
     private appServices: AppService,
     private cdr: ChangeDetectorRef,
@@ -57,7 +59,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     private iab: InAppBrowser,
     private storage: Storage,
     private utilss: UTILS,
-    private broadcastService: BroadcastService
+    private broadcastService: BroadcastService,
+    private location:Location
   ) {
     localStorage.setItem("currentDate",new Date().getTime()+"");
     this.subscription =  this.broadcastService.getMessage().subscribe(res=>{
@@ -75,12 +78,14 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     };
     this.clientId = localStorage.getItem("clientId");
     this.displayFooter = true;
+   
   }
   ngOnDestroy() {
     // Unsubscribe to prevent memory leaks
     this.subscription.unsubscribe();
   }
   ionViewWillEnter() {
+    history.forward();
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
       this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
     } else {
