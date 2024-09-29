@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../newBoarding/app.service';
 
 @Component({
   selector: 'app-dietitian-profile',
@@ -7,9 +8,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DietitianProfilePage implements OnInit {
 
-  constructor() { }
+  constructor(private appServices:AppService) { }
 
   ngOnInit() {
+    this.getProfile();
+  }
+
+  profileData:any;
+ 
+  getProfile(){
+    this.appServices.getProfile().then(
+      profileData => {
+        this.profileData = profileData;
+        //   let userData = {
+        //   email: profileData["profile"]["email"],
+        //   firstName: profileData["profile"]["given_name"],
+        //   id: profileData["profile"]["email"],
+        //   lastName: profileData["profile"]["family_name"],
+        //   name: profileData["profile"]["name"],
+        //   photoUrl: null,
+        //   provider: "mobile"
+        // };
+        debugger;
+        this.getDietitianDetail(this.profileData.profile.email);
+      });
+
+   }
+  
+  getDietitianDetail(email){
+    this.appServices.getDietitianRecord(email).subscribe((res:any)=>{
+      console.log("response dietitian", res);
+      
+      // if(res.dietitianName!==undefined){
+      // this.deititianName = res.dietitianName;
+      // this.deititianRole = res.role;
+      // this.calendlyId = res.calendlyId;
+      // this.whatsappNum = res.whatsappNum;
+      // this.whatappVisible = res.whatsappVisible;  
+      // this.gender = res.gender;
+      // this.calendlyVisible = res.calendlyVisible;
+      // }
+    },err=>{
+
+    });
   }
 
 }

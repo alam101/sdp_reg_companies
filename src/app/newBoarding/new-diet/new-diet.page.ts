@@ -6,7 +6,7 @@ import { AppService } from "../app.service";
 import { CONSTANTS } from "src/app/core/constants/constants";
 import { Utilities } from "../utilities.service";
 import { UTILITIES as UTILS } from "src/app/core/utility/utilities";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import jsPDF from "jspdf";
 import { UserOptions } from "jspdf-autotable";
 import { UTILITIES } from "../utils/utilities";
@@ -47,6 +47,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   companyLogoBase64="";
   subscription: Subscription;
   planName: any;
+  company_id=null;
   randomNumber = Number(Date.now()) * Math.random();
   constructor(
     private appServices: AppService,
@@ -60,8 +61,17 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     private storage: Storage,
     private utilss: UTILS,
     private broadcastService: BroadcastService,
-    private location:Location
+    private location:Location,
+    private routerActive: ActivatedRoute
   ) {
+    this.routerActive.queryParams.subscribe(res=>{
+     if(res?.companyId===undefined){
+        this.company_id = null;
+      }
+      else{
+        this.company_id = res.companyId;
+      }
+    });
     localStorage.setItem("currentDate",new Date().getTime()+"");
     this.subscription =  this.broadcastService.getMessage().subscribe(res=>{
       console.log("res");
@@ -592,17 +602,17 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     }, 1000);
   }
   downloadPdfFromApi(){
-    this.startInterval();
+    this.startInterval()
   //  this.utilities.showLdr();
     this.appServices.downloadPdfFromApi(localStorage.getItem("tkn"),7,
     moment(this.selecteddate).format("DDMMYYYY").trim(),
-    'alyve.health'
+    this.company_id
     ,localStorage.getItem('email')).subscribe((blob) => {
       this.percentwithPer='100%';
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'Alyve_Dietplan.pdf';
+      a.download = this.company_id+'_Dietplan.pdf';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

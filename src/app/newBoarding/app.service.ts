@@ -99,6 +99,13 @@ export class AppService {
     const url = APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`; 
     return this.httpClient.get(url, {}).toPromise();
   }
+
+  getDietitianRecord(mail: string) {
+    return this.httpClient.get(
+      APIS.nodeBaseUrl + `dietitian/getDietitianRecord?mail=${mail}`
+    );
+  }
+
   // getEditProfilePermission(email) {
   //   const url = APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`;
    
