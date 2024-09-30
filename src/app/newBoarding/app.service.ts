@@ -100,9 +100,9 @@ export class AppService {
     return this.httpClient.get(url, {}).toPromise();
   }
 
-  getDietitianRecord(mail: string) {
+  getDietitianRecord(userid: string) {
     return this.httpClient.get(
-      APIS.nodeBaseUrl + `dietitian/getDietitianRecord?mail=${mail}`
+      APIS.nodeBaseUrl + `dietitian/getAssignedDietitian?userId=${userid}`
     );
   }
 

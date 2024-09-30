@@ -60,7 +60,6 @@ export class OptionsComponent implements OnInit {
     private alertController: AlertController,
     
   ) {
-   
     // this.requestBody = [];
     this.route.queryParams.subscribe(res => {
       this.heading = res.param;
@@ -73,7 +72,6 @@ export class OptionsComponent implements OnInit {
     for (let index = 0; index < this.seeMore.length; index++) {
       this.seeMore[index]="See more...";
     }
-    
   }
   
   activeInd:any=0;
@@ -85,7 +83,6 @@ export class OptionsComponent implements OnInit {
     }
     this.isMeal = optionName;
     this.categoryLength = this.optionData.mealOptions[this.activeInd].categories.length;
-   
   }
 
 
@@ -393,32 +390,6 @@ export class OptionsComponent implements OnInit {
       this.requestBody.push({ valid:true });
     }
 
-    // this.selectPortion[i] = this.selectPortion[i] ? this.selectPortion[i] : 1;
-    // if (this.selectPortion[i] < 20) {
-    //   this.selectPortion[i] = this.selectPortion[i] + 0.5;
-    // }
-    // if (this.requestBody.length == 0) {
-    //   this.requestBody.push({
-    //     optionName,
-    //     code,
-    //     category: catName,
-    //     portion: this.selectPortion[i]
-    //   });
-    // } else {
-    //   this.isCategorySelected = true;
-    //   for (let index = 0; index < this.requestBody.length; index++) {
-    //     if (this.requestBody[index].code == code) {
-    //       this.requestBody[index].portion = this.selectPortion[i];
-    //     }
-    //   }
-
-    //   for (let index = 0; index < this.jsonCreation.length; index++) {
-    //     if (this.jsonCreation[index].code == code) {
-    //       this.jsonCreation[index].portion = this.selectPortion[i];
-    //     }
-    //   }
-    //   console.log("Json Creation", this.jsonCreation);
-    // }
   }
 
   changeUnverified(value, n, baseUnit){
@@ -432,24 +403,7 @@ export class OptionsComponent implements OnInit {
       this.unvrifiedData[n]["Carbs"] = this.unvrifiedData[n].portion*baseUnit['Carbs'];
       this.unvrifiedData[n]["Fiber"] = this.unvrifiedData[n].portion*baseUnit['Fiber'];
       this.requestBody.push(this.unvrifiedData[n]);
-      // if(this.unvrifiedData[n].portion_unit.indexOf('portion') > -1){
-      //   let basePortionUnit = Number((this.unvrifiedData[n].portion_unit.match(/\d/g)).join(""));
-      //   this.unvrifiedData[n]["Protien"] = this.unvrifiedData[n].Protien*this.unvrifiedData[n].portion*basePortionUnit;
-      //   this.unvrifiedData[n]["Fat"] = this.unvrifiedData[n].Fat*this.unvrifiedData[n].portion*basePortionUnit;
-      //   this.unvrifiedData[n]["Carbs"] = this.unvrifiedData[n].Carbs*this.unvrifiedData[n].portion*basePortionUnit;
-      //   this.unvrifiedData[n]["Fiber"] = this.unvrifiedData[n].Fiber*this.unvrifiedData[n].portion*basePortionUnit;
-      //   this.unvrifiedData[n]["Calories"] = this.unvrifiedData[n].Calories*this.unvrifiedData[n].portion*basePortionUnit;
-      //   this.requestBody.push(this.unvrifiedData[n]);
-      // }else{
-      //   let basePortionUnit = this.unvrifiedData[n].portion;
-      //   this.unvrifiedData[n]["Calories"] = this.unvrifiedData[n].portion*baseUnit['Calories'];
-      //   this.unvrifiedData[n]["Protien"] = this.unvrifiedData[n].portion*baseUnit['Protien'];
-      //   this.unvrifiedData[n]["Fat"] = this.unvrifiedData[n].portion*baseUnit['Fat'];
-      //   this.unvrifiedData[n]["Carbs"] = this.unvrifiedData[n].portion*baseUnit['Carbs'];
-      //   this.unvrifiedData[n]["Fiber"] = this.unvrifiedData[n].portion*baseUnit['Fiber'];
-      //   this.requestBody.push(this.unvrifiedData[n]);
-      // }
-    } else if(portion <= 0){
+      } else if(portion <= 0){
       this.unvrifiedData[n]['portion'] = 0;
     }
   }
@@ -685,82 +639,10 @@ export class OptionsComponent implements OnInit {
             this.optionData.mealOptions[index].categories
           );
 
-          // for (
-          //   let j = 0;
-          //   j < this.optionData.mealOptions[index].categories.length;
-          //   j++
-          // ) {
-          //   for (
-          //     let fk = 0;
-          //     fk <
-          //     this.optionData.mealOptions[index].categories[j].food.length;
-          //     fk++
-          //   ) {
-          //     this.optionData.mealOptions[index].categories[j].food[
-          //       fk
-          //     ].selected = "false";
-          //   }
-          //   if (
-          //     this.optionData.mealOptions[index].categories[j].food.length > 0
-          //   ) {
-          //     this.segments.push({
-          //       optionName: this.optionData.mealOptions[index].optionName
-          //     });
-          //     break;
-          //   } else {
-          //     continue;
-          //   }
-          // }
-          // for (
-          //   let j = 0;
-          //   j < this.optionData.mealOptions[index].categories.length;
-          //   j++
-          // ) {
-          //   if (
-          //     this.optionData.mealOptions[index].categories[j].food.length > 0
-          //   ) {
-          //   }
-          // }
         } 
-        // else if (!this.optionData.mealOptions[index].isCategory) {
-        //   this.getSelectedOption1(this.optionData.mealOptions);
-        //   if (this.optionData.mealOptions[index].food.length > 0) {
-        //     for (
-        //       let fk = 0;
-        //       fk < this.optionData.mealOptions[index].food.length;
-        //       fk++
-        //     ) {
-        //       this.optionData.mealOptions[index].food[fk].selected = "false";
-        //     }
-  
-        //     //   this.getSelectedOption(this.optionData.mealOptions[index].food);
-        //     this.segments.push({
-        //       optionName: this.optionData.mealOptions[index].optionName
-        //     });
-        
-        //   }
-        // }
-  
-        // if (this.optionData.mealOptions[index].isCategory) {
-        //   for (
-        //     let j = 0;
-        //     j < this.optionData.mealOptions[index].categories.length;
-        //     j++
-        //   ) {
-        //     this.optionData.mealOptions[index].categories[j].isOk = true;
-        //   }
-        // }
+   
       }
-      // for (let index = 0; index < this.optionData.mealOptions[this.activeInd].categories.length; index++) {
-      //   this.categoryLength = this.optionData.mealOptions[this.activeInd].categories.length;
-      //   let data1 = this.optionData.mealOptions[this.activeInd].categories[index].food.filter(item=>{
-      //       return item.recommendedFor!=undefined && item.recommendedFor.length > 0;
-      //     });
-      //     if(data1.length>0){
-      //       this.flagIndexforHealth=this.flagIndexforHealth+1;
-      //       break;
-      //     }
-      //   }
+  
         this.isMeal = this.segmentName = this.optionData.mealOptions[this.activeInd]["optionName"];
         this.utilities.hideLoader();
         
@@ -922,24 +804,8 @@ export class OptionsComponent implements OnInit {
 
 
   loadAllData(){
-    // if(!localStorage.getItem("loadAllOptions")){
-    //   localStorage.setItem("loadAllOptions", new Date().toString());
       this.getWordPressOtions();
-    // }else if(this.firstDateIsPastDayComparedToSecond(new Date(localStorage.getItem("loadAllOptions")), new Date())){
-    //   this.storage.set("optionsData",{}).then(()=>{
-    //     this.getWordPressOtions();
-    //   })
-    // }else{
-    //   this.storage.get("optionsData").then((res)=>{
-    //     if(!res){
-    //       this.getWordPressOtions();
-    //     }else if(!res[this.slot]){
-    //       this.getWordPressOtions();
-    //     }else {
-    //       this.getOptions();
-    //     }
-    //   })
-    // }
+   
   }
 
   dietPlanSlotData = [];
@@ -1240,7 +1106,7 @@ export class OptionsComponent implements OnInit {
     })
 
     if(selectedFoodList.length) selectedFoodItems = selectedFoodList[selectedFoodList.length - 1];
-
+    
     selectedFoodList.forEach((ele) =>{
       selectedPref.push({
         code: ele.code,

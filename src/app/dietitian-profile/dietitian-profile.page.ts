@@ -20,15 +20,7 @@ export class DietitianProfilePage implements OnInit {
     this.appServices.getProfile().then(
       profileData => {
         this.profileData = profileData;
-        //   let userData = {
-        //   email: profileData["profile"]["email"],
-        //   firstName: profileData["profile"]["given_name"],
-        //   id: profileData["profile"]["email"],
-        //   lastName: profileData["profile"]["family_name"],
-        //   name: profileData["profile"]["name"],
-        //   photoUrl: null,
-        //   provider: "mobile"
-        // };
+       
         debugger;
         this.getDietitianDetail(this.profileData.profile.email);
       });

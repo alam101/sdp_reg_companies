@@ -580,7 +580,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      this.downloadPdfFromApi();
      }
      else{
-      this.downloadDietPlan();
+      this.downloadPdfFromApi();
      }
     
   }
@@ -606,13 +606,13 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   //  this.utilities.showLdr();
     this.appServices.downloadPdfFromApi(localStorage.getItem("tkn"),7,
     moment(this.selecteddate).format("DDMMYYYY").trim(),
-    this.company_id
+    localStorage.getItem("company_id")
     ,localStorage.getItem('email')).subscribe((blob) => {
       this.percentwithPer='100%';
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = this.company_id+'_Dietplan.pdf';
+      a.download = localStorage.getItem("company_id")+'_Dietplan.pdf';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
