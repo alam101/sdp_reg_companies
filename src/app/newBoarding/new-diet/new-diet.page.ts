@@ -580,6 +580,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      this.downloadPdfFromApi();
      }
      else{
+      this.isdoenloadclicked=true;
       this.downloadPdfFromApi();
      }
     

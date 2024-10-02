@@ -18,6 +18,7 @@ export class ReadQueryComponent implements OnInit {
   type="0";
   selectedTheme: String;
   randomNumber = Number(Date.now()) * Math.random();
+  company_id='null';
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
     if(this.token=="")
     {  this.presentLoadingCustom();
@@ -25,6 +26,7 @@ export class ReadQueryComponent implements OnInit {
        console.log("res",res.token);
        localStorage.setItem("firstday","");
        this.token = res.token;
+       localStorage.setItem("company_id",res?.companyId===undefined?'null':res?.companyId);
        this.clientId = res.clientId || res.clientid;
       if(this.clientId==undefined){   
        this.clientId =localStorage.getItem("clientId");

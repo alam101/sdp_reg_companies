@@ -102,7 +102,7 @@ export class AppService {
 
   getDietitianRecord(userid: string) {
     return this.httpClient.get(
-      APIS.nodeBaseUrl + `dietitian/getAssignedDietitian?userId=${userid}`
+      APIS.nodeBaseUrl + `dietitian/assignedDietitianRecord?userId=${userid}`
     );
   }
 

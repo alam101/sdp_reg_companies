@@ -26,11 +26,11 @@ export class DietitianProfilePage implements OnInit {
       });
 
    }
-  
+  dietitianRecord=[];
   getDietitianDetail(email){
     this.appServices.getDietitianRecord(email).subscribe((res:any)=>{
       console.log("response dietitian", res);
-      
+      this.dietitianRecord = res;
       // if(res.dietitianName!==undefined){
       // this.deititianName = res.dietitianName;
       // this.deititianRole = res.role;
