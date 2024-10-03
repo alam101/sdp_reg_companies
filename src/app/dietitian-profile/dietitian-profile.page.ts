@@ -20,17 +20,19 @@ export class DietitianProfilePage implements OnInit {
     this.appServices.getProfile().then(
       profileData => {
         this.profileData = profileData;
-       
-        debugger;
         this.getDietitianDetail(this.profileData.profile.email);
       });
 
    }
   dietitianRecord=[];
+  skills=[];
+  gender="";
   getDietitianDetail(email){
     this.appServices.getDietitianRecord(email).subscribe((res:any)=>{
       console.log("response dietitian", res);
       this.dietitianRecord = res;
+      this.skills = res.speciality.split(', ');
+      this.gender = res.gender.toLowerCase();
       // if(res.dietitianName!==undefined){
       // this.deititianName = res.dietitianName;
       // this.deititianRole = res.role;

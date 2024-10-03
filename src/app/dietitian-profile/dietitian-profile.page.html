@@ -16,7 +16,7 @@
           {{dietitianRecord.dietitianName}}, <br>
           your dietitian
         </span><br>
-        <div style="font-size: .8rem; font-weight:400;color:#000;padding-top:.5rem;">
+        <div style="font-size: .8rem; font-weight:400;color:#000;padding-top:.5rem;padding-bottom:.5rem;">
           will help you to navigate 
           your diet plan.
         </div>
@@ -45,7 +45,8 @@ width:100%; display: inline-block;
     border-radius: 53%;
     content: '';
     display: inline-block; position:absolute;background:grey">
-  <img src="./assets/img/leaf.png">
+  <img *ngIf="gender==='male'" src="./assets/img/dietitian_male.png">
+  <img *ngIf="gender==='female'" src="./assets/img/dietitian_female.png">
 </div>
 </div>
  <div style="padding: 10px;">
@@ -61,29 +62,11 @@ width:100%; display: inline-block;
   <div style="font-size: 1.3rem;color:#000;font-weight:600;">Key Skills:</div><br>
 <div style="font-size: 1rem;color:#000;">
   <ion-row style="font-size: .7rem;">
-    <ion-col>
-      <div style="margin-bottom:1rem;padding:.1rem 2rem;width: auto; height:25px;float:left;border-radius:1rem;border:.5px solid #b3b3b3;">
-        Weight Loss
+    <ion-col *ngFor="let skill of skills; let index=index;">
+      <div style="margin-bottom:1rem;padding:.3rem 2rem;width: auto; height:25px;float:left;border-radius:1rem;border:.5px solid #b3b3b3;">
+       {{skill}}
        </div>
     </ion-col>
-    <ion-col>
-      <div style="margin-bottom:1rem;padding:.1rem 2rem;width: auto; height:25px;float:left;border-radius:1rem;border:.5px solid #b3b3b3;">
-        Weight Gain
-       </div>    
-    </ion-col>
-  </ion-row>
-  
-  <ion-row style="font-size: .7rem;">
-    <ion-col size="">
-   <div style="margin-bottom:1rem;padding:.1rem 2rem;width: auto; height:25px;float:left;border-radius:1rem;border:.5px solid #b3b3b3;">
-   General well being
-   </div>
-   </ion-col>
-   <ion-col>
-   <div style="margin-bottom:1rem;padding:.1rem 2rem;width: auto; height:25px;float:left;border-radius:1rem;border:.5px solid #b3b3b3;">
-   BP
-   </div>
-  </ion-col>
   </ion-row>
 </div>
  </div>
@@ -104,12 +87,13 @@ min-height: 25%;height:auto;position:relative;content: '';width:100%; display: i
       <ion-col>
         <ion-card style="text-align: center;
     border-radius: 1rem;
-    padding: .8rem;
-    color: #000;min-height: 200px;
-    height: 95%;">
+    padding: .5rem;
+    color: #000;min-height: 185px;
+    height: 85%;">
            <img src="./assets/img/homebased.png">
+           <br>
            <div>
-            <span style="font-size: 1rem;font-weight:500;">Home based</span><br><br>
+            <span style="font-size: 1rem;font-weight:500;">Home based</span><br>
             <span style="font-size: .8rem;font-weight:400;">
             Healthy options with Macros n recipes
             </span>
@@ -119,12 +103,13 @@ min-height: 25%;height:auto;position:relative;content: '';width:100%; display: i
       <ion-col>
         <ion-card style="text-align: center;
     border-radius: 1rem;
-    padding: .8rem;
-    color: #000;min-height: 200px;
-    height: 95%;">
+    padding: .5rem;
+    color: #000;min-height: 185px;
+    height: 85%;">
           <img src="./assets/img/alternatives.png">
+          <br>
           <div>
-           <span style="font-size: 1rem;font-weight:500;">Alternatives</span><br><br>
+           <span style="font-size: 1rem;font-weight:500;">Alternatives</span><br>
            <span style="font-size: .8rem;font-weight:400;">
             Flexi diet plan with 1000s of alternatives
            </span>
@@ -136,13 +121,14 @@ min-height: 25%;height:auto;position:relative;content: '';width:100%; display: i
       <ion-col>
         <ion-card style="text-align: center;
     border-radius: 1rem;
-    padding: .8rem;
-    color: #000;min-height: 200px;
-    height: 95%;">
+    padding: .5rem;
+    color: #000;min-height: 185px;
+    height: 85%;">
            <img src="./assets/img/soda.png">
            <img src="./assets/img/restorants.png">
+           <br>
            <div>
-            <span style="font-size: 1rem;font-weight:500;">Restaurant/<br>Packaged foods</span><br><br>
+            <span style="font-size: 1rem;font-weight:500;">Restaurant/<br>Packaged foods</span><br>
             <span style="font-size: .8rem;font-weight:400;">
               Guidance for healthy options with color coding
             </span>
@@ -152,12 +138,13 @@ min-height: 25%;height:auto;position:relative;content: '';width:100%; display: i
       <ion-col>
         <ion-card style="text-align: center;
     border-radius: 1rem;
-    padding: .8rem;
-    color: #000;min-height: 200px;
-    height: 95%;">
+   padding: .5rem;
+    color: #000;min-height: 185px;
+    height: 85%;">
           <img src="./assets/img/list.png">
+          <br>
           <div>
-           <span style="font-size: 1rem;font-weight:500;">Macros tracking</span><br><br>
+           <span style="font-size: 1rem;font-weight:500;">Macros tracking</span><br>
            <span style="font-size: .8rem;font-weight:400;">
             Track the macros against the goals
            </span>
