@@ -613,7 +613,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = localStorage.getItem("company_id")+'_Dietplan.pdf';
+      a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

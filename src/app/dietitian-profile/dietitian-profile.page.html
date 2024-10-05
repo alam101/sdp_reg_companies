@@ -10,93 +10,99 @@
 <div style="padding: 10px;">
   <ion-row>
     <ion-col>
-      <div style="float: left;width:60%;"><br>
-        <span style="font-size: 1.2rem; font-weight:600;color:#000;">
+      <div style="float: left;width:60%;"><br><br>
+        <span style="font-size: 2.2rem; font-weight:600;color:#000;">
           I am <br>
-          {{dietitianRecord.dietitianName}}, <br>
-          your dietitian
-        </span><br>
-        <div style="font-size: .8rem; font-weight:400;color:#000;padding-top:.5rem;padding-bottom:.5rem;">
+          {{dietitianRecord?.dietitianName}}, <br>
+         <span style="white-space: nowrap;"> your {{dietitianRecord?.role}}</span>
+        </span>
+        <div style="font-family: sans-serif;margin-top:.5rem;font-size: 1.01rem; font-weight:200;color:#000;padding-top:.5rem;padding-bottom:.5rem;">
           will help you to navigate 
           your diet plan.
         </div>
       </div>
       <div style="float: right;width:40%;text-align:end;">
-        <img src="./assets/img/leaf.png" style="    text-align: right;
+        <img src="./assets/img/leaf.png" style="text-align: right;
     vertical-align: middle;
     align-items: end;
-    display: ruby-text;">
+    display: ruby-text;width:152px;height:169px;right: -5px;
+    position: relative;">
       </div>
     </ion-col>
-
   </ion-row>
 </div>
-<div style="background: var(--theme-color); 
-border-top-left-radius:1rem; border-top-right-radius:1rem;
-min-height: 140px;height:auto;position:relative;content: '';
+<div style="background: #D2E8DB; 
+border-top-left-radius:1.5rem; border-top-right-radius:1.5rem;
+min-height: 170px;height:auto;position:relative;content: '';
 width:100%; display: inline-block;
-    display: inline-block;">
-<div style="width: 30%;
-    height: auto;
-    top: -30px;
-    left: 35%;
-    text-align: center;
-    border: 1px solid;
-    border-radius: 53%;
-    content: '';
-    display: inline-block; position:absolute;background:grey">
-  <img *ngIf="gender==='male'" src="./assets/img/dietitian_male.png">
-  <img *ngIf="gender==='female'" src="./assets/img/dietitian_female.png">
+    display: inline-block; margin-top:3rem;">
+
+  <img style="    width: 189px;
+    height: 193px;
+    position: absolute;
+    top: -50px;
+    margin: 0 auto !important;
+    left: 24%;
+    border-radius: 50%;
+    border: 2px solid #b3b3b3;" src="https://nodeapi.smartdietplanner.com/api/getResFromPath/{{dietitianRecord?.image}}">
 </div>
-</div>
- <div style="padding: 10px;">
-  <div style="font-size: 1.3rem;color:#000;font-weight:600;">Bio:</div><br>
-<div style="font-size: 1rem;color:#000;">
+ <div style="padding: 10px;margin-top:.8rem">
+  <div style="font-size: 1.5rem;color:#000;font-weight:600;">Bio:</div><br>
+<div style="font-size: 1rem;font-weight:200;color:#000;font-family: sans-serif;">
 
   {{dietitianRecord.dietitianAbout}}
   
 </div>
  </div>
 
- <div style="padding: 10px;">
+ <div style="padding: 10px;margin-top:1rem;">
   <div style="font-size: 1.3rem;color:#000;font-weight:600;">Key Skills:</div><br>
 <div style="font-size: 1rem;color:#000;">
-  <ion-row style="font-size: .7rem;">
-    <ion-col *ngFor="let skill of skills; let index=index;">
-      <div style="margin-bottom:1rem;padding:.3rem 2rem;width: auto; height:25px;float:left;border-radius:1rem;border:.5px solid #b3b3b3;">
+  <ion-row style="font-size: 1rem;">
+    <ion-col >
+      <div *ngFor="let skill of skills; let index=index;" style="    margin-bottom: 1rem;
+    padding: .4rem 2rem;
+    width: 45%;
+    height: 32px;
+    float: left;
+    font-weight: 200;
+    border-radius: 1rem;
+    border: .5px solid #b3b3b3;
+    margin-right: 1rem;
+    font-family: sans-serif;
+    text-align: center;">
        {{skill}}
        </div>
     </ion-col>
   </ion-row>
 </div>
  </div>
- <div style="background: #F5EF99; padding:1rem;
-border-top-left-radius:1rem; border-top-right-radius:1rem;
-min-height: 25%;height:auto;position:relative;content: '';width:100%; display: inline-block;
-    display: inline-block;">
+ <div style="background: rgba(245,239,153,40%); padding:1rem;
+border-top-left-radius:1.5rem; border-top-right-radius:1.5rem;
+min-height: 170px;height:auto;position:relative;content: '';width:100%; display: inline-block;
+    display: inline-block;margin-top:.6rem;">
     <div>
-      <b style="font-size: 1.3rem;">What will you get:</b><br><br>
-      <div style="font-size: 1rem; color:#000;">
+      <b style="font-size: 1.5rem; font-weight:600;">What will you get:</b><br><br>
+      <div style="font-size: 1.2rem; color:#000;font-family: sans-serif; font-weight:200;">
         Smart Diet plan with good many alternatives along with Macros, Nutri score and recipe details
     
       </div>
     </div>
   </div>
-  <div>
+  <div style="margin-top: 1rem;">
     <ion-row>
       <ion-col>
         <ion-card style="text-align: center;
     border-radius: 1rem;
     padding: .5rem;
-    color: #000;min-height: 185px;
-    height: 85%;">
-           <img src="./assets/img/homebased.png">
-           <br>
-           <div>
-            <span style="font-size: 1rem;font-weight:500;">Home based</span><br>
-            <span style="font-size: .8rem;font-weight:400;">
+    color: #000;min-height:190px;height: 190px;    margin-left: 1rem;">
+           <img src="./assets/img/homebased.png" style="width:70px;height:67px;margin-top:.2rem;">
+          
+           <div style="margin-top:1rem;">
+            <div style="font-size: 1rem;font-weight:600;margin-top:.3rem;">Home based</div>
+            <div style="font-size: .8rem;font-weight:200;margin-top:.8rem;font-family: sans-serif;">
             Healthy options with Macros n recipes
-            </span>
+            </div>
            </div>
         </ion-card>
       </ion-col>
@@ -104,34 +110,32 @@ min-height: 25%;height:auto;position:relative;content: '';width:100%; display: i
         <ion-card style="text-align: center;
     border-radius: 1rem;
     padding: .5rem;
-    color: #000;min-height: 185px;
-    height: 85%;">
-          <img src="./assets/img/alternatives.png">
+    color: #000;min-height:190px;    height: 190px;    margin-right: 1rem;">
+          <img src="./assets/img/alternatives.png" style="width:90px;height:58px;margin-top:.2rem;">
           <br>
-          <div>
-           <span style="font-size: 1rem;font-weight:500;">Alternatives</span><br>
-           <span style="font-size: .8rem;font-weight:400;">
-            Flexi diet plan with 1000s of alternatives
-           </span>
-          </div>
+          <div style="margin-top:1rem;">
+            <div style="font-size: 1rem;font-weight:600;margin-top:.3rem">Alternatives</div>
+            <div style="font-size: .8rem;font-weight:200;margin-top:.8rem;font-family: sans-serif;">
+              Flexi diet plan with 1000s of alternatives
+            </div>
+           </div>
        </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row style="margin-top: .5rem;">
+    <ion-row style="margin-top: .1rem;">
       <ion-col>
         <ion-card style="text-align: center;
     border-radius: 1rem;
     padding: .5rem;
-    color: #000;min-height: 185px;
-    height: 85%;">
-           <img src="./assets/img/soda.png">
-           <img src="./assets/img/restorants.png">
-           <br>
-           <div>
-            <span style="font-size: 1rem;font-weight:500;">Restaurant/<br>Packaged foods</span><br>
-            <span style="font-size: .8rem;font-weight:400;">
+    color: #000;min-height:190px;    height: 190px;    margin-left: 1rem;">
+           <img src="./assets/img/soda.png" style="margin-top:.2rem;">
+           <img src="./assets/img/restorants.png" style="margin-top:.2rem;">
+          
+           <div style="margin-top:1rem;">
+            <div style="font-size: 1rem;font-weight:600;margin-top:.3rem">Restaurant/<br>Packaged foods</div>
+            <div style="font-size: .8rem;font-weight:200;margin-top:.6rem;font-family: sans-serif;">
               Guidance for healthy options with color coding
-            </span>
+            </div>
            </div>
         </ion-card>
       </ion-col>
@@ -139,19 +143,28 @@ min-height: 25%;height:auto;position:relative;content: '';width:100%; display: i
         <ion-card style="text-align: center;
     border-radius: 1rem;
    padding: .5rem;
-    color: #000;min-height: 185px;
-    height: 85%;">
-          <img src="./assets/img/list.png">
-          <br>
-          <div>
-           <span style="font-size: 1rem;font-weight:500;">Macros tracking</span><br>
-           <span style="font-size: .8rem;font-weight:400;">
-            Track the macros against the goals
-           </span>
-          </div>
+    color: #000;min-height:190px;    height: 190px;    margin-right: 1rem;">
+          <img src="./assets/img/list.png" style="margin-top:.2rem;">
+         
+          <div style="margin-top:1rem;">
+            <div style="font-size: 1rem;font-weight:600;margin-top:.3rem">Macros<br> tracking</div>
+            <div style="font-size: .8rem;font-weight:200;margin-top:.8rem;font-family: sans-serif;">
+              Track the macros against the goals
+            </div>
+           </div>
        </ion-card>
       </ion-col>
     </ion-row>
   </div>
+  <div style="margin-top: 2rem;">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button shape="round" style="--background:#76953F;">
+           Continue
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
 </div>
+
 </ion-content>
