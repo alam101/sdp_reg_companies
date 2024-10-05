@@ -21,7 +21,7 @@ export class ReadQueryComponent implements OnInit {
   company_id='null';
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
     if(this.token=="")
-    {  this.presentLoadingCustom();
+    {  //this.presentLoadingCustom();
       this.routerActive.queryParams.subscribe(res=>{
        console.log("res",res.token);
        localStorage.setItem("firstday","");
@@ -43,9 +43,8 @@ export class ReadQueryComponent implements OnInit {
           this.toggleAppTheme(this.clientId);
           console.log("this.token",this.token);
           this.storage.set("type",this.type);
-        
-          this.defaultData();
-        }
+            this.defaultData();
+         }
         else{
           this.dismissLoader();
         }
@@ -88,7 +87,12 @@ export class ReadQueryComponent implements OnInit {
     });
 }
    ngOnInit() {
+    // if(this.clientId.includes('individual')){
+    //   this.router.navigate(["dietitian-profile"]);
+    // }
+    // else{
     this. filterCompanyJson();
+   // }
   }
   bindProfileDatainDefaultData(resData){
       const gender = resData?.demographic?.gender;
@@ -239,13 +243,18 @@ export class ReadQueryComponent implements OnInit {
      });
    }
   defaultData(){
+    if(this.clientId.includes('individual')){
+      setTimeout(()=>{
+      this.router.navigate(["dietitian-profile"]);
+    },1000);
+    }
+    else{
     if(this.token!='' && this.token != 'null'){
     this.appService.defaultData().subscribe(res=>{
-      console.log("defaultData::",res);
-      localStorage.setItem("defaultData",JSON.stringify(res));
-      
-      localStorage.setItem("tkn",this.token);
-      this.fetchProfile();
+    console.log("defaultData::",res);
+    localStorage.setItem("defaultData",JSON.stringify(res));     
+    localStorage.setItem("tkn",this.token);
+    this.fetchProfile();
        
     },err=>{
       this.dismissLoader();
@@ -259,6 +268,7 @@ export class ReadQueryComponent implements OnInit {
    this.dismissLoader();
     this.router.navigate(['/boarding1'],{queryParams:{params:Math.floor(this.randomNumber)}});
   }
+}
   }
   navigateToHome(){
     this.router.navigate(['/home'],{queryParams:{params:Math.floor(this.randomNumber)}});

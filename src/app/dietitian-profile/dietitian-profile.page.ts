@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../newBoarding/app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dietitian-profile',
@@ -7,13 +8,24 @@ import { AppService } from '../newBoarding/app.service';
   styleUrls: ['./dietitian-profile.page.scss'],
 })
 export class DietitianProfilePage implements OnInit {
-
-  constructor(private appServices:AppService) { }
+  randomNumber = Number(Date.now()) * Math.random();
+  localProfileObject:any;
+  constructor(private router:Router,private appServices:AppService) { }
 
   ngOnInit() {
     this.getProfile();
   }
 
+  goto(){
+    if(this.profileData["lifeStyle"]?.communities?.length>0 
+      && this.profileData["lifeStyle"]?.foodType!==null 
+      && this.profileData["lifeStyle"]?.carb!==null && this.profileData["lifeStyle"]?.carb!==0){
+      this.router.navigate(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
+    }
+    else{
+      this.router.navigate(["/boarding1"],{queryParams:{params:Math.floor(this.randomNumber)}});
+    }
+  }
   profileData:any;
  
   getProfile(){
@@ -33,16 +45,7 @@ export class DietitianProfilePage implements OnInit {
       this.dietitianRecord = res;
       this.skills = res.speciality.split(', ');
       this.gender = res.gender.toLowerCase();
-      // if(res.dietitianName!==undefined){
-      // this.deititianName = res.dietitianName;
-      // this.deititianRole = res.role;
-      // this.calendlyId = res.calendlyId;
-      // this.whatsappNum = res.whatsappNum;
-      // this.whatappVisible = res.whatsappVisible;  
-      // this.gender = res.gender;
-      // this.calendlyVisible = res.calendlyVisible;
-      // }
-    },err=>{
+      },err=>{
 
     });
   }
