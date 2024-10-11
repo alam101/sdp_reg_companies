@@ -5124,40 +5124,22 @@
         {
           "heading": "Plan 2",
           "label": "Plan 2",
-          "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png",
           "options": [
             {
-              "name": "Hypothyroid",
-              "value": "hypothyroid",
-              "label": "",
-              "imgUrl": "../../../assets/newImages/stress_img.png"
-            },
-            {
-              "name": "Pre Diabetic",
-              "value": "preDiabetic",
-              "label": "",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
-            },
-            {
-              "name": "Manage PCOS",
-              "value": "pcos",
-              "label": "",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
-            },
-            {
-              "name": "Pregnancy-First 3 months)",
+              "name": "Pregnancy- First 3 months",
               "value": "PREGT1",
               "label": "",
               "imgUrl": "../../../assets/images/Pregnancy1.png"
             },
             {
-              "name": "Pregnancy-First 4th to 6th month)",
+              "name": "Pregnancy- 4th to 6th month",
               "value": "PREGT3",
               "label": "",
               "imgUrl": "../../../assets/images/Pregnancy2.png"
             },
             {
-              "name": "Pregnancy- First 7th to 9th months)",
+              "name": "Pregnancy- 7th to 9th months",
               "value": "PREGT2",
               "label": "",
               "imgUrl": "../../../assets/images/Pregnancy3.png"
@@ -5299,18 +5281,6 @@
               "value": "hypertension",
               "label": "No more high blood pressure",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
-            },
-            {
-              "name": "Manage Stress",
-              "value": "stress",
-              "label": "No more Stress",
-              "imgUrl": "../../../assets/newImages/stress_img.png"
-            },
-            {
-              "name": "Manage Skincare",
-              "value": "skincare",
-              "label": "Healthy skin, beautiful you.",
-              "imgUrl": "../../../assets/newImages/skincare_img.png"
             }
           ]
         }
