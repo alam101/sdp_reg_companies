@@ -19,6 +19,7 @@ export class ReadQueryComponent implements OnInit {
   selectedTheme: String;
   randomNumber = Number(Date.now()) * Math.random();
   company_id='null';
+  
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
     if(this.token=="")
     {  //this.presentLoadingCustom();
@@ -26,8 +27,9 @@ export class ReadQueryComponent implements OnInit {
        console.log("res",res.token);
        localStorage.setItem("firstday","");
        this.token = res.token;
-       localStorage.setItem("company_id",res?.companyId===undefined?'null':res?.companyId);
+       localStorage.setItem("company_id",(res?.companyId===undefined || res?.companyId==='null')?'null':res?.companyId);
        this.clientId = res.clientId || res.clientid;
+        this.company_id = res?.companyId;
       if(this.clientId==undefined){   
        this.clientId =localStorage.getItem("clientId");
        this.toggleAppTheme(this.clientId);
@@ -243,7 +245,7 @@ export class ReadQueryComponent implements OnInit {
      });
    }
   defaultData(){
-    if(this.clientId.includes('individual')){
+    if(this.company_id.includes('individual')){
       setTimeout(()=>{
       this.router.navigate(["dietitian-profile"]);
     },1000);
