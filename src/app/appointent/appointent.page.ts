@@ -55,7 +55,9 @@ export class AppointentPage implements OnInit {
    
     this.iab.create(u, "_sysyem");
   }
-
+  gotoDietitianProfile(){
+    this.navCtrl.navigateForward(["/dietitian-profile"]);
+  }
   gotoApplyFree(url, type) {
     let email: any = "";
     let phone: any = "";

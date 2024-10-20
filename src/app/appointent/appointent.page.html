@@ -24,7 +24,8 @@
             <ion-col size="11" class="left">
               <div style="margin-right: 25px">
                 <p class="meal_cal" *ngIf="plan">
-                  Hello, I'm {{deititianName}}, your {{deititianRole}}. You can schedule a 
+                  Hello, I'm <span (click)="gotoDietitianProfile()" style="font-weight: 500; color:blue; text-decoration:underline;">
+                    {{deititianName}}</span>, your {{deititianRole}}. You can schedule a 
                   consultation call with me at your convenience.
 
                 </p>

@@ -1,20 +1,20 @@
 
 <ion-content>
 <div class="dietitian-profile">
-  <div style="height: 52px;
+  <div style="height: 25px;
   border-bottom-left-radius:2rem;
-  border-bottom-right-radius:2rem; text-align:center;background:#F3D2DB;">
- <img style="    width: 9%;
-    height: auto;" src="./assets/img/login-logo.png">
+  border-bottom-right-radius:2rem; text-align:center;background:var(--theme-background);">
+ <!-- <img style="    width: 9%;
+    height: auto;" src="./assets/img/login-logo.png"> -->
 </div>
 <div style="padding: 10px;">
   <ion-row>
     <ion-col>
       <div style="float: left;width:60%;"><br><br>
-        <span style="font-size: 2.2rem; font-weight:600;color:#000;">
+        <span style="font-size: 1.5rem; color:#000;">
           I am <br>
-          {{dietitianRecord?.dietitianName}}, <br>
-         <span style="white-space: nowrap;"> your {{dietitianRecord?.role}}</span>
+         <span style="font-weight:600;"> {{dietitianRecord?.dietitianName}}</span>, <br>
+         <span style="white-space: nowrap;"> your <span>{{dietitianRecord?.role}}</span></span>
         </span>
         <div style="font-family: sans-serif;margin-top:.5rem;font-size: 1.01rem; font-weight:200;color:#000;padding-top:.5rem;padding-bottom:.5rem;">
           will help you to navigate 
@@ -31,7 +31,7 @@
     </ion-col>
   </ion-row>
 </div>
-<div style="background: #D2E8DB; 
+<div style="background: var(--theme-background); 
 border-top-left-radius:1.5rem; border-top-right-radius:1.5rem;
 min-height: 170px;height:auto;position:relative;content: '';
 width:100%; display: inline-block;
@@ -79,11 +79,11 @@ width:100%; display: inline-block;
  </div>
  <div style="background: rgba(245,239,153,40%); padding:1rem;
 border-top-left-radius:1.5rem; border-top-right-radius:1.5rem;
-min-height: 170px;height:auto;position:relative;content: '';width:100%; display: inline-block;
+min-height: 133px;height:auto;position:relative;content: '';width:100%; display: inline-block;
     display: inline-block;margin-top:.6rem;">
     <div>
-      <b style="font-size: 1.5rem; font-weight:600;">What will you get:</b><br><br>
-      <div style="font-size: 1.2rem; color:#000;font-family: sans-serif; font-weight:200;">
+      <b style="font-size: 1.1rem; font-weight:600;">What will you get:</b><br><br>
+      <div style="font-size: 1rem; color:#000;font-family: sans-serif; font-weight:200;">
         Smart Diet plan with good many alternatives along with Macros, Nutri score and recipe details
     
       </div>
@@ -111,7 +111,7 @@ min-height: 170px;height:auto;position:relative;content: '';width:100%; display:
     border-radius: 1rem;
     padding: .5rem;
     color: #000;min-height:190px;    height: 190px;    margin-right: 1rem;">
-          <img src="./assets/img/alternatives.png" style="width:90px;height:58px;margin-top:.2rem;">
+          <img src="./assets/img/alternatives.png" style="width:90px;height:67px;margin-top:.2rem;">
           <br>
           <div style="margin-top:1rem;">
             <div style="font-size: 1rem;font-weight:600;margin-top:.3rem">Alternatives</div>
@@ -128,13 +128,13 @@ min-height: 170px;height:auto;position:relative;content: '';width:100%; display:
     border-radius: 1rem;
     padding: .5rem;
     color: #000;min-height:190px;    height: 190px;    margin-left: 1rem;">
-           <img src="./assets/img/soda.png" style="margin-top:.2rem;">
-           <img src="./assets/img/restorants.png" style="margin-top:.2rem;">
+           <img src="./assets/img/soda.png" style="margin-top:.2rem;height:67px;">
+           <img src="./assets/img/restorants.png" style="margin-top:.2rem;height:67px;">
           
            <div style="margin-top:1rem;">
             <div style="font-size: 1rem;font-weight:600;margin-top:.3rem">Restaurant/<br>Packaged foods</div>
             <div style="font-size: .8rem;font-weight:200;margin-top:.6rem;font-family: sans-serif;">
-              Guidance for healthy options with color coding
+              Guidance for healthy options
             </div>
            </div>
         </ion-card>
@@ -144,7 +144,7 @@ min-height: 170px;height:auto;position:relative;content: '';width:100%; display:
     border-radius: 1rem;
    padding: .5rem;
     color: #000;min-height:190px;    height: 190px;    margin-right: 1rem;">
-          <img src="./assets/img/list.png" style="margin-top:.2rem;">
+          <img src="./assets/img/list.png" style="margin-top:.2rem;height:67px;">
          
           <div style="margin-top:1rem;">
             <div style="font-size: 1rem;font-weight:600;margin-top:.3rem">Macros<br> tracking</div>
@@ -159,7 +159,7 @@ min-height: 170px;height:auto;position:relative;content: '';width:100%; display:
   <div style="margin-top: 2rem;">
     <ion-row>
       <ion-col class="ion-text-center">
-        <ion-button (click)="goto()" shape="round" style="--background:#76953F;">
+        <ion-button (click)="goto()" shape="round" style="--background:var(--theme-background);width:60%;">
            Continue
         </ion-button>
       </ion-col>

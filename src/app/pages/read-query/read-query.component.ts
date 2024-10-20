@@ -21,6 +21,7 @@ export class ReadQueryComponent implements OnInit {
   company_id='null';
   
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
+    localStorage.clear();
     if(this.token=="")
     {  //this.presentLoadingCustom();
       this.routerActive.queryParams.subscribe(res=>{
@@ -245,7 +246,7 @@ export class ReadQueryComponent implements OnInit {
      });
    }
   defaultData(){
-    if(this.company_id.includes('individual')){
+    if(this.clientId.includes('individual')){
       setTimeout(()=>{
       this.router.navigate(["dietitian-profile"]);
     },1000);

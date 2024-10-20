@@ -3885,12 +3885,12 @@
       "headerText": "Welcome to your daily diet plan.",
       "isLogAll": true,
       "isSearch": true,
-      "isDietitian": false,
+      "isDietitian": true,
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
              "showWhatsApp": true,
-"dietitianAction":false,
+"dietitianAction":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4040,12 +4040,12 @@
       "headerText": "Welcome to your daily diet plan.",
       "isLogAll": true,
       "isSearch": true,
-      "isDietitian": false,
+      "isDietitian": true,
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
              "showWhatsApp": true,
-"dietitianAction":false,
+"dietitianAction":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4195,12 +4195,12 @@
       "headerText": "Welcome to your daily diet plan.",
       "isLogAll": true,
       "isSearch": true,
-      "isDietitian": false,
+      "isDietitian": true,
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
              "showWhatsApp": true,
-"dietitianAction":false,
+"dietitianAction":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4350,12 +4350,12 @@
       "headerText": "Welcome to your daily diet plan.",
       "isLogAll": true,
       "isSearch": true,
-      "isDietitian": false,
+      "isDietitian": true,
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
              "showWhatsApp": true,
-"dietitianAction":false,
+"dietitianAction":true,
       "goals": [
         {
           "heading": "Weight Management",
