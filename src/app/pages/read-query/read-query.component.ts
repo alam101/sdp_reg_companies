@@ -22,8 +22,11 @@ export class ReadQueryComponent implements OnInit {
   
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
     localStorage.clear();
+    this.token="";
+    debugger;
+    this.storage.set("profileData", "");
     if(this.token=="")
-    {  //this.presentLoadingCustom();
+    {  
       this.routerActive.queryParams.subscribe(res=>{
        console.log("res",res.token);
        localStorage.setItem("firstday","");
@@ -57,7 +60,6 @@ export class ReadQueryComponent implements OnInit {
   }
 
   filterCompanyJson(){
-
    const data = compJson.filter((item,index)=>{
     console.log("clientConfig:-", Object.keys(item)[0], this.clientId.toLowerCase());
       return this.clientId && Object.keys(item)[0].toLowerCase()===this.clientId.toLowerCase();
@@ -172,17 +174,15 @@ export class ReadQueryComponent implements OnInit {
 
       this.storage.set("localData",JSON.stringify(res));
      this.dismissLoader();
-     const localProfileObject = JSON.parse(localStorage.getItem("profileData"))
+    if(this.clientId.includes('individual')){
+      localStorage.setItem("userid",resData?.profile?.email);
+      CONSTANTS.email = resData?.profile?.email;
+      this.router.navigate(["dietitian-profile"]);
+      return;
+     }
+     const localProfileObject = JSON.parse(localStorage.getItem("profileData"));
       if(localProfileObject.code=="0001"){
-        // if(localStorage.getItem("default")==null || localStorage.getItem("default")=='' || localStorage.getItem("default")==undefined){
-        //   this.router.navigate(['fight-slider']);
-        // }
-        // else{
-       
          this.router.navigate(['/boarding1'],{queryParams:{params:Math.floor(this.randomNumber)}});
-       // }
-        
-        return;
       }
       else{
       localStorage.setItem("userid",resData?.profile?.email);
@@ -246,12 +246,6 @@ export class ReadQueryComponent implements OnInit {
      });
    }
   defaultData(){
-    if(this.clientId.includes('individual')){
-      setTimeout(()=>{
-      this.router.navigate(["dietitian-profile"]);
-    },1000);
-    }
-    else{
     if(this.token!='' && this.token != 'null'){
     this.appService.defaultData().subscribe(res=>{
     console.log("defaultData::",res);
@@ -271,7 +265,7 @@ export class ReadQueryComponent implements OnInit {
    this.dismissLoader();
     this.router.navigate(['/boarding1'],{queryParams:{params:Math.floor(this.randomNumber)}});
   }
-}
+
   }
   navigateToHome(){
     this.router.navigate(['/home'],{queryParams:{params:Math.floor(this.randomNumber)}});

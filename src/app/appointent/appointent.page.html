@@ -10,13 +10,10 @@
       <div class="d_flex card_main_div">
         <div class="center">
           <ion-avatar>
-            <ion-img *ngIf="gender==='Male'"
-              src="../../../../assets/img/dietitian_male.png"
+            <ion-img
+              [src]="image"
               class="card_img"
             ></ion-img>
-            <ion-img *ngIf="gender!=='Male'"
-              src="../../../../assets/img/dietitian_female.png"
-              class="card_img"></ion-img>
           </ion-avatar>
         </div>
         <ion-grid class="w_100">

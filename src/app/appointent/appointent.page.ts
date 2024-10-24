@@ -20,6 +20,7 @@ export class AppointentPage implements OnInit {
   @Input() deititianRole="";
   @Input() calendlyId="";
   @Input()gender = false;
+  @Input()image = "";
   constructor(
     private iab: InAppBrowser,
     private navCtrl: NavController,
