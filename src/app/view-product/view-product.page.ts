@@ -64,11 +64,11 @@ export class ViewProductPage implements OnInit, AfterViewInit {
     setTimeout(() => {
       // this.data.steps = this.data?.steps?.replace(/\n/g,"<br>");
       // this.data.recipe = this.data?.recipe?.replace(/\n/g,"<br>");
-      this.gredientArray = this.data.recipe.replace(/\:+/g, ":<br>").split("\n").filter(item => item.trim() !== '');
-      for (let index = 0; index < this.gredientArray.length; index++) {
+      this.gredientArray = this.data?.recipe?.replace(/\:+/g, ":<br>")?.split("\n").filter(item => item.trim() !== '');
+      for (let index = 0; index < this.gredientArray?.length; index++) {
         this.gredientArray[index] = this.wrapFirstWordWithBold(this.gredientArray[index]);
       }
-      this.instructionsArray = this.data.steps.replace("\n\n", "\n")
+      this.instructionsArray = this.data?.steps?.replace("\n\n", "\n")
         .replace("Step 1", "1.")
         .replace("Step 2", "2.")
         .replace("Step 3", "3.")
@@ -84,7 +84,7 @@ export class ViewProductPage implements OnInit, AfterViewInit {
         .replace("Step 13", "13.")
         .replace("Step 14", "14.")
         .replace("Step 15", "15.")
-        .replace("Step 16", "16.").split(/\d+\./).filter(item => item.trim() !== '');
+        .replace("Step 16", "16.")?.split(/\d+\./).filter(item => item.trim() !== '');
       console.log("DATA:---", this.data);
       if (this.data.Score === 9) {
         this.data.option = "Best";
@@ -125,11 +125,6 @@ export class ViewProductPage implements OnInit, AfterViewInit {
       this.plandata = res;
       let exp: any = new Date(this.plandata.planExpiryDate).getTime();
       let newDate: any = new Date().getTime();
-      // console.log(exp, newDate);
-
-      // if (this.plandata.planType?.toLowerCase()==='premium') {
-      //   this.plandata.isPlanActive = true;
-      // }
     });
   }
 
@@ -255,24 +250,14 @@ export class ViewProductPage implements OnInit, AfterViewInit {
       await modal.present();
       const modald = await modal.onDidDismiss();
       this.slot = modald?.data?.slot;
-      console.log("itemCode:---");
-      // const m = await this.modalCtrl.create({
-      //   component: PortionCountPage,
-      //   cssClass: "portion_count",
-      //   backdropDismiss: true,
-      //   componentProps: {
-      //     alterdata: data,
-      //     type: "add",
-      //   },
-      // });
-      // await m.present();
+      this.eatenStatusUpdate(data, 2, "Logged successfully");
       // const modaldata = await m.onDidDismiss();
       // const d = modaldata?.data;
-      if (data) {
-        console.log("i got this to add in data", data);
-        // this.eatenStatusUpdate(d, 2, "Logged successfully");
-        this.eatenStatusUpdate(data,i, "Logged successfully")
-      }
+      // if (data) {
+      //   console.log("i got this to add in data", data);
+      //   // this.eatenStatusUpdate(d, 2, "Logged successfully");
+      //   this.eatenStatusUpdate(data,i, "Logged successfully")
+      // }
     } //else {
     //   const modal = await this.modalCtrl.create({
     //     component: PortionCountPage,
@@ -350,7 +335,7 @@ export class ViewProductPage implements OnInit, AfterViewInit {
         let dataTotal = [];
       this.utilities.logEvent("onboarding_Counter_add_home", {});
     
-      for (let index = 0; index < item.data.length; index++) {
+      for (let index = 0; index < item.data?.length; index++) {
         dataTotal.push(
           {
             code: item.data[index].itemCode,
@@ -386,8 +371,9 @@ export class ViewProductPage implements OnInit, AfterViewInit {
   }
 
   async eatenStatusUpdate(item, eaten, status) {
+    //debugger;
     let datas: any = {};
-    if (eaten > 0 && !this.mainFood) {
+    if (eaten > 0 && !this.mainFood) {//&& !this.mainFood
       datas = {
         date: CONSTANTS.dietDate,
         slot: Number(this.slot),
@@ -419,9 +405,9 @@ export class ViewProductPage implements OnInit, AfterViewInit {
       };
     }
 
-    if (item.foodSource === "R" || item.foodSource === "P") {
-      datas.foodCodeList[0].foodSource = item.foodSource;
-    }
+ //   if (item.foodSource === "R" || item.foodSource === "P") {
+      datas.foodCodeList[0].foodSource = item.foodSource===undefined? "internal":item.foodSource;
+ //   }
 
     this.appServices.postOptionFoodList1(datas).then(
       (success: any) => {

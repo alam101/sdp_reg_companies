@@ -540,7 +540,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   
    if (this.compConfig.dietitianAction) {
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
-      debugger;
+      //debugger;
       if(res.dietitianName!==undefined){
       this.deititianName = res.dietitianName;
       this.deititianRole = res.role;

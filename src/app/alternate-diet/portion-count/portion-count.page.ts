@@ -229,6 +229,7 @@ calCount=0;
 
   log() {
     console.log("Porton page line no 130", this.data);
+    this.eatenStatusUpdate(this.data,2);
     this.modalCtrl.dismiss(this.data);
   }
 

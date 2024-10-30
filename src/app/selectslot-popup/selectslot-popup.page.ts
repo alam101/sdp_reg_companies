@@ -33,8 +33,11 @@ export class SelectslotPopupPage implements OnInit {
       console.log("plan==========>", res);
     });
   }
-
+  closePopup(){
+    this.modalCtrl.dismiss();
+  }
   slotNumber(slotNumber) {
+ 
     this.modalCtrl.dismiss({ slot: slotNumber });
   }
 }

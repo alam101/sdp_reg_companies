@@ -23,7 +23,7 @@ export class ReadQueryComponent implements OnInit {
   constructor(private loading:LoadingController,private settings:SettingsService ,private routerActive:ActivatedRoute,private router: Router,private appService:AppService,private storage:Storage,private utilities:Utilities) {
     localStorage.clear();
     this.token="";
-    debugger;
+    //debugger;
     this.storage.set("profileData", "");
     if(this.token=="")
     {  

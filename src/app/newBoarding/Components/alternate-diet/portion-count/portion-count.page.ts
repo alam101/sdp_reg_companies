@@ -237,6 +237,7 @@ export class PortionCountPage implements OnInit {
 
   log() {
     console.log("Porton page line no 130", this.data);
+    
     this.modalCtrl2.dismiss(this.data);
   }
 
