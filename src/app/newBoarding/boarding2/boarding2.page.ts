@@ -691,7 +691,13 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
   gotoTerm(){
     //window.open("https://fitrofy.com/terms-conditions/","_blank");
-    this.router.navigate(["termsandconditions"]);
+    if(this.from){
+      this.router.navigate(["termsandconditions"],{queryParams:{from:'editProfile'}});
+    }
+    else{
+      this.router.navigate(["termsandconditions"]);
+    }
+    
   }
   setRange(type: string) {
     console.log(type);

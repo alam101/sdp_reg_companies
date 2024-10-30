@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-termsandconditions',
@@ -6,12 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./termsandconditions.page.scss'],
 })
 export class TermsandconditionsPage implements OnInit {
-
-  constructor() { }
+from;
+  constructor(private router:Router, private activatedRoute:ActivatedRoute) { 
+    this.activatedRoute.queryParams.subscribe(res=>{
+      this.from = res['from'];
+    })
+  }
 
   ngOnInit() {
   }
   goNext(){
-    history.back();
+    if(this.from){
+    this.router.navigate(["boarding2"],{queryParams:{from: 'editProfile'}});
+    }
+    else{
+      this.router.navigate(["boarding2"]);
+    }
   }
 }
