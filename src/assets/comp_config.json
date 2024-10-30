@@ -4561,7 +4561,7 @@
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
             {
-              "name": "Hyperthyroid",
+              "name": "Hypothyroid",
               "value": "hyperthyroid",
               "label": "Manage Hypothyroid",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
@@ -5283,9 +5283,27 @@
               "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
             },
             {
+              "name": "Manage PCOS",
+              "value": "pcos",
+              "label": " No more irregular period",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
+            },
+            {
+              "name": "Hypothyroid",
+              "value": "hyperthyroid",
+              "label": "Manage Hypothyroid",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+            },
+            {
+              "name": "Pre-Diabetes",
+              "value": "diabetes",
+              "label": "Optimize blood glucose levels",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
+            },
+            {
               "name": "Manage Cholesterol",
               "value": "cholesterol",
-              "label": "No more high blood pressure",
+              "label": "Avoid Heart issues",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
             },
             {
