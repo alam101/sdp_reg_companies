@@ -74,7 +74,7 @@ export class PortionCountPage implements OnInit {
       componentProps: {
         alterdata: data,
         type: "add",
-        alterDataCode: this.data?.itemCode,
+        alterDataCode: this.data.itemCode===undefined?Number(this.data._id):this.data.itemCode,
       },
     });
     await modal.present();
@@ -120,7 +120,7 @@ export class PortionCountPage implements OnInit {
         slot: Number(this.data?.slot),
         foodCodeList: [
           {
-            code: item.itemCode,
+            code: item.itemCode===undefined?Number(item._id):item.itemCode,
             portion: item.portion,
             eaten:
               CONSTANTS.dietDate === moment(new Date()).format("DDMMYYYY")
@@ -128,28 +128,28 @@ export class PortionCountPage implements OnInit {
                 : -1,
           },
           {
-            code: this.data.itemCode,
+            code: this.data.itemCode===undefined?Number(this.data._id):this.data.itemCode,
             portion: 0,
           },
         ],
         isUpdateDiet: true,
       };
       this.utilities.logEvent("onboarding_update_food_details", datas);
-      this.appService.postOptionFoodList(datas).then(
-        (success: any) => {
-          this.getDietdata.emit(CONSTANTS.dietDate);
-          this.utilities.showSuccessToast("Replaced successfully");
-          console.log("Dite API called");
-          this.modalCtrl2.dismiss("");
-          // this.navCtrl.navigateForward(
-          //   ["/new-diet", { refresh: new Date().getTime() }],
-          //   { queryParams: { slot: Number(this.data?.slot) } }
-          // );
-        },
-        (err) => {
-          console.log("details error", err);
-        }
-      );
+      // this.appService.postOptionFoodList(datas).then(
+      //   (success: any) => {
+      //     this.getDietdata.emit(CONSTANTS.dietDate);
+      //     this.utilities.showSuccessToast("Replaced successfully");
+      //     console.log("Dite API called");
+      //     this.modalCtrl2.dismiss("");
+      //     // this.navCtrl.navigateForward(
+      //     //   ["/new-diet", { refresh: new Date().getTime() }],
+      //     //   { queryParams: { slot: Number(this.data?.slot) } }
+      //     // );
+      //   },
+      //   (err) => {
+      //     console.log("details error", err);
+      //   }
+      // );
     }
   }
 
@@ -173,7 +173,7 @@ export class PortionCountPage implements OnInit {
       componentProps: {
         food: d,
         slot: this.data?.slot,
-        mainCode: this.data?.itemCode,
+        mainCode: this.data.itemCode===undefined?Number(this.data._id):this.data.itemCode,
         from: "alter",
       },
     });
@@ -194,7 +194,7 @@ export class PortionCountPage implements OnInit {
         slot: Number(this.data?.slot),
         foodCodeList: [
           {
-            code: item.itemCode,
+            code: item.itemCode===undefined?Number(item._id):item.itemCode,
             portion: Number(item.portion),
             eaten: eaten,
           },
@@ -203,21 +203,21 @@ export class PortionCountPage implements OnInit {
       };
      this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
-      this.appService.postOptionFoodList(datas).then(
-        (success: any) => {
-          this.getDietdata.emit(CONSTANTS.dietDate);
-          this.utilities.showSuccessToast(success.message);
-          console.log("Dite API called");
-          this.modalCtrl2.dismiss("");
-          this.navCtrl.navigateForward([
-            "/new-diet",
-            { refresh: new Date().getTime() },
-          ]);
-        },
-        (err) => {
-          console.log("details error", err);
-        }
-      );
+      // this.appService.postOptionFoodList(datas).then(
+      //   (success: any) => {
+      //     this.getDietdata.emit(CONSTANTS.dietDate);
+      //     this.utilities.showSuccessToast(success.message);
+      //     console.log("Dite API called");
+      //     this.modalCtrl2.dismiss("");
+      //     this.navCtrl.navigateForward([
+      //       "/new-diet",
+      //       { refresh: new Date().getTime() },
+      //     ]);
+      //   },
+      //   (err) => {
+      //     console.log("details error", err);
+      //   }
+      // );
     }
   }
 
