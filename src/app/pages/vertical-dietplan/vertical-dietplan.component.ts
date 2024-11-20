@@ -3502,8 +3502,8 @@ getDietdata(date) {
     console.log("reqBody", reqBody);
     
     this.appServices.postOptionFoodList(reqBody).then(
-      success => {
-        // this.utilities.hideLoader();
+      (success:any) => {
+         this.utilities.showToastforMessage(success.message);
         // this.router.navigate(["consume"]);
         console.log("detail", success);
         if (sameCategoryExist) {
@@ -5137,7 +5137,8 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
     console.log("reqBody", reqBody);
     this.utilities.logEvent("onboarding_update_food_details", reqBody);
     this.appServices.postOptionFoodList(reqBody).then(
-      success => {
+      (success:any) => {
+        this.utilities.showToastforMessage(success.message);
         this.utilities.hideLoader();
         console.log("detail", success);
         this.fetchDiet(CONSTANTS.isDetox, CONSTANTS.dietDate);
@@ -5165,9 +5166,8 @@ videoManjhari:any="https://www.youtube.com/embed/vXBq6YkkSN0";
     console.log("reqBody", reqBody);
     this.utilities.logEvent("onboarding_update_food_details", reqBody);
     this.appServices.postOptionFoodList(reqBody).then(
-      success => {
-        // this.utilities.hideLoader();
-        // this.router.navigate(["consume"]);
+      (success:any) => {
+        this.utilities.showToastforMessage(success.message);
         console.log("detail", success);
         this.fetchDiet(CONSTANTS.isDetox, CONSTANTS.dietDate);
       },

@@ -403,8 +403,9 @@ addRemove(type) {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
-          this.getDietdata.emit(CONSTANTS.dietDate);
           this.utilities.showSuccessToast(status);
+          this.getDietdata.emit(CONSTANTS.dietDate);
+          
           // this.todaysCalCount();
           console.log("247 called");
         },
@@ -448,8 +449,8 @@ addRemove(type) {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
+          this.utilities.showSuccessToast(success.message);
           this.getDietdata.emit(CONSTANTS.dietDate);
-          this.utilities.showSuccessToast(status);
            this.todaysCalCount();
            this.logunlog = this.logunlog==='Log Slot'? "Logged": "Log Slot";
          // this.getDietdata(CONSTANTS.dietDate);
@@ -492,10 +493,9 @@ addRemove(type) {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
-         // this.getDietdata.emit(CONSTANTS.dietDate);
-         // this.utilities.showSuccessToast(status);
-         // this.broadcastService.boradcast("reload");
-         this.getDietdata.emit(CONSTANTS.dietDate);
+ //         this.utilities.showSuccessToast(success.message);
+ this.utilities.showSuccessToast(status);
+ this.getDietdata.emit(CONSTANTS.dietDate);
           // this.todaysCalCount();
           console.log("247 called");
         },

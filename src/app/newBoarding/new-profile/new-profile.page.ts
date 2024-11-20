@@ -39,6 +39,7 @@ dietitianRole="";
     this.utilities.logEvent("Tracker_profileUpdate", {});
    
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+  
     console.log("this.compConfig", this.compConfig);
     this.preferredMeal();
   }
@@ -194,6 +195,7 @@ dietitianRole="";
       this.goalName = this.compConfig.editGoalForDisplay.filter((item:any)=>{
         return item.value === this.profileData?.lifeStyle?.dietPlanName;
       })
+      debugger;
       this.getCommunities(this.profileData.lifeStyle.communities);
       if (this.profileData?.profile?.subCategory === "weightloss") {
         this.profileData.profile.subCategory = "Weight Loss";

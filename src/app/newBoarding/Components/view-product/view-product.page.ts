@@ -329,7 +329,7 @@ export class ViewProductPage implements OnInit {
     this.appServices.postOptionFoodList(datas).then(
       (success: any) => {
         // this.todaysCalCount();
-        this.utilities.showSuccessToast(status);
+        this.utilities.showSuccessToast(success.message);
         console.log("247 called");
         this.data.eaten = eaten;
         this.food = this.data;
