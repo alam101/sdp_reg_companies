@@ -51,6 +51,8 @@ export class PortionCountPage implements OnInit {
  }
   compConfig:any;
   ngOnInit() {
+    console.log("DDDDDDDDDDD");
+    
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.data = _.cloneDeep(this.alterdata);
     console.log("Portion Count Page line no 38", this.data);
@@ -65,6 +67,7 @@ export class PortionCountPage implements OnInit {
   }
 
   async addCal(data, i) {
+  //  debugger;
     console.log("DATA----------->>", data);
 
     const modal = await this.modalCtrl2.create({
@@ -110,8 +113,7 @@ export class PortionCountPage implements OnInit {
   }
 
   async replaced(item) {
-  //
-  //
+  //debugger;
     if (this.currentDateIndex == 0) {
       this.utilities.logEvent("onboarding_Counter_add_home", {});
 
@@ -135,21 +137,21 @@ export class PortionCountPage implements OnInit {
         isUpdateDiet: true,
       };
       this.utilities.logEvent("onboarding_update_food_details", datas);
-      // this.appService.postOptionFoodList(datas).then(
-      //   (success: any) => {
-      //     this.getDietdata.emit(CONSTANTS.dietDate);
-      //     this.utilities.showSuccessToast("Replaced successfully");
-      //     console.log("Dite API called");
-      //     this.modalCtrl2.dismiss("");
-      //     // this.navCtrl.navigateForward(
-      //     //   ["/new-diet", { refresh: new Date().getTime() }],
-      //     //   { queryParams: { slot: Number(this.data?.slot) } }
-      //     // );
-      //   },
-      //   (err) => {
-      //     console.log("details error", err);
-      //   }
-      // );
+      this.appService.postOptionFoodList(datas).then(
+        (success: any) => {
+          this.getDietdata.emit(CONSTANTS.dietDate);
+          this.utilities.showSuccessToast("Replaced successfully");
+          console.log("Dite API called");
+          this.modalCtrl2.dismiss("");
+          // this.navCtrl.navigateForward(
+          //   ["/new-diet", { refresh: new Date().getTime() }],
+          //   { queryParams: { slot: Number(this.data?.slot) } }
+          // );
+        },
+        (err) => {
+          console.log("details error", err);
+        }
+      );
     }
   }
 
@@ -222,6 +224,7 @@ export class PortionCountPage implements OnInit {
   }
 
   addRemove(type) {
+   // debugger;
     let calCount = this.data?.Calories / this.data.portion;
     if (type === "add") {
       this.data.portion = Number(this.data?.portion || 0) + 0.5;

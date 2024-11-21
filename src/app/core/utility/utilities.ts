@@ -216,7 +216,13 @@ export class UTILITIES {
         cssClass: "my-custom-class",
         showBackdrop: false,
         spinner: null,
-        message: `<ion-spinner name="bubbles"></ion-spinner>`,
+        message: `<div class="custom-loader">
+                  <div class="spinner-container">
+                    <div class="spinner"></div>
+                    <img src="./assets/icon/Spinner-loader.svg">
+                  </div>
+                </div>
+                `,
       })
       .then((a) => {
         this.isLoading = true;

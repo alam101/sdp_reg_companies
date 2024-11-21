@@ -49,6 +49,7 @@ export class PortionCountPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log("PPPPPPPPPPPPPPP");
     this.data = _.cloneDeep(this.alterdata);
     console.log("Portion Count Page line no 38", this.data);
     console.log("Portion Count Page line no 38", this.data.slot);

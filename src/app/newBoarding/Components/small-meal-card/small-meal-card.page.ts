@@ -64,10 +64,14 @@ export class SmallMealCardPage implements OnInit {
     this.gotoView.emit(data);
   }
 
-  ionViewWillEnter() {}
+  ionViewWillEnter() {
+    console.log("XXXxxxxxxxxxxxxxx");
+    
+  }
 
   replaced() {
     // this.data.portion = 1;
+   // debugger;
     this.replacedModal.emit(this.data);
   }
 

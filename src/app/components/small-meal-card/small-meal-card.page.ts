@@ -21,6 +21,8 @@ export class SmallMealCardPage implements OnInit {
   constructor(private navCtrl: NavController, private router: Router) {}
 
   ngOnInit() {
+    console.log("ALAALALALALALALLAA");
+    
     this.image_URL = CONSTANTS.image_URL;
     this.data = _.cloneDeep(this.mealData);
     // if (this.data?.foodSource?.toLowerCase() === "external") {

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/new-diet"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-weight: 500; color:#fff; font-size:2rem;">Appinfo</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-card style="font-size: 1rem;">
+  <ion-card-content>
+   <ion-row><ion-col style="color:#000; font-size:1rem;"><b> Recommended Calories Calculations:</b> </ion-col></ion-row>
+   <ion-row><ion-col style="color:#000; font-size:1rem;"><b>Step 1 :</b> </ion-col></ion-row>
+   <ion-row><ion-col>BMR calculation:</ion-col></ion-row>
+   <ion-row><ion-col>
+    <p>
+      The Harris–Benedict equations revised by Mifflin and St Jeor in 1990:[4]<br>
+Men <br>
+BMR = (10 × weight in kg) + (6.25 × height in cm) – (5 × age in years) +5 <br>
+Women<br>
+BMR = (10 × weight in kg) + (6.25 × height in cm) – (5 × age in years) -161
+    </p>
+   </ion-col></ion-row>
+   <ion-row><ion-col style="color:#000; font-size:1rem;"><b>Step 2 :</b></ion-col></ion-row>
+   <ion-row><ion-col>
+    <p>
+      Calculate calories need as per Activity level <br>
+      calories = bmr * Activity Multiplier <br>
+      Sedentary (No Exercise), “Multiplier” : 1.2, <br>
+      Lightly Active (Walking, Yoga, etc), ” Multiplier ” : 1.375, <br>
+      Moderately Active (Train around 3 times a week), “Multiplier” : 1.55, <br>
+      Super Active (Train more than 3 times a week) “Multiplier” : 1.7,
+    </p>
+   </ion-col></ion-row>
+
+   <ion-row><ion-col style="color:#000; font-size:1rem;"><b>Step 3 :</b></ion-col></ion-row>
+   <ion-row><ion-col>
+    <p>
+      We reduce by 500 calories in case of weight loss
+<br>
+   <!-- <b style="color:#000; font-size:1rem;"> Calories Burnt Calculations/ Steps taken :</b> <br> -->
+
+   Our source of this information is Google Fit in apple and apple Health Kit in ios
+    </p>
+   </ion-col></ion-row>
+   <ion-row><ion-col style="color:#000; font-size:1rem;"><b>Nutrition value of Foods:</b></ion-col></ion-row>
+   <ion-row><ion-col>
+   <ul>
+    <li>
+      Our source of information is based on National Institute of Nutrition from follwing links https://www.nin.res.in/downloads/DietaryGuidelinesforNINwebsite.pdf
+      https://www.nin.res.in/bookrecommendations.html
+    </li>
+    <li>
+      Our dietitians have used this as the foundation to compute Macros for the food items
+    </li>
+    <li>
+      for the restaurants and packaged foods we have taken the information from their websited and packaging
+    </li>
+   </ul>
+   </ion-col></ion-row>
+   <br><br>
+  </ion-card-content>
+</ion-card>
+<br><br><br>
+</ion-content>

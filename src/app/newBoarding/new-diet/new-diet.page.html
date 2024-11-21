@@ -283,6 +283,21 @@
 
   </div>
  </div>
+
+ <div *ngIf="clientId==='trunord'" style="position: relative; top:-.5rem;">
+  <div>
+    <ion-card style="width: 93%;left:2%;padding: .2rem 1rem;">
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <p style="font-size: 1rem;">
+             <a (click)="openWindow()" style="color:var(--theme-profile-background);cursor:pointer;text-decoration: underline;">Our source of information</a>
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+ </div>
+
  <br>
    <div *ngIf="compConfig?.isDietitian===true &&  firstConsult===false && isPlanExpired===false" >
     <img src="./assets/images/nutritionist.jpg" style="width: auto;height: auto;">
@@ -331,5 +346,6 @@ border-top-left-radius: 10px;
    ></ion-searchbar>
  </div>
 </ion-footer>
+
 
 <app-filter-card></app-filter-card>

@@ -15,6 +15,7 @@ import {CONSTANTS} from '../../core/constants/constants';
 export class ReadQueryComponent implements OnInit {
   token="";
   clientId: any; //="newmi";
+  loaded=false;
   type="0";
   selectedTheme: String;
   randomNumber = Number(Date.now()) * Math.random();
@@ -177,11 +178,13 @@ export class ReadQueryComponent implements OnInit {
     if(this.clientId.includes('individual')){
       localStorage.setItem("userid",resData?.profile?.email);
       CONSTANTS.email = resData?.profile?.email;
+      this.loaded = true;
       this.router.navigate(["dietitian-profile"]);
       return;
      }
      const localProfileObject = JSON.parse(localStorage.getItem("profileData"));
       if(localProfileObject.code=="0001"){
+        this.loaded = true;
          this.router.navigate(['/boarding1'],{queryParams:{params:Math.floor(this.randomNumber)}});
       }
       else{
@@ -209,21 +212,26 @@ export class ReadQueryComponent implements OnInit {
           if(localProfileObject["lifeStyle"]?.communities?.length>0 
             && localProfileObject["lifeStyle"]?.foodType!==null 
             && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==0){
+              this.loaded = true;
             this.router.navigate(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
           }
           else{
+            this.loaded = true;
             this.router.navigate(["/boarding1"],{queryParams:{params:Math.floor(this.randomNumber)}});
           }
          } 
          else if(localProfileObject["lifeStyle"]?.foodType!==null 
           && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==0){
+            this.loaded = true;
           this.router.navigate(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
          }
          else{
+          this.loaded = true;
           this.router.navigate(["/boarding1"],{queryParams:{params:Math.floor(this.randomNumber)}});
          }
         }
         else{
+          this.loaded = true;
           this.router.navigate(["/boarding1"],{queryParams:{params:Math.floor(this.randomNumber)}});
         }
        // this.router.navigate(["/dietplan"]);
@@ -231,6 +239,7 @@ export class ReadQueryComponent implements OnInit {
    
       }
     else{
+      this.loaded = true;
       this.router.navigate(["/boarding1"],{queryParams:{params:Math.floor(this.randomNumber)}});
     }
    
@@ -263,11 +272,13 @@ export class ReadQueryComponent implements OnInit {
   else{
   
    this.dismissLoader();
+   this.loaded = true;
     this.router.navigate(['/boarding1'],{queryParams:{params:Math.floor(this.randomNumber)}});
   }
 
   }
   navigateToHome(){
+    this.loaded = true;
     this.router.navigate(['/home'],{queryParams:{params:Math.floor(this.randomNumber)}});
   }
   }

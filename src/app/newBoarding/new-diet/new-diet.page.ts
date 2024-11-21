@@ -793,7 +793,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       });
     }
   }
-
+  openWindow(){
+    this.router.navigate(["appinfo"]);
+  }
+  
   errorHandler(error: any) {
     throw new Error('Method not implemented.');
   }
