@@ -201,6 +201,8 @@ export class OptionsComponent implements OnInit {
     this.appService.searchFoodItemByName(searchTerm).then((resp)=>{
       let internalData = resp["internalFoods"];
       let externalData = resp["externalFoods"];
+      console.log("resp:nnononnono:---", resp);
+      
       internalData = internalData.sort((a, b) =>{ return (a.Score < b.Score ? 1 : -1) });
       // externalData = externalData.sort((a, b) =>{ return (a.Score < b.Score ? 1 : -1) });
       internalData.map((ele)=>{

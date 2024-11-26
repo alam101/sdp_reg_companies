@@ -1148,11 +1148,17 @@
               "value": "skincare_plix",
               "label": "Healthy skin, beautiful you.",
               "imgUrl": "../../../assets/newImages/skincare_img.png"
-            },
+            },  
             {
               "name": "Manage Stress",
               "value": "stress_plix",
               "label": "No more Stress",
+              "imgUrl": "../../../assets/newImages/stress_img.png"
+            },
+            {
+              "name": "Hair Care",
+              "value": "trayaHealth",
+              "label": "For Hair care",
               "imgUrl": "../../../assets/newImages/stress_img.png"
             }
           ]
@@ -3744,8 +3750,8 @@
           "options": [
             {
               "name": "Weight Loss",
-              "value": "weightLoss",
-              "label": "Lose weight not the mind",
+              "value": "wellbeing_weightloss",
+              "label": "Sustainable Weight Loss Made Simple",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png"
             }
           ]
@@ -3756,16 +3762,10 @@
           "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png",
           "options": [
             {
-              "name": "Muscle Building",
-              "value": "muscleGain",
-              "label": "Pump and get stronger",
+              "name": "Muscle Gain Plan",
+              "value": "wellbeing_musclegainMorning",
+              "label": "Power Up muscles with high protein diet",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
-            },
-            {
-              "name": "Lean Body",
-              "value": "fatShredding",
-              "label": " Maintain muscles and lose fat",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
             }
           ]
         },
@@ -3775,28 +3775,35 @@
           "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png",
           "options": [
             {
-              "name": "Manage Diabetes",
-              "value": "diabetes",
-              "label": " Optimize blood glucose levels ",
+              "name": "Diabetes",
+              "value": "wellbeing_diabetes",
+              "label": "Diet is most effective way to Manage Diabetes",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
             },
             {
-              "name": "Manage PCOS",
-              "value": "pcos",
-              "label": " No more irregular period",
+              "name": "PCOS",
+              "value": "wellbeing_pcos",
+              "label": "Balance Hormones, Transform Your Health",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
+           
             {
-              "name": "Manage Cholesterol",
-              "value": "cholesterol",
-              "label": "No more high blood pressure",
+              "name": "Wellbeing Hypothyroid",
+              "value": "wellbeing_hypothyroid",
+              "label": "Support Your Thyroid with Every Bite",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+            },
+            {
+              "name": "Joints Health",
+              "value": "wellbeing_jointshealth",
+              "label": "Improve Joints strength with the Right Nutrition",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
             },
             {
-              "name": "Manage Hypertension",
-              "value": "hypertension",
-              "label": "No more high blood pressure",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+              "name": "Skin and Hair care",
+              "value": "welbbeing_skinhair",
+              "label": "Improve your skin and hair with a Nutrient-Rich Diet",
+              "imgUrl": "../../../assets/newImages/skincare_img.png"
             }
           ]
         }

@@ -64,25 +64,49 @@
             </p>
           </div>
         </div>
-        <div class="main_meter_div">
+        <div class="main_meter_div" *ngIf="heightType==='feet'">
           <div class="meter_box_div">
-            <!-- <ion-input
-              class="height_value"
-              name="h"
-              [(ngModel)]="inputHeight"
-              (ngModelChange)="setHeight($event)"
-            ></ion-input> -->
-            <p class="height_value">{{inputHeight}}</p>
+                <p class="height_value">{{inputHeight}}</p>
             <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
           </div>
           <div class="range_div">
-            <ion-range [min]="minHight" [max]="maxHight" [value]="parseint()" mode="ios" class="pad_0"
-              [step]="heightType==='feet'?0.1:1" (ionChange)="getHeight($event)" (ionChange)="calculateDesiredWeight()">
+            <ion-range [min]="minHeight" [max]="maxHeight" [value]="parseint()" [(ngModel)]="selectedHeight"  mode="ios" class="pad_0"
+              [step]="1"  (ionChange)="getHeight()">
+            </ion-range>
+            <!--  -->
+          </div>
+        </div>
+        <div class="main_meter_div" *ngIf="heightType==='cm'">
+          <div class="meter_box_div">
+                <p class="height_value">{{inputHeight}}</p>
+            <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
+          </div>
+          <div class="range_div">
+            <ion-range min="122" max="213" [value]="parseint()" [(ngModel)]="selectedHeight"  mode="ios" class="pad_0"
+              [step]="1"  (ionChange)="getHeight()">
             </ion-range>
             <!--  -->
           </div>
         </div>
       </div>
+<!-- 
+      <div>
+        Height new
+        <ion-item>
+          <ion-label>Height</ion-label>
+          <ion-range
+            [min]="minHeight" [max]="maxHeight"
+            step="1"
+            pin="true"
+            snaps="true"
+            [(ngModel)]="selectedHeight"
+            (ionChange)="calculateHeight()">
+            <ion-label slot="start">{{minHeight}} ft</ion-label>
+            <ion-label slot="end">{{maxHeight}} ft</ion-label>
+          </ion-range>
+        </ion-item>
+        <p>Your height: {{ displayHeight }}</p>
+      </div> -->
 
       <div class="content_sub_div2" style="background: none">
         <div class="header_btn_div">

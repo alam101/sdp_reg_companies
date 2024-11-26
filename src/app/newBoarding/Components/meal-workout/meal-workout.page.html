@@ -2,13 +2,11 @@
   <ion-skeleton-text
     *ngIf="!loaded"
     animated
-    class="sketloan"
-  ></ion-skeleton-text>
+    class="sketloan"></ion-skeleton-text>
   <ion-card
     *ngIf="loaded && data?.data?.length > 0"
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
-    [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}"
-  >
+    [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}">
     <div class="header_div" [style.background]="index===0?'#E4F3EC':index===1?'#F2E5D8':index===2?'#FBEEFC':index===3?'#E2F0F6':index===4?'#E4F3EC':index===5?'#F2E5D8':index===6?'
     #FBEEFC':index===7?'#E2F0F6':'#E4F3EC'">
       <p>

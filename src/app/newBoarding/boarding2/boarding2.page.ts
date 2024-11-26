@@ -26,9 +26,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   poundValue = 0.453592;
   profileData: any;
   gender = "";
-  height: any = 4.0;
-  minHight = 4.0;
-  maxHight = 6.5;
+  height: any = 48;
+  minHight = 48;
+  maxHight = 84;
   heightType = "feet";
   heightTypeForAPI = "";
   heightSplit: any;
@@ -58,6 +58,10 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   localData: any = {};
   clientId: any;
 
+
+  selectedHeight: number = 70; // Default height in inches (5 feet 10 inches)
+  displayHeight: string = '';
+
   constructor(
     private navCtrl: NavController,
     private cdr: ChangeDetectorRef,
@@ -75,6 +79,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     this.activatedRoute.queryParams.subscribe(res=>{
         this.from = res['from'];
       })
+      this.calculateHeight(); 
     }
   
     ngOnInit() {}
@@ -115,7 +120,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     });
     this.getProfile();
   }
-
+  
   getProfile() {
     this.appService.getProfile().then((res) => {
       console.log(res);
@@ -129,29 +134,23 @@ export class Boarding2Page implements OnInit,AfterViewInit {
           this.profileData?.demographic?.height?.unit === "in" ? "feet" : "cm";
         let h: any =
           this.heightType === "feet"
-            ? this.profileData?.demographic?.height?.value / 12
+            ? Math.floor(this.profileData?.demographic?.height?.value / 12)+"."+ (this.profileData?.demographic?.height?.value % 12)
             : this.profileData?.demographic?.height?.value;
-
-        if (this.heightType === "feet") {
-          this.minHight = 4.0;
-          this.maxHight = 6.5;
+           this.selectedHeight = this.profileData?.demographic?.height?.value;
+            if (this.heightType === "feet") {
+          this.minHight = 48;
+          this.maxHight = 84;
+          
+          this.height = h;
+          h = h.split(".");
           console.log(h);
-
-          h = h.toString().split(".");
-          console.log(h);
-          let h1: any = (h[1] / 0.0833333).toString().split("0")[0];
-          console.log("alam:--",h1);
-          if(isNaN(h1)){
-            h1 = 0;
-          }
-          this.inputHeight = `${h[0]}'${h1}"`;
-          this.height = `${h[0]}.${h1}`;
-          this.heightSplit = this.height.split(".");
+          this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
+          this.heightSplit = h.toString().split(".");
         } else {
           this.inputHeight = h;
           this.height = h;
-          this.minHight = 120;
-          this.maxHight = 243;
+          this.minHight = 122;
+          this.maxHight = 213;
         }
 
         if (this.profileData?.demographic?.weight) {
@@ -168,34 +167,38 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     });
   }
 
-  getHeight(e) {
-    console.log(e);
+  calculateHeight() {
+    const feet = Math.floor(this.selectedHeight / 12)
+    const inches = this.selectedHeight % 12;
+    this.displayHeight = `${feet} ft ${inches} in`;
+  }
+  getHeight() {
+    console.log("e.detail.value",this.selectedHeight);
     // this.height = parseFloat(e.detail.value).toFixed(1);
     if (this.heightType === "feet") {
-      this.minHight = 4.0;
-      this.maxHight = 6.5;
-      this.height = parseFloat(e.detail.value).toFixed(1);
-      const h = this.height.split(".");
-      this.heightSplit = this.height.split(".");
-      this.inputHeight = `${h[0]}'${h[1]}"`;
+      this.minHight = 48;
+      this.maxHight = 84;
+      const ht = Math.floor(this.selectedHeight / 12) +"."+ (this.selectedHeight % 12);
+      const h = ht.split(".");
+      this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
+      this.heightSplit =h;
     } else {
-      this.height = e.detail.value;
-      this.inputHeight = e.detail.value;
-      this.minHight = 120;
-      this.maxHight = 243;
+      this.height = this.selectedHeight;
+      this.inputHeight = this.selectedHeight;
+      this.minHight = 122;
+      this.maxHight = 213;
     }
     console.log(this.height, this.inputHeight, this.heightType);
+    this.calculateDesiredWeight();
   }
 
   calculateDesiredWeight() {
     console.log("calculateDesiredWeight called");
     if (this.heightType === "cm") {
-      this.targetweight = Math.ceil(parseInt(this.height) - 100);
+      this.targetweight = Math.ceil(this.selectedHeight - 100);
     } else {
       this.targetweight = Math.ceil(
-        (parseInt(this.heightSplit[0]) * 12 + parseInt(this.heightSplit[1])) *
-          2.54 -
-          100
+        (this.selectedHeight * 2.54) - 100
       );
     }
   }
@@ -318,11 +321,11 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   convertToInFromCM() {
     if (this.heightType === "cm") {
       this.heightTypeForAPI = "cm";
-      return this.height;
+      return this.selectedHeight;
     } else {
       this.heightTypeForAPI = "in";
       console.log(this.heightSplit);
-      return parseInt(this.heightSplit[0]) * 12 + parseInt(this.heightSplit[1]);
+      return this.selectedHeight;
       //return this.height * 12;
     }
   }
@@ -592,23 +595,17 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   setHeightType(type) {
     let h: any;
     if (type === "cm") {
-      this.minHight = 120;
-      this.maxHight = 243;
-      if (this.heightType === type) {
-        h = this.height;
-      } else {
-        h = this.height * 30.48;
-      }
+      this.minHight = 122;
+      this.maxHight = 213;
+      this.selectedHeight = this.selectedHeight * 2.54;
+     
     } else {
-      this.minHight = 4.0;
-      this.maxHight = 6.5;
-      if (this.heightType === type) {
-        h = this.height;
-      } else {
-        h = this.height / 30.48;
-      }
+      this.minHight = 48;
+      this.maxHight = 84;
+      this.selectedHeight = Math.floor(this.selectedHeight * 0.393701);
+      
     }
-    this.height = h;
+    this.height = this.selectedHeight;
     // this.heightType === "cm"
     //   ? parseInt(h).toFixed(1)
     //   : parseInt(h).toFixed(1);
@@ -616,9 +613,11 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   }
 
   parseint() {
+    console.log(this.height);
+    
     return this.heightType === "cm"
       ? parseInt(this.height)
-      : parseFloat(this.height).toFixed(1);
+      : this.height;
   }
 
   setweightType(type) {
