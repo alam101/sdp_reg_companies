@@ -30,32 +30,25 @@
       <ion-radio-group
         value="deasesValue"
         [(ngModel)]="newModal"
-        (ionChange)="selectActivity($event)"
-      >
+        (ionChange)="selectActivity($event)">
         <div
           class="card_div"
           (click)="newModal=activity?.val"
-          *ngFor="let activity of localData?.otherMaster?.activities"
-        >
-          <ion-img
-            [src]="'../../../assets/newImages/'+getImage(activity?.code)"
-            [ngClass]="activity?.code"
-          ></ion-img>
+          *ngFor="let activity of localData?.otherMaster?.activities">
           <ion-radio
             class="radio-button"
             [value]="activity?.val"
-            mode="ios"
-          ></ion-radio>
+            mode="ios"></ion-radio>
           <ion-card
             class="section-card"
-            [ngClass]="newModal === activity?.val && 'card_Border' "
-          >
+            [ngClass]="newModal === activity?.val && 'card_Border'">
             <p class="fitness">{{activity?.val}}</p>
             <p class="desc">{{activity?.sub_val}}</p>
+            <img [ngClass]="activity?.code" 
+            src="../../../assets/newImages/{{getImage(activity?.code)}}">
           </ion-card>
         </div>
       </ion-radio-group>
-
       <div class="go_btn_div" *ngIf="!from">
         <ion-grid>
           <ion-row>
