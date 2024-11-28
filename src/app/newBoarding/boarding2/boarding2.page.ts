@@ -59,7 +59,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   clientId: any;
 
 
-  selectedHeight: number = 70; // Default height in inches (5 feet 10 inches)
+  selectedHeight: number = 48; // Default height in inches (5 feet 10 inches)
   displayHeight: string = '';
 
   constructor(

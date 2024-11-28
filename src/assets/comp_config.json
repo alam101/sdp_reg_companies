@@ -3723,14 +3723,14 @@
       "video": true,
       "date_selection1": true,
       "date_selection2": true,
-      "goal": false,
+      "goal": true,
       "notes": false,
       "modifyNotes": false,
       "caloriesCircle": true,
       "itemCalories": true,
       "isBanner": true,
       "isProfileIcons": true,
-      "isEditProfile": false,
+      "isEditProfile": true,
       "dietComponent": false,
       "mealPref": false,
       "headerText": "Welcome to your daily diet plan",
@@ -3808,7 +3808,24 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
+     "editGoalForDisplay":[
+        { "name": "Weight Loss",
+        "value": "wellbeing_weightloss"
+      },
+      { "name": "Muscle Gain Plan", "value": "wellbeing_musclegainMorning"},
+      {"name": "Lean Body",
+              "value": "leanbodymorning_blubin"},
+              {"name": "Diabetes",
+              "value": "wellbeing_diabetes"},
+              {"name": "PCOS",
+              "value": "wellbeing_pcos"},
+              {"name": "Wellbeing Hypothyroid",
+              "value": "wellbeing_hypothyroid"},
+              {"name": "Joints Health",
+              "value": "wellbeing_jointshealth"},
+              {"name": "Skin and Hair care",
+              "value": "welbbeing_skinhair"}
+      ],
  "deseases": [
         {
           "desease": "D",

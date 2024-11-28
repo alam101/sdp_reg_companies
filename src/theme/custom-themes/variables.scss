@@ -2033,12 +2033,12 @@ body[color-theme="mswastha"] {
 --button-text:#fff;
 }
 body[color-theme="wellbeing"] {
-  --font: "stepgo-regular";
-  --font-bold: "stepgo-bold";
-  --font-light: "Hstepgo-light";
-  --font-medium: "stepgo-medium";
-  --font-medium-extended: "stepgo-extended";
-    $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+  --font: "wellbeing-regular";
+  --font-bold: "wellbeing-bold";
+  --font-light: "wellbeing-light";
+  --font-medium: "wellbeing-medium";
+  --font-medium-extended: "wellbeing-extended";
+    $sans-font-regular: "wellbeing-ragular", "Helvetica Neue", Arial, sans-serif;
     --theme-profile-background: #0F0F0F;
     --theme-background: #0F0F0F; //#00a6a8
     --theme-header: #0F0F0F;
@@ -2056,7 +2056,7 @@ body[color-theme="wellbeing"] {
     --theme-boxAdd:1px solid #0F0F0F; //#01A3A5;
     --theme-color:#0F0F0F; //#01A3A5;
     --theme-backgroundLRG: -webkit-linear-gradient(top, #0F0F0F 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
-    --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+    --theme-font:"wellbeing-regular", "Helvetica Neue", "Arial", "sans-serif";
     --theme-progressBarWhite:#FFFFFF;
     --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
     --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
@@ -2077,8 +2077,9 @@ body[color-theme="wellbeing"] {
     --green:green;
     --yellow:yellow;
     --red:red;
-    --theme-newFont: "stepgo-regular";
-    --ion-font-family: "stepgo-bold";
+    --theme-newFont: "wellbeing-regular";
+    --ion-font-family: "wellbeing-regular";
+    --ion-default-font: "wellbeing-regular";
     --xsmall-font:0.625rem;  //10px
     --small-font:0.75rem; //12px
     --regular-font:0.871rem; //14px
