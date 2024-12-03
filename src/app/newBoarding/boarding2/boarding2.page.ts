@@ -59,7 +59,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   clientId: any;
 
 
-  selectedHeight: number = 48; // Default height in inches (5 feet 10 inches)
+  selectedHeight: any = 48; // Default height in inches (5 feet 10 inches)
   displayHeight: string = '';
 
   constructor(
@@ -140,7 +140,6 @@ export class Boarding2Page implements OnInit,AfterViewInit {
             if (this.heightType === "feet") {
           this.minHight = 48;
           this.maxHight = 84;
-          
           this.height = h;
           h = h.split(".");
           console.log(h);
@@ -163,6 +162,17 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
         console.log(this.height, this.inputHeight);
 
+      }
+      else{
+        this.minHight = 48;
+        this.maxHight = 84;
+        this.selectedHeight =48;
+        let h = Math.floor(this.selectedHeight / 12)+"."+(this.selectedHeight % 12);
+        this.height = h;
+ 
+    //    this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
+        this.heightSplit = h.toString().split(".");
+        this.calculateDesiredWeight();
       }
     });
   }
@@ -193,6 +203,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   }
 
   calculateDesiredWeight() {
+
     console.log("calculateDesiredWeight called");
     if (this.heightType === "cm") {
       this.targetweight = Math.ceil(this.selectedHeight - 100);
@@ -597,7 +608,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     if (type === "cm") {
       this.minHight = 122;
       this.maxHight = 213;
-      this.selectedHeight = this.selectedHeight * 2.54;
+      this.selectedHeight = (this.selectedHeight * 2.54).toFixed(0);
      
     } else {
       this.minHight = 48;
@@ -613,11 +624,12 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   }
 
   parseint() {
-    console.log(this.height);
-    
+    this.minHight = 48;
+    this.maxHight = 84;
+    console.log(this.height); 
     return this.heightType === "cm"
-      ? parseInt(this.height)
-      : this.height;
+      ? parseInt(this.selectedHeight)
+      : parseInt(this.selectedHeight);
   }
 
   setweightType(type) {

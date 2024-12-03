@@ -20,12 +20,15 @@
           background: transparent;margin-right: .5rem;
           "></ion-icon>
           <ion-label>My Profile</ion-label>
+        
         </ion-segment-button>
+       
         <!-- <ion-segment-button value="insight" class="insightBtn" layout="icon-start">
           <ion-icon src="'../../../../../../assets/newImages/insight_icon.svg"></ion-icon>
           <ion-label>My Insights</ion-label>
         </ion-segment-button> -->
       </ion-segment>
+      <p class="username" style="position: absolute; left:35.5%; top:9%;font-size:.8rem;">Profile ID: {{profileData?.profile?.email}}</p>
       <div class="w_100 left" style="    top: -3rem;
       position: relative;
       right: -10px">
@@ -56,6 +59,7 @@
         </div>
 
         <p class="username">{{profileData?.profile?.name}}</p>
+       
         <ion-grid class="w_100">
           <ion-row>
             <ion-col size="5">

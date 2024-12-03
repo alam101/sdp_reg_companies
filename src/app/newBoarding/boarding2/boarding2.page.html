@@ -69,8 +69,8 @@
                 <p class="height_value">{{inputHeight}}</p>
             <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
           </div>
-          <div class="range_div">
-            <ion-range [min]="minHeight" [max]="maxHeight" [value]="parseint()" [(ngModel)]="selectedHeight"  mode="ios" class="pad_0"
+          <div class="range_div"> 
+            <ion-range min="48" max="84"  [value]="parseint()" [(ngModel)]="selectedHeight"  mode="ios" class="pad_0"
               [step]="1"  (ionChange)="getHeight()">
             </ion-range>
             <!--  -->

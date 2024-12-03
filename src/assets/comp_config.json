@@ -1159,7 +1159,7 @@
               "name": "Hair Care",
               "value": "trayaHealth",
               "label": "For Hair care",
-              "imgUrl": "../../../assets/newImages/stress_img.png"
+              "imgUrl": "../../../assets/newImages/hair.png"
             }
           ]
         }
@@ -3803,7 +3803,7 @@
               "name": "Skin and Hair care",
               "value": "welbbeing_skinhair",
               "label": "Improve your skin and hair with a Nutrient-Rich Diet",
-              "imgUrl": "../../../assets/newImages/skincare_img.png"
+              "imgUrl": "../../../assets/newImages/hair.png"
             }
           ]
         }
