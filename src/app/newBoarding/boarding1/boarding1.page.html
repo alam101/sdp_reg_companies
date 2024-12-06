@@ -54,10 +54,15 @@
       <h3 class="title-text ion-text-center">Hey, answer a few questions to help us get your personalised plan</h3>
 
       <ion-input
+      type="text"
+      (ionInput)="onInputChange($event)"
         class="input"
         placeholder="Your Name"
         [(ngModel)]="name"
       ></ion-input>
+      <ion-note color="danger" *ngIf="form.get('textInput').hasError('pattern')">
+        Numbers are not allowed!
+      </ion-note>
     </div>
     <div class="go_btn_div">
       <ion-button class="go_btn" shape="round" (click)="goNext()"

@@ -28,7 +28,16 @@ export class Boarding1Page implements OnInit,AfterViewInit {
       this.dismissLoader();
     }, 1000);
   }
+  inputValue: string = '';
+  onInputChange(event: any): void {
+    const value = event.target.value;
 
+    // Ensure only letters are allowed (optional: include spaces, punctuation, etc.)
+    this.inputValue = value.replace(/[0-9]/g, ''); // Removes all numeric characters
+
+    // Update the value in the input
+    event.target.value = this.inputValue;
+  }
   ngOnInit() {}
   ngAfterViewInit() {
     this.storage.get("profileData").then((profileData) => {
