@@ -488,19 +488,32 @@ ion-thumbnail {
   left: 50%; /* Position from left */
   transform: translate(-50%, -50%);
 }
-.video-iframe {
-  transform: rotate(-90deg);
-  transform-origin: left top;
-  width: 100vh;
-  overflow-x: hidden;
-  position: fixed;
-  top: 100%;
-  left: 0;
-  height: 58vh;
-  z-index: 11;
 
+@media (max-width: 1023px) {
+  .video-iframe {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    height: 58vh;
+    z-index: 11;
+  
+  }
 }
-
+@media (min-width: 1024px) {
+  .video-iframe {
+      width: 100%;
+      overflow-x: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      z-index: 11;
+  }
+}
 .get-button-icon {
   color: #fff;
   background-color: #01a3a4;

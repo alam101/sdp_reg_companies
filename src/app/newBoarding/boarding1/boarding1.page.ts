@@ -38,8 +38,7 @@ export class Boarding1Page implements OnInit,AfterViewInit {
     // Update the value in the input
     event.target.value = this.inputValue;
   }
-  ngOnInit() {}
-  ngAfterViewInit() {
+  ngOnInit() {
     this.storage.get("profileData").then((profileData) => {
       this.prof = this.utilities.parseJSON(profileData);
       this.name =
@@ -49,6 +48,17 @@ export class Boarding1Page implements OnInit,AfterViewInit {
       this.name = this.name.replace("' '", "").replace(/[^A-Za-z0-9 ]/g, "");
       this.isNameValid = true;
     });
+  }
+  ngAfterViewInit() {
+    // this.storage.get("profileData").then((profileData) => {
+    //   this.prof = this.utilities.parseJSON(profileData);
+    //   this.name =
+    //     this.prof && this.prof["profile"] && this.prof["profile"]["name"]
+    //       ? this.prof["profile"]["name"]
+    //       : "";
+    //   this.name = this.name.replace("' '", "").replace(/[^A-Za-z0-9 ]/g, "");
+    //   this.isNameValid = true;
+    // });
   }
 
   dismissLoader() {
