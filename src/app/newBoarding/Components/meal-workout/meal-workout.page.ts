@@ -49,6 +49,7 @@ export class MealWorkoutPage implements OnInit {
   currentDateIndex: any = 0;
   videoUrl: any;
   streamVideo = false;
+  clientId="";
   constructor(
     private utilities: UTILITIES,
     private storage: Storage,
@@ -60,7 +61,7 @@ export class MealWorkoutPage implements OnInit {
     private popCtrl: PopoverController,
     private broadcastService: BroadcastService
   ) {
-
+    this.clientId = localStorage.getItem("clientId");
     // if(!this.data){
     // this.data= JSON.parse(localStorage.getItem("diett"));
     // }
@@ -69,6 +70,7 @@ export class MealWorkoutPage implements OnInit {
     // }
      
   }
+  
   isFuture:any;
   compConfig:any;
   async ngOnInit() {

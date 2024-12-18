@@ -94,7 +94,8 @@
               [ngClass]="{'isFuture-button':isFuture}"
               class="logged_btn"
               (click)="addCal(d,i)"
-              style="--background: var(--profile-color);color:var(--button-text);width:100%;height:30px;font-size: .75rem;--border-radius: 5px;"
+              style="--background: var(--profile-color);color:var(--button-text);width:100%;height:30px;font-size: .75rem;--border-radius: 5px;
+              min-width:55px;display:flex;max-width:50%;"
               *ngIf="!d.eaten || d?.eaten < 0">
               Log
               <ion-icon name="add-outline" style="color: var(--button-text);margin-left: 5px;"></ion-icon>
@@ -102,29 +103,31 @@
             <ion-button
             *ngIf="d?.eaten > 0 "
             class="logged_btn"
-            style="--background: var(--profile-color);color:var(--button-text);width:100%;height:30px;font-size: .75rem;--border-radius: 5px;"
+            style="--background: var(--profile-color);color:var(--button-text);width:50%;height:30px;font-size: .75rem;
+            --border-radius: 5px;display:flex;max-width:50%;"
             (click)="logged(d)">
             Logged
             <ion-icon style="color:var(--button-text);margin-left:5px;" name="checkmark"></ion-icon>
           </ion-button>
-              </ion-col>
-              <ion-col class="ion-text-center">
+           
                 <ion-button
-                *ngIf="(!d.eaten || d?.eaten < 0)"
+                *ngIf="(!d.eaten || d?.eaten < 0) && clientId!=='blubein'"
                 fill="outline"
-                style="color:#414042;width:100%;height:30px;font-size: .75rem;--border-radius: 5px;--border-color:#414042;"
+                style="color:#414042;width:100%;height:30px;font-size: .75rem;--border-radius: 5px;
+                --border-color:#414042;min-width:80px;display:flex;max-width:50%;"
                 class="logged_btn"
                 (click)="changed(d)">
-                  &nbsp; Alternatives
+                  &nbsp; Options
                   <ion-icon name="chevron-forward-outline" style="color: #414042;margin-left:5px;"></ion-icon>
               </ion-button>
-              <br>
-              <ion-button *ngIf="d?.BuyUrl !== undefined && d?.BuyUrl!==''" (click)="gotoBuyUrl(d.BuyUrl)"
+             
+              <!-- *ngIf="d?.BuyUrl !== undefined && d?.BuyUrl!==''" -->
+              <ion-button *ngIf="d?.BuyUrl !== undefined && d?.BuyUrl!==''"  (click)="gotoBuyUrl(d.BuyUrl)"
               class="logged_btn"
               style="--background: var(--profile-color);
               color:var(--button-text);width:100%;height:30px;
-              font-size: .75rem;--border-radius: 13px;    top: .5rem;
-              position: relative;right: 53%;">Buy</ion-button>
+              font-size: .75rem;--border-radius: 13px; 
+              position: relative;min-width:80px;display:flex;max-width:50%;">Buy</ion-button>
               </ion-col>
             </ion-row>
           </div>
