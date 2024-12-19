@@ -322,6 +322,21 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         );
 
       if (this.from) {
+        if (this.targetweightType == "kg") {
+          if (this.targetweight < 40 || this.targetweight > 150) {
+            this.utilities.presentAlert(
+              "Please select min weight 40 and max 150 kg."
+            );
+            return;
+          }
+        } else {
+          if (this.targetweight < 88 || this.targetweight > 333) {
+            this.utilities.presentAlert(
+              "Please select min weight 88 and max 333 pound."
+            );
+            return;
+          }
+        }
         return this.modalClose();
       }
       this.storage.set("pendingPage", "/boarding3");

@@ -95,7 +95,7 @@
               class="logged_btn"
               (click)="addCal(d,i)"
               style="--background: var(--profile-color);color:var(--button-text);width:100%;height:30px;font-size: .75rem;--border-radius: 5px;
-              min-width:55px;display:flex;max-width:50%;"
+              min-width:65px;display:flex;max-width:50%;"
               *ngIf="!d.eaten || d?.eaten < 0">
               Log
               <ion-icon name="add-outline" style="color: var(--button-text);margin-left: 5px;"></ion-icon>
@@ -109,7 +109,12 @@
             Logged
             <ion-icon style="color:var(--button-text);margin-left:5px;" name="checkmark"></ion-icon>
           </ion-button>
-           
+                <ion-button *ngIf="d?.BuyUrl !== undefined && d?.BuyUrl!==''"  (click)="gotoBuyUrl(d.BuyUrl)"
+                class="logged_btn"
+                style="--background: var(--profile-color);
+                color:var(--button-text);width:100%;height:30px;
+                font-size: .75rem;--border-radius: 13px; 
+                position: relative;min-width:55px;display:flex;max-width:50%;">Buy</ion-button>
                 <ion-button
                 *ngIf="(!d.eaten || d?.eaten < 0) && clientId!=='blubein'"
                 fill="outline"
@@ -122,12 +127,7 @@
               </ion-button>
              
               <!-- *ngIf="d?.BuyUrl !== undefined && d?.BuyUrl!==''" -->
-              <ion-button *ngIf="d?.BuyUrl !== undefined && d?.BuyUrl!==''"  (click)="gotoBuyUrl(d.BuyUrl)"
-              class="logged_btn"
-              style="--background: var(--profile-color);
-              color:var(--button-text);width:100%;height:30px;
-              font-size: .75rem;--border-radius: 13px; 
-              position: relative;min-width:80px;display:flex;max-width:50%;">Buy</ion-button>
+             
               </ion-col>
             </ion-row>
           </div>
