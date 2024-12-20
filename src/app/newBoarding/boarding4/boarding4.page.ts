@@ -94,8 +94,8 @@ trayaAllergies=[];
                 ele.value.includes("allergy")
               ) {
                 if(this.clientId==='traya'){
-                  if(ele.code.toLowerCase() != "f" && ele.code.toLowerCase() != "g" 
-                  && ele.code.toLowerCase() != "so" && ele.code.toLowerCase() != "ml"
+                  if(ele.code.toLowerCase() != "f" 
+                  && ele.code.toLowerCase() != "so" 
                   && ele.code.toLowerCase() != "sf"){
                   this.allergies.push(ele);
                   }

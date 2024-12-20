@@ -321,7 +321,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
           }
         );
 
-      if (this.from) {
+      
         if (this.targetweightType == "kg") {
           if (this.targetweight < 40 || this.targetweight > 150) {
             this.utilities.presentAlert(
@@ -337,8 +337,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
             return;
           }
         }
-        return this.modalClose();
-      }
+        if (this.from) {
+          return this.modalClose();
+        }
       this.storage.set("pendingPage", "/boarding3");
       this.navCtrl.navigateForward(["/boarding3"]);
     });
