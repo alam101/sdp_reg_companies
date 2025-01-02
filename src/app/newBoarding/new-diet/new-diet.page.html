@@ -185,7 +185,7 @@
     </div>
    
 
- <div *ngIf="firstConsult!==false && isPlanExpired===false">
+ <div *ngIf="((clientId==='wellbeing' && assinedDietitianExpDate!==null && aibasedDietplan===true) || ( clientId==='plix'  && aibasedDietplan===true)) || ((clientId!=='wellbeing' && clientId!=='plix') && firstConsult!==false && isPlanExpired===false)">
   <div
     class="meal_workout_div"
     *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
@@ -220,6 +220,7 @@
     </div>
   </div>
 
+ 
 
   <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="instructions && instructions.length">
     <ion-card >
@@ -232,7 +233,37 @@
   </div>
   
  </div>
-  
+ 
+ <div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" >
+ <img src="./assets/img/waiting.svg" style="
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;text-align:center;">
+  <div style="width: 90%;
+     border-radius: 8px;    left: 5%;
+    position: relative;">
+   <div style="color:#707070;font-size:1rem;text-align:center;">
+     Diet plan is yet to be released by Dietitian.
+   </div>
+  </div>
+ </div>
+
+ <div *ngIf="(clientId==='wellbeing' || clientId==='plix') && assinedDietitianExpDate!==null && aibasedDietplan===false">
+  <img src="./assets/img/expired.svg" style="
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;text-align:center;">
+   <div style="width: 100%;
+      border-radius: 8px;">
+    <div style="color:#707070;    font-size: 1rem;
+    text-align: center;">
+      Plan is expired.
+    </div>
+  </div>
+  </div>
+
  <div *ngIf="isPlanExpired===true">
   <img src="./assets/newImages/expiredplan.png" style="width: auto;height: auto;">
   <div>
@@ -289,7 +320,7 @@
   <div *ngIf="compConfig.dietitianAction && whatappVisible && compConfig?.showWhatsApp===true" (click)="gotoWhatsApp()" style="    width: 13%;
     position: fixed;
     right: 2%;
-    bottom: 3%;
+    bottom: 9%;
     z-index: 11;">
     <img src="./assets/img/whatsapp.png">
   </div>
@@ -330,5 +361,34 @@ border-top-left-radius: 10px;
     bottom: 0;">
  </div>
 </ion-footer> -->
-
 <app-filter-card></app-filter-card>
+
+<!-- <div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" style="width: 100%; height:100%;position:fixed; opacity:1;background:#000;z-index:15;top:0"></div>
+<div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" style="width: 100%; height:100%;position:fixed;z-index:16;top: 36%;left: 5%;">
+<img src="./assets/img/expired.svg" style="
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;text-align:center;">
+ <fieldset style="width: 89%;
+    border-radius: 8px;">
+  <div style="color:#fff;font-size:1rem;">
+    Diet plan is yet to be released by Dietitian.
+  </div>
+ </fieldset>
+</div>
+
+<div *ngIf="(clientId==='wellbeing' || clientId==='plix') &&  assinedDietitianExpDate!==null && aibasedDietplan===false" style="width: 100%; height:100%;position:fixed; opacity:1;background:#000;z-index:15;top:0"></div>
+<div *ngIf="(clientId==='wellbeing' || clientId==='plix') && assinedDietitianExpDate!==null && aibasedDietplan===false" style="width: 100%; height:100%;position:fixed;z-index:16;top: 36%;left: 5%;">
+<img src="./assets/img/waiting.svg" style="
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;text-align:center;">
+ <fieldset style="width: 89%;
+    border-radius: 8px;">
+  <div style="color:#fff;font-size:1rem;">
+    Plan is expired.
+  </div>
+ </fieldset>
+</div> -->

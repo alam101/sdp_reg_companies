@@ -96,14 +96,15 @@ export class AppService {
     return this.httpClient.get(url, {}).toPromise();
   }
   getEditProfilePermission(email) {
-    const url = APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`; 
+    const url =  `${APIS.nodeBaseUrl}dietitian/assignedDietitianRecord?userId=${email}`; //APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`; 
     return this.httpClient.get(url, {}).toPromise();
   }
 
   getDietitianRecord(userid: string) {
     return this.httpClient.get(
-      APIS.nodeBaseUrl + `dietitian/assignedDietitianRecord?userId=${userid}`
+      `${APIS.nodeBaseUrl}dietitian/assignedDietitianRecord?userId=${userid}`
     );
+    //APIS.nodeBaseUrl + 
   }
 
   // getEditProfilePermission(email) {

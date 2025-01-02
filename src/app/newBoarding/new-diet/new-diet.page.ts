@@ -536,11 +536,12 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   gender="";
   image="";
   calendlyVisible=false;
+  assinedDietitianExpDate=null;
+  aibasedDietplan=false;
   getdietitianDetail(email){
   
    if (this.compConfig.dietitianAction) {
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
-      //debugger;
       if(res.dietitianName!==undefined){
       this.deititianName = res.dietitianName;
       this.deititianRole = res.role;
@@ -549,6 +550,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       this.whatappVisible = res.whatsappVisible;  
       this.gender = res.gender;
       this.image = res.image;
+      this.assinedDietitianExpDate = res?.expiryDate ===undefined?null:res.expiryDate;
+      this.aibasedDietplan = res.aiBasedPlanContinues;
       this.calendlyVisible = res.calendlyVisible;
       }
     },err=>{

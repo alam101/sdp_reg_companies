@@ -1117,7 +1117,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-      "dietitianAction":false,
+      "dietitianAction":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -3746,8 +3746,8 @@
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
-      "showWhatsApp": false,
-"dietitianAction":false,
+      "showWhatsApp": true,
+      "dietitianAction":true,
       "goals": [
         {
           "heading": "Weight Management",
