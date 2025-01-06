@@ -451,7 +451,7 @@ addRemove(type) {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
-          this.utilities.showSuccessToast(success.message);
+          this.utilities.showSuccessToast("Logged Successfully.");
           this.getDietdata.emit(CONSTANTS.dietDate);
            this.todaysCalCount();
            this.logunlog = this.logunlog==='Log Slot'? "Logged": "Log Slot";

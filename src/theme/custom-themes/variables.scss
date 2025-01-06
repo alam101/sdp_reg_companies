@@ -2910,6 +2910,77 @@ body[color-theme="originn"] {
   --button-text:#fff;
   --button-text-back:#612d0f;
 }
+body[color-theme="trunativ"] {
+  --font: "aviva-regular", sans-serif;
+  --font-bold: "aviva-bold", sans-serif;
+  --font-light: "aviva-light", sans-serif;
+  --font-medium: "aviva-medium", sans-serif;
+  --font-medium-extended: "aviva-extendedMedium",  sans-serif;
+    $sans-font-regular: "aviva-ragular", sans-serif;
+  --theme-profile-background: #2e3a84;  //#2e3a84
+  --theme-background:#2e3a84; //#00a6a8
+  --theme-header:#2e3a84;
+  --theme-headerText:#fff;
+  --theme-logslot:#2e3a84;
+  --theme-button:#f39d52;
+  --theme-heading:#2e3a84;
+  --theme-activeBtn:#2e3a84;//#01A3A4       
+  --theme-plusBtn:#2e3a84; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #612d0f;//#01A3A4;
+  --theme-plusBtnWaterGuage:#2e3a84;  //#509bed;   
+  --theme-minusBtnWaterGuage:#2e3a84;  //#509bed;  
+  --theme-waterCenterPercent:#2e3a84;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #2e3a84; //#01A3A5;
+  --theme-color:#2e3a84; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #2e3a84 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#CD8B00; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#fff;
+  --theme-newHeader:#2e3a84;
+  --theme-newButton:#2e3a84; //#612d0f
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#2e3a84;
+  --arrow-color:#2e3a84;
+  --goal: #2e3a84;
+  --profile-color: #2e3a84;
+  --graph-background:#2e3a84;
+  --close-edit-color:#2e3a84;
+  --new-background: #2e3a84;
+  --new-border-color: #99b94933;
+  --theme-color-new:#2e3a84;  
+  --theme-milestone:#fff;
+  --theme-milestone2:#000;
+  --button-text:#fff;
+  --button-text-back:#2e3a84;
+}
 
   
 // Fonts

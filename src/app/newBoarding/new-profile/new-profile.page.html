@@ -418,7 +418,7 @@ background: rgb(242, 229, 216);top:0;transform: translate(12%, 70%);border-radiu
 </ion-row>
   <ion-row style="position: relative;top:10%;">
     <ion-col style="font-size: 1.1rem;padding:.8rem 1rem;">
-        Hello, I'm {{dietitianName}}, your {{dietitianRole}}. You can connect me for the modifications.
+        Hello, I'm {{dietitianName}}, your {{dietitianRole==='null'?'Dietitian':dietitianRole}}. You can connect me for the modifications.
     </ion-col>
   </ion-row>
   <br>
