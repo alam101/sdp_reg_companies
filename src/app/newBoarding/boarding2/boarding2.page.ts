@@ -224,11 +224,34 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   }
 }
 
+weightMessage=false;
+targetWeightMessage=false;
   goNext() {
+    this.weightMessage=false;
+    this.targetWeightMessage=false;
      if(!this.terms){
       this.utilities.presentToast("Please accept terms & conditions!");
         return;
      }
+     if (!this.weight) {
+      this.utilities.presentToast("Please enter your weight.");
+      return;
+    }
+    if(this.weight<40){
+      debugger;
+      this.weightMessage=true;
+      this.cdr.detectChanges();
+      return;
+    }
+    if (!this.targetweight) {
+      this.utilities.presentToast("Please enter your target weight.");
+      return;
+    }
+    if(this.targetweight<40){
+      debugger;
+      this.targetWeightMessage=true;
+      return;
+    }
     let age = new Date().getFullYear() - this.targetYear;
     const data = {
       age: { code: "A1", label: "15 to 18 years", avg_age: age },
@@ -282,14 +305,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       this.utilities.presentToast("Please enter your height.");
       return;
     }
-    if (!this.weight) {
-      this.utilities.presentToast("Please enter your weight.");
-      return;
-    }
-    if (!this.targetweight) {
-      this.utilities.presentToast("Please enter your target weight.");
-      return;
-    }
+  
     if (this.targetYear<new Date().getFullYear()-65 || this.targetYear>new Date().getFullYear()-18) {
       this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-65)+" , max:"+(new Date().getFullYear()-18)+"]");
       return;
@@ -322,21 +338,21 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         );
 
       
-        if (this.targetweightType == "kg") {
-          if (this.targetweight < 40 || this.targetweight > 150) {
-            this.utilities.presentAlert(
-              "Please select min weight 40 and max 150 kg."
-            );
-            return;
-          }
-        } else {
-          if (this.targetweight < 88 || this.targetweight > 333) {
-            this.utilities.presentAlert(
-              "Please select min weight 88 and max 333 pound."
-            );
-            return;
-          }
-        }
+        // if (this.targetweightType == "kg") {
+        //   if (this.targetweight < 40 || this.targetweight > 150) {
+        //     this.utilities.presentAlert(
+        //       "Please select min weight 40 and max 150 kg."
+        //     );
+        //     return;
+        //   }
+        // } else {
+        //   if (this.targetweight < 88 || this.targetweight > 333) {
+        //     this.utilities.presentAlert(
+        //       "Please select min weight 88 and max 333 pound."
+        //     );
+        //     return;
+        //   }
+        // }
         if (this.from) {
           return this.modalClose();
         }
@@ -360,17 +376,25 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   gotoDemographic() {
     if (this.targetweightType == "kg") {
       if (this.targetweight < 40 || this.targetweight > 150) {
-        this.utilities.presentAlert(
-          "Please select min weight 40 and max 150 kg."
-        );
-        return;
+        this.targetWeightMessage=true;
+        // this.utilities.presentAlert(
+        //   "Please select min weight 40 and max 150 kg."
+        // );
+       return;
+      }
+      else{
+        this.targetWeightMessage=false;
       }
     } else {
       if (this.targetweight < 88 || this.targetweight > 333) {
-        this.utilities.presentAlert(
-          "Please select min weight 88 and max 333 pound."
-        );
-        return;
+        this.targetWeightMessage=true;
+        // this.utilities.presentAlert(
+        //   "Please select min weight 88 and max 333 pound."
+        // );
+         return;
+      }
+      else{
+        this.targetWeightMessage=false;
       }
     }
   }

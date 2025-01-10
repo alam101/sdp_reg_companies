@@ -89,24 +89,7 @@
           </div>
         </div>
       </div>
-<!-- 
-      <div>
-        Height new
-        <ion-item>
-          <ion-label>Height</ion-label>
-          <ion-range
-            [min]="minHeight" [max]="maxHeight"
-            step="1"
-            pin="true"
-            snaps="true"
-            [(ngModel)]="selectedHeight"
-            (ionChange)="calculateHeight()">
-            <ion-label slot="start">{{minHeight}} ft</ion-label>
-            <ion-label slot="end">{{maxHeight}} ft</ion-label>
-          </ion-range>
-        </ion-item>
-        <p>Your height: {{ displayHeight }}</p>
-      </div> -->
+
 
       <div class="content_sub_div2" style="background: none">
         <div class="header_btn_div">
@@ -128,6 +111,10 @@
             </ion-img>
             <ion-input class="weight_value" name="w" [(ngModel)]="weight" type="number"></ion-input>
           </div>
+         
+        </div>
+        <div style="text-align: center;color:red;" *ngIf="weightMessage">
+          Please select weight more than 40kg.
         </div>
       </div>
 
@@ -151,46 +138,14 @@
             </ion-img> -->
             <ion-img src="../../../assets/newImages/squareRing.svg" class="square_img">
             </ion-img>
-            <ion-input class="weight_value" name="w" [(ngModel)]="targetweight" debounce="2000"
+            <ion-input class="weight_value" name="w" [(ngModel)]="targetweight" debounce="100"
               (ionBlur)="gotoDemographic()" type="number"></ion-input>
           </div>
+         
         </div>
-        <!-- <div class="main_scroll_Div">
-          <div class="scroll_div center">
-            <ion-icon
-              name="chevron-back-outline"
-              (click)="setRange('minus')"
-            ></ion-icon>
-
-            <ion-grid>
-              <ion-row class="scroll-x">
-                <ion-col
-                  size="1.72"
-                  *ngFor="let w of weightArray;let i = index"
-                  class="center"
-                  [ngStyle]="i+1 !== weightArray.length && {'border-right': '1px solid var(--white)'} "
-                >
-                  <p class="weight_values">{{setWeightFromArray+w}}</p>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-            <ion-icon
-              name="chevron-forward-outline"
-              (click)="setRange('plus')"
-            ></ion-icon>
-          </div>
-          <div class="finder_img">
-            <div class="rouded_div">
-              <div class="rouded center">
-                <p class="selected_weight_value">{{selectedWeight}}</p>
-              </div>
-              <ion-img src="../../../assets/newImages/targetline.svg"></ion-img>
-              <ion-img
-                src="../../../assets/newImages/target-arrow.svg"
-              ></ion-img>
-            </div>
-          </div>
-        </div> -->
+        <div style="text-align: center;color:red;" *ngIf="targetWeightMessage">
+          Please select weight more than 40kg.
+        </div>
       </div>
 
       <div class="content_sub_div3" style="background: none">
