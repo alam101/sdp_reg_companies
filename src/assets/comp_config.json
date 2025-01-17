@@ -5848,12 +5848,12 @@
         }
        ],
      "editGoalForDisplay":[
-        	{ "name": "Weight Loss","value": "nutrabox_weightloss"},
-      		{ "name": "Muscle Gain Plan Morning", "value": "nutrabox_musclebuildmorning"},
-          {"name": "Muscle Gain Plan Evening ","value": "nutrabox_musclebuildevening"},
-          {"name": "Fats Shredding Plan Morning", "value": "nutrabox_fatshreddingmorning"},
-          {"name": "Fats Shredding Plan Evening","value": "nutrabox_wellness"},
-          {"name":"Wellness", "value": "nutrabox_fatshreddingevening"}
+      { "name": "Weight Loss","value": "nutrabox_weightloss"},
+      { "name": "Muscle Gain Plan Morning", "value": "nutrabox_musclebuildmorning"},
+      {"name": "Muscle Gain Plan Evening ","value": "nutrabox_musclebuildevening"},
+      {"name": "Fats Shredding Plan Morning", "value": "nutrabox_fatshreddingmorning"},
+      {"name": "Fats Shredding Plan Evening","value": "nutrabox_fatshreddingevening"},
+      {"name":"Wellness", "value":"nutrabox_wellness"}
            
       ],
  "deseases": [
