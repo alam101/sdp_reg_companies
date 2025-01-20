@@ -5839,7 +5839,7 @@
           "imgUrl": "../../../assets/newImages/hair.png",
           "options": [
             {
-              "name": "Wellness",
+              "name": "General wellness",
               "value": "nutrabox_wellness",
               "label": "Improve immunity and wellness",
               "imgUrl": "../../../assets/newImages/hair.png"
@@ -5853,7 +5853,7 @@
       {"name": "Muscle Gain Plan Evening ","value": "nutrabox_musclebuildevening"},
       {"name": "Fats Shredding Plan Morning", "value": "nutrabox_fatshreddingmorning"},
       {"name": "Fats Shredding Plan Evening","value": "nutrabox_fatshreddingevening"},
-      {"name":"Wellness", "value":"nutrabox_wellness"}
+      {"name":"General wellness", "value":"nutrabox_wellness"}
            
       ],
  "deseases": [

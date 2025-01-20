@@ -1,16 +1,7 @@
 <ion-content>
   <div class="mainDiv">
     <div class="header_div">
-      <!-- <div class="slider_div">
-        <div class="lines"></div>
-        <div class="slider_page">
-          <p class="page_Count_active">1</p>
-          <p class="page_Count">2</p>
-          <p class="page_Count">3</p>
-          <p class="page_Count">4</p>
-          <p class="page_Count">5</p>
-        </div>
-      </div> -->
+
       <ion-row *ngIf="client==='aviva'" class="header-container">
         <ion-col size="12" class="ion-no-padding">
           <img class="aviva-logo"  src="./assets/newImages/aviva-logo.png">
@@ -65,16 +56,13 @@
       </ion-note>
     </div>
     <div class="go_btn_div">
-      <ion-button class="go_btn" shape="round" (click)="goNext()"
-        >Let's Start</ion-button
-      >
+      <ion-button 
+      class="go_btn" 
+      shape="round" 
+      (click)="goNext()" 
+      style="z-index: 10; touch-action: manipulation; -webkit-transform: translate3d(0, 0, 0);">
+      Let's Start
+    </ion-button>
     </div>
   </div>
 </ion-content>
-<!-- <ion-footer collapse="fade">
-  <div class="go_btn_div">
-    <ion-button class="go_btn" shape="round" (click)="goNext()"
-      >Lets get to know you</ion-button
-    >
-  </div>
-</ion-footer> -->
