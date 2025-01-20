@@ -222,7 +222,7 @@
 
  
 
-  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="instructions && instructions.length">
+  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="instructions && instructions.length && clientId!=='nutrabox'">
     <ion-card >
       <ion-card-header style="background-color: var(--theme-profile-background);color:var(--theme-headerText);font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
         Instructions</ion-card-header>
@@ -240,13 +240,11 @@
                 <div class="ion-margin-start d-list-item">
                   ⁠Casein should be taken with a minimum gap of four hours after the post-workout supplement. If the post-workout supplement is consumed late, it is advisable to skip casein.
 
-                </div>
-                <div class="ion-margin-start d-list-item">
-                  If you are facing gut issues or sleep issues then take Nutrabox Gut Health supplement or Nutrabox KSM-66 Ashwagandha respectively.
+                </div><br>
+                <div class="ion-margin-start d-list-item" style="justify-content: left;">
+                  If you are facing gut issues or sleep issues then take Nutrabox <br><a style="color:blue; cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/gut-health')">Gut Health</a> supplement or Nutrabox <a style="color:blue; cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/ksm-66-ashwagandha-capsules')">KSM-66</a> Ashwagandha respectively.
                 <br>
-                The links for the same are: <br>
-                 1. <a style="color:blue; cursor:pointer;font-size:.8rem" (click)="openlink('https://nutrabox.in/products/gut-health')">https://nutrabox.in/products/gut-health</a><br>
-                 2.  <a style="color:blue; cursor:pointer;font-size:.8rem" (click)="openlink('https://nutrabox.in/products/ksm-66-ashwagandha-capsules')">https://nutrabox.in/products/ksm-66-ashwagandha-capsules</a>
+              
                 </div>
          </ion-card-content>
     </ion-card>
