@@ -274,6 +274,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   openDial(phonenumber){
     window.open("tel:"+phonenumber+"","_system");
   }
+  openlink(url){
+    window.open(url,"_system");
+  }
   getProfile(){
     this.appServices.getProfile().then(
       
