@@ -586,6 +586,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      
      if(this.clientId==='alyve'){
      this.isdoenloadclicked=true;
+     localStorage.setItem("company_id","alyve.health");
      this.downloadPdfFromApi();
      }
      else{

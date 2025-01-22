@@ -10,7 +10,7 @@
     <div class="header_div" [style.background]="index===0?'#E4F3EC':index===1?'#F2E5D8':index===2?'#FBEEFC':index===3?'#E2F0F6':index===4?'#E4F3EC':index===5?'#F2E5D8':index===6?'
     #FBEEFC':index===7?'#E2F0F6':'#E4F3EC'">
       <p>
-        {{data?.message}}
+        {{(data?.message==='Post Workout' && clientId==='nutrabox')?'Intra & Post Workout':data?.message}}
       
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
           <a (click)="logSlot(data,index)"  style="font-size: .8rem; 
