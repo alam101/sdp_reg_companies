@@ -134,10 +134,10 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
       return item.eaten<=0;
      })
      if(dt?.length>0){
-       this.logunlog="Log Slot";
+       this.logunlog= this.clientId==='nutrabox'? 'Done': "Log Slot";
      }
      else{
-       this.logunlog="Logged";
+       this.logunlog=this.clientId==='nutrabox'? 'Undo':"Logged";
      }
      return this.logunlog;
    }
@@ -436,7 +436,7 @@ addRemove(type) {
           {
             code: item.data[index].itemCode,
             portion: Number(item.data[index].portion),
-            eaten: this.logunlog ==='Log Slot'? 2: -1,
+            eaten: (this.logunlog ==='Log Slot' || this.logunlog ==='Done')? 2: -1,
             foodSource: item.data[index].foodSource
           }
         )
@@ -454,7 +454,12 @@ addRemove(type) {
           this.utilities.showSuccessToast("Logged Successfully.");
           this.getDietdata.emit(CONSTANTS.dietDate);
            this.todaysCalCount();
-           this.logunlog = this.logunlog==='Log Slot'? "Logged": "Log Slot";
+           if(this.logunlog==='Log Slot'){
+           this.logunlog = (this.logunlog==='Log Slot')? "Logged": "Log Slot";
+           }
+           else if(this.logunlog==='Done'){
+           this.logunlog = (this.logunlog==='Done')? "Undo": "Done";
+           }
          // this.getDietdata(CONSTANTS.dietDate);
         //  console.log("");
         },

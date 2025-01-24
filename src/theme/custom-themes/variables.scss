@@ -2199,9 +2199,6 @@ body[color-theme="individual2"] {
   --theme-progressBarWhite:#FFFFFF;
   --theme-colorBGShades:#F2B70B; //change this visaly after check the deafulat color;
   --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
-
-
-
   --theme-headingFont:1.2rem; //merger wirth headeing font 
   --theme-counters:0.75rem;
   --theme-cardHeading:1rem;
@@ -2982,12 +2979,12 @@ body[color-theme="trunativ"] {
   --button-text-back:#2e3a84;
 }
 body[color-theme="nutrabox"] {
-  --font: "wellbeing-regular";
-  --font-bold: "wellbeing-bold";
-  --font-light: "wellbeing-light";
-  --font-medium: "wellbeing-medium";
-  --font-medium-extended: "wellbeing-extended";
-    $sans-font-regular: "wellbeing-ragular", "Helvetica Neue", Arial, sans-serif;
+  --font: "Nutrabox-regular";
+  --font-bold: "Nutrabox-bold";
+  --font-light: "Nutrabox-light";
+  // --font-medium: "Nutrabox-medium";
+  --font-medium-extended: "Nutrabox-extended";
+    $sans-font-regular: "Nutrabox-ragular", "Helvetica Neue", Arial, sans-serif;
     --theme-profile-background: #0F0F0F;
     --theme-background: #0F0F0F; //#00a6a8
     --theme-header: #0F0F0F;
@@ -3005,7 +3002,7 @@ body[color-theme="nutrabox"] {
     --theme-boxAdd:1px solid #0F0F0F; //#01A3A5;
     --theme-color:#0F0F0F; //#01A3A5;
     --theme-backgroundLRG: -webkit-linear-gradient(top, #0F0F0F 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
-    --theme-font:"wellbeing-regular", "Helvetica Neue", "Arial", "sans-serif";
+    --theme-font:"Nutrabox-regular", "Helvetica Neue", "Arial", "sans-serif";
     --theme-progressBarWhite:#FFFFFF;
     --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
     --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
@@ -3028,7 +3025,7 @@ body[color-theme="nutrabox"] {
     --red:red;
     // --theme-newFont: "wellbeing-regular";
     // --ion-font-family: "wellbeing-regular";
-    --ion-default-font: "wellbeing-regular";
+    --ion-default-font: "Nutrabox-regular";
     --xsmall-font:0.625rem;  //10px
     --small-font:0.75rem; //12px
     --regular-font:0.871rem; //14px

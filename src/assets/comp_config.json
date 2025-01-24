@@ -2195,7 +2195,7 @@
       "profile2": true,
       "consumed_cal": true,
       "cal_count": true,
-      "download": true,
+      "download": false,
       "pie_chart": false,
       "alternative": true,
       "video": true,

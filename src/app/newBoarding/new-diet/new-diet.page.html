@@ -17,6 +17,12 @@
               width: 5%;
               top: 0.2rem;"></ion-icon></b> 
             </ion-col>
+            <ion-col *ngIf="clientId==='nutrabox'">
+              <img style="    width: 40%;
+    position: absolute;
+    right: 0;
+    top: -13px;" src="./assets/icon/nutraboxLogo.png">
+            </ion-col>
           </ion-row>
           <ion-row>
             <ion-col class="ion-text-left" 
@@ -238,7 +244,7 @@
         To be noted</ion-card-header>
       <ion-card-content class="ion-margin-top" style="background: var(--white);">
                 <div class="ion-margin-start d-list-item" style="justify-content: left;">
-                  If you are facing gut issues or sleep issues then take Nutrabox <br><a style="color:blue; cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/gut-health')">Gut Health supplement</a> and Nutrabox <a style="color:blue; cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/ksm-66-ashwagandha-capsules')">KSM-66 Ashwagandha</a> respectively.
+                  If you are facing gut issues or sleep issues then take <a style="color:rgb(5, 5, 30); cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/gut-health')">Nutrabox Gut Health supplement</a> and <a style="color:rgb(5, 5, 47); cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/ksm-66-ashwagandha-capsules')">Nutrabox KSM-66 Ashwagandha</a> respectively.
                 <br>
               
                 </div>

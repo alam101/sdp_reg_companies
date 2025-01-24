@@ -7,20 +7,29 @@
     *ngIf="loaded && data?.data?.length > 0"
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
     [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}">
-    <div class="header_div" [style.background]="index===0?'#E4F3EC':index===1?'#F2E5D8':index===2?'#FBEEFC':index===3?'#E2F0F6':index===4?'#E4F3EC':index===5?'#F2E5D8':index===6?'
-    #FBEEFC':index===7?'#E2F0F6':'#E4F3EC'">
-      <p>
+    <div class="header_div" 
+    [style.background]="clientId==='nutrabox'?'rgb(202,63,37)':(index===0?'#E4F3EC':index===1?'#F2E5D8':index===2?'#FBEEFC':index===3?'#E2F0F6':index===4?'#E4F3EC':index===5?'#F2E5D8':index===6?'
+    #FBEEFC':index===7?'#E2F0F6':'#E4F3EC')">
+      <p [style.color]="clientId==='nutrabox'?'#fff':'#565656'"
+      [style.fontWeight]="clientId==='nutrabox'?'bold':400">
         {{(data?.message==='Post Workout' && clientId==='nutrabox')?'Intra & Post Workout':data?.message}}
       
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
+          <ion-checkbox [checked]="returnIsEaten(data?.data)==='Undo'?true:false" *ngIf="clientId==='nutrabox'" style="position: absolute;
+    right: 16%;
+    width: auto;
+    height: 14px;    --checkmark-color: #fff;
+    --background-checked: green;
+    --border-color-checked: green; --border-color:#fff;--background: transparent;" mode="md" (click)="logSlot(data,index)"></ion-checkbox>
           <a (click)="logSlot(data,index)"  style="font-size: .8rem; 
-          color: var(--theme-logslot); 
           margin-left: .5rem; 
-          border: 1px solid var(--theme-logslot); 
+         
           border-radius: 5px;padding: 2px 5px;     
           position: absolute;
           right: 8px;
-          top: 7px;" [ngClass]="{'isFuture':isFuture}"> {{returnIsEaten(data?.data)}}</a>
+          top: 7px;" [ngClass]="{'isFuture':isFuture}"
+          [style.color]="clientId==='nutrabox'?'#fff':'var(--theme-logslot)'"
+          [style.border]="clientId==='nutrabox'?none:'1px solid var(--theme-logslot)'" > {{returnIsEaten(data?.data)}}</a>
     
         </span>
       </p>
