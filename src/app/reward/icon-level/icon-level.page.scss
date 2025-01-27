@@ -1,0 +1,103 @@
+.coins-card {
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: rgb(194,130,66);
+    margin:0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
+  
+  .my-coins-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#fff;
+  }
+  
+  .coins-value {
+    text-align: end;
+    font-weight: bold;
+    color: var(--ion-color-warning);
+  }
+  
+  .level-info {
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+  }
+  
+  .level-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .level-progress {
+    margin-top: 1rem;
+    clear:both;
+
+  }
+  
+  .progress-text {
+    text-align: center;
+    font-size: 0.9em;
+  }
+  
+  .levels-section {
+    text-align: left;
+    margin: 16px 1rem;
+
+   
+  }
+  
+  .levels-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  
+  .levels {
+    margin: 4px;
+    flex-direction: row;
+    display: flex;
+     width: 800px;
+     overflow-x: scroll;
+    .level-item{
+      float: left;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      border: 1px solid;
+      border-radius: 50%;
+      vertical-align: middle;
+     display: grid;
+      place-items: center;
+    }
+  
+  }
+  .levels div {
+    margin: 4px;
+    flex-direction: row;
+   
+  }
+  
+  .how-it-works {
+    margin-top: 16px;
+    float: left;
+  }
+  
+  .how-it-works div {
+    margin-bottom: 12px;
+  }
+  
+  .rewards-section {
+    margin-top: 16px;
+    text-align: center;
+  }
+  
+  .rewards-description {
+    margin-top: 8px;
+    font-size: 0.9em;
+  }

@@ -16,7 +16,7 @@
       
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
           <ion-checkbox [checked]="returnIsEaten(data?.data)==='Undo'?true:false" *ngIf="clientId==='nutrabox'" style="position: absolute;
-    right: 16%;
+        right: 50px;
     width: auto;
     height: 14px;    --checkmark-color: #fff;
     --background-checked: green;
@@ -74,7 +74,7 @@
           <ion-row style="margin-top: 5px;margin-left: 5px;">
             <ion-col size="10">
               <p class="meal_pro">{{d?.Food}}</p>
-              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}/ {{Math.round(d?.Calories)}} Kcal</p>
+              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}/ {{Math.round(d?.Calories)}} Kcal, {{d?.Protien}} gms Protein</p>
             </ion-col>
 
             <ion-col size="2" class="right" style="align-items: flex-start">
