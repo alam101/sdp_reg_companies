@@ -50,8 +50,10 @@ export class Boarding4Page implements OnInit {
       this.navCtrl.navigateRoot(["/boarding3"]);
       }
     }
-  
+    compConfig:any;
   ngOnInit() {
+    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+    console.log("this.compConfig", this.compConfig);
     this.storage.get("localData").then((val) => {
       let data = this.utilities.parseJSON(val);
       console.log(data);
@@ -76,6 +78,7 @@ trayaAllergies=[];
         });
         let a = [];
         let h = [];
+        debugger;
         if (
           gender &&
           gender.length > 0 &&
@@ -119,6 +122,7 @@ trayaAllergies=[];
               }
             }
           });
+         
           if (a.length === 0) {
             this.alergyDisabled = true;
           }
@@ -126,6 +130,7 @@ trayaAllergies=[];
             this.healthDisabled = true;
           }
           console.log(this.healths);
+          
           console.log(this.allergies);
         } else {
           this.healths = this.localData.otherMaster.diseases.filter((ele) => {
@@ -151,6 +156,18 @@ trayaAllergies=[];
             this.healthDisabled = true;
           }
         }
+      }
+      if(this.clientId==='enkeltec'){
+        this.healths =  this.healths.filter(item=>{
+          return (
+            item.code === "AN" ||
+            item.code === "CR" ||
+            item.code === "HP" ||
+            item.code === "VD" ||
+            item.code === "VB" ||
+            item.code === "A"
+          );     
+        });
       }
     });
   }

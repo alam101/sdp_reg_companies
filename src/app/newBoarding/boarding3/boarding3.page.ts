@@ -1,6 +1,5 @@
-import { Location } from "@angular/common";
 import { Component, Input, OnInit } from "@angular/core";
-import { ModalController, NavController } from "@ionic/angular";
+import { NavController } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import { UTILITIES } from "src/app/core/utility/utilities";
@@ -20,10 +19,8 @@ export class Boarding3Page implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private location: Location,
     private storage: Storage,
     private utilities: UTILITIES,
-    private modalCtrl: ModalController,
     private appService: AppService,
     private router:Router,
     private activatedRoute:ActivatedRoute
@@ -36,21 +33,16 @@ export class Boarding3Page implements OnInit {
     modalClose() {
         this.router.navigate(['new-profile']);
      }
-   
+  compConfig:any;
   newModal = "";
   ngOnInit() {
+    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+    console.log("this.compConfig", this.compConfig);
     this.clientId = localStorage.getItem('clientId');
     this.storage.get("localData").then((val) => {
       this.localData = this.utilities.parseJSON(val);
       console.log("Local data ", this.localData);
       this.getProfile();
-      // this.localData.otherMaster.wakeup.data.find(
-      //   (o) => o.code == "W5"
-      // ).isSelected = true;
-      // this.localData.otherMaster.leaveForOffice.find(
-      //   (o) => o.code == "LFO3"
-      // ).isSelected = true;
-      
     });
   }
  
@@ -99,6 +91,7 @@ export class Boarding3Page implements OnInit {
 
   selectActivity(e) {
     console.log(e);
+  
     this.localData?.otherMaster?.activities.forEach((ele) => {
       if (ele.val === e.detail.value) {
         ele.isSelected = true;

@@ -31,6 +31,7 @@
         value="deasesValue"
         [(ngModel)]="newModal"
         (ionChange)="selectActivity($event)">
+        <!-- <span *ngIf="compConfig?.customDesease===undefined"> -->
         <div
           class="card_div"
           (click)="newModal=activity?.val"
@@ -48,6 +49,26 @@
             src="../../../assets/newImages/{{getImage(activity?.code)}}">
           </ion-card>
         </div>
+      <!-- </span> -->
+      <!-- <span *ngIf="compConfig?.customDesease!==undefined">
+        <div
+        class="card_div"
+        (click)="newModal=activity?.val"
+        *ngFor="let activity of compConfig?.customDesease">
+        <ion-radio
+          class="radio-button"
+          [value]="activity?.code"
+          mode="ios"></ion-radio>
+        <ion-card
+          class="section-card"
+          [ngClass]="newModal === activity?.code && 'card_Border'">
+          <p class="fitness">{{activity?.code}}</p>
+          <p class="desc">{{activity?.name}}</p>
+          <img [ngClass]="activity?.code" 
+          src="../../../assets/newImages/{{getImage(activity?.code)}}">
+        </ion-card>
+      </div>
+      </span> -->
       </ion-radio-group>
       <div class="go_btn_div" *ngIf="!from">
         <ion-grid>
@@ -57,19 +78,14 @@
                 class="back_btn"
                 shape="round"
                 fill="outline"
-                (click)="goBack()"
-                >Back</ion-button
-              >
+                (click)="goBack()">Back</ion-button>
             </ion-col>
             <ion-col size="6" class="center">
-              <ion-button class="go_btn" shape="round" (click)="goNext()"
-                >Next</ion-button
-              >
+              <ion-button class="go_btn" shape="round" (click)="goNext()">Next</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
       </div>
-
       <div class="go_btn_div" *ngIf="from">
         <ion-grid>
           <ion-row>
