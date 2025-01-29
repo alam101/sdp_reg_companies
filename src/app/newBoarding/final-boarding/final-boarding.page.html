@@ -35,8 +35,8 @@
             Current Weight: {{localData?.otherMaster?.weight[0]?.value}}
             {{unit}}
           </p>
-          <p class="title">Desired Weight: {{plan.suggestedWeight}}</p>
-          <p class="sub_title">
+          <p class="title" *ngIf="clientId!=='enkeltec'">Desired Weight: {{plan.suggestedWeight}}</p>
+          <p class="sub_title" *ngIf="clientId!=='enkeltec'">
             Target/Ideal weight recommended: : {{suggestedWeightRange-2}}kg - :
             {{suggestedWeightRange+2}}kg
           </p>
