@@ -205,13 +205,15 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   calculateDesiredWeight() {
 
     console.log("calculateDesiredWeight called");
-    if (this.heightType === "cm") {
+    if(this.clientId!=='enkeltec'){
+    if (this.heightType === "cm" ) {
       this.targetweight = Math.ceil(this.selectedHeight - 100);
     } else {
       this.targetweight = Math.ceil(
         (this.selectedHeight * 2.54) - 100
       );
     }
+  }
   }
 
   goBack() {
@@ -242,11 +244,11 @@ targetWeightMessage=false;
       this.cdr.detectChanges();
       return;
     }
-    if (!this.targetweight) {
+    if (!this.targetweight && this.clientId!=='enkeltec') {
       this.utilities.presentToast("Please enter your target weight.");
       return;
     }
-    if(this.targetweight<20){
+    if(this.targetweight<20 && this.clientId!=='enkeltec'){
       this.targetWeightMessage=true;
       return;
     }
