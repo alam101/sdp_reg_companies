@@ -70,7 +70,7 @@
             <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
           </div>
           <div class="range_div"> 
-            <ion-range min="48" max="84"  [value]="parseint()" [(ngModel)]="selectedHeight"  mode="ios" class="pad_0"
+            <ion-range min="36" max="84"  [value]="parseint()" [(ngModel)]="selectedHeight"  mode="ios" class="pad_0"
               [step]="1"  (ionChange)="getHeight()">
             </ion-range>
             <!--  -->
@@ -114,7 +114,7 @@
          
         </div>
         <div style="text-align: center;color:red;" *ngIf="weightMessage">
-          Please select weight more than 40kg.
+          Please select weight more than 20kg.
         </div>
       </div>
 
@@ -144,7 +144,7 @@
          
         </div>
         <div style="text-align: center;color:red;" *ngIf="targetWeightMessage">
-          Please select weight more than 40kg.
+          Please select weight more than 20kg.
         </div>
       </div>
 

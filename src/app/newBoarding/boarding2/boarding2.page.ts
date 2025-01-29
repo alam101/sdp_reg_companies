@@ -26,8 +26,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   poundValue = 0.453592;
   profileData: any;
   gender = "";
-  height: any = 48;
-  minHight = 48;
+  height: any = 3;
+  minHight = 3;
   maxHight = 84;
   heightType = "feet";
   heightTypeForAPI = "";
@@ -37,14 +37,14 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   endDigit = 10;
 
   weightType = "kg";
-  weight: any = 65.0;
-  minWeight: any = 40.0;
+  weight: any = 20.0;
+  minWeight: any = 20.0;
   maxWeight: any = 150.0;
 
   inputHeight: any = `4'0"`;
 
-  targetweight: any = 40.0;
-  targetminWeight: any = 40.0;
+  targetweight: any = 20.0;
+  targetminWeight: any = 20.0;
   targetmaxWeight: any = 150.0;
   targetweightType: any = "kg";
 
@@ -59,7 +59,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   clientId: any;
 
 
-  selectedHeight: any = 48; // Default height in inches (5 feet 10 inches)
+  selectedHeight: any = 3; // Default height in inches (5 feet 10 inches)
   displayHeight: string = '';
 
   constructor(
@@ -138,7 +138,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
             : this.profileData?.demographic?.height?.value;
            this.selectedHeight = this.profileData?.demographic?.height?.value;
             if (this.heightType === "feet") {
-          this.minHight = 48;
+          this.minHight = 36;
           this.maxHight = 84;
           this.height = h;
           h = h.split(".");
@@ -164,7 +164,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
       }
       else{
-        this.minHight = 48;
+        this.minHight = 36;
         this.maxHight = 84;
         this.selectedHeight =48;
         let h = Math.floor(this.selectedHeight / 12)+"."+(this.selectedHeight % 12);
@@ -186,7 +186,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     console.log("e.detail.value",this.selectedHeight);
     // this.height = parseFloat(e.detail.value).toFixed(1);
     if (this.heightType === "feet") {
-      this.minHight = 48;
+      this.minHight = 36;
       this.maxHight = 84;
       const ht = Math.floor(this.selectedHeight / 12) +"."+ (this.selectedHeight % 12);
       const h = ht.split(".");
@@ -237,8 +237,7 @@ targetWeightMessage=false;
       this.utilities.presentToast("Please enter your weight.");
       return;
     }
-    if(this.weight<40){
-      debugger;
+    if(this.weight<20){
       this.weightMessage=true;
       this.cdr.detectChanges();
       return;
@@ -247,8 +246,7 @@ targetWeightMessage=false;
       this.utilities.presentToast("Please enter your target weight.");
       return;
     }
-    if(this.targetweight<40){
-      debugger;
+    if(this.targetweight<20){
       this.targetWeightMessage=true;
       return;
     }
@@ -375,7 +373,7 @@ targetWeightMessage=false;
 
   gotoDemographic() {
     if (this.targetweightType == "kg") {
-      if (this.targetweight < 40 || this.targetweight > 150) {
+      if (this.targetweight < 20 || this.targetweight > 150) {
         this.targetWeightMessage=true;
         // this.utilities.presentAlert(
         //   "Please select min weight 40 and max 150 kg."
@@ -651,7 +649,7 @@ targetWeightMessage=false;
       this.selectedHeight = (this.selectedHeight * 2.54).toFixed(0);
      
     } else {
-      this.minHight = 48;
+      this.minHight = 36;
       this.maxHight = 84;
       this.selectedHeight = Math.floor(this.selectedHeight * 0.393701);
       
@@ -664,7 +662,7 @@ targetWeightMessage=false;
   }
 
   parseint() {
-    this.minHight = 48;
+    this.minHight = 36;
     this.maxHight = 84;
     console.log(this.height); 
     return this.heightType === "cm"
@@ -675,7 +673,7 @@ targetWeightMessage=false;
   setweightType(type) {
     let w: any;
     if (type == "kg") {
-      this.minWeight = 40.0;
+      this.minWeight = 20.0;
       this.maxWeight = 15.0;
       if (this.weightType === type) {
         w = this.weight;
@@ -683,7 +681,7 @@ targetWeightMessage=false;
         w = this.weight * 0.45;
       }
     } else {
-      this.minWeight = 40.0 / 0.45;
+      this.minWeight = 20.0 / 0.45;
       this.maxWeight = 150 / 0.45;
       if (this.weightType === type) {
         w = this.weight;
@@ -701,7 +699,7 @@ targetWeightMessage=false;
     let tw: any;
 
     if (type == "kg") {
-      this.targetminWeight = 40.0;
+      this.targetminWeight = 20.0;
       this.targetmaxWeight = 15.0;
       if (this.targetweightType === type) {
         tw = this.targetweight;
@@ -709,7 +707,7 @@ targetWeightMessage=false;
         tw = this.targetweight * 0.45;
       }
     } else {
-      this.targetminWeight = 40.0 / 0.45;
+      this.targetminWeight = 20.0 / 0.45;
       this.targetmaxWeight = 150 / 0.45;
       if (this.targetweightType === type) {
         tw = this.targetweight;
@@ -718,7 +716,7 @@ targetWeightMessage=false;
       }
     }
     // this.targetweight = parseFloat(this.targetminWeight).toFixed(1);
-    this.targetweight = parseInt(tw);
+    this.targetweight = Math.abs(parseInt(tw));
     this.targetweightType = type;
   }
 
@@ -776,3 +774,4 @@ targetWeightMessage=false;
     console.log(e.detail.value);
   }
 }
+
