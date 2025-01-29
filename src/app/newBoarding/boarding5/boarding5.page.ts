@@ -39,10 +39,11 @@ export class Boarding5Page implements OnInit {
    
   ngOnInit() {
     this.storage.get("localData").then((res) => {
+      debugger;
       console.log(JSON.parse(res));
       this.localData = JSON.parse(res);
       this.countryArray = this.localData.countries;
-      this.country = this.countryArray[0];
+      this.country = this.clientId==='enkeltec'?this.countryArray[1]:this.countryArray[0];
       this.localData?.otherMaster.foodPref.forEach((ele) => {
         if (ele.isSelected) {
           this.dietPreferences = ele.value;
