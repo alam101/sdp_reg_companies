@@ -148,7 +148,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         } else {
           this.inputHeight = h;
           this.height = h;
-          this.minHight = 122;
+          this.minHight = 91;
           this.maxHight = 213;
         }
 
@@ -195,7 +195,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     } else {
       this.height = this.selectedHeight;
       this.inputHeight = this.selectedHeight;
-      this.minHight = 122;
+      this.minHight = 91;
       this.maxHight = 213;
     }
     console.log(this.height, this.inputHeight, this.heightType);
@@ -644,7 +644,7 @@ targetWeightMessage=false;
   setHeightType(type) {
     let h: any;
     if (type === "cm") {
-      this.minHight = 122;
+      this.minHight = 91;
       this.maxHight = 213;
       this.selectedHeight = (this.selectedHeight * 2.54).toFixed(0);
      
@@ -700,7 +700,7 @@ targetWeightMessage=false;
 
     if (type == "kg") {
       this.targetminWeight = 20.0;
-      this.targetmaxWeight = 15.0;
+      this.targetmaxWeight = 150.0;
       if (this.targetweightType === type) {
         tw = this.targetweight;
       } else {

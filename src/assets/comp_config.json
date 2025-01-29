@@ -5885,28 +5885,28 @@
           "options": [
             {
               "name": "ADHD",
-              "value": "ADHD",
+              "value": "enkeltec_adhd",
               "label": "Personalised Diet Plan for ADHD",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png"
+              "imgUrl": "../../../assets/img/adhd.png"
             }
           ]
         },
         {
           "heading": "Fitness",
           "label": " Exercise is king, nutrition is Queen",
-          "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png",
+          "imgUrl": "../../../assets/img/authism.png",
           "options": [
             {
               "name": "Autism",
-              "value": "Autism",
+              "value": "enkeltec_autism",
               "label": "Personalised Diet Plan for Authism",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
+              "imgUrl": "../../../assets/img/autism.png"
             },
             {
               "name": "Wellness",
               "value": "Wellness",
               "label": "Personalised Diet Plan for Wellness",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
+              "imgUrl": "../../../assets/img/wellness.png"
             }
           ]
         },
@@ -5973,42 +5973,51 @@
         }
       ],
 
-      "customDesease": [
+      "activies": [
         {
-          "code": "AN",
-          "isSelected":false,
-          "value": "Anemia"
+         "calories": 200,
+          "code":"AC1",
+          "data": 1.2,
+          "isSelected":true,
+          "steps": 7500,
+          "sub_val": "No Exercise",
+          "val": "Sedentary ",
+          "value": "Sedentary (No Exercise)",
+          "image": "../../../assets/images/sedentary.png"
         },
         {
-          "code": "HP", 
-          "isSelected":false,
-          "value": "Protein Defeciency"
-        },
-        {
-          "code": "a3", 
-          "isSelected":false,
-          "value": "Calcium Defeciency"
-        },
-        {
-          "code": "VD",
-          "isSelected":false,
-          "value": "Vitamin D Defeciency"
-        },
-        {
-          "code": "a5",
-          "isSelected":false,
-          "value": "Vitamin B12 Defeciency"
-        },
-        {
-          "code": "a6",
-          "isSelected":false,
-          "value": "Protein Defeciency"
-        },
-        {
-          "code": "a7",
-          "isSelected":false,
-          "value": "Digestion/Acidity/Constipation"
-        }
+          "calories": 300,
+           "code":"AC2",
+           "data": 1.375,
+           "isSelected":true,
+           "steps": 7500,
+           "sub_val": "Brisk Walking, Yoga, functional exercise",
+           "val": "Lightly Active ",
+           "value": "Lightly Active (Brisk Walking, Yoga, functional exercise)",
+           "image": "../../../assets/images/light_active.png"
+         },
+         {
+          "calories": 400,
+           "code":"AC3",
+           "data": 1.55,
+           "isSelected":false,
+           "steps": 10000,
+           "sub_val": "Workout 5 days a week",
+           "val": "Active ",
+           "value": "Moderately Active (Workout 5 days a week)",
+           "image": "../../../assets/images/active.png"
+         }, 
+         {
+          "calories": 600,
+           "code":"AC4",
+           "data": 1.7,
+           "isSelected":false,
+           "steps": 10000,
+           "sub_val": "Rigrous workout, 5 days a week",
+           "val": "Super Active ",
+           "value": "Super Active (Rigrous workout, 5 days a week)",
+           "image": "../../../assets/images/hyperactive.png"
+         } 
       ]
     }
   }

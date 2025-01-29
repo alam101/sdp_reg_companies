@@ -61,6 +61,7 @@ export class ReadQueryComponent implements OnInit {
   }
 
   filterCompanyJson(){
+    
    const data = compJson.filter((item,index)=>{
     console.log("clientConfig:-", Object.keys(item)[0], this.clientId.toLowerCase());
       return this.clientId && Object.keys(item)[0].toLowerCase()===this.clientId.toLowerCase();
