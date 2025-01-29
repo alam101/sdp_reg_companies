@@ -380,12 +380,14 @@
               *ngFor="let c of profileData?.lifeStyle?.communities"> 
               {{c?.value}}</span> -->
               <br><br>
-             Communities: <br>
+           <span *ngIf="profileData?.lifeStyle?.country?.name==='India'">
+              Communities: <br>
               <span>
                 {{
                   communitiesArr?.join(',')
                 }}
               </span>
+            </span>
           </p>
         
         </div>
