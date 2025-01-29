@@ -195,7 +195,6 @@ dietitianRole="";
       this.goalName = this.compConfig.editGoalForDisplay.filter((item:any)=>{
         return item.value === this.profileData?.lifeStyle?.dietPlanName;
       })
-      debugger;
       this.getCommunities(this.profileData.lifeStyle.communities);
       if (this.profileData?.profile?.subCategory === "weightloss") {
         this.profileData.profile.subCategory = "Weight Loss";

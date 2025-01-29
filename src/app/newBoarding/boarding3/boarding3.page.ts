@@ -120,8 +120,8 @@ export class Boarding3Page implements OnInit {
     }
     if (typeof this.localData.otherMaster !== undefined)
       this.storage.set("localData", JSON.stringify(this.localData));
-
     const reqBody = {
+     
       activities: {
         code: this.selectedValue.code,
         data: this.selectedValue.data,
@@ -139,6 +139,7 @@ export class Boarding3Page implements OnInit {
         this.profileData?.lifeStyle?.communities === null
           ? []
           : this.profileData?.lifeStyle?.communities,
+        country: this.profileData?.lifeStyle?.country,
           
       // foodType: this.profileData?.lifeStyle?.foodType,
       //};
