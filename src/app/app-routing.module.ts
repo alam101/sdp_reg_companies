@@ -161,6 +161,10 @@ export const APP_ROUTES: Routes = [
     path: 'appinfo',
     loadChildren: () => import('./appinfo/appinfo.module').then( m => m.AppinfoPageModule)
   },
+  {
+    path: 'reward-level',
+    loadChildren: () => import('./reward/icon-level/icon-level.module').then( m => m.IconLevelPageModule)
+  },
 ];
 
 @NgModule({})

@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Coins</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="coins-card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8" class="my-coins-title">My Coins</ion-col>
+        <ion-col size="4" class="coins-value">
+         <div style="color: #fff;
+    padding: .5rem;
+    width: 85px;
+    border-radius: 19px;
+    background: #e0ac08;
+    height: 34px;    position: absolute;
+    right: 0;">
+    <span style="position: relative;
+    top: -10px;
+    left: -5px;">234 </span>
+          <img src="./assets/reward/doller.png" style="    position: relative;top: -3px;">
+        </div> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="level-info">
+      <div class="level-title" style="float: left;">Level 2</div>
+      <div style="float: right;    margin-top: .2rem;">Your Daily Target <ion-icon name="bullseye-outline"></ion-icon></div>
+      <div class="level-progress">
+        <div style="color:#000;float:left;
+                font-size: 1rem;
+                font-weight: 600;">Coins</div>
+        <div class="progress-text" style="float: right;">34 / 100</div>
+        <div style="margin-top:.5rem;">
+          <ion-progress-bar style="height: 10px;border-radius:15px;" value="0.34" color="warning"></ion-progress-bar>
+        </div>
+      </div>
+    </div>
+  </ion-card>
+
+  <div class="levels-section">
+    <div class="levels-title">Levels</div>
+    <div class="levels">
+      <div style="    width: 100%;
+    overflow: auto;
+    background: red;
+    flex-direction: row;
+    display: flex;white-space: nowrap;">
+      <div class="level-item">1</div>
+      <div class="level-item">2</div>
+      <div class="level-item">3</div>
+      <div class="level-item">4</div>
+      <div class="level-item">5</div>
+      <div class="level-item">6</div>
+      <div class="level-item">7</div>
+      <div class="level-item">8</div>
+      <div class="level-item">9</div>
+      <div class="level-item">10</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    How it works?  <img src="./assets/reward/doller.png" style="    position: relative;top: 5px;">
+  </div>
+  <ion-card class="how-it-works">
+    <!-- <ion-card-header>
+      <ion-card-title>How it works?  <img src="./assets/reward/doller.png" style="    position: relative;top: 5px;"></ion-card-title>
+    </ion-card-header> -->
+    <ion-card-content>
+      <div class="daily-limit">
+        <strong>Daily Limit:</strong> There is going to be a daily limit of 100 coins.
+      </div>
+      <div class="upgrade-info">
+        <ion-icon name="arrow-up-circle-outline" color="success"></ion-icon>
+        <strong>Level Upgrade:</strong> Log full diet for 3 days.
+      </div>
+      <div class="downgrade-info">
+        <ion-icon name="arrow-down-circle-outline" color="danger"></ion-icon>
+        <strong>Level Downgrade:</strong> No activity for 3 days.
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="rewards-section">
+    <ion-card-content>
+      <ion-button expand="block" fill="outline" color="warning">
+        <ion-icon name="trophy-outline" slot="end"></ion-icon>
+        GET YOUR REWARDS NOW!
+      </ion-button>
+      <div class="rewards-description">Use your points to get the most useful rewards.</div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
