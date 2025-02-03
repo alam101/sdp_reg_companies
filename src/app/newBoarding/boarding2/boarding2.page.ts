@@ -621,7 +621,6 @@ targetWeightMessage=false;
         },
       ],
     });
-
     await picker.present();
   }
 
