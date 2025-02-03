@@ -306,8 +306,8 @@ targetWeightMessage=false;
       return;
     }
   
-    if (this.targetYear<new Date().getFullYear()-65 || this.targetYear>new Date().getFullYear()-18) {
-      this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-65)+" , max:"+(new Date().getFullYear()-18)+"]");
+    if (this.targetYear<new Date().getFullYear()-65 || this.targetYear>new Date().getFullYear()-3) {
+      this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-65)+" , max:"+(new Date().getFullYear()-3)+"]");
       return;
     }
 
