@@ -78,7 +78,6 @@ trayaAllergies=[];
         });
         let a = [];
         let h = [];
-        debugger;
         if (
           gender &&
           gender.length > 0 &&

@@ -77,7 +77,8 @@ export class Boarding3Page implements OnInit {
       console.log(res);
       this.profileData = res;
       this.localData.otherMaster.bmi.bmi= this.profileData?.demographic?.bmi;
-            this.localData?.otherMaster?.activities.forEach((ele) => {
+      if(this.clientId!=='enkeltec'){
+        this.localData?.otherMaster?.activities.forEach((ele) => {
         ele.val = ele.value.split("(")[0];
         ele.sub_val = ele.value.split("(")[1].replace(")", "");
         if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
@@ -86,12 +87,24 @@ export class Boarding3Page implements OnInit {
           localStorage.setItem("activities",JSON.stringify(ele));
         }
       });
+     }
+     else{
+      this.compConfig.activies.forEach((ele) => {
+        ele.val = ele.value.split("(")[0];
+        ele.sub_val = ele.value.split("(")[1].replace(")", "");
+        if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
+          ele.isSelected = true;
+          this.newModal = ele.val;
+          localStorage.setItem("activities",JSON.stringify(ele));
+        }
+      });
+     }
     });
   }
 
   selectActivity(e) {
     console.log(e);
-  
+  if(this.clientId!=='enkeltec'){
     this.localData?.otherMaster?.activities.forEach((ele) => {
       if (ele.val === e.detail.value) {
         ele.isSelected = true;
@@ -101,12 +114,32 @@ export class Boarding3Page implements OnInit {
         ele.isSelected = false;
       }
     });
+     }
+     else{
+      this.compConfig?.activies?.forEach((ele) => {
+        if (ele.val === e.detail.value) {
+          ele.isSelected = true;
+          this.selectedValue = ele;
+         localStorage.setItem("activities",JSON.stringify(this.selectedValue));
+        } else {
+          ele.isSelected = false;
+        }
+      });
+     }
   }
 
   goNext() {
-    const data = this.localData.otherMaster?.activities.find(
+    let data;
+    if(this.clientId!=='enkeltec'){
+     data = this.localData.otherMaster?.activities.find(
       (s) => s.isSelected
     );
+    }
+    else{
+      data = this.compConfig?.activies?.find(
+        (s) => s.isSelected
+      );
+    }
     if (!data) {
       this.utilities.presentToast("Please select your activity level.");
       return;

@@ -22,7 +22,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     throw new Error("Method not implemented.");
   }
   terms=true;
-  targetYear= new Date().getFullYear()-18;
+  targetYear= new Date().getFullYear()-3;
   poundValue = 0.453592;
   profileData: any;
   gender = "";
@@ -41,7 +41,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   minWeight: any = 20.0;
   maxWeight: any = 150.0;
 
-  inputHeight: any = `4'0"`;
+  inputHeight: any = `2'6"`;
 
   targetweight: any = 20.0;
   targetminWeight: any = 20.0;
@@ -77,8 +77,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     ) {
     this.clientId=localStorage.getItem('clientId');
     this.activatedRoute.queryParams.subscribe(res=>{
-        this.from = res['from'];
-      })
+      this.from = res['from'];
+    });
       this.calculateHeight(); 
     }
   

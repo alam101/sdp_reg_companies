@@ -35,9 +35,10 @@ dietitianRole="";
   }
   compConfig:any;
   preferedItem: any;
+  clientId: any;
   ngOnInit() {
     this.utilities.logEvent("Tracker_profileUpdate", {});
-   
+    this.clientId = localStorage.getItem('clientId');
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
   
     console.log("this.compConfig", this.compConfig);
@@ -219,10 +220,16 @@ dietitianRole="";
         this.profileData.lifeStyle.country = this.localData?.countries.find(
           (f) => f._id === this.profileData.lifeStyle.country
         );
-
+if(this.clientId!=='enkeltec'){
         this.profileData.lifeStyle.activities = this.localData?.otherMaster?.activities.find(
           (item) => this.profileData?.lifeStyle?.activities.code === item.code
         );
+      }
+      else{
+        this.profileData.lifeStyle.activities = this.compConfig.activies.find(
+          (item) => this.profileData?.lifeStyle?.activities.code === item.code
+        );
+      }
         const communitiesItem = JSON.parse(localStorage.getItem("communitiesItem"));
         if(communitiesItem!=undefined && communitiesItem!="" && communitiesItem!=null){
         this.profileData.lifeStyle.communities = communitiesItem.filter(

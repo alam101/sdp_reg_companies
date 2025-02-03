@@ -5858,7 +5858,7 @@
       "video": true,
       "date_selection1": true,
       "date_selection2": false,
-      "goal": false,
+      "goal": true,
       "notes": false,
       "modifyNotes": false,
       "caloriesCircle": true,
@@ -5917,7 +5917,16 @@
           "options": []
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        { "name": "ADHD", "value": "enkeltec_adhd" },
+        {
+          "name": "Autism",
+          "value": "enkeltec_autism"
+        },
+        {
+          "name": "Wellness",
+          "value": "Wellness"
+        }],
       "deseases": [
         {
           "desease": "D",
@@ -5980,9 +5989,9 @@
           "data": 1.2,
           "isSelected":false,
           "steps": 7500,
-          "sub_val": "No Exercise",
-          "val": "Sedentary ",
-          "value": "Sedentary (No Exercise)",
+          "sub_val": "Minimal activity; mostly involved in sitting or quiet tasks like reading or screen time.",
+          "val": "Sedentary",
+          "value": "Sedentary",
           "image": "../../../assets/images/sedentary.png"
         },
         {
@@ -5991,9 +6000,9 @@
            "data": 1.375,
            "isSelected":false,
            "steps": 7500,
-           "sub_val": "Brisk Walking, Yoga, functional exercise",
-           "val": "Lightly Active ",
-           "value": "Lightly Active (Brisk Walking, Yoga, functional exercise)",
+           "sub_val": "Occasional light activities such as walking, yoga, or casual play.",
+           "val": "Lightly Active",
+           "value": "Lightly Active",
            "image": "../../../assets/images/light_active.png"
          },
          {
@@ -6002,9 +6011,9 @@
            "data": 1.55,
            "isSelected":false,
            "steps": 10000,
-           "sub_val": "Workout 5 days a week",
-           "val": "Moderately Active ",
-           "value": "Moderately Active (Workout 5 days a week)",
+           "sub_val": "Regular moderate activities like running, cycling, or sports 3–4 times a week.",
+           "val": "Active",
+           "value": "Active",
            "image": "../../../assets/images/active.png"
          }, 
          {
@@ -6013,9 +6022,9 @@
            "data": 1.7,
            "isSelected":false,
            "steps": 10000,
-           "sub_val": "Rigrous workout, 5 days a week",
-           "val": "Super Active ",
-           "value": "Super Active (Rigrous workout, 5 days a week)",
+           "sub_val": "Constantly high energy; engages in intense physical activities or sports multiple times daily.",
+           "val": "Hyperactive",
+           "value": "Hyperactive",
            "image": "../../../assets/images/hyperactive.png"
          } 
       ]

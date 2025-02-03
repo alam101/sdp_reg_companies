@@ -163,7 +163,7 @@
     position: relative;
     align-items: center;
     margin-right: 5px;" *ngIf="!isDetox">
-        <p class="meal_workout_button" *ngIf="compConfig?.inSights" style="font-size: .8rem;" (click)="goToInsites()">Insights</p>
+        <p class="meal_workout_button" *ngIf="compConfig?.inSights" style="font-size: .8rem;" [style.color]="clientId==='enkeltec'?'#000':null" (click)="goToInsites()">Insights</p>
       <ion-icon *ngIf="compConfig.pie_chart!=false"
         class="meal_workout_button"
         name="pie-chart"

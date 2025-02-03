@@ -63,11 +63,12 @@
           </ion-row>
         </ion-grid>
         <ion-button
+        *ngIf="clientId!=='enkeltec'"
           class="more_btn"
           shape="round"
           fill="outline"
           (click)="showData=!showData"
-          >{{showData?'Show Less':'Show More'}}</ion-button
+          >{{(showData) ?'Show Less' :'Show More'}}</ion-button
         >
       </div>
 
