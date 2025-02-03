@@ -398,7 +398,6 @@ targetWeightMessage=false;
       }
     }
   }
-
   async openPicker() {
     const picker = await this.pickerCtrl.create({
       animated: true,
