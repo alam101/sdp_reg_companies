@@ -77,7 +77,7 @@ export class Boarding3Page implements OnInit {
       console.log(res);
       this.profileData = res;
       this.localData.otherMaster.bmi.bmi= this.profileData?.demographic?.bmi;
-      if(this.clientId!=='enkeltec'){
+      if(!this.compConfig.isChild){
         this.localData?.otherMaster?.activities.forEach((ele) => {
         ele.val = ele.value.split("(")[0];
         ele.sub_val = ele.value.split("(")[1].replace(")", "");

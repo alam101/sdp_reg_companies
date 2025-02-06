@@ -26,8 +26,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   poundValue = 0.453592;
   profileData: any;
   gender = "";
-  height: any = 3;
-  minHight = 3;
+  height: any = 30;
+  minHight = 30;
   maxHight = 84;
   heightType = "feet";
   heightTypeForAPI = "";
@@ -37,12 +37,12 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   endDigit = 10;
 
   weightType = "kg";
-  weight: any = 20.0;
-  minWeight: any = 20.0;
+ 
   maxWeight: any = 150.0;
 
   inputHeight: any = `2'6"`;
-
+  weight: any = 20.0;
+  minWeight: any = 20.0;
   targetweight: any = 20.0;
   targetminWeight: any = 20.0;
   targetmaxWeight: any = 150.0;
@@ -59,9 +59,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   clientId: any;
 
 
-  selectedHeight: any = 3; // Default height in inches (5 feet 10 inches)
+  selectedHeight: any = 30; // Default height in inches (5 feet 10 inches)
   displayHeight: string = '';
-
+  compConfig:any;
   constructor(
     private navCtrl: NavController,
     private cdr: ChangeDetectorRef,
@@ -75,14 +75,29 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     private router:Router,
     private activatedRoute:ActivatedRoute
     ) {
+      this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+      console.log("this.compConfig", this.compConfig);
+
+      if(!this.compConfig.isChild){
+        this.weight = 65.0;
+        this.minWeight = 65.0;
+        this.targetweight = 65.0;
+        this.targetYear=new Date().getFullYear()-18;
+        this.inputHeight = `5'6"`;
+        this.height = 66;
+        this.minHight = 48;
+        this.selectedHeight =66;
+      }
     this.clientId=localStorage.getItem('clientId');
     this.activatedRoute.queryParams.subscribe(res=>{
       this.from = res['from'];
     });
       this.calculateHeight(); 
     }
-  
-    ngOnInit() {}
+   
+    ngOnInit() {
+    
+    }
   
     modalClose() {
         this.router.navigate(['new-profile']);
@@ -138,19 +153,19 @@ export class Boarding2Page implements OnInit,AfterViewInit {
             : this.profileData?.demographic?.height?.value;
            this.selectedHeight = this.profileData?.demographic?.height?.value;
             if (this.heightType === "feet") {
-          this.minHight = 36;
-          this.maxHight = 84;
-          this.height = h;
-          h = h.split(".");
-          console.log(h);
-          this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
-          this.heightSplit = h.toString().split(".");
-        } else {
-          this.inputHeight = h;
-          this.height = h;
-          this.minHight = 91;
-          this.maxHight = 213;
-        }
+              this.minHight = 36;
+              this.maxHight = 84;
+              this.height = h;
+              h = h.split(".");
+              console.log(h);
+              this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
+              this.heightSplit = h.toString().split(".");
+            } else {
+              this.inputHeight = h;
+              this.height = h;
+              this.minHight = 91;
+              this.maxHight = 213;
+            }
 
         if (this.profileData?.demographic?.weight) {
           this.weightType =
@@ -174,6 +189,17 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         this.heightSplit = h.toString().split(".");
         this.calculateDesiredWeight();
       }
+
+      if(!this.compConfig.isChild){
+        this.selectedHeight=66;
+        this.inputHeight=`5'6"`;
+        this.calculateDesiredWeight();
+      }
+      else{
+         this.weight=20;
+         this.targetYear=new Date().getFullYear()-3;
+      }
+     
     });
   }
 
@@ -204,8 +230,8 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
   calculateDesiredWeight() {
 
-    console.log("calculateDesiredWeight called");
-    if(this.clientId!=='enkeltec'){
+    console.log("calculateDesiredWeight called",this.selectedHeight);
+    if(!this.compConfig.isChild){
     if (this.heightType === "cm" ) {
       this.targetweight = Math.ceil(this.selectedHeight - 100);
     } else {
@@ -337,22 +363,6 @@ targetWeightMessage=false;
           }
         );
 
-      
-        // if (this.targetweightType == "kg") {
-        //   if (this.targetweight < 40 || this.targetweight > 150) {
-        //     this.utilities.presentAlert(
-        //       "Please select min weight 40 and max 150 kg."
-        //     );
-        //     return;
-        //   }
-        // } else {
-        //   if (this.targetweight < 88 || this.targetweight > 333) {
-        //     this.utilities.presentAlert(
-        //       "Please select min weight 88 and max 333 pound."
-        //     );
-        //     return;
-        //   }
-        // }
         if (this.from) {
           return this.modalClose();
         }
@@ -664,7 +674,8 @@ targetWeightMessage=false;
   parseint() {
     this.minHight = 36;
     this.maxHight = 84;
-    console.log(this.height); 
+
+ 
     return this.heightType === "cm"
       ? parseInt(this.selectedHeight)
       : parseInt(this.selectedHeight);

@@ -63,7 +63,7 @@
           </ion-row>
         </ion-grid>
         <ion-button
-        *ngIf="clientId!=='enkeltec'"
+        *ngIf="!compConfig.isChild"
           class="more_btn"
           shape="round"
           fill="outline"
