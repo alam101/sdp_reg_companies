@@ -139,6 +139,15 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   getProfile() {
     this.appService.getProfile().then((res) => {
       console.log(res);
+      if(!this.compConfig.isChild){
+        this.selectedHeight=66;
+       this.inputHeight=`5'6"`;
+        this.calculateDesiredWeight();
+      }
+      else{
+         this.weight=20;
+         this.targetYear=new Date().getFullYear()-3;
+      }
       this.profileData = res;
       this.targetweight = this.profileData?.demographic?.suggestedWeight;
       if(this.profileData?.demographic?.age?.avg_age){
@@ -179,9 +188,18 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
       }
       else{
-        this.minHight = 36;
+        if(!this.compConfig.isChild){
+          this.selectedHeight=66;
+         this.inputHeight=`5'6"`;
+        this.minHight = 66;
+        }
+        else{
+          this.inputHeight=`4'0"`;
+         this.minHight = 36;
+         this.selectedHeight =48;
+        }
         this.maxHight = 84;
-        this.selectedHeight =48;
+        
         let h = Math.floor(this.selectedHeight / 12)+"."+(this.selectedHeight % 12);
         this.height = h;
  
@@ -190,15 +208,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         this.calculateDesiredWeight();
       }
 
-      if(!this.compConfig.isChild){
-        this.selectedHeight=66;
-        this.inputHeight=`5'6"`;
-        this.calculateDesiredWeight();
-      }
-      else{
-         this.weight=20;
-         this.targetYear=new Date().getFullYear()-3;
-      }
+      
      
     });
   }
@@ -295,6 +305,7 @@ targetWeightMessage=false;
         value: parseFloat(this.weight),
         ischecked: true,
       },
+      suggestedWeight: this.targetweight,
     };
     if (this.localData?.otherMaster?.height) {
       this.localData.otherMaster.height = [
