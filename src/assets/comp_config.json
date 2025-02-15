@@ -3727,7 +3727,7 @@
   {
     "wellbeing": {
       "logo": false,
-"isChild":false,
+      "isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3819,6 +3819,12 @@
               "value": "welbbeing_skinhair",
               "label": "Improve your skin and hair with a Nutrient-Rich Diet",
               "imgUrl": "../../../assets/newImages/hair.png"
+            },
+            {
+              "name": "Gut health",
+              "value": "wellbeing_guthealth",
+              "label": "Gut health   For healthy gut to manage acidity/bloating",
+              "imgUrl": "../../../assets/newImages/gut_health.png"
             }
           ]
         }
@@ -3831,7 +3837,8 @@
         { "name": "PCOS", "value": "wellbeing_pcos" },
         { "name": "Wellbeing Hypothyroid", "value": "wellbeing_hypothyroid" },
         { "name": "Joints Health", "value": "wellbeing_jointshealth" },
-        { "name": "Skin and Hair care", "value": "welbbeing_skinhair" }
+        { "name": "Skin and Hair care", "value": "welbbeing_skinhair" },
+        { "name": "Gut health", "value": "wellbeing_guthealth" }
       ],
       "deseases": [
         {
