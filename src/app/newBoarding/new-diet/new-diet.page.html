@@ -147,7 +147,7 @@
 ></app-appointent>
 
     <div class="meal_workout_title_div" *ngIf="firstConsult!==false" style="margin-bottom: 2rem;">
-      <p class="meal_workout_title" style="white-space: nowrap;margin-bottom:.5rem;"> 
+      <p class="meal_workout_title" style="white-space: nowrap;"> 
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(today).format('DD-MM-YYYY') ? 'Today' :
         moment(newSelectedDate).format('DD-MM-YYYY') ===
@@ -163,17 +163,34 @@
     position: relative;
     align-items: center;
     margin-right: 5px;" *ngIf="!isDetox">
-        <p class="meal_workout_button" *ngIf="compConfig?.inSights" style="font-size: .8rem;" [style.color]="clientId==='enkeltec'?'#000':null" (click)="goToInsites()">Insights</p>
+        <!-- <p class="meal_workout_button" *ngIf="compConfig?.inSights" style="font-size: .8rem;" [style.color]="clientId==='enkeltec'?'#000':null" (click)="goToInsites()">Insights</p> -->
+        <!-- <ion-button> -->
+          <!-- <ion-icon name="bar-chart-outline" *ngIf="compConfig?.inSights"
+          class="meal_workout_button"  style="font-size: 1.5rem;" (click)="goToInsites()"></ion-icon> -->
+        <!-- <ion-icon name="stats"
+        *ngIf="compConfig?.inSights"
+         class="meal_workout_button"  (click)="goToInsites()"></ion-icon> -->
+      <!-- </ion-button> -->
+        <ion-button fill="outline" *ngIf="compConfig?.inSights" class="meal_workout_button" style="font-size: .6rem;
+    padding: 0;
+    height: 23px;
+    width: 60px;--border-color: var(--theme-color);--border-width: 1px;"
+        [style.color]="clientId==='enkeltec'?'#000':null" (click)="goToInsites()">Insights</ion-button>
       <ion-icon *ngIf="compConfig.pie_chart!=false"
         class="meal_workout_button"
         name="pie-chart"
         (click)="caloryChart()"
       ></ion-icon> 
-         <ion-icon *ngIf="compConfig.download!=false"
+         <!-- <ion-icon *ngIf="compConfig.download!=false"
          class="meal_workout_button"
           name="cloud-download"
           (click)="gotoDownloadPopup()"
-        ></ion-icon> 
+        ></ion-icon>  -->
+        <ion-button fill="outline" *ngIf="compConfig.download!=false" class="meal_workout_button" style="font-size: .6rem;
+        padding: 0;
+        height: 23px;
+        width: 70px;--border-color: var(--theme-color);--border-width: 1px;"
+            [style.color]="clientId==='enkeltec'?'#000':null" (click)="gotoDownloadPopup()">Download</ion-button>
       </div>
       <div *ngIf="isdoenloadclicked" style="float:left;width: 20%;height:6px;border:1px solid #b3b3b3;">
         <div style="float: left;position: relative;
@@ -191,7 +208,7 @@
     </div>
    
 
- <div *ngIf="((clientId==='wellbeing' && assinedDietitianExpDate!==null && aibasedDietplan===true) || ( clientId==='plix'  && aibasedDietplan===true)) || ((clientId!=='wellbeing' && clientId!=='plix') && firstConsult!==false && isPlanExpired===false)">
+ <div *ngIf="((aibasedDietplan===true) || ( clientId==='plix'  && aibasedDietplan===true)) || ((clientId!=='plix') && firstConsult!==false && isPlanExpired===false)">
   <div
     class="meal_workout_div"
     *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
@@ -254,7 +271,7 @@
   
  </div>
  
- <div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" >
+ <!-- <div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" >
  <img src="./assets/img/waiting.svg" style="
    display: block;
    margin-left: auto;
@@ -267,9 +284,9 @@
      Diet plan is yet to be released by Dietitian.
    </div>
   </div>
- </div>
+ </div> -->
 
- <div *ngIf="(clientId==='wellbeing' || clientId==='plix') && assinedDietitianExpDate!==null && aibasedDietplan===false">
+ <!-- <div *ngIf="(clientId==='wellbeing' || clientId==='plix') && assinedDietitianExpDate!==null && aibasedDietplan===false">
   <img src="./assets/img/expired.svg" style="
     display: block;
     margin-left: auto;
@@ -282,7 +299,7 @@
       Plan is expired.
     </div>
   </div>
-  </div>
+  </div> -->
 
  <div *ngIf="isPlanExpired===true">
   <img src="./assets/newImages/expiredplan.png" style="width: auto;height: auto;">

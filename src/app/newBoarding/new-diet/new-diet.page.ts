@@ -589,8 +589,14 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      localStorage.setItem("company_id","alyve.health");
      this.downloadPdfFromApi();
      }
+     if(this.clientId==='wellbeing'){
+      this.isdoenloadclicked=true;
+      localStorage.setItem("company_id","wellbeing");
+      this.downloadPdfFromApi();
+     }
      else{
       this.isdoenloadclicked=true;
+      
       this.downloadPdfFromApi();
      }
     

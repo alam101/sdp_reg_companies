@@ -165,6 +165,18 @@ export const APP_ROUTES: Routes = [
     path: 'reward-level',
     loadChildren: () => import('./reward/icon-level/icon-level.module').then( m => m.IconLevelPageModule)
   },
+  {
+    path: 'upgrad-level',
+    loadChildren: () => import('./reward/upgrad-level/upgrad-level.module').then( m => m.UpgradLevelPageModule)
+  },
+  {
+    path: 'upgrad-level1',
+    loadChildren: () => import('./reward/upgrad-level1/upgrad-level1.module').then( m => m.UpgradLevel1PageModule)
+  },
+  {
+    path: 'how-works',
+    loadChildren: () => import('./reward/how-it-works/how-it-works.module').then( m => m.HowItWorksPageModule)
+  },
 ];
 
 @NgModule({})

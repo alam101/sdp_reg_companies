@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="coins-card">
+  <ion-card class="coins-card" [ngClass]="{'level1':itemIndex===1,'level2':itemIndex===2,'level3':itemIndex===3,'level4':itemIndex===4}">
     <ion-grid>
       <ion-row>
         <ion-col size="8" class="my-coins-title">My Coins</ion-col>
@@ -47,54 +47,71 @@
   <div class="levels-section">
     <div class="levels-title">Levels</div>
     <div class="levels">
-      <div style="    width: 100%;
-    overflow: auto;
-    background: red;
-    flex-direction: row;
-    display: flex;white-space: nowrap;">
-      <div class="level-item">1</div>
-      <div class="level-item">2</div>
-      <div class="level-item">3</div>
-      <div class="level-item">4</div>
-      <div class="level-item">5</div>
-      <div class="level-item">6</div>
-      <div class="level-item">7</div>
-      <div class="level-item">8</div>
-      <div class="level-item">9</div>
-      <div class="level-item">10</div>
+      <div class="sub-level">
+      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===1}" (click)="itemClicked(1)">1</div>
+      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===2}" (click)="itemClicked(2)">2</div>
+      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===3}" (click)="itemClicked(3)">3</div>
+      <div class="level-item level2" [ngClass]="{'active-level2':itemIndex===4}" (click)="itemClicked(4)">4</div>
+      <div class="level-item level2" [ngClass]="{'active-level2':itemIndex===5}" (click)="itemClicked(5)">5</div>
+      <div class="level-item level2"  [ngClass]="{'active-level2':itemIndex===6}" (click)="itemClicked(6)">6</div>
+      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===7}" (click)="itemClicked(7)">7</div>
+      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===8}" (click)="itemClicked(8)">8</div>
+      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===9}" (click)="itemClicked(9)">9</div>
+      <div class="level-item level4" [ngClass]="{'active-level4':itemIndex===10}" (click)="itemClicked(10)">10</div>
       </div>
     </div>
   </div>
 
-  <div>
+  <div style="width: 100%;padding:1rem;font-size:1rem;color:#000;font-weight:600;">
     How it works?  <img src="./assets/reward/doller.png" style="    position: relative;top: 5px;">
   </div>
-  <ion-card class="how-it-works">
-    <!-- <ion-card-header>
-      <ion-card-title>How it works?  <img src="./assets/reward/doller.png" style="    position: relative;top: 5px;"></ion-card-title>
-    </ion-card-header> -->
-    <ion-card-content>
-      <div class="daily-limit">
-        <strong>Daily Limit:</strong> There is going to be a daily limit of 100 coins.
-      </div>
-      <div class="upgrade-info">
-        <ion-icon name="arrow-up-circle-outline" color="success"></ion-icon>
-        <strong>Level Upgrade:</strong> Log full diet for 3 days.
-      </div>
-      <div class="downgrade-info">
-        <ion-icon name="arrow-down-circle-outline" color="danger"></ion-icon>
-        <strong>Level Downgrade:</strong> No activity for 3 days.
-      </div>
-    </ion-card-content>
-  </ion-card>
+  <div style="width: 90%;margin:0 1rem;background: #DDDDDD; color:#000;padding:.5rem;border-radius:5px; margin-bottom:2rem;min-height:86px;">
+     <h2 style="margin: 0; font-size:1rem;font-weight:600;color:#414042;">Daily Limit</h2>
+    <p style="color:#414042;margin-top:.5rem;font-size:.75rem">
+      There is going to be a daily limit of 20 coins
+    </p>
 
-  <ion-card class="rewards-section">
-    <ion-card-content>
-      <ion-button expand="block" fill="outline" color="warning">
-        <ion-icon name="trophy-outline" slot="end"></ion-icon>
-        GET YOUR REWARDS NOW!
-      </ion-button>
-      <div class="rewards-description">Use your points to get the most useful rewards.</div>
-    </ion-card-content>
-  </ion-card>
+  </div>
+
+ 
+  <div style="width: 90%;display: flex;align-items: center;margin:1rem;background: rgb(65, 201, 51); color:#000;padding:.5rem;border-radius:5px;height:86px;">
+    <div style="float: left; width:20%">
+      <img src="./assets/icon/upgrad.png">
+    </div>
+    <div style="float: left; width:80%">
+      <h2 style="color:#414042;margin: 0; font-size:1rem;font-weight:600;">Level Upgrade</h2>
+      <p style="color:#414042;margin-top:.5rem;">
+        Log full diet for 3 days
+      </p>
+    </div>
+  </div>
+  
+  <div style="width: 90%;display: flex;align-items: center;margin:1rem;background: #FF7A7D; color:#000;padding:.5rem;border-radius:5px;height:86px;">
+    <div style="float: left; width:20%">
+      <img src="./assets/icon/downgrad.png">
+    </div>
+    <div style="float: left; width:80%">
+      <h2 style="color:#414042;margin: 0; font-size:1rem;font-weight:600;">Level Downgrade</h2>
+      <p style="color:#414042;margin-top:.5rem;">
+        Log full diet for 3 days
+      </p>
+    </div>
+  </div>
+  <div style="width: 90%;position:relative;display: flex;align-items: center;margin:1rem;background: #FFC224; color:#fff;padding:.5rem;border-radius:5px;height:90px;">
+    <div style="float: left; width:95%">
+      <h2 style="color:#fff;margin: 0; font-size:1rem;font-weight:600;"> GET YOUR REWARDS NOW! </h2>
+      <p style="color:#414042;margin-top:.5rem;font-size:.75rem;">
+        Use your points to get the most useful rewards. 
+      </p>
+    </div>
+    <!-- <div style="float: right; width:5%">
+      <img src="./assets/icon/Vector.png">
+    </div> -->
+    <img src="./assets/icon/award.png" style="    position: absolute;
+    right: -4%;
+    bottom: -38%;">
+  </div>
+  <br><br><br><br><br><br><br><br>
+
+  
 </ion-content>
