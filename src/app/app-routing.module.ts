@@ -177,6 +177,14 @@ export const APP_ROUTES: Routes = [
     path: 'how-works',
     loadChildren: () => import('./reward/how-it-works/how-it-works.module').then( m => m.HowItWorksPageModule)
   },
+  {
+    path: 'reward-product',
+    loadChildren: () => import('./reward/reward-product/reward-product.module').then( m => m.RewardProductPageModule)
+  },
+  {
+    path: 'reward-deal',
+    loadChildren: () => import('./reward/reward-deal/reward-deal.module').then( m => m.RewardDealPageModule)
+  },
 ];
 
 @NgModule({})
