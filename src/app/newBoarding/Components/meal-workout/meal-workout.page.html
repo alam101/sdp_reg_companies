@@ -34,9 +34,7 @@
         </span>
       </p>
     </div>
-      <div
-      *ngFor="let d of data?.data.slice(0,disabled?1 :data?.data.length );let i = index"
-    >
+      <div *ngFor="let d of data?.data.slice(0,disabled?1 :data?.data.length );let i = index">
       <div
         class="aditional_div"
         *ngIf="d?.foodStatus === 'A'">
@@ -47,7 +45,17 @@
         [ngStyle]="{'border-bottom': data?.data.length !== i+1 && '1px solid var(--card-border)','padding-top':d?.foodStatus === 'A' && '0%'}"
       >
         <div class="center" (click)="gotoView(d)" style="position: relative;">
-          <ion-thumbnail>
+        
+          <ion-thumbnail style="position: relative;">
+            <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option " 
+            style="color:#fff;position: absolute;     
+               top: -6px;
+            height: .2rem;
+            font-size: .48rem;
+            width: 100%;
+            text-align: center;
+            padding: 3px;
+            white-space: nowrap;"></p>
             <img
               class="card_img"
               src="{{d?.imageUrl}}"
@@ -59,16 +67,23 @@
               *ngIf="d?.foodSource?.toLowerCase() == 'external'"
               src="./assets/newImages/null.jpg"
             />
+            <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option " 
+            style="color:#fff;position: absolute;     
+                bottom: -18px;
+            height: 1rem;
+            font-size: .48rem;
+            width: 100%;
+            text-align: center;
+            padding: 3px;
+            white-space: nowrap;
+             border-top-left-radius: 0;
+    border-top-right-radius: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        ">{{d?.option}} Choice</p>
           </ion-thumbnail>
-          <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option " 
-          style="color:#fff;position: absolute;     top: 8px;
-          height: 1rem;
-          font-size: .48rem;
-          width: 100%;
-          text-align: center;
-          padding: 3px;
-          white-space: nowrap;
-      ">{{d?.option}} Choice</p>
+        
+    
         </div>
         <ion-grid class="w_100">
           <ion-row style="margin-top: 5px;margin-left: 5px;">
