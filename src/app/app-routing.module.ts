@@ -161,6 +161,34 @@ export const APP_ROUTES: Routes = [
     path: 'appinfo',
     loadChildren: () => import('./appinfo/appinfo.module').then( m => m.AppinfoPageModule)
   },
+  {
+    path: 'reward-level',
+    loadChildren: () => import('./reward/icon-level/icon-level.module').then( m => m.IconLevelPageModule)
+  },
+  {
+    path: 'upgrad-level',
+    loadChildren: () => import('./reward/upgrad-level/upgrad-level.module').then( m => m.UpgradLevelPageModule)
+  },
+  {
+    path: 'upgrad-level1',
+    loadChildren: () => import('./reward/upgrad-level1/upgrad-level1.module').then( m => m.UpgradLevel1PageModule)
+  },
+  {
+    path: 'how-works',
+    loadChildren: () => import('./reward/how-it-works/how-it-works.module').then( m => m.HowItWorksPageModule)
+  },
+  {
+    path: 'reward-product',
+    loadChildren: () => import('./reward/reward-product/reward-product.module').then( m => m.RewardProductPageModule)
+  },
+  {
+    path: 'reward-deal',
+    loadChildren: () => import('./reward/reward-deal/reward-deal.module').then( m => m.RewardDealPageModule)
+  },
+  {
+    path: 'reward-deal-confirmed',
+    loadChildren: () => import('./reward/reward-deal-confirmed/reward-deal-confirmed.module').then( m => m.RewardDealConfirmedPageModule)
+  },
 ];
 
 @NgModule({})

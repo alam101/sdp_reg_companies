@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Coins</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="coins-card" [ngClass]="{'level1':itemIndex===1,'level2':itemIndex===2,'level3':itemIndex===3,'level4':itemIndex===4}">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8" class="my-coins-title">My Coins</ion-col>
+        <ion-col size="4" class="coins-value">
+         <div style="color: #fff;
+    padding: .5rem;
+    width: 85px;
+    border-radius: 19px;
+    background: #e0ac08;
+    height: 34px;    position: absolute;
+    right: 0;">
+    <span style="position: relative;
+    top: -10px;
+    left: -5px;">234 </span>
+          <img src="./assets/reward/doller.png" style="    position: relative;top: -3px;">
+        </div> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-card style="box-shadow: none;margin:0;margin-top:1rem;">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <div style="background: #F2E5D8;
+    border: 1px solid #b3b3b3;
+    padding-bottom: 1rem;
+    border-radius: 12px;">
+          <img src="./assets/icon/food-xl.png" style="    width: 100%;">
+          <div style="    padding: 1rem;
+    text-align: center;
+    display: contents;">
+    <h2 style="font-size: .8rem; font-weight:500;color:#565656;">Get Flat 40% on tickets on Bookmyshow</h2>
+    <p style="font-size: .7rem;padding:1rem;margin-top:0;padding-top:0;">Just buy the coupon and use it on any bookmyshow webiste or 
+      app you will get the discount instantly. Just put in the code and
+      redeem your points there itsel</p>
+    <ion-button style="font-size: .75rem; font-weight:500;height:30px;--background:#126A18;">Discount</ion-button>
+        </div>
+        </div>
+      </ion-col>
+  </ion-row>
+  </ion-card>
+   <ion-row style="margin-top:2rem;">
+    <ion-col class="ion-text-center">
+      <ion-button style="font-size: .75rem; font-weight:500;height:30px;">Other Deals</ion-button>
+    </ion-col>
+   </ion-row>
+   <ion-card style="box-shadow: none;;">
+    <ion-row>
+      <ion-col size="5.75" class="ion-text-center">
+        <div style="background: #F2E5D8;
+    border: 1px solid #b3b3b3;
+    padding-bottom: 1rem;
+    border-radius: 12px;">
+          <img src="./assets/icon/food.png" style="    width: 100%;">
+          <div style="    padding: 1rem;
+    text-align: center;
+    display: contents;">
+    <h2 style="font-size: .8rem; font-weight:500;">BookMyShow</h2>
+    <p style="font-size: .7rem;">50% off on next ticket</p>
+    <ion-button style="font-size: .75rem; font-weight:500;--height:40px">Buy @49 coins</ion-button>
+        </div>
+        </div>
+      </ion-col>
+      <ion-col size=".5"></ion-col>
+      <ion-col size="5.75" class="ion-text-center">
+        <div style="background: #F2E5D8;
+    border: 1px solid #b3b3b3;
+    padding-bottom: 1rem;
+    border-radius: 12px;">
+          <img src="./assets/icon/food.png" style="    width: 100%;">
+          <div style="    padding: 1rem;
+    text-align: center;
+    display: contents;">
+          <h2 style="font-size: .8rem; font-weight:500;">BookMyShow</h2>
+          <p style="font-size: .7rem;">50% off on next ticket</p>
+          <ion-button style="font-size: .75rem; font-weight:500;--height:40px;">Buy @49 coins</ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-row style="margin-top:2rem;">
+    <ion-col class="ion-text-center">
+      <ion-button style="font-size: .75rem; font-weight:500;height:30px;">Buy @49 coins</ion-button>
+    </ion-col>
+   </ion-row>
+  <br><br><br><br><br><br><br><br><br><br>
+</ion-content>

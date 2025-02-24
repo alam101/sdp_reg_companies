@@ -1,0 +1,191 @@
+.coins-card {
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: rgb(194,130,66);
+    margin:0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+  }
+  
+  .level1{
+    background: #CD7F32 !important;
+ //   color: #000;
+  }
+ 
+
+  .level2{
+    background: #f3f3f3!important;
+ //   color: #000;
+  }
+ 
+  .level3{
+    background: #FFD700!important;
+ //   color: #000;
+  }
+  
+  .level4{
+    background: #301CAE!important;
+ //   color: #fff;
+  }
+ 
+  .my-coins-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#000;
+  }
+  
+  .coins-value {
+    text-align: end;
+    font-weight: bold;
+    color: var(--ion-color-warning);
+  }
+  
+  .level-info {
+    margin-top: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+  }
+  
+  .level-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .level-progress {
+    margin-top: 1rem;
+    clear:both;
+
+  }
+  
+  .progress-text {
+    text-align: center;
+    font-size: 0.9em;
+  }
+  
+  .levels-section {
+    text-align: left;
+    margin: 16px 1rem;
+
+   
+  }
+  
+  .levels-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+  }
+  
+  .levels {
+    margin: 4px;
+     width: 100%;
+     overflow-x: scroll;
+     scroll-behavior: smooth;
+     scrollbar-width: thin; /* For Firefox */
+     scrollbar-color: grey grey;
+    
+    .level-item{
+      float: left;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      vertical-align: middle;
+     display: grid;
+      place-items: center;
+     
+    }
+    
+   .sub-level{
+    overflow: auto;
+    // background: red;
+    flex-direction: row;
+    display: flex;
+    white-space: nowrap;
+    width: 500px;
+    overflow-x: scroll;
+    align-items: center;
+    cursor:pointer;
+
+   
+    .active-level1{
+      width: 50px;
+      height: 50px;
+      outline: 2px solid #CD7F32;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+
+   
+    .active-level2{
+      width: 50px;
+      height: 50px;
+      outline: 2px solid #f3f3f3;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+   
+    .active-level3{
+      width: 50px;
+      height: 50px;
+      outline: 2px solid #FFD700;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+   
+    .active-level4{
+      width: 50px;
+      height: 50px;
+      outline: 2px solid #301CAE;
+      border: 2px solid #fff;
+      border-radius: 50%;
+    }
+   }
+
+  }
+  // .levels:hover {
+  //   scrollbar-color: black black; /* Visible scrollbar on hover */
+  // }
+  
+  // /* For Webkit Browsers (Chrome, Edge, Safari) */
+  // .levels::-webkit-scrollbar {
+  //   width: 8px; /* Width of scrollbar */
+  // }
+  
+  // .levels::-webkit-scrollbar-thumb {
+  //   background: black; /* Hide scrollbar thumb by default */
+  // }
+  
+  // /* Show scrollbar when hovered */
+  // .levels:hover::-webkit-scrollbar-thumb {
+  //   background: black; /* Show scrollbar thumb on hover */
+  //   border-radius: 4px;
+  // }
+  .levels div {
+    margin: 4px;
+    flex-direction: row;
+   
+  }
+  
+  .how-it-works {
+    margin-top: 16px;
+    float: left;
+  }
+  
+  .how-it-works div {
+    margin-bottom: 12px;
+  }
+  
+  .rewards-section {
+    margin-top: 16px;
+    text-align: center;
+  }
+  
+  .rewards-description {
+    margin-top: 8px;
+    font-size: 0.9em;
+  }

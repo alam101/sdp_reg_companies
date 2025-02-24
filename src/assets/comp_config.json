@@ -2,6 +2,7 @@
   {
     "default": {
       "logo": false,
+      "isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -29,7 +30,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -95,9 +96,9 @@
           ]
         }
       ],
-      
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -183,7 +184,7 @@
       "defaultPlanCheck": false,
       "headerText": "Welcome to your daily diet plan.",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -249,8 +250,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -305,6 +306,7 @@
   {
     "traya": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -334,7 +336,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -400,8 +402,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -456,6 +458,7 @@
   {
     "traya-female": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -485,7 +488,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -551,8 +554,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -611,6 +614,7 @@
   {
     "kapiva": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -639,7 +643,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -705,8 +709,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -765,6 +769,7 @@
   {
     "eatfit": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -793,7 +798,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -859,8 +864,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -919,6 +924,7 @@
   {
     "alyve": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -947,7 +953,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1013,23 +1019,16 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-      {"name": "Weight Loss",
-              "value": "weightLoss"},
-              {"name": "Muscle Building",
-              "value": "muscleGain"},
-              {"name": "Lean Body",
-              "value": "fatShredding"},
-              {"name": "Manage Diabetes",
-              "value": "diabetes"},
-              {"name": "Manage PCOS",
-              "value": "pcos"},
-              {"name": "Manage Cholesterol",
-              "value": "cholesterol"},
-              {"name": "Manage Hypertension",
-              "value": "hypertension"}
-    ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Lean Body", "value": "fatShredding" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -1088,6 +1087,7 @@
   {
     "plix": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1117,7 +1117,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1148,7 +1148,7 @@
               "value": "skincare_plix",
               "label": "Healthy skin, beautiful you.",
               "imgUrl": "../../../assets/newImages/skincare_img.png"
-            },  
+            },
             {
               "name": "Manage Stress",
               "value": "stress_plix",
@@ -1164,14 +1164,14 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-      {"name":"Weight Management","value":"weight_loss_plix"},
-      {"name":"Improve Immunity","value":"immunity_booster_plix"},
-      {"name":"Manage Skincare","value":"skincare_plix"},
-      {"name":"Manage Stress","value":"stress_plix"},
-      {"name":"Hair Care","value":"trayaHealth"}
-    ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Management", "value": "weight_loss_plix" },
+        { "name": "Improve Immunity", "value": "immunity_booster_plix" },
+        { "name": "Manage Skincare", "value": "skincare_plix" },
+        { "name": "Manage Stress", "value": "stress_plix" },
+        { "name": "Hair Care", "value": "trayaHealth" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -1230,6 +1230,7 @@
   {
     "prana": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1258,7 +1259,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1305,8 +1306,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -1365,6 +1366,7 @@
   {
     "stepgo": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1393,7 +1395,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1459,8 +1461,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -1519,6 +1521,7 @@
   {
     "trunord": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1547,7 +1550,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1594,8 +1597,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -1654,6 +1657,7 @@
   {
     "yolo": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1682,7 +1686,7 @@
       "defaultPlanCheck": false,
       "headerText": "Welcome to your daily diet plan!",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1754,8 +1758,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -1846,6 +1850,7 @@
   {
     "truworth": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1874,7 +1879,7 @@
       "defaultPlanCheck": false,
       "headerText": "Welcome to your daily diet plan!",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1946,8 +1951,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -2064,8 +2069,8 @@
       "defaultPlanCheck": true,
       "companyLogoBase64": "iVBORw0KGgoAAAANSUhEUgAAAaYAAACkCAYAAADczoq8AAAKqmlDQ1BJQ0MgUHJvZmlsZQAASImVlwdQU+kWx79700NCS4h0Qm+CdAJICaGFLh1shCRAKCEEgoBdWVzBFUVEBBRFVykKrgWQtSKKhUVQseuCLArKulgQFZV3gSG4++a9N+/MnDm/nJzv/53vzv1mzgWALM8RiVJgeQBShZniEG93elR0DB03BNAABgQAAIPDzRAxg4P9EQaz8e/24S6ApuJtsymtf///v5oCj5/BBQAKRjiOl8FNRfgk4i+5InEmAKh9SF53RaZoitsRpoqRBhG+P8UJMzwyxXHTjAbTNWEhLISpAOBJHI44AQASHcnTs7gJiA7JDWELIU8gRFiEsEtqahoP4WMIGyE1SI40pc+I+04n4W+acVJNDidByjNnmTa8hyBDlMLJ+T8fx/+21BTJ7B4GiJMSxT4hSFREntn95DQ/KQvjAoNmWcCbrp/mRIlP+CxzM1gxs8zjePhJ16YE+s9yvMCLLdXJZIfNMj/DM3SWxWkh0r3ixSzmLHPEc/tKksOl+UQ+W6qfmxgWOctZgojAWc5IDvWbq2FJ82JJiLR/vtDbfW5fL+nZUzO+O6+ALV2bmRjmIz07Z65/vpA5p5kRJe2Nx/fwnKsJl9aLMt2le4lSgqX1/BRvaT4jK1S6NhN5IefWBkufYRLHN3iWAQukgRTExYAO/JFfHgBk8rMzpw7CShPliAUJiZl0JnLD+HS2kGs+n25lYWUDwNR9nXkd3tGm7yFEuz6X26gNgHPO5OTkmbmcXzcAJ84CQHw4lzMcBED2OgBXd3El4qyZ3PRdwgAikANUoAI0gS4wAmbACtgBJ+AGPIEvCAJhIBosA1yQCFKRzleAVWA9yAeFYBvYCcpBFTgAasBRcBw0gzPgIrgCboBu0AsegT4wCF6BUfABTEAQhIPIEAVSgbQgfcgUsoIYkAvkCflDIVA0FAslQEJIAq2CNkKFUDFUDu2HaqFfoNPQRega1AM9gPqhYegt9BlGwSSYCmvABvACmAEzYT84DF4KJ8DpcC6cB2+Fy+Bq+AjcBF+Eb8C9cB/8Ch5DAZQMiobSRpmhGCgWKggVg4pHiVFrUAWoUlQ1qgHViupA3Ub1oUZQn9BYNAVNR5uhndA+6HA0F52OXoPegi5H16Cb0O3o2+h+9Cj6G4aMUceYYhwxbEwUJgGzApOPKcUcwpzCXMb0YgYxH7BYLA1riLXH+mCjsUnYldgt2D3YRuwFbA92ADuGw+FUcKY4Z1wQjoPLxOXjduOO4M7jbuEGcR/xMngtvBXeCx+DF+I34Evxdfhz+Fv4F/gJgjxBn+BICCLwCDmEIsJBQivhJmGQMEFUIBoSnYlhxCTiemIZsYF4mfiY+E5GRkZHxkFmkYxAZp1Mmcwxmasy/TKfSIokExKLtIQkIW0lHSZdID0gvSOTyQZkN3IMOZO8lVxLvkR+Sv4oS5E1l2XL8mTXylbINsnekn0tR5DTl2PKLZPLlSuVOyF3U25EniBvIM+S58ivka+QPy1/T35MgaJgqRCkkKqwRaFO4ZrCkCJO0UDRU5GnmKd4QPGS4gAFRdGlsChcykbKQcplyiAVSzWksqlJ1ELqUWoXdVRJUclGKUIpW6lC6axSHw1FM6CxaSm0Itpx2l3a53ka85jz+PM2z2uYd2veuLKaspsyX7lAuVG5V/mzCl3FUyVZZbtKs8oTVbSqieoi1RWqe1Uvq46oUdWc1LhqBWrH1R6qw+om6iHqK9UPqHeqj2loanhriDR2a1zSGNGkabppJmmWaJ7THNaiaLloCbRKtM5rvaQr0Zn0FHoZvZ0+qq2u7aMt0d6v3aU9oWOoE66zQadR54kuUZehG69botumO6qnpRegt0qvXu+hPkGfoZ+ov0u/Q3/cwNAg0mCTQbPBkKGyIdsw17De8LER2cjVKN2o2uiOMdaYYZxsvMe42wQ2sTVJNKkwuWkKm9qZCkz3mPbMx8x3mC+cXz3/nhnJjGmWZVZv1m9OM/c332DebP56gd6CmAXbF3Qs+GZha5FicdDikaWipa/lBstWy7dWJlZcqwqrO9Zkay/rtdYt1m9sTG34Nntt7ttSbANsN9m22X61s7cT2zXYDdvr2cfaV9rfY1AZwYwtjKsOGAd3h7UOZxw+Odo5Zjoed/zLycwp2anOaWih4UL+woMLB5x1nDnO+537XOgusS77XPpctV05rtWuz9x03Xhuh9xeMI2ZScwjzNfuFu5i91Pu4yxH1mrWBQ+Uh7dHgUeXp6JnuGe551MvHa8Er3qvUW9b75XeF3wwPn4+233usTXYXHYte9TX3ne1b7sfyS/Ur9zvmb+Jv9i/NQAO8A3YEfA4UD9QGNgcBILYQTuCngQbBqcH/7oIuyh4UcWi5yGWIatCOkIpoctD60I/hLmHFYU9CjcKl4S3RchFLImojRiP9IgsjuyLWhC1OupGtGq0ILolBhcTEXMoZmyx5+KdiweX2C7JX3J3qeHS7KXXlqkuS1l2drnccs7yE7GY2MjYutgvnCBONWcsjh1XGTfKZXF3cV/x3HglvGG+M7+Y/yLeOb44fijBOWFHwnCia2Jp4oiAJSgXvEnySapKGk8OSj6cPJkSmdKYik+NTT0tVBQmC9vTNNOy03pEpqJ8UV+6Y/rO9FGxn/hQBpSxNKMlk4oMRp0SI8kPkv4sl6yKrI8rIlacyFbIFmZ35pjkbM55keuV+/NK9EruyrZV2qvWr+pfzVy9fw20Jm5N21rdtXlrB9d5r6tZT1yfvP63DRYbije83xi5sTVPI29d3sAP3j/U58vmi/PvbXLaVPUj+kfBj12brTfv3vytgFdwvdCisLTwyxbulus/Wf5U9tPk1vitXUV2RXu3YbcJt93d7rq9plihOLd4YEfAjqYSeklByfudy3deK7UprdpF3CXZ1VfmX9ayW2/3tt1fyhPLeyvcKxor1Ss3V47v4e25tddtb0OVRlVh1ed9gn3393vvb6o2qC49gD2QdeD5wYiDHT8zfq49pHqo8NDXw8LDfTUhNe219rW1dep1RfVwvaR++MiSI91HPY62NJg17G+kNRYeA8ckx17+EvvL3eN+x9tOME40nNQ/WXmKcqqgCWrKaRptTmzua4lu6Tnte7qt1an11K/mvx4+o32m4qzS2aJzxHN55ybP554fuyC6MHIx4eJA2/K2R5eiLt1pX9Teddnv8tUrXlcudTA7zl91vnrmmuO109cZ15tv2N1o6rTtPPWb7W+nuuy6mm7a32zpduhu7VnYc+6W662Ltz1uX7nDvnOjN7C352743fv3ltzru8+7P/Qg5cGbh1kPJx6te4x5XPBE/knpU/Wn1b8b/97YZ9d3tt+jv/NZ6LNHA9yBV39k/PFlMO85+XnpC60XtUNWQ2eGvYa7Xy5+OfhK9GpiJP9PhT8rXxu9PvmX21+do1Gjg2/Ebybfbnmn8u7we5v3bWPBY08/pH6YGC/4qPKx5hPjU8fnyM8vJlZ8wX0p+2r8tfWb37fHk6mTkyKOmDM9CqAQh+PjAXh7GAByNAAUZIYgLp6Zp6cNmvkGmCbwn3hm5p42OwAakDA1FrEuAHAMcYN1iDYSp0aiMDcAW1tLfXb2nZ7TpwyLfLHsc5miXuW4WU2pzczw3/X9zwimVG3AP+O/AO6/B7nAUEz1AAAAimVYSWZNTQAqAAAACAAEARoABQAAAAEAAAA+ARsABQAAAAEAAABGASgAAwAAAAEAAgAAh2kABAAAAAEAAABOAAAAAAAAAJAAAAABAAAAkAAAAAEAA5KGAAcAAAASAAAAeKACAAQAAAABAAABpqADAAQAAAABAAAApAAAAABBU0NJSQAAAFNjcmVlbnNob3QAUUkyAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB1mlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyI+CiAgICAgICAgIDxleGlmOlBpeGVsWURpbWVuc2lvbj4xNjQ8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+NDIyPC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6VXNlckNvbW1lbnQ+U2NyZWVuc2hvdDwvZXhpZjpVc2VyQ29tbWVudD4KICAgICAgPC9yZGY6RGVzY3JpcHRpb24+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CrgtYpoAAAAcaURPVAAAAAIAAAAAAAAAUgAAACgAAABSAAAAUgAAPr1PRPpMAAA+iUlEQVR4AezdCbcd1XUn8EIgoXkGSUggiVkg5nkQk22MjSGOHdud7nSS7s7qXsln6M+RrGR1J+l00okdDwFsg8FmxmIWk0AgQEJIIIHQiAYkIXr/zuOQotZ99eq+d98k19F6uu/dW7dO1a5zzn8P/73Pcd9e8T8/K9rWSqCVQCuBVgKtBMaIBI5rgWmMPIn2MloJtBJoJdBKIEmgBaZ2ILQSaCXQSqCVwJiSQAtMY+pxtBdzLEvguAnHFccfPyHd4qefHi0+O9p60Y/l593e2+Al0ALT4GXXfrOVQFcSOGHi8cXkqZPSdw7uP1QcOfxpV99vD24l8LsigRaYfleedHufQ5ZAtngmhNUz4bjjiqOffZbA5WhYP03a1OknFvMWzEqHfrRtd7H/40+afO2LY3L/3mgtri/E0v5yDEqgBaZj8KG2tzQ8EsgWz4mTJxZ+Z/Hs3X2gOHTwcKMO5548ozjz/MXp2DfXbil2fLC30ffyQbl/f7cWV5ZK+3osSqAFpmPxqbb3NCwSAEgz50wtps2cUrB+PglA2vbuzuLjPQca9Xfy4tnFyiuXp2NfeXpD8cGWXY2+x0IDSvrXLwttz879qf9GJ2gPaiUwziTQAtM4e2Dt5Y6eBLIrbu6CGcXck2cWB8IVt/7lzcVH2/Y0uqjBAtOkAKQZs6YUU6adWJw4ZWJYaEeiz+5dgY0usj2olcAYkEALTGPgIbSXMD4kgLgwZ/70YuFp84rlKxaFO+2TYs1j64v3N+1odAODBaapMyYXJy2alYgT3If79x4sdm7/OLnzGnXcHtRKYJxJoAWmcfbA2ssdPQmgek888YTitLMWFFd9ZUVyqT32y5eLTeu3NbqowQLTzLnTilPPOClRzbdt3lns3rGvOPzJkUSAaNRxe1ArgXEmgRaYxtkDay939CVwxvmnFLd+74p0Iff/6zPFW2vfa3RRgwWmeQtmFmddsCT10Y3rsHpRxwWTELNPk0P1WbAK29ZKYCxKoAWmsfhU2msa0xI45+JTizv/9Lp0jXf//RPF6y+82+h6BwtMC5bMKS646vTUx8tPvV2wmgbTMonCd7kEm9LcB9NX+51WAkORQAtMQ5Fe+91xKYGh0q4zMLE97vmH1cXrL77byAJZcOqc4qJrzkgye3H1W4nR10SAi06bW1yy6qx0aDcxrXzufL9ckfKfgFLrCszSaV/HogRaYBqLT6W9pmGVwPRguC0KAoP2/qaPio8jF6mbll15E44/rnjwZ2uKt159r5EFcsqy+cXlN52Tunr24deL9zZub9TtUIEp3+/xJ0woPtq6O+VetcDUSPTtQaMkgRaYRknwbbejJ4E5J80oTj/vlGJCxFs2vr612Pnh3q4qKSw/d1Fxy+9fUkycdEKx+oG1xYZ1WxN1/PChI7U3deoZJxfXfP38dMzqX60t3n3rg9rj84eLl88vrrj53PTnMw+tK7ZsaAZoOaY0t3K/O+J+W1delm77OhYl0ALTWHwq7TUNqwQymYCLCzjIQ+qmkkIGJnlFLzzxZgDT+6mKw4F99SWGlp2zsLjxjovSvT1yz4sJFJvc6NKzFxQ33H5hOvTRX7xUvPNGMxZgjimhmiNPHA3Cw+svbCo+fH93I9djk2trj2klMBwSaIFpOKTannNMS2BW0K9RviXM7oucoN0f7esqYdV3V33zgmLG7KnJjYcu/t7Gj4q9u/bX3ncGNAdxAQK0upZr4wG0G751YQKTh+56oTGg5cTceQtnFUtOn58Sc9et2VRsD3de21oJjGUJtMA0lp9Oe23DIoFcWmhOVG/AlDt04HDRTe26HPPhEgRqEmzfjjgTl2Bd6xaYMmmBxXRluPK437qxmADnKcvmFbPnTU/5V4Dznde3Fbs++rjuMtvPWgmMugRaYBr1R9BewEhLILu4FgYN+7zLlyVL5KXPadhN8nsy7Xv+otnF0SNHiw/e21m89tw7yUVWdy/dAlMG0CWRXOs6PwkAffKBV4vNb39Y180Xn510yuzi/Pje1Bknprp8H763K12jyhFtayUwliXQAtNYfjrttQ2LBDIp4JSl84rLbjy78LdY0XvvfNSIFJCBacGSuakaA2BqQv/uFphybb6FQRdX+cE2Ga5z67vNSiDl2NTxJxxfPPWb14p3wuUI3D490u4DNSwDqz1pzyTQAlPPRNmeaLxJYOGpc4uLrzuzmDxlUor3WPC55g4eOFR7K8gT51x0anFKsOVmz5sWMZs9RRO2XAYmsaNH7n4x9Vm3r5JK5ouXn5TcjXPmzyj27NpXNKlKnl2Ap0c9v+tuuyCB7W9++lzx9mv1Ma3am24/bCUwghJogWkEhd12NbYkkGnjc0+ani5sx4cfN4oVZcBgkaCd7925r1HsJwMT4Pht0MWRH+rYgBkAT148J8WIVBRvAkw5b+m0M09O1/fx7v3FE/e9Umx6sxk9fWw9pfZqfhcl0ALT7+JTP8buObvm3FaTGFG+/Vy1e1G49DDtxF6ee/SN4v1w6dW1aVHtG1hItGVx7dtzsGhSMy8Dk9iRBFvAVLevUq4UMT9YdXnvpyasuhxbYhEqOiu21I0LMN87F6BtNrTWBZil0r6OhARaYBoJKbd9DKsEMplBJ90kjuaFd3nQsSW+fhqstyZ07AxMShNd/bXzEuW8Sc28DExTgqb+UpQk2vDa1lqaeq4UwV0o90iliCasuhxbYhFujmRceU9NWIPVh5SB2/v6b0kTVQm1fw+XBFpgGi7JtucdMQnkfZKCxZC2hOAe68ZyEov5yncuK46fOKF4PLaxEIupsxAk1tom/bzLlha3fPvS4kDsy/Tjv36keDWYeXUtAxNge+WZDQmYPtiyMwFbp+/lShEzZ0+J3KVtKRm4Ll8qb8tx9oVLilu/f0XEziYm0sMbL23uClgyG3D6LLv1Tk6yGEzppk731L7XSqCJBFpgaiKl9pgxLYEci2E5qVunkkM3lpNYzHW3rQxa9eRUkPXdiMXUWQhKEbF6VgYV+1t/fE1x+NCnxY/+6qFi7TMba+XULTDlShG2cn89EmM3vrG1div3DNDnXbasuOU7l8Z1HSl+/n9XJ8CsA9rqRasUsSJAFwDb/n17WEvtjrlVKbV/D6cEWmAaTum25x4RCYjBnHvJaQkstr9vId3T1UKa2XmsIAVdt0bCbF3CbXYdrrxiefHd/34DQ6346f96LBET6oqj5uKvrBAxH/s41VlMZ65cXHz9B1cULKw1j68v3nyl/vhc0WLFpacVl646O6zHj4uf/e3jxbrnNzV6DtlS4kI8O1iH9mtSwihZaSGXQwcPNzpPe1ArgaFKoAWmoUqw/f6oSyDHQuQVqXSw/+ODjfKK8oVndt7i+O6cAKedwc6rq/6dyRYrr1hWfP/Pb04Egft/9EwCprotz/N2GYBGoqx9nOqAacWlS4vv/Nmq5E57/N6XI4l3U+3xmSxx+opTivlh9Wx7d2fRDU08W0rkOClIEyzPV5/dWGyN/Z+6sUCzXNvXVgKDlUALTIOVXPu9MSOBnLez5PSTigtjvyOxlteef6fYEhUS6lhv+QYysHG12ZDvwL6DiQShanhdrGrllcuLH/zFzQV69sN3v5CACRh8vKfzNhpiUn/wP25MFtCjP38pudg6AVMV+LjoHvjXZ1NcascHe+P6vlwsNh+/LOjrq6Km3uKweMTZNgbpQWItOdS17JqUxItlOD1ch8oscWliDu7a3pYwqpNf+1nvJdACU+9l2p5xhCWQi52icHNjKVraTamgzM4756IgDcSW6UfDhXXfPz8V8abNtZZCBiY16R775UsJmOrICed/bmGxmACZmFQnYKq6CgHt3f/ntwmYDkT1h+r2Gvn4c4MlePsfXV1wbXITrgs3XJO8p5lR1BYoLTt7Ycp7QuZgMdoSRJFb7sm2tRIYSQm0wDSS0m77GlYJ5AUWm80Pl97zj61PbLa6RNZ8UeIqdwSZQazFthRvxM60dRZXdrXNnj+9eD7yn14NK62Ozp2BTIzpoX/rs7A6AVO2YMSw7vyTa9NeUT/5m0cTMHVyqeUq4ufH8YBJKaMnf/1qAqW668mArDSTvk6O2oH2qFKaqc6VmeXVvh7bEsieiClhsU+eemLh73I7erRvN2TEmv1hxYtB1lUyKX93oN9bYBpIQu3n40YCeUHn0rrylnMj9jMpgQuqdRO6c2bNIRG8GRbHhqCN29Ji9459HWWQyQksFIy5t4KcUJcA2xSYMh0dWHzte5cntxzW3ythYXVyLeYq4s6/6psXJiuvzvWXbya7MNHLr7xlRWFH3ucfXV+glzeRVz5P+3psSiBXEFm0dG6xMHZ8nhEu63IDRHuDFIO1OZh9zcrnqv7eAlNVIu3f414CecfXBWEBsJRYAIL42yKIX6fR5e9h6X0S9fK2REJrXXHWDGQsje3v7U7xmJc/r1LeSYhNgSkvCI63DxOm4A//MoDp6Q2dTptcd1iJKpBfcNXyFBNCE18b99zJUsyuT2QHVuJZAUxnRGklsaRf/+S5RJnv9L2OnbdvHjMSyLFKFtLsSM4+OarTi9suWDI7SEEzU17cp1FNH1tTO/rpZ0kJso2KivdqTQIpitxQx08LTMfMsGpvJEsgu/TOOH9xijnt3/tJ1LJ7McVd6iZMpp0vPWdBsTCYaTbUq9tpNgMTIENKQBSoK/3TFJgy7dvx19x6XiosWwdMGVCBE1aikkr3/MPqZL11AuLsogFG18eGh1h4e6NArEoUzz7yelpkOn0vy7d9PTYlkGOVyDOXrDqrWH7uwkLxYJY0y0jlj/L8mTp9cnHSKbOSZ0IckuInrrkxSENDtbhbYDo2x9jv9F3lmIvtxLHUTgzq8/ORB7T+pS21EyYXZz07SBAXX3tmslTuDRIE11anhToDE2DYu+tAAqa6KuNNgUk+1ZkBqiygS64/M4GeyhIsoHLLGq7KFbd8+5JUuw/oqFzxqx8+E3lPW8qHf/F7tsgQRZRU4gJ98bdvFa9FEu9gShd9ceL2l3EtAaQcBKIzV54S4+6sYkEoXEc/PZrGtq1dUuX98ECIc2r2+Top9iSbG9bUnCiEzLX37lsfhgK4JVixm5IFVZfXVyesFpjqpNN+Ni4lkDU/TDM7v9rP6FBodCZNXVC/WjnBBPzFPz4ZtO7OLrEMTGrTOVZMqm6H2abAlPOJzr34tORq+zCShu/6uyeSBVR+IPk+V4Sl9K3/fE1hQ0GuFHGux6K0kvhYp5Zr8MmrQnzY8cGeZBnKq2qy7Uenc7bvjX8JLA633VVfWRFK0SnJUlI42B5extS+vQf6ynQFUIlzakfj9cjhIwFKM9I4NZZUKfkgLKfVD6wNRXBzUZfXVyexFpjqpNN+Nq4lkEsVqbiwNAq1WnTrXHrZxWXXVwu9v8VcxKc6TbBcMghAAYl3ggDx4M/WJMupk+CaAlNOlGXxLYn9mLZu3lH88p+eKta/vPlLp82WYWbjuV9MQnX41gQbUS5SuWVyCGtM7Er8gEbLwiIXeVudWH/lc7S/H3sSyOP+7AtPLb7y3UsLrumPwo0twfqj2Gtsf+T1aQCJ5+C4+Oc7hwOUsFYnROmT2WExYcJyJxtDXNpqRw42D64FpmNvnLV39LkEsgV0TlgeFmKT6ekH16WKC5184JkUYHKhjStiysJigWzZ0JesWxZuLrLKFz8l6LSYSb0ApmzRnHHeomJ2+PhVFX/gx7HRX9QBLLcqGw9QvRAuSySJ1wOgLCzllmNvaO5XhCWpyCs3pZJF3IQfxPYYnVh/5XO0vx97Esiu3fMuX1pc+/WVqcTW6vtfDdDZl7aDYcGzhLiOD0aOGyVMErbY08H9h4vNMe65ys2va289P7n3dm7fm5itTRK8O0m0BaZOUmnfOyYkkF1dZ0XNua/+wWVpwmwOgHkrYi8W721RoLTTQtyUBp4BhOtDUi8AqYvtNLWYmgJeJms470XXnpF8/I/f+0q6tzKQ5ljUonBpip1ZgM44b3EEtGMDwTgeKHUC6mNiELQ3MaAEsmfh3Ig5KgCsxuJ9//JMIjpcG9vB8DhQ0sSQjBO5bggSs+ZNL44/YUJS9H72vx9L1pM0DZtnIvBg6tXNh7oLa4GpTjrtZ+NaAnlBNokuv+mcmDCLku/c5GLZqETeyXVl08BVwVazdbrkQbGaTqSG7HJjgZi8yhEp5qocUqfWFJiauggzG895ESBYSJ1q9mWABqC290DuYE2+E5Ud7guSBIuwzLbqdO3te8euBCgsWHhqLCLebI1x/PBda4IWXhQ33nlRGlusIcWNsTbFli4NcgQAAmp2Rr4nKpOYV5Sqsy5YXKyM0l47YjzWzYc6ibbAVCed9rNRkUDeVwiwAI7MiMv5E91eVC7Sel5ohGrB7Y+yPr/56fMJQDoF+/NEFTuaE1UdxGo6uehOXjy7AAoSYcV5VHGoo3U3Baa8P9TyFQvTIoBU0an/TL7A3rNAqG3XKX8puzRpw2IIiyJZEuFBDKDTeZvKNwM/rXlSMPvEsCxgXKIs0UOx7UanEkpNz98eNzISyBb6qRFzBDpc0ooMe563/P4liSFqJ2TjW5V7+UsXXH16cWpsF8Od/O6b25KFxaXH9cwV3iT/ru7uWmCqk0772ahIIC+kNH35E1mbR10dTJscFSBmzZsWOU1Lw2K4NJXsScHZiK10okdn14bk03PiZ/u23SkvCLGg3IYLmPL2GIAJMKt71wlAcgklCwEwR47olL+U7wd4cvkBkleffSdceBuS28+eS4Np2RJTAkm+y8y5U6M6wNQETq5bnAETck8/lTMG02f7nd5LIFvoSA+SY9VIND9UIAFM5o2yW9rOD/emV646wai9u/YnVx4LS4ItYDo/XMVf/e5lSQGsU9TSifr5rwWmfgTTvj16ErDQzVswK7mbsrXkaix2gq8Hw72GyurvTjGi6pXnBTTHmlgMNr6zvxFygwoP5fPkfCaxmKu/mrdO/22ijZfzMqrAhNYt30j8qnzd+XqaWkxKBN3+R9cUyyLRFzCj3ZYTfbNFyQK680+vTa4WxVaBjbyrnL+UyRw2QpSvZIFZFJRei8tgYkv5fGoJqvcnAC5wPnPOtBRTsJBNCNAjI4FzgFdX0inLpX0dXQkAppt/7+KUtyRRfOPr76eKJ1OnTU7ApCo+r4PaisYZFt6MOVNTjhP3sWLEtlfhWeAKzKW0VMFvgWl0n23bew8lkDesQyjgVlMORfIfMNoafmwZ5nIrLNrAaSBLKruccqxJAiHg4xP/dbDd1gcZonyebLGxMNSq09SeWxs07DJtvApM3GN3/f0TCZiylVcWS1NgshDYgJCLJZVTCpfb6l+tTS4W56teH033w2DUub6H7nohabyO41ZzLFbird+7LOJgi5NlJQFyMLGlfD5Jlaw5rhy5KzNnT0sMLdt9WJxss7Fp/QfJ9VNXBNc1tm30JSAP74bbL4yqIfOTlSN3icJmHrKYKEp2bN63+2CifxsHdjhmiStRJM/PhpSeOQYfYLKDskoRLTCN/vNtr6BHEsgLoIFvcT4panaxYsSYuBq4D/btOZhe098BUE1iGV/EmmJSXRrBXrGmX//42RRrKceacv8m2B1R3ZsF98R9wV4LzbDMdnNdcp5SnCliTayEe//fUwmYygtytjQcZz8m56urLp4BzEIBRBRvLScGZ4vOcdd/Y2W40KZFDtW21K/YADaUljP5HXfzty9OWf0AjEXXyTVYfXwZ0G0a6FzcN5QEYIQirzLAjNl9hT1VvhCDsDgJhos3APEy4FfP3/49NiSQSTQAiiJj65bHI0EbHZwlheRgTlAIv4gxBbkBmcgcMPZUv9/89gfF4si741q+/MazCzX0vC+W2W1rXXndSqw9ftglkBdyeTlTwz3ERWTCWIBpZCYDa+XQwUgODWadyt5NYhk51mRfpK9//4qkBT73yBtp4S/HmnL/LJff/2+rkntCcVausnJ+UJWuTUOUkPvK0xuTqxDwaV8AXQDE7/3pdWnH2ybAZOFfFww/CbPlYrI5ZgRwLg521MRJxyc/P8Ap1+qrWnSuhVXlfI4dKLaUXaDzwj2DaLEswMjiRf7TZkwJC/ZQYmpt2bA9ueycDyCznCgKyA9lF6n+2zb2JJDHsWK+UiVY/mje9v264faLIjl9QaKIUzgAFlcwpQkAXRX08H3xrFVI8T1xT9X9uYwB3C/+cXXKlev2rltg6lZi7fEjLoG8QGLILQkLaulZ8ROb2k2a3Lf9N5o2K4F7j9Vy4PN6XlUXXz5P3lCPC8yiui5K8ZQtknyDeSt0x4mVKNlTXvizBbbyymXFFTedG2WPDne0hLJrEpB84z9elYCqEzDl62OpceVZMDoBSWYNOs5CoNxSObFWnAC4Lg3auyKtrDplmSwc8pycs25Dw3wd0yOOxOW55PT5xRmxYJ12ZhS3jfOwoMhZsdj1L29JFSNaCymPmvH3mhNsE9BESSLMvNX3v5Jc5RSS2ZGvxFthjkmb+DDmmS0wuIavu+384oRg7xl/ma1HceJ2xyatK41VJ6kWmOqk0342JiTwhUspJgBfN1eWICvAkHNkYgm4bw1Xw2vhNpDoKv4kIbDc8nnyFuTyNtCcWVydKitkdpwadBZi7Liyq6xaecHGaZ0AJ5M5ABi2EtDodFy1xJAFoRMw5TwrwCTXalew38qJtR+Hm5OVJjbw9R9ckTRbFqdNA+/74dNJRp3kk2WVr0MM6aLYqt7iNHfBjLBaT0zxPJaRXC3srW3BxOKyay2kLL3x95oteiWwxJTMK5X1KXqeNdc5l2xmWdqGxXcAkAr12JjmH0v6okjgRs4Rd1JRpOxh6EYyLTB1I6322DEhgTyRsOsEYdV8Qwc/uO9Qqle3OSjKgvAmUicSgn2aLggfOQ2Rn1w9sHv/+elUsl9C7adH+qonZwAQT5l44sRkNZVjM9UYzoQJEzpusV49jhA7AVN1g0DA1wmYMmACOlYb66e8MSBLEXivCNberd+/PLnfyEEiLReNMkSdYj9ZrnPjnFw1ZwRJ5MKQk4rTWIYWKJRgNfXqFIAxMUjai+haAjmfCXvVfBLHlYJgLgGj3REzYo0fjL3KgA82JusdIFEU5wcpxtxSOeKZh15P32VdcXF321pg6lZi7fGjLoEcA0pxp5gcNDwAA6hMKAsojd7+Qph3JlW5ZUuHi0ttMIvuw3e/kIq1lidSdpnJZRLUdS55QjmfqQo4kwK8nnl4XYoxlWNW1eNcSydgyjvKsoSwmtCxOwFTdjE6bsq0SRFne7+4OzLvxY5YLiw0oLoyYmlXBd1dDoqs/bVRekiMAOuqU+wnu3QAnw0HnQPhgauQ206xV3Ld8vb2WpdpWdbt7+NHAp61Z64yCMWN65xlTXF7753tqbKJlAixXXNv/sKZ6XjxJG5nyg53n4oqr4cSxINRVvS6kUQLTN1Iqz12TErAwsvdBJwwiOy/xAUhWEvjwyYqW07ZVaViwm3/4coAgMnBNopqyLFwvxksOFqhlrefkC8kp2n7+0qs9LGMLOwAgDWRWW8sHvsaIRawTrhDtCowNbWsEAzKwLQ9FghWDVLGt//L9WkTRPEgfSn9AngsDnYeVeHCdQExTXysSo5IH8R/2VIC8BYl222cGzlPrC5kBqD0ZshRPIk8q8Vh83na1/EtgTwvsguXJ4Lr/MihT1OSOeaqPKajQRFXCYIiA5xmRLrA5KkTE4C99ORbKT+wk0LYjXRaYOpGWu2xY1ICJonFn8+bC0pCKffbJ6Hpv/zk2yk2VJ4oObifSBCxvYUFWe5NlQTBPWGLCCy+S28I+mvEUsoAYAvqMjDZ0dPi7wdIoGZrVWBqallVgWlXLAyCzq7nG394VWJQcdutDbZgGTDdu5p4XH00WTGgTpZcfpjZUjrrwsXFJdedlbYIyaCEFcj1xwIE8HWxqXy+9nV8SiDPi0x6QXSxp9ncmFfG+pRIuJ0WmwM6DlghOByIhPe9obxsj0RbOYbSBShkZUVwMNJogWkwUmu/MyYlwL3A/cB6UpQSvXz7e7tTYmonyynXpPOq2TvmwX9bk1xWLCKLc3KJheVhi3NbtJddZthpZWCqAgmrTasCU3+WVXYxsnRWffPC2JZiUkED5aIT06GtYsllEgXN9kDE1Xx+dyT2smhYPxlwzwurxzWyHB+6a01YXwGWJZ//QJaSIq9rnhh45990k+1/x4wEMkBlFuyCJbNTySmeCYQc40aciYucssa99/47O8KjsCspQUBpqK0FpqFKsP3+mJFALtVjQtmNU6kVuRncW50sJ5YSl5ctxh0LSBRBtcW473DViVsBCkUpZbmXSQbK/w8GmPqzrKr086j8EtWc3yjWhgXGxSjWU74egWY5JfKm7v/XZ1IuF4squyhVE7fXKDfePf+gpNI7X/L5D2QprXthU8TTNifCw1A14DEzSNoLGVACmb2KscqVZ98u5B9KjsKuxr24rDliTMpnQzxiQZVLdg3YUc0BLTDVCKf9aHglkDUzGlj6iTprwMXvJkKaAAEGJsGnn0aV8cN9k0Hin+RNQNEpiJ995cvCcrK1+pzYXVNchOVQDspaxCUPAh418bCH7glg4opjnbgWIOfzWyMh18Qs07IPhzujXBuMhdYpIbZqMfVnWeVER/0ptuo+bdjmeuRRWTDK10t7xZLzuVp6XChl4FKhAXXc5+VExwzggBkoq6FXjin1ZynlBcvzkZtFHn5OmHhCKgyrOKzPnB9BxfGaZ5QXsryYfVHzsMSCHN7R1p59PEmgBabx9LSOsWvNAEJz9zMtYjSTg2Xmd9WqLXKSZWnrFjKuNJvb7dmxP1HBVVaw0PWXSJtdEVhmK4IaLgG2TGO1YJaBRQmWMltOv+JXgOI7f7YqVU4uJ7IiBtAosePujNJFaLOdSgg1BSbfxxTUnx9FMB/9+UsJWMTIuPZQ3DNwcQny6XPlqaVHRujzrufCq88opkY8AHEBMD36i5dS6RhDKLs8WZPXfC02ggt6cDmm1J+llBUJgD4/KnDMi/JEttS2iZwYBEtwepQo8ruCnxQLzTPi+vH8Po7n91GQS7bGdW2LEkZl12I6uP2vlUBIoAWmdhiMmgQGAibauEXNz2E/YUGgnwIMoGTh7gOtPuDKIOZ4LZ/fAnzjty5KMacNr70Xwfwt4d7alPzhNH8st28FCUKM5/nHwnUWZIIy3RvZ4Pt/fnOxIBh4r62J7SIiVqNEkUUVeAIClRrUHCsDhX1ttKbAVC0htG/vgS8Bpesrs+2w+8pAyEq5KjL3XQ8CBCsFtR1wrXlsfVhXO5Mlo8QQMEInv3TV2Qlk0Mw3Rs0zmf1cf4DQe4CZjCgMFAdKg60NTjrlc2AKi9J7yYKK45KrJywmyoJ8MK6evud1MEDJTwtMaVC0/9VKoAWmWvG0Hw6nBLIGbnFPPxVXHt82i4QmrmZe2mohFsG8zUIRCnmZESQA24l9x6V1YVQwEEdiISlh9NDda4qNked0NEqtqJBwxx9fk+JFClKiX5dLDwEuxVe5vmwpIVbjcyw1YGCBB1zqyJVdayojaL0CJjEo21ewmPTFlVh2HeZtCnzO+mLRlS087DxyRva48Y6LEiDn/JN3g5XIzfnco28klycwcSyrU+LkoqVzU/0zsgRMGYgoDywju51SFATDFe9ELfaqKoXr4Bp1TkpDH1h9vn1J68obzik2bs89rMDEnD8xFpfsi847XNL0yo1mdzjcLCmQFgNV/MAArrpoyt+p+z370PWrT77vJk2tJ/26Hm6eI6HxdRPMy7Rl/Y5EE2NJ8ZbQSl2nRda965+7ho+//Ln76kWrylcdLYuO55dlN5h+MlAJuho3NHFAMmtun1YuARAzyGJpkXa8qtZ9Gel7ig+CgYeyKp6EMbQ/FkoWFkBDe7X9gy2hyUS1cJaBfZkkCN76vSuCgYfl9kmil5drfOWEVttmAD7fK2+1Dgh+8Bc3x1YQixJFnOusrkJEfzGmgSwmYANQ9AckFUtNeVNhEbGM5oZr7ZtRi892HSi/QLIcEzO2sfoA7U1RNdr1crZxqb0UtHpFarEX98V57bfDVaeQrL4kG5OT35FCWLBprogBmicBkiw8OWAIGQDKc2BVej7OiUGYAuQh/7pxkufRxABGx2WrS3+9bE37AdDmk3mV42d111FdR5SqMlfdS91993fObvvv7zz5/RzzGy655n6G8jqswJQz2U0YAWiaLv80F0u5WdSUj9mxbW+iHhrUQ8mXyD50mp1FjBuiSZPRLIaRNTvBcFqmv5u0nOjpXkeiYcK4PlqpVxO3795npIXEgC5/3vQ+Brr2qnz1W1cCaKDz5c+z640c7fkjjiHJVQzDvaiinUA/ADcvhibXCaF4ADEKj7yKD8KSQZ3mSrMwAm2Wl7peq6KoqbwMVtNbr25JVbsnRvCeJaKyMvCTva50T95wL5cAYqWQIfdZOWYzUsAEJL72B/KTlicQUpT1yV+/mgDFdhxyuFQvBzzkpVLD/T96JsWYjANVMdS+O//yvsRbc4P81AB85J4XUr6SeTcr5umKy6JcU9QSBEbGszp5YkeevcXVrrSAkTzMG+QUVhPriULpvIgXO+Mad0edQeVtWFDqr9mqxPf6A5o8j2ypkcd42RLO42Wor037MbaQSvJaQrZ1rbqO+Fv8r+pqrjtH+bNu+y9/t9Pv5D6ccu3UZ7fv9RSYsoXE7dKn7dK45qQkPw8Va6kjMKUFNoApBrGFRAkMv+e9dvIgbmpBCeQqIaMqsld/N2kmUxmYTCYaYKpYHZo0d4QfC12nhqLMx78kYg0j0bhILEibo0SMV9ZBuve4Dkwr7pby547vRavKlxbcV6omttGOPvzdpGULyWJnXAAFSsy8yCYHSEmhCeWiqlh4TpQGZAaVkKfEojknLCv3a9J5Zpve3Fa8G8SABE6R6Oq6bDx4+U3nJFeWvrjiHv35i2kBPScqHihiKfYiH6O8Rbkq3eV9abjoykVfewVMuQSSGJGq4cZdmYwhhmVnW/2xiCgDj/3ypWQtcZ2dFsB5R8TK3Afw4JJEf/fqb4nHN0SsDROPC4/sWFU+f+o3r8W8253cdI5DObeDruOQLGj9R2j9IV/yR2bIMT5/08LNfyWS8sKtiC6g86zMYQAlr2xHWFSsKPO7vA9WHjN5HhkDeYzL47I29LI17SdXAMlriXFW16rrCDm4f+vJniiXRSYsSO818ch023/dtfnM/BxOuQ7Uf5PPewpM2UJSDPCsCxYnDQ4YTQttFf2XxmvQWpDK7QuXVAgsC41mZVHhWlDnqxsLKu9XY3IrscJ90aSlyRcTL9GQQ/0zwEw+QOlaxB8kYbLoOjX9WRi8jkTjhpJnwo2jiq9rda/u+Zpbz08ul/LnvSolU5UvIsLq+9ema3FNeR+igWSQLSQZ5hZT44aVBPhyDKOTKza7WblMuBE1rxYALjyL8InBYPP7O1E5nOVjYaOx0nwtzGrIATE18owvipNyRpfFBme+Z0FXvcHiARDs8IlEQeEyDn75T0+lsanvXgGTZF4WHWBSNZwsy8DEYkOy8Ll5hP7u+m0v4P6XnbMobQhIjoBDiSUAC0h5K7gkb7rz4qhmEWWbwlUKmOVJmWNyuMidq5OLj6uUsuA4jdLDNWpxFVebGUQMrjBzxbzRuI7Lri6KJBkDNGVsDh/uI68o8rlt865EMEEicR3llueRqu4U1NdjjJd38C0fO5Tfm/aTi5tSXihLYp51rbqOkIMxSXYfxf0ouuuZcTuzZI2xutZt/3Xn8tn+jyncwyfXgfpv8nlPgMkiYlDzgROigQ2YaFtAyENhOh46pHKzgRwLSvxoBrnBbKKZBKwtnyvEaVtpk0a5flsZ0LQ8RIO9rlV99TRwmgmgEV9wDXVNTCrFw+LV9dMuABOXR51lkAd6U2Byz6yF7Lt2Xywy19mkVYGJbJokfDY5d90xVflW2WPuoa7l+85VrOXmACaBdcwz7qAcHyIT46c8XnzuGU2a1McW8zuQ+kQ2emiiFkjn8Zzl9mDirXnireK9sCrJ1vi0USCQEVvxbC0aaoPZ6dX37otq49hsNHpgydWHqr0wkloRBe76uyeSpeE+ewVMKlbYdsD5zCU7wpaByXWLZflcwxy0MSHXI3enWoHysVwvSr1Y173//FSSgXP7no3dFoaczQeuvseCRs5NNiO+7zlcFqWXloSXgUzNUMflZwD4PVvPD3CJAVEk008Al+MAZFYWPAc/eW5bJ/x4BpQk7Mbf/PS5dB3phj7/byB5lo8dyu9N+6k+FzHQJvO0vLaZ4+TTV6F9Z1JwKU1NSvgMtv/+ZPM7A0zZ1OSjt4GbhcukN7I9CMUny9qBAe4haWmR+jx3RVxBkFriIEAAIiwlm5C9/NSGBAxNfM3VhRNoJobQhx+HhtIHbv09NO/3xVAi6B5a9Kz47oSYpKizNDuVc1konVwL2TXQ1JVHRnz4fN1yVGjqthQQM2rSsjmeXXkW1PEATOm+w3LJVaxt/kc7pwzQLj0rO9IqdUImlJryeGFp9T2j6bFxncrGUUgynpPvOw5A+16ynGJB4D6xiIs7eXbTomr39d+4ICz6eelYGiwQ8hxYvM7PErGwi0W5XjRtOUZnhsLFwvrxXz+SLCrPaaAFrikrr7oADQRMlDZbub8f7rjFS+cni05irusVZ3P9D931QiIqlGnkZEfGFK2nH1yXZO7+ABtl0vVaVFlJiAzkyEpI8b24X59RDpAZuD252PKzIn9KgiYvzPx2Pea2dQLDj7vPWH019uz52d8+nvbtSV/4/L+B5Fk+dii/N+2n+lyAdZN5mta25KaemvK9KN3WNTLiyjPGmxQ9HWz//ckme6W4+TutY/19byTfH5LFlC2lpUHD5QIwaeV62NEQjZfZajHnx07AFMBg0RAbKC80JgqNz8BlcS08bU4ymQGUSbIrfNFosUrFlDP38745VYFVgcn534udSjfHg0gl+3ftq37lS3/3LXoz0jXQPuV9zA4NkX8dgwkri0+ei6RsweVgalPyg0mqntniiIXR8LdHLOSpWCgMmCYtBzAz+YHlOZaBKU9UzK5yFevZ4e6lgVosuRi2btqZrBgLnryXsoydQxHU9IwiKA+YnE95HiwyAEVjt6BSbBxrnOwOC2LTerXf3orzfRLbPy8s1JoDThSnh6OWHPffHX98bTyLKYl1x5XHWrdTrkWMCw3jDWD88C8fSgu/55QXOEBbLhFk4deGCkysdOdlMUn0FT/UxIbuihp5XM0Sa9XIY62zdrgb0drtzIt2r6irCunmlIVJJQkKjbnpfr9kKYX8PomAPdewn2SBBriY10dCprbS3h0uqO3hauQCVKw2P6vOwNQ3t1mB5iZXMNcii0HtQfOp3LI83a9zV1mO5WOH8nvTfqrAsCueRZN52jfeT0xKl7WBlelHfJMitjvWSOuacfZKWI82XSx7B/K9Dbb//P3qq2eU144min71+yPx95CAKVtKyuTzvyu3b/BaXCAxVwEX3M4ESJ8kE57g+3XlhaaathKIRUZVZz5/iYIYVawDLply5r6gaqdWBSYTlaYs3tK3o2J9ENUCLyYmwMynbIJcGkVBLfomJt8+TdPCUH6wmX6aNctO11Z+7999x6emfliGSuK41iaN1mnxTS7K0OIs1mMZmLKlVK1izRqlgbJq1ISj7YtTWUBNovJkzdq6Z0TO2GIUAYw0+TkWaAufMWZ8cBn5voUA+OlDvpPAe3LRhesL8N33L0+n79hYz8IhAXfdmnfTM6b5NwEmMZxyUdW84A4VmMTIPGdzQWkkngnNgsZyMzeujZgii05siuKnb1XB34rvWgy/9r3LU76WMWqxRzOntZNbJihlSylZQuECZb1SmMxJi2zyGgQoAz1jFPmCCxR45WfF5folV15YVr5LiUWiQN2nvJrblA60ffOp3JoCRvk7g/m9aT9VYFCJvsk87XPl9cXVjVVrCUKJe/cMzQfPjrKteDALuKyE5XsabP/5+9VXz8icsG506q96/Gj8PShgyuw7W1Rn37vB5kH0+fS3psx4RAGaVH8A0t8NZ8sD2Cklw0WW3HEBcH3VljemhcO5yxMhn68KTN4v72uTqz7n4/t7zcF5wMQVIhGTq4N7kRbnx+KQtzfo7zz9vV8dcAKiZU28v+/1937TBbC/7zd9vyrfgWJMfRN0QrJqsL0soCjNiDHJHRkTnTW8PhbSOnJJf9eXSTfkaYOz5SsWpucUin+ybiyaqM7+tohuCWXJs1PJABlA47oTnPecafPcexYKibTAsVwKiPVi+wvn4NY5N8gUEmzdk8U8AwaLRWv6XKrjIbvyyETzuRiYV03/xot7koeVd7QFuoCHRe93FqUitMgT5osyRWvivoA3+rjYXoopfW4piUGIrXmPsgnMgJKN3978fE8msjH/+iyk+phtutj4jxsLSPFAuAf9O0+VlNMUMPJ5B/vatJ/qcxnsPDXeUz5dWLW2IMd+NDbELB/86fPJndxpvexV/4OV02h8b1DAlBcCltK1t60Mt8iCZClt27wjZY6zTJKlFOY+P3V/Lrf+bjhbHibUGWE5YcMoMukhssYkAsrct3Nnp4lRXTj1Mxhgqk4krhAlXGg6nWqQ9Xc//b3f6wHXdAHs73qavl+V70DA1OfSmJRiSjfcflEs8qcmLV6eC1cG1pXcIG4lVo3FvpuWFSXMOhYANyHX1IIlc9P4wALjwtVYFHJwcmwFC09sSn04RWKBmniKGJV44pMPvJp+LxdPpWWW84NYaipDAFxjBiD96K8eSsF9fTZ9LtXx0BSYWFN3Rv4SV6P4Dfe5/CbxMdYOUofaecoIsbIpj+5NnAjphIVJeWApIdRIlgXkPBXAG/BZPIHIy09uSG5W8gH4nRRD99ypJTJE9MN6IBOtE9u2KWB06qOb95r2U30ugwUm44xMxaAvuPr0WNdOS1YwBmWnDSbzvfSq/3y+8fA6KGBiNZQ1SBomwABIJgR3SacB161Asusn03tpGMl/Hn7/B//t+bQAyFkxccqtunD6bDDAlM/ZF3OannI7vvrdy5Kmg3qMVVSu2pyPb/ra6wHXdAFsen39HVeV70DAlK+LRUFzt1ByI3DhlGuzWeyG0rKFS5m5LhQmACWmAuy4w1gzrAZ9U27EmgAZRYiFwL1hIff3hGCTicM8Gqw1Y0wsykJmnyR04DJbDq25DAzcaGXLN9+/77N4+qv8UB0PGZg2vv5+ivOw3Fl42fIRlwCAwAEwAibzQ1BdfpO0BhR0x/sBMliL5iZSEvca5Y97zTlYr77LFYeUw5UNyCgMxjrXdScLZyjPrNN3mwJGp+92817TfqrPZbDAlK9NNZO0AWWMh8tDMeLiFPZgAZcriuTje91/Pu9Yfh0UMKk5JuHQgz054kH7ojgjFxtNcTAmfn8Cypo2jfS62y5IeRi0OxML0JgsnVxp1YXT+YcCTH0xpxMSGCv5orSNagO07J/8Td9W2/3dQ937vR5wTRfAumtq8llVvgMBUz5exQFWJwbiliCjiOOUa7OxfofSsoUrUZVLDxAiA5j4LAGWDusKQNH2/c1FpdFkAROA0lRJUAEbq01OnTiM8Q4YLNxlYJKHVXalIT30EpiQBGwtwZoDjNxBAAOTUIyJtcOVqGaf38WAuCYpbFx15qs4UwYZu4+mquDBTqR0sZx8hqxkgQTKEo1ZTdxs5jSyjwW5FwpnEnDNf00Bo+YUjT5q2k+v5ynlp7zhI1JInQem1/03Es4oH9QVMGWgYC3d9oMrkhvAYkDzlQ+BPdTJRzrUe7QolEupmDDYcUDpsdgWQFXkskshL4SZRaX/oQBTvn5uj2/+p6vSAiUoLCZSXoDycU1fez3gxhowWSSBuoURPRsoiUVa3LguPJM+MsqepiJrdFz25WOvXRH7MYmhACPWgvGpIe6wnMRh0JtZPY6xqFukWUhikTbgQw8vk0p8vwxMPivnH1U16qbPpToe9GtjQnlK2IZYf/KUMBC53dCtJfpyEUm8BcQaj4X8JkB/fQAZGnhKR4j7xzLUuCZZkxqQ5t7sY0XuTZbUsiBa+D7rjyZfLmqbvjSM/zUFjKFeQtN+qs+l+ny7vY68jupfCSns0Dr2Ya/77/Z6R+P4roApu9b40q/7xsrkBuASWBeDF932zdAUBxNTGujGs4Zh4ik+yT2BHcdi+cU/Ppn6L8eahguYsGnKtcosAC0wLQ9X2Ze3Z+A60/IEpMhIaEUewdpkAfzmJ1yxGxtlvg80PqqfZ18+dwnXoX4pEgCRO0pzTdgQrz2/KdLtPivODcsquBFpIQZMFvMPgr1my/LN4d4aDWDSLzo1V9rSKDDLUpenhDWIgIF1pyLC5LAIb/+jq9N9ujcWjvwm5IKvf65AUhAQIcpECiQjDSBtDFYkgOJmAljAnRZfzucC7CPRmgLGUK+laT+9BoassOmfC5bi1gLTl59mV8BUjS1xA9AwaVSCxDS74WjZRWOBMdHOu2xZ8n+zlAATzbvsYmiBaXltLGOoz6gq3/6AiQvNQsdyRVdmlVBkxHdYIhJeywrFUK+r+v1Mx9e/yuFcd8YqywitXANUir9aJLjoyp9bLLjKjPHRACb9chWLNQFSipk8KjEh18ZlyJJhkZEvi0oTT1O5QrvtD6/8gl4u5oSWr6GeZ2BiGbpv9y8Xak7Qmil+gO9XUQSWjMjOsxqJ1hQwhnotTfvpNTDl9cy4ZOmK/7XA9OWn2RUwqRnGNeKBivsYrDZWe+XpjUlLq9I+v9zV4P/KbB7FNK9PtcSWpeCsoLQgr0mF3mvR06oLp/daV96G5Joii6G2qnz7Ayaad5nNxmpRgmXts32KTAq0h1ZvQRyOlvPsLABYaSdErUaLtsojgvssI25oLDGLvhgTF6PruTBYUxJvkQtYE6MBTPrVP+DgpTg/YkhlYMJKVWsOMN3ynUvTnCRH7kmWjiYmRiPXWEzkrwFqlpcmH8lGgizHi4PGLOeLq5wC8fi9L6fzkQ13+Ui0poAx1Gtp2k+vgSmTdDxLlq51tQWmLz/NroCp+oDQUuv491/uauh/YRCVd/BEay1vhJaBsbpw6nkowJTpyOjx3wgNVH6VfWy4EjuVVGl6p1V5DtV33TSW0fT6+juuKt/+gKl6XLZIKBKdSCv99TfY9wFhmU2HTo72LLF0YtTZOxJ5S/Zzmj5rclgVSxJN/YXVb6buLr7mzIhH7UquWs+lDEwsrLJCxJPQixiTpEseAQsmUAeiXMUsJu8B2DIwuS4ECCy/cn4TzwV2rCYmhQWpYd2pgKKhzQMggMNV+OLqtxLp4eKo4KLY8mjEltKFxX9NASMfP9jXpv30ep7mkIj+uZrVjDQu18a86JRw3Ov+ByuvkfxeV8CUipTGTp8EinrKlWBhNjmGI7ZUFQRmkTiPRMIrbjo3MYpkoOufxkfz06oLoveGAkw5b0tyKA1UIU8FZWmUnYpQ6q9J6/WAG2vAlGsHWlC5jtSs++2vXkkWLmtJwH04W1UzlT8ih+ej2PdLGSdVr6fN4G6cmbTW5OoLpqeG4UbxAgxVYFLm6JmH1yVPgTgjEOkFMCFrKDlkfqGsq54yGGBKQBOWnyYmRaHTxIjkNmkIRQgRcmho69h4irKuCDc5i7J8f+JZI9maAsZQr6lpP72ep1VLXmURjGYKW6dq673uf6hyG4nvdwVM3B2CdSYQPz1hyoDHxhuJVl14LShcE4CpXBa/V8CUaeIKUJ658pR032WXkIGE7ixIPJjW6wFXlY/6g6nGYDwfQX4LUC8aeqvcMuNA4rPSMmWWWiY/8J3bLsICwHVmoS8npgKC4WzZl39+sAG//V9Xpe0e5J+5DtaIOIo8JikP0hDUD1v/yuZEn0Y0wIrjSqOAqZW4MhQTsRwxnnJCJMusF8CUF0qvmvFVB0xiUOI/rgeNXJ4fC4iFpZIG2jcLy3zQVGABzBorT3FiVcgBDzq9WoFc9Fx+o0F6SBcW/2U5jNVaeYP1bGRSjud0SVim5wThhhuPvJ8KC1demtw5f5dbdZ1wTFp3Y/3tpnHEcscaI8MZ2+3mmvo7titg4uOWL2E/FwUIWSHlnT7766RX79MiLb4GrirQFhXaoQn8yD0vJl+4vnoFTDmxlpVmgzmuFmAomZirRL/ot1hNg2nVATfYAZ/7rgKTLclVVMCWVDNNTK4XDaFBnotxIJlVZYVOwCS2Uc53ezfiOeVSPibIcLYcmxTQlwALSOWfGTP2IZLnY1dbeUjABSuNqwubEJGABY58IN/K2EO6ufNPrk2kAc/eD5fk9MgHGg1gkgsmngSYeBDQyFlAYlKet/soA5P7zdZPymsCYgHS3Jl2oHUfWYEob/vhnCPZjlVgymkMlJ5Lopo7F6v45oZ4hvf/6NmwkDcmd6txWG7VdYIiTMF785W+IsHlY+t+z/tEUQjLZLG674zWZ10B00gNmP6EkTXggdgsVWCSDd+kiGsfjfPfiy7yBdOkuaEkbAIl1gAAWf3A2pTH1GSjr/7upzrgeg1MLD2LsIFskR1qZYV8H30+8rlpEeMmEovpBEy9ptfn/rt9reafsYTEiBQgxXZzD5QQpX1YFCdOnpSeOcsKXfvVWDCUSbKgYFGxNsquYaDWiwTbPL+8aoCvzmJyH0p/2caDyw7YIADZJVYlfZUdWLRcRxoXnTJQmqoO9rxidRnTtmTA0mMNUyBULde/RWyk2HjpwuK/LIexajENtYir+6LQKR9FUXjtuU21Jdaq64RYodh6Dl1kuQ30anwrjsw6HglX+kDXU/f5uAKmrAHz/7PcJAF2YrNUgcmi02Tbi768m38vU5/K08ei49UPLUNQeN2aPteYRd+CNVjNvzrgeg1M6NIWFu4r5Xd6tcBkOUl0Jlsb7XUCpiogDDUhuW4g131WBUiuLq4qwCRuyNLgtpVwuze2RJkybXICJmQaCa6vhFVkqwNWlHFn8S4DE0DoRUmivCA3BSbAaasEwOQ7AJI1zzIWQ0PXtwCycDXu9zwGPENxUuOZHByj2rp7Y4WhyQMmY3uk2Hj5GWY5jFVgGuq2F55TBiVxaiERVrnk73KhgCyP6jphrPYpxF8uxZaP7+9VUjYg5MbuVPqov++NxvvjCpiygAYauFVgarpRYN+COynYSn0be5nYx0WnhyN/gxtEwmOTjb3ydQ70Wh1wvQYmiciA04JLW0KP7kVjgfKXc0NwcfF5dwKmKllGlQcWgAVvJFtVzoDJ9WITsr4x7jRy8h6WGyvZppLl+7JQ2kHW8WVgYkGVa9VZaMr3WXWx9lcrL49rr9pAFpP74LZz/jJbT74Sa8j74nzIGZ2a77oPFpM5474A01DHYae+unkvy2GsApM51c1GgTwMFFtbtETY74tKG1IVPGOKQF3FnOr4bbqDblXm42Hn2nzN/x8AAP//rJf7EAAAO7lJREFU7Z0Hl1VXducPuYpQRQ5FIUDkKARCCCEkoRxawR3dY4/tCWu87M8wn8NentXj8dieaXe7W93KoVtCgCSESCJnqCIWOYcCBLN/+2kzh6P7bt336r5Xr9A5a1XdqhfuPXffc/Z/593j9Rn//bbLOGY/PNH97G+XuYkzxriTR8+5rV8dcJ/8bqM7sPNYxjPk87GO5jFy7GDHZ2YvnOhmyc+w0Q3uRvtNd11+bly/6b65eStxIj169nC9evV0vfv0cn379XbXr91wZ05edMcPn3WH9p1wh/aecAf3nHCn2s67a1euu5s3vkk8T9YXJ04f4576kwd1riOaBrsDO465X/3dcqVr1nP4nxswqM6NHDtEz7fs9XluzH3D3LnTl9y5k5fc2VMXdc7+58v9u65/Xzdk+CA3eMRAN3jYQHfs4Gm3/Pdf67xPHDnrLl+8pqee+sA498pfLNb5DBhY53ZtOtSp+yt3viGdmSPzvXzxqq4RaMZgffDagEH1buL00Uoz/75Y96x/Pr9t7QG3lR/ZAzy7n/7NMjnXBMca2ra25a77DJ8L5/e/f+LIOb2+rWuODM7NemC+/noe0FCn+4/X+S7nZ53b6+fPXHbtsnZ5fdz9I1zD0AF6vvAX32UePC/2DPeVxzoMr1Pq/0aHSvOZrNcJ10/fvr2VZqyXtGH8pGevHq5nz566/86cuOCOtpx2+7cfdYf3n9Rne/7sFdd+9YbwpWR+El4fXnZgZ5s7J3u6lMGauCDXOnLgpNuxvtWdPHa+lK9X9bM9uhMw2YNmQf34r59wE6aNTgTIEJiGjhyki+KqgMm1K+3fAZQ+stDqB/Rz9cJw+9X3cbdu3XZXL7W7EwK+LbvaXOvu4wpMJwSgzp66lBuDDxdc3sA0bFSjO3rglDssC/HI/lPuwrnLuSyuhsED3Nj7h7vmiSNc08Th7vTx84nANGVOs3vpzxYpUx00uL/bs/nwXQw7l8lkOMn9M5vcsz9eoPMYOrJBmcHKdzYrCM2YP14ZMgIJjOai0Kh+QJ0CE0zkj79dr0Bz5sRFd//MMQpAMG8fWGDoABbrkmGAwpFRLWAa2FjvmPM5WaOXzl919QP7ufFTR6nwoBMJfp0+fsHtFmEBYBoyfKAIcI0KTKz53/zDCr2Pb7655W7LfqjmMMCYNKvJnRXBcOtXLe6jf1/r9m07mus07DodAWC4T1krBT7Qnjifuvq+rlGEAQQ4eBa8BGG2TfjH0ZZTKuAe2NEmwHBOeUlHAm54/XNCkzWf7FSASZxAkRe5zrXL13XuCJOskVod3QqY0GR42Cyo1/5qiRs3eWQmYOovG7Tt0Bl3rPW0SPdnvvNAGob2d+MmjRQNY6gbLpuTB3hIpJm9W46oVHxEmDuL69rV66p5sVnzGOGCyxuYGoYMUMaze9Nh1VYAkDwGgDdNtKGpDzTLzziRwi4nAlMICEiJndEIy517CJBoGqs/2q4MebIwP4CFdYU2DQPpV9dXgQnG8f7/XeO2i3R5RZ4/5/nRf3tc10gtAlPjsAECrFfcKZGEkcoRsqbNG6fzTaId0jOCC1pin359XMOQ/gpMWAbe/KfPFZjysAwkXTvtNQMM5n5VGCma6Vsyn11fH0r7Wsnv2XVKBSbo9vVne5SXJF10VPNgN2fR/Wqx6NW7p1pcNqza7XZvPiJ/n1GwvXzhmmq1WYA/5BNHhDe9/S+rdW8nXb/YawgYXA8BrCuea7F5Jb1eEjDNElMFJgs2M+onm/PDX611e7ceSTp37q+pJCKbDxPdCz9/2I1qHqJgg2S68t3Nqtlw0VBjAtD2bTvi9orEtU/mivTrDzb0fVNGuUkiWbMZ+tX1EWnklNuxsdWtFcnkoGxU1Oe8AMmuHS64vIGpmMnIrl/uMaQvjM03eZkpD4122WvzVJAYKc8KhvfGL1Ypw6sEPcP76dGjh0qs0+WZviqCDNpRb2EUaMKbv9wv0mO7axbhZqRoQGh019tv6Hrq1buXu1/MdphwYdAwxJ4i+U6bd5979S8fdYNFu2DN8bNtXYuuw67QmJjfcRG4BjTUK42HjWpQ4QkTHeucdY+Jj+fFuH379h3tRyV5YfpoWIAZpiQEuDHjh+l9f/DLrxQQzp++rOcMaVvJ/w0wZi4Yr2Z3gAkNDgEhj4HG00dM9Vznh/91qQqlCK48zxVvb1IriX+dcJ8i4H70a/hesgbXNGGYe+jJaW7y7LEODR2T27oVu1XzRjjDPQBI8DyyjPD6neUTWa7Z1Z8pCZhYKJjQ2OC3BHlZKDCaHRvyWTAdEWOgbMBR4wo+lCdfnafq8n7xy7Cg1i5HtT2lpwgZJ5twp8yRee7YcFC1LP9aSJZoF2gBTwojvU+YFVLF/h1H3ap3twhjOpirCc+unfeCy2oysuuXewzpWwyYMCM9/vJcZQDG8NjQPK88TaLF7qPnt/7CWQ+Nd6//56UqUGHORaM4uOe4aEjfuOFNjapRwNRhzvhLWS+TZ41V3xkMERMSpplZD01wz/7kIfXlbPpin97Hzo0H3WjRtLsCmNpE+8c0BDA98OgkN0o0P4QnNMIdMq+eAsw+MLFnzb+KJH9DLAOAEuYy/A0IZAAyPqpP3yr4DI8fOusuXaiuyceACUEYBr5VfHa//vvlytiLPetSXi/4SAfqunzupwtVS8R3DACu/nCbmu3984X7lLWjfK8IUAJGk2c3KZ+c+8gkXS8A33YRYj7/YKtrEdcAVhmeR5YRXj8CU0C10JnNhv3dP36mDzTNeRecpux/h4wYJHb+JllQE9zCJ6drgALgCKPbsma/SnqcPGScvOabXszZzOsMY2D4EJa9+qCbKYwsD0mncPbiv/NecLUGTGPF8b7o6Rmq4RJMcEGY4BcfbtXndWjfSXdBGGAlR19htIPE7wJzfvnPHxGf2HA11Z0TLeCyMFuYOJ8hgKNJNAVMtQANY/qD9zkYP6ZHGAHmPhgmQSV9xey19tOdch8t6sQeK+fNA5jMIhEGURQLfkAQwx9E0AP7gXkwAJPNX+7Tv2GMCHMM9THIPTKwPjC4Z4AaZzra5HQROgn68e8P4KrmQPBFk4HeaDY46vM0AYf7pHHoQLWoAIDrPt2lYO/fb6n7tL8EnYwY06hr6LEX56igi27UIjRe8fbXusZKEcxKvb4/9+76d0kaU0ggTAmfvLFBgQmJ68q30ViVIsbocUPdvCWTdcFicsMchO0WBrFny2Fxwl/QS5cKTGbyYTFhroEx5CHpdESHkJ6dlYTCDdfVprzwOWC6QIjgBxMYkZ2VHJjnMKvA4Ja+NFcd/PgOMeFBm29u3VJwJPBlggBn+5UbdzF0fExJwESE1ar3Nut94MtBM8wDmMwigakajQahi+sXAyaCcgBSgIn7Yx4MtChMR4yHnpgqNCgAFlFZaEgMaEN0GeDMPkaaR1PEN8K1MV/ynL7+fK/6Z/VLVfqFCez5ny3U54bQgKugksA0sLG/WlTQmDat3qfA7t9qqfsUUzBWGLTPx16ao5aYoSJUnxdfLCbk7QKARKgav/KvlfR3qddPOkd3e60kYEIiW7hsui4YiI4DLQkY8iaCAcd48QPxoAEOTEP4inwGYZsuZIjMJ01jsvnmLenYeYsd815wtQZMMJXx00bpennkmZnKDDGZbFt3wH35h+1iMjlZkq29GB2LvY6gMUPMzzB6BA2k773ia0RzaBZtDjMRZhl8MVgDboppz9c0igET1/N9ahZGDgAyYOg+I836XBC28IUx3/oBfZUhYzJCw58mgSZoEn5YOIIMzBSQRZNjPTHwiaKZMh59frZK7PxNAAc+JQYWAXxKjFDD6j+oX8F3Kwz0s/e2uFahUSk+ET1pJ36F+wIA/u3/WKn3WooJrNgUiF4klYLn9fgP5god6lL5QzifrAIkmuoDiyeJCXhip3zX5V6/2P13h9dLAiYi1jBx8ECxaWOrZdGwEWE0xOVXYpipbercZpWkZi6Y4AaKlIit9t1//VIX1UUJfcQEwSgXmPKWdDqiRd4LLisD7GheHb0f0reYjwlNhFB9GC2+meZJI1Ri376uVcN/90jUYx6Mpth8ibRc/Pwsvf59U8RvKOsDLQTNDc1Y/lCNA00B/5ETnwy+SAYmLQILkjQm3q8EMBEe/dxP0BQmOMzWmOrwyQFMhOfj98oCTPhdsWQwnvrhfJXc+ZvwYHwdDKwPMGgGmisaLAM64E+7JFFj29e3aHDTbgnzr+Rz0gt7v8J9AR2S9rn3lZL+5P4IdoKPLX5upkZhpgmu4XyyAhPATwQrmnBnfNflXr8kotTYh0sCJpM0WLxLXpytixstZaeo/Z++uVGj3irha/rOA5ZFdVNCe3dKUAILluv7GydknNA8beGFz8RMhtj8p84dp74sNkfeUXp5L7haAyYL70eYeV6czAgWvcV81Lq7zX382w3K+EqxtYfPqdj/mpcmTAFGjkTMdTFdEaK7Z+th/dqU2c1ixvpGgYoXYB4IQKQIkMeGvxEfExoLWpXvY+LzlQCmcD1gwuM6gAmmIDQzBEICddB8YJCYnpD4fY0J3+8f/n2dk7gv98yPFmi0KeB78dzVO7kvYyUHjfBwBnlPBPqwh7BENMr5eU7c96dvfq00ItUAjasaA9BYqpaRial5cuXOhUAXAp0ApnmPTdHTEP6NgJ1kYgufS1ZgMoG6s77rcq9fLn1q4XslAZPPaF4QGzB5HRAf08EqCdcm6q0SvqZQJSYR9rhsWqS8VZIoiebkmxo6C0wW/YdmhukQp3klovTyXnC1BkwwQ0JzCRvHCUxQCZFjaLdEtSEsJDGCzm4MKh2ME+0M0xemZwIbiIAijJ08JQbaPxF6ABFj8pyxKEwSzHBMGTS+KXwvpEMQHtyVwHR4/4lC0u+M0Q6TKAm+CIQwyHUrdqnE7wOTaUy3xIf2xCvzVGPCb4TGhI+N4VeEuCo+tzPin1Wrg/htMSPynKAPviZMr0m+Fz1RBX6RT/jg0imq6WJixSdIQinAQdQkQNqZEZ6fQJjP3i8E5VAVgTwlf5S7T80F0VnfdbnX9++hu/1dEjDZzYX5KZfPX1PbPGYSghAAJ1+Dse+VejQgxJ+15AVxIooNHmmHDQRTo/RLkhO9s8Bk18UJ+8QrD6j5En8JUmpn8hHC+897wdUaMNn92vPA1g44ERGGBkoY/vqVu1WwySPhzyRUGA9OfLQgGBsmRSR+roG5FpAiEIBgHSIFAU9MLmLbE7PWedGYbmmgBMnYlNzC1OWnKWAKrKbGhIbZu09v0ZhGa5ADvl6i6fZJHg1RXqxXwp5ZrwyYN/PDdLnwqenqe8L0fV2sDFQvuSkludCKCJrAHM/gfPhsSbgFxIh+JXwcBz3g9PkHW0SrOlaVxEz2OEIvJs35S6eqb1ABUoMT9qsG6QuiegMZfhUTlKjIgIYJT0nS4Du7T813jaC0VNInSEdhDRIJmSVKr7PXz0CamvtIWcAU+prMtECFgS//uF1DaH2fT7l3babDGfPvc4tEUuSBsmladx13n/weU1CrbiYkPn8YI8S3gU2eUYopzxYwDtK56rwsMDg2amfyEfw58nfeC65WgcnmBVBgWiPwAA0UTZv8M5hOHiVSLDx8kpjwlrwwWytTIFCgKRHZBTMgco1r4+di3YwZP1SZM6B165vbyuT79O0lzLCPmrIAJrQsP7oP4KomMLXsktwqUecw5ZG/RxAQ0XRYKN78X59rNB3h1TA+hgETWhVmVEL1MdEhEECLi+evqFmPepCYrXk+nO9024WCqVNim/F3kUhM3hPPaY3sa3IA83hOOsmUX2axwNTG/ZIAzTNgv5MAC0CWI/iawBmalhGm3/qnL+T8LYmJ9J3dp+a7pjDBk6896Ej4xrRM/cosUXqdvX4KqWv2rbKAySSA6eJAflQYwATZ7NikKbeBBAxAEbKK9FGKz8lUXzYMm4XKDkhu+AhwRvMaWgtMZflbG++YXWA4/ugsMNm5ipmEsko6dp5ix7wXnAEAGxrTTleHi9t9G0OA2T3+MhroOHXu42An2GCXrBcqcwD6ME7SAEoZ5lOi3tuo5qFuytyxbsHjU/VvGNj5M5e0ViDnpLYf1QxgtAAMGfpoVGTk37xxS0BzuNSYqxPNoF3X1yqJSiPfyo8uZE0jYRMRh5bBfeURLh6uB/MxATQM3vdNdhb9h/ZA4jvPHe2PgsOYpmDmmJHw2WBtwE8F0JwSLeiA+JTYb5NFMxkmASoIY5iwCGbi3sntoSIKwI6QyXMiCAI6YeLkOQHw5Wgu9rz6iKbHINGXkl+UhGKYgAHQEjSDxUQ1DMnZwnSPbxm6hwKpfjnhl/EVctoAaHzHhNejBV84c0VNhO//co0KLwlfz02AJGyf9cb1uafeor1n8V2H6yKrjyvpXrrLa2UBk0kAANIjz85UqQybNIubzUCBQhJe2VCl+JzMFMNG4WGw4dk4LCYctVTJJpyXRDjMQJw7aWPkBUy2gUInelZJp6NFkPeCq1VgMg0UQWOmBM4QPIP2BPDDDKn9RaUCiryyZkr1IZgAAT0xAY2bPEJ9SGJx0xwgzHb4JfkfZkaYOvk5AyQs+mkJDuA5E14NY5wvznDyWtAMkKQ3rtqjFSL8aFSA7a3//YUCEwwVpt+VwAT4vvafJMxcgAmtiH2BMx+mx3ujRSskARetj/0CsOAz4u9Z8p0xojVhiUBrIsDhtOzhw1L0F80RUyiWC54Tvra9QhOCK3hOpwUcytFc7HlhTmSQ3+MnXBsfQMN4+ocLRBO8TzUMKlKgNZFzlWTCL7bf7Hxo6gADaw/NmftH+wLg/cox4Xny2qdmAcKcjUY/VoAqi+86r+uH91XL/5cFTHZDlieC5jRFtBpUbjQntBqytXnoaE4wGpgDDyFpIfcSyQkzGZIrzHW0SDKTxF4+YepozWYnWQ3HLZth7fJdd/xYxRJ68wImu89yJR37frFj3guuVoHJ7t82JhrNg0umiBYyWgUOmDtaKNI4eUb4QWCQrJmk9WKMpm+dVIXv388NF60AWmKywtzVIGYSvkcpnUISYw8BqgYFJULUqdkH8x4+pkGDMvgsVcSJxnvq9fnCBOtV8Nm58ZCGk9O2AKZvpmGELz+vBkYHMJEzhbYHo/NLdWV9LuF6MI0JbZI58j4aBAIbA+ZMySTMkM9I9XQA39dwCvvvtLZ9wSSGlI5GRfg5Ah5aD+WUMOcRUME8GdCMquMANWsf0z3vKaiLEIEpnWfVJhYS9uWdZyWfRyODjvxQXxBt2X7Y40TYDh8zWAJiRmk0IXMA8EgUhq7+uJM3KRrGBLl3NCyCngxMqJhPqsI10WChj/1IDIv6pRA4uDbXJEQc+i2QhGOKPxcA/Jzb+NleBTvup1iFi/C5lKuxmOWgVN91eP2OSiL5NEz7G0GkGjUr0+ZQ7L1OARMLDU0GBoOkSWQTmhPgdFEkrNMCUEhnJ2UxwQgw7V0S+/b1a3ebakjoGyGLlc0BqPD30FGDpJyMZKeLWY+eQjAUIrh2yQLGWZlmIswbmIyhlirpFCO6vR4uuHIXvJ0vKwO0z5d7DOlbLI8pPL9tTBghlckRaDDRDhamAYPiOSPUtB0s9L9izSStFwAJrWaYrBH8gGhirB1yf6ABTn/MglSm7i1SP+uUdUQwA/l2mPaaxg9XoYeySVwT3wWf+8F/XKwaAhI0jB8mzPV8YCIYgtptaO6qdQjjBJhgONwDwOQXN876XML1YMCEdQBzGu9TRBYNjQEzp8gsew1NAHpiqoRBA2a8jw8DH/CLUvR4umgeMGTAhPBwtCLuBbotkiAJaMEA6KyP1xnxg9RpFYMmDZZAiGAuVJQnUORo6ylN0CUZGbMYZsD2bwVQnjfmM/YPzwtBltwyTGhcs10CLijTg4kwSQMyzYroWEpbYTkhTQTf2Qm5NhF0CKvwGO6JH+YGIGLW5ftcd/S3LgHMtLT24DkT7AEYYapFU08rVhs+l3L3qVkOSvVdh9fvqIisPsQMv3hWScEeGb5a8Y90CphsdqY5sTHHi5YD42IxSpCTLiKq6VKPCxMYi6cYMCH5ci6cn0jFSMxoW9jMcfRiIszifA0ZJ/MsJfjB7suOxlBLlXTs+8WO4YIrd8Hb+bMyQPt8uceQvlmBya5nQI/kP2fRREm8HakMDAkXXwJMEdMOzC5pvRSAqV58Iw3KrGBymOrEaaJSPeG/mH3wGdX176NH+izhP8GEx/PEBA1AwoQpK4S/CGf/KwJM+Dj8IqYDGuvuyuCHEfpFRQEtgAltDUYPMPkNNLM+l3A9GDDhlMenwvu03UBDY2BqpC3HKQlaYG1OEcEQ0xuaBWHh22QeFA3F9O43pESjQDuhOjY+YTTCRU/NUE0MzYL75zmcFdN5695CwVGsIbwHU4d+7E800mOtZ9RcWgAmqUQu9GwXwRNwvANMooHyzBE4CeMfLE0m/SrvWFe4l7BEj/ma0JYelrB/BF8i9pgD2hyfZ8+gRV2SHC1AifXC/fx/YJLCzyIs82zQJrkvOiMcFVAj/3GD3P/hb02evJc0wufS2X1qgBumMxTzXYfXx6ya1nYj6R6SXsNkW4l0jaRrlfpaLsDEQrFeLkhELAI2CSYAFjAP/C5Tnjid/aE+KzkHJjvOhTkAqQgzII7xVnF6Iu1aF1YWfdoIGSef7QwwlSvppM2R98IF19kFn5UBdjSvjt4P6VsqMBnQ44zHVERgAb4h8o2IVkLivSK+ILRinjVBCv6gVh3ngHEBSHyeEGg0IUCG9UbeET4SmBUh0Ag2+Fz4nzX63E8WiAZQrxoFgg/Jt/ggCC5g/fltH4YKMzTfBOZltAS/DUOlgYm1i/aIqZK2M7NEQ2Mg8WOCZG/AsGnbQsJoo1gxAB5qSH78xnoFEF/jQ9OEtrSBAYABU54ppj7C7AFs9i2md7QxTFwnjp5VHx3CI+WMuAYmeICoAEbyrDDlCe2JbkSTZN/wnOyH/d1fzPUMcqQIg6doKhpTUhVz5sB3ARmEF4KgKPGDrwwhhmvx3NB+WCf2Qz4a75spj5B49oaBUotoWRvFB4evDLqirTPfYm0o8t6nzIsmjll91+H1MccWNJ27o5GVsCX8QjAptO+oTtuiEqbmcgEmu6BF67HxASaYDtLBAHkIhN/CKFhoLDgGC4EFwQJjUWHvBMCQCNCwYBhIUmTgw1Cs5JBdr9iRTVpoZFdoZsfniBTEbt4ZCcEkHapBzH3kfvVtMKd9kpS56t1NekwzMYbzhU6UzKEOGpv9sGgJ5TQAs/NahQzMZIufm6W29Tzu285vx5C++BhWf7RNaVxKhQCTiPFzaNCC0APGh5CDgML7bGIc8/4AOJCYFbSUEcr6kddgMCSKMgATWlUDVJitdqw/qP4IbXIoprAlUkPupry/XCqWIPXD/IgAxQeB1P2ONGLDvATTxfTCcyLMl/mhzfmN6/ICJvIDyZvjfIADWogfls77fvQdNewAlkK9v97fJjIXKrIQ8QigvSca1VHx4WDOwgdG7TyNopV9iKZA0AcMCpMpGiiJrQCUaqGAiDB5rBYITQgL+O/Y55gE0VwNAJKekz0ze17sFfY39DWtGG0JATRtf9s6oaTVXAFOAhcaRftBsMBEC0+BWQOE/gCIWCMArPIV0aIBYXxUBGcB6LaG/O+Ff+e9T+388EcEHvY/zxu/HGsLPuUXzw2vT6WPPAbX6Qy/yWMOxc6RKzBZtB5SEao7zBZ7MpqTqdbYnFloDFs4SE+6WMXUhwRDPgV2f8wxLFiYQ5YFZDcJY6PkCjZljgzs0djUkzK77XsdHU3SQbJHDcevgbQOA4GJwQT9sNeOzmcmUCsPw72v+XiHRql19N2k901zxVfA/Pg/j/sOrxXSl02vGomYjxAq+D/LMIkYiZZ1gamINTNMAhWgDX8PEbNPnVQi8EehPbSYhYX5Xr92XQQd35dRr4wIc9thEWz24aQXfxOSPyakBxbfLyYr8YUKo4ZJffL7jTpnmAPgSNDNKXmeb//zavXRIDSRNwRgYHqEpi3id/JbfecFTMaACLKgth97wAcmnPZ+9B0aIEWMydFi3cGwSbQFWNgvRLDhg0IjgXkjoT/9o/nqiyLhFiCHSfPsYIQEE7F2uE8CKWCcaBoMPsse5flq/yahHcCPsMZzS3pO9szseXE/ur9FeADs8Ovgq2L/p+1vWyfwFULY2XfNsq/R8jC/4keiWgX36A+AEP7BtdijPG8CPzABwlvgK2makp0r731q5zWTNnyKkH4A58rla5ra4LfxCa/PGsxjIJh0ht/kMYdi58gVmMKLmAalDGaEOCPFCZsOTIUFxEJKk6DC64T/w+gAQhgRRwaqL50k83D2mebEZmQzsKFLMTXafG1hMkeYL7XMygmXtvMxl8K9ExQwVOeW533bdUL6wlTKuX87nx1NMobZWAAMNGbDcm+FxNfeykzMfIQ0jOmGdugwJ6oZXJJKJJi5WsRUhASKuQczEqYwKojQ+hoGi00fUxLCBT4n/DQwWYoR+8ELaFLPStQbGgv3yrmXSw05eiEx8gImk6Cpng94Ypr0gYn3X/qzRXo9TJ4wWhLaiR6k4Czv03cKzQ56AVhIxPi8AJbRkuPlF7WFwaG5kOC8UvKDDok/qadopyObCtoVQIdQiW8Gun4j946/mA7AmEeJ0iOS1n7QbKEP2qwf7cWzwgx/5jiC5zkFis7sb9s3MOzBwlcUmGTPc8/+CIEJbbqc/W/Xy2uf2hzD/TpQfHEMfHs+HwivH96nna/UY3idUr9fyc9XFJhMg0Ld5geNA6LiI2CoKU/Meaj6tqAxhVE6hf/RqMoZqPW0OLBrcg42C0zM3zDlnJvvmOZEPxvMB0iObD7Oj4SNFJZl2MJknsyZREMYCHMsZ5gvjPMBHiQW5nnfNqeQvjzHcu7fzmdHk4yhK0Ciz09MwAAOzKdxaH8VNqhYjjkRaZ61BIPEp4I0TsAADMi0bTQJ1gJMjMCAxQJAfGctvg0xZRBMg/ZEVW+0FM6F74FoLUxkDDQpAAFGjdZAFNdKqQ1JMAUjL2DCuoAPBY2JaEXMaz4wjRJzDwDJ9RD20Da05qBo68wJurz480WaK4ZGdERMZP73WW9+VW2AjLXmV+BoE3qwjhEi0UzICUNjxG+MeQ9jGWZT6HTlElqUVJIQfzAgCtirViXaiA8A7Ikb0rae8+axv23fAKysEco1AYqsd3/gm4SP6HVFewKoytn/dr289qnNMdyvXIfBfH0+EF4/NFna+Uo9htcp9fuV/HxFgamSE4/n7v4UCIGI0O5eYpYD+GA0aDJsQgQBgBbNSU1+Ys6BMSOp8xmNDhN/AaYtzHcwRRgSg00NKAEuaEyYw5AUV4pPEL8JmxNN6ZW/WCwANVTBiMoCJNaiBTJIrsWERuFTUhUIw/bbvBgw0WyQHCw0FF+jyhqUEgaVwPjRZDgfAAoY+63qEQYw1/E+ph/o4fuoAGe/Ey3MDvqRc/jEDx7QI/+jvaBdca7NkniLTwr64bPEvwY44YAfKQBOxCyvkz8G44f2AJKa5STy0QcmhAJACcGzcCwEKAAQmO+gfWcEUH048dc9SYEITPfkY+0eNxWa7hpEI6oThgcIEW1HC3OABQYIEyb6CokbhgczvSr2eP4nwZL3keJ5D40brRVNCcaLKY6q3EPE7NMmbccxk1A9AF8DUjD+OPKX8F8k1S7D30LQAUEaVCPHn+g7pw2Y0KjIMQEofI2qXGBqF//Z6o+26/nQ3jDp+I06YfaY4bge86HNha9xoUD472OCg574SKkBSdg5oGzghNa14p1Nqn1BXywWBYGAxPd6TTwm6ADzHqbiRjG5orXwrOoEFBEoABo15ckzKDybQtQezweTN+fF10TACUf+B6jiiBTwKRCByadG/LuqFMgKTDA7zFowMSRy/BVEbZoDm/f9YbXRBgvQYLqC+QIumFw3SJjwns1HVANBkvcbGcK0/Y7IaBi8hmmN/CE+i+kMIPArFRgwETWW1DizXGC6eeNmoZq9XI+KGGiOhHNzPUCFuVkVBBKCoY1vqqPeHb4gcrR806T5SNEEqd5NcWQACD8V7SXQnHzN00zq9rzQVil+yxFQ43z4oTgHA22XuRZMvAgN7So4EL1JAVl8Y3Qy5hiByV+58W+jQAQmo0Q8Vp0CWU15aD8qiQsA6RFfBf4CkcrRGkKfnp0X38ijEuZt1RBg0hvEREcaAhI8Zim/OCuM0++UCkFgvFSoJ6gAExbBBgATFSEIHGAYMKFR+RoK0YCMcoGJ+yrUhjygJb4IJ8Ykae0g0KB8DY20CiImmc+L/2GR5msxR+brB3OYj5Sw8Yel4gPdfAlXxmwKWJBi8JUAHfk+PnAYXdEyVaMVbQlw5Hz8AEgMAIpAgb4SkHJLmjHeMed960tGoMCXRaIrz9OAT78cf0UKCAUiMMVlcM9QwBgnjn/ylQibnrdksgZSEDZO/yK/wgDMmPcpEkrEHaHE5C9RUBaGSSkezgMQ0AmW8/s+H6L9YOZE0ZH4SrBAUiJ3VmDCROYXiyVIwz8fpjFfI+LzhG6TSEv4OlGGAMUM0YQwTZKQShgOuXvvyn2FnZ4tDDmsdWldAoj2S9KcOlowBkyYZZNGLZfCSZpvfK36FIjAVH2axytWiAJmaiLAAV+LaQGYqL7+Yq+aj3wNAOCiejVHBr4n8powj6GtECKN8x8NhD5SSPZUWgAItPGgAIVv6gMofCAB6BhZgQlzmK/B4WPzz4dG58+HIqfUA8RUR8Ivmg5Ayf089fqDmlBLdQ3yVT74t6/Ur+bfP/4hNKyw1iXnIMoRk2eS5qQ3lfLLojY5Jg00qHKi45LOFV+7NykQgenefK7fq7syRoj5iARRygZNmt2kNeNIqi5UfmjVcHIIY5oV+T4vi2aBI5/kaPxGfvuDEChCUx/gRWkZfFAUVyWc2geSUoGJ3CS/ISFRdv75iH7jHgFKS6TFT0Yx2Td+sVJ9Q8wJkyL9qPgc/jV8T77vjPBuf3SkOe0RwMsjT82/Zvw7UiCNAhGY0qgT3+sWFDDTESHNlNQhSAEmDtiQq0TJG/63ihSmWdEb6oU/fVi1hi1rDqhG4Qc1hKY1Cqn67S7QOPzgCYDFB5JSgSns3Ep4vH8+KqIQaQjg0LEWsx9ARLACbTaIFsQESdkgX/Ninn5YOVUx/NGR5kRARylFlP1zx78jBcqhQASmcqgWv9OlFLCoO5zwmMksSowirJilMLnhT8Kv5GfQ26RNMyGo4bEXZ0v0mJNah5sFBFo0Wg8Ng4EmBdARTj5RzovWkNZnCZ8KVZ8JNvBrMmY15WX9HBF5RAmiqWFKpCWM37iQIAQ0K4AX3xgJxIAR4PSZJA5TYw9AI2rOH6Y54ZuaOKNJ87/6SU08EnnJcyLxmKoXnIuIRfKQks7jnzP+HSlQDgUiMJVDtfidLqWAmeKs0zFgRNUGXkc7ohiuhiNL+Rs/g94mDaMm7BoGTzUI8mne+ZcvhXEXiraidTAINFj60hwtD4S/iVwiP7otBBJMirQ0B5j8mozh54q1vM/6OYDj5T9frJoTgR6UXfJbvZMXhGaFRvWSROdR3oh72r35kM6f2nn8H0bDmeZE3yOScMn/InIPTQ5fFu0l8uhga88hHiMFilEgAlMxysTXa44CVuIKZkwdRHoE4ZPB5DZInPg0qsOcRTsFyhOFHY5N04LZLpVgBoqaEgJOUdb3f7lGtQL/pilmmlaqKAQSvuuXAAIUGVYzEg3nqR/OV0bvm+jM5IdPyTcNkh+0UwqsEtxAK3RaQzDCNgjkdCX5kOxzADBaJZUxPvjVVxp67gdB6Em9X5bnNGHaGPFRNWlCLq/hzyIogs6xaE5UiKD+JOci/N4A3TtV/DNSoCwKRGAqi2zxS11BAWPwRN3R1oR6blR7oLAoeTFUNjgrfiAYJaHVJNT6wzQtDXqQvKTREnFnbb39oAf7Dp1iX/2rJWrSO7T3pJjn7i5VlBWYQsAp5ouy/CILpiD8nE60BDdQbBZtkEGABx1d+RxllgBAv/SQtQi3EkezHpKE3IfGK63Q6ABF/G9hEITdt82jUehLpfexUlMP7YmkWmjOwLwH0OHDA9izNPC088djpEBHFIjA1BGF4vtdRgHTkMgnwn8zSKovI/nTkXSstAogz4ecG0x3+JJOCyglmajsBughRNkhGu09L+0hiKhbv2K3Mn40AGPohEtjlkPT+JP/slR7O9ENFh+NHxxhviqCEZa+NFcTST95Y4NqOL7GZsEWlqhLtF+SxmTACeDgQyIcHJMkGtPqD7dpYjD3YoDD5zgnviLMh/ygMZIky7Cq1FS9WCK+NLRDcrQox8RnTVPTDyf8wn9FYAmV3ifOEHPp5FE6J6IPeSa0HcG8STX2IwJ0FM+laSTRi1GDSiBofCkzBSIwZSZV/GC1KWAaEkA0WvwemPBwtuPvoCwRVQ0oHorkn8UZD0NF8gdw5ktQAwz0j79Zp4DDeajFxzCGDON/RcLAue5XUqoHgPArPtj5SMBd+OR0Zca+rwdtjhECTrF8JzM1WsIutfeoHgGIrHh70502G7QFwUwHIC6Syg3UqSM4gc/RKh0tkGH3ga/phZ8t1C6w0Apw9Vu/64cTfhlA43vCx4a2xLXJDyMhmfsAuKhliJZKAVsEBLTLqEElEDS+lJkCEZgykyp+sFoUsLwkygENE+YHA6RzLJoHkjiSOWWFKMKaRTI3ho9Jio6h+E2o6ADz/ONv1rs9wtR9Tcs0K4DphZ8/rKV2knxHzMuv1EBIul/SKCxOCpD87G+Xadv3JI3J6Gufo9UE2g+A4wNJaELkXpJq4tn5zNfEXNHy0HLobAtAlZLoakBnGhT0HC7a1MDGOq0KD+jxXAjGOLT3hJpYk0yqNq94jBQoRoEITMUoE1/vMgpYXlK95PEAUpiqAA5rnwDDp803x6RaeeHETWOZIsmmz0g/I6onULmBluL4buhb5Ic9h/lEXMdvuAczZ+ADwkwGkPADUPp5TmHUmwHOSNEAOwNMRNwBTpzvFUkQJnowqSae0cFMf4SPU64IAKWCBSY9v2+Sfb7YMdSg8J2hTQF2+KLIu6INCZoopkw6AfsmzWLnja9HCoQUiMAUUiT+3+UUMGBCQwKQ0IrSosg6mrBpQOQjPS1RcfhaaBOxfcNBjS4z35Kdx0xlmPyopYejnzyhHfJ5X7Myhm++HpoU/urvlquGY+fyj1mBiXmSQIvGRDdnklt9jcmAlvm9JsEZhI/TvI/PUZqImnh3Aa1onoCx+ZrQfPCt4Y9KyvPy55zlbzO5QrdB0tCRQRXxQkvz70ZHZjln/Mz3mwIRmL7fz78m795MeTBgGCxakQ8IpU7afEEzpVgrQINE/7EEKcDIfd+SndcAh3ByIuAwp33067XSeuLoXQzfPpc3MFFG6HnxCWGCQzuj5YUPTGaaBJDIU0IToto38/v9P1IBovUuepkJznxNdMLVaEQBsDUf75Dw75N262UdLUiFzsNci8Hzoi9WNOWVRdLv/ZciMH3vl8C9SwBj4OZbIi+JPCGa1H38xnpl5EmAZ+HY9CmC0cK4P/9gq7Yg96llrdBnLpigNemIEMSUR/Re0siqMZlPiPly/QM72rR6OJUX/EEAgt+xlnDyJJOjfcfOC+BiDsQfRFAFgRNZfHV2nniMFKg0BSIwVZrC8fxdRgEzeZlviYoPdLDdJ4yYauOUGPJNXjZRY+C0Ej919Lyau2hdHtaYa/o2mALNhXOTG/Tuv66WCguH7VR3HUsFJvKoBoppDHMbJjp6PfnDgBGNbbqY/2immBSkYd8xDQ9TIXNGc1z9h+2acBuj6IxK8VgLFIjAVAtPIc6hIhQw3xKN8Ja9Nk/7MhFOTTQakWMXpGGdP0zDMhMZbcSJiKOUjx8mbt8ZN2mkWyyNCNFsiCAkTJq+SKFmY5/PCkxWCmmG+JAIzSaK7jf/sOI7mlhY/Vw6qWsHWuac5DuyvCbOu/jZmeprA0QxafKdjvKa7D7iMVKg0hSIwFRpCsfzdxkFzLc0dc5YN02i0SjOuvzNr7VZ4FXRFuiA6w/TsCyooJ8kkS6X/kyY5qgsbnlJ9h0zpRGkgMkN8MJESD+npJEVmKx4LMmzaHtodr/+++VaZNY/b9aKEvYd5khgCT4sTIAAa5IPyz4fj5ECXUWBCExdRfl43YpRwMKaqTb+0BPTtEoEARU0zPMrKIQTsAoN1g6DcG862hK9luSDMZPfeOn/xGfRUvxE2PD8WYHJTG4dBVUY0ODjovU75kSqMACkaUENVJRYuGy65mBRa5Dgjj9IPheaZFLR2/A+4v+RApWmQASmSlM4nr/qFDCGTT092j5QtWDz6v3aigKz2PnAhGcTtBJDRK/BuC9fuOre/mdpSS4MOylfyoAJzePqlXYBprZU4MsbmAyAMT2++PNF2oMJTRDznB/FZ/dnRyvSSvj4omdmau5RnuHjdp14jBQolwIRmMqlXPxezVLAfCkw7PmPT5FE3JtuxTubpFX44dR8qGGjGrQ4LGWLaKNBwiyaBHX0koa1ZkfrAOww4fnFVsPvGDBRzSKpb5N9PqwowTzwMeEHSgJIMynSqgJfF/X1qJYOQCV93jRDWn48+eoDmiiM1kQr9XUrdqnWlfQ9m188RgpUmgIRmCpN4Xj+qlPAouWapL7eLcmDot7cZmkbQZuGpPBwm6D5dvg+pj98O2lAY20xiI6jJcW+7Ufuak9h57WjAVODtOhI6ttknwuDGvCNvSlReQBTkknRovMsbB0gozRS2F/Kzm++tGYx6c2XFuxTxAdHFQvugYoQNDlMuo59Px4jBSpNgQhMlaZwPH/VKGCJnvRbekSizmjIh7bTIv2ZkqLwwolRNPXxl+e6IVLBnJygg9JSnORWAh+SBhoZDfuo40cuEBoZZj96FiUNAyZMi2lh3WZS5PNULb/efsO9L7XtACa/RbxdIwQyQIWEYD6fVnLoToULaYkxf+lUBe0vPtwqpYpatY6gdfK168RjpEC1KBCBqVqUjtepOAWsNA4+H7QAKg9QeghQSorCCydkQEPJoi8lvwdTGDX1yPdJGkTv0Z4CYFgnJX7QUJLCyu27WYEprNVHYAWazNavWhLnE0bn9enbK1Ujs/lYzb2pc8dpOD0AS64W952mKdr34zFSoFIUiMBUKcrG81aNApZ/RKv1SRIKTfVrmC5VyP3+RMUmZCWQCHqgxA+FSD/41VrVftJMWgY0aDhJHWTD69nnO9KYrFYgn39O+kb16t0zVcOyYI+Zkjj7oswfTQith/ykNA3O5meVLjBNNkqnWvKZqHRBk8IYpWdUisdqUiACUzWpHa9VEQrc8ZkQHi5tLah4TWdVQqeT8o/CSRgQEDyw+LlZWrX8g39bq/lOaUEABjQEW3z61tdqOsNPc0mi+ZKGfb4jYDKg5PMUc2V+aaY/i84jP4nq6fjWuG/Mi0mdecO5WRsNKk1gAu0roL7ly/1aDDYpUTf8fvw/UiBvCkRgypui8XxVp4ABy5jxtAAfIz6Zm5mCHWyiFj6Nj4kQcCpCrHx3s2sVH1PSMCAAOH78109IN9e+LqlBYPhdM/3h+1ol5yffiIrkaCVJg067P/2bZdqJls9vkxbraaWDrBIF7dbrpeMvtfDSwsbtmgbsfO/xlx/QFuoXz111rRJav3HVHm0LkhY0YueJx0iBvCgQgSkvSsbzdBkFLMwbHxOawpkTFzQAAd9QUi28cKLWV4kjg9DpNBOgmc4AJtpOYEqkLQYdbtN8WebDQmNaKx1x8eWkARNABvBhXvtq+U41z6XlYY0QHxHlhggDp1DrSemHRB4W2mPaMFPoEDEBkixMI0XMmgDmZ+9tUc2rM21H0q4d34sUSKJABKYkqsTXugUFjKHCkKmHh29oz5bD2pyuFAnffCyDBte7w1Lv7vCBk1qQlY6sSQNTISHflAx64U8f1tJGb/yCdhMtqeHoFl4OMBGUQU29NGDCtPaqAN9QaQlPUz+KuKZFCVr+1gxp74FJjhJK7/2fNW6HRApmaT9h+U2A0wIJI8dPt0u+S1RjmokyiUbxtUiBzlAgAlNnqBe/26UUMBMUSaVElKEdtUlUGWHOWTQlm7xVcOjbr49qJi1SWihNQyBqj3bmaDRPSnHYq5evuzd+UWh3kXZdS8gFmPDhkJCbBkwGZCOaGrVV+T4Jfd8h5j+6wiYN0+QA6ed++pDrJ/fzxUdbFdCydJIN6Tlk+CA1I0JPAJ/8qDgiBapBgQhM1aByvEZFKGCMFGc9jfJIpk0DlHASlvc0UfoaUSUcUFklpquWXW2pmk8YLIDJK6ktRXg9A0C+j9mPPktpwGQVHaidd6rtgvi82jTAoqMq4FSueFaCIChiSx7Xvu3HEjv1hvOz/42umPaaJfTe6gDSkTaOSIFqUCACUzWoHK9REQqYKQ8THpFst+UqpZjwLO9pjESx0WoC/9CGz/Zod9c0zceACY2GjriXL1xLbXdhN18qMFkwA8B08ewVDWYgabYjYLLKF7TMuHnjppolMR1SASPLMLrSkbZetMPbt2/HsPEshIufyY0CEZhyI2U8UXejgLXFoKttTwlgOHtSQqxTKj3Y/eFfGjtxhJswbZTmTQEaaVXF7XulApMBDKWSCFunGgVRcpRKSht2X+Ol3h/n4L7QBAmciCNSoDtQIAJTd3hKcY4VoQAaBRoPPiOqQ7QJw0+r9GCTsCjAZmm9PlwKv54S30taOw37XqnAZDXw0OYaJImXqgxZAMYaJE6SyDwaAl67et19KAnD5DXFESnQHSgQgak7PKU4x1wpYKaqsd+2RqeyAq3Tj0i/prRKDzYJ65fUJHlTdQP6qmktSwmfUoHJAJBGhPRQIviglLwkcrqWvfqgI+9q1bub1NeUJTrP7jMeIwW6igIRmLqK8vG6XUYBc+5TIWHu4klOnCgavk318bRKDzZhA6ZRzUPVt3Xi6NnUquL2vVKByUyGE2eM1nYcFHDNAkwGvNzfgiemuv4D+knI93E1BWaJzrP5xmOkQFdRIAJTV1E+XrfLKGD5OvRFar5/uPZrylJTziZsJsBhoxs0YAITIK0iOgqnNmDqP1DCxUVDo9xPGlBYWDqaz/ylU7SYbFp/KJufHc3XRHQdwRxnxNcUSwwZdeKxlikQgamWn06cW0UoYG0lAIgbUoGcRNo0gAgnQct2EljRaPBNHZafI5KUi0aTNgyYqAZOlBwgkVbLzxJ5p8xpdo+9NMe1X7uhCbPkFGUZ5mtCwyPsu118TVmi+rKcO34mUqCSFIjAVEnqxnPXJAUo8UNAAQmpJ6T80PnTlzL5luxmrG9TvQAbFRmoqZclaMKAKWsib5gwSyh8lnwpm6eZLEc3D3EzpY36rVu3Mpkc7fvxGCnQVRSIwNRVlI/X7TIKWOkeggJIcKWyQRbfkk2YxNdlUvGhnxRvXb9yt6NSRFIDP/u8HQ2YevbsKUViN4nGlJ7Ia8ViKTH06l8ucbfEF/a7/7nK7dxw0E6ZejRfk5VsEmdaauWI1JPFNyMFqkiBCExVJHa8VG1QwKqRM5u0Dq/FZmsAg0bzxYfb1CSXJZoPLW2pmOQYWcK+7fpWM6+HvEBRVvxZaQnA9j07moYoqVpqejwv1dNL+b6dJx4jBapFgQhM1aJ0vE7NUMD6HTGhG9IiA22plGHAhEaz4i00n2OZNC4SZR+UIAZGlkRZm5PVzOvZq4dG5VEzr5QKF+arwrRHxXV8VaV83+YRj5EC1aJABKZqUTpe556hgAETN5QlfNtu3MLM+b+UIATTtHpLy/QNYjps3XMitb2GXc+O5muidBODmoIRmIw68ViLFIjAVItPJc6ppilQbWAyTYtovpZdx6VCxenUaL6QeOZrKsASnib5EXCiBl4ckQK1SIEITLX4VOKcapoCFpXHJNM63YY3Ua7GZA0ABzTUu7PSCJEGgLE/Ukjd+P+9RIEITPfS04z3UhUKUB5o4bLpeq210lmWUkZZRrnARJFZOtKSf3VFmv/Rofdoy2nNv8py3fiZSIHuRoEITN3ticX5dhkFzCQ2XCo+0L4cm1gpFSPKBSYrTQQwYX67cPZyBKYuWwXxwtWgQASmalA5XuOeoIAFEVAqiO6uJKyWUjGiXGCy8HZMef3q+2gycDTl3RNLKt5EEQpEYCpCmPhypEBIAQMm8pf4obNrlvwlO4+Z5Pg/S98n+55VgKBLb13/ftr8r5z8KztfPEYK1DoFIjDV+hOK86sZCpgpjyOh15jVSqkYYUVZuaEsJYzsxq0CBPlXtOgg3Luc/Cs7XzxGCtQ6BSIw1foTivO7Zyhgmg83VIqmdc8QIN5IpEBGCkRgykio+LFIgc5SwDQfzlOKptXZ68bvRwp0NwpEYOpuTyzON1IgUiBS4B6nQASme/wBx9uLFIgUiBTobhSIwNTdnlicb6RApECkwD1Ogf8HrtJhwlYKLi4AAAAASUVORK5CYII=",
       "headerText": "Welcome to your daily diet plan.",
-             "showWhatsApp": true,
-"dietitianAction":true,
+      "showWhatsApp": true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -2131,8 +2136,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -2191,6 +2196,7 @@
   {
     "aviva": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2219,7 +2225,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -2285,8 +2291,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -2345,6 +2351,7 @@
   {
     "redcliffe": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2372,7 +2379,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -2438,8 +2445,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -2498,6 +2505,7 @@
   {
     "kenko": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2525,7 +2533,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -2591,8 +2599,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -2651,6 +2659,7 @@
   {
     "blubein": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2679,7 +2688,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-      "dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -2739,22 +2748,15 @@
           ]
         }
       ],
-      "editGoalForDisplay":[
-        { "name": "Weight Loss",
-        "value": "weightLoss_blubin"
-      },
-      { "name": "Muscle Building",
-      "value": "musclebuildmorning_blubin"},
-      {"name": "Lean Body",
-              "value": "leanbodymorning_blubin"},
-              {"name": "Manage Diabetes",
-              "value": "diabetes_blubin"},
-              {"name": "Manage Cholesterol",
-              "value": "cholesterol_blubin"},
-              {"name": "Manage Skincare",
-              "value": "skin_blubin"}
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss_blubin" },
+        { "name": "Muscle Building", "value": "musclebuildmorning_blubin" },
+        { "name": "Lean Body", "value": "leanbodymorning_blubin" },
+        { "name": "Manage Diabetes", "value": "diabetes_blubin" },
+        { "name": "Manage Cholesterol", "value": "cholesterol_blubin" },
+        { "name": "Manage Skincare", "value": "skin_blubin" }
       ],
- "deseases": [
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -2813,6 +2815,7 @@
   {
     "yellowsquash": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2841,7 +2844,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -2901,8 +2904,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -2961,6 +2964,7 @@
   {
     "elderfly": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2989,7 +2993,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -3049,8 +3053,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -3109,6 +3113,7 @@
   {
     "brilliant": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -3137,7 +3142,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -3197,8 +3202,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -3257,6 +3262,7 @@
   {
     "nizcare": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3285,7 +3291,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -3351,8 +3357,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -3411,6 +3417,7 @@
   {
     "smartdietplanner": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3438,8 +3445,8 @@
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
-             "showWhatsApp": true,
-"dietitianAction":false,
+      "showWhatsApp": true,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -3505,8 +3512,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -3565,6 +3572,7 @@
   {
     "mswastha": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3592,8 +3600,8 @@
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
-             "showWhatsApp": true,
-"dietitianAction":false,
+      "showWhatsApp": true,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -3659,8 +3667,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -3719,6 +3727,7 @@
   {
     "wellbeing": {
       "logo": false,
+      "isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3747,7 +3756,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -3792,7 +3801,7 @@
               "label": "Balance Hormones, Transform Your Health",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
-           
+
             {
               "name": "Hypothyroid",
               "value": "wellbeing_hypothyroid",
@@ -3810,29 +3819,28 @@
               "value": "welbbeing_skinhair",
               "label": "Improve your skin and hair with a Nutrient-Rich Diet",
               "imgUrl": "../../../assets/newImages/hair.png"
+            },
+            {
+              "name": "Gut health",
+              "value": "wellbeing_guthealth",
+              "label": "Gut health   For healthy gut to manage acidity/bloating",
+              "imgUrl": "../../../assets/newImages/gut_health.png"
             }
           ]
         }
       ],
-     "editGoalForDisplay":[
-        { "name": "Weight Loss",
-        "value": "wellbeing_weightloss"
-      },
-      { "name": "Muscle Gain Plan", "value": "wellbeing_musclegainMorning"},
-      {"name": "Lean Body",
-              "value": "leanbodymorning_blubin"},
-              {"name": "Diabetes",
-              "value": "wellbeing_diabetes"},
-              {"name": "PCOS",
-              "value": "wellbeing_pcos"},
-              {"name": "Wellbeing Hypothyroid",
-              "value": "wellbeing_hypothyroid"},
-              {"name": "Joints Health",
-              "value": "wellbeing_jointshealth"},
-              {"name": "Skin and Hair care",
-              "value": "welbbeing_skinhair"}
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "wellbeing_weightloss" },
+        { "name": "Muscle Gain Plan", "value": "wellbeing_musclegainMorning" },
+        { "name": "Lean Body", "value": "leanbodymorning_blubin" },
+        { "name": "Diabetes", "value": "wellbeing_diabetes" },
+        { "name": "PCOS", "value": "wellbeing_pcos" },
+        { "name": "Wellbeing Hypothyroid", "value": "wellbeing_hypothyroid" },
+        { "name": "Joints Health", "value": "wellbeing_jointshealth" },
+        { "name": "Skin and Hair care", "value": "welbbeing_skinhair" },
+        { "name": "Gut health", "value": "wellbeing_guthealth" }
       ],
- "deseases": [
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -3891,6 +3899,7 @@
   {
     "trunativ": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3919,8 +3928,8 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
-     "goals": [
+      "dietitianAction": true,
+      "goals": [
         {
           "heading": "Weight Management",
           "label": "Eat up, Heal up",
@@ -3979,22 +3988,15 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-        { "name": "Weight Loss",
-        "value": "trunativ_weightloss"
-      },
-      { "name": "Muscle Gain Plan", 
-        "value": "trunativ_musclebuild"},
-               {"name": "Diabetes",
-              "value": "trunativ_diabetes"},
-              {"name": "PCOS",
-              "value": "trunativ_pcos"},
-              {"name": "Joints Health",
-              "value": "trunativ_jointshealth"},
-              {"name": "Skin and Hair care",
-              "value": "trunativ_skinhair"}
-        ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "trunativ_weightloss" },
+        { "name": "Muscle Gain Plan", "value": "trunativ_musclebuild" },
+        { "name": "Diabetes", "value": "trunativ_diabetes" },
+        { "name": "PCOS", "value": "trunativ_pcos" },
+        { "name": "Joints Health", "value": "trunativ_jointshealth" },
+        { "name": "Skin and Hair care", "value": "trunativ_skinhair" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -4049,11 +4051,11 @@
         }
       ]
     }
-  }
-  ,
+  },
   {
     "individual1": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4081,8 +4083,8 @@
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
-             "showWhatsApp": true,
-"dietitianAction":true,
+      "showWhatsApp": true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4148,8 +4150,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -4204,11 +4206,11 @@
         }
       ]
     }
-  }
-  ,
+  },
   {
     "individual2": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4236,8 +4238,8 @@
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
-             "showWhatsApp": true,
-"dietitianAction":true,
+      "showWhatsApp": true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4303,8 +4305,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -4359,11 +4361,11 @@
         }
       ]
     }
-  }
-  ,
+  },
   {
     "individual3": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4391,8 +4393,8 @@
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
-             "showWhatsApp": true,
-"dietitianAction":true,
+      "showWhatsApp": true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4458,8 +4460,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -4514,11 +4516,11 @@
         }
       ]
     }
-  }
-  ,
+  },
   {
     "individual4": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4546,8 +4548,8 @@
       "inSights": true,
       "compPhone": "",
       "defaultPlanCheck": false,
-             "showWhatsApp": true,
-"dietitianAction":true,
+      "showWhatsApp": true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4613,8 +4615,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -4673,6 +4675,7 @@
   {
     "gravid": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4701,7 +4704,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4779,23 +4782,16 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-      {"name": "Weight Loss",
-              "value": "weightLoss"},
-              {"name": "Muscle Building",
-              "value": "muscleGain"},
-              {"name": "Lean Body",
-              "value": "fatShredding"},
-              {"name": "Manage Diabetes",
-              "value": "diabetes"},
-              {"name": "Manage PCOS",
-              "value": "pcos"},
-              {"name": "Manage Cholesterol",
-              "value": "cholesterol"},
-              {"name": "Manage Hypertension",
-              "value": "hypertension"}
-    ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Lean Body", "value": "fatShredding" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -4854,6 +4850,7 @@
   {
     "youmatter": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4882,7 +4879,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -4948,23 +4945,16 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-      {"name": "Weight Loss",
-              "value": "weightLoss"},
-              {"name": "Muscle Building",
-              "value": "muscleGain"},
-              {"name": "Lean Body",
-              "value": "fatShredding"},
-              {"name": "Manage Diabetes",
-              "value": "diabetes"},
-              {"name": "Manage PCOS",
-              "value": "pcos"},
-              {"name": "Manage Cholesterol",
-              "value": "cholesterol"},
-              {"name": "Manage Hypertension",
-              "value": "hypertension"}
-    ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Lean Body", "value": "fatShredding" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -5023,6 +5013,7 @@
   {
     "trunord1": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5051,7 +5042,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
-"dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -5098,8 +5089,8 @@
           ]
         }
       ],
-     "editGoalForDisplay":[{"name":"","value":""}],
- "deseases": [
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -5158,6 +5149,7 @@
   {
     "gravid1": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5186,7 +5178,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -5220,23 +5212,16 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-      {"name": "Weight Loss",
-              "value": "weightLoss"},
-              {"name": "Muscle Building",
-              "value": "muscleGain"},
-              {"name": "Lean Body",
-              "value": "fatShredding"},
-              {"name": "Manage Diabetes",
-              "value": "diabetes"},
-              {"name": "Manage PCOS",
-              "value": "pcos"},
-              {"name": "Manage Cholesterol",
-              "value": "cholesterol"},
-              {"name": "Manage Hypertension",
-              "value": "hypertension"}
-    ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Lean Body", "value": "fatShredding" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -5295,6 +5280,7 @@
   {
     "gravid2": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5323,7 +5309,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Plan 2",
@@ -5357,23 +5343,16 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-      {"name": "Weight Loss",
-              "value": "weightLoss"},
-              {"name": "Muscle Building",
-              "value": "muscleGain"},
-              {"name": "Lean Body",
-              "value": "fatShredding"},
-              {"name": "Manage Diabetes",
-              "value": "diabetes"},
-              {"name": "Manage PCOS",
-              "value": "pcos"},
-              {"name": "Manage Cholesterol",
-              "value": "cholesterol"},
-              {"name": "Manage Hypertension",
-              "value": "hypertension"}
-    ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Lean Body", "value": "fatShredding" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -5432,6 +5411,7 @@
   {
     "gravid3": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5460,9 +5440,8 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
-    
         {
           "heading": "Disease Management",
           "label": "Let food be thy medicine ",
@@ -5507,23 +5486,16 @@
           ]
         }
       ],
-     "editGoalForDisplay":[
-      {"name": "Weight Loss",
-              "value": "weightLoss"},
-              {"name": "Muscle Building",
-              "value": "muscleGain"},
-              {"name": "Lean Body",
-              "value": "fatShredding"},
-              {"name": "Manage Diabetes",
-              "value": "diabetes"},
-              {"name": "Manage PCOS",
-              "value": "pcos"},
-              {"name": "Manage Cholesterol",
-              "value": "cholesterol"},
-              {"name": "Manage Hypertension",
-              "value": "hypertension"}
-    ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Lean Body", "value": "fatShredding" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -5582,6 +5554,7 @@
   {
     "originn": {
       "logo": false,
+"isChild":false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -5610,7 +5583,7 @@
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
       "showWhatsApp": false,
-      "dietitianAction":false,
+      "dietitianAction": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -5655,14 +5628,13 @@
               "label": " No more irregular period",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
-            
-              {
-                "name": "Manage Hypertension",
-                "value": "origin_hypertension",
-                "label": "No more high blood pressure",
-                "imgUrl": "../../../assets/newImages/deseasemanagement.png"
-              }
-            ,
+
+            {
+              "name": "Manage Hypertension",
+              "value": "origin_hypertension",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/deseasemanagement.png"
+            },
             {
               "name": "Manage Diabetes",
               "value": "origin_diabetes",
@@ -5678,24 +5650,16 @@
           ]
         }
       ],
-      "editGoalForDisplay":[
-        { "name": "Weight Loss",
-        "value": "origin_weightloss"
-      },
-      { "name": "Muscle Building",
-      "value": "origin_musclebuildingMorning"},
-      {"name": "Lean Body",
-              "value": "origin_leanbodyMorning"},
-              {"name": "Manage Diabetes",
-              "value": "origin_diabetes"},
-              {"name": "Manage Cholesterol",
-              "value": "origin_cholesterol"},
-              {"name": "Manage PCOS",
-              "value": "origin_pcos"},
-              {"name": "Manage Hypertension",
-              "value": "origin_hypertension"}
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "origin_weightloss" },
+        { "name": "Muscle Building", "value": "origin_musclebuildingMorning" },
+        { "name": "Lean Body", "value": "origin_leanbodyMorning" },
+        { "name": "Manage Diabetes", "value": "origin_diabetes" },
+        { "name": "Manage Cholesterol", "value": "origin_cholesterol" },
+        { "name": "Manage PCOS", "value": "origin_pcos" },
+        { "name": "Manage Hypertension", "value": "origin_hypertension" }
       ],
- "deseases": [
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -5754,6 +5718,7 @@
   {
     "nutrabox": {
       "logo": false,
+"isChild":false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5782,7 +5747,7 @@
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
-      "dietitianAction":true,
+      "dietitianAction": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -5846,17 +5811,28 @@
             }
           ]
         }
-       ],
-     "editGoalForDisplay":[
-      { "name": "Weight Loss","value": "nutrabox_weightloss"},
-      { "name": "Muscle Gain Plan Morning", "value": "nutrabox_musclebuildmorning"},
-      {"name": "Muscle Gain Plan Evening ","value": "nutrabox_musclebuildevening"},
-      {"name": "Fats Shredding Plan Morning", "value": "nutrabox_fatshreddingmorning"},
-      {"name": "Fats Shredding Plan Evening","value": "nutrabox_fatshreddingevening"},
-      {"name":"General wellness", "value":"nutrabox_wellness"}
-           
       ],
- "deseases": [
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "nutrabox_weightloss" },
+        {
+          "name": "Muscle Gain Plan Morning",
+          "value": "nutrabox_musclebuildmorning"
+        },
+        {
+          "name": "Muscle Gain Plan Evening ",
+          "value": "nutrabox_musclebuildevening"
+        },
+        {
+          "name": "Fats Shredding Plan Morning",
+          "value": "nutrabox_fatshreddingmorning"
+        },
+        {
+          "name": "Fats Shredding Plan Evening",
+          "value": "nutrabox_fatshreddingevening"
+        },
+        { "name": "General wellness", "value": "nutrabox_wellness" }
+      ],
+      "deseases": [
         {
           "desease": "D",
           "description": [
@@ -5909,6 +5885,192 @@
             "Increase fiber intake"
           ]
         }
+      ]
+    }
+  },
+  {
+    "enkeltec": {
+      "logo": false,
+"isChild":true,
+      "profile1": false,
+      "profile2": true,
+      "consumed_cal": true,
+      "cal_count": true,
+      "download": false,
+      "pie_chart": false,
+      "alternative": true,
+      "video": true,
+      "date_selection1": true,
+      "date_selection2": false,
+      "goal": true,
+      "notes": false,
+      "modifyNotes": false,
+      "caloriesCircle": true,
+      "itemCalories": true,
+      "isBanner": false,
+      "isProfileIcons": false,
+      "isEditProfile": true,
+      "dietComponent": false,
+      "isLogAll": true,
+      "isSearch": false,
+      "isDietitian": false,
+      "inSights": true,
+      "compPhone": "",
+      "headerText": "Welcome to your daily diet plan.",
+      "defaultPlanCheck": false,
+      "companyLogoBase64": "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",
+      "showWhatsApp": false,
+      "dietitianAction": false,
+      "goals": [
+        {
+          "heading": "Weight Management",
+          "label": "Eat up, Heal up",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png",
+          "options": [
+            {
+              "name": "ADHD",
+              "value": "enkeltec_adhd",
+              "label": "Personalised Diet Plan for ADHD",
+              "imgUrl": "../../../assets/img/adhd.png"
+            }
+          ]
+        },
+        {
+          "heading": "Fitness",
+          "label": " Exercise is king, nutrition is Queen",
+          "imgUrl": "../../../assets/img/authism.png",
+          "options": [
+            {
+              "name": "Autism",
+              "value": "enkeltec_autism",
+              "label": "Personalised Diet Plan for Authism",
+              "imgUrl": "../../../assets/img/autism.png"
+            },
+            {
+              "name": "Wellness",
+              "value": "enkeltec_wellness",
+              "label": "Personalised Diet Plan for Wellness",
+              "imgUrl": "../../../assets/img/wellness.png"
+            }
+          ]
+        },
+        {
+          "heading": "Disease Management",
+          "label": "Let food be thy medicine ",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png",
+          "options": []
+        }
+      ],
+      "editGoalForDisplay": [
+        { "name": "ADHD", "value": "enkeltec_adhd" },
+        {
+          "name": "Autism",
+          "value": "enkeltec_autism"
+        },
+        {
+          "name": "Wellness",
+          "value": "enkeltec_wellness"
+        }],
+      "deseases": [
+        {
+          "desease": "D",
+          "description": [
+            "Avoid ragi/ white bread/ jowar",
+            "Eat frequent meals with 2-3 hours of gap",
+            "Add vit B12 rich food in diet ",
+            "Monitor HBA1C , kidney test after 3 months"
+          ]
+        },
+        {
+          "desease": "B",
+          "description": ["Less Salt", "Do not sprinkle salt"]
+        },
+        {
+          "desease": "P",
+          "description": [
+            "Avoid high Glycemic index foods like ragi/ white bread/ white rice",
+            "If you have taken hormonal theraphy in past, please reduce the fat intake"
+          ]
+        },
+        {
+          "desease": "T",
+          "description": [
+            " Avoid soy, brocolli, cabbage and all cruciferous food",
+            "Avoid soy contain breads (white or brown). Please check bread ingredients",
+            "Avoid taking antacids with thyroid medicines ",
+            "Monitor thyroid profile after every 3 months "
+          ]
+        },
+        {
+          "desease": "G",
+          "description": [
+            "Add vitamin B12 rich food in diet ",
+            "Get your iron and vitamin B12 test done after every 6 months",
+            "Avoid gluten for lifetime"
+          ]
+        },
+        {
+          "desease": "ML",
+          "description": [
+            " Say no to milk and milk products but can take curd/ paneer ",
+            "Get your iron and vitamin B12 tests done after every 6 months"
+          ]
+        },
+        {
+          "desease": "A",
+          "description": [
+            " Increase intake of water/ fluids ",
+            "Stop retention of stool or avoid painful evacuation of stool ",
+            "Increase fiber intake"
+          ]
+        }
+      ],
+
+      "activies": [
+        {
+         "calories": 200,
+          "code":"AC1",
+          "data": 1.2,
+          "isSelected":false,
+          "steps": 7500,
+          "sub_val": "Minimal activity; mostly involved in sitting or quiet tasks like reading or screen time.",
+          "val": "Sedentary",
+          "value": "Sedentary",
+          "image": "../../../assets/images/sedentary.png"
+        },
+        {
+          "calories": 300,
+           "code":"AC2",
+           "data": 1.375,
+           "isSelected":false,
+           "steps": 7500,
+           "sub_val": "Occasional light activities such as walking, yoga, or casual play.",
+           "val": "Lightly Active",
+           "value": "Lightly Active",
+           "image": "../../../assets/images/light_active.png"
+         },
+         {
+          "calories": 400,
+           "code":"AC3",
+           "data": 1.55,
+           "isSelected":false,
+           "steps": 10000,
+           "sub_val": "Regular moderate activities like running, cycling, or sports 3–4 times a week.",
+           "val": "Active",
+           "value": "Active",
+           "image": "../../../assets/images/active.png"
+         }, 
+         {
+          "calories": 600,
+           "code":"AC4",
+           "data": 1.7,
+           "isSelected":false,
+           "steps": 10000,
+           "sub_val": "Constantly high energy; engages in intense physical activities or sports multiple times daily.",
+           "val": "Hyperactive",
+           "value": "Hyperactive",
+           "image": "../../../assets/images/hyperactive.png"
+         } 
       ]
     }
   }

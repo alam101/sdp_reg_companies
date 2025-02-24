@@ -1,5 +1,5 @@
 <ion-content>
-  <div class="mainDiv">
+  <div class="mainDiv" [ngStyle]="{'background-color':clientId==='enkeltec'?'#000':null}">
     <div class="slider_div">
       <div class="slider_page">
         <p class="heading_title">
@@ -12,20 +12,20 @@
       <p class="title-text">
         From the information provided, that is our basic analysis.
       </p>
-      <div class="condition_card">
+      <div class="condition_card" >
         <div class="card_div">
           <ion-img *ngIf="clientId != 'aviva'"
             src="../../../../assets/newImages/bmi.png"
             class="card_image"
           ></ion-img>
           <p class="title">Your BMI: {{localData?.otherMaster?.bmi?.bmi}}</p>
-          <p class="sub_title">
+          <p class="sub_title" *ngIf="clientId!=='enkeltec'">
             BMI range of men & women for your age: 18.5 - 25
           </p>
         </div>
       </div>
 
-      <div class="condition_card">
+      <div class="condition_card" *ngIf="clientId!=='enkeltec'">
         <div class="card_div">
           <ion-img *ngIf="clientId != 'aviva'"
             src="../../../../assets/newImages/weight_machine.png"
@@ -35,7 +35,25 @@
             Current Weight: {{localData?.otherMaster?.weight[0]?.value}}
             {{unit}}
           </p>
-          <p class="title">Desired Weight: {{plan.suggestedWeight}}</p>
+          <p class="title" >Desired Weight: {{plan.suggestedWeight}}</p>
+          <p class="sub_title">
+            Target/Ideal weight recommended: : {{suggestedWeightRange-2}}kg - :
+            {{suggestedWeightRange+2}}kg
+          </p>
+        </div>
+      </div>
+
+      <div class="condition_card" *ngIf="clientId!=='enkeltec'">
+        <div class="card_div">
+          <ion-img *ngIf="clientId != 'aviva'"
+            src="../../../../assets/newImages/weight_machine.png"
+            class="card_image"
+          ></ion-img>
+          <p class="title">
+            Current Weight: {{localData?.otherMaster?.weight[0]?.value}}
+            {{unit}}
+          </p>
+          <p class="title" >Desired Weight: {{plan.suggestedWeight}}</p>
           <p class="sub_title">
             Target/Ideal weight recommended: : {{suggestedWeightRange-2}}kg - :
             {{suggestedWeightRange+2}}kg

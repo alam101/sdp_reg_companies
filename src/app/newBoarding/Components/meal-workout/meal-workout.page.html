@@ -1,12 +1,12 @@
 <div style="position: relative" >
-  <ion-skeleton-text
+  <!-- <ion-skeleton-text
     *ngIf="!loaded"
     animated
-    class="sketloan"></ion-skeleton-text>
+    class="sketloan"></ion-skeleton-text> -->
   <ion-card
     *ngIf="loaded && data?.data?.length > 0"
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"
-    [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}">
+    [ngStyle]="{'height':disabled?'100px':'auto','margin-bottom':disabled?'0px':'auto'}" style="margin-top:0">
     <div class="header_div" 
     [style.background]="clientId==='nutrabox'?'rgb(202,63,37)':(index===0?'#E4F3EC':index===1?'#F2E5D8':index===2?'#FBEEFC':index===3?'#E2F0F6':index===4?'#E4F3EC':index===5?'#F2E5D8':index===6?'
     #FBEEFC':index===7?'#E2F0F6':'#E4F3EC')">
@@ -16,7 +16,7 @@
       
         <span *ngIf="data?.data?.length>0 && compConfig.isLogAll">
           <ion-checkbox [checked]="returnIsEaten(data?.data)==='Undo'?true:false" *ngIf="clientId==='nutrabox'" style="position: absolute;
-    right: 16%;
+        right: 50px;
     width: auto;
     height: 14px;    --checkmark-color: #fff;
     --background-checked: green;
@@ -34,9 +34,7 @@
         </span>
       </p>
     </div>
-      <div
-      *ngFor="let d of data?.data.slice(0,disabled?1 :data?.data.length );let i = index"
-    >
+      <div *ngFor="let d of data?.data.slice(0,disabled?1 :data?.data.length );let i = index">
       <div
         class="aditional_div"
         *ngIf="d?.foodStatus === 'A'">
@@ -47,7 +45,17 @@
         [ngStyle]="{'border-bottom': data?.data.length !== i+1 && '1px solid var(--card-border)','padding-top':d?.foodStatus === 'A' && '0%'}"
       >
         <div class="center" (click)="gotoView(d)" style="position: relative;">
-          <ion-thumbnail>
+        
+          <ion-thumbnail style="position: relative;">
+            <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option " 
+            style="color:#fff;position: absolute;     
+               top: -6px;
+            height: .2rem;
+            font-size: .48rem;
+            width: 100%;
+            text-align: center;
+            padding: 3px;
+            white-space: nowrap;"></p>
             <img
               class="card_img"
               src="{{d?.imageUrl}}"
@@ -59,22 +67,29 @@
               *ngIf="d?.foodSource?.toLowerCase() == 'external'"
               src="./assets/newImages/null.jpg"
             />
+            <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option " 
+            style="color:#fff;position: absolute;     
+                bottom: -18px;
+            height: 1rem;
+            font-size: .48rem;
+            width: 100%;
+            text-align: center;
+            padding: 3px;
+            white-space: nowrap;
+             border-top-left-radius: 0;
+    border-top-right-radius: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        ">{{d?.option}} Choice</p>
           </ion-thumbnail>
-          <p [ngClass]="d?.option === 'Below average'?'Fair':d?.option === 'Not recommended'?'Bad':d?.option " 
-          style="color:#fff;position: absolute;     top: 8px;
-          height: 1rem;
-          font-size: .48rem;
-          width: 100%;
-          text-align: center;
-          padding: 3px;
-          white-space: nowrap;
-      ">{{d?.option}} Choice</p>
+        
+    
         </div>
         <ion-grid class="w_100">
           <ion-row style="margin-top: 5px;margin-left: 5px;">
             <ion-col size="10">
               <p class="meal_pro">{{d?.Food}}</p>
-              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}/ {{Math.round(d?.Calories)}} Kcal</p>
+              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}/ {{Math.round(d?.Calories)}} Kcal, {{d?.Protien}} gms Protein</p>
             </ion-col>
 
             <ion-col size="2" class="right" style="align-items: flex-start">

@@ -22,12 +22,12 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     throw new Error("Method not implemented.");
   }
   terms=true;
-  targetYear= new Date().getFullYear()-18;
+  targetYear= new Date().getFullYear()-3;
   poundValue = 0.453592;
   profileData: any;
   gender = "";
-  height: any = 48;
-  minHight = 48;
+  height: any = 30;
+  minHight = 30;
   maxHight = 84;
   heightType = "feet";
   heightTypeForAPI = "";
@@ -37,14 +37,14 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   endDigit = 10;
 
   weightType = "kg";
-  weight: any = 65.0;
-  minWeight: any = 40.0;
+ 
   maxWeight: any = 150.0;
 
-  inputHeight: any = `4'0"`;
-
-  targetweight: any = 40.0;
-  targetminWeight: any = 40.0;
+  inputHeight: any = `2'6"`;
+  weight: any = 20.0;
+  minWeight: any = 20.0;
+  targetweight: any = 20.0;
+  targetminWeight: any = 20.0;
   targetmaxWeight: any = 150.0;
   targetweightType: any = "kg";
 
@@ -59,9 +59,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   clientId: any;
 
 
-  selectedHeight: any = 48; // Default height in inches (5 feet 10 inches)
+  selectedHeight: any = 30; // Default height in inches (5 feet 10 inches)
   displayHeight: string = '';
-
+  compConfig:any;
   constructor(
     private navCtrl: NavController,
     private cdr: ChangeDetectorRef,
@@ -75,14 +75,29 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     private router:Router,
     private activatedRoute:ActivatedRoute
     ) {
+      this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+      console.log("this.compConfig", this.compConfig);
+
+      if(!this.compConfig.isChild){
+        this.weight = 65.0;
+        this.minWeight = 65.0;
+        this.targetweight = 65.0;
+        this.targetYear=new Date().getFullYear()-18;
+        this.inputHeight = `5'6"`;
+        this.height = 66;
+        this.minHight = 48;
+        this.selectedHeight =66;
+      }
     this.clientId=localStorage.getItem('clientId');
     this.activatedRoute.queryParams.subscribe(res=>{
-        this.from = res['from'];
-      })
+      this.from = res['from'];
+    });
       this.calculateHeight(); 
     }
-  
-    ngOnInit() {}
+   
+    ngOnInit() {
+    
+    }
   
     modalClose() {
         this.router.navigate(['new-profile']);
@@ -124,6 +139,15 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   getProfile() {
     this.appService.getProfile().then((res) => {
       console.log(res);
+      if(!this.compConfig.isChild){
+        this.selectedHeight=66;
+       this.inputHeight=`5'6"`;
+        this.calculateDesiredWeight();
+      }
+      else{
+         this.weight=20;
+         this.targetYear=new Date().getFullYear()-3;
+      }
       this.profileData = res;
       this.targetweight = this.profileData?.demographic?.suggestedWeight;
       if(this.profileData?.demographic?.age?.avg_age){
@@ -138,19 +162,19 @@ export class Boarding2Page implements OnInit,AfterViewInit {
             : this.profileData?.demographic?.height?.value;
            this.selectedHeight = this.profileData?.demographic?.height?.value;
             if (this.heightType === "feet") {
-          this.minHight = 48;
-          this.maxHight = 84;
-          this.height = h;
-          h = h.split(".");
-          console.log(h);
-          this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
-          this.heightSplit = h.toString().split(".");
-        } else {
-          this.inputHeight = h;
-          this.height = h;
-          this.minHight = 122;
-          this.maxHight = 213;
-        }
+              this.minHight = 36;
+              this.maxHight = 84;
+              this.height = h;
+              h = h.split(".");
+              console.log(h);
+              this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
+              this.heightSplit = h.toString().split(".");
+            } else {
+              this.inputHeight = h;
+              this.height = h;
+              this.minHight = 91;
+              this.maxHight = 213;
+            }
 
         if (this.profileData?.demographic?.weight) {
           this.weightType =
@@ -164,9 +188,18 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
       }
       else{
-        this.minHight = 48;
+        if(!this.compConfig.isChild){
+          this.selectedHeight=66;
+         this.inputHeight=`5'6"`;
+        this.minHight = 66;
+        }
+        else{
+          this.inputHeight=`4'0"`;
+         this.minHight = 36;
+         this.selectedHeight =48;
+        }
         this.maxHight = 84;
-        this.selectedHeight =48;
+        
         let h = Math.floor(this.selectedHeight / 12)+"."+(this.selectedHeight % 12);
         this.height = h;
  
@@ -174,6 +207,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
         this.heightSplit = h.toString().split(".");
         this.calculateDesiredWeight();
       }
+
+      
+     
     });
   }
 
@@ -186,7 +222,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     console.log("e.detail.value",this.selectedHeight);
     // this.height = parseFloat(e.detail.value).toFixed(1);
     if (this.heightType === "feet") {
-      this.minHight = 48;
+      this.minHight = 36;
       this.maxHight = 84;
       const ht = Math.floor(this.selectedHeight / 12) +"."+ (this.selectedHeight % 12);
       const h = ht.split(".");
@@ -195,7 +231,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     } else {
       this.height = this.selectedHeight;
       this.inputHeight = this.selectedHeight;
-      this.minHight = 122;
+      this.minHight = 91;
       this.maxHight = 213;
     }
     console.log(this.height, this.inputHeight, this.heightType);
@@ -204,14 +240,16 @@ export class Boarding2Page implements OnInit,AfterViewInit {
 
   calculateDesiredWeight() {
 
-    console.log("calculateDesiredWeight called");
-    if (this.heightType === "cm") {
+    console.log("calculateDesiredWeight called",this.selectedHeight);
+    if(!this.compConfig.isChild){
+    if (this.heightType === "cm" ) {
       this.targetweight = Math.ceil(this.selectedHeight - 100);
     } else {
       this.targetweight = Math.ceil(
         (this.selectedHeight * 2.54) - 100
       );
     }
+  }
   }
 
   goBack() {
@@ -237,18 +275,16 @@ targetWeightMessage=false;
       this.utilities.presentToast("Please enter your weight.");
       return;
     }
-    if(this.weight<40){
-      debugger;
+    if(this.weight<20){
       this.weightMessage=true;
       this.cdr.detectChanges();
       return;
     }
-    if (!this.targetweight) {
+    if (!this.targetweight && this.clientId!=='enkeltec') {
       this.utilities.presentToast("Please enter your target weight.");
       return;
     }
-    if(this.targetweight<40){
-      debugger;
+    if(this.targetweight<20 && this.clientId!=='enkeltec'){
       this.targetWeightMessage=true;
       return;
     }
@@ -269,6 +305,7 @@ targetWeightMessage=false;
         value: parseFloat(this.weight),
         ischecked: true,
       },
+      suggestedWeight: this.targetweight,
     };
     if (this.localData?.otherMaster?.height) {
       this.localData.otherMaster.height = [
@@ -306,8 +343,8 @@ targetWeightMessage=false;
       return;
     }
   
-    if (this.targetYear<new Date().getFullYear()-65 || this.targetYear>new Date().getFullYear()-18) {
-      this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-65)+" , max:"+(new Date().getFullYear()-18)+"]");
+    if (this.targetYear<new Date().getFullYear()-65 || this.targetYear>new Date().getFullYear()-3) {
+      this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-65)+" , max:"+(new Date().getFullYear()-3)+"]");
       return;
     }
 
@@ -337,22 +374,6 @@ targetWeightMessage=false;
           }
         );
 
-      
-        // if (this.targetweightType == "kg") {
-        //   if (this.targetweight < 40 || this.targetweight > 150) {
-        //     this.utilities.presentAlert(
-        //       "Please select min weight 40 and max 150 kg."
-        //     );
-        //     return;
-        //   }
-        // } else {
-        //   if (this.targetweight < 88 || this.targetweight > 333) {
-        //     this.utilities.presentAlert(
-        //       "Please select min weight 88 and max 333 pound."
-        //     );
-        //     return;
-        //   }
-        // }
         if (this.from) {
           return this.modalClose();
         }
@@ -375,7 +396,7 @@ targetWeightMessage=false;
 
   gotoDemographic() {
     if (this.targetweightType == "kg") {
-      if (this.targetweight < 40 || this.targetweight > 150) {
+      if (this.targetweight < 20 || this.targetweight > 150) {
         this.targetWeightMessage=true;
         // this.utilities.presentAlert(
         //   "Please select min weight 40 and max 150 kg."
@@ -398,7 +419,6 @@ targetWeightMessage=false;
       }
     }
   }
-
   async openPicker() {
     const picker = await this.pickerCtrl.create({
       animated: true,
@@ -622,7 +642,6 @@ targetWeightMessage=false;
         },
       ],
     });
-
     await picker.present();
   }
 
@@ -646,12 +665,12 @@ targetWeightMessage=false;
   setHeightType(type) {
     let h: any;
     if (type === "cm") {
-      this.minHight = 122;
+      this.minHight = 91;
       this.maxHight = 213;
       this.selectedHeight = (this.selectedHeight * 2.54).toFixed(0);
      
     } else {
-      this.minHight = 48;
+      this.minHight = 36;
       this.maxHight = 84;
       this.selectedHeight = Math.floor(this.selectedHeight * 0.393701);
       
@@ -664,9 +683,10 @@ targetWeightMessage=false;
   }
 
   parseint() {
-    this.minHight = 48;
+    this.minHight = 36;
     this.maxHight = 84;
-    console.log(this.height); 
+
+ 
     return this.heightType === "cm"
       ? parseInt(this.selectedHeight)
       : parseInt(this.selectedHeight);
@@ -675,7 +695,7 @@ targetWeightMessage=false;
   setweightType(type) {
     let w: any;
     if (type == "kg") {
-      this.minWeight = 40.0;
+      this.minWeight = 20.0;
       this.maxWeight = 15.0;
       if (this.weightType === type) {
         w = this.weight;
@@ -683,7 +703,7 @@ targetWeightMessage=false;
         w = this.weight * 0.45;
       }
     } else {
-      this.minWeight = 40.0 / 0.45;
+      this.minWeight = 20.0 / 0.45;
       this.maxWeight = 150 / 0.45;
       if (this.weightType === type) {
         w = this.weight;
@@ -701,15 +721,15 @@ targetWeightMessage=false;
     let tw: any;
 
     if (type == "kg") {
-      this.targetminWeight = 40.0;
-      this.targetmaxWeight = 15.0;
+      this.targetminWeight = 20.0;
+      this.targetmaxWeight = 150.0;
       if (this.targetweightType === type) {
         tw = this.targetweight;
       } else {
         tw = this.targetweight * 0.45;
       }
     } else {
-      this.targetminWeight = 40.0 / 0.45;
+      this.targetminWeight = 20.0 / 0.45;
       this.targetmaxWeight = 150 / 0.45;
       if (this.targetweightType === type) {
         tw = this.targetweight;
@@ -718,7 +738,7 @@ targetWeightMessage=false;
       }
     }
     // this.targetweight = parseFloat(this.targetminWeight).toFixed(1);
-    this.targetweight = parseInt(tw);
+    this.targetweight = Math.abs(parseInt(tw));
     this.targetweightType = type;
   }
 
@@ -776,3 +796,4 @@ targetWeightMessage=false;
     console.log(e.detail.value);
   }
 }
+

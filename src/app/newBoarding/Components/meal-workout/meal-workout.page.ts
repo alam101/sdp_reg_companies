@@ -41,7 +41,7 @@ export class MealWorkoutPage implements OnInit {
   @Output() isdisplayFooter=new EventEmitter<boolean>();
   totalCal: number = 0;
   moment: any = moment;
-  loaded = false;
+  loaded = true;
   parseFloat: any = parseFloat;
   Math: any = Math;
   image_URL = "";
@@ -74,12 +74,10 @@ export class MealWorkoutPage implements OnInit {
   isFuture:any;
   compConfig:any;
   async ngOnInit() {
-  
     if(Number(localStorage.getItem("currentDate"))> new Date().getTime()){
         this.isFuture=true;
     }
-    
-this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+  this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.image_URL = CONSTANTS.image_URL;
     this.customerId = await this.utilities.getUserData("id");
     this.data.data.forEach((elm) => {
@@ -103,9 +101,9 @@ this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
       }
       this.data.slot = this.index;
     });
-    setTimeout(() => {
-      this.loaded = true;
-    }, 300);
+    // setTimeout(() => {
+    //   this.loaded = true;
+    // }, 300);
   }
   senitizedData(videoUrl) {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
