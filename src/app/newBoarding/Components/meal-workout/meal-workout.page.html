@@ -1,8 +1,8 @@
 <div style="position: relative" >
-  <ion-skeleton-text
+  <!-- <ion-skeleton-text
     *ngIf="!loaded"
     animated
-    class="sketloan"></ion-skeleton-text>
+    class="sketloan"></ion-skeleton-text> -->
   <ion-card
     *ngIf="loaded && data?.data?.length > 0"
     [ngClass]="!fullShow && data?.data.length > 2 && 'scroll_y'"

@@ -697,7 +697,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
        this.iab.create(url , '_system');
   }
 
-
+  copyDiet:any;
   getDietdata(date) {
     this.allData = {
       Carbs: 0,
@@ -719,8 +719,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         console.log("alam101",this.diets);
         this.storage.set("dietData", res);
         localStorage.setItem("dtit",JSON.stringify(res));
-         this.diets = JSON.parse(localStorage.getItem("dtit"));
-        this.allData.targetCal = this.diets;
+        this.copyDiet = {...JSON.parse(localStorage.getItem("dtit"))};
+        this.diets = {...this.copyDiet};
         if(this.diets.diets?.length>0){
           this.diets.diets.forEach((ele) => {
             console.log("sssssss:-",ele?.data);          
@@ -757,6 +757,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         
        this.getOnePlanForDefaultDate();
        this.getInstructionData(this.profileData.profile.email);
+     
+       this.allData.targetCal = this.diets;
+     
       });
   }
 

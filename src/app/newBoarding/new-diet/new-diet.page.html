@@ -230,7 +230,7 @@
         ></app-meal-workout>
       <app-meal-workout-c  *ngIf="compConfig.dietComponent"
       [data]="d"
-      [diets]="diets.diets"
+      [diets]="copyDiet"
       [index]="i"
       [selecteddate]="selecteddate"
       [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"

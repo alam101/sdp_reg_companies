@@ -185,6 +185,10 @@ export const APP_ROUTES: Routes = [
     path: 'reward-deal',
     loadChildren: () => import('./reward/reward-deal/reward-deal.module').then( m => m.RewardDealPageModule)
   },
+  {
+    path: 'reward-deal-confirmed',
+    loadChildren: () => import('./reward/reward-deal-confirmed/reward-deal-confirmed.module').then( m => m.RewardDealConfirmedPageModule)
+  },
 ];
 
 @NgModule({})
