@@ -50,8 +50,10 @@ export class Boarding4Page implements OnInit {
       this.navCtrl.navigateRoot(["/boarding3"]);
       }
     }
-  
+    compConfig:any;
   ngOnInit() {
+    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+    console.log("this.compConfig", this.compConfig);
     this.storage.get("localData").then((val) => {
       let data = this.utilities.parseJSON(val);
       console.log(data);
@@ -119,6 +121,7 @@ trayaAllergies=[];
               }
             }
           });
+         
           if (a.length === 0) {
             this.alergyDisabled = true;
           }
@@ -126,6 +129,7 @@ trayaAllergies=[];
             this.healthDisabled = true;
           }
           console.log(this.healths);
+          
           console.log(this.allergies);
         } else {
           this.healths = this.localData.otherMaster.diseases.filter((ele) => {
@@ -151,6 +155,18 @@ trayaAllergies=[];
             this.healthDisabled = true;
           }
         }
+      }
+      if(this.clientId==='enkeltec'){
+        this.healths =  this.healths.filter(item=>{
+          return (
+            item.code === "AN" ||
+            item.code === "CR" ||
+            item.code === "HP" ||
+            item.code === "VD" ||
+            item.code === "VB" ||
+            item.code === "A"
+          );     
+        });
       }
     });
   }
@@ -271,6 +287,7 @@ trayaAllergies=[];
         this.profileData?.lifeStyle?.communities === null
           ? []
           : this.profileData?.lifeStyle?.communities,
+          country: this.profileData?.lifeStyle?.country,
       foodType: this.profileData?.lifeStyle?.foodType,
       firstConsult: localStorage.getItem("clientId")==="orthocure" ? (this.profileData?.lifeStyle?.firstConsult===undefined?false:this.profileData?.lifeStyle?.firstConsult):null,
       consultQA: this.profileData?.lifeStyle?.consultQA===undefined?[]:this.profileData?.lifeStyle?.consultQA,

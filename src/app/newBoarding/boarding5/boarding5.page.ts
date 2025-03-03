@@ -41,6 +41,9 @@ export class Boarding5Page implements OnInit {
     this.storage.get("localData").then((res) => {
       console.log(JSON.parse(res));
       this.localData = JSON.parse(res);
+      this.localData.countries = this.clientId==='enkeltec'? this.localData.countries.filter(item=>{
+        return item._id!=='IND' && item._id!=='EGY' && item._id!=='UAE'
+      }):this.localData.countries;
       this.countryArray = this.localData.countries;
       this.country = this.countryArray[0];
       this.localData?.otherMaster.foodPref.forEach((ele) => {

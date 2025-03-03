@@ -1,6 +1,5 @@
-import { Location } from "@angular/common";
 import { Component, Input, OnInit } from "@angular/core";
-import { ModalController, NavController } from "@ionic/angular";
+import { NavController } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import { UTILITIES } from "src/app/core/utility/utilities";
@@ -20,10 +19,8 @@ export class Boarding3Page implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private location: Location,
     private storage: Storage,
     private utilities: UTILITIES,
-    private modalCtrl: ModalController,
     private appService: AppService,
     private router:Router,
     private activatedRoute:ActivatedRoute
@@ -36,21 +33,16 @@ export class Boarding3Page implements OnInit {
     modalClose() {
         this.router.navigate(['new-profile']);
      }
-   
+  compConfig:any;
   newModal = "";
   ngOnInit() {
+    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+    console.log("this.compConfig", this.compConfig);
     this.clientId = localStorage.getItem('clientId');
     this.storage.get("localData").then((val) => {
       this.localData = this.utilities.parseJSON(val);
       console.log("Local data ", this.localData);
       this.getProfile();
-      // this.localData.otherMaster.wakeup.data.find(
-      //   (o) => o.code == "W5"
-      // ).isSelected = true;
-      // this.localData.otherMaster.leaveForOffice.find(
-      //   (o) => o.code == "LFO3"
-      // ).isSelected = true;
-      
     });
   }
  
@@ -85,7 +77,8 @@ export class Boarding3Page implements OnInit {
       console.log(res);
       this.profileData = res;
       this.localData.otherMaster.bmi.bmi= this.profileData?.demographic?.bmi;
-            this.localData?.otherMaster?.activities.forEach((ele) => {
+      if(!this.compConfig.isChild){
+        this.localData?.otherMaster?.activities.forEach((ele) => {
         ele.val = ele.value.split("(")[0];
         ele.sub_val = ele.value.split("(")[1].replace(")", "");
         if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
@@ -94,11 +87,24 @@ export class Boarding3Page implements OnInit {
           localStorage.setItem("activities",JSON.stringify(ele));
         }
       });
+     }
+     else{
+      this.compConfig.activies.forEach((ele) => {
+        ele.val = ele.value.split("(")[0];
+        ele.sub_val = ele.value.split("(")[1].replace(")", "");
+        if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
+          ele.isSelected = true;
+          this.newModal = ele.val;
+          localStorage.setItem("activities",JSON.stringify(ele));
+        }
+      });
+     }
     });
   }
 
   selectActivity(e) {
     console.log(e);
+  if(this.clientId!=='enkeltec'){
     this.localData?.otherMaster?.activities.forEach((ele) => {
       if (ele.val === e.detail.value) {
         ele.isSelected = true;
@@ -108,20 +114,40 @@ export class Boarding3Page implements OnInit {
         ele.isSelected = false;
       }
     });
+     }
+     else{
+      this.compConfig?.activies?.forEach((ele) => {
+        if (ele.val === e.detail.value) {
+          ele.isSelected = true;
+          this.selectedValue = ele;
+         localStorage.setItem("activities",JSON.stringify(this.selectedValue));
+        } else {
+          ele.isSelected = false;
+        }
+      });
+     }
   }
 
   goNext() {
-    const data = this.localData.otherMaster?.activities.find(
+    let data;
+    if(this.clientId!=='enkeltec'){
+     data = this.localData.otherMaster?.activities.find(
       (s) => s.isSelected
     );
+    }
+    else{
+      data = this.compConfig?.activies?.find(
+        (s) => s.isSelected
+      );
+    }
     if (!data) {
       this.utilities.presentToast("Please select your activity level.");
       return;
     }
     if (typeof this.localData.otherMaster !== undefined)
       this.storage.set("localData", JSON.stringify(this.localData));
-
     const reqBody = {
+     
       activities: {
         code: this.selectedValue.code,
         data: this.selectedValue.data,
@@ -139,6 +165,7 @@ export class Boarding3Page implements OnInit {
         this.profileData?.lifeStyle?.communities === null
           ? []
           : this.profileData?.lifeStyle?.communities,
+        country: this.profileData?.lifeStyle?.country,
           
       // foodType: this.profileData?.lifeStyle?.foodType,
       //};

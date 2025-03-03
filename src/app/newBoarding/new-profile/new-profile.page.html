@@ -136,7 +136,7 @@
                     <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/bmi1.png" class="card_image"></ion-img>
                     <p class="title">Current BMI:</p>
                     <p class="main_title">{{profileData?.demographic?.bmi}}</p>
-                    <p class="sub_title">Range 18.5-25 (Recommended)</p>
+                    <p class="sub_title" *ngIf="clientId!=='enkeltec'">Range 18.5-25 (Recommended)</p>
                   </div>
                 </div>
               </ion-col>
@@ -158,7 +158,7 @@
           </ion-grid>
         </div>
 
-        <div class="condition_card" style="margin-top: 20px">
+        <div class="condition_card" style="margin-top: 20px" *ngIf="clientId!=='enkeltec'">
           <div class="card_div">
             <ion-img *ngIf="compConfig.isProfileIcons==false" src="../../../../assets/newImages/weight_machine.png" class="card_image"></ion-img>
             <ion-img *ngIf="compConfig.isProfileIcons!=false" src="../../../../assets/icons/weights1.png" class="card_image"></ion-img>
@@ -380,12 +380,14 @@
               *ngFor="let c of profileData?.lifeStyle?.communities"> 
               {{c?.value}}</span> -->
               <br><br>
-             Communities: <br>
+           <span *ngIf="profileData?.lifeStyle?.country?.name==='India'">
+              Communities: <br>
               <span>
                 {{
                   communitiesArr?.join(',')
                 }}
               </span>
+            </span>
           </p>
         
         </div>
