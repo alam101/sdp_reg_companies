@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>search-auto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-row style="margin:3rem 1rem;">
+      <ion-col size="12" class="ion-text-left">
+      <div  class="search-auto"> 
+        <ion-icon name="search" style="margin-right:1rem;"></ion-icon>
+       <ion-input  [(ngModel)]="searchValue"  placeholder="Search for Food" style="font-size: .8rem;"
+       (input)="searchAllApiData(searchValue,1)"></ion-input>
+      </div> 
+      </ion-col>
+    </ion-row>
+  </div>
+ <ion-card style="margin: 0; box-shadow:none;">
+  <ion-item *ngFor="let item of searchData; let ind=index;" no-padding no-lines style="--border-color:#fff; height: 56px;">
+    <ion-label slot="start" style="font-size:.8rem;font-weight:400;line-height: 1.8;">
+      <span>{{item.name}}</span><br>
+      <span style="color:#b4b4b4;">{{item.portion}} {{item.measuring_unit}}</span>
+    </ion-label>
+    <div slot="end" style="    vertical-align: middle;
+    display: inherit;">
+  <ion-button class="btn" style="--background: #FFC224;
+    color: #fff;
+    width: 120px;
+    padding: 0 .1rem;" shape="round">
+    <span style="font-size:1rem;">{{item.Cal}} Kcal</span>
+  </ion-button>
+    <ion-icon name="add" style="color:var(--theme-color);margin-left:.5rem;font-size:1.1rem;"
+    (click)="addCal(item)"></ion-icon>
+  </div>
+  </ion-item>
+
+ </ion-card> 
+</ion-content>

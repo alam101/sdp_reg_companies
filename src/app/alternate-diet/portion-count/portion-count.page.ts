@@ -27,7 +27,7 @@ import { ViewProductPage } from "../../view-product/view-product.page";
 export class PortionCountPage implements OnInit {
   @Input() data: any = {};
   @Input() alterdata: any = {};
-  @Input() type = "";
+  @Input() type = "add";
   @Input() plan = false;
   @Output() getDietdata = new EventEmitter();
   itemCode: any = "";
@@ -49,7 +49,7 @@ export class PortionCountPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("PPPPPPPPPPPPPPP");
+    console.log("PPPPPPPPPPPPPPP", this.type);
     this.data = _.cloneDeep(this.alterdata);
     console.log("Portion Count Page line no 38", this.data);
     console.log("Portion Count Page line no 38", this.data.slot);

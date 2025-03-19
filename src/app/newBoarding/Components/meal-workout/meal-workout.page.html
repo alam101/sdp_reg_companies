@@ -80,6 +80,7 @@
     border-top-right-radius: 0;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
+            left: 0;
         ">{{d?.option}} Choice</p>
           </ion-thumbnail>
         
@@ -350,7 +351,7 @@ Logged
 </ion-row>
 </fieldset>
 <br>
-<fieldset *ngIf="instructionsArray?.length>1" style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
+<fieldset *ngIf="instructionsArray?.length>0" style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
   <legend style="color:var(--theme-color);font-size: 1.1rem;font-weight: 600;">Instructions</legend>
 <ion-row style="margin-top: .5rem;">
   <ion-col class="ion-text-left">
@@ -359,7 +360,8 @@ Logged
     <span style="font-size: .75rem;color:#7C7C7C" *ngIf="popup?.steps!=undefined">
       <div style="width: 100% ;border:none;">
         <div class="container">
-          <div [ngClass]="{'milestone':(instructionsArray?.length-1)>index,'milestone1':(instructionsArray?.length-1)===index}" *ngFor="let step of instructionsArray; let index=index;">
+          <div [ngClass]="{'milestone':(instructionsArray?.length-1)>index,'milestone1':(instructionsArray?.length-1)===index}" 
+            *ngFor="let step of instructionsArray; let index=index;">
             <div class="step">{{index+1}}</div>
             <div class="content">
               <div class="date">{{step}}</div>

@@ -370,7 +370,6 @@ addRemove(type) {
    .replace("Step 15","15.")
    .replace("Step 16","16.").split(/\d+\./).filter(item => item.trim() !== '');
     this.isShow=true;
-    
   }
 
   logSlot(d,index){ 

@@ -594,7 +594,12 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       localStorage.setItem("company_id","wellbeing");
       this.downloadPdfFromApi();
      }
-     else{
+     if(this.clientId==='redcliffe'){
+      this.isdoenloadclicked=true;
+      localStorage.setItem("company_id","REDCLIFFE");
+      this.downloadPdfFromApi();
+     }
+     else {
       this.isdoenloadclicked=true;
       
       this.downloadPdfFromApi();

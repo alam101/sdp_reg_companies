@@ -7,13 +7,13 @@ import {
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { Storage } from "@ionic/storage";
 import { CONSTANTS } from "src/app/core/constants/constants";
-import moment from "moment";
 import { AppService } from "src/app/app.service";
 import { SelectslotPopupPage } from "../selectslot-popup/selectslot-popup.page";
-import { Router } from "@angular/router";
 import { ViewProductPage } from "../view-product/view-product.page";
 import { PortionCountPage } from "../alternate-diet/portion-count/portion-count.page";
 import { ViewSuggestionsPage } from "../view-suggestions/view-suggestions.page";
+import { Subject } from "rxjs";
+import { debounceTime } from "rxjs/operators";
 
 @Component({
   selector: "app-search",
@@ -21,6 +21,7 @@ import { ViewSuggestionsPage } from "../view-suggestions/view-suggestions.page";
   styleUrls: ["./search.page.scss"],
 })
 export class SearchPage implements OnInit {
+  private searchSubject = new Subject<string>();
   alternativeData: any;
   isDetox = false;
   dietPlan;
@@ -59,16 +60,23 @@ export class SearchPage implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
-    private popCtrl: PopoverController,
-    private storage: Storage,
     private utilities: UTILITIES,
     private appService: AppService,
     private navCtrl: NavController,
-    private router: Router
-  ) {
+   ) {
     this.dataInitList();
+    this.searchSubject
+    .pipe(debounceTime(3000)) // Wait 3 seconds after last input
+    .subscribe((searchText) => {
+      this.searchAutoAllApiData(searchText,0);
+    });
+  }
+  onSearch(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.searchSubject.next(inputValue); // Emit the latest value
   }
 
+  
   ngOnInit() {
     this.utilities.logEvent("onboarding_Tracker_search", {});
   }
@@ -290,6 +298,32 @@ tempData2=[];
 show2=true;
 tempData3=[];
 show3=true;
+
+searchData:any=[];
+
+searchAutoAllApiData(searchValue,index){
+  this.loaded=false;
+  if(searchValue.length>2){
+
+    this.appService.searchAuto(searchValue).subscribe((res:any)=>{
+      this.searchData=res["data"];
+      if(this.searchData?.length>0){
+        this.loaded=true;
+      this.isSearchedItems = true;
+      }
+      console.log("this.searchData",this.searchData);
+      
+  },err=>{
+    console.log("err",err);
+    
+  })
+  setTimeout(() => {
+    this.loaded=true;
+  }, 5000);
+}
+  
+}
+
   searchAllApiData(evt: any, pag: number) {
     if ( pag === 1) {
       this.expandH = false;

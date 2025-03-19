@@ -13,6 +13,7 @@ import { PortionCountPageModule } from "../alternate-diet/portion-count/portion-
 import { ViewSuggestionsPageModule } from "../view-suggestions/view-suggestions.module";
 import { ViewRestaurantPageModule } from "../view-restaurant/view-restaurant.module";
 import { FilterCardPageModule } from "../components/filter-card/filter-card.module";
+import { SearchAutoPageModule } from "../search-auto/search-auto.module";
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { FilterCardPageModule } from "../components/filter-card/filter-card.modu
     PortionCountPageModule,
     ViewSuggestionsPageModule,
     ViewRestaurantPageModule,
-    FilterCardPageModule
+    FilterCardPageModule,
+    SearchAutoPageModule
     ],
   declarations: [SearchPage],
 })

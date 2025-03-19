@@ -296,4 +296,42 @@ ion-thumbnail {
   min-height: 30px;
 }
 
+.search-auto{
+  .search-auto{
+    border-radius: 10px;
+    background: #f3f3f3;
+    display: flex; 
+    align-items:center;
+    padding:.2rem 1rem;
+}
 
+.item-inner:ng-deep{
+    border-color:#fff;
+}
+.Best {
+  --background: #38a534;
+ 
+}
+.Good {
+  --background: #94ea0a;
+ 
+}
+.Average {
+  --background: #f1c231;
+ 
+}
+.Fair {
+  --background: #e59137;
+ 
+}
+.Unverified {
+  --background: #7d7d7d5e;
+  
+}
+
+.sketloan {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+}
+}
