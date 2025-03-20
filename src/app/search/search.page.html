@@ -9,18 +9,18 @@ name="close-circle"
  
   <div>
     <ion-row style="margin-top: 3rem;">
-      <ion-col size="10" class="ion-text-left" style="border: 1px solid #b3b3b3;padding-left: .5rem;
+      <ion-col size="11" class="ion-text-left" style="border: 1px solid #b3b3b3;padding-left: .5rem;
       border-radius: 1rem;">
           <ion-input  class="sc-ion-input-ios" 
-          [(ngModel)]="searchValue"  (input)="searchAutoAllApiData(searchValue,0)"
+          [(ngModel)]="searchValue"  (input)="searchAutoAllApiDataOptional($event)"
           placeholder="Search for Food" style="font-size: .8rem;"></ion-input>
       </ion-col>
-      <ion-col size="2" class="ion-text-left">
-        <ion-icon name="search" (click)="searchAllApiData(searchValue,1)" style="position: absolute;
+      <ion-col size="1" class="ion-text-left">
+        <!-- <ion-icon name="search" (click)="searchAllApiData(searchValue,1)" style="position: absolute;
         top: 15%;
         left: .5rem;
         font-size: 2rem;
-        color: var(--theme-color);"></ion-icon>
+        color: var(--theme-color);"></ion-icon> -->
       </ion-col>
     </ion-row>
    
@@ -59,9 +59,9 @@ name="close-circle"
     <ion-grid class="pad_0" *ngIf="isSearchedItems">
       <div *ngIf="!loaded">
         <ion-row *ngFor="let item of [1,2,3,4,5,6,7,8,9]">
-          <ion-col size="5.5">  <ion-skeleton-text *ngIf="!loaded" animated class="sketloan"></ion-skeleton-text></ion-col>
+          <ion-col size="5.5">  <ion-skeleton-text *ngIf="!loaded" animated class="sketloan" style="height: 40px;"></ion-skeleton-text></ion-col>
           <ion-col size="1"></ion-col>
-          <ion-col size="5.5">  <ion-skeleton-text *ngIf="!loaded" animated class="sketloan"></ion-skeleton-text></ion-col>
+          <ion-col size="5.5">  <ion-skeleton-text *ngIf="!loaded" animated class="sketloan" style="height: 40px;"></ion-skeleton-text></ion-col>
         </ion-row> 
        
     
@@ -71,8 +71,14 @@ name="close-circle"
         <ion-card style="margin: 0; box-shadow:none;width:98%;">
           <ion-item *ngFor="let item of searchData; let ind=index;" no-lines style="--border-color:#fff; height: 56px;">
             <ion-label slot="start" style="font-size:.8rem;font-weight:400;line-height: 1.2;white-space:normal;flex: 0 0 60%;">
-              <span>{{item.Food}}</span><br>
-              <span style="color:#b4b4b4;">{{item.portion?.toFixed(0)}} {{item.portion_unit}}</span>
+              <span style="font-size: var(--small-font);
+                            font-family: var(--font-medium);
+                            font-weight: 500;
+                            color: #666666;">{{item.Food}}</span><br>
+              <span style="    font-size: var(--small-font);
+    font-family: var(--theme-newFont);
+    font-weight: 300;
+    color: #666666;">{{item.portion?.toFixed(0)}} {{item.portion_unit}}</span>
             </ion-label>
             <div slot="end" style="    vertical-align: middle;display: inherit;">
               <ion-button class="btn" style="
@@ -81,7 +87,7 @@ name="close-circle"
             height:23px;margin-right: 1.5rem;--box-shadow: none;" 
             [ngClass]="item?.diabetesPCOSScore == '9' ? 'Best' : item?.diabetesPCOSScore == '6' ? 'Good' :item?.diabetesPCOSScore == '3' ? 'Average': item?.diabetesPCOSScore == '1' ? 'Fair' :'Unverified'"
             shape="round"><span style="font-size:.7rem;text-transform:capitalize;">{{item.Calories?.toFixed(0)}} Kcal</span></ion-button>
-            <ion-icon name="add-outline" style="color:var(--theme-color);margin-left:.5rem;font-size:1.1rem;right: 0;
+            <ion-icon name="add-outline" style="color:var(--theme-color);margin-left:1rem;font-size:1.1rem;right: 0;
             position: absolute;border: 1px solid;
             border-radius: 5px;border:1px solid; border-radius:5px;"
             (click)="addCal(item)"></ion-icon>

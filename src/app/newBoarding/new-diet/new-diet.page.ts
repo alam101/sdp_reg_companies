@@ -610,6 +610,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   percentwithPer='0%';
   iscloseInterval;
   startInterval(){
+    clearInterval(this.iscloseInterval);
    this.iscloseInterval =  setInterval(() => {
     if(this.percent%2===0){
       this.percent = Number(Number(this.percent)+3);
@@ -623,8 +624,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       }
     }, 1000);
   }
-  downloadPdfFromApi(){
-    this.startInterval()
+  downloadPdfFromApi(){ 
+    this.percent=0.0;
+  this.percentwithPer='0%';
+    this.startInterval();
   //  this.utilities.showLdr();
     this.appServices.downloadPdfFromApi(localStorage.getItem("tkn"),7,
     moment(this.selecteddate).format("DDMMYYYY").trim(),

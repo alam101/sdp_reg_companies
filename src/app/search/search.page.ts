@@ -68,7 +68,7 @@ export class SearchPage implements OnInit {
     this.searchSubject
     .pipe(debounceTime(3000)) // Wait 3 seconds after last input
     .subscribe((searchText) => {
-      this.searchAutoAllApiData(searchText,0);
+      this.searchAutoAllApiData(searchText);
     });
   }
   onSearch(event: Event): void {
@@ -301,11 +301,13 @@ show3=true;
 
 searchData:any=[];
 
-searchAutoAllApiData(searchValue,index){
+searchAutoAllApiData(searchValue){
   this.loaded=false;
-  if(searchValue.length>2){
-
-    this.appService.searchAuto(searchValue).subscribe((res:any)=>{
+  const inputValue = (searchValue.target as HTMLInputElement).value;
+  console.log(inputValue, inputValue);
+  
+  if(inputValue?.length>2){
+    this.appService.searchAuto(inputValue).subscribe((res:any)=>{
       this.searchData=res["data"];
       if(this.searchData?.length>0){
         this.loaded=true;
@@ -316,15 +318,66 @@ searchAutoAllApiData(searchValue,index){
   },err=>{
     console.log("err",err);
     
-  })
-  setTimeout(() => {
-    this.loaded=true;
-  }, 5000);
+  });
 }
+setTimeout(() => {
+  this.loaded=true;
+}, 2000);
   
 }
 
+searchAutoAllApiDataOptional(searchValue){
+  this.loaded=false;
+  const inputValue = (searchValue.target as HTMLInputElement).value;
+  console.log(inputValue, inputValue);
+  
+  if(inputValue?.length>2){
+    // this.appService.searchAuto(inputValue).subscribe((res:any)=>{
+    //   this.searchData=res["data"];
+    //   if(this.searchData?.length>0){
+    //     this.loaded=true;
+    //   this.isSearchedItems = true;
+    //   }
+    //   console.log("this.searchData",this.searchData);
+    //{
+      this.appService.getAllRestaurantbyName(inputValue,1).then((res: any) => {
+        console.log("res",res);
+        
+        if (res.code === "0000") {
+          this.isSearchedItems = true;
+          if (
+            this.allSearchData?.packaged?.length ||
+            this.allSearchData?.restaurant?.length ||
+            this.allSearchData?.homeBased?.length
+          ) {
+            this.allSearchData.packaged = this.allSearchData.packaged.concat(
+              res.packaged
+            )
+            this.allSearchData.restaurant = this.allSearchData.restaurant.concat(
+              res.restaurant
+            );
+            this.allSearchData.homeBased = this.allSearchData.homeBased.concat(
+              res.homeBased
+            );
+          } else {
+            this.allSearchData = res;
+          }
+
+          this.searchData = res["homeBased"].concat(res["packaged"]).concat(res["restaurant"]);
+          console.log("this.allSearchData", this.searchData);
+          
+    
+        }
+       
+      });
+    }
+    setTimeout(() => {
+      this.loaded=true;
+    }, 2000);
+  
+}
   searchAllApiData(evt: any, pag: number) {
+    this.isSearchedItems=false;
     if ( pag === 1) {
       this.expandH = false;
       this.expandP = false;
@@ -518,8 +571,7 @@ searchAutoAllApiData(searchValue,index){
               code: d._id,
               portion: Number(d.portion),
               eaten: 2,
-
-              foodSource: d.foodSource,
+             foodSource: d.foodSource,
             },
           ],
           slot: Number(this.slot),
@@ -528,6 +580,9 @@ searchAutoAllApiData(searchValue,index){
         console.log("datas", datas);
         datas["foodSource"] =
           datas["foodSource"] === "external" ? "P" : datas["foodSource"];
+          if(datas.foodCodeList[0].foodSource!='P'){
+            delete datas.foodCodeList[0].foodSource;   
+          }
         // this.appService.updateDietPlan(datas).then(
     //    //
         this.appService.postOptionFoodList1(datas).then(
@@ -584,7 +639,6 @@ searchAutoAllApiData(searchValue,index){
               code: d._id,
               portion: Number(d.portion),
               eaten: 2,
-
               foodSource: d.foodSource,
             },
           ],
@@ -595,8 +649,10 @@ searchAutoAllApiData(searchValue,index){
         datas.foodCodeList[0].foodSource =
           datas.foodCodeList[0].foodSource === "external"
             ? "P"
-            : datas.foodCodeList[0].foodSource;
-
+            :"";
+            if(datas.foodCodeList[0].foodSource!='P'){
+                delete datas.foodCodeList[0].foodSource;   
+            }
         this.appService.postOptionFoodList1(datas).then(
           (res) => {
             console.log("food code update", res);
