@@ -106,6 +106,10 @@ export const APP_ROUTES: Routes = [
     loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
   {
+    path: 'search-auto',
+    loadChildren: () => import('./search-auto/search-auto.module').then( m => m.SearchAutoPageModule)
+  },
+  {
     path: 'selectslot-popup',
     loadChildren: () => import('./selectslot-popup/selectslot-popup.module').then( m => m.SelectslotPopupPageModule)
   },

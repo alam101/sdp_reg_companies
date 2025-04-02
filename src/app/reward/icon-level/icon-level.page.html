@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card class="coins-card" [ngClass]="{'level1':itemIndex===1,'level2':itemIndex===2,'level3':itemIndex===3,'level4':itemIndex===4}">
+  <ion-card class="coins-card" [ngClass]="{'level1':activeHeaderIndex===1,'level2':activeHeaderIndex===2,'level3':activeHeaderIndex===3,'level4':activeHeaderIndex===4}">
     <ion-grid>
       <ion-row>
         <ion-col size="8" class="my-coins-title">My Coins</ion-col>
@@ -22,7 +22,7 @@
     right: 0;">
     <span style="position: relative;
     top: -10px;
-    left: -5px;">234 </span>
+    left: -5px;">{{transactionData?.points}} </span>
           <img src="./assets/reward/doller.png" style="    position: relative;top: -3px;">
         </div> 
         </ion-col>
@@ -30,7 +30,7 @@
     </ion-grid>
 
     <div class="level-info">
-      <div class="level-title" style="float: left;">Level 2</div>
+      <div class="level-title" style="float: left;">Level {{levelData?.level}}</div>
       <div style="float: right;    margin-top: .2rem;">Your Daily Target <ion-icon name="bullseye-outline"></ion-icon></div>
       <div class="level-progress">
         <div style="color:#000;float:left;
@@ -48,16 +48,16 @@
     <div class="levels-title">Levels</div>
     <div class="levels">
       <div class="sub-level">
-      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===1}" (click)="itemClicked(1)">1</div>
-      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===2}" (click)="itemClicked(2)">2</div>
-      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===3}" (click)="itemClicked(3)">3</div>
-      <div class="level-item level2" [ngClass]="{'active-level2':itemIndex===4}" (click)="itemClicked(4)">4</div>
-      <div class="level-item level2" [ngClass]="{'active-level2':itemIndex===5}" (click)="itemClicked(5)">5</div>
-      <div class="level-item level2"  [ngClass]="{'active-level2':itemIndex===6}" (click)="itemClicked(6)">6</div>
-      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===7}" (click)="itemClicked(7)">7</div>
-      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===8}" (click)="itemClicked(8)">8</div>
-      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===9}" (click)="itemClicked(9)">9</div>
-      <div class="level-item level4" [ngClass]="{'active-level4':itemIndex===10}" (click)="itemClicked(10)">10</div>
+      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===1}" >1</div>
+      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===2}">2</div>
+      <div class="level-item level1" [ngClass]="{'active-level1':itemIndex===3}" >3</div>
+      <div class="level-item level2" [ngClass]="{'active-level2':itemIndex===4}">4</div>
+      <div class="level-item level2" [ngClass]="{'active-level2':itemIndex===5}" >5</div>
+      <div class="level-item level2"  [ngClass]="{'active-level2':itemIndex===6}" >6</div>
+      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===7}" >7</div>
+      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===8}" >8</div>
+      <div class="level-item level3" [ngClass]="{'active-level3':itemIndex===9}" >9</div>
+      <div class="level-item level4" [ngClass]="{'active-level4':itemIndex===10}">10</div>
       </div>
     </div>
   </div>

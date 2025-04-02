@@ -1,22 +1,25 @@
 <!-- --------------------------add modal------------------------------------- -->
-
-<ion-content *ngIf="type === 'add'">
+   <!-- --{{type}}-- -->
+<ion-content *ngIf="type == 'add'">
   <div class="center flex_col portion_count_maindiv">
     <ion-icon
       class="close_icon"
       name="close-circle"
       (click)="closeModal()"
     ></ion-icon>
-  
-    <p class="meal_pro">{{data?.Food}}</p>
+    <p class="meal_pro">{{data?.Food===undefined?data?.name:data?.Food}}</p>
     <div class="center" style="margin-left: 55px">
       <div class="add_remove_btn center">
         <ion-icon name="remove" (click)="addRemove('remove')"></ion-icon>
         <p>{{data?.portion}}</p>
         <ion-icon name="add" (click)="addRemove('add')"></ion-icon>
       </div>
-      <p class="portion" *ngIf="data.foodSource=='R' || data.foodSource=='P'">{{data?.portion_unit}} ({{data.portion_gms}} {{data.measuring_unit}})</p>
-      <p class="portion" *ngIf="data.foodSource!=='R' && data.foodSource!=='P'">{{data?.portion_unit}}</p>
+      <p class="portion" *ngIf="data.foodSource=='R' || data.foodSource=='P'">
+        {{data?.portion_unit}} ({{data.portion_gms}} {{data.measuring_unit}})
+      </p>
+      <p class="portion" *ngIf="data.foodSource!=='R' && data.foodSource!=='P'">
+        {{data?.portion_unit}}
+      </p>
     </div>
     <p class="meal_pro">{{(data?.Calories * data?.portion)?.toFixed(2) }} Kcal</p>
     <div class="w_100 center log_btn_div">

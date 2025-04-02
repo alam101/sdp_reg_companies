@@ -8,7 +8,8 @@ export const APIS = {
     BASEURL8445: "https://app.smartdietplanner.com:8445/",
   BASEURL8444: "https://app.smartdietplanner.com:8444/",
   refreshBaseUrl: "https://app.smartdietplanner.com:8443/api/",
-  WP_BASEURL:"https://smartdietplanner.com/wp-json/wp/v2/posts",
+  WP_BASEURL:"https://smartdietplanner.com/wp-json/wp/v2/posts"
+
 }
 
 export const API = {
@@ -99,4 +100,5 @@ export const API = {
     saveFasting:"saveFasting",
     getFasting:"getFasting",
     verifyClientUser: "phone/validateMobile/"
+
 }

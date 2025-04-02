@@ -7,13 +7,13 @@ import {
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { Storage } from "@ionic/storage";
 import { CONSTANTS } from "src/app/core/constants/constants";
-import moment from "moment";
 import { AppService } from "src/app/app.service";
 import { SelectslotPopupPage } from "../selectslot-popup/selectslot-popup.page";
-import { Router } from "@angular/router";
 import { ViewProductPage } from "../view-product/view-product.page";
 import { PortionCountPage } from "../alternate-diet/portion-count/portion-count.page";
 import { ViewSuggestionsPage } from "../view-suggestions/view-suggestions.page";
+import { Subject } from "rxjs";
+import { debounceTime } from "rxjs/operators";
 
 @Component({
   selector: "app-search",
@@ -21,6 +21,7 @@ import { ViewSuggestionsPage } from "../view-suggestions/view-suggestions.page";
   styleUrls: ["./search.page.scss"],
 })
 export class SearchPage implements OnInit {
+  private searchSubject = new Subject<string>();
   alternativeData: any;
   isDetox = false;
   dietPlan;
@@ -59,16 +60,23 @@ export class SearchPage implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
-    private popCtrl: PopoverController,
-    private storage: Storage,
     private utilities: UTILITIES,
     private appService: AppService,
     private navCtrl: NavController,
-    private router: Router
-  ) {
+   ) {
     this.dataInitList();
+    this.searchSubject
+    .pipe(debounceTime(3000)) // Wait 3 seconds after last input
+    .subscribe((searchText) => {
+      this.searchAutoAllApiData(searchText);
+    });
+  }
+  onSearch(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.searchSubject.next(inputValue); // Emit the latest value
   }
 
+  
   ngOnInit() {
     this.utilities.logEvent("onboarding_Tracker_search", {});
   }
@@ -290,7 +298,86 @@ tempData2=[];
 show2=true;
 tempData3=[];
 show3=true;
+
+searchData:any=[];
+
+searchAutoAllApiData(searchValue){
+  this.loaded=false;
+  const inputValue = (searchValue.target as HTMLInputElement).value;
+  console.log(inputValue, inputValue);
+  
+  if(inputValue?.length>2){
+    this.appService.searchAuto(inputValue).subscribe((res:any)=>{
+      this.searchData=res["data"];
+      if(this.searchData?.length>0){
+        this.loaded=true;
+      this.isSearchedItems = true;
+      }
+      console.log("this.searchData",this.searchData);
+      
+  },err=>{
+    console.log("err",err);
+    
+  });
+}
+setTimeout(() => {
+  this.loaded=true;
+}, 2000);
+  
+}
+
+searchAutoAllApiDataOptional(searchValue){
+  this.loaded=false;
+  const inputValue = (searchValue.target as HTMLInputElement).value;
+  console.log(inputValue, inputValue);
+  
+  if(inputValue?.length>2){
+    // this.appService.searchAuto(inputValue).subscribe((res:any)=>{
+    //   this.searchData=res["data"];
+    //   if(this.searchData?.length>0){
+    //     this.loaded=true;
+    //   this.isSearchedItems = true;
+    //   }
+    //   console.log("this.searchData",this.searchData);
+    //{
+      this.appService.getAllRestaurantbyName(inputValue,1).then((res: any) => {
+        console.log("res",res);
+        
+        if (res.code === "0000") {
+          this.isSearchedItems = true;
+          if (
+            this.allSearchData?.packaged?.length ||
+            this.allSearchData?.restaurant?.length ||
+            this.allSearchData?.homeBased?.length
+          ) {
+            this.allSearchData.packaged = this.allSearchData.packaged.concat(
+              res.packaged
+            )
+            this.allSearchData.restaurant = this.allSearchData.restaurant.concat(
+              res.restaurant
+            );
+            this.allSearchData.homeBased = this.allSearchData.homeBased.concat(
+              res.homeBased
+            );
+          } else {
+            this.allSearchData = res;
+          }
+
+          this.searchData = res["homeBased"].concat(res["packaged"]).concat(res["restaurant"]);
+          console.log("this.allSearchData", this.searchData);
+          
+    
+        }
+       
+      });
+    }
+    setTimeout(() => {
+      this.loaded=true;
+    }, 2000);
+  
+}
   searchAllApiData(evt: any, pag: number) {
+    this.isSearchedItems=false;
     if ( pag === 1) {
       this.expandH = false;
       this.expandP = false;
@@ -484,8 +571,7 @@ show3=true;
               code: d._id,
               portion: Number(d.portion),
               eaten: 2,
-
-              foodSource: d.foodSource,
+             foodSource: d.foodSource,
             },
           ],
           slot: Number(this.slot),
@@ -494,6 +580,9 @@ show3=true;
         console.log("datas", datas);
         datas["foodSource"] =
           datas["foodSource"] === "external" ? "P" : datas["foodSource"];
+          if(datas.foodCodeList[0].foodSource!='P'){
+            delete datas.foodCodeList[0].foodSource;   
+          }
         // this.appService.updateDietPlan(datas).then(
     //    //
         this.appService.postOptionFoodList1(datas).then(
@@ -550,7 +639,6 @@ show3=true;
               code: d._id,
               portion: Number(d.portion),
               eaten: 2,
-
               foodSource: d.foodSource,
             },
           ],
@@ -561,8 +649,10 @@ show3=true;
         datas.foodCodeList[0].foodSource =
           datas.foodCodeList[0].foodSource === "external"
             ? "P"
-            : datas.foodCodeList[0].foodSource;
-
+            :"";
+            if(datas.foodCodeList[0].foodSource!='P'){
+                delete datas.foodCodeList[0].foodSource;   
+            }
         this.appService.postOptionFoodList1(datas).then(
           (res) => {
             console.log("food code update", res);

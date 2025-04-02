@@ -290,7 +290,7 @@ targetWeightMessage=false;
     }
     let age = new Date().getFullYear() - this.targetYear;
     const data = {
-      age: { code: "A1", label: "15 to 18 years", avg_age: age },
+      age: { code: "A1", label: "15 to 18 years", avg_age: Math.ceil(age) },
       gender: {
         code: this.gender,
         gender: this.gender === "G1" ? "Male" : "Female",
@@ -328,7 +328,7 @@ targetWeightMessage=false;
         suggestedWeight: this.targetweight,
         param: this.targetweightType,
       };
-      this.localData.age = { age, year: this.targetYear };
+      this.localData.age = {age: Math.ceil(age), year: this.targetYear };
       if (typeof this.localData !== undefined)
         this.storage.set("localData", JSON.stringify(this.localData));
     }

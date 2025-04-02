@@ -56,6 +56,9 @@ export const APIS = {
  //  BASEURL: "https://test.fightitaway.com/api/", //https://app.smartdietplanner.com
 //  refreshBaseUrl: "https://test.fightitaway.com:8443/api/",
   WP_BASEURL:"https://smartdietplanner.com/wp-json/wp/v2/posts",
+  Node_URL: "https://nodeapi.smartdietplanner.com/api/",
+  gameGetLevel:"games/getlevels?company_id=",
+  getActionTransactions:"games/getActionTransactions?id=",
   defaultDetail: "defaultDetail",
   profile: "profile",
   getSdpClientTestimony: "getSdpClientTestimony",
@@ -134,6 +137,7 @@ export const APIS = {
   fetchOrder:"fetchOrders",
   createOrder:"createOrUpdateOrder",
   storeSurveyResponse:"storeSurveyResponse",
+  searchAuto:"tmsdp/search?q=",
 
   /* Seprate Apis to save data in DB */
   saveFasting:"saveFasting",

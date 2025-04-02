@@ -819,6 +819,13 @@ export class AppService {
       searchText;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
+
+  searchAuto(searchText) {
+    const url =
+      APIS.Node_URL + APIS.searchAuto+`${searchText}` ;
+    return this.httpClient.get(url, {});
+  }
+
   updateDietPlan(reqBody){
     console.log(reqBody);
     reqBody["customerId"] = CONSTANTS.email;
@@ -904,7 +911,14 @@ export class AppService {
     const url = APIS.refreshBaseUrl + "" + APIS.storeSurveyResponse;
     return this.httpClient.post(url, reqBody ,{}).toPromise();
   }
-
+  game_GetLevel(company_id){
+    const url = APIS.Node_URL + "" + APIS.gameGetLevel+`${company_id}`;
+    return this.httpClient.get(url, {}).toPromise();
+  }
+  game_GetActionTransactions(user_id){
+    const url = APIS.Node_URL + "" + APIS.getActionTransactions+`${user_id}`;
+    return this.httpClient.get(url, {}).toPromise();
+  }
   saveFasting(reqBody){
     reqBody["_id"] = CONSTANTS.email;
     const url = APIS.refreshBaseUrl + "" + APIS.saveFasting;
