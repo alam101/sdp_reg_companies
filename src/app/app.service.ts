@@ -825,7 +825,11 @@ export class AppService {
       APIS.Node_URL + APIS.searchAuto+`${searchText}` ;
     return this.httpClient.get(url, {});
   }
-
+  searchAuto2(searchText) {
+    const url =
+      APIS.Node_URL + APIS.searchAuto2+`${searchText}` ;
+    return this.httpClient.get(url, {});
+  }
   updateDietPlan(reqBody){
     console.log(reqBody);
     reqBody["customerId"] = CONSTANTS.email;

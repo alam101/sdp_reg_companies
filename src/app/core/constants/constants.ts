@@ -138,6 +138,7 @@ export const APIS = {
   createOrder:"createOrUpdateOrder",
   storeSurveyResponse:"storeSurveyResponse",
   searchAuto:"tmsdp/search?q=",
+  searchAuto2:"es/search?query=",
 
   /* Seprate Apis to save data in DB */
   saveFasting:"saveFasting",

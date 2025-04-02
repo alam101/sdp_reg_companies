@@ -237,6 +237,7 @@ export class ViewProductPage implements OnInit, AfterViewInit {
   }
 
   async addCal(data, i) {
+    debugger;
     console.log("data---", data);
     if (this.from === "search" || this.from === "recipe" || !this.slot) {
       const modal = await this.modalCtrl.create({
@@ -251,35 +252,8 @@ export class ViewProductPage implements OnInit, AfterViewInit {
       const modald = await modal.onDidDismiss();
       this.slot = modald?.data?.slot;
       this.eatenStatusUpdate(data, 2, "Logged successfully");
-      // const modaldata = await m.onDidDismiss();
-      // const d = modaldata?.data;
-      // if (data) {
-      //   console.log("i got this to add in data", data);
-      //   // this.eatenStatusUpdate(d, 2, "Logged successfully");
-      //   this.eatenStatusUpdate(data,i, "Logged successfully")
-      // }
-    } //else {
-    //   const modal = await this.modalCtrl.create({
-    //     component: PortionCountPage,
-    //     cssClass: "portion_count",
-    //     backdropDismiss: true,
-    //     componentProps: {
-    //       alterdata: data,
-    //       type: "add",
-    //     },
-    //   });
-    //   await modal.present();
-    //   const modaldata = await modal.onDidDismiss();
-    //   const d = modaldata?.data;
-    //   if (d) {
-    //     console.log("i got this to add in data", d);
-    //     if (this.from === "alter") {
-    //       this.replaced(d);
-    //     } else {
-    //       this.eatenStatusUpdate(d, 2, "Logged successfully");
-    //     }
-    //   }
-    // }
+      
+    } 
   }
   gotoPremium() {
     this.modalCtrl.dismiss();

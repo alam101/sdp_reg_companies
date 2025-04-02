@@ -171,7 +171,7 @@ export class Boarding3Page implements OnInit {
       //};
       firstConsult: localStorage.getItem("clientId")==="orthocure" ? (this.profileData?.lifeStyle?.firstConsult===undefined?false:this.profileData?.lifeStyle?.firstConsult):null,
       foodType: this.profileData?.lifeStyle?.foodType,
-      dietPlanName: localStorage.getItem("goals"),
+      dietPlanName: localStorage.getItem("goals"),//'fatShredding', //localStorage.getItem("goals"),
       consultQA: this.profileData?.lifeStyle?.consultQA===undefined?[]:this.profileData?.lifeStyle?.consultQA,
       instructions: this.profileData?.lifeStyle?.instructions===undefined?'':this.profileData?.lifeStyle?.instructions
     };

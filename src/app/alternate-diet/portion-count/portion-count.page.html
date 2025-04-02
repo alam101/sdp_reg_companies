@@ -15,7 +15,7 @@
         <ion-icon name="add" (click)="addRemove('add')"></ion-icon>
       </div>
       <p class="portion" *ngIf="data.foodSource=='R' || data.foodSource=='P'">
-        {{data?.portion_unit}} ({{data.portion_gms}} {{data.measuring_unit}})
+        {{data?.portion_unit}} {{data.portion_gms}} {{data.measuring_unit}}
       </p>
       <p class="portion" *ngIf="data.foodSource!=='R' && data.foodSource!=='P'">
         {{data?.portion_unit}}

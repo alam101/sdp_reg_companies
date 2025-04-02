@@ -305,27 +305,27 @@ ion-thumbnail {
     padding:.2rem 1rem;
 }
 
-.item-inner:ng-deep{
-    border-color:#fff;
-}
+// .item-inner:ng-deep{
+//     border-color:#fff;
+// }
 .Best {
-  --background: #38a534;
+  background: #38a534;
  
 }
 .Good {
-  --background: #94ea0a;
+  background: #94ea0a;
  
 }
 .Average {
-  --background: #f1c231;
+  background: #f1c231;
  
 }
 .Fair {
-  --background: #e59137;
+  background: #e59137;
  
 }
 .Unverified {
-  --background: rgb(211, 24, 24);
+  background: rgb(211, 24, 24);
   
 }
 
