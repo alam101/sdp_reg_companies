@@ -635,6 +635,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     ,localStorage.getItem('email')).subscribe((blob) => {
       this.percentwithPer='100%';
       const url = window.URL.createObjectURL(blob);
+      //window.open(url, '_blank');
       const a = document.createElement('a');
       a.href = url;
       a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
@@ -642,6 +643,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       a.click();
       document.body.removeChild(a);
      window.URL.revokeObjectURL(url);
+    
      setTimeout(()=>{
       this.isdoenloadclicked=false;
      },2000);

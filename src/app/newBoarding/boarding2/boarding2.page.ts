@@ -149,7 +149,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
          this.targetYear=new Date().getFullYear()-3;
       }
       this.profileData = res;
+      if(this.profileData?.demographic?.suggestedWeight!=undefined){
       this.targetweight = this.profileData?.demographic?.suggestedWeight;
+      }
       if(this.profileData?.demographic?.age?.avg_age){
         this.targetYear = new Date().getFullYear() - this.profileData?.demographic?.age?.avg_age;
       }

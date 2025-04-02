@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import {
   ModalController,
   NavController,
@@ -62,7 +62,7 @@ export class SearchPage implements OnInit {
     private modalCtrl: ModalController,
     private utilities: UTILITIES,
     private appService: AppService,
-    private navCtrl: NavController,
+    private navCtrl: NavController,private cdr: ChangeDetectorRef
    ) {
     this.dataInitList();
     this.searchSubject
@@ -71,6 +71,11 @@ export class SearchPage implements OnInit {
       this.searchAutoAllApiData(searchText);
     });
   }
+
+  
+  ngAfterViewInit() {
+    this.cdr.detectChanges();
+  }
   onSearch(event: Event): void {
     const inputValue = (event.target as HTMLInputElement).value;
     this.searchSubject.next(inputValue); // Emit the latest value
@@ -78,6 +83,7 @@ export class SearchPage implements OnInit {
 
   
   ngOnInit() {
+    this.cdr.detectChanges();
     this.utilities.logEvent("onboarding_Tracker_search", {});
   }
   plandata:any;
@@ -100,6 +106,7 @@ export class SearchPage implements OnInit {
     this.getAllProduct();
     this.getAllrestaurant();
     console.log(this.slot);
+    this.cdr.detectChanges();
   }
 
   async viewSuggestions(type: any, value?: any) {
@@ -325,6 +332,31 @@ setTimeout(() => {
 }, 2000);
   
 }
+isSearch=false;
+searchAutoAllApidataOptional2(searchValue){
+  this.loaded=false;
+  const inputValue = (searchValue.target as HTMLInputElement).value;
+  console.log(inputValue, inputValue);
+  
+  if(inputValue?.length>2){
+    this.appService.searchAuto2(inputValue).subscribe((res:any)=>{ 
+      this.searchData=res["data"]["hits"];
+      this.isSearch=true;
+      if(this.searchData?.length>0){
+        this.loaded=true;
+      this.isSearchedItems = true;
+      }
+      console.log("this.searchData",this.searchData);
+      
+  },err=>{
+    console.log("err",err);
+    
+  });
+}
+setTimeout(() => {
+  this.loaded=true;
+}, 2000);
+}
 
 searchAutoAllApiDataOptional(searchValue){
   this.loaded=false;
@@ -363,7 +395,7 @@ searchAutoAllApiDataOptional(searchValue){
             this.allSearchData = res;
           }
 
-          this.searchData = res["homeBased"].concat(res["packaged"]).concat(res["restaurant"]);
+          this.searchData = res["homeBased"].concat(res["restaurant"]).concat(res["packaged"]);
           console.log("this.allSearchData", this.searchData);
           
     
@@ -547,9 +579,13 @@ searchAutoAllApiDataOptional(searchValue){
 
   async addCal(d, flag) {
     console.log("d", d);
-
-    this.data = d;
-    console.log("TEST---", d);
+    const itemData = JSON.parse(JSON.stringify(d));
+    let dt = itemData["_source"];
+    delete itemData._source;
+    delete itemData.sort;
+    this.data = {...itemData,...dt};
+    
+    console.log("TEST---", this.data);
     if (this.slot) {
       const modal = await this.modalCtrl.create({
         component: PortionCountPage,
@@ -580,9 +616,9 @@ searchAutoAllApiDataOptional(searchValue){
         console.log("datas", datas);
         datas["foodSource"] =
           datas["foodSource"] === "external" ? "P" : datas["foodSource"];
-          if(datas.foodCodeList[0].foodSource!='P'){
+          if(datas.foodCodeList[0].foodSource!='P' && datas.foodCodeList[0].foodSource!='R'){
             delete datas.foodCodeList[0].foodSource;   
-          }
+        }
         // this.appService.updateDietPlan(datas).then(
     //    //
         this.appService.postOptionFoodList1(datas).then(
@@ -649,8 +685,8 @@ searchAutoAllApiDataOptional(searchValue){
         datas.foodCodeList[0].foodSource =
           datas.foodCodeList[0].foodSource === "external"
             ? "P"
-            :"";
-            if(datas.foodCodeList[0].foodSource!='P'){
+            :datas.foodCodeList[0].foodSource;
+            if(datas.foodCodeList[0].foodSource!='P' && datas.foodCodeList[0].foodSource!='R'){
                 delete datas.foodCodeList[0].foodSource;   
             }
         this.appService.postOptionFoodList1(datas).then(

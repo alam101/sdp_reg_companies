@@ -4,18 +4,17 @@
 </div>
 
 <ion-content>
-
   <ion-card>
     <ion-list lines="full">
       <ion-item class="line-height">
         <ion-label>When You Wake up</ion-label>
-        <div class="right" (click)="slotNumber(0)">
+        <div slot="end" (click)="slotNumber(0)">
           <ion-icon class="plus_icon" name="add-circle"></ion-icon>
         </div>
       </ion-item>
       <ion-item class="line-height">
         <ion-label>Before Breakfast</ion-label>
-        <div class="right" (click)="slotNumber(1)">
+        <div slot="end" (click)="slotNumber(1)">
           <ion-icon class="plus_icon" name="add-circle"></ion-icon>
         </div>
       </ion-item>

@@ -2356,7 +2356,7 @@
       "profile2": true,
       "consumed_cal": true,
       "cal_count": true,
-      "download": true,
+      "download": false,
       "pie_chart": false,
       "alternative": true,
       "video": true,
@@ -6226,7 +6226,7 @@
       "video": true,
       "date_selection1": true,
       "date_selection2": true,
-      "goal": false,
+      "goal": true,
       "notes": false,
       "modifyNotes": false,
       "caloriesCircle": true,
@@ -6285,7 +6285,7 @@
           "options": [
             {
               "name": "Manage Diabetes",
-              "value": "diabetes",
+              "value": "metropolis_diabetes",
               "label": " Optimize blood glucose levels ",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
             },
@@ -6314,7 +6314,7 @@
         { "name": "Weight Loss", "value": "weightLoss" },
         { "name": "Muscle Building", "value": "muscleGain" },
         { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage Diabetes", "value": "metropolis_diabetes" },
         { "name": "Manage PCOS", "value": "pcos" },
         { "name": "Manage Cholesterol", "value": "cholesterol" },
         { "name": "Manage Hypertension", "value": "hypertension" }
