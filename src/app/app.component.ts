@@ -22,14 +22,13 @@ export class AppComponent implements OnInit{
     this.utilities.initStorage(this.storage);
 
     const clientId = localStorage.getItem("clientId");
+    this.updateManifest(clientId);
     this.toggleAppTheme(clientId);
+   
 
   }
   ngOnInit(){
-    // timer(5000).subscribe(() => {
-    //   this.meta.removeTag('name="viewport"');
-    //   this.meta.addTag({ name: 'viewport', content: 'width=800' })
-    // })
+   
     this.isOnline = navigator.onLine;
     window.addEventListener('online', () => {
       this.isOnline = true;
@@ -40,6 +39,18 @@ export class AppComponent implements OnInit{
       this.util.presentAlert("Internet not available! Please check you internet connection/speed!");
     });
   }
+  updateManifest(clientId: string): void {
+    const linkElement = document.querySelector("link[rel='manifest']") as HTMLLinkElement;
+  
+    if (linkElement) {
+      // Here, we modify the href attribute of the manifest based on the client ID
+      const newManifestPath = `assets/${clientId}/manifest.webmanifest`;
+      linkElement.href = newManifestPath;
+  
+      // Optionally, you can modify the contents of the manifest file dynamically using Fetch API or some other approach.
+    }
+  }
+  
   toggleAppTheme(theme) {
     document.body.setAttribute('color-theme', theme);
   }
