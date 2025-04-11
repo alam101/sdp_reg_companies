@@ -61,32 +61,76 @@
 <div class="div" style="height: 100%;">
   <app-root></app-root>
 </div>
-
+<!-- <button id="install-btn" style="display: none;    display: block;
+    position: absolute;
+    top: 1rem;
+    z-index: 11;
+    padding: 1rem;
+    border-radius: 5px;
+    right: 1rem;">Install App</button> -->
  <script>
-  //  var paytmObject;
-  // function ready(callback) { 
-  //     if (window.JSBridge) {
-  //         callback && callback();
-  //     } else {
-  //         document.addEventListener('JSBridgeReady', callback, false);
-  //     }
-     
-  // }
-
-  // ready(()=> {
-  //   window['JSBridge'].call('paytmFetchAuthCode', {
-  //         clientId: "smart-diet-planner"
-  //     },(result) =>{
-  //         var someStr = result?.data?.authId;   
-  //         localStorage.removeItem("paytmFetchAuthCode");      
-  //         localStorage.setItem('paytmFetchAuthCode', someStr); 
+  let deferredPrompt;
+  const installBtn = document.getElementById("install-btn");
+  const isIOS = /iphone|ipad|ipod|safari/i.test(navigator.userAgent);
+  const isInStandaloneMode = window.navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
   
-  //     },(err)=>{
-  //       alert(err);
-  //     });
-  // }); 
-  var isdisplayFooter=true;
+  function isSafari() {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  }
+  
+ /* if (!isSafari()) {
+    alert("For the best experience, please open this app in Safari on iOS.");
+  }*/
+  // Function to check if PWA is installed
+  function checkPWAInstalled() {
+    return localStorage.getItem("pwaInstalled") === "true" || isInStandaloneMode;
+  }
+  
+  // Hide button if PWA is installed
+  if (checkPWAInstalled()) {
+    installBtn.style.display = "none";
+  } else {
+    if (isIOS) {
+      // Show button with instructions for iOS users
+      installBtn.style.display = "block";
+      installBtn.innerText = "Install on iOS";
+      installBtn.addEventListener("click", () => {
+        alert("To install this app on iOS, tap the 'Share' button and select 'Add to Home Screen'.");
+      });
+    } else {
+      // Listen for the install prompt event (for Chrome, Edge, etc.)
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+        installBtn.style.display = "block";
+      });
+  
+      // Install button click handler
+      installBtn.addEventListener("click", async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+  
+          if (outcome === "accepted") {
+            installBtn.style.display = "none";
+            localStorage.setItem("pwaInstalled", "true");
+          }
+  
+          deferredPrompt = null;
+        }
+      });
+  
+      // Hide button after installation
+      window.addEventListener("appinstalled", () => {
+        installBtn.style.display = "none";
+        localStorage.setItem("pwaInstalled", "true");
+      });
+    }
+  }
+  
+  
   </script>
+
 
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
