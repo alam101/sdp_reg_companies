@@ -16,6 +16,7 @@ import { BroadcastService } from "src/app/broadcast.service";
 import { Subscription } from 'rxjs';
 import { Location } from "@angular/common";
 
+// import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
@@ -276,6 +277,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   }
   openlink(url){
     window.open(url,"_system");
+  }
+  gotoApp(){
+    this.router.navigate(["inapp-test"]);
   }
   getProfile(){
     this.appServices.getProfile().then(
@@ -599,6 +603,11 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       localStorage.setItem("company_id","REDCLIFFE");
       this.downloadPdfFromApi();
      }
+     if(this.clientId==='drstore'){
+      this.isdoenloadclicked=true;
+      localStorage.setItem("company_id","drstore");
+      this.downloadPdfFromApi();
+     }
      else {
       this.isdoenloadclicked=true;
       
@@ -624,6 +633,14 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       }
     }, 1000);
   }
+  isInIframe() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      // If cross-origin frame access is denied
+      return true;
+    }
+  }
   downloadPdfFromApi(){ 
     this.percent=0.0;
   this.percentwithPer='0%';
@@ -635,19 +652,35 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     ,localStorage.getItem('email')).subscribe((blob) => {
       this.percentwithPer='100%';
       const url = window.URL.createObjectURL(blob);
-      //window.open(url, '_blank');
+
+      if (this.isInIframe()){
+      this.iab.create(url , '_system');
+      }
+    
       const a = document.createElement('a');
       a.href = url;
       a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-     window.URL.revokeObjectURL(url);
+        window.URL.revokeObjectURL(url);
+        setTimeout(()=>{
+          this.isdoenloadclicked=false;
+         },2000);
+         clearInterval(this.iscloseInterval);
+        console.log('Page loaded:', event);
+  
+   
+      // //window.open(url, '_blank');
+      // const a = document.createElement('a');
+      // a.href = url;
+      // a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
+      // document.body.appendChild(a);
+      // a.click();
+      // document.body.removeChild(a);
+    // window.URL.revokeObjectURL(url);
     
-     setTimeout(()=>{
-      this.isdoenloadclicked=false;
-     },2000);
-     clearInterval(this.iscloseInterval);
+   
    this.utilities.hideLdr();
     }, (error) => {
       this.utilities.hideLdr();

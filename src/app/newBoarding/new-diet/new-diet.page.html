@@ -1,10 +1,11 @@
 <ion-content [ngClass]="{'bottom-offset':compConfig?.isSearch===true}">
-  
+  <!-- <ion-button (click)="gotoApp()" style="position: fixed;top:0;z-index:11;">goto inapp for testing</ion-button> -->
   <p class="month paddingIos" *ngIf="!platform"></p>
   <div
     class="main_div"
     [ngStyle]="{'border-radius':platform ?'0px':'0px','padding-bottom':'0px','margin-top':'-16px'}"
   >
+  
   <div style="top:1rem; position:relative;">
     <ion-row>
       <ion-col>

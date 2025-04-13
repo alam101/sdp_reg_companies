@@ -193,6 +193,10 @@ export const APP_ROUTES: Routes = [
     path: 'reward-deal-confirmed',
     loadChildren: () => import('./reward/reward-deal-confirmed/reward-deal-confirmed.module').then( m => m.RewardDealConfirmedPageModule)
   },
+  {
+    path: 'inapp-test',
+    loadChildren: () => import('./inappbowser-testing-download/inappbowser-testing-download.module').then( m => m.InappbowserTestingDownloadPageModule)
+  }
 ];
 
 @NgModule({})
