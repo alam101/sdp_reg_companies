@@ -196,6 +196,22 @@ export const APP_ROUTES: Routes = [
   {
     path: 'inapp-test',
     loadChildren: () => import('./inappbowser-testing-download/inappbowser-testing-download.module').then( m => m.InappbowserTestingDownloadPageModule)
+  },
+  {
+    path: 'weight-guage',
+    loadChildren: () => import('./weight-guage/weight-guage.module').then( m => m.WeightGuagePageModule)
+  },
+  {
+    path: 'blood-pressure-guage',
+    loadChildren: () => import('./wblood-pressure-guage/wblood-pressure-guage.module').then( m => m.WbloodPressureGuagePageModule)
+  },
+  {
+    path: 'blood-glucose-guage',
+    loadChildren: () => import('./wblood-glucose-guage/wblood-glucose-guage.module').then( m => m.WbloodGlucoseGuagePageModule)
+  },
+  {
+    path: 'cholesterol-guage',
+    loadChildren: () => import('./wcholesterol-guage/wcholesterol-guage.module').then( m => m.WcholesterolGuagePageModule)
   }
 ];
 

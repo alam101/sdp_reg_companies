@@ -1,0 +1,215 @@
+.header_div {
+    background: #FED5D4;
+    // border-radius: 5px;
+    width: 100%;
+    padding: 5px 10px;
+    position: relative;
+    justify-content: space-between;
+  
+    ion-img {
+      height: 15px !important;
+    }
+  
+    p {
+      font-size: var(--small-font);
+      margin: 0px;
+      font-family: var(--theme-newFont);
+      font-weight: 500;
+      color: var(--black);
+      margin-left: 20px;
+    }
+  
+    span {
+      font-size: var(--xsmall-font);
+      margin-left: 10px;
+    }
+  }
+  
+  .scroll_y {
+    max-height: 260px;
+  }
+  
+  ion-card {
+    box-shadow: var(--boxshadow);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .card_main_div {
+    padding: 10px;
+    position: relative;
+  }
+  
+  .card_img {
+     height: 70px;
+     width: 70px;
+    margin-right: 5px;
+    object-fit: cover;
+    &::part(image) {
+      border-radius: 10px;
+    }
+  }
+  
+  .meal_pro_div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .meal_pro {
+    font-size: var(--small-font);
+    margin: 5px;
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: #666666;
+    // width: 200px;
+  }
+  
+  .meal_cal {
+    font-size: var(--small-font);
+    margin: 5px;
+    font-family: var(--theme-newFont);
+    font-weight: 400;
+    color: var(--black);
+  }
+  
+  .dot_boarder {
+    margin: 0%;
+    border: 2px solid var(--theme-color);
+    height: 15px;
+    width: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dot {
+    height: 5px;
+    width: 5px;
+    background: var(--theme-color);
+    border-radius: 100%;
+  }
+  
+  .protien_progress {
+    --progress-background: #376c23;
+    border-radius: 25px;
+    width: 50px;
+    margin: 2px 0px;
+  }
+  
+  .choice {
+    font-size: var(--xsmall-font);
+    margin: 0px;
+    font-family: var(--theme-newFont);
+    font-weight: 300;
+    color: #376c23;
+  }
+  
+  .plus_icon {
+    font-size: 40px;
+    z-index: 1;
+    border-radius: 100%;
+    background: white;
+    color: var(--theme-newButton);
+    margin-right: -10px;
+  }
+  
+  .card_logo {
+    border: 2px solid white;
+    height: 16px !important;
+    width: 16px;
+    border-radius: 100%;
+    padding: 5px;
+    position: absolute;
+    left: 6px;
+    top: -12px;
+    z-index: 8;
+    background: #FED5D4;
+  }
+  
+  .no_data_title {
+    font-size: var(--regular-font);
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+  }
+  
+  .no_data_subtitle {
+    font-size: var(--small-font);
+    margin: 0px;
+    font-family: var(--theme-newFont);
+    font-weight: 500;
+    color: var(--black);
+    text-align: center;
+  }
+  
+  .more_button_div {
+    .enable {
+      --border-color: var(--theme-newButton);
+      color: var(--theme-newButton);
+      font-size: var(--small-font);
+      text-transform: none;
+      --background: var(--white);
+    }
+  
+    .disable {
+      --border-color: #666666;
+      color: #666666;
+      font-size: var(--small-font);
+      text-transform: none;
+      --background: white;
+      opacity: 100;
+    }
+  }
+  
+  .lock {
+    color: var(--black);
+    font-size: 25px;
+    margin: 0px 0px 0px 5px;
+  }
+  
+  ion-avatar {
+   // border: 2px solid #a7dda0;
+  }
+  
+  .calandar {
+    font-size: 16px;
+    border-radius: 100%;
+    background: var(--theme-newButton);
+    color: white;
+    padding: 5px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .locked {
+    font-size: 16px;
+    border-radius: 100%;
+    border: 1px solid var(--theme-newButton);
+    color: var(--theme-newButton);
+    padding: 4px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .more_button_div {
+    position: absolute;
+    width: 100%;
+    bottom: -14px;
+    ion-button {
+      --border-color: var(--theme-newButton);
+      color: var(--theme-newButton);
+      font-size: var(--small-font);
+      text-transform: none;
+      --background: var(--white);
+    }
+  }
+
+  // .weight-canvas-chart {
+  //   padding-right: 10px;
+  // }
+  

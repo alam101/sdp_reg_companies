@@ -1,0 +1,21 @@
+
+<div style="position: relative">
+  <ion-icon class="card_logo"  name="analytics-outline"></ion-icon>
+  <ion-card style="margin-top: 0;">
+    <div class="header_div d_flex">
+      <p>Cholesterol Tracker</p>
+    </div>
+
+    <div class="ion-margin-vertical">
+      <canvas class="weight-canvas-chart" height="200" #cholesterol></canvas>
+    </div>
+  </ion-card>
+  <div class="center more_button_div" *ngIf="isShowButton">
+    <ion-button shape="round" fill="outline" (click)="openEvent($event)"
+      >View/Update</ion-button
+    >
+  </div>
+</div>
+
+
+

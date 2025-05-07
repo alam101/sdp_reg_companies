@@ -30,6 +30,12 @@
                     right: 0;
                     top: -15px;" src="./assets/icon/metropolis.png">
             </ion-col>
+            <ion-col *ngIf="clientId==='lalpathlabs'">
+              <img style="    width: 85%;
+                    position: absolute;
+                    right: 0;
+                    top: -15px;" src="./assets/companyLogo/lalpathlabs.png">
+            </ion-col>
           </ion-row>
           <ion-row>
             <ion-col class="ion-text-left" 
@@ -275,6 +281,26 @@
          </ion-card-content>
     </ion-card>
   </div>
+  <div class="meal_workout_div card-margin">
+    <div class="weight">
+      <app-weight-show [isShowButton]="true" [current]="weightTrackerData?.demographic?.currentWeight" [totalWeight]="weightTrackerData?.demographic?.weightInKg" (weightgauge)="openPopupWeight($event)"></app-weight-show>
+    </div>
+  </div>
+  <div class="meal_workout_div card-margin">
+    <div class="weight">
+      <app-wblood-pressure [isShowButton]="true" (bloodPressureGauge)="gotoBloodPressure($event)"></app-wblood-pressure>
+    </div>
+  </div>
+  <div class="meal_workout_div card-margin">
+    <div class="weight">
+      <app-wblood-glucose [isShowButton]="true" (bloodGlucoseGauge)="gotoBloodGlucose($event)"></app-wblood-glucose>
+    </div>
+  </div>
+  <div class="meal_workout_div card-margin">
+    <div class="weight">
+      <app-wcholesterol [isShowButton]="true" (cholesterolGauge)="gotoCholesterol($event)"></app-wcholesterol>
+    </div>
+  </div>
   
  </div>
  
@@ -368,6 +394,8 @@
     z-index: 11;">
     <img src="./assets/img/whatsapp.png">
   </div>
+ 
+  
 </ion-content>
 <ion-footer *ngIf="compConfig?.isSearch && displayFooter===true" style="position: fixed;
 bottom: 0;
@@ -436,3 +464,5 @@ border-top-left-radius: 10px;
   </div>
  </fieldset>
 </div> -->
+
+

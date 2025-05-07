@@ -29,6 +29,10 @@ import { LoginComponent } from "./login/login.component";
 // import {MealPrefComponent} from "./meal-pref/meal-pref.component";
 import { MealSelectedComponent } from "./meal-selected/meal-selected.component";
 import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-inner.component";
+import { WeightShowComponent } from "./weight-show/weight-show.component";
+import { WbloodPressureComponent } from "./wblood-pressure/wblood-pressure.component";
+import { WbloodGlucoseComponent } from "./wblood-glucose/wblood-glucose.component";
+import { WcholesterolComponent } from "./wcholesterol/wcholesterol.component";
 
 @NgModule({
   declarations: [
@@ -56,8 +60,11 @@ import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-
     LoginComponent,
     // MealPrefComponent,
     MealSelectedComponent,
-    MealSelectedInnerComponent
-   
+    MealSelectedInnerComponent,
+    WeightShowComponent,
+    WbloodPressureComponent,
+    WbloodGlucoseComponent,
+    WcholesterolComponent
   ],
   imports: [
     // IonIntlTelInputModule,
@@ -102,7 +109,11 @@ import { MealSelectedInnerComponent } from "./meal-selected-inner/meal-selected-
     LoginComponent,
     // MealPrefComponent,
     MealSelectedComponent,
-    MealSelectedInnerComponent
+    MealSelectedInnerComponent,
+    WeightShowComponent,
+    WbloodPressureComponent,
+    WbloodGlucoseComponent,
+    WcholesterolComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

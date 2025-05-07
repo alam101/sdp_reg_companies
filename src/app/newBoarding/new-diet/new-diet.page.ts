@@ -95,6 +95,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     // Unsubscribe to prevent memory leaks
     this.subscription.unsubscribe();
   }
+  weightTrackerData:any;
   ionViewWillEnter() {
     history.forward();
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
@@ -105,8 +106,26 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
-   
+    if(localStorage.getItem("weightTracker")!==""){
+      console.log("this.weightTrackerData",this.weightTrackerData);
+      this.weightTrackerData = JSON.parse(localStorage.getItem("weightTracker"));
+     
+      
+    }
   }
+  async openPopupWeight(event){
+    this.router.navigate(['/weight-guage']);
+   }
+ async gotoBloodPressure(event){
+  this.router.navigate(['/blood-pressure-guage']);
+ } 
+ async gotoBloodGlucose(event){
+  this.router.navigate(['/blood-glucose-guage']);
+ }
+ async gotoCholesterol(){
+  this.router.navigate(['/cholesterol-guage']);
+ }
+   
   isdisplayFooter(event){
     this.displayFooter=event;
   }
@@ -264,7 +283,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     console.log("this.compConfig", this.compConfig);
     
     this.getProfile();
-   
+    if(localStorage.getItem("weightTracker")!==""){
+      console.log("this.weightTrackerData",localStorage.getItem("weightTracker"));
+      this.weightTrackerData = JSON.parse(localStorage.getItem("weightTracker"));
+    }
      this. getOnePlan();
    
   }
@@ -282,14 +304,18 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.router.navigate(["inapp-test"]);
   }
   getProfile(){
+    localStorage.setItem("weightTracker","");
     this.appServices.getProfile().then(
       
       profileData => {
         ////
        
+        console.log("localStorage.setItem",localStorage.getItem("weightTracker"));
+        
         localStorage.setItem("activities",JSON.stringify(profileData["lifeStyle"]["activities"]));
         console.log("profileData",profileData);
         this.profileData = profileData;
+        localStorage.setItem("weightTracker",JSON.stringify(this.profileData));
           let userData = {
           email: profileData["profile"]["email"],
           firstName: profileData["profile"]["given_name"],

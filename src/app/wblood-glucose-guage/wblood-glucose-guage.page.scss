@@ -1,0 +1,257 @@
+.target
+{
+    padding-left: 10%;    
+    font-size: 16px;
+    p{
+        font-weight: 700;
+        font-size: 18px;
+        margin: 0px;
+        letter-spacing: 0.5px;
+        padding-left: 4px;
+    }
+}
+.current
+{
+    p{
+        font-weight: 700;
+        font-size: 18px;
+        margin: 0px;
+        letter-spacing: 0.5px;padding-left: 4px;
+    }
+}
+
+.text-weight{
+    color:#2A9CFF;
+}
+
+.barContainer{
+    position: relative;
+    width: 90%;
+    margin: 20px auto;
+    .bar{
+      height: 15px;
+      overflow: hidden;
+      div{
+       // width: 20%;
+        height: 100%;
+        float:left;
+      }
+      .light-yellow{
+        background-color: #c2ef67;
+        border-radius: 10px;
+        width:20%        
+      }
+      
+      .green{
+        background-color: #27d7a1;
+        border-radius: 10px;
+        width:20%
+
+      }
+      .yellow{
+        background-color: #ffd717;
+        border-radius: 10px;
+        width:20%
+      }
+      .orange{
+        background-color: #ffa73b; 
+        border-radius: 10px;   
+        width:20%        
+      }
+      .red{
+        background-color: #ff595a;
+        border-radius: 10px;
+        width:20%        
+      }
+    }
+    .value{
+      div{
+        height: 100%;
+        float:left;
+        position: relative;
+        right: 8px;
+        font-size: 12px;
+        line-height: 20px;
+        p{
+          // padding-left: 5px;
+       
+        }
+       
+       
+      }
+    }
+    .slider{
+        height: 22px;
+      div{
+        // width: 45%;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        position: absolute;
+        // background: rgba(#000, 0.5);
+        }
+        ion-icon{
+            float: right;
+            font-size: 2em;
+        }
+      }
+      .slider-bottom{
+       position: relative;
+        top: 11px;
+      div{
+        // width: 45%;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        position: absolute;
+        // background: rgba(#000, 0.5);
+        }
+        ion-icon{
+            float: right;
+            font-size: 2em;
+        }
+      }
+  }
+
+  ion-item.weight-daily {
+    --background: transparent;
+  //  padding: 2rem 3rem 0 3rem;
+    img {
+      height: 25px;
+      width: auto;
+    }
+    ion-input {
+      text-align: center;
+      border: 1px solid #b3b3b3;
+      font-size: 16px;
+      color: #6b6767;
+      border-radius: 10px;
+    }
+   
+  }
+  .save{
+    --background: #01A3A4;
+    --color: #fff;
+    margin-top: 5px;
+    font-size: 1rem;
+    font-family: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+    --border-radius: 5px !important;
+  }
+  .last-div{
+    position: absolute !important;
+    right: 0px;
+}
+.bmi-text{
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    color: #6b6767;
+    span{
+    font-size: 15px;
+    font-weight: normal;
+    
+    }
+}
+.target-text{
+    text-align: center;
+    font-size: 16px;
+    color: #6b6767;
+    padding-top: 10px;
+    span{
+    font-size: 15px;
+    font-weight: normal;
+    
+    }
+
+}
+
+.add{
+    color: #01A3A4;
+    font-size: 1.8rem;
+    }
+
+.minus{
+  color: #01A3A4;
+  font-size: 1.8rem;
+  
+}
+
+.headers{
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+ion-card-header{
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+ion-content {
+  --background: #F6F7FC !important;
+  // --background: -webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;
+
+}
+
+ion-card{
+  // margin: 30px; 
+  margin: 16px;
+  border-radius: 30px; 
+  box-shadow: none
+}
+
+.border-bottom {
+  border-bottom: 0.5px solid gray;
+}
+
+.border-bottom:last-child {
+  border-bottom: none;
+}
+
+.content {
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.list-header {
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.weight-log-btn {
+  font-size: 1rem;
+  font-family: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+  color: #01A3A4;
+  width: 100%;
+  font-weight: 700;
+}
+
+.weight-header-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.log-data {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  span {
+    font-size: 0.8rem;
+    color: #000;
+    margin-left: 0.5rem;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-weight: 400;
+  }
+}
+
+.weight-data {
+  height: 30vh;
+  overflow: hidden;
+}
+
+.full-height {
+  height: auto;
+  overflow: unset;
+}

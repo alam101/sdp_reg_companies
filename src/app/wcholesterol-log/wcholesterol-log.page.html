@@ -1,0 +1,33 @@
+<ion-content class="ion-padding">
+  <ion-item lines="none">
+    <ion-icon slot="end" name="close-circle-outline" class="close-icon" (click)="close()"></ion-icon>
+  </ion-item>
+  <ion-item lines="none" no-Padding no-Margin>
+    <ion-label style="font-size: 1.2rem;color:#01a3a4">Cholesterol</ion-label>
+  </ion-item>
+  <ion-item class="border-bottom" >
+    <ion-label>Total Cholestol</ion-label>
+    <ion-input slot="end" type="number" [value]="total" placeholder="e.g. 80"
+    (ionInput)="total = $event.target.value"></ion-input>
+  </ion-item>
+  <ion-item class="border-bottom" >
+    <ion-label>LDL Cholestol</ion-label>
+    <ion-input slot="end" [value]="ldl" placeholder="e.g. 120"
+    (ionInput)="ldl = $event.target.value"></ion-input>
+  </ion-item>
+  <ion-item class="border-bottom" >
+    <ion-label>HDL Cholestol</ion-label>
+    <ion-input slot="end" [value]="hdl" placeholder="e.g. 120"
+    (ionInput)="hdl = $event.target.value"></ion-input>
+  </ion-item>
+  <ion-item class="border-bottom" >
+    <ion-label>Triglycerides</ion-label>
+    <ion-input slot="end" [value]="triglycerides" placeholder="e.g. 120"
+    (ionInput)="triglycerides = $event.target.value"></ion-input>
+  </ion-item>
+  <ion-item class="border-bottom" >
+    <ion-label>Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="logDate" [value]="logDate"></ion-datetime>
+  </ion-item>
+  <ion-button (click)="addHealthData()" [disabled]="total==0" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
+</ion-content>

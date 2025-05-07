@@ -2,7 +2,7 @@
   {
     "default": {
       "logo": false,
-      "isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -306,7 +306,7 @@
   {
     "traya": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -458,7 +458,7 @@
   {
     "traya-female": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -614,7 +614,7 @@
   {
     "kapiva": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -769,7 +769,7 @@
   {
     "eatfit": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -924,7 +924,7 @@
   {
     "alyve": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1087,7 +1087,7 @@
   {
     "plix": {
       "logo": false,
-      "isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1230,7 +1230,7 @@
   {
     "prana": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1366,7 +1366,7 @@
   {
     "stepgo": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1521,7 +1521,7 @@
   {
     "trunord": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1657,7 +1657,7 @@
   {
     "yolo": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -1850,7 +1850,7 @@
   {
     "truworth": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -2196,7 +2196,7 @@
   {
     "aviva": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2351,12 +2351,12 @@
   {
     "redcliffe": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
       "cal_count": true,
-      "download": false,
+      "download": true,
       "pie_chart": false,
       "alternative": true,
       "video": true,
@@ -2505,7 +2505,7 @@
   {
     "kenko": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2659,7 +2659,7 @@
   {
     "blubein": {
       "logo": false,
-      "isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2815,7 +2815,7 @@
   {
     "yellowsquash": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -2964,7 +2964,7 @@
   {
     "elderfly": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -3113,7 +3113,7 @@
   {
     "brilliant": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -3262,7 +3262,7 @@
   {
     "nizcare": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3417,7 +3417,7 @@
   {
     "smartdietplanner": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3572,7 +3572,7 @@
   {
     "mswastha": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3727,7 +3727,7 @@
   {
     "wellbeing": {
       "logo": false,
-      "isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -3899,7 +3899,7 @@
   {
     "trunativ": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4055,7 +4055,7 @@
   {
     "individual1": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4210,7 +4210,7 @@
   {
     "individual2": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4365,7 +4365,7 @@
   {
     "individual3": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4520,7 +4520,7 @@
   {
     "individual4": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4675,7 +4675,7 @@
   {
     "gravid": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -4850,7 +4850,7 @@
   {
     "youmatter": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5013,7 +5013,7 @@
   {
     "trunord1": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5149,7 +5149,7 @@
   {
     "gravid1": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5280,7 +5280,7 @@
   {
     "gravid2": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5411,7 +5411,7 @@
   {
     "gravid3": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5554,7 +5554,7 @@
   {
     "originn": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -5718,7 +5718,7 @@
   {
     "nutrabox": {
       "logo": false,
-"isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -5891,7 +5891,7 @@
   {
     "enkeltec": {
       "logo": false,
-"isChild":true,
+      "isChild": true,
       "profile1": false,
       "profile2": true,
       "consumed_cal": true,
@@ -5970,7 +5970,8 @@
         {
           "name": "Wellness",
           "value": "enkeltec_wellness"
-        }],
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -6028,10 +6029,10 @@
 
       "activies": [
         {
-         "calories": 200,
-          "code":"AC1",
+          "calories": 200,
+          "code": "AC1",
           "data": 1.2,
-          "isSelected":false,
+          "isSelected": false,
           "steps": 7500,
           "sub_val": "Minimal activity; mostly involved in sitting or quiet tasks like reading or screen time.",
           "val": "Sedentary",
@@ -6040,44 +6041,44 @@
         },
         {
           "calories": 300,
-           "code":"AC2",
-           "data": 1.375,
-           "isSelected":false,
-           "steps": 7500,
-           "sub_val": "Occasional light activities such as walking, yoga, or casual play.",
-           "val": "Lightly Active",
-           "value": "Lightly Active",
-           "image": "../../../assets/images/light_active.png"
-         },
-         {
+          "code": "AC2",
+          "data": 1.375,
+          "isSelected": false,
+          "steps": 7500,
+          "sub_val": "Occasional light activities such as walking, yoga, or casual play.",
+          "val": "Lightly Active",
+          "value": "Lightly Active",
+          "image": "../../../assets/images/light_active.png"
+        },
+        {
           "calories": 400,
-           "code":"AC3",
-           "data": 1.55,
-           "isSelected":false,
-           "steps": 10000,
-           "sub_val": "Regular moderate activities like running, cycling, or sports 3–4 times a week.",
-           "val": "Active",
-           "value": "Active",
-           "image": "../../../assets/images/active.png"
-         }, 
-         {
+          "code": "AC3",
+          "data": 1.55,
+          "isSelected": false,
+          "steps": 10000,
+          "sub_val": "Regular moderate activities like running, cycling, or sports 3–4 times a week.",
+          "val": "Active",
+          "value": "Active",
+          "image": "../../../assets/images/active.png"
+        },
+        {
           "calories": 600,
-           "code":"AC4",
-           "data": 1.7,
-           "isSelected":false,
-           "steps": 10000,
-           "sub_val": "Constantly high energy; engages in intense physical activities or sports multiple times daily.",
-           "val": "Hyperactive",
-           "value": "Hyperactive",
-           "image": "../../../assets/images/hyperactive.png"
-         } 
+          "code": "AC4",
+          "data": 1.7,
+          "isSelected": false,
+          "steps": 10000,
+          "sub_val": "Constantly high energy; engages in intense physical activities or sports multiple times daily.",
+          "val": "Hyperactive",
+          "value": "Hyperactive",
+          "image": "../../../assets/images/hyperactive.png"
+        }
       ]
     }
   },
   {
     "plix-global": {
       "logo": false,
-      "isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -6145,7 +6146,6 @@
               "label": "No more Stress",
               "imgUrl": "../../../assets/newImages/stress_img.png"
             }
-           
           ]
         }
       ],
@@ -6154,7 +6154,6 @@
         { "name": "Improve Immunity", "value": "Plix_immunity_usaindia" },
         { "name": "Manage Skincare", "value": "skincare_plix" },
         { "name": "Manage Stress", "value": "Plix_stress_usaindia" }
-        
       ],
       "deseases": [
         {
@@ -6215,7 +6214,7 @@
   {
     "metropolis": {
       "logo": false,
-      "isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
@@ -6378,12 +6377,12 @@
   {
     "drstore": {
       "logo": false,
-      "isChild":false,
+      "isChild": false,
       "profile1": true,
       "profile2": false,
       "consumed_cal": true,
       "cal_count": true,
-      "download": true,
+      "download": false,
       "pie_chart": false,
       "alternative": true,
       "video": true,
@@ -6478,6 +6477,169 @@
         { "name": "Muscle Building", "value": "muscleGain" },
         { "name": "Lean Body", "value": "fatShredding" },
         { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
+      "deseases": [
+        {
+          "desease": "D",
+          "description": [
+            "Avoid ragi/ white bread/ jowar",
+            "Eat frequent meals with 2-3 hours of gap",
+            "Add vit B12 rich food in diet ",
+            "Monitor HBA1C , kidney test after 3 months"
+          ]
+        },
+        {
+          "desease": "B",
+          "description": ["Less Salt", "Do not sprinkle salt"]
+        },
+        {
+          "desease": "P",
+          "description": [
+            "Avoid high Glycemic index foods like ragi/ white bread/ white rice",
+            "If you have taken hormonal theraphy in past, please reduce the fat intake"
+          ]
+        },
+        {
+          "desease": "T",
+          "description": [
+            " Avoid soy, brocolli, cabbage and all cruciferous food",
+            "Avoid soy contain breads (white or brown). Please check bread ingredients",
+            "Avoid taking antacids with thyroid medicines ",
+            "Monitor thyroid profile after every 3 months "
+          ]
+        },
+        {
+          "desease": "G",
+          "description": [
+            "Add vitamin B12 rich food in diet ",
+            "Get your iron and vitamin B12 test done after every 6 months",
+            "Avoid gluten for lifetime"
+          ]
+        },
+        {
+          "desease": "ML",
+          "description": [
+            " Say no to milk and milk products but can take curd/ paneer ",
+            "Get your iron and vitamin B12 tests done after every 6 months"
+          ]
+        },
+        {
+          "desease": "A",
+          "description": [
+            " Increase intake of water/ fluids ",
+            "Stop retention of stool or avoid painful evacuation of stool ",
+            "Increase fiber intake"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "lalpathlabs": {
+      "logo": false,
+      "isChild": false,
+      "profile1": true,
+      "profile2": false,
+      "consumed_cal": true,
+      "cal_count": true,
+      "download": true,
+      "pie_chart": false,
+      "alternative": true,
+      "video": true,
+      "date_selection1": true,
+      "date_selection2": true,
+      "goal": true,
+      "notes": false,
+      "modifyNotes": false,
+      "caloriesCircle": true,
+      "itemCalories": true,
+      "isBanner": true,
+      "isProfileIcons": true,
+      "isEditProfile": true,
+      "dietComponent": false,
+      "mealPref": false,
+      "headerText": "Welcome to your daily diet plan.",
+      "isLogAll": true,
+      "isSearch": true,
+      "isDietitian": true,
+      "inSights": true,
+      "compPhone": "",
+      "defaultPlanCheck": false,
+      "showWhatsApp": true,
+      "dietitianAction": true,
+      "goals": [
+        {
+          "heading": "Weight Management",
+          "label": "Eat up, Heal up",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png",
+          "options": [
+            {
+              "name": "Weight Loss",
+              "value": "weightLoss",
+              "label": "Lose weight not the mind",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png"
+            }
+          ]
+        },
+        {
+          "heading": "Fitness",
+          "label": " Exercise is king, nutrition is Queen",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png",
+          "options": [
+            {
+              "name": "Muscle Building",
+              "value": "muscleGain",
+              "label": "Pump and get stronger",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
+            },
+            {
+              "name": "Lean Body",
+              "value": "fatShredding",
+              "label": " Maintain muscles and lose fat",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
+            }
+          ]
+        },
+        {
+          "heading": "Disease Management",
+          "label": "Let food be thy medicine ",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png",
+          "options": [
+            {
+              "name": "Manage Diabetes",
+              "value": "metropolis_diabetes",
+              "label": " Optimize blood glucose levels ",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
+            },
+            {
+              "name": "Manage PCOS",
+              "value": "pcos",
+              "label": " No more irregular period",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
+            },
+            {
+              "name": "Manage Cholesterol",
+              "value": "cholesterol",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
+            },
+            {
+              "name": "Manage Hypertension",
+              "value": "hypertension",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+            }
+          ]
+        }
+      ],
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightLoss" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Lean Body", "value": "fatShredding" },
+        { "name": "Manage Diabetes", "value": "metropolis_diabetes" },
         { "name": "Manage PCOS", "value": "pcos" },
         { "name": "Manage Cholesterol", "value": "cholesterol" },
         { "name": "Manage Hypertension", "value": "hypertension" }

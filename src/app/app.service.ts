@@ -61,6 +61,14 @@ export class AppService {
   ) { 
     this.httpClient1 = new HttpClient(httpBackend);
   }
+  addHealthData(data) {
+    const url = APIS.nodeApiUrl + APIS.addHealthData;
+    return this.httpClient.post(url, data, {}).toPromise();
+  }
+  getHealthData(data) {
+    const url = APIS.nodeApiUrl + APIS.getHealthData + data;
+    return this.httpClient.get(url, {}).toPromise();
+  }
   getFoodSugesstions(query: any) {
     const url = APIS.refreshBaseUrl + `fetchFoodSuggestions?source=${query}`;
     return this.httpClient.get(url, {}).toPromise();
@@ -500,7 +508,20 @@ export class AppService {
     return this.httpClient.get(url, {}).toPromise();
   }
   getWeightGraph() {
+    const url = APIS.BASEURL + "" + APIS.gerWeightGraph;
+    return this.httpClient.get(url, {}).toPromise();
+  }
+  getBloodPressure() {
 
+    const url = APIS.BASEURL + "" + APIS.gerWeightGraph;
+    return this.httpClient.get(url, {}).toPromise();
+  }
+  getBloodGlucose() {
+
+    const url = APIS.BASEURL + "" + APIS.gerWeightGraph;
+    return this.httpClient.get(url, {}).toPromise();
+  }
+  getCholesterol() {
     const url = APIS.BASEURL + "" + APIS.gerWeightGraph;
     return this.httpClient.get(url, {}).toPromise();
   }

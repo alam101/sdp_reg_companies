@@ -5,6 +5,7 @@ import { ModalController, NavController } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import  compJson from '../../../assets/comp_config.json';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 @Component({
   selector: "app-boarding",
   templateUrl: "./boarding.page.html",
@@ -15,6 +16,7 @@ export class BoardingPage implements OnInit,AfterViewInit {
   data: any;
 clientId="";
   constructor(
+    private iab: InAppBrowser,
     private navCtrl: NavController,
     private router: Router,
     private appservice: AppService,
@@ -57,6 +59,11 @@ clientId="";
 
   newModal;
   goNext() {
+//
+// let urll=`https://testonboarding.smartdietplanner.com/read?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlbWFpbCI6IjkxLTk4MTAxNTI1NTkiLCJkZXZpY2VJZCI6IjIxMzIxMzIxIiwiaWF0IjoxNzA1Njc5MTUyfQ.Zs9NrSj8kttVo0FRkOD8zEOebWYvjThIZO06XfR9RMhrnr9F0Wxsnk97kheBOI300pj8cFNwqRElhLNhHrO0pQ&clientId=alyve&type=1`;
+// this.iab.create(urll , '_system');
+
+//     return;
     let reqBody: any = {};
     let reqBodyDiet: any = {};
     reqBody.dietPlanType = this.newModal;

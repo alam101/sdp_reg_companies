@@ -1,0 +1,15 @@
+<ion-content class="ion-padding">
+  <ion-item lines="none">
+    <ion-icon slot="end" name="close-circle-outline" class="close-icon" (click)="close()"></ion-icon>
+  </ion-item>
+  <ion-item class="border-bottom" lines="none">
+    <ion-label>Weight</ion-label>
+    <ion-input slot="end" type="number" labelPlacement="fixed" placeholder="e.g. 50kg"
+      [(ngModel)]="logWeight"></ion-input>
+  </ion-item>
+  <ion-item class="border-bottom" lines="none">
+    <ion-label>Date</ion-label>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="logDate" [value]="logDate"></ion-datetime>
+  </ion-item>
+  <ion-button (click)="addHealthData()" [disabled]="!logDate && !logWeight" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
+</ion-content>

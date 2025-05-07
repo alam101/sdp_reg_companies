@@ -1,0 +1,59 @@
+
+<ion-content >
+  <div style="padding-top: 1.5rem; border-radius: 1rem;background: #f3f3f3;">
+  <ion-row>
+    <ion-col class="ion-text-right">
+      <ion-icon (click)="close()" style="font-size: 2rem; color:#01a3a4;font-weight: 600;margin-right:1rem" name="close-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-card>
+    <ion-card-header style="margin: 15px 25px; 
+    border-bottom: 1px solid #01a3a4;
+    color:#01a3a4;
+    padding-bottom: 15px;">
+      Analysis
+    </ion-card-header>
+    <ion-card-content>
+      <app-wcholesterol [isShowButton]="false" >
+      </app-wcholesterol>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header style="margin: 15px 25px 0; 
+      border-bottom: 1px solid #01a3a4;
+      color:#01a3a4;
+      padding-bottom: 15px;">
+      <div class="weight-header-text">
+        Cholesterol Log
+        <div (click)="addHealthData()" class="log-data">
+          <span>Log</span>
+        </div>
+      </div>
+      
+    </ion-card-header>
+    <ion-card-content>
+      <div *ngIf="healthData && healthData.length">
+        <ion-row class="list-header border-bottom">
+          <ion-col class="ion-no-padding"><b>Date</b></ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4"><b>Total Cholestol</b></ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4"><b>LDL Cholestol</b></ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4"><b>HDL Cholestol</b></ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4"><b>Triglycerides</b></ion-col>
+        </ion-row>
+        <ion-row class="content border-bottom" *ngFor="let dayData of healthData">
+          <ion-col class="ion-no-padding" style="white-space:nowrap">{{formatedDate(dayData.updateDate)}}</ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4" > {{dayData?.healthData?.cholesterol?.total}}</ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4" > {{dayData?.healthData?.cholesterol?.ldl}}</ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4" > {{dayData?.healthData?.cholesterol?.hdl}}</ion-col>
+          <ion-col class="ion-text-center ion-no-padding" size="2.4" > {{dayData?.healthData?.cholesterol?.triglycerides}}</ion-col>
+        </ion-row>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  
+  
+</div>
+</ion-content>
+

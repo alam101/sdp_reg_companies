@@ -45,6 +45,9 @@ export const CONSTANTS = {
 };
 //"http://ec2-34-209-64-202.us-west-2.compute.amazonaws.com/api/"
 export const APIS = {
+  nodeApiUrl: "https://nodeapi.smartdietplanner.com/api/",
+  getHealthData: "profile/getHealthParamsByUserId?userId=",
+  addHealthData: "profile/addHealthParams",
   searchFoodItem:"searchFoodItem",
   copyDietPlanWeekly:"copyDietPlanWeekly",
   BASEURL8445: "https://app.smartdietplanner.com:8445/",
