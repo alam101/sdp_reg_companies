@@ -5,11 +5,12 @@
   <ion-item class="border-bottom" lines="none">
     <ion-label>Weight</ion-label>
     <ion-input slot="end" type="number" labelPlacement="fixed" placeholder="e.g. 50kg"
-      [(ngModel)]="logWeight"></ion-input>
+      [value]="logWeight" (ionInput)="logWeight = $event.target.value"></ion-input>
   </ion-item>
   <ion-item class="border-bottom" lines="none">
     <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="logDate" [value]="logDate"></ion-datetime>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"
+     [(ngModel)]="logDate" [value]="logDate"></ion-datetime>
   </ion-item>
   <ion-button (click)="addHealthData()" [disabled]="!logDate && !logWeight" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
 </ion-content>

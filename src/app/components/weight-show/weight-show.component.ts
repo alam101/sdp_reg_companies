@@ -77,6 +77,9 @@ export class WeightShowComponent implements OnInit {
       datapoints.push(ele.healthData.weightKg);
       labels.push(ele.formatedDate);
     });
+    if (this.weightChartNew) {
+      this.weightChartNew.destroy();
+    }
     this.weightChartNew = new Chart(this.weightCanvasNew.nativeElement, {
       type: "line",
       data: {

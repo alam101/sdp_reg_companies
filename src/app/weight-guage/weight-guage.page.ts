@@ -511,8 +511,7 @@ export class WeightGuagePage implements AfterViewInit {
     });
     modal.onDidDismiss().then((data: any) => {
       if (data && data.data) {
-        this.getHealthData();
-        this.weightGraph();
+        window.location.reload();
       }
     });
     return await modal.present();
