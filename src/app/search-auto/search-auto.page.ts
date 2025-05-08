@@ -49,7 +49,6 @@ export class SearchAutoPage implements OnInit {
     }
 
       async addCal(d) {
-        debugger;
         if (this.slot) {
           const modal = await this.modalCtrl.create({
             component: PortionCountPage,
@@ -119,7 +118,6 @@ export class SearchAutoPage implements OnInit {
         const slot = modaldata?.data;
         this.data.slot = slot.slot;
         if (slot) {
-          debugger;
           const modal = await this.modalCtrl.create({
             component: PortionCountPage,
             cssClass: "portion_count",

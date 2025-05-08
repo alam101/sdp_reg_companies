@@ -114,7 +114,7 @@ export class WbloodPressureGuagePage implements AfterViewInit {
   }
 
   formatedDate(dt){
-    return moment(dt).format('ddd MMM yyyy');
+    return moment(dt).format('ddd');
   }
   
   bloodPressureGraph() {

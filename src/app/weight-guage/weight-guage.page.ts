@@ -345,6 +345,10 @@ export class WeightGuagePage implements AfterViewInit {
       return 'Obese Class III'
     }
   }
+  formatedDate(dt){
+      return moment(dt).format('ddd');
+    }
+    
   getColor(value) {
     if (value >= 18.5 && value <= 25) {
       return {

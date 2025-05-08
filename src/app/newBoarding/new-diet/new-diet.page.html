@@ -281,27 +281,61 @@
          </ion-card-content>
     </ion-card>
   </div>
-  <div class="meal_workout_div card-margin">
-    <div class="weight">
-      <app-weight-show [isShowButton]="true" [current]="weightTrackerData?.demographic?.currentWeight" [totalWeight]="weightTrackerData?.demographic?.weightInKg" (weightgauge)="openPopupWeight($event)"></app-weight-show>
-    </div>
-  </div>
-  <div class="meal_workout_div card-margin">
-    <div class="weight">
-      <app-wblood-pressure [isShowButton]="true" (bloodPressureGauge)="gotoBloodPressure($event)"></app-wblood-pressure>
-    </div>
-  </div>
-  <div class="meal_workout_div card-margin">
-    <div class="weight">
-      <app-wblood-glucose [isShowButton]="true" (bloodGlucoseGauge)="gotoBloodGlucose($event)"></app-wblood-glucose>
-    </div>
-  </div>
-  <div class="meal_workout_div card-margin">
-    <div class="weight">
-      <app-wcholesterol [isShowButton]="true" (cholesterolGauge)="gotoCholesterol($event)"></app-wcholesterol>
-    </div>
-  </div>
-  
+  <ion-slides [options]="slideOpts" pager="true">
+    <ion-slide >
+      <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="meal_workout_div card-margin">
+            <div class="weight">
+              <app-weight-show [isShowButton]="true" [current]="weightTrackerData?.demographic?.currentWeight" [totalWeight]="weightTrackerData?.demographic?.weightInKg" (weightgauge)="openPopupWeight($event)"></app-weight-show>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+   </ion-slide>
+   <ion-slide>
+      <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="meal_workout_div card-margin">
+            <div class="weight">
+              <app-wblood-pressure [isShowButton]="true" (bloodPressureGauge)="gotoBloodPressure($event)"></app-wblood-pressure>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+   </ion-slide>
+   <ion-slide>
+      <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="meal_workout_div card-margin">
+            <div class="weight">
+              <app-wblood-glucose [isShowButton]="true" (bloodGlucoseGauge)="gotoBloodGlucose($event)"></app-wblood-glucose>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+   </ion-slide>
+   <ion-slide>
+      <ion-card>
+        <ion-card-header>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="meal_workout_div card-margin">
+            <div class="weight">
+              <app-wcholesterol [isShowButton]="true" (cholesterolGauge)="gotoCholesterol($event)"></app-wcholesterol>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+  </ion-slide>
+  </ion-slides>
+
  </div>
  
  <!-- <div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" >

@@ -23,6 +23,11 @@ import { Location } from "@angular/common";
   styleUrls: ["./new-diet.page.scss"],
 })
 export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
+  slideOpts = {
+    slidesPerView: 1.25, // 1 full + 0.25 of next
+    spaceBetween: 10,
+    centeredSlides: false
+  };
   clientId="";
   moment: any = moment;
   displayFooter=false;

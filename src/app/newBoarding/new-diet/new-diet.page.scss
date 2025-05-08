@@ -966,3 +966,32 @@ ion-avatar {
 .d-list-item {
   display: list-item;
 }
+
+ion-slides{
+  width:100%;
+  
+  ion-slide{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+    ion-card{
+      box-shadow: none;
+      height: 250px;
+      padding: 0;
+      margin: 0;
+      ion-card-header{
+        padding: 0;
+        margin: 1rem;
+      }
+      ion-card-content{
+        div{
+          padding: 0;
+        }
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}

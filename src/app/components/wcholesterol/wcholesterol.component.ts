@@ -52,7 +52,7 @@ export class WcholesterolComponent implements OnInit {
         this.Triglycerides = [];
         if (res && res.length) {
           res.forEach(element => {
-            element['formatedDate'] =  moment(new Date(element.updateDate)).format("MMM D, YYYY");
+            element['formatedDate'] =  moment(new Date(element.updateDate)).format("MMM D");
             // this.profileData.demographic.weight.value - element.healthData.weightKg
             if (element?.healthData && element?.healthData?.cholesterol) {
               this.totalCholesterol.push({total:element?.healthData?.cholesterol?.total,formatedDate:element['formatedDate']});
@@ -157,7 +157,7 @@ export class WcholesterolComponent implements OnInit {
           },
           scales: {
             x: {
-              display: false,
+              display: true,
               title: {
                 display: false
               }

@@ -48,7 +48,7 @@ export class WbloodGlucoseComponent implements OnInit {
         this.healthDataMax = [];
         if (res && res.length) {
           res.forEach(element => {
-            element['formatedDate'] =  moment(new Date(element.updateDate)).format("MMM D, YYYY");
+            element['formatedDate'] =  moment(new Date(element.updateDate)).format("MMM D");
             // this.profileData.demographic.weight.value - element.healthData.weightKg
             if (element?.healthData && element?.healthData?.bloodGlucose) {
               this.healthDataMin.push({min:element?.healthData?.bloodGlucose?.fasting,formatedDate:element['formatedDate']});
@@ -123,7 +123,7 @@ export class WbloodGlucoseComponent implements OnInit {
           },
           scales: {
             x: {
-              display: false,
+              display: true,
               title: {
                 display: false
               }

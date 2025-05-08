@@ -43,7 +43,7 @@
           <ion-col class="ion-text-center ion-no-padding" size="3.5"><b>Weight(Kg)</b></ion-col>
         </ion-row>
         <ion-row class="content border-bottom" *ngFor="let dayData of healthData">
-          <ion-col class="ion-no-padding">{{dayData.formatedDate}}</ion-col>
+          <ion-col class="ion-no-padding">{{formatedDate(dayData.formatedDate)}}</ion-col>
           <ion-col class="ion-text-center ion-no-padding" size="3.5" *ngIf="dayData.displayWeight">{{dayData.displayWeight}} Kg</ion-col>
           <ion-col class="ion-text-center ion-no-padding" size="3.5" *ngIf="dayData.healthData.weightKg">{{dayData.healthData.weightKg}} Kg</ion-col>
         </ion-row>
@@ -129,60 +129,7 @@
 
     </ion-card-content>
   </ion-card>
-    <!-- <ion-card >
-        <ion-card-header style="margin: 15px 25px; 
-        border-bottom: 1px solid #01a3a4;
-        color:#01a3a4;
-        padding-bottom: 15px;">
-            Target
-          </ion-card-header>
-          <ion-card-content>
-          <ion-row>
-            <ion-col size="9" class="text-center">
-              <ion-item class="weight-daily" lines="none">
-                <ion-icon slot="start" name="remove-circle" class="minus" (click)="minusTargetWeight()"></ion-icon>
-                <ion-input type="number" (ngModelChange)="targetChange()" [(ngModel)]="targetWeightDaily" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.1">
-                </ion-input>
-                
-                  <ion-icon slot="end" name="add-circle" class="add" (click)="plusTargetWeight()"></ion-icon>
-
-              </ion-item>
-            </ion-col>
-            <ion-col size="3">
-              <ion-button class="save" [disabled]="targetButtonDisabled" (click)="saveTarget()">
-                Save
-              </ion-button>
-            </ion-col>
-          </ion-row> 
-          </ion-card-content>
-    </ion-card> -->
-
-    <!-- <ion-card>
-        <ion-card-header style="margin: 15px 25px; 
-        border-bottom: 1px solid #01a3a4;
-        color:#01a3a4;
-        padding-bottom: 15px;">
-            Current
-          </ion-card-header>
-          <ion-card-content>
-          <ion-row>
-            <ion-col size="9" class="text-center">
-              <ion-item class="weight-daily" lines="none">
-                  <ion-icon slot="start" name="remove-circle" class="minus" (click)="minusWeight()"></ion-icon>
-                <ion-input type="number" (ngModelChange)="currentChange()" [(ngModel)]="weightDaily" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.1">
-                </ion-input>
-                <ion-icon slot="end" name="add-circle" class="add" (click)="plusWeight()"></ion-icon>
-              </ion-item>
-            </ion-col>
-            <ion-col size="3">
-              <ion-button class="save" [disabled]="currentButtonDisabled" (click)="saveCurrent()">
-                Save
-              </ion-button>
-            </ion-col>
-          </ion-row>
-          </ion-card-content>
-    </ion-card> -->
-</div>
+ </div>
 </ion-content>
 
 <!--  -->

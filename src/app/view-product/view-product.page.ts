@@ -237,7 +237,6 @@ export class ViewProductPage implements OnInit, AfterViewInit {
   }
 
   async addCal(data, i) {
-    debugger;
     console.log("data---", data);
     if (this.from === "search" || this.from === "recipe" || !this.slot) {
       const modal = await this.modalCtrl.create({

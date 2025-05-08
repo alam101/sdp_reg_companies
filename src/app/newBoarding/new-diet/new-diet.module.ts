@@ -1,7 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-
 import { IonicModule } from "@ionic/angular";
 
 import { NewDietPageRoutingModule } from "./new-diet-routing.module";
@@ -25,6 +24,7 @@ import { BackButtonDisableModule } from 'angular-disable-browser-back-button';
     CommonModule,
     FormsModule,
     IonicModule,
+  
     NewDietPageRoutingModule,
     CaloriesPageModule,
     MealWorkoutPageModule,

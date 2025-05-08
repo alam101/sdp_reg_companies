@@ -45,9 +45,8 @@ export class WeightShowComponent implements OnInit {
         // console.log('getHealthData response: ', res);
         this.healthData = [];
         if (res && res.length) {
-          debugger;
           res.forEach(element => {
-            element['formatedDate'] = moment(new Date(element.updateDate)).format("MMM D, YYYY");
+            element['formatedDate'] = moment(new Date(element.updateDate)).format("MMM D");
             // this.profileData.demographic.weight.value - element.healthData.weightKg
             if (element?.healthData?.weightKg && (this.profileData.demographic.weight.value > element?.healthData?.weightKg)) {
               element['displayWeight'] = element?.healthData?.weightKg ? ("+ " + (this.profileData.demographic.weight.value - element?.healthData?.weightKg)) : null;
@@ -60,7 +59,7 @@ export class WeightShowComponent implements OnInit {
           this.createChart();
         } else {
           let obj = {
-          'formatedDate': moment(new Date(this.profileData.profile.updatedDateTime)).format("MMM D, YYYY"),
+          'formatedDate': moment(new Date(this.profileData.profile.updatedDateTime)).format("MMM D"),
           'healthData': { weightKg: this.profileData.demographic.weight.value }
           }
           this.healthData.push(obj);
@@ -109,7 +108,7 @@ export class WeightShowComponent implements OnInit {
         },
         scales: {
           x: {
-            display: false,
+            display: true,
             title: {
               display: false
             }
