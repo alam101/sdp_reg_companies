@@ -26,7 +26,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   slideOpts = {
     slidesPerView: 1.25, // 1 full + 0.25 of next
     spaceBetween: 10,
-    centeredSlides: false
+    centeredSlides: true
   };
   clientId="";
   moment: any = moment;

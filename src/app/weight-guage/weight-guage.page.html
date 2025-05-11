@@ -27,11 +27,12 @@
       border-bottom: 1px solid #01a3a4;
       color:#01a3a4;
       padding-bottom: 15px;">
-      <div class="weight-header-text">
-        Weight Log
-        <div (click)="addHealthData()" class="log-data">
+      <div class="weight-header-text" >
+       <span style="padding-top: 5px;"> Weight Log</span>
+        <!-- <div (click)="addHealthData()" class="log-data">
           <span>Log</span>
-        </div>
+        </div> -->
+        <ion-icon (click)="addHealthData()" class="log-data" name="add-outline" style="font-size: 2rem;"></ion-icon>
       </div>
       
     </ion-card-header>
@@ -48,19 +49,10 @@
           <ion-col class="ion-text-center ion-no-padding" size="3.5" *ngIf="dayData.healthData.weightKg">{{dayData.healthData.weightKg}} Kg</ion-col>
         </ion-row>
       </div>
-      <!-- <ion-button *ngIf="healthData && healthData.length && healthData.length > 3" (click)="fullHeight = !fullHeight" class="weight-log-btn" fill="clear">
-        {{fullHeight ? 'View less' : 'View more'}}
-      </ion-button> -->
+  
   
       <div>
-        <!-- <ion-item lines="none">
-          <ion-label>Weight</ion-label>
-          <ion-input slot="end" type="number" labelPlacement="fixed" placeholder="e.g. 50kg" [(ngModel)]="logWeight"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>Date</ion-label>
-          <ion-input label="Date" slot="end" [max]="currentDate" labelPlacement="fixed" placeholder="Date" [value]="logDate" type="date" [(ngModel)]="logDate"></ion-input>
-        </ion-item> -->
+      
       </div>
     </ion-card-content>
   </ion-card>

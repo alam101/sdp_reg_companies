@@ -17,7 +17,8 @@
   </ion-item>
   <ion-item class="border-bottom" >
     <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="logDate" [value]="logDate"></ion-datetime>
+    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" 
+    (ionChange)="logDate = $event.detail.value" [value]="logDate"></ion-datetime>
   </ion-item>
   <ion-button (click)="addHealthData(minPressure,maxPressure)" [disabled]="maxPressure==0" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
 </ion-content>

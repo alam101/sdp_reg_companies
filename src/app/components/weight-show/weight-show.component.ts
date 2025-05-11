@@ -25,7 +25,9 @@ export class WeightShowComponent implements OnInit {
     private storage: Storage,
     private appService: AppService,
     private utilities: UTILITIES,
-  ) { }
+  ) {
+    
+   }
 
   ngOnInit(): void {
     this.getHealthData();
@@ -102,10 +104,15 @@ export class WeightShowComponent implements OnInit {
           title: {
             display: false,
           },
+          tooltip: {
+            enabled: false  // 🔥 Disable tooltip here
+          },
+        
         },
         interaction: {
           intersect: false,
         },
+        
         scales: {
           x: {
             display: true,

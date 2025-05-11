@@ -977,10 +977,11 @@ ion-slides{
   height: 100%;
   flex-direction: column;
     ion-card{
-      box-shadow: none;
-      height: 250px;
+     // box-shadow: none;
+     width: 99%;
+      height: auto;
       padding: 0;
-      margin: 0;
+      margin: 1rem 0;
       ion-card-header{
         padding: 0;
         margin: 1rem;

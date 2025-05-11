@@ -59,13 +59,7 @@ export class WcholesterolComponent implements OnInit {
               this.LDLCholestol.push({ldl:element?.healthData?.cholesterol?.ldl,formatedDate:element['formatedDate']});
               this.HDLCholestol.push({hdl:element?.healthData?.cholesterol?.hdl,formatedDate:element['formatedDate']});
               this.Triglycerides.push({triglycerides:element?.healthData?.cholesterol?.triglycerides,formatedDate:element['formatedDate']});
-            } else {
-              this.totalCholesterol.push(0);
-              this.LDLCholestol.push(0);
-              this.HDLCholestol.push(0);
-              this.Triglycerides.push(0);
-      
-            }
+            } 
            
           });
          
@@ -135,7 +129,7 @@ export class WcholesterolComponent implements OnInit {
             },
             {
               data: Triglycerides,
-              borderColor: "lightblue",
+              borderColor: "purple",
               fill: false
             }
           ]
@@ -151,6 +145,69 @@ export class WcholesterolComponent implements OnInit {
             title: {
               display: false,
             },
+            tooltip: {
+              enabled: false  // 🔥 Disable tooltip here
+            },
+            annotation: {
+              annotations: {
+                line200: {
+                  type: 'line',
+                  yMin: 200,
+                  yMax: 200,
+                  borderColor: 'green',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: '0',
+                    position: 'start',
+                    color: 'green'
+                  }
+                },
+                line100: {
+                  type: 'line',
+                  yMin: 100,
+                  yMax: 100,
+                  borderColor: 'blue',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: '0',
+                    position: 'start',
+                    color: 'blue'
+                  }
+                },
+                line40: {
+                  type: 'line',
+                  yMin: 40,
+                  yMax: 40,
+                  borderColor: 'red',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: '0',
+                    position: 'start',
+                    color: 'red'
+                  }
+                },
+                line150: {
+                  type: 'line',
+                  yMin: 150,
+                  yMax: 150,
+                  borderColor: 'purple',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: 'tryglicride',
+                    position: 'start',
+                    color: 'purple'
+                  }
+                }
+              }
+            }
           },
           interaction: {
             intersect: false,

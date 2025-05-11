@@ -30,10 +30,13 @@
       color:#01a3a4;
       padding-bottom: 15px;">
       <div class="weight-header-text">
-        Blood Glucose Log
-        <div (click)="addHealthData()" class="log-data">
+        
+        <span style="padding-top: 5px;">Blood Glucose Log</span>
+        <!-- <div (click)="addHealthData()" class="log-data">
           <span>Log</span>
-        </div>
+        </div> -->
+        <ion-icon (click)="addHealthData()" class="log-data" name="add-outline" style="font-size: 2rem;"></ion-icon>
+   
       </div>
       
     </ion-card-header>
@@ -44,11 +47,13 @@
           <ion-col class="ion-text-center ion-no-padding" size="3.5"><b>Fasting</b></ion-col>
           <ion-col class="ion-text-center ion-no-padding" size="3.5"><b>Random</b></ion-col>
         </ion-row>
-        <ion-row class="content border-bottom" *ngFor="let dayData of healthData">
+        <span *ngFor="let dayData of healthData">
+        <ion-row class="content border-bottom" *ngIf="dayData?.healthData?.bloodGlucose">
           <ion-col class="ion-no-padding">{{formatedDate(dayData.updateDate)}}</ion-col>
           <ion-col class="ion-text-center ion-no-padding" size="3.5" > {{dayData?.healthData?.bloodGlucose?.fasting}}</ion-col>
           <ion-col class="ion-text-center ion-no-padding" size="3.5" > {{dayData?.healthData?.bloodGlucose?.random}}</ion-col>
         </ion-row>
+      </span>
       </div>
     </ion-card-content>
   </ion-card>

@@ -10,7 +10,7 @@ import moment from "moment";
   styleUrls: ['./weight-log.page.scss'],
 })
 export class WeightLogPage implements OnInit {
-  logDate: Date = new Date();
+  logDate: string = new Date().toISOString();
   logWeight: Number;
   currentDate: Date = new Date();
   profileData: any;
@@ -27,10 +27,17 @@ export class WeightLogPage implements OnInit {
     console.log('profileData: ', this.profileData);
   }
 
+  onDateChange(event: any) {
+
+    this.logDate = event.detail.value;
+    console.log(this.logDate);
+    
+  }
   async addHealthData() {
     this.utilities.presentLoading();
+    debugger;
     let obj = {
-      "date": new Date(this.logDate).getTime(),
+      "date": this.logDate,
       "userId": this.profileData.profile.email,
       "createdBy": null,
       "weightKg": this.logWeight

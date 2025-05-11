@@ -8,7 +8,7 @@ import { UTILITIES } from 'src/app/core/utility/utilities';
   styleUrls: ['./wcholesterol-log.page.scss'],
 })
 export class WcholesterolLogPage implements OnInit {
-  logDate: Date = new Date();
+  logDate: Date;
   total:number;
   ldl:number;
   hdl:number;

@@ -53,10 +53,7 @@ export class WbloodGlucoseComponent implements OnInit {
             if (element?.healthData && element?.healthData?.bloodGlucose) {
               this.healthDataMin.push({min:element?.healthData?.bloodGlucose?.fasting,formatedDate:element['formatedDate']});
               this.healthDataMax.push({max:element?.healthData?.bloodGlucose?.random, formatedDate:element['formatedDate']});
-            } else {
-              this.healthDataMin.push(0);
-              this.healthDataMax.push(0);
-            }
+            } 
            
           });
          
@@ -117,6 +114,41 @@ export class WbloodGlucoseComponent implements OnInit {
             title: {
               display: false,
             },
+            tooltip: {
+              enabled: false  // 🔥 Disable tooltip here
+            },
+            annotation: {
+              annotations: {
+                line80: {
+                  type: 'line',
+                  yMin: 0,
+                  yMax: 0,
+                  borderColor: 'green',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: '0',
+                    position: 'start',
+                    color: 'green'
+                  }
+                },
+                line120: {
+                  type: 'line',
+                  yMin: 140,
+                  yMax: 140,
+                  borderColor: 'blue',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: '140',
+                    position: 'start',
+                    color: 'blue'
+                  }
+                }
+              }
+            }
           },
           interaction: {
             intersect: false,

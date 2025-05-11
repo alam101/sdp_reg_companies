@@ -346,7 +346,7 @@ export class WeightGuagePage implements AfterViewInit {
     }
   }
   formatedDate(dt){
-      return moment(dt).format('ddd');
+      return moment(dt).format('D-MMM');
     }
     
   getColor(value) {

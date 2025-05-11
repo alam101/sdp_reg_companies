@@ -1,10 +1,11 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { UTILITIES } from 'src/app/core/utility/utilities';
-import { Chart } from "chart.js";
+import { Chart, registerables } from "chart.js";
 import moment from "moment";
 import { Storage } from '@ionic/storage';
 import { CONSTANTS } from 'src/app/core/constants/constants';
+import annotationPlugin from 'chartjs-plugin-annotation';
 @Component({
   selector: 'app-wblood-pressure',
   templateUrl: './wblood-pressure.component.html',
@@ -26,7 +27,9 @@ export class WbloodPressureComponent implements OnInit {
     private storage: Storage,
     private appService: AppService,
     private utilities: UTILITIES,
-  ) { }
+  ) { 
+    Chart.register(...registerables, annotationPlugin);
+  }
 
   ngOnInit(): void {
     this.getHealthData();
@@ -53,9 +56,6 @@ export class WbloodPressureComponent implements OnInit {
             if (element?.healthData && element?.healthData?.bloodPressure) {
               this.healthDataMin.push({min:element?.healthData?.bloodPressure?.systolic,formatedDate:element['formatedDate']});
               this.healthDataMax.push({max:element?.healthData?.bloodPressure?.diastolic, formatedDate:element['formatedDate']});
-            } else {
-              this.healthDataMin.push(0);
-              this.healthDataMax.push(0);
             }
            
           });
@@ -118,6 +118,41 @@ export class WbloodPressureComponent implements OnInit {
             title: {
               display: false,
             },
+            tooltip: {
+              enabled: false  // 🔥 Disable tooltip here
+            },
+            annotation: {
+              annotations: {
+                line80: {
+                  type: 'line',
+                  yMin: 80,
+                  yMax: 80,
+                  borderColor: 'green',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: '80',
+                    position: 'start',
+                    color: 'green'
+                  }
+                },
+                line120: {
+                  type: 'line',
+                  yMin: 120,
+                  yMax: 120,
+                  borderColor: 'blue',
+                  borderWidth: 1,
+                  borderDash: [5, 5], // dotted
+                  label: {
+                    display: false,
+                    content: '120',
+                    position: 'start',
+                    color: 'blue'
+                  }
+                }
+              }
+            }
           },
           interaction: {
             intersect: false,

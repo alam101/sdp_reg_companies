@@ -10,7 +10,8 @@
   <ion-item class="border-bottom" lines="none">
     <ion-label>Date</ion-label>
     <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"
-     [(ngModel)]="logDate" [value]="logDate"></ion-datetime>
+    (ionChange)="onDateChange($event)" [value]="logDate"></ion-datetime>
   </ion-item>
+ 
   <ion-button (click)="addHealthData()" [disabled]="!logDate && !logWeight" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
 </ion-content>
