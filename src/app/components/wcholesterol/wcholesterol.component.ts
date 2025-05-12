@@ -177,34 +177,6 @@ export class WcholesterolComponent implements OnInit {
                     position: 'start',
                     color: 'blue'
                   }
-                },
-                line40: {
-                  type: 'line',
-                  yMin: 40,
-                  yMax: 40,
-                  borderColor: 'red',
-                  borderWidth: 1,
-                  borderDash: [5, 5], // dotted
-                  label: {
-                    display: false,
-                    content: '0',
-                    position: 'start',
-                    color: 'red'
-                  }
-                },
-                line150: {
-                  type: 'line',
-                  yMin: 150,
-                  yMax: 150,
-                  borderColor: 'purple',
-                  borderWidth: 1,
-                  borderDash: [5, 5], // dotted
-                  label: {
-                    display: false,
-                    content: 'tryglicride',
-                    position: 'start',
-                    color: 'purple'
-                  }
                 }
               }
             }

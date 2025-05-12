@@ -4,7 +4,9 @@
   <ion-card style="margin: 0;padding:0 .2rem;">
     <div class="header_div d_flex">
       <p>Blood Pressure Tracker</p>
-      <div style="float: right;cursor:pointer;font-size:.75rem;border:1px solid #b3b3b3; border-radius:5px;padding:2px 3px;" (click)="openEvent($event)" *ngIf="isShowButton">
+      <div style="float: right;cursor:pointer;font-size:.75rem; border-radius:5px;padding:2px 3px;color: var(--theme-logslot);
+    border: 1px solid var(--theme-logslot);"
+      (click)="openEvent($event)" *ngIf="isShowButton">
         Details/Add
       </div>
     </div>

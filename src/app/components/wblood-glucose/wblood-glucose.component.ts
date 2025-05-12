@@ -121,14 +121,14 @@ export class WbloodGlucoseComponent implements OnInit {
               annotations: {
                 line80: {
                   type: 'line',
-                  yMin: 0,
-                  yMax: 0,
+                  yMin: 100,
+                  yMax: 100,
                   borderColor: 'green',
                   borderWidth: 1,
                   borderDash: [5, 5], // dotted
                   label: {
                     display: false,
-                    content: '0',
+                    content: '100',
                     position: 'start',
                     color: 'green'
                   }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { UTILITIES } from 'src/app/core/utility/utilities';
 import { Chart } from "chart.js";
@@ -11,8 +11,9 @@ import { CONSTANTS } from 'src/app/core/constants/constants';
   templateUrl: './weight-show.component.html',
   styleUrls: ['./weight-show.component.scss']
 })
-export class WeightShowComponent implements OnInit {
+export class WeightShowComponent implements OnInit, AfterViewInit {
   @Input() current = 73;
+  @Input() suggestedWeight=75;
   @Input() isShowButton=false;
   @Input() totalWeight = 85;
   @Output() weightgauge = new EventEmitter();
@@ -30,9 +31,11 @@ export class WeightShowComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
+  }
+  ngAfterViewInit(){
     this.getHealthData();
   }
-  
   openEvent(event) {
     this.weightgauge.emit();
   }
@@ -74,6 +77,7 @@ export class WeightShowComponent implements OnInit {
   createChart() {
     let datapoints = [];
     let labels = [];
+    const suggestedWeight1 = this.suggestedWeight;
     this.healthData.forEach(ele => {
       datapoints.push(ele.healthData.weightKg);
       labels.push(ele.formatedDate);
@@ -107,7 +111,24 @@ export class WeightShowComponent implements OnInit {
           tooltip: {
             enabled: false  // 🔥 Disable tooltip here
           },
-        
+          annotation: {
+            annotations: {
+              line200: {
+                type: 'line',
+                yMin: suggestedWeight1,
+                yMax: suggestedWeight1,
+                borderColor: 'green',
+                borderWidth: 1,
+                borderDash: [5, 5], // dotted
+                label: {
+                  display: false,
+                  content: `${suggestedWeight1}`,
+                  position: 'start',
+                  color: 'green'
+                }
+              },
+          },
+        },
         },
         interaction: {
           intersect: false,

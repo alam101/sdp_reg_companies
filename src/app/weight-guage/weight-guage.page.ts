@@ -257,13 +257,13 @@ export class WeightGuagePage implements AfterViewInit {
   }
   
   weightGraph() {
-    this.utilities.presentLoading();
+    //this.utilities.presentLoading();
     let profile = JSON.parse(localStorage.getItem("profileData"));
     this.profileData = profile;
       // let profile = this.utilities.parseJSON(profile);
       this.appService.getWeightGraph().then(
         res => {
-          this.utilities.hideLoader();
+          //this.utilities.hideLoader();
           profile["demographic"]["weight"]["value"] = res["currentWeight"];
           this.storage.set("profileData", this.utilities.parseString(profile));
           this.weightGraphData = JSON.parse(JSON.stringify(res));
@@ -430,7 +430,7 @@ export class WeightGuagePage implements AfterViewInit {
             this.weightGraph();
           }, err => {
 
-            this.utilities.hideLoader();
+            //this.utilities.hideLoader();
             this.utilities.presentAlert(JSON.stringify(err));
           });
       }
@@ -481,6 +481,9 @@ export class WeightGuagePage implements AfterViewInit {
         console.log('getHealthData response: ', res);
         this.healthData = [];
         if(res && res.length) {
+       
+          res.sort((a,b)=> new Date(b.updateDate).getTime() - new Date(a.updateDate).getTime());
+          
           res.forEach(element => {
             element['formatedDate'] = moment(new Date(element.updateDate)).format("MMM D, YYYY");
             // this.profileData.demographic.weight.value - element?.healthData?.weightKg

@@ -117,11 +117,11 @@ export class WbloodGlucoseGuagePage implements AfterViewInit {
   }
   
   bloodPressureGraph() {
-    this.utilities.presentLoading();
+  //  this.utilities.presentLoading();
     let profile = JSON.parse(localStorage.getItem("profileData"));
     this.profileData = profile;
     this.appService.getHealthData(this.profileData.profile.email).then((res: any) => {
-      this.healthData = res;
+      this.healthData = res.sort((a,b)=> new Date(b.updateDate).getTime() - new Date(a.updateDate).getTime());
     },err=>{
 
 console.log("error",err);
@@ -228,7 +228,7 @@ console.log("error",err);
             this.bloodPressureGraph();
           }, err => {
 
-            this.utilities.hideLoader();
+         //   this.utilities.hideLoader();
             this.utilities.presentAlert(JSON.stringify(err));
           });
       }
