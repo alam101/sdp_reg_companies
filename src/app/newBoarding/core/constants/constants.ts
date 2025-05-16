@@ -48,6 +48,7 @@ export const APIS = {
   WP_BASEURL: 'https://smartdietplanner.com/wp-json/wp/v2/posts',
   pithanURL: 'https://pythonapi.smartdietplanner.com/',
   downloadPdfApi: 'gen_pdf',
+  downloadPdfApiNew: 'generate_pdf',  
   defaultDetail: 'defaultDetail',
   profile: 'profile',
   dietplan: "update/cust/dietplan",

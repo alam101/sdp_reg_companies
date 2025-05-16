@@ -28,10 +28,10 @@ export class WbloodPressureComponent implements OnInit {
     private appService: AppService,
     private utilities: UTILITIES,
   ) { 
-    Chart.register(...registerables, annotationPlugin);
   }
 
   ngOnInit(): void {
+     Chart.register(...registerables, annotationPlugin);
     this.getHealthData();
   }
   

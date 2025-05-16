@@ -103,6 +103,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   weightTrackerData:any;
   ionViewWillEnter() {
     history.forward();
+
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
       this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
     } else {
@@ -112,10 +113,10 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
     if(localStorage.getItem("weightTracker")!==""){
-      console.log("this.weightTrackerData",this.weightTrackerData);
+    
       this.weightTrackerData = JSON.parse(localStorage.getItem("weightTracker"));
      
-      
+     
     }
   }
   async openPopupWeight(event){
@@ -288,8 +289,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     console.log("this.compConfig", this.compConfig);
     
     this.getProfile();
+    
     if(localStorage.getItem("weightTracker")!==""){
-      console.log("this.weightTrackerData",localStorage.getItem("weightTracker"));
+     
       this.weightTrackerData = JSON.parse(localStorage.getItem("weightTracker"));
     }
      this. getOnePlan();
@@ -308,18 +310,34 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   gotoApp(){
     this.router.navigate(["inapp-test"]);
   }
+
+  isIncludeDesease(items,desease){
+     return items?.includes(desease);
+  }
+   isIncludeDietPlanCondition(deitPlanName){
+    if(deitPlanName?.toLowerCase()?.includes('diabetes')){
+      return 'sugar';
+    }
+    else if(deitPlanName?.toLowerCase()?.includes('hypertension')){
+        return 'pressure';
+    }
+    else if(deitPlanName?.toLowerCase()?.includes('cholesterol')){
+        return 'cholesterol';
+    }
+    else{
+      return false;
+    }
+  }
+  dietplanName="";
   getProfile(){
     localStorage.setItem("weightTracker","");
     this.appServices.getProfile().then(
-      
       profileData => {
-        ////
-       
         console.log("localStorage.setItem",localStorage.getItem("weightTracker"));
-        
         localStorage.setItem("activities",JSON.stringify(profileData["lifeStyle"]["activities"]));
         console.log("profileData",profileData);
         this.profileData = profileData;
+        this.dietplanName = profileData["lifeStyle"]["dietPlanName"];
         localStorage.setItem("weightTracker",JSON.stringify(this.profileData));
           let userData = {
           email: profileData["profile"]["email"],
@@ -331,6 +349,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
           provider: "mobile"
         };
         this.getdietitianDetail(this.profileData.profile.email);
+        this.getDietitianDetail1(this.profileData.profile.email);
         if(this.compConfig.isDietitian){
         this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
         }
@@ -342,7 +361,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         console.log("getprofile",JSON.stringify(userData));
         console.log("alam:-", profileData["lifeStyle"]);
         this. bindDesease();
-        this.getInstructionData(this.profileData.profile.email);
+        this.getInstructionData(this.profileData?.profile?.email);
       });
 
    }
@@ -567,6 +586,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     });
   }
   deititianName="";
+  deititianEmail="";
   whatsappNum="";
   deititianRole="";
   calendlyId="";
@@ -582,6 +602,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.appServices.getEditProfilePermission(email).then((res:any)=>{
       if(res.dietitianName!==undefined){
       this.deititianName = res.dietitianName;
+      this.deititianEmail = res.dietitianEmail;
       this.deititianRole = res.role;
       this.calendlyId = res.calendlyId;
       this.whatsappNum = res.whatsappNum;
@@ -622,27 +643,35 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      if(this.clientId==='alyve'){
      this.isdoenloadclicked=true;
      localStorage.setItem("company_id","alyve.health");
-     this.downloadPdfFromApi();
+     this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
      }
-     if(this.clientId==='wellbeing'){
+     else if(this.clientId==='wellbeing'){
       this.isdoenloadclicked=true;
       localStorage.setItem("company_id","wellbeing");
-      this.downloadPdfFromApi();
+      this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
      }
-     if(this.clientId==='redcliffe'){
+     
+     else if(this.clientId==='redcliffe'){
+      this.design='new';
+      this.response_type="url";
       this.isdoenloadclicked=true;
       localStorage.setItem("company_id","REDCLIFFE");
-      this.downloadPdfFromApi();
+      if(this.response_type==="file"){
+        this.downloadPdfFromApiNew1();
+      }
+      else{
+        this.downloadPdfFromApiNew();
+      }
+      
      }
-     if(this.clientId==='drstore'){
+     else if(this.clientId==='drstore'){
       this.isdoenloadclicked=true;
       localStorage.setItem("company_id","drstore");
-      this.downloadPdfFromApi();
+      this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
      }
      else {
       this.isdoenloadclicked=true;
-      
-      this.downloadPdfFromApi();
+      this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
      }
     
   }
@@ -701,16 +730,111 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
          clearInterval(this.iscloseInterval);
         console.log('Page loaded:', event);
   
+   this.utilities.hideLdr();
+    }, (error) => {
+      this.utilities.hideLdr();
+      console.error('Error downloading PDF:', error);
+    });
+
+  }
+  
+  dietitianRecord:any;
+  skills=[];
+  getDietitianDetail1(email){
+    this.appServices.getDietitianRecord(email).subscribe((res:any)=>{
+      console.log("response dietitian", res);
+      this.dietitianRecord = res;
+      this.skills = res?.speciality?.split(', ');
+      this.gender = res?.gender?.toLowerCase();
+      },err=>{
+
+    });
+  }
+  response_type="file";
+  design='old';
+  downloadPdfFromApiNew(){ 
+    this.percent=0.0;
+  this.percentwithPer='0%';
+
+    this.startInterval();
+  //  this.utilities.showLdr();
+
+    this.appServices.downloadPdfFromApiNew1(
+    localStorage.getItem("company_id"),
+    this.profileData?.profile?.email?.trim(),
+    this.dietitianRecord?.deititianName?.toString()?.trim() ,
+    this.dietitianRecord?.dietitianEmailId,
+    this.response_type,
+    this.design).subscribe((res:any) => {
+      console.log("blob:::---", res);  
+      this.percentwithPer='100%';
+      const a = document.createElement('a');
+      console.log("blob", res);  
+      if(this.response_type==='url'){
+       // window.open(res['url'],"_system");
+        // this.iab.create(res['url'],"_system");
+         a.href = res["url"];
+         document.body.appendChild(a);
+         a.download = 'document.pdf';
+          a.target = '_blank';
+         a.click();
+           document.body.removeChild(a);
+            window.URL.revokeObjectURL(res["url"]);
+      }
+      else{
+       const url = window.URL.createObjectURL(res as Blob);
+       a.href = url;
+       a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
+       document.body.appendChild(a);
+       a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+       }
+        setTimeout(()=>{
+          this.isdoenloadclicked=false;
+         },2000);
+         clearInterval(this.iscloseInterval);
+        console.log('Page loaded:', event);
+  
    
-      // //window.open(url, '_blank');
-      // const a = document.createElement('a');
-      // a.href = url;
-      // a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
-      // document.body.appendChild(a);
-      // a.click();
-      // document.body.removeChild(a);
-    // window.URL.revokeObjectURL(url);
+   this.utilities.hideLdr();
+    }, (error) => {
+      this.utilities.hideLdr();
+      console.error('Error downloading PDF:', error);
+    });
+
+  }
+   downloadPdfFromApiNew1(){ 
+    this.percent=0.0;
+  this.percentwithPer='0%';
+
+    this.startInterval();
+  //  this.utilities.showLdr();
+    this.appServices.downloadPdfFromApiNew(
+    localStorage.getItem("company_id"),
+    this.profileData?.profile?.email?.trim(),
+    this.dietitianRecord?.deititianName?.toString()?.trim() ,
+    this.dietitianRecord?.dietitianEmailId,
+    this.response_type,
+    this.design).subscribe((res:Blob) => {
+      console.log("blob:::---", res);  
+      this.percentwithPer='100%';
+      const a = document.createElement('a');
     
+       const url = window.URL.createObjectURL(res);
+       a.href = url;
+       a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
+       document.body.appendChild(a);
+       a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      
+        setTimeout(()=>{
+          this.isdoenloadclicked=false;
+         },2000);
+         clearInterval(this.iscloseInterval);
+        console.log('Page loaded:', event);
+  
    
    this.utilities.hideLdr();
     }, (error) => {

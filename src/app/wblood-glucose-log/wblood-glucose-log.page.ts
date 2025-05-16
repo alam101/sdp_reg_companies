@@ -8,7 +8,7 @@ import { UTILITIES } from 'src/app/core/utility/utilities';
   styleUrls: ['./wblood-glucose-log.page.scss'],
 })
 export class WbloodGlucoseLogPage implements OnInit {
-  logDate: Date = new Date();
+  logDate: string;
   fasting:number;
   random:number;
   currentDate: Date = new Date();
@@ -23,6 +23,9 @@ export class WbloodGlucoseLogPage implements OnInit {
   ngOnInit() {
     console.log('logDate: ', this.logDate);
     console.log('profileData: ', this.profileData);
+     this.logDate = new Date().toISOString();
+     this.fasting=0;
+     this.random=0;
   }
 
   async addHealthData(sys,dia) {

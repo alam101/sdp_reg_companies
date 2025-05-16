@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { UTILITIES } from 'src/app/core/utility/utilities';
-import { Chart } from "chart.js";
+import { Chart, registerables } from "chart.js";
 import moment from "moment";
 import { Storage } from '@ionic/storage';
 import { CONSTANTS } from 'src/app/core/constants/constants';
+import annotationPlugin from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'app-weight-show',
@@ -13,7 +14,7 @@ import { CONSTANTS } from 'src/app/core/constants/constants';
 })
 export class WeightShowComponent implements OnInit, AfterViewInit {
   @Input() current = 73;
-  @Input() suggestedWeight=75;
+  @Input() suggestedWeight=55;
   @Input() isShowButton=false;
   @Input() totalWeight = 85;
   @Output() weightgauge = new EventEmitter();
@@ -34,6 +35,7 @@ export class WeightShowComponent implements OnInit, AfterViewInit {
     
   }
   ngAfterViewInit(){
+    Chart.register(...registerables, annotationPlugin);
     this.getHealthData();
   }
   openEvent(event) {
@@ -77,6 +79,7 @@ export class WeightShowComponent implements OnInit, AfterViewInit {
   createChart() {
     let datapoints = [];
     let labels = [];
+    console.log("this.suggestedWeight", this.suggestedWeight,this.healthData);
     const suggestedWeight1 = this.suggestedWeight;
     this.healthData.forEach(ele => {
       datapoints.push(ele.healthData.weightKg);
@@ -84,6 +87,9 @@ export class WeightShowComponent implements OnInit, AfterViewInit {
     });
     if (this.weightChartNew) {
       this.weightChartNew.destroy();
+    }
+    if(datapoints?.length==0){
+      datapoints.push(0);
     }
     this.weightChartNew = new Chart(this.weightCanvasNew.nativeElement, {
       type: "line",
@@ -98,7 +104,6 @@ export class WeightShowComponent implements OnInit, AfterViewInit {
         ]
       },
       options: {
-       
         responsive: true,
         plugins: {
           legend: {
@@ -109,7 +114,7 @@ export class WeightShowComponent implements OnInit, AfterViewInit {
             display: false,
           },
           tooltip: {
-            enabled: false  // 🔥 Disable tooltip here
+            enabled: false  
           },
           annotation: {
             annotations: {

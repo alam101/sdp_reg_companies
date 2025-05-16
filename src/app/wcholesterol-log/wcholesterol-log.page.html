@@ -30,5 +30,5 @@
     <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" 
     (ionChange)="logDate = $event.detail.value" [value]="logDate"></ion-datetime>
   </ion-item>
-  <ion-button (click)="addHealthData()" [disabled]="total==0" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
+  <ion-button (click)="addHealthData()" [disabled]="total==0 && ldl==0 && hdl==0 && triglycerides==0" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
 </ion-content>

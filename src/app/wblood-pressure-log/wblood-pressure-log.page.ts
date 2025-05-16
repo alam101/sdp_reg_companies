@@ -8,7 +8,7 @@ import { UTILITIES } from 'src/app/core/utility/utilities';
   styleUrls: ['./wblood-pressure-log.page.scss'],
 })
 export class WbloodPressureLogPage implements OnInit {
-  logDate: Date = new Date();
+  logDate: string;
   minPressure:number;
   maxPressure:number;
   currentDate: Date = new Date();
@@ -23,6 +23,9 @@ export class WbloodPressureLogPage implements OnInit {
   ngOnInit() {
     console.log('logDate: ', this.logDate);
     console.log('profileData: ', this.profileData);
+   this.logDate = new Date().toISOString();
+  this.minPressure=0;
+  this.maxPressure=0;
   }
 
   async addHealthData(sys,dia) {

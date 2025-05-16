@@ -1,10 +1,11 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 import { UTILITIES } from 'src/app/core/utility/utilities';
-import { Chart } from "chart.js";
+import { Chart, registerables } from "chart.js";
 import moment from "moment";
 import { Storage } from '@ionic/storage';
 import { CONSTANTS } from 'src/app/core/constants/constants';
+import annotationPlugin from 'chartjs-plugin-annotation';
 @Component({
   selector: 'app-wblood-glucose',
   templateUrl: './wblood-glucose.component.html',
@@ -29,6 +30,7 @@ export class WbloodGlucoseComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+     Chart.register(...registerables, annotationPlugin);
     this.getHealthData();
   }
   

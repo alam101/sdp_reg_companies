@@ -8,7 +8,7 @@ import { UTILITIES } from 'src/app/core/utility/utilities';
   styleUrls: ['./wcholesterol-log.page.scss'],
 })
 export class WcholesterolLogPage implements OnInit {
-  logDate: Date;
+  logDate: string;
   total:number;
   ldl:number;
   hdl:number;
@@ -25,6 +25,11 @@ export class WcholesterolLogPage implements OnInit {
   ngOnInit() {
     console.log('logDate: ', this.logDate);
     console.log('profileData: ', this.profileData);
+     this.logDate = new Date().toISOString();
+      this.total = 0;
+      this.ldl = 0;
+      this.hdl  = 0;
+      this.triglycerides = 0;
   }
 
   async addHealthData(sys,dia) {

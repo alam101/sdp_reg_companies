@@ -176,14 +176,7 @@
     position: relative;
     align-items: center;
     margin-right: 5px;" *ngIf="!isDetox">
-        <!-- <p class="meal_workout_button" *ngIf="compConfig?.inSights" style="font-size: .8rem;" [style.color]="clientId==='enkeltec'?'#000':null" (click)="goToInsites()">Insights</p> -->
-        <!-- <ion-button> -->
-          <!-- <ion-icon name="bar-chart-outline" *ngIf="compConfig?.inSights"
-          class="meal_workout_button"  style="font-size: 1.5rem;" (click)="goToInsites()"></ion-icon> -->
-        <!-- <ion-icon name="stats"
-        *ngIf="compConfig?.inSights"
-         class="meal_workout_button"  (click)="goToInsites()"></ion-icon> -->
-      <!-- </ion-button> -->
+    
         <ion-button fill="outline" *ngIf="compConfig?.inSights" class="meal_workout_button" style="font-size: .6rem;
     padding: 0;
     height: 23px;
@@ -194,17 +187,13 @@
         name="pie-chart"
         (click)="caloryChart()"
       ></ion-icon> 
-         <!-- <ion-icon *ngIf="compConfig.download!=false"
-         class="meal_workout_button"
-          name="cloud-download"
-          (click)="gotoDownloadPopup()"
-        ></ion-icon>  -->
         <ion-button fill="outline" *ngIf="compConfig.download!=false" class="meal_workout_button" style="font-size: .6rem;
         padding: 0;
         height: 23px;
         width: 70px;--border-color: var(--theme-color);--border-width: 1px;"
             [style.color]="clientId==='enkeltec'?'#000':null" (click)="gotoDownloadPopup()">Download</ion-button>
       </div>
+      
       <div *ngIf="isdoenloadclicked" style="float:left;width: 20%;height:6px;border:1px solid #b3b3b3;">
         <div style="float: left;position: relative;
     font-size: .6rem;color:var(--profile-color);white-space:nowrap;
@@ -281,7 +270,7 @@
          </ion-card-content>
     </ion-card>
   </div>
-  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;">
+  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="compConfig?.isGraph && diets?.diets?.length>0">
   <ion-slides [options]="slideOpts" pager="true">
     <ion-slide >
       <ion-card>
@@ -290,13 +279,13 @@
         <ion-card-content>
           <div class="meal_workout_div card-margin">
             <div class="weight">
-              <app-weight-show [isShowButton]="true" [current]="weightTrackerData?.demographic?.currentWeight" [totalWeight]="weightTrackerData?.demographic?.weightInKg" (weightgauge)="openPopupWeight($event)"></app-weight-show>
+              <app-weight-show [suggestedWeight]="profileData?.demographic?.suggestedWeight" [isShowButton]="true" [current]="weightTrackerData?.demographic?.currentWeight" [totalWeight]="weightTrackerData?.demographic?.weightInKg" (weightgauge)="openPopupWeight($event)"></app-weight-show>
             </div>
           </div>
         </ion-card-content>
       </ion-card>
    </ion-slide>
-   <ion-slide>
+   <ion-slide *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'B') || isIncludeDietPlanCondition(dietPlanName)==='pressure'">
       <ion-card>
         <ion-card-header>
         </ion-card-header>
@@ -309,7 +298,7 @@
         </ion-card-content>
       </ion-card>
    </ion-slide>
-   <ion-slide>
+   <ion-slide *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'D') || isIncludeDietPlanCondition(dietPlanName)==='sugar'">
       <ion-card>
         <ion-card-header>
         </ion-card-header>
@@ -322,7 +311,7 @@
         </ion-card-content>
       </ion-card>
    </ion-slide>
-   <ion-slide>
+   <ion-slide *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'C')|| isIncludeDietPlanCondition(dietPlanName)==='cholesterol'">
       <ion-card>
         <ion-card-header>
         </ion-card-header>

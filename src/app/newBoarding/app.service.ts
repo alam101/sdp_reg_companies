@@ -53,6 +53,22 @@ export class AppService {
    const url = APIS.pithanURL+`${APIS.downloadPdfApi}?auth_token=${token}&date_range=${dateRange}&date=${date}&company_id=${comp_id}&user_id=${user_id}` ;
    return this.httpClient.get(url, {responseType: 'blob'});
   }
+
+  downloadPdfFromApiNew1(comp_id='alyve.health',
+    user_id,dietitian_name,dietitan_email,response_type,design) {
+    const url = APIS.pithanURL+`${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
+    &dietitian_email=${dietitan_email.trim()}&response_type=${response_type}&design=${design}` ;
+
+    return this.httpClient.get(url, {});
+   }
+
+   downloadPdfFromApiNew(comp_id='alyve.health',
+    user_id,dietitian_name,dietitan_email,response_type,design):Observable<Blob> {
+    const url = APIS.pithanURL+`${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
+    &dietitian_email=${dietitan_email.trim()}&response_type=${response_type}&design=${design}` ;
+
+    return this.httpClient.get(url, {responseType:'blob'});
+   }
   
   getDietPlans(isDetox, date, country, recommended) {
     if(this.isNew){
