@@ -13,8 +13,9 @@ import { WeightLogPage } from './weight-log.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    WeightLogPageRoutingModule
+    WeightLogPageRoutingModule,
+    WeightLogPage
   ],
-  declarations: [WeightLogPage]
+  declarations: []
 })
 export class WeightLogPageModule {}

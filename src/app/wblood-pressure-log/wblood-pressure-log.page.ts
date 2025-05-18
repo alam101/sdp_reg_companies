@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { AppService } from 'src/app/app.service';
 import { UTILITIES } from 'src/app/core/utility/utilities';
 @Component({
   selector: 'app-wblood-pressure-log',
+  standalone: true,
+  imports: [CommonModule, IonicModule, FormsModule],
   templateUrl: './wblood-pressure-log.page.html',
   styleUrls: ['./wblood-pressure-log.page.scss'],
 })
@@ -24,12 +28,14 @@ export class WbloodPressureLogPage implements OnInit {
     console.log('logDate: ', this.logDate);
     console.log('profileData: ', this.profileData);
    this.logDate = new Date().toISOString();
-  this.minPressure=0;
-  this.maxPressure=0;
+  // this.minPressure=0;
+  // this.maxPressure=0;
   }
 
   async addHealthData(sys,dia) {
-    this.utilities.presentLoading();
+     if(!this.minPressure || !this.maxPressure){
+      return;
+    }
     let obj = {
       "date": new Date(this.logDate),
       "userId":this.profileData.profile.email, //this.profileData.profile.email,

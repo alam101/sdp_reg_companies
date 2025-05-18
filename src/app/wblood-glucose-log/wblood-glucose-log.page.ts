@@ -1,9 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { AppService } from 'src/app/app.service';
 import { UTILITIES } from 'src/app/core/utility/utilities';
 @Component({
   selector: 'app-wblood-glucose-log',
+    standalone: true,
+      imports: [CommonModule, IonicModule, FormsModule],
   templateUrl: './wblood-glucose-log.page.html',
   styleUrls: ['./wblood-glucose-log.page.scss'],
 })
@@ -24,12 +28,13 @@ export class WbloodGlucoseLogPage implements OnInit {
     console.log('logDate: ', this.logDate);
     console.log('profileData: ', this.profileData);
      this.logDate = new Date().toISOString();
-     this.fasting=0;
-     this.random=0;
+   
   }
 
   async addHealthData(sys,dia) {
-    this.utilities.presentLoading();
+    if(!this.fasting || !this.random){
+      return;
+    }
     let obj = {
       "date": new Date(this.logDate),
       "userId":this.profileData.profile.email, //this.profileData.profile.email,
@@ -42,8 +47,7 @@ export class WbloodGlucoseLogPage implements OnInit {
       this.utilities.hideLoader();
       this.utilities.showSuccessToast('blood pressure logged successfully');
       console.log('getHealthData response: ', res);
-      this.fasting = 0;
-      this.random = 0;
+     
       // this.logDate = "";
       this.modalController.dismiss(true);
     })

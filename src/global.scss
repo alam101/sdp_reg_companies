@@ -521,3 +521,11 @@ ion-button{
     transform: rotate(360deg);
   }
 }
+
+.error{
+    border-bottom: 2px solid rgb(222, 16, 16) !important;
+    // background: rgb(230, 209, 209);
+}
+.border-bottom{
+    border-bottom: 1px solid #b3b3b3;
+}

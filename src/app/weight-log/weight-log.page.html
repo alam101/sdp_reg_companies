@@ -1,17 +1,38 @@
 <ion-content class="ion-padding">
+  <!-- Close Icon -->
   <ion-item lines="none">
     <ion-icon slot="end" name="close-circle-outline" class="close-icon" (click)="close()"></ion-icon>
   </ion-item>
+
+  <!-- Weight Input -->
   <ion-item lines="none">
-    <ion-label style="width: 25%;">Weight</ion-label>
-    <ion-input  class="border-bottom" type="number" labelPlacement="fixed" placeholder="e.g. 50kg"
-      [value]="logWeight" (ionInput)="logWeight = $event.target.value"></ion-input>
-  </ion-item><br>
-  <ion-item class="border-bottom">
-    <ion-label>Date</ion-label>
-    <ion-datetime style="width: 80%;" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"
-    (ionChange)="onDateChange($event)" [value]="logDate"></ion-datetime>
+    <ion-label position="fixed" style="width: 25%;">Weight <span style="color:red">*</span></ion-label>
+    <ion-input
+      type="number"
+       class="border-bottom"
+      [(ngModel)]="logWeight"
+      [ngClass]="{ 'error': !logWeight }"
+      placeholder="50">
+    </ion-input>
   </ion-item>
-  <ion-button (click)="addHealthData()" [disabled]="!logDate && !logWeight" 
-  class="weight-log-btn ion-margin" expand="block">Log</ion-button>
+
+  <!-- Date Picker -->
+  <ion-item class="border-bottom">
+    <ion-label position="stacked">Date</ion-label>
+    <ion-datetime
+      style="width: 100%;"
+      presentation="date"
+      [(ngModel)]="logDate"
+      (ionChange)="onDateChange($event)">
+    </ion-datetime>
+  </ion-item>
+
+  <!-- Submit Button -->
+  <ion-button
+    expand="block"
+    class="weight-log-btn ion-margin"
+    (click)="addHealthData()"
+    [disabled]="!logDate || !logWeight">
+    Log
+  </ion-button>
 </ion-content>

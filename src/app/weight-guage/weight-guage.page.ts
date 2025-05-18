@@ -508,8 +508,7 @@ export class WeightGuagePage implements AfterViewInit {
    // })
   }
 
-  async addHealthData() {
-    
+  async addHealthData() {    
     const modal = await this.modalController.create({
       component: WeightLogPage,
       backdropDismiss: true,

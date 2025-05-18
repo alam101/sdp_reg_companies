@@ -5,20 +5,20 @@
   <ion-item lines="none" no-Padding no-Margin>
     <ion-label style="font-size: 1.2rem;color:#01a3a4">Blood Pressure</ion-label>
   </ion-item>
-  <ion-item class="border-bottom" >
-    <ion-label>Min</ion-label>
-    <ion-input slot="end" type="number" [value]="minPressure" placeholder="e.g. 80"
+  <ion-item lines="none">
+    <ion-label style="width: 25%;">Min <span style="color:red">*</span></ion-label>
+    <ion-input class="border-bottom"  type="number" [(ngModel)]="minPressure"  [ngClass]="{ 'error': !minPressure }" placeholder="80"
     (ionInput)="minPressure = $event.target.value"></ion-input>
   </ion-item>
-  <ion-item class="border-bottom" >
-    <ion-label>Max</ion-label>
-    <ion-input slot="end" [value]="maxPressure" placeholder="e.g. 120"
+  <ion-item  lines="none">
+    <ion-label style="width: 25%;">Max <span style="color:red">*</span></ion-label>
+    <ion-input class="border-bottom"  type="number" [(ngModel)]="maxPressure"  [ngClass]="{ 'error': !maxPressure }" placeholder="120"
     (ionInput)="maxPressure = $event.target.value"></ion-input>
   </ion-item>
-  <ion-item class="border-bottom" >
+  <ion-item  lines="none">
     <ion-label>Date</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" 
-    (ionChange)="logDate = $event.detail.value" [value]="logDate"></ion-datetime>
+    <ion-datetime class="border-bottom" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" 
+    (ionChange)="logDate = $event.detail.value"  [(ngModel)]="logDate"></ion-datetime>
   </ion-item>
-  <ion-button (click)="addHealthData(minPressure,maxPressure)" [disabled]="maxPressure==0" class="weight-log-btn ion-margin" expand="block">Log</ion-button>
+  <ion-button (click)="addHealthData(minPressure,maxPressure)"  class="weight-log-btn ion-margin" expand="block">Log</ion-button>
 </ion-content>
