@@ -33,6 +33,7 @@ import { WeightShowComponent } from "./weight-show/weight-show.component";
 import { WbloodPressureComponent } from "./wblood-pressure/wblood-pressure.component";
 import { WbloodGlucoseComponent } from "./wblood-glucose/wblood-glucose.component";
 import { WcholesterolComponent } from "./wcholesterol/wcholesterol.component";
+import { ChatComponent } from "./chat/chat.component";
 
 @NgModule({
   declarations: [
@@ -64,7 +65,9 @@ import { WcholesterolComponent } from "./wcholesterol/wcholesterol.component";
     WeightShowComponent,
     WbloodPressureComponent,
     WbloodGlucoseComponent,
-    WcholesterolComponent
+    WcholesterolComponent,
+    ChatComponent
+
   ],
   imports: [
     // IonIntlTelInputModule,
@@ -113,7 +116,8 @@ import { WcholesterolComponent } from "./wcholesterol/wcholesterol.component";
     WeightShowComponent,
     WbloodPressureComponent,
     WbloodGlucoseComponent,
-    WcholesterolComponent
+    WcholesterolComponent,
+    ChatComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

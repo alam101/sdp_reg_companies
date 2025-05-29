@@ -1,0 +1,66 @@
+
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button (click)="goBack()">Back</ion-button>
+    <ion-title>Myra - Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" class="ion-padding" style="height: 900px;">
+ 
+  <div class="menu-container">
+    <div *ngIf="messages?.options?.length>0">
+   
+    <h2>HELP WITH OTHER QUERIES</h2>
+      <div>
+        {{ messages.label }}
+    </div>
+
+  <div>
+     <ion-list class="menu-list">
+      <ion-item  *ngFor="let btn of messages?.options"  (click)="optionClickListener(btn)" style="font-size: 1rem;
+    font-weight: 500;"> 
+       <ion-label> {{ btn?.label }}</ion-label>
+        <img src="./assets/icon/forward-arrow.png" slot="end" style="width: 6%;
+    height: auto;"/>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</div>
+<div *ngIf="messages?.options?.length===0">
+        <div class="user-bubble" *ngFor="let muMsg of myMessage">
+          <p>{{ muMsg }}</p>
+          <small class="timestamp">09:46 AM</small>
+        </div>
+     
+<div class="bot-bubble" *ngFor="let botMsg of botMessage">
+    <span>Thanks</span>
+   <div>
+      {{botMsg}}
+   </div>
+     <small class="timestamp1">09:46 AM</small>
+  </div>
+
+    </div>
+</div>
+
+ 
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input
+      placeholder="Type a message..."
+      [(ngModel)]="newMessage"
+      (keyup.enter)="sendMessage()"
+      class="chat-input"
+    ></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="sendMessage()">Send</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+

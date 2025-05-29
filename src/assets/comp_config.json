@@ -982,13 +982,13 @@
           "options": [
             {
               "name": "Muscle Building",
-              "value": "muscleGain",
+              "value": "muscleGain_morning",
               "label": "Pump and get stronger",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             },
             {
               "name": "Lean Body",
-              "value": "fatShredding",
+              "value": "fatShredding_morning",
               "label": " Maintain muscles and lose fat",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
             }
@@ -2416,13 +2416,13 @@
           "options": [
             {
               "name": "Muscle Building",
-              "value": "muscleGain",
+              "value": "muscleGain_morning",
               "label": "Pump and get stronger",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             },
             {
               "name": "Lean Body",
-              "value": "fatShredding",
+              "value": "fatShredding_morning",
               "label": " Maintain muscles and lose fat",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
             }

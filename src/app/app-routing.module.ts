@@ -212,6 +212,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'cholesterol-guage',
     loadChildren: () => import('./wcholesterol-guage/wcholesterol-guage.module').then( m => m.WcholesterolGuagePageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./pages/chat-bot/chat-bot.module').then( m => m.ChatBotPageModule)
   }
 ];
 

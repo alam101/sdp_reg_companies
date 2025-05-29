@@ -420,7 +420,7 @@
     <img src="./assets/img/whatsapp.png">
   </div>
  
-  
+ 
 </ion-content>
 <ion-footer *ngIf="compConfig?.isSearch && displayFooter===true" style="position: fixed;
 bottom: 0;
@@ -441,53 +441,8 @@ border-top-left-radius: 10px;
    ></ion-searchbar>
  </div>
 </ion-footer>
-<!-- <ion-footer *ngIf="clientId==='wellbeing'" style="position: fixed;
-bottom: 0;
-width: 100%;
-left: 0;
-background: #fff;
-height: 150px;
-padding-top: 4px;
-box-shadow: 7px 5px 15px #000;
-border-top-left-radius: 10px;
-    border-top-right-radius: 10px;">
- <div class="search_div center">
-  <img src="./assets/img/wellbeing.png" style="object-fit: cover;
-    height: 100%;
-    position: relative;
-    bottom: 0;">
- </div>
-</ion-footer> -->
+  
 <app-filter-card></app-filter-card>
-
-<!-- <div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" style="width: 100%; height:100%;position:fixed; opacity:1;background:#000;z-index:15;top:0"></div>
-<div *ngIf="clientId==='wellbeing' && assinedDietitianExpDate===null" style="width: 100%; height:100%;position:fixed;z-index:16;top: 36%;left: 5%;">
-<img src="./assets/img/expired.svg" style="
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;text-align:center;">
- <fieldset style="width: 89%;
-    border-radius: 8px;">
-  <div style="color:#fff;font-size:1rem;">
-    Diet plan is yet to be released by Dietitian.
-  </div>
- </fieldset>
+<div (click)="gotoChat()" style="border-radius:50%;width:50px;height:50px;position: fixed; bottom:1rem; right:1rem; text-align:center;background:red;">
+<ion-icon name="chatbubbles" style="font-size: 2.5rem;color:#fff;" ></ion-icon>
 </div>
-
-<div *ngIf="(clientId==='wellbeing' || clientId==='plix') &&  assinedDietitianExpDate!==null && aibasedDietplan===false" style="width: 100%; height:100%;position:fixed; opacity:1;background:#000;z-index:15;top:0"></div>
-<div *ngIf="(clientId==='wellbeing' || clientId==='plix') && assinedDietitianExpDate!==null && aibasedDietplan===false" style="width: 100%; height:100%;position:fixed;z-index:16;top: 36%;left: 5%;">
-<img src="./assets/img/waiting.svg" style="
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;text-align:center;">
- <fieldset style="width: 89%;
-    border-radius: 8px;">
-  <div style="color:#fff;font-size:1rem;">
-    Plan is expired.
-  </div>
- </fieldset>
-</div> -->
-
-

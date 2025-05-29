@@ -884,7 +884,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
    
   }
-
+gotoChat(){
+  this.navCtrl.navigateForward(["/chat"]);
+}
   openDilar(){
     let url = "tel:+919999118595"; // add the links to body
     this.iab.create(url , '_system');

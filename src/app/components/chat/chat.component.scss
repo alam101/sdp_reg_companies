@@ -1,0 +1,90 @@
+.menu-container {
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 1rem;
+
+
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.menu-list {
+  background: #ffffff;
+  border-radius: 12px;
+  ion-item {
+      
+    --background: #fff;
+    --padding-start: 1rem;
+    --inner-padding-end: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    ion-icon {
+      font-size: 18px;
+      color: #8c8c8c;
+    }
+  }
+}
+  .user-bubble {
+  background-color: #7b2c86;
+  color: white;
+  border-radius: 16px;
+  padding: 12px;
+  max-width: 95%;
+  margin: 8px 0 8px auto;
+  float:right;
+      min-width: 220px;
+         border-radius: 15px 15px 0px 15px;
+}
+
+.bot-bubble {
+  background-color: #f7ebe5;
+  color: #7b2c86;
+  border-radius: 16px;
+  padding: 16px;
+  max-width: 95%;
+  margin: 8px auto 8px 0;
+  float: left;
+  min-width: 300px;
+  border-radius: 15px 15px 15px 0px;
+}
+
+
+.timestamp {
+  font-size: 0.75rem;
+  color: #fff;
+  margin-top: 4px;
+  display: block;
+  text-align: right;
+}
+.timestamp1 {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+  display: block;
+  text-align: left;
+}
+
+.button-group {
+  margin-top: 8px;
+}
+
+.option-item {
+  background-color: white;
+  margin: 10px;
+  border-radius: 12px;
+  padding: 5px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+}
+
+
+
