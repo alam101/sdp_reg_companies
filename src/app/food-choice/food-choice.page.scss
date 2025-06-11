@@ -1,0 +1,87 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.selected ion-card {
+  border: 2px solid #3880ff;
+}
+
+.item ion-card {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+// .selected {
+//   margin-top: 20px;
+// }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  gap: 10px;
+}
+
+.square-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Makes it a square */
+}
+
+.square-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #f0f0f0;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+// .square-content.selected {
+//   border: 2px solid #3880ff;
+//   background: #e0f0ff;
+// }
+
+.square-content img {
+  width: 50%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+h4{
+    margin: 0;
+    font-size: .75rem;
+    position: absolute;
+    bottom: 1.5rem;
+}
+ion-checkbox{
+        position: absolute;
+    top: 0;
+    right: 0;
+}
+
+p{
+    margin: .3rem;
+    position: absolute;
+    bottom: 0;
+
+}
+img{
+        position: absolute;
+    top: 0;
+}

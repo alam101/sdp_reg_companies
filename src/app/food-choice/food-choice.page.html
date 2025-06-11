@@ -1,0 +1,30 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Food Selector</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="ion-padding">
+  <ion-grid>
+  <div class="grid-container">
+    <div class="square-wrapper" *ngFor="let item of paginatedItems" (click)="toggleSelection(item)">
+      <div class="square-content" [class.selected]="item.selected">
+        <img src="./assets/img/aim.png" alt="{{item.name}}" />
+        <h4>{{ item.name }}</h4>
+        <p>({{ item.cal }} Cal)</p>
+        <ion-checkbox [(ngModel)]="item.selected" slot="end"></ion-checkbox>
+      </div>
+    </div>
+  </div>
+</ion-grid>
+ <div class="pagination">
+  <ion-button [disabled]="currentPage === 1" (click)="goToPreviousPage()">Prev</ion-button>
+  <ion-button [disabled]="currentPage >= totalPages" (click)="goToNextPage()">Next</ion-button>
+</div>
+  <div class="selected">
+    <h3>Selected Items:</h3>
+    <ul>
+      <li *ngFor="let item of selectedItems">{{ item.name }} - {{ item.cal }} Cal</li>
+    </ul>
+  </div>
+</ion-content>

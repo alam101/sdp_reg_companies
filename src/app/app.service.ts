@@ -127,6 +127,7 @@ export class AppService {
     return this.httpClient.get(url, { params: d }).toPromise();
   }
 
+
   getAllRestaurantbyName(value?: any, page?: any) {
     let d = new HttpParams();
     d = d.append("foodName", value);
@@ -772,8 +773,9 @@ export class AppService {
 
   getDietPreference(payload){
     const baseurl='https://app.smartdietplanner.com:8444/';
-    const url = baseurl + "" + APIS.getDietPreference+`${payload.userId}`;
-    return this.httpClient.get(url, {}).toPromise();
+    const url = baseurl + "" + APIS.getDietPreference+`?userId=${payload.userId}`;
+     const header = new HttpHeaders().set("Authorization","Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmaXRlbG8iLCJyb2xlcyI6WyJESUVUSUNJQU4iXSwiaXNzIjoiaHR0cHM6Ly9hcHAuc21hcnRkaWV0cGxhbm5lci5jb206ODQ0NC9sb2dpbiIsImV4cCI6MTgzNTU0NDc2Nn0.9WsOdZSjjtaAZ0nYWtCOyS0yN-MzmMJxrpKpOumfbRM")
+    return this.httpClient1.get(url, {headers:header}).toPromise();
   }
 
   updateDietPref(userid,reqBody){

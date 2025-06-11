@@ -216,6 +216,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./pages/chat-bot/chat-bot.module').then( m => m.ChatBotPageModule)
+  },
+  {
+    path: 'food-choice',
+    loadChildren: () => import('./food-choice/food-choice.module').then( m => m.FoodChoicePageModule)
   }
 ];
 

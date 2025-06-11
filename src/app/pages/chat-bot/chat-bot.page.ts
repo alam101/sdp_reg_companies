@@ -74,6 +74,7 @@ console.log("gggg", localStorage.getItem("userId"));
     console.log({...this.complteObject,input:this.newMessage});  
    
     this.socketService.emit("send_message",{...this.complteObject,input:this.newMessage});
+    this.myMessage.push(this.newMessage);
       this.newMessage="";
   }
 
