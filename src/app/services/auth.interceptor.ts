@@ -27,6 +27,7 @@ import {
       next: HttpHandler
     ): Promise<HttpEvent<any>> {
       let changedRequest = request;
+          const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
       // HttpHeader object immutable - copy values
       const headerSettings: { [name: string]: string | string[] } = {};
       for (const key of request.headers.keys()) {
@@ -42,6 +43,7 @@ import {
         headerSettings["Authorization"] = "bearer " + this.userToken;
       }
       headerSettings["Content-Type"] = "application/json";
+      headerSettings["X-Timezone"] = timezone;
       const newHeader = new HttpHeaders(headerSettings);
       changedRequest = request.clone({
         headers: newHeader
