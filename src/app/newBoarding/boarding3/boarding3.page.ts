@@ -73,8 +73,13 @@ export class Boarding3Page implements OnInit {
   }
 
   getProfile() {
-    this.appService.getProfile().then((res) => {
+    this.appService.getProfile().then((res:any) => {
       console.log(res);
+      if(res?.code==="0001"){
+         this.utilities.showErrorToast("Please select Activity.");
+        return false;
+       
+      }
       this.profileData = res;
       this.localData.otherMaster.bmi.bmi= this.profileData?.demographic?.bmi;
       if(!this.compConfig.isChild){

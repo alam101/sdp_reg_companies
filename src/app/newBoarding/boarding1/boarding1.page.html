@@ -51,7 +51,7 @@
         placeholder="Your Name"
         [(ngModel)]="name"
       ></ion-input>
-      <ion-note color="danger" *ngIf="form.get('textInput').hasError('pattern')">
+      <ion-note color="danger" *ngIf="form?.get('textInput')?.hasError('pattern')">
         Numbers are not allowed!
       </ion-note>
     </div>

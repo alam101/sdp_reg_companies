@@ -1,14 +1,18 @@
-import { Location } from "@angular/common";
+import { CommonModule, Location } from "@angular/common";
 import { AfterViewInit, Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ModalController, NavController } from "@ionic/angular";
+import { IonicModule, ModalController, NavController } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import  compJson from '../../../assets/comp_config.json';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { UTILITIES } from "src/app/core/utility/utilities";
+import { FormsModule } from "@angular/forms";
 @Component({
   selector: "app-boarding",
   templateUrl: "./boarding.page.html",
+  standalone:true,
+  imports: [CommonModule, IonicModule, FormsModule],
   styleUrls: ["./boarding.page.scss"],
 })
 export class BoardingPage implements OnInit,AfterViewInit {
@@ -19,6 +23,7 @@ clientId="";
     private iab: InAppBrowser,
     private navCtrl: NavController,
     private router: Router,
+    private utilities: UTILITIES,
     private appservice: AppService,
     private storage: Storage,
     private activatedRoute:ActivatedRoute
@@ -59,13 +64,12 @@ clientId="";
 
   newModal;
   goNext() {
-//
-// let urll=`https://testonboarding.smartdietplanner.com/read?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlbWFpbCI6IjkxLTk4MTAxNTI1NTkiLCJkZXZpY2VJZCI6IjIxMzIxMzIxIiwiaWF0IjoxNzA1Njc5MTUyfQ.Zs9NrSj8kttVo0FRkOD8zEOebWYvjThIZO06XfR9RMhrnr9F0Wxsnk97kheBOI300pj8cFNwqRElhLNhHrO0pQ&clientId=alyve&type=1`;
-// this.iab.create(urll , '_system');
-
-//     return;
     let reqBody: any = {};
     let reqBodyDiet: any = {};
+    if(this.newModal==="undefined"){
+      this.utilities.showErrorToast("Please select goal.");
+        return false;
+    }
     reqBody.dietPlanType = this.newModal;
     reqBodyDiet.dietPlanName = this.newModal;
     reqBody.category = this.newModal;

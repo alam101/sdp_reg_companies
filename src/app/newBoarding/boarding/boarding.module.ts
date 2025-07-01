@@ -15,6 +15,6 @@ import { BoardingPage } from './boarding.page';
     IonicModule,
     BoardingPageRoutingModule
   ],
-  declarations: [BoardingPage]
+  declarations: []
 })
 export class BoardingPageModule {}

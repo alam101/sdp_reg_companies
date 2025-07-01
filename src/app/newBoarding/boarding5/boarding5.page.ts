@@ -173,7 +173,7 @@ lifeStyle:any;
         this.utilities.presentToast(
           "Please select your regional preferences."
         );
-        return;
+        return false;
       }
     });
     }

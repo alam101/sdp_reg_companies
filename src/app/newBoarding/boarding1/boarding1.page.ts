@@ -3,10 +3,14 @@ import { Router } from "@angular/router";
 import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import { UTILITIES } from "src/app/core/utility/utilities";
-import { LoadingController } from "@ionic/angular";
+import { IonicModule, LoadingController } from "@ionic/angular";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: "app-boarding1",
+  standalone: true,
+  imports: [CommonModule, IonicModule, FormsModule],
   templateUrl: "./boarding1.page.html",
   styleUrls: ["./boarding1.page.scss"],
 })
@@ -71,19 +75,15 @@ export class Boarding1Page implements OnInit,AfterViewInit {
 
   goNext() {
     console.log(this.name);
-
-    if (this.name.length > 0) {
+   
+    if (this.name?.trim()==="") {
       if (!this.regex.test(this.name)) {
         this.name.replace(this.regex, "");
         this.isNameValid = false;
         this.utilities.showErrorToast("Please enter valid chatacters.");
         return false;
       }
-    } else {
-      this.utilities.showErrorToast("Please enter your name.");
-      return;
     }
-
     console.log("Name ", this.name);
     let name = this.name.split(/ (.+)/);
     let data = {

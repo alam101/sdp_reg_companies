@@ -13,8 +13,8 @@ import { Boarding1Page } from './boarding1.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    Boarding1PageRoutingModule
+    Boarding1PageRoutingModule,
   ],
-  declarations: [Boarding1Page]
+  declarations: []
 })
 export class Boarding1PageModule {}

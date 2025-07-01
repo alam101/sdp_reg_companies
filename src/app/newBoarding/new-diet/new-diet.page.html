@@ -443,6 +443,6 @@ border-top-left-radius: 10px;
 </ion-footer>
   
 <app-filter-card></app-filter-card>
-<div (click)="gotoChat()" style="border-radius:50%;width:50px;height:50px;position: fixed; bottom:1rem; right:1rem; text-align:center;background:red;">
+<div *ngIf="compConfig?.isChat"  (click)="gotoChat()" style="border-radius:50%;width:50px;height:50px;position: fixed; bottom:1rem; right:1rem; text-align:center;background:red;">
 <ion-icon name="chatbubbles" style="font-size: 2.5rem;color:#fff;" ></ion-icon>
 </div>
