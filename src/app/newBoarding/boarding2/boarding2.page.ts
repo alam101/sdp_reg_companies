@@ -46,7 +46,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   targetweight: any = 20.0;
   targetminWeight: any = 20.0;
   targetmaxWeight: any = 150.0;
-  targetweightType: any = "kg";
+  // targetweightType: any = "kg";
 
   weightArray = [0, 1, 2, 3, 4, 5, 6];
   setWeightFromArray: any = 50;
@@ -277,16 +277,16 @@ targetWeightMessage=false;
       this.utilities.presentToast("Please enter your weight.");
       return;
     }
-    if(this.weight<20){
+    if(this.weight<20 && this.weightType!=="lbs"){
       this.weightMessage=true;
       this.cdr.detectChanges();
       return;
     }
-    if (!this.targetweight && this.clientId!=='enkeltec') {
+    if (!this.targetweight  && this.clientId!=='enkeltec') {
       this.utilities.presentToast("Please enter your target weight.");
       return;
     }
-    if(this.targetweight<20 && this.clientId!=='enkeltec'){
+    if(this.targetweight<20 && this.weightType!=="lbs" && this.clientId!=='enkeltec'){
       this.targetWeightMessage=true;
       return;
     }
@@ -328,7 +328,7 @@ targetWeightMessage=false;
       this.localData.otherMaster.diet = {
         ...this.localData?.otherMaster?.diet,
         suggestedWeight: this.targetweight,
-        param: this.targetweightType,
+        param: this.weightType,
       };
       this.localData.age = {age: Math.ceil(age), year: this.targetYear };
       if (typeof this.localData !== undefined)
@@ -392,18 +392,14 @@ targetWeightMessage=false;
       this.heightTypeForAPI = "in";
       console.log(this.heightSplit);
       return this.selectedHeight;
-      //return this.height * 12;
     }
   }
 
   gotoDemographic() {
-    if (this.targetweightType == "kg") {
-      if (this.targetweight < 20 || this.targetweight > 150) {
+    if (this.weightType == "kg") {
+      if ((this.targetweight < 20) || (this.targetweight > 150)) {  
         this.targetWeightMessage=true;
-        // this.utilities.presentAlert(
-        //   "Please select min weight 40 and max 150 kg."
-        // );
-       return;
+         return;
       }
       else{
         this.targetWeightMessage=false;
@@ -411,13 +407,27 @@ targetWeightMessage=false;
     } else {
       if (this.targetweight < 88 || this.targetweight > 333) {
         this.targetWeightMessage=true;
-        // this.utilities.presentAlert(
-        //   "Please select min weight 88 and max 333 pound."
-        // );
-         return;
+            return;
       }
       else{
         this.targetWeightMessage=false;
+      }
+    }
+     if (this.weightType == "kg") {
+      if ((this.weight < 20) || (this.weight > 150)) {  
+        this.weightMessage=true;
+         return;
+      }
+      else{
+        this.weightMessage=false;
+      }
+    } else {
+      if (this.weight < 88 || this.weight > 333) {
+        this.weightMessage=true;
+            return;
+      }
+      else{
+        this.weightMessage=false;
       }
     }
   }
@@ -694,55 +704,45 @@ targetWeightMessage=false;
       : parseInt(this.selectedHeight);
   }
 
-  setweightType(type) {
-    let w: any;
-    if (type == "kg") {
-      this.minWeight = 20.0;
-      this.maxWeight = 15.0;
-      if (this.weightType === type) {
-        w = this.weight;
-      } else {
-        w = this.weight * 0.45;
-      }
-    } else {
-      this.minWeight = 20.0 / 0.45;
-      this.maxWeight = 150 / 0.45;
-      if (this.weightType === type) {
-        w = this.weight;
-      } else {
-        w = this.weight / 0.45;
-      }
-    }
+ setweightType(type) {
+  let w: any;
 
-    // this.weight = parseFloat(w).toFixed(1);
-    this.weight = parseInt(w);
-    this.weightType = type;
+  if (type === "kg") {
+    this.minWeight = 20.0;
+    this.maxWeight = 150.0;
+
+    w = this.weightType === type ? this.weight : this.weight * 0.45;
+    if (w > this.maxWeight) w = this.maxWeight;
+  } else {
+    this.minWeight = 20.0 / 0.45;
+    this.maxWeight = 150.0 / 0.45;
+
+    w = this.weightType === type ? this.weight : this.weight / 0.45;
+    if (w > this.maxWeight) w = this.maxWeight;
   }
 
-  setTargetweightType(type) {
-    let tw: any;
+  this.weight = parseInt(w.toString());
+  this.weightType = type;
+  this.setTargetweightType(type);
+}
+setTargetweightType(type: 'kg' | 'lbs') {
+  let tw = this.targetweight;
 
-    if (type == "kg") {
-      this.targetminWeight = 20.0;
-      this.targetmaxWeight = 150.0;
-      if (this.targetweightType === type) {
-        tw = this.targetweight;
-      } else {
-        tw = this.targetweight * 0.45;
-      }
-    } else {
-      this.targetminWeight = 20.0 / 0.45;
-      this.targetmaxWeight = 150 / 0.45;
-      if (this.targetweightType === type) {
-        tw = this.targetweight;
-      } else {
-        tw = this.targetweight / 0.45;
-      }
-    }
-    // this.targetweight = parseFloat(this.targetminWeight).toFixed(1);
-    this.targetweight = Math.abs(parseInt(tw));
-    this.targetweightType = type;
+  if (type === 'kg') {
+    this.targetminWeight = 20.0;
+    this.targetmaxWeight = 150.0;
+    tw = tw * 0.45;
+    if (tw > this.targetmaxWeight) tw = this.targetmaxWeight;
+  } else {
+    this.targetminWeight = 20.0 / 0.45;
+    this.targetmaxWeight = 150.0 / 0.45;
+    tw = tw / 0.45;
+    if (tw > this.targetmaxWeight) tw = this.targetmaxWeight;
   }
+
+  this.targetweight = parseInt(tw.toString());
+}
+
 
   setWeight(type) {
     if (type === "add") {
@@ -793,6 +793,34 @@ targetWeightMessage=false;
     this.selectedbornYear = this.setbornYear + this.bornYear[2];
     this.cdr.detectChanges();
   }
+
+removeDecimals(event: any, field: string) {
+  let value = event.target.value;
+
+  // Remove decimal part
+  value = value.split('.')[0];
+
+  if (field === 'weight') {
+    const weight = parseInt(value, 10) || 0;
+    const max = this.weightType === 'kg' ? 150 : Math.floor(150 / 0.45);
+    this.weight = Math.min(weight, max);
+    event.target.value = this.weight;
+  }
+
+  if (field === 'targetweight') {
+    const tWeight = parseInt(value, 10) || 0;
+    const max = this.weightType === 'kg' ? 150 : Math.floor(150 / 0.45);
+    this.targetweight = Math.min(tWeight, max);
+    event.target.value = this.targetweight;
+  }
+}
+
+blockDecimal(event: KeyboardEvent) {
+  const blockedKeys = ['.', ',', 'e', '+', '-'];
+  if (blockedKeys.includes(event.key)) {
+    event.preventDefault();
+  }
+}
 
   getValue(e) {
     console.log(e.detail.value);

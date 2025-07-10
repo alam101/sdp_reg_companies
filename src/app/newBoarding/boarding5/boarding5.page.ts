@@ -51,6 +51,20 @@ export class Boarding5Page implements OnInit {
           this.dietPreferences = ele.value;
         }
       });
+     // need to un comment this code when we have confirmation from puneet sir 
+//       this.localData?.otherMaster?.community.push({
+//     "code": "H",
+//     "value": "Telangana",
+//     "isSelected": false
+// },{
+//     "code": "A",
+//     "value": "Andhra Pradesh",
+//     "isSelected": false
+// },{
+//     "code": "R",
+//     "value": "Karnataka",
+//     "isSelected": false
+// });
       this.localData?.otherMaster?.community.forEach((ele) => {
         if (ele.isSelected) {
           this.regionalPref = ele.code;
@@ -61,6 +75,7 @@ export class Boarding5Page implements OnInit {
           this.country = ele;
         }
       });
+      
       //
     });
 
@@ -144,7 +159,7 @@ lifeStyle:any;
   }
  
   goNext() {
-    if (!this.dietPreferences) {
+    if (!this.dietPreferences || (!this.regionalPref && this.country._id === "IND")) {
       this.utilities.presentToast(
         "Please select your food and diet preferences."
       );
@@ -217,7 +232,7 @@ lifeStyle:any;
                   "otherMaster Response: ",
                   data.otherMaster.calories
                 );
-
+              
                 this.storage
                   .set("localData", this.utilities.parseString(data))
                   .then(() => {
