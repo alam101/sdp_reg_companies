@@ -91,7 +91,7 @@
                 (item.data.scoreColor == 'orange') ? 'orange-text' : ''">
                 {{Math.round(item.data.totalEatenCalories)}} Kcal</p>
                 <div class="consumed-calory-container">
-                  <span class="calory-status">{{Math.round(item.restCalories)}} kcal
+                  <span class="calory-status">{{Math.ceil(item.restCalories)}} kcal
                     {{(item.data.totalEatenCalories > maxCalories) ? "over" : "less" }}
                   </span>
                   <ion-icon

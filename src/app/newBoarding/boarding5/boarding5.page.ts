@@ -48,28 +48,16 @@ export class Boarding5Page implements OnInit {
       this.country = this.countryArray[0];
       this.localData?.otherMaster.foodPref.forEach((ele) => {
         if (ele.isSelected) {
+          
           this.dietPreferences = ele.value;
         }
       });
-     // need to un comment this code when we have confirmation from puneet sir 
-//       this.localData?.otherMaster?.community.push({
-//     "code": "H",
-//     "value": "Telangana",
-//     "isSelected": false
-// },{
-//     "code": "A",
-//     "value": "Andhra Pradesh",
-//     "isSelected": false
-// },{
-//     "code": "R",
-//     "value": "Karnataka",
-//     "isSelected": false
-// });
-      this.localData?.otherMaster?.community.forEach((ele) => {
-        if (ele.isSelected) {
-          this.regionalPref = ele.code;
-        }
-      });
+
+      // this.localData?.otherMaster?.community.forEach((ele) => {
+      //   if (ele.isSelected) {
+      //     this.regionalPref = ele.code;
+      //   }
+      // });
       this.localData?.countries.forEach((ele) => {
         if (ele.isSelected) {
           this.country = ele;
@@ -81,10 +69,20 @@ export class Boarding5Page implements OnInit {
 
     this.appService.getProfile().then((res:any)=>{
       this.lifeStyle = res.lifeStyle;
-    },err=>{
+   if (this.localData?.otherMaster?.community?.length && this.lifeStyle?.communities?.length) {
+    const match = this.localData.otherMaster.community.find((ele: any) => {
+      return this.lifeStyle.communities.includes(ele.code); 
+    });
+    if (match) {
+      match.isSelected = true;
+      this.regionalPref = match.code;
+    }
+  }
+  },err=>{
 
     });
-  }
+    
+}
 lifeStyle:any;
   modalClose() {
     this.router.navigate(['new-profile']);

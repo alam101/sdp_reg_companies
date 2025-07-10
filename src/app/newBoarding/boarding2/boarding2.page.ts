@@ -118,18 +118,10 @@ export class Boarding2Page implements OnInit,AfterViewInit {
           
         }
       }
-
-      // if (this.localData?.otherMaster?.diet?.suggestedWeight) {
-      //   this.targetweight = this.localData.otherMaster.diet.suggestedWeight;
-      //   this.targetweightType = this.localData.otherMaster.diet?.param
-      //     ? this.localData.otherMaster.diet?.param
-      //     : "kg";
-      // }
       if (this.localData?.age) {
         this.selectedbornYear = this.localData.age.year;
       }
       if (this.localData?.age) {
-        // this.selectedbornYear = this.localData.age.year;
          this.targetYear = this.localData.age.year;
        }
     });
@@ -149,7 +141,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
          this.targetYear=new Date().getFullYear()-3;
       }
       this.profileData = res;
-      if(this.profileData?.demographic?.suggestedWeight!=undefined){
+      if(this.profileData?.demographic?.suggestedWeight!=undefined){        
       this.targetweight = this.profileData?.demographic?.suggestedWeight;
       }
       if(this.profileData?.demographic?.age?.avg_age){
@@ -243,15 +235,17 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   calculateDesiredWeight() {
 
     console.log("calculateDesiredWeight called",this.selectedHeight);
-    if(!this.compConfig.isChild){
-    if (this.heightType === "cm" ) {
-      this.targetweight = Math.ceil(this.selectedHeight - 100);
-    } else {
-      this.targetweight = Math.ceil(
-        (this.selectedHeight * 2.54) - 100
-      );
-    }
-  }
+  //   if(!this.compConfig.isChild){
+  //   if (this.heightType === "cm" ) {
+  //     debugger;
+  //     this.targetweight = Math.ceil(this.selectedHeight - 100);
+  //   } else {
+  //     debugger;
+  //     this.targetweight = Math.ceil(
+  //       (this.selectedHeight * 2.54) - 100
+  //     );
+  //   }
+  // }
   }
 
   goBack() {
@@ -721,7 +715,7 @@ targetWeightMessage=false;
     if (w > this.maxWeight) w = this.maxWeight;
   }
 
-  this.weight = parseInt(w.toString());
+  this.weight = Math.round(w.toString());
   this.weightType = type;
   this.setTargetweightType(type);
 }
@@ -738,9 +732,8 @@ setTargetweightType(type: 'kg' | 'lbs') {
     this.targetmaxWeight = 150.0 / 0.45;
     tw = tw / 0.45;
     if (tw > this.targetmaxWeight) tw = this.targetmaxWeight;
-  }
-
-  this.targetweight = parseInt(tw.toString());
+  }  
+  this.targetweight = Math.round(tw.toString());
 }
 
 
@@ -810,6 +803,7 @@ removeDecimals(event: any, field: string) {
   if (field === 'targetweight') {
     const tWeight = parseInt(value, 10) || 0;
     const max = this.weightType === 'kg' ? 150 : Math.floor(150 / 0.45);
+
     this.targetweight = Math.min(tWeight, max);
     event.target.value = this.targetweight;
   }

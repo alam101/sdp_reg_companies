@@ -202,6 +202,7 @@ export class ReadQueryComponent implements OnInit {
         window.open('https://app.smartdietplanner.com','_blank');
       }
       //
+        debugger; 
       console.log("localProfileObject::",localProfileObject);
       if(localProfileObject["demographic"]?.gender?.code!=undefined &&
         localProfileObject["demographic"]?.age?.code!=undefined && 
@@ -212,9 +213,12 @@ export class ReadQueryComponent implements OnInit {
         ){
          if((localProfileObject["lifeStyle"]?.country!=="" && localProfileObject["lifeStyle"]?.country!==undefined)){
           if(localProfileObject["lifeStyle"]?.country==="IND"){
-          if(localProfileObject["lifeStyle"]?.communities?.length>0 
-            && localProfileObject["lifeStyle"]?.foodType!==null 
-            && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==0){
+          if(localProfileObject["lifeStyle"]?.communities?.length>1 
+            && localProfileObject["lifeStyle"]?.foodType!==undefined && localProfileObject["lifeStyle"]?.foodType!==null 
+            && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==undefined && localProfileObject["lifeStyle"]?.carb!==0
+          && localProfileObject["lifeStyle"]?.dietPlanName!==undefined && localProfileObject["lifeStyle"]?.dietPlanName!==""
+          && localProfileObject["lifeStyle"]?.calories !=="" && localProfileObject["lifeStyle"]?.calories !==undefined && localProfileObject["lifeStyle"]?.calories !==0){
+                
               this.loaded = true;
             this.router.navigate(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
           }
@@ -223,8 +227,11 @@ export class ReadQueryComponent implements OnInit {
             this.router.navigate(["/boarding1"],{queryParams:{params:Math.floor(this.randomNumber)}});
           }
          } 
-         else if(localProfileObject["lifeStyle"]?.foodType!==null 
-          && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==0){
+     
+         else if(localProfileObject["lifeStyle"]?.foodType!==undefined && localProfileObject["lifeStyle"]?.foodType!==null 
+          && localProfileObject["lifeStyle"]?.carb!==null && localProfileObject["lifeStyle"]?.carb!==undefined && localProfileObject["lifeStyle"]?.carb!==0
+         && localProfileObject["lifeStyle"]?.dietPlanName!==undefined && localProfileObject["lifeStyle"]?.dietPlanName!==""
+          && localProfileObject["lifeStyle"]?.calories !=="" && localProfileObject["lifeStyle"]?.calories !==undefined && localProfileObject["lifeStyle"]?.calories !==0){
             this.loaded = true;
           this.router.navigate(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
          }

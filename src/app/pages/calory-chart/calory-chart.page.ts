@@ -81,7 +81,8 @@ export class CaloryChartPage implements OnInit {
         this.custDailyDiets = fetchCustDailyDietsResponse.filter((ele)=> ele.data.totalEatenCalories);
         this.custDailyDiets.forEach(ele => {
           ele["displayDate"] = moment(moment(ele.date, "DD-MM-YYYY")).format('dddd, MMMM D');
-          ele["restCalories"] = Math.abs(this.maxCalories - ele.data.totalEatenCalories);
+          
+          ele["restCalories"] = Math.floor(this.maxCalories - ele.data.totalEatenCalories);
           // ele.data["colorHash"] =  ele.data.scoreColor == 'dark green' ? '#38A534' :
           // ele.data.scoreColor == 'light green' ? '#94EA0A' :
           //   ele.data.scoreColor == 'yellow' ? '#EADC18' :

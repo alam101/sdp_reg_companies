@@ -22,34 +22,54 @@
       </p>
       <p class="title">Gender</p>
       <div class="content_sub_div">
-        <ion-radio-group [value]="gender" [(ngModel)]="gender" (ionChange)="selectGender($event)">
-          <ion-grid class="pad_0">
-            <ion-row>
-              <ion-col size="6" style="padding-right: 7px">
-                <div class="card_div" (click)="gender='G2'">
-                  <ion-img src="../../../assets/newImages/female.png" class="female_image"></ion-img>
-                  <p class="label">Female</p>
-                  <ion-card class="section-card" [ngClass]="gender === 'G2' && 'card_Border'">
-                    <div class="h_100">
-                      <ion-radio value="G2" mode="ios" style="--color-checked: var(--theme-color);"></ion-radio>
-                    </div>
-                  </ion-card>
-                </div>
-              </ion-col>
-              <ion-col size="6" style="padding-left: 7px">
-                <div class="card_div" (click)="gender='G1'">
-                  <ion-img src="../../../assets/newImages/male.png" class="male_image"></ion-img>
-                  <p class="label">Male</p>
-                  <ion-card class="section-card" [ngClass]="gender === 'G1' && 'card_Border'">
-                    <div class="h_100">
-                      <ion-radio value="G1" mode="ios" style="--color-checked: var(--theme-color);"></ion-radio>
-                    </div>
-                  </ion-card>
-                </div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-radio-group>
+      <ion-radio-group [value]="gender" [(ngModel)]="gender" (ionChange)="selectGender($event)">
+  <ion-grid class="pad_0">
+    <ion-row>
+      <!-- FEMALE -->
+      <ion-col size="6" style="padding-right: 7px">
+        <div class="card_div" (click)="gender = 'G2'">
+          <ion-img src="../../../assets/newImages/female.png" class="female_image"></ion-img>
+          <p class="label">Female</p>
+          <ion-card class="section-card" [ngClass]="gender === 'G2' && 'card_Border'">
+            <div class="h_100">
+              <ion-radio
+                value="G2"
+                mode="ios"
+                style="--color-checked: var(--theme-color);"
+              ></ion-radio>
+            </div>
+          </ion-card>
+        </div>
+      </ion-col>
+
+      <!-- MALE -->
+      <ion-col size="6" style="padding-left: 7px">
+        <div
+          class="card_div"
+          [class.disabled]="profileData?.profile?.category === 'pcos'"
+          (click)="profileData?.profile?.category !== 'pcos' && (gender = 'G1')"
+        >
+          <ion-img src="../../../assets/newImages/male.png" class="male_image"></ion-img>
+          <p class="label">Male</p>
+          <ion-card
+            class="section-card"
+            [ngClass]="gender === 'G1' && 'card_Border'"
+          >
+            <div class="h_100">
+              <ion-radio
+                value="G1"
+                [disabled]="profileData?.profile?.category === 'pcos'"
+                mode="ios"
+                style="--color-checked: var(--theme-color);"
+              ></ion-radio>
+            </div>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-radio-group>
+
       </div>
 
       <div class="content_sub_div2">
