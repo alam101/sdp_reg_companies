@@ -175,7 +175,8 @@ export class ReadQueryComponent implements OnInit {
             });
       }
       
-
+      console.log("res::",res);
+ 
       this.storage.set("localData",JSON.stringify(res));
      this.dismissLoader();
     if(this.clientId.includes('individual')){
@@ -265,9 +266,11 @@ export class ReadQueryComponent implements OnInit {
      });
    }
   defaultData(){
+
     if(this.token!='' && this.token != 'null'){
     this.appService.defaultData().subscribe(res=>{
     console.log("defaultData::",res);
+    debugger;
     localStorage.setItem("defaultData",JSON.stringify(res));     
     localStorage.setItem("tkn",this.token);
     this.fetchProfile();

@@ -1136,77 +1136,6 @@ body[color-theme="prana"] {
 --theme-milestone2:#000;
 --button-text:#fff;
 }
-
-body[color-theme="trunord"] {
-  --theme-profile-background: #203682;
-  --theme-background:#203682; //#00a6a8
-  --theme-header:#203682;
-  --theme-headerText:#fff;
-  --theme-logslot:#203682;
-  --theme-button:#203682;
-  --theme-heading:#203682;
-  --theme-activeBtn:#203682;//#01A3A4       
-  --theme-plusBtn:#203682; //#01A3A4  water-guage page plus  defualt color--#509bed;          
-  --theme-text-color: #203682;//#01A3A4;
-  --theme-plusBtnWaterGuage:#203682;  //#509bed;   
-  --theme-minusBtnWaterGuage:#203682;  //#509bed;  
-  --theme-waterCenterPercent:#203682;  //#509bed;  
-  --theme-colorWhite:#FFFFFF;       
-  --theme-boxAdd:1px solid #203682; //#01A3A5;
-  --theme-color:#203682; //#01A3A5;
-  --theme-backgroundLRG: -webkit-linear-gradient(top, #203682 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
-  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
-  --theme-progressBarWhite:#FFFFFF;
-  --theme-colorBGShades:#CD8B00; //change this visaly after check the deafulat color;
-  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
-  --theme-headingFont:1.2rem; //merger wirth headeing font 
-  --theme-counters:0.75rem;
-  --theme-cardHeading:1rem;
-  --theme-text:0.85rem;
-  --theme-textHeading:0.9rem; 
-  --theme-titleProfile:#000; 
-
-  --theme-color:#203682;
-  --theme-newHeader:#f2564a;
-  --theme-newButton:#203682;
-  --white:#ffffff;
-  --black:#333333;
-  --black-light:#676767;
-  --lightGrey:#FAFAFA;
-  --card-border:#F4F4F4;
-  --green:green;
-  --yellow:yellow;
-  --red:red;
-  --theme-newFont:'gt-america-standard-regular', sans-serif;
-  --ion-font-family: 'gt-america-standard-regular', sans-serif;
-  --xsmall-font:0.625rem;  //10px
-  --small-font:0.75rem; //12px
-  --regular-font:0.871rem; //14px
-  --regularM-font:1rem; //16px
-  --medium-font:.9rem; //18px
-  --large-font:1.2rem;  //24px;
-  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
-  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
-  --radio-background:#fff;
-  --normal-color:#393939;
-  --cercle-progress:#f2564a;
-
-  --arrow-color:#c97b5a;
-  --arrow-color:#c97b5a;
-  
-  --goal: #f2564a;
-  --profile-color: #203682;
-  --graph-background:#f2f1eb;
-  --close-edit-color: #203682;
-  --new-background: #99b9491f;
-  --new-border-color: #99b94933;
-  --theme-color-new:#203682;
-  --theme-milestone:#fff; 
---theme-milestone2:#000;
---button-text:#fff;
-}
-
 body[color-theme="yolo"] {
     --theme-profile-background: #80A542;
     --theme-background:#80A542; //#00a6a8
@@ -3060,22 +2989,22 @@ body[color-theme="nutrabox"] {
   // --font-medium: "Nutrabox-medium";
   --font-medium-extended: "Nutrabox-extended";
     $sans-font-regular: "Nutrabox-ragular", "Helvetica Neue", Arial, sans-serif;
-    --theme-profile-background: #c0eff9;
-    --theme-background: #c0eff9; //#00a6a8
-    --theme-header: #c0eff9;
-    --theme-headerText:#000;
-    --theme-logslot:#c0eff9;
-    --theme-button:#c0eff9;
-    --theme-heading:#c0eff9;
-    --theme-activeBtn:#c0eff9;//#01A3A4       
-    --theme-plusBtn:#c0eff9; //#01A3A4  water-guage page plus  defualt color--#509bed;          
-    --theme-text-color: #c0eff9;//#01A3A4;
-    --theme-plusBtnWaterGuage:#c0eff9;  //#509bed;   
-    --theme-minusBtnWaterGuage:#c0eff9;  //#509bed;  
-    --theme-waterCenterPercent:#c0eff9;  //#509bed;  
+    --theme-profile-background: #0F0F0F;
+    --theme-background: #0F0F0F; //#00a6a8
+    --theme-header: #0F0F0F;
+    --theme-headerText:#fff;
+    --theme-logslot:#0F0F0F;
+    --theme-button:#0F0F0F;
+    --theme-heading:#0F0F0F;
+    --theme-activeBtn:#0F0F0F;//#01A3A4       
+    --theme-plusBtn:#0F0F0F; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+    --theme-text-color: #0F0F0F;//#01A3A4;
+    --theme-plusBtnWaterGuage:#0F0F0F;  //#509bed;   
+    --theme-minusBtnWaterGuage:#0F0F0F;  //#509bed;  
+    --theme-waterCenterPercent:#0F0F0F;  //#509bed;  
     --theme-colorWhite:#FFFFFF;       
-    --theme-boxAdd:1px solid #c0eff9; //#01A3A5;
-    --theme-color:#c0eff9; //#01A3A5;
+    --theme-boxAdd:1px solid #0F0F0F; //#01A3A5;
+    --theme-color:#0F0F0F; //#01A3A5;
     --theme-backgroundLRG: -webkit-linear-gradient(top, #0F0F0F 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
     --theme-font:"Nutrabox-regular", "Helvetica Neue", "Arial", "sans-serif";
     --theme-progressBarWhite:#FFFFFF;
@@ -3087,8 +3016,8 @@ body[color-theme="nutrabox"] {
     --theme-text:0.85rem;
     --theme-textHeading:0.9rem; 
     --theme-titleProfile:#000; 
-    --theme-color:#c0eff9;
-    --theme-newHeader: #c0eff9;
+    --theme-color:#0F0F0F;
+    --theme-newHeader: #0F0F0F;
     --theme-newButton: #404040;
     --white:#ffffff;
     --black:#333333;
@@ -3116,17 +3045,16 @@ body[color-theme="nutrabox"] {
     --arrow-color:#c97b5a;
     --arrow-color:#c97b5a;
     --goal: #404040;
-    --profile-color: #c0eff9;
+    --profile-color: #0F0F0F;
     --graph-background:#f2f1eb;
-    --close-edit-color: #c0eff9;
+    --close-edit-color: #0F0F0F;
     --new-background: #99b9491f;
     --new-border-color: #99b94933;
-    --theme-color-new:#c0eff9;
+    --theme-color-new:#0F0F0F;
     --theme-milestone:#fff; 
   --theme-milestone2:#000;
-  --button-text:#000;
+  --button-text:#fff;
 }
-
 body[color-theme="enkeltec"] {
   --font: "Nutrabox-regular";
   --font-bold: "Nutrabox-bold";
@@ -3420,6 +3348,76 @@ body[color-theme="lalpathlabs"] {
 --theme-milestone2:#000;
 --button-text:#fff;
 }
+body[color-theme="trunord"] {
+  --theme-profile-background: #203682;
+  --theme-background:#203682; //#00a6a8
+  --theme-header:#203682;
+  --theme-headerText:#fff;
+  --theme-logslot:#203682;
+  --theme-button:#203682;
+  --theme-heading:#203682;
+  --theme-activeBtn:#203682;//#01A3A4       
+  --theme-plusBtn:#203682; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #203682;//#01A3A4;
+  --theme-plusBtnWaterGuage:#203682;  //#509bed;   
+  --theme-minusBtnWaterGuage:#203682;  //#509bed;  
+  --theme-waterCenterPercent:#203682;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #203682; //#01A3A5;
+  --theme-color:#203682; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #203682 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#CD8B00; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#000; 
+
+  --theme-color:#203682;
+  --theme-newHeader:#f2564a;
+  --theme-newButton:#203682;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#f2564a;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  
+  --goal: #f2564a;
+  --profile-color: #203682;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #203682;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#203682;
+  --theme-milestone:#fff; 
+--theme-milestone2:#000;
+--button-text:#fff;
+}
+
 
   
 // Fonts
