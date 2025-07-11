@@ -52,12 +52,15 @@ export class Boarding5Page implements OnInit {
           this.dietPreferences = ele.value;
         }
       });
+     // need to un comment this code when we have confirmation from puneet sir 
 
       // this.localData?.otherMaster?.community.forEach((ele) => {
       //   if (ele.isSelected) {
       //     this.regionalPref = ele.code;
       //   }
       // });
+
+        
       this.localData?.countries.forEach((ele) => {
         if (ele.isSelected) {
           this.country = ele;
@@ -69,6 +72,24 @@ export class Boarding5Page implements OnInit {
 
     this.appService.getProfile().then((res:any)=>{
       this.lifeStyle = res.lifeStyle;
+     const isalreadyExist = this.localData?.otherMaster?.community.find((ele: any) => ele.code === 'H');
+      debugger;
+      if (!isalreadyExist) {
+        this.localData?.otherMaster?.community.push({
+                "code": "H",
+                "value": "Telangana",
+                "isSelected": false
+            },{
+                "code": "A",
+                "value": "Andhra Pradesh",
+                "isSelected": false
+            },{
+                "code": "R",
+                "value": "Karnataka",
+                "isSelected": false
+            });
+      }
+      
    if (this.localData?.otherMaster?.community?.length && this.lifeStyle?.communities?.length) {
     const match = this.localData.otherMaster.community.find((ele: any) => {
       return this.lifeStyle.communities.includes(ele.code); 
@@ -77,6 +98,7 @@ export class Boarding5Page implements OnInit {
       match.isSelected = true;
       this.regionalPref = match.code;
     }
+     this.storage.set("localData", this.utilities.parseString(this.localData));
   }
   },err=>{
 
@@ -122,14 +144,15 @@ lifeStyle:any;
       } else {
         ele.isSelected = false;
       }
+      this.storage.set("localData", this.utilities.parseString(this.localData));
     });
-    this.storage.set("localData", this.utilities.parseString(this.localData));
+    
   });
   }
   regionalPref="";
   selectReginal(e, reginal) {
     console.log("regionalPref", this.regionalPref);
-    
+    debugger;
     reginal.isSelected = e.detail.checked;
     console.log(this.localData);
     if (typeof this.localData?.otherMaster !== undefined)
@@ -179,6 +202,7 @@ lifeStyle:any;
       
       this.storage.set("localData", this.utilities.parseString(this.localData));
     
+      debugger;
       const isSelected = this.localData?.otherMaster?.community.find(
         (f) => f.isSelected==true
       );
