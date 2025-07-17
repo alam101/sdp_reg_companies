@@ -109,13 +109,16 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
 
   gotoDemographic() {
     this.utilities.showLoading();
-   
+    let selectedCountryID;
     this.storage.get("localData").then((local) => {  
       const data = this.utilities.parseJSON(local);
       console.log("local:::",data);
       let countri = this.utilities.getSelectedData(data.countries);
-      let selectedCountryID = countri[0]._id;
-      CONSTANTS.country = countri[0].name;
+      if (countri.length > 0) {
+        let selectedCountryID = countri[0]?._id;
+         CONSTANTS.country = countri[0].name;
+      }
+     
       this.appService.getDefaultDataDiet(selectedCountryID).then((res) => {
         data.Master = res["Master"];
         const reqBody = this.utilities.getDietRequest(data, selectedCountryID);

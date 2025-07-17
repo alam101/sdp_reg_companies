@@ -72,23 +72,10 @@ export class Boarding5Page implements OnInit {
 
     this.appService.getProfile().then((res:any)=>{
       this.lifeStyle = res.lifeStyle;
-     const isalreadyExist = this.localData?.otherMaster?.community.find((ele: any) => ele.code === 'H');
-      debugger;
-      if (!isalreadyExist) {
-        this.localData?.otherMaster?.community.push({
-                "code": "H",
-                "value": "Telangana",
-                "isSelected": false
-            },{
-                "code": "A",
-                "value": "Andhra Pradesh",
-                "isSelected": false
-            },{
-                "code": "R",
-                "value": "Karnataka",
-                "isSelected": false
-            });
-      }
+    if (this.localData && this.localData.otherMaster) {
+      this.localData.otherMaster.community = this.localData.otherMaster.community.filter(
+        (ele: any) => ele.code !== 'H' && ele.code !== 'A' && ele.code !== 'R');
+    }
       
    if (this.localData?.otherMaster?.community?.length && this.lifeStyle?.communities?.length) {
     const match = this.localData.otherMaster.community.find((ele: any) => {
@@ -292,20 +279,14 @@ lifeStyle:any;
   selectCountry(c) {
     this.country = c;
     this.localData.countries.forEach((ele) => {
-      if (c === ele) {
+      if (ele._id === c._id) {
         ele.isSelected = true;
       } else {
         ele.isSelected = false;
       }
     });
-    // this.localData?.countries.forEach((ele) => {
-    //   if (ele.isSelected) {
-    //     this.country = ele;
-    //   }
-    // });
-    if (typeof this.localData.otherMaster !== undefined)
-      //
-      this.storage.set("localData", this.utilities.parseString(this.localData));
+    this.storage.set("localData", this.utilities.parseString(this.localData));
+    
     this.openCountryDrop = !this.openCountryDrop;
 
   }

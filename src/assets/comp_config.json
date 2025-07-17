@@ -6765,5 +6765,143 @@
         }
       ]
     }
+  },
+   {
+    "nutrikorner": {
+      "logo": false,
+      "isChild": false,
+      "profile1": true,
+      "profile2": false,
+      "consumed_cal": true,
+      "cal_count": true,
+      "download": true,
+      "pie_chart": false,
+      "alternative": true,
+      "video": true,
+      "date_selection1": true,
+      "date_selection2": true,
+      "goal": false,
+      "notes": false,
+      "modifyNotes": false,
+      "caloriesCircle": true,
+      "itemCalories": true,
+      "isBanner": true,
+      "isProfileIcons": true,
+      "isEditProfile": true,
+      "dietComponent": false,
+      "mealPref": false,
+      "headerText": "Welcome to your daily diet plan",
+      "isLogAll": true,
+      "isSearch": false,
+"isChat": false,
+      "isDietitian": false,
+      "inSights": true,
+ "isGraph": false,
+      "compPhone": "",
+      "defaultPlanCheck": false,
+      "showWhatsApp": false,
+      "dietitianAction": false,
+      "goals": [
+        {
+          "heading": "Weight Management",
+          "label": "Eat up, Heal up",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png",
+          "options": [
+            {
+              "name": "Weight Loss",
+              "value": "weightLoss",
+              "label": "Lose weight not the mind",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png"
+            }
+          ]
+        },
+        {
+          "heading": "Disease Management",
+          "label": "Let food be thy medicine ",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png",
+          "options": [
+            {
+              "name": "Manage Diabetes",
+              "value": "diabetes",
+              "label": " Optimize blood glucose levels ",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
+            },
+            {
+              "name": "Manage PCOS",
+              "value": "pcos",
+              "label": " No more irregular period",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
+            },
+            {
+              "name": "Manage Cholesterol",
+              "value": "cholesterol",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
+            },
+            {
+              "name": "Manage Hypertension",
+              "value": "hypertension",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+            }
+          ]
+        }
+      ],
+      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "deseases": [
+        {
+          "desease": "D",
+          "description": [
+            "Avoid ragi/ white bread/ jowar",
+            "Eat frequent meals with 2-3 hours of gap",
+            "Add vit B12 rich food in diet ",
+            "Monitor HBA1C , kidney test after 3 months"
+          ]
+        },
+        {
+          "desease": "B",
+          "description": ["Less Salt", "Do not sprinkle salt"]
+        },
+        {
+          "desease": "P",
+          "description": [
+            "Avoid high Glycemic index foods like ragi/ white bread/ white rice",
+            "If you have taken hormonal theraphy in past, please reduce the fat intake"
+          ]
+        },
+        {
+          "desease": "T",
+          "description": [
+            " Avoid soy, brocolli, cabbage and all cruciferous food",
+            "Avoid soy contain breads (white or brown). Please check bread ingredients",
+            "Avoid taking antacids with thyroid medicines ",
+            "Monitor thyroid profile after every 3 months "
+          ]
+        },
+        {
+          "desease": "G",
+          "description": [
+            "Add vitamin B12 rich food in diet ",
+            "Get your iron and vitamin B12 test done after every 6 months",
+            "Avoid gluten for lifetime"
+          ]
+        },
+        {
+          "desease": "ML",
+          "description": [
+            " Say no to milk and milk products but can take curd/ paneer ",
+            "Get your iron and vitamin B12 tests done after every 6 months"
+          ]
+        },
+        {
+          "desease": "A",
+          "description": [
+            " Increase intake of water/ fluids ",
+            "Stop retention of stool or avoid painful evacuation of stool ",
+            "Increase fiber intake"
+          ]
+        }
+      ]
+    }
   }
 ]

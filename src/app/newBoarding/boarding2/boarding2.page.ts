@@ -142,7 +142,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
       }
       this.profileData = res;
       if(this.profileData?.demographic?.suggestedWeight!=undefined){        
-      this.targetweight = this.profileData?.demographic?.suggestedWeight;
+      this.targetweight = Math.round(this.profileData?.demographic?.suggestedWeight);
       }
       if(this.profileData?.demographic?.age?.avg_age){
         this.targetYear = new Date().getFullYear() - this.profileData?.demographic?.age?.avg_age;
@@ -175,7 +175,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
             this.profileData?.demographic?.weight?.unit === "pound"
               ? "lbs"
               : "kg";
-          this.weight = this.profileData?.demographic?.weight?.value;
+          this.weight = Math.round(this.profileData?.demographic?.weight?.value);
         }
 
         console.log(this.height, this.inputHeight);
@@ -276,11 +276,20 @@ targetWeightMessage=false;
       this.cdr.detectChanges();
       return;
     }
+    if(this.weight<44 && this.weightType==="lbs"){
+      this.weightMessage=true;
+      this.cdr.detectChanges();
+      return;
+    }
     if (!this.targetweight  && this.clientId!=='enkeltec') {
       this.utilities.presentToast("Please enter your target weight.");
       return;
     }
     if(this.targetweight<20 && this.weightType!=="lbs" && this.clientId!=='enkeltec'){
+      this.targetWeightMessage=true;
+      return;
+    }
+     if(this.targetweight<44 && this.weightType==="lbs" && this.clientId!=='enkeltec'){
       this.targetWeightMessage=true;
       return;
     }
@@ -339,8 +348,8 @@ targetWeightMessage=false;
       return;
     }
   
-    if (this.targetYear<new Date().getFullYear()-65 || this.targetYear>new Date().getFullYear()-3) {
-      this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-65)+" , max:"+(new Date().getFullYear()-3)+"]");
+    if (this.targetYear<new Date().getFullYear()-80 || this.targetYear>new Date().getFullYear()-3) {
+      this.utilities.showErrorToast("Please enter correct year [ min:"+(new Date().getFullYear()-80)+" , max:"+(new Date().getFullYear()-3)+"]");
       return;
     }
 
@@ -399,7 +408,7 @@ targetWeightMessage=false;
         this.targetWeightMessage=false;
       }
     } else {
-      if (this.targetweight < 88 || this.targetweight > 333) {
+      if (this.targetweight < 44 || this.targetweight > 333) {
         this.targetWeightMessage=true;
             return;
       }
@@ -416,7 +425,7 @@ targetWeightMessage=false;
         this.weightMessage=false;
       }
     } else {
-      if (this.weight < 88 || this.weight > 333) {
+      if (this.weight < 44 || this.weight > 333) {
         this.weightMessage=true;
             return;
       }
