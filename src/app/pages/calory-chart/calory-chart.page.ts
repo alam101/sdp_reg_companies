@@ -129,10 +129,10 @@ export class CaloryChartPage implements OnInit {
         //   dataToset1[day - 1] = element.data.totalEatenCalories || 0;
 
           if(element.data.totalEatenCalories > this.maxCalories){
-            dataToset[day - 1] = this.maxCalories;
-            dataToset1[day - 1] = element.data.totalEatenCalories - this.maxCalories;
+            dataToset[day - 1] = Math.round(this.maxCalories);
+            dataToset1[day - 1] = Math.round(element.data.totalEatenCalories - this.maxCalories);
           }else{
-            dataToset[day - 1] = element.data.totalEatenCalories;
+            dataToset[day - 1] = Math.round(element.data.totalEatenCalories);
           }
       backgroundColorToSet[day - 1] = bgColor || "";
       if(element.data.totalEatenCalories) {

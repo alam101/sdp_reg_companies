@@ -150,9 +150,12 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
             this.dateBy = this.plan.dateBy.split("-");
             console.log(this.dateBy);
           }
-
-          if (data.otherMaster.weight == "pound") this.unit = "lbs";
-
+          if (data.otherMaster.weight[0]?.param == "pound"){
+             this.unit = "lbs";
+          }
+          else{
+            this.unit = "Kg";
+          }
           console.log("this.unit", this.unit);
 
           console.log("Diet Response: ", dietData);
@@ -215,5 +218,8 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
       );
   }
 
-
+kgToLbs(kg: number): number {
+  const lbsPerKg = 2.20462;
+  return Math.round(kg * lbsPerKg);
+}
 }

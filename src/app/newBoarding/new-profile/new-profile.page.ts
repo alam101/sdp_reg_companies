@@ -110,6 +110,8 @@ dietitianRole="";
         return "Australia-flag.png";
       case "EGY":
         return "Egypt-flag.png";
+      case "UAE":
+        return "uae.jpeg";
     }
   }
   modalClose(){
