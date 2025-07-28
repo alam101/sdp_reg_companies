@@ -29,7 +29,7 @@ export class Boarding2Page implements OnInit,AfterViewInit {
   height: any = 30;
   minHight = 30;
   maxHight = 84;
-  heightType = "feet";
+  heightType: 'cm' | 'feet' = 'cm';
   heightTypeForAPI = "";
   heightSplit: any;
 
@@ -96,7 +96,9 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     }
    
     ngOnInit() {
-    
+     this.heightType = 'cm';
+      this.baseHeight = this.profileData?.demographic?.height?.value || 170;
+      this.setHeightType(this.heightType);
     }
   
     modalClose() {
@@ -213,24 +215,26 @@ export class Boarding2Page implements OnInit,AfterViewInit {
     this.displayHeight = `${feet} ft ${inches} in`;
   }
   getHeight() {
-    console.log("e.detail.value",this.selectedHeight);
-    // this.height = parseFloat(e.detail.value).toFixed(1);
-    if (this.heightType === "feet") {
-      this.minHight = 36;
-      this.maxHight = 84;
-      const ht = Math.floor(this.selectedHeight / 12) +"."+ (this.selectedHeight % 12);
-      const h = ht.split(".");
-      this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
-      this.heightSplit =h;
-    } else {
-      this.height = this.selectedHeight;
-      this.inputHeight = this.selectedHeight;
-      this.minHight = 91;
-      this.maxHight = 213;
-    }
-    console.log(this.height, this.inputHeight, this.heightType);
-    this.calculateDesiredWeight();
+  if (this.heightType === 'feet') {
+    // convert inches back to cm and update baseHeight
+    this.baseHeight = parseFloat((this.selectedHeight * 2.54).toFixed(1));
+
+    const feet = Math.floor(this.selectedHeight / 12);
+    const inches = this.selectedHeight % 12;
+    this.inputHeight = `${feet}'${inches}"`;
+    this.heightSplit = [feet.toString(), inches.toString()];
+  } else {
+    // direct cm input
+    this.baseHeight = this.selectedHeight;
+    this.inputHeight = `${this.selectedHeight} cm`;
+    this.heightSplit = [];
   }
+
+  this.height = this.baseHeight;
+  this.profileData.demographic.height.value = this.baseHeight;
+  this.calculateDesiredWeight();
+}
+
 
   calculateDesiredWeight() {
 
@@ -676,27 +680,37 @@ targetWeightMessage=false;
         this.storage.set("localData", JSON.stringify(this.localData));
     });
   }
+baseHeight: number;
+ setHeightType(type: 'cm' | 'feet') {
+  this.heightType = type;
 
-  setHeightType(type) {
-    let h: any;
-    if (type === "cm") {
-      this.minHight = 91;
-      this.maxHight = 213;
-      this.selectedHeight = (this.selectedHeight * 2.54).toFixed(0);
-     
-    } else {
-      this.minHight = 36;
-      this.maxHight = 84;
-      this.selectedHeight = Math.floor(this.selectedHeight * 0.393701);
-      
-    }
-    this.height = this.selectedHeight;
-    // this.heightType === "cm"
-    //   ? parseInt(h).toFixed(1)
-    //   : parseInt(h).toFixed(1);
-    this.heightType = type;
+  if (type === 'cm') {
+    this.minHight = 91;
+    this.maxHight = 213;
+    this.selectedHeight = Math.round(this.baseHeight);
+  } else {
+    this.minHight = 36;
+    this.maxHight = 84;
+    this.selectedHeight = Math.round(this.baseHeight * 0.393701); // convert to inches
   }
 
+  this.getHeight();
+}
+updateDisplayedHeight() {
+  if (this.heightType === 'cm') {
+    this.minHight = 91;
+    this.maxHight = 213;
+    this.selectedHeight = Math.round(this.baseHeight); // keep in cm
+  } else {
+    this.minHight = 36;
+    this.maxHight = 84;
+    this.selectedHeight = Math.round(this.baseHeight * 0.393701); // convert to inches
+  }
+
+  // Update view and possibly profile data (if needed)
+  this.height = this.selectedHeight;
+  this.profileData.demographic.height.value = this.selectedHeight;
+}
   parseint() {
     this.minHight = 36;
     this.maxHight = 84;

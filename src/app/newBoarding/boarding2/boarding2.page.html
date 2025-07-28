@@ -76,12 +76,9 @@
         <div class="header_btn_div">
           <p class="title mar_0">How tall are you?</p>
           <div class="cmfeet_btn_div">
-            <p class="cmfeet_btn" [ngClass]="heightType==='cm'&& 'activ_cmfeet_btn'" (click)="setHeightType('cm')">
-              Cm
-            </p>
-            <p class="cmfeet_btn" [ngClass]="heightType==='feet'&& 'activ_cmfeet_btn'" (click)="setHeightType('feet')">
-              Feet
-            </p>
+           <p class="cmfeet_btn" [ngClass]="heightType === 'cm' ? 'activ_cmfeet_btn' : ''" (click)="setHeightType('cm')">Cm</p>
+            <p class="cmfeet_btn" [ngClass]="heightType === 'feet' ? 'activ_cmfeet_btn' : ''" (click)="setHeightType('feet')">Feet</p>
+
           </div>
         </div>
         <div class="main_meter_div" *ngIf="heightType==='feet'">
@@ -90,8 +87,14 @@
             <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
           </div>
           <div class="range_div"> 
-            <ion-range min="30" max="84"  [value]="parseint()" [(ngModel)]="selectedHeight"  mode="ios" class="pad_0"
-              [step]="1"  (ionChange)="getHeight()">
+           <ion-range
+              [min]="minHight"
+              [max]="maxHight"
+              [(ngModel)]="selectedHeight"
+              [step]="1"
+              mode="ios"
+              class="pad_0"
+              (ionChange)="getHeight()">
             </ion-range>
             <!--  -->
           </div>

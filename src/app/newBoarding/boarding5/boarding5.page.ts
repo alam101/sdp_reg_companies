@@ -72,10 +72,10 @@ export class Boarding5Page implements OnInit {
 
     this.appService.getProfile().then((res:any)=>{
       this.lifeStyle = res.lifeStyle;
-    if (this.localData && this.localData.otherMaster) {
-      this.localData.otherMaster.community = this.localData.otherMaster.community.filter(
-        (ele: any) => ele.code !== 'H' && ele.code !== 'A' && ele.code !== 'R');
-    }
+    // if (this.localData && this.localData.otherMaster) {
+    //   this.localData.otherMaster.community = this.localData.otherMaster.community.filter(
+    //     (ele: any) => ele.code !== 'H' && ele.code !== 'A' && ele.code !== 'R');
+    // }
       
    if (this.localData?.otherMaster?.community?.length && this.lifeStyle?.communities?.length) {
     const match = this.localData.otherMaster.community.find((ele: any) => {

@@ -101,17 +101,17 @@
   } else {
     if (isIOS) {
       // Show button with instructions for iOS users
-      installBtn.style.display = "block";
-      installBtn.innerText = "Install on iOS";
-      installBtn.addEventListener("click", () => {
-        alert("To install this app on iOS, tap the 'Share' button and select 'Add to Home Screen'.");
-      });
+    //  installBtn?.style?.display = "block";
+     // installBtn.innerText = "Install on iOS";
+     // installBtn.addEventListener("click", () => {
+     //   alert("To install this app on iOS, tap the 'Share' button and select 'Add to Home Screen'.");
+     // });
     } else {
       // Listen for the install prompt event (for Chrome, Edge, etc.)
       window.addEventListener("beforeinstallprompt", (event) => {
         event.preventDefault();
         deferredPrompt = event;
-        installBtn.style.display = "block";
+     //   installBtn?.style?.display = "block";
       });
   
       // Install button click handler

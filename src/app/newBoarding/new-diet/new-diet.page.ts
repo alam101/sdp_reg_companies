@@ -102,6 +102,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   }
   weightTrackerData:any;
   ionViewWillEnter() {
+     this.newSelectedDate = new Date();
     history.forward();
 
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
@@ -284,6 +285,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     });
   }
   ngOnInit() {
+     this.newSelectedDate = new Date();
     this.utilities.logEvent("onboarding_dietplanPage", {});
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);

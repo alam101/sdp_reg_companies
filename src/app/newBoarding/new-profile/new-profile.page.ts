@@ -97,7 +97,7 @@ dietitianRole="";
       console.log("plan==========>", res);
     });
   }
-
+ unit: any;
   getFlag(type) {
     switch (type) {
       case "IND":
@@ -114,6 +114,11 @@ dietitianRole="";
         return "uae.jpeg";
     }
   }
+
+kgToLbs(kg: number): number {
+  const lbsPerKg = 2.20462;
+  return Math.round(kg * lbsPerKg);
+}
   modalClose(){
     this.router.navigate(['new-diet']);
   }
