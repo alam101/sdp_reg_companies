@@ -1,5 +1,5 @@
 import { Location } from "@angular/common";
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import {
   ModalController,
@@ -51,6 +51,7 @@ export class MealWorkoutPage implements OnInit {
   streamVideo = false;
   clientId="";
   constructor(
+    private cdr: ChangeDetectorRef,
     private utilities: UTILITIES,
     private storage: Storage,
     private appServices: AppService,
@@ -76,6 +77,7 @@ export class MealWorkoutPage implements OnInit {
   async ngOnInit() {
     if(Number(localStorage.getItem("currentDate"))> new Date().getTime()){
         this.isFuture=true;
+       
     }
   this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.image_URL = CONSTANTS.image_URL;
@@ -104,6 +106,29 @@ export class MealWorkoutPage implements OnInit {
     // setTimeout(() => {
     //   this.loaded = true;
     // }, 300);
+    let inputDate = CONSTANTS?.dietDate
+  ? moment(CONSTANTS.dietDate, "DDMMYYYY").toDate()
+  : new Date();
+    this.compareDates(inputDate);
+  }
+
+  compareDates(date1) {
+    const inputDate = new Date(date1); // Replace with your date
+const currentDate = new Date();
+
+// Normalize both dates to only compare date (without time)
+const normalizeDate = (date) => {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+};
+
+const today = normalizeDate(currentDate);
+const input = normalizeDate(inputDate);
+debugger;
+if (input.getTime() === today.getTime()) {
+  this.isFuture = false;
+} else {
+  this.isFuture = true;
+}
   }
   senitizedData(videoUrl) {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
@@ -398,6 +423,7 @@ addRemove(type) {
         ],
         isUpdateDiet: true,
       };
+      console.log("datas", datas);
       this.utilities.logEvent("onboarding_update_food_details", datas);
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
