@@ -657,7 +657,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      }
      
      else if(this.clientId==='redcliffe'){
-      this.design='old';
+      this.design='new';
       this.response_type="url";
       this.isdoenloadclicked=true;
       localStorage.setItem("company_id","REDCLIFFE");
