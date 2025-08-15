@@ -23,6 +23,8 @@ import { Location } from "@angular/common";
   styleUrls: ["./new-diet.page.scss"],
 })
 export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
+  pdfUrl = ''; // This will be set from API
+  userAgentType: 'Android App' | 'IOS App' | 'Web';
   slideOpts = {
     slidesPerView: 1.25, // 1 full + 0.25 of next
     spaceBetween: 10,
@@ -94,7 +96,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     };
     this.clientId = localStorage.getItem("clientId");
     this.displayFooter = true;
-   
+   const ua = navigator.userAgent; // Or get from API/server
+    this.userAgentType = this.appServices.getUserAgentType(ua);
   }
   ngOnDestroy() {
     // Unsubscribe to prevent memory leaks
@@ -654,7 +657,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      }
      
      else if(this.clientId==='redcliffe'){
-      this.design='new';
+      this.design='old';
       this.response_type="url";
       this.isdoenloadclicked=true;
       localStorage.setItem("company_id","REDCLIFFE");
@@ -666,6 +669,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       }
       
      }
+
      else if(this.clientId==='drstore'){
       this.isdoenloadclicked=true;
       localStorage.setItem("company_id","drstore");
@@ -772,26 +776,25 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       this.percentwithPer='100%';
       const a = document.createElement('a');
       console.log("blob", res);  
-      if(this.response_type==='url'){
-       // window.open(res['url'],"_system");
-        // this.iab.create(res['url'],"_system");
-         a.href = res["url"];
-         document.body.appendChild(a);
-         a.download = 'document.pdf';
-          a.target = '_blank';
-         a.click();
-           document.body.removeChild(a);
-            window.URL.revokeObjectURL(res["url"]);
-      }
-      else{
-       const url = window.URL.createObjectURL(res as Blob);
-       a.href = url;
-       a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
-       document.body.appendChild(a);
-       a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-       }
+      this.downloadPdf(res["url"]);
+      // if(this.response_type==='url'){
+      //    a.href = res["url"];
+      //    document.body.appendChild(a);
+      //    a.download = 'document.pdf';
+      //     a.target = '_blank';
+      //    a.click();
+      //      document.body.removeChild(a);
+      //       window.URL.revokeObjectURL(res["url"]);
+      // }
+      // else{
+      //  const url = window.URL.createObjectURL(res as Blob);
+      //  a.href = url;
+      //  a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
+      //  document.body.appendChild(a);
+      //  a.click();
+      //   document.body.removeChild(a);
+      //   window.URL.revokeObjectURL(url);
+      //  }
         setTimeout(()=>{
           this.isdoenloadclicked=false;
          },2000);
@@ -806,7 +809,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     });
 
   }
-   downloadPdfFromApiNew1(){ 
+   downloadPdfFromApiNew1()
+   { 
     this.percent=0.0;
   this.percentwithPer='0%';
 
@@ -825,11 +829,12 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     
        const url = window.URL.createObjectURL(res);
        a.href = url;
-       a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
-       document.body.appendChild(a);
-       a.click();
-        document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
+       this.downloadPdf(url);
+      //  a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
+      //  document.body.appendChild(a);
+      //  a.click();
+      //   document.body.removeChild(a);
+      //   window.URL.revokeObjectURL(url);
       
         setTimeout(()=>{
           this.isdoenloadclicked=false;
@@ -844,6 +849,24 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       console.error('Error downloading PDF:', error);
     });
 
+  }
+
+   downloadPdf(pdfUrl) {
+    if (this.userAgentType === 'Web') {
+      // Open in new tab for web
+      window.open(pdfUrl, '_blank');
+    } 
+    else if (this.userAgentType === 'Android App') {
+      // Call Android bridge
+      (window as any).MyJSClient?.openPdfFromUrl(pdfUrl);
+    } 
+    else if (this.userAgentType === 'IOS App') {
+      // Call iOS bridge
+      (window as any).webkit?.messageHandlers?.callbackHandler?.postMessage({
+        action: 'openPdf',
+        url: pdfUrl
+      });
+    }
   }
   async gotoSearch() {
     const modal = await this.modalController.create({

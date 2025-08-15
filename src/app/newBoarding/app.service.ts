@@ -62,6 +62,16 @@ export class AppService {
     return this.httpClient.get(url, {});
    }
 
+   getUserAgentType(ua: string): 'Android App' | 'IOS App' | 'Web' {
+    if (ua === 'RedcliffeLabsAndroidApp' || ua === 'RedcliffeLabs/1.0.47') {
+      return 'Android App';
+    } else if (ua === 'RedcliffeLabsIOSApp') {
+      return 'IOS App';
+    } else {
+      return 'Web';
+    }
+  }
+  
    downloadPdfFromApiNew(comp_id='alyve.health',
     user_id,dietitian_name,dietitan_email,response_type,design):Observable<Blob> {
     const url = APIS.pithanURL+`${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}

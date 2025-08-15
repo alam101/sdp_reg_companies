@@ -2382,7 +2382,7 @@
       "profile2": true,
       "consumed_cal": true,
       "cal_count": true,
-      "download": false,
+      "download": true,
       "pie_chart": false,
       "alternative": true,
       "video": true,
