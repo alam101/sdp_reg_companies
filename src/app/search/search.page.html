@@ -79,7 +79,7 @@ name="close-circle"
      
       <div class="search-auto" style="margin-top:-1rem;"  *ngIf="searchData?.length>0"> 
         <ion-card style="margin: 0; box-shadow:none;width:98%;">
-          <ion-item *ngFor="let item of searchData; let ind=index;" no-lines style="--border-color:#fff; height: 56px;">
+          <ion-item *ngFor="let item of searchData; let ind=index;" no-lines style="--border-color:#fff; height: 90px;">
             <ion-label slot="start" style="font-size:.8rem;font-weight:400;line-height: 1.2;white-space:normal;flex: 0 0 60%;">
               <span style="font-size: var(--small-font);
                             font-family: var(--font-medium);
@@ -88,7 +88,10 @@ name="close-circle"
               <span style="    font-size: var(--small-font);
     font-family: var(--theme-newFont);
     font-weight: 300;
-    color: #666666;">{{item?._source?.portion}} {{item?._source?.portion_unit}}</span>
+    color: #666666;">{{item?._source?.portion}} {{item?._source?.portion_unit}}</span><br>
+            <span style="font-size:var(--small-font); color:#707070;" 
+                  [innerHTML]="highlightText(item?._source?.SynonymsName, searchValue)">
+            </span>
             </ion-label>
             <div slot="end" style="vertical-align: middle;display: inherit;">
               <div  style="

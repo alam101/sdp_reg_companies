@@ -37,6 +37,7 @@ export class SearchAutoPage implements OnInit {
     searchAllApiData(searchValue,index){
       setTimeout(() => {
         this.appService.searchAuto(searchValue).subscribe((res:any)=>{
+          
           this.searchData=res["data"].foodItems;
           console.log("this.searchData",this.searchData);
           

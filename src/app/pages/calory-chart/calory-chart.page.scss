@@ -1,13 +1,15 @@
 .canvas-card {
     height: auto;
-    position: absolute;
-    top: 30%;
+    top: 17%;
     width: 90%;
     left: 2.5%;
     margin: 0 auto;
     right: 2.5%;
+    padding-bottom: 3rem;
 }
-
+ion-content {
+  --padding-bottom: env(safe-area-inset-bottom);
+}
 .consumed-label{
     color: #D4B2FF;
 }

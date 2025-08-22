@@ -1,5 +1,5 @@
-<ion-header  style="height: 3rem !important;">
-  <ion-toolbar  style="--min-height: 3rem !important;">
+<ion-header style="height: 3rem !important;">
+  <ion-toolbar style="--min-height: 3rem !important;">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/new-diet"></ion-back-button>
     </ion-buttons>
@@ -8,102 +8,84 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <ion-row>
-    <ion-col>
-      <div style="width: 100%;height: 200px;color:#fff;border-bottom-left-radius: 1rem;
+
+<ion-content [fullscreen]="true">
+
+  <!-- Top date bar -->
+  <div style="width: 100%;height: 75px;color:#fff;border-bottom-left-radius: 1rem;
       border-bottom-right-radius: 1rem;padding: 1rem;background:var(--theme-profile-background)">
-        <div class="date-change">
-          <ion-button (click)="dateRangeChange(defaultDate, 'back')" shape="round" fill="clear">
-            <ion-icon name="chevron-back-outline" class="color-white"></ion-icon>
-          </ion-button>
-          <span>{{defaultDateRange}}</span>
-          <!-- [disabled]="isValidDate" -->
-          <ion-button (click)="dateRangeChange(defaultDate, 'forward')" shape="round" fill="clear">
-            <ion-icon name="chevron-forward-outline" class="color-white"></ion-icon>
-          </ion-button>
-        </div>
-      </div>
-      <div class="canvas-card">
-        <ion-card>
-          <ion-card-content style="padding-left: 15px;">
-            <ion-row class="text-center" *ngIf="averageCal">
-              <ion-col>
-                <b>{{Math.round(averageCal)}} Kcal </b> Average
-              </ion-col>
-            </ion-row>
-            <!-- <ion-row class="text-center" *ngIf="averageCal">
-              <ion-col>
-                <span>Average</span>
-              </ion-col>
-            </ion-row> -->
-            <!-- <canvas id="barCanvas" width="40vw" height="20vh"></canvas> -->
-            <canvas #barCanvas style="position: relative;" height="200" ></canvas>
-            <!-- <ion-row class="margin-top-1">
-              <ion-col class="status-mark ion-align-self-center">
-                <ion-icon name="ellipse" class="consumed-label"></ion-icon> <span>Consumed</span>
-              </ion-col>
-              <ion-col class="status-mark ion-align-self-center">
-                <ion-icon name="ellipse" class="exceeded-label"></ion-icon> <span>Over Exceeded</span>
-              </ion-col>
-              <ion-col class="status-mark ion-align-self-center">
-                <ion-icon name="ellipse" class="daily-limit-label"></ion-icon> <span>Daily limit</span>
-              </ion-col>
-            </ion-row> -->
-            <ion-row class="ion-margin-vertical">
-              <ion-col class="status-mark ion-align-self-center">
-                <span>For best benifits remain in Green Zone</span>
-              </ion-col>
-            </ion-row>
-          </ion-card-content>
-        </ion-card>
+    <div class="date-change">
+      <ion-button (click)="dateRangeChange(defaultDate, 'back')" shape="round" fill="clear">
+        <ion-icon name="chevron-back-outline" class="color-white"></ion-icon>
+      </ion-button>
+      <span>{{defaultDateRange}}</span>
+      <ion-button (click)="dateRangeChange(defaultDate, 'forward')" shape="round" fill="clear">
+        <ion-icon name="chevron-forward-outline" class="color-white"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
 
-        <!-- <p class="info-text ion-margin-horizontal">
-          Calories are an estimate of energy gained from food and drinks tracked regularly
-        </p> -->
+  <!-- Main card + list -->
+  <div class="canvas-card">
+    <ion-card>
+      <ion-card-content style="padding-left: 15px;">
+        <ion-row class="text-center" *ngIf="averageCal">
+          <ion-col>
+            <b>{{Math.round(averageCal)}} Kcal </b> Average
+          </ion-col>
+        </ion-row>
 
-        <p class="records-title" *ngIf="custDailyDiets && custDailyDiets.length">
-          My Daily Records
-        </p>
+        <canvas #barCanvas style="position: relative;" height="200"></canvas>
 
-        <ion-list class="ion-margin-top" *ngIf="maxCalories" lines="none">
-          <ion-item class="ion-no-padding diet-item ion-margin-horizontal
-          " *ngFor="let item of custDailyDiets">
-            <ion-avatar slot="start" class="indicator-icon-container">
-              <ion-icon class="calory-status-icon"
-                [src]="(item.data.scoreRemark == 'Excellent choices') ? 'assets/icons/calory-excellent.svg' : 
-                (item.data.scoreRemark == 'Good choices') ? 'assets/icons/calory-light-green.svg' : 
-                (item.data.scoreRemark == 'Average Choices') ? 'assets/icons/calory-yellow.svg' : 
-                (item.data.scoreRemark == 'Poor choices') ? 'assets/icons/calory-average.svg' :
-                'assets/icons/calory-bad.svg'"
-                ></ion-icon>
-            </ion-avatar>
-            <ion-label>
-              <p class="date-label">{{item.displayDate}}</p>
-              <p class="choice-type">{{item.data.scoreRemark}}</p>
-            </ion-label>
-            <ion-label slot="end">
-              <p class="calory-consumed ion-text-end"
-                [ngClass]="(item.data.totalEatenCalories > maxCalories || item.data.scoreColor == 'red') ? 'red-text' : 
-                (item.data.scoreColor == 'dark green') ? 'green-text' : 
-                (item.data.scoreColor == 'light green') ? 'light-green-text' : 
-                (item.data.scoreColor == 'yellow') ? 'yellow-text' : 
-                (item.data.scoreColor == 'orange') ? 'orange-text' : ''">
-                {{Math.round(item.data.totalEatenCalories)}} Kcal</p>
-                <div class="consumed-calory-container">
-                  <span class="calory-status">{{Math.ceil(item.restCalories)}} kcal
-                    {{(item.data.totalEatenCalories > maxCalories) ? "over" : "less" }}
-                  </span>
-                  <ion-icon
-                    [src]="(item.data.totalEatenCalories > maxCalories) ? 'assets/icons/thumb-bad.svg' : 'assets/icons/thumb-excellent-average.svg'"></ion-icon>
-                </div>
-              
-            </ion-label>
-          </ion-item>
-        </ion-list>
+        <ion-row class="ion-margin-vertical">
+          <ion-col class="status-mark ion-align-self-center">
+            <span>For best benifits remain in Green Zone</span>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
 
-      </div>
+    <p class="records-title" *ngIf="custDailyDiets && custDailyDiets.length">
+      My Daily Records
+    </p>
 
-    </ion-col>
-  </ion-row>
+    <!-- Just ONE list, no need to repeat -->
+    <ion-list class="ion-margin-top" *ngIf="maxCalories" lines="none">
+      <ion-item class="ion-no-padding diet-item ion-margin-horizontal" *ngFor="let item of custDailyDiets">
+        <ion-avatar slot="start" class="indicator-icon-container">
+          <ion-icon class="calory-status-icon"
+            [src]="(item.data.scoreRemark == 'Excellent choices') ? 'assets/icons/calory-excellent.svg' : 
+                    (item.data.scoreRemark == 'Good choices') ? 'assets/icons/calory-light-green.svg' : 
+                    (item.data.scoreRemark == 'Average Choices') ? 'assets/icons/calory-yellow.svg' : 
+                    (item.data.scoreRemark == 'Poor choices') ? 'assets/icons/calory-average.svg' :
+                    'assets/icons/calory-bad.svg'"></ion-icon>
+        </ion-avatar>
+
+        <ion-label>
+          <p class="date-label">{{item.displayDate}}</p>
+          <p class="choice-type">{{item.data.scoreRemark}}</p>
+        </ion-label>
+
+        <ion-label slot="end">
+          <p class="calory-consumed ion-text-end"
+            [ngClass]="(item.data.totalEatenCalories > maxCalories || item.data.scoreColor == 'red') ? 'red-text' : 
+                       (item.data.scoreColor == 'dark green') ? 'green-text' : 
+                       (item.data.scoreColor == 'light green') ? 'light-green-text' : 
+                       (item.data.scoreColor == 'yellow') ? 'yellow-text' : 
+                       (item.data.scoreColor == 'orange') ? 'orange-text' : ''">
+            {{Math.round(item.data.totalEatenCalories)}} Kcal
+          </p>
+          <div class="consumed-calory-container">
+            <span class="calory-status">{{Math.ceil(item.restCalories)}} kcal
+              {{(item.data.totalEatenCalories > maxCalories) ? "over" : "less"}}
+            </span>
+            <ion-icon
+              [src]="(item.data.totalEatenCalories > maxCalories) ? 'assets/icons/thumb-bad.svg' : 'assets/icons/thumb-excellent-average.svg'">
+            </ion-icon>
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
 </ion-content>

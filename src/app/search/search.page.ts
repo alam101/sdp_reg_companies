@@ -76,6 +76,11 @@ export class SearchPage implements OnInit {
   ngAfterViewInit() {
     this.cdr.detectChanges();
   }
+  highlightText(text: string, search: string): string {
+  if (!text || !search) return text;
+  const pattern = new RegExp(`(${search})`, 'gi'); // case-insensitive
+  return text.replace(pattern, '<b>$1</b>');
+}
   onSearch(event: Event): void {
     const inputValue = (event.target as HTMLInputElement).value;
     this.searchSubject.next(inputValue); // Emit the latest value
