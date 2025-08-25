@@ -1,8 +1,5 @@
 <ion-content>
   <div *ngIf="!streamVideo" style="background: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; position: fixed; top: 0; height: 100%; width: 100%; z-index: 12; left: 0; right: 0; opacity: 1; overflow-y: scroll; height: 100%;">
-    <!-- <div class="right">
-      <img src="./assets/img/close.png" style="position: absolute;top:2.5rem;right:.5rem;width:13%;" (click)="close()">
-    </div> -->
     <div style="height: 36%; max-height: 50%; position: relative;">
       <img src="{{data?.imageUrl}}" style="top:0; position: relative; left:0; border-top-left-radius: 10px; border-top-right-radius: 10px; object-fit: cover; width: 100%; height: 100%;">
       <div style="position: absolute; background:transparent;height: 30px; box-shadow: 0px 0px 6px #fff, 6px -22px 25px #fff; width: 100%;"></div>
@@ -10,7 +7,6 @@
         <div (click)="videoClick(data.video)">
           <div class="videodiv center">
             <img src='./assets/img/playbutton.png'>
-            <!-- <ion-icon name="play-circle-sharp" style="color:red; font-size: 3.5rem;"></ion-icon> -->
           </div>
         </div>
       </div>
@@ -19,63 +15,6 @@
     <img src="./assets/img/close.png" style="position: absolute;top:2.5rem;right:.5rem;width:13%;" (click)="close()">
     <div class="main_div paddingIos"><div>
     <ion-skeleton-text *ngIf="!loaded" animated class="product_card" style="height: 300px"></ion-skeleton-text>
-    <!-- <div class="product_card" *ngIf="loaded"> -->
-      <!-- <div class="logo_div" *ngIf="data.brandLogo ">
-        <ion-avatar class="rest_logo">
-          <img
-            *ngIf="data?.foodSource === 'P'"
-            src="{{data?.brandLogo}}"
-            onerror="this.src='./assets/images/externalImages/null.jpg';this.style='object-fit: contain'"
-          />
-        </ion-avatar>
-      </div>
-      <div class="video_div" *ngIf="data.video && data.video.includes('http')">
-        <div (click)="videoClick(data.video)">
-          <div class="videodiv center">
-            <ion-icon name="play-circle-sharp"></ion-icon>
-          </div>
-          <p class="watch">Watch Video</p>
-        </div>
-      </div> -->
-      <!-- <ion-img class="card_img" src="./assets/img/food-item.png"></ion-img> -->
-      <!-- <div
-        (click)="videoClick(data.video)"
-        *ngIf="data.video && data.video != '-' && data.video != '--' && data.video.indexOf('http') > -1"
-      >
-        <iframe
-          [src]="videoUrl"
-          frameborder="0"
-          allowfullscreen
-          style="width: 100%; height: 200px; pointer-events: none"
-        ></iframe>
-      </div> -->
-      <!-- <ion-thumbnail> -->
-        <!-- <img
-          *ngIf="data?.imgType?.toLowerCase() === 'h' &&  data?.imageId ||  data?.foodSource?.toLowerCase() === 'r' &&  data?.imageId || data?.foodSource?.toLowerCase() === 'p'&&  data?.imageUrl || data?.foodSource?.toLowerCase() === 'p'&&  data?.imageId ||  data?.foodSource?.toLowerCase() === 'r' &&  data?.imageUrl "
-          class="card_img"
-          [src]=" data?.imageId || data?.imageUrl"
-          onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
-        />
-        <img
-          *ngIf="data?.foodSource?.toLowerCase() === 'internal' && data?.imageUrl"
-          class="card_img"
-          [src]="data?.imageUrl.replace('png','jpg')"
-          onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
-        />
-        <img
-          class="card_img"
-          style="object-fit: contain"
-          *ngIf="data?.foodSource?.toLowerCase() == 'external'"
-          src="./assets/newImages/null.jpg"
-        /> -->
-
-        <!-- <img
-          class="card_img"
-          [src]="data?.imageUrl"
-          onerror="this.src='./assets/images/externalImages/null.jpg';this.style='object-fit: contain'"
-        /> -->
-      <!-- </ion-thumbnail> -->
-
       <ion-grid class="w_100" style="padding-left: 0; padding-right: 0;">
         <ion-row style="position: relative;top: 0;width: 94%;">
           <ion-col size=".5"></ion-col>
@@ -112,32 +51,11 @@
         <ion-row>
           <ion-col size="10">
             <p class="meal_pro ion-no-margin">{{data?.Name || data?.Food}}</p>
-            <!-- <p class="meal_cal" style="font-weight: 500" *ngIf="data?.foodSource==='R' || data?.foodSource==='P'">
-                      {{data?.portion}} {{data?.portion_unit || data?.portionUnit}} ({{data?.portion_gms}} {{data?.measuring_unit}})
-                    </p>
-                    <p class="meal_cal" style="font-weight: 500"  *ngIf="data?.foodSource!=='R' && data?.foodSource!=='P'">
-                      {{data?.portion}} {{data?.portion_unit || data?.portionUnit}}
-                    </p> -->
-            <span style="font-size: 1rem; color:#767676; top: .2rem; position: relative;">Calories: {{data?.Calories}} Kcal </span>
+              <span style="font-size: 1rem; color:#767676; top: .2rem; position: relative;">Calories: {{data?.Calories}} Kcal </span>
         
-            <!-- <p class="meal_cal" style="font-weight: 500">
-                      ({{data?.foodSource?.toLowerCase() !== 'external' ? data?.portion
-                      : ''}} {{data?.portion_unit || data?.portionUnit}})
-                    </p> -->
-          </ion-col>
+            </ion-col>
         
-          <!-- <ion-col size="2" class="right" style="align-items: flex-start">
-                    <div
-                      class="dot_boarder"
-                      [ngStyle]="{'border-color':data?.foodType==='Ve' || data?.foodType==='V' ? 'var(--green)' : data?.foodType==='E' ? 'var(--yellow)': data?.foodType==='NV' ?'var(--red)':'lightgrey'}"
-                    >
-                      <div
-                        class="dot"
-                        [ngStyle]="{'background':data?.foodType==='Ve' || data?.foodType==='V' ? 'var(--green)' : data?.foodType==='E' ? 'var(--yellow)':  data?.foodType==='NV' ?'var(--red)':'lightgrey'}"
-                      ></div>
-                    </div>
-                  </ion-col> -->
-        </ion-row>
+            </ion-row>
         <ion-row>
           <ion-col class="ion-text-left" *ngIf="data && data.option">
             <ion-progress-bar [ngClass]="data?.option" value="1"></ion-progress-bar>
@@ -147,53 +65,12 @@
           </ion-col>
         </ion-row>
 
-        <!-- <div class="meal_pro_div" style="margin-top: 10px"> -->
-          <!-- <div> -->
-            <!-- <p class="meal_cal" style="font-weight: 500">
-              {{Math.round(data?.Calories * data?.portion)}} Kcal
-            </p> -->
-            <!-- <ion-progress-bar
-              [ngClass]="data?.option"
-              value="1"
-            ></ion-progress-bar>
-            <p *ngIf="this.data?.Score" class="choice">
-              {{data?.option}} Choice
-            </p> -->
-          <!-- </div> -->
-          <!-- <ion-button
-            *ngIf="data?.eaten > 0 "
-            fill="outline"
-            shape="round"
-            class="logged_btn"
-            (click)="eatenStatusUpdate(data, -1, 'Un Logged successfully')"
-          >
-            <ion-icon slot="start" name="checkmark"></ion-icon>
-            Logged
-          </ion-button> -->
-          <!-- (click)="loogeAction($event,data,i)" -->
-
-          <!-- <ion-icon
-            *ngIf="!data.eaten || data?.eaten < 0"
-            class="plus_icon"
-            name="add-circle"
-            (click)="addCal(data)"
-          >
-          </ion-icon> -->
-          <!-- [ngStyle]="{'color':!eat && 'lightgrey'}"
-          (click)="loogeAction($event,data,i)" -->
-        <!-- </div> -->
+   
       </ion-grid>
     </div>
 
     <div>
-      <!-- <p class="meal_pro">
-        Nutritional <br />Information
-        <span class="meal_cal" style="font-weight: 500" *ngIf="loaded">
-          ({{data?.foodSource?.toLowerCase() !== 'external' ? data?.portion :
-          ''}} {{data?.portion_unit}})
-        </span>
-      </p> -->
-      <ion-skeleton-text
+         <ion-skeleton-text
         *ngIf="!loaded"
         animated
         class="cal_calculation_div"
@@ -267,36 +144,8 @@
         </div>
       </div>
 
-      <!-- <div class="condition_card" style="margin-top: 30px" *ngIf="data?.foodSource !== 'R' && data?.foodSource !== 'P'">
-        <div class="card_div w_100" (click)="showIng = !showIng">
-          <ion-grid class="w_100">
-            <ion-row>
-              <ion-col size="5" class="center">
-                <p class="meal_pro">Ingredients</p>
-              </ion-col>
-              <ion-col size="5" class="center" style="position: relative">
-                <ion-img
-                  src="../../../../assets/newImages/ingradients.svg"
-                  class="card_image"
-                ></ion-img>
-              </ion-col>
-              <ion-col size="2" class="center">
-                <ion-icon
-                  class="forward"
-                  [name]="showIng? 'chevron-up-sharp' :'chevron-down-sharp'"
-                ></ion-icon>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
-      </div> -->
-      <!-- <ion-card class="Ingredients_div"> -->
-        <div class="ion-margin-top">
-          <!-- <div class="d_flex">
-      
-                  <p [innerHTML]="data?.recipe"></p>
-                </div> -->
-          <fieldset *ngIf="gredientArray?.length>=1"
+         <div class="ion-margin-top">
+           <fieldset *ngIf="gredientArray?.length>=1"
             style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
             <legend style="color:var(--theme-color);font-size: 1.1rem; font-weight: 600;">Ingredients</legend>
             <ion-row>
@@ -328,38 +177,7 @@
             </ion-row>
           </fieldset>
         </div>
-      <!-- </ion-card> -->
-
-      <!-- <div class="condition_card" style="margin-top: 40px; padding: 10px 0px" *ngIf="data?.foodSource !== 'R' && data?.foodSource !== 'P'">
-        <div class="card_div" (click)="showMathod = !showMathod">
-          <ion-grid class="w_100">
-            <ion-row>
-              <ion-col size="5" class="center">
-                <p class="meal_pro" style="padding-left: 10px">
-                  Preparation method
-                </p>
-              </ion-col>
-              <ion-col size="5" class="center" style="position: relative">
-                <ion-img
-                  src="../../../../assets/newImages/Chef-pana.svg"
-                  class="card_image"
-                ></ion-img>
-              </ion-col>
-              <ion-col size="2" class="center">
-                <ion-icon
-                  class="forward"
-                  [name]="showMathod? 'chevron-up-sharp' :'chevron-down-sharp'"
-                ></ion-icon>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
-      </div> -->
-      <!-- <ion-card class="Ingredients_div" *ngIf="showMathod"> -->
-        <div class="ion-margin-top">
-          <!-- <div class="d_flex">
-                    <p [innerHTML]="data?.steps"></p>
-                  </div> -->
+         <div class="ion-margin-top">
           <fieldset *ngIf="instructionsArray?.length>1"
             style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">
             <legend style="color:var(--theme-color);font-size: 1.1rem;font-weight: 600;">Instructions</legend>
@@ -387,7 +205,6 @@
             </ion-row>
           </fieldset>
         </div>
-      <!-- </ion-card> -->
     </div>
   </div>
   </div>
@@ -395,9 +212,7 @@
   <div class="alter_div" *ngIf="!streamVideo && alternativeData.length>0">
     <p class="meal_pro" style="margin-left: 10px">Alternatives</p>
     <div class="avtar_div scroll_x">
-      <!-- <div class="left flex_col avtar_div2" *ngFor="let alter of alternativeData.slice(0,plandata?.isPlanActive
-        ? alternativeData.length+1 : 2)" (click)="addAlter(alter)"> -->
-      <div
+     <div
         class="left flex_col avtar_div2"
         *ngFor="let alter of alternativeData"
         (click)="addAlter(alter)"
@@ -413,27 +228,19 @@
           {{Math.round(alter?.Calories)}} Kcal
         </p>
       </div>
-      <!-- <div *ngIf="!plandata?.isPlanActive" class="center" style="width: 100%">
-        <ion-button shape="round" fill="outline" class="lock_btn" (click)="gotoPremium()">
-          <ion-icon class="lock" src="../../../../assets/newImages/Lock.svg"></ion-icon>
-          {{alternativeData?.length-2}} More
-        </ion-button>
-      </div> -->
     </div>
   </div>
+  <div *ngIf="streamVideo" class="video-wrapper">
   <iframe
-    *ngIf="streamVideo"
-    width="100%"
-    height="100%"
     class="video-iframe"
     [src]="videoUrl"
     frameborder="0"
     allowfullscreen
   ></iframe>
   <ion-icon
-    *ngIf="streamVideo"
     (click)="closeVideo()"
     name="close"
-    class="get-button-icon marginIos"
+    class="get-button-icon"
   ></ion-icon>
+</div>
 </ion-content>

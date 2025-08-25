@@ -352,15 +352,49 @@ ion-avatar {
   margin-bottom: 5px;
 }
 
-.video-iframe {
-  transform: rotate(-90deg);
-  transform-origin: left top;
-  width: 100vh;
-  overflow-x: hidden;
-  position: absolute;
-  top: 100%;
+// .video-iframe {
+//   transform: rotate(-90deg);
+//   transform-origin: left top;
+//   width: 100vh;
+//   overflow-x: hidden;
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   height: 58vh;
+// }
+
+// .get-button-icon {
+//   color: #fff;
+//   background-color: #01a3a4;
+//   border: 2px solid #fff;
+//   border-radius: 100px;
+//   position: absolute;
+//   /* left: 1.2rem; */
+//   top: 5px;
+//   height: 35px;
+//   width: 35px;
+//   left: 7px;
+// }
+.video-wrapper {
+  position: fixed;
+  top: 0;
   left: 0;
-  height: 58vh;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-90deg);
+  transform-origin: center center;
+  overflow: hidden;
+}
+
+.video-iframe {
+  width: 100vh;  /* swapped */
+  height: 100vw; /* swapped */
+  border: none;
 }
 
 .get-button-icon {
@@ -369,11 +403,11 @@ ion-avatar {
   border: 2px solid #fff;
   border-radius: 100px;
   position: absolute;
-  /* left: 1.2rem; */
-  top: 5px;
+  top: 10px;
+  right: 10px;
   height: 35px;
   width: 35px;
-  left: 7px;
+  z-index: 10000;
 }
 
 .card_img {
