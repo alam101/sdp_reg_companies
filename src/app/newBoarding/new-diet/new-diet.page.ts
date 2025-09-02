@@ -15,8 +15,7 @@ import { SearchPage } from '../../search/search.page';
 import { BroadcastService } from "src/app/broadcast.service";
 import { Subscription } from 'rxjs';
 import { Location } from "@angular/common";
-
-// import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { NutritionComponent } from "src/app/components/nutrition/nutrition.component";
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
@@ -1083,6 +1082,17 @@ gotoChat(){
       .catch(getInstructionDataError => {
         console.log('getInstructionDataError: ', getInstructionDataError);
       })
+  }
+
+  async openItemScanner(){
+   // alert("This feature will be available soon!");
+    const modal = await this.modalController.create({
+      component: NutritionComponent,
+      cssClass: 'scanner-modal', // optional for styling
+      backdropDismiss: false     // disable closing by clicking outside
+    });
+
+    await modal.present();
   }
 }
 

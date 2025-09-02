@@ -34,6 +34,7 @@ import { WbloodPressureComponent } from "./wblood-pressure/wblood-pressure.compo
 import { WbloodGlucoseComponent } from "./wblood-glucose/wblood-glucose.component";
 import { WcholesterolComponent } from "./wcholesterol/wcholesterol.component";
 import { ChatComponent } from "./chat/chat.component";
+import { NutritionComponent } from "./nutrition/nutrition.component";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ChatComponent } from "./chat/chat.component";
     WbloodPressureComponent,
     WbloodGlucoseComponent,
     WcholesterolComponent,
-    ChatComponent
+    ChatComponent,
+    NutritionComponent
 
   ],
   imports: [
@@ -117,7 +119,8 @@ import { ChatComponent } from "./chat/chat.component";
     WbloodPressureComponent,
     WbloodGlucoseComponent,
     WcholesterolComponent,
-    ChatComponent
+    ChatComponent,
+    NutritionComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

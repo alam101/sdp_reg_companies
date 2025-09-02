@@ -16,6 +16,19 @@
     border-radius: 30px;
     text-align: center;
 }
+.searchbat1{
+  border: 1px solid var(--theme-color);
+    color: var(--black);
+    font-size: var(--small-font);
+    padding: 0;
+    --border-radius: 25px;
+    border-radius: 25px;
+    --box-shadow: none;
+    width: 90%;
+    margin: 0px 5%;
+    height: 87%;
+    padding-top: 1rem;
+}
 .searchbar{
   border: 1px solid var(--theme-color);
     color: var(--black);
