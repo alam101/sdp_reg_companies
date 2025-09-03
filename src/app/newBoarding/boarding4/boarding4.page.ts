@@ -84,12 +84,19 @@ trayaAllergies=[];
           gender[0]["value"].toLowerCase() == "male"
         ) {
           this.healths = this.localData.otherMaster.diseases.filter((ele) => {
-            if (
+            if(
               ele.code.toLowerCase() != "pd" &&
               ele.code.toLowerCase() != "k" &&
               ele.code.toLowerCase() != "p" &&
               ele.code.toLowerCase() != "m" &&
-              ele.code.toLowerCase() != "l"
+              ele.code.toLowerCase() != "l"&&
+              this.clientId==='lalpathlabs'? 
+              (ele.code.toLowerCase() != "ir" &&
+              ele.code.toLowerCase() != "vb" &&
+              ele.code.toLowerCase() != "vd" &&
+              ele.code.toLowerCase() != "hp" &&
+              ele.code.toLowerCase() != "cr"): true
+
             ) {
               if (
                 ele.value.includes("Allergy") ||
@@ -120,8 +127,10 @@ trayaAllergies=[];
                 return ele;
               }
             }
+
           });
-         
+           
+
           if (a.length === 0) {
             this.alergyDisabled = true;
           }
@@ -168,6 +177,18 @@ trayaAllergies=[];
           );     
         });
       }
+      if(this.clientId==='lalpathlabs'){
+        this.healths =  this.healths.filter(item=>{
+          return (
+              item.code.toLowerCase() != "ir" &&
+              item.code.toLowerCase() != "vb" &&
+              item.code.toLowerCase() != "vd" &&
+              item.code.toLowerCase() != "hp" &&
+              item.code.toLowerCase() != "cr"
+          );
+        
+    });
+     }
     });
   }
 

@@ -139,7 +139,6 @@ lifeStyle:any;
   regionalPref="";
   selectReginal(e, reginal) {
     console.log("regionalPref", this.regionalPref);
-    debugger;
     reginal.isSelected = e.detail.checked;
     console.log(this.localData);
     if (typeof this.localData?.otherMaster !== undefined)
@@ -189,7 +188,6 @@ lifeStyle:any;
       
       this.storage.set("localData", this.utilities.parseString(this.localData));
     
-      debugger;
       const isSelected = this.localData?.otherMaster?.community.find(
         (f) => f.isSelected==true
       );

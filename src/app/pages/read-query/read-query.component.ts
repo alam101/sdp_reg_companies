@@ -203,7 +203,6 @@ export class ReadQueryComponent implements OnInit {
         window.open('https://app.smartdietplanner.com','_blank');
       }
       //
-        debugger; 
       console.log("localProfileObject::",localProfileObject);
       if(localProfileObject["demographic"]?.gender?.code!=undefined &&
         localProfileObject["demographic"]?.age?.code!=undefined && 
@@ -270,7 +269,6 @@ export class ReadQueryComponent implements OnInit {
     if(this.token!='' && this.token != 'null'){
     this.appService.defaultData().subscribe(res=>{
     console.log("defaultData::",res);
-    debugger;
     localStorage.setItem("defaultData",JSON.stringify(res));     
     localStorage.setItem("tkn",this.token);
     this.fetchProfile();

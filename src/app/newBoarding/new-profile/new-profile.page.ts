@@ -170,7 +170,9 @@ kgToLbs(kg: number): number {
     this.isShow=false;
   }
   async openModel(component) {
-    if(this.dietitianName==="" || this.dietitianName===undefined){
+    console.log(this.dietitianName);
+    
+   if(this.dietitianName==="" || this.dietitianName===undefined || this.clientId==='lalpathlabs'){
     this.router.navigate([component],{queryParams:{from:'editProfile'}});
         this.getProfile();
     }

@@ -645,6 +645,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   async gotoDownloadPopup(){ 
      
      if(this.clientId==='alyve'){
+      this.design='new';
      this.isdoenloadclicked=true;
      localStorage.setItem("company_id","alyve.health");
      this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
@@ -673,6 +674,12 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       this.isdoenloadclicked=true;
       localStorage.setItem("company_id","drstore");
       this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
+     }
+      if(this.clientId==='lalpathlabs'){
+        this.design='new';
+     this.isdoenloadclicked=true;
+     localStorage.setItem("company_id","Fitrofy");
+      this.downloadPdfFromApiNew1();
      }
      else {
       this.isdoenloadclicked=true;
@@ -776,24 +783,6 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       const a = document.createElement('a');
       console.log("blob", res);  
       this.downloadPdf(res["url"]);
-      // if(this.response_type==='url'){
-      //    a.href = res["url"];
-      //    document.body.appendChild(a);
-      //    a.download = 'document.pdf';
-      //     a.target = '_blank';
-      //    a.click();
-      //      document.body.removeChild(a);
-      //       window.URL.revokeObjectURL(res["url"]);
-      // }
-      // else{
-      //  const url = window.URL.createObjectURL(res as Blob);
-      //  a.href = url;
-      //  a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
-      //  document.body.appendChild(a);
-      //  a.click();
-      //   document.body.removeChild(a);
-      //   window.URL.revokeObjectURL(url);
-      //  }
         setTimeout(()=>{
           this.isdoenloadclicked=false;
          },2000);

@@ -123,7 +123,6 @@ const normalizeDate = (date) => {
 
 const today = normalizeDate(currentDate);
 const input = normalizeDate(inputDate);
-debugger;
 if (input.getTime() === today.getTime()) {
   this.isFuture = false;
 } else {
