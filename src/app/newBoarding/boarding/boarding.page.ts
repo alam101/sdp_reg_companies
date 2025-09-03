@@ -62,7 +62,7 @@ clientId="";
  
   }
 
-  newModal;
+  newModal='undefined';
   goNext() {
     let reqBody: any = {};
     let reqBodyDiet: any = {};

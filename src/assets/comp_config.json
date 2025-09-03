@@ -6657,16 +6657,11 @@
           "options": [
             {
               "name": "Muscle Building",
-              "value": "muscleGain",
+              "value": "muscleGain_morning",
               "label": "Pump and get stronger",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
-            },
-            {
-              "name": "Lean Body",
-              "value": "fatShredding",
-              "label": " Maintain muscles and lose fat",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
             }
+           
           ]
         },
         {
@@ -6676,7 +6671,7 @@
           "options": [
             {
               "name": "Manage Diabetes",
-              "value": "metropolis_diabetes",
+              "value": "diabetes",
               "label": " Optimize blood glucose levels ",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
             },
@@ -6703,9 +6698,8 @@
       ],
       "editGoalForDisplay": [
         { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "metropolis_diabetes" },
+        { "name": "Muscle Building", "value": "muscleGain_morning" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
         { "name": "Manage PCOS", "value": "pcos" },
         { "name": "Manage Cholesterol", "value": "cholesterol" },
         { "name": "Manage Hypertension", "value": "hypertension" }
