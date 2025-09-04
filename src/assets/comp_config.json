@@ -6655,12 +6655,7 @@
           "label": " Exercise is king, nutrition is Queen",
           "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png",
           "options": [
-            {
-              "name": "Muscle Building",
-              "value": "muscleGain_morning",
-              "label": "Pump and get stronger",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
-            }
+           
            
           ]
         },
@@ -6671,7 +6666,7 @@
           "options": [
             {
               "name": "Manage Diabetes",
-              "value": "diabetes",
+              "value": "metropolis_diabetes",
               "label": " Optimize blood glucose levels ",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
             },
@@ -6681,28 +6676,41 @@
               "label": " No more irregular period",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
+             {
+              "name": "Manage Hypertension",
+              "value": "hypertension",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+            },
             {
               "name": "Manage Cholesterol",
               "value": "cholesterol",
               "label": "No more high blood pressure",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
+            },           
+            {
+              "name": "Manage Hypothyroid",
+              "value": "hypothyroid",
+              "label": "Support Your Thyroid with Every Bite",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
             },
             {
-              "name": "Manage Hypertension",
-              "value": "hypertension",
-              "label": "No more high blood pressure",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+              "name": "Manage Inflammation",
+              "value": "antiInflammatory",
+              "label": "Feel relief from inflammation",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
             }
           ]
         }
       ],
       "editGoalForDisplay": [
         { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain_morning" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage Diabetes", "value": "metropolis_diabetes" },
         { "name": "Manage PCOS", "value": "pcos" },
         { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        { "name": "Manage Hypertension", "value": "hypertension" },
+        { "name": "Hypothyroid", "value": "hypothyroid" },
+        { "name": "Inflammation", "value": "antiInflammatory" }
       ],
       "deseases": [
         {
