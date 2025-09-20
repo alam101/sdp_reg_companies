@@ -2382,7 +2382,7 @@
       "profile2": true,
       "consumed_cal": true,
       "cal_count": true,
-      "download": true,
+      "download": false,
       "pie_chart": false,
       "alternative": true,
       "video": true,
@@ -6329,13 +6329,13 @@
           "options": [
             {
               "name": "Muscle Building",
-              "value": "muscleGain",
+              "value": "muscleGain_morning",
               "label": "Pump and get stronger",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             },
             {
               "name": "Lean Body",
-              "value": "fatShredding",
+              "value": "fatShredding_morning",
               "label": " Maintain muscles and lose fat",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
             }
@@ -6366,7 +6366,7 @@
             },
             {
               "name": "Manage Hypertension",
-              "value": "hypertension",
+              "value": "hypothyroid",
               "label": "No more high blood pressure",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
             }
@@ -6667,38 +6667,51 @@
             {
               "name": "Manage Diabetes",
               "value": "metropolis_diabetes",
-              "label": " Optimize blood glucose levels ",
+              "label": "Keep sugar levels in check",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
+            },
+            {
+              "name": "Manage Pre-Diabetes",
+              "value": "preDiabetic",
+              "label": " Stop diabetes before it starts",
+              "imgUrl": "../../../assets/img/prediebitic.jpeg"
             },
             {
               "name": "Manage PCOS",
               "value": "pcos",
-              "label": " No more irregular period",
+              "label": "Balance hormones, regulate cycles",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
              {
               "name": "Manage Hypertension",
               "value": "hypertension",
-              "label": "No more high blood pressure",
+              "label": "Control and lower blood pressure",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
             },
             {
               "name": "Manage Cholesterol",
               "value": "cholesterol",
-              "label": "No more high blood pressure",
+              "label": "Improve heart health naturally",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
             },           
             {
               "name": "Manage Hypothyroid",
               "value": "hypothyroid",
-              "label": "Support Your Thyroid with Every Bite",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+              "label": "Boost thyroid with the right foods",
+              "imgUrl": "../../../assets/img/thoiryd.jpeg"
             },
+            {
+              "name": "Fatty liver",
+              "value": "fattyLiver",
+              "label": "Heal your liver with food",
+              "imgUrl": "../../../assets/img/fattyliver.png"
+            },
+            
             {
               "name": "Manage Inflammation",
               "value": "antiInflammatory",
-              "label": "Feel relief from inflammation",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
+              "label": "Soothe pain and swelling",
+              "imgUrl": "../../../assets/img/inflation.jpeg"
             }
           ]
         }
@@ -6710,7 +6723,8 @@
         { "name": "Manage Cholesterol", "value": "cholesterol" },
         { "name": "Manage Hypertension", "value": "hypertension" },
         { "name": "Hypothyroid", "value": "hypothyroid" },
-        { "name": "Inflammation", "value": "antiInflammatory" }
+        { "name": "Inflammation", "value": "antiInflammatory" },
+        { "name": "Manage Pre-Diabetes", "value": "preDiabetic" }
       ],
       "deseases": [
         {

@@ -439,24 +439,29 @@ padding-top: 4px;
 box-shadow: 7px 5px 15px #000;
 border-top-left-radius: 10px;
     border-top-right-radius: 10px;">
- <div class="search_div center ">
-   <ion-searchbar
-   mode="md" 
-    class="searchbar"
+ <div class="search_div center searchbar1">
+   <ion-searchbar mode="md" 
+    style="width: 85%;
+    --box-shadow: none;"
      placeholder="Search for a Food"
      (click)="gotoSearch()"
    >
-   
-  </ion-searchbar>
-  <!-- <ion-icon name="barcode-outline" slot="start" style="    font-size: 1.5rem;
+    </ion-searchbar>
+  <ion-icon name="barcode-outline" slot="start" style="font-size: 1.5rem;
     color: var(--theme-color);
     position: relative;
     right: 0;
-    top: -8px;" (click)="openItemScanner()"></ion-icon> -->
+    top: 2px;" (click)="openItemScanner()"> 
+  </ion-icon>
+
  </div>
 </ion-footer>
-  
-<app-filter-card></app-filter-card>
-<div *ngIf="compConfig?.isChat"  (click)="gotoChat()" style="border-radius:50%;width:50px;height:50px;position: fixed; bottom:1rem; right:1rem; text-align:center;background:red;">
+<!-- <input #fileInput type="file" hidden accept="image/*" capture="environment" (change)="onFileSelected($event,1)">  -->
+<app-open-camera *ngIf="isOpenBar" (backButton)="closeCamera($event)"></app-open-camera>
+
+
+<div *ngIf="compConfig?.isChat"  (click)="gotoChat()" 
+style="border-radius:50%;width:50px;height:50px;position: fixed; bottom:1rem; 
+right:1rem; text-align:center;background:red;">
 <ion-icon name="chatbubbles" style="font-size: 2.5rem;color:#fff;" ></ion-icon>
 </div>

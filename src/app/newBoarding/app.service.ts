@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { APIS, CONSTANTS } from './core/constants/constants';
 import { Observable } from 'rxjs';
 
@@ -8,9 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class AppService {
   isNew = CONSTANTS.isNewAPIs;
+  private httpClient1: HttpClient;
     constructor(
-    private httpClient: HttpClient
-  ) {}
+    private httpClient: HttpClient,
+    httpBackend: HttpBackend
+    
+  ) {
+     this.httpClient1 = new HttpClient(httpBackend);
+  }
 
   public emailOnly(email): boolean {
     const re =
@@ -207,7 +212,42 @@ export class AppService {
 
   getInstructionData(data) {
     const url = APIS.instructionApiUrl + data;
-    return this.httpClient.get(url, {}).toPromise();
+    return this.httpClient1.get(url, {}).toPromise();
   }
   
+    updateFoodDetailPraveenApi(data) {
+    const url = 'https://app.smartdietplanner.com:8443/api/customer/updateDietPlan';
+    return this.httpClient.post(url,data).toPromise();
+  }
+
+  foodImageSend(formdata):Observable<any>{ 
+    const url = "https://aiapi.fitrofy.com/api/identify-food";
+    const headers= new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    return this.httpClient1.post(url, formdata, { headers: headers });
+  }
+  barcodeImageSend(formdata):Observable<any>{ 
+    const url = "https://aiapi.fitrofy.com/api/barcode-number";
+     const headers= new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    return this.httpClient1.post(url, formdata);
+  }
+  barcodeFootnoteImageSend(itemNumber):Observable<any>{ 
+    const url = "https://aiapi.fitrofy.com/api/barcodeid-footnote";
+    return this.httpClient1.post(url,  {"barcode_number":`${itemNumber}`});
+  }
+  nutritionLabelSend(formdata):Observable<any>{ 
+    const url = "https://aiapi.fitrofy.com/api/nutrition-label";
+     const headers= new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    return this.httpClient1.post(url, formdata);
+  }
+  nutritionValueScan(name):Observable<any>{ 
+    const url = "https://aiapi.fitrofy.com/api/scan";
+     const headers= new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.httpClient1.post(url, {food_name:'pasta', health_conditions:''} ,{headers:headers});
+  }
+
+
 }

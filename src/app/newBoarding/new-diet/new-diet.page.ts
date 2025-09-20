@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ErrorHandler, Injectable, OnDestroy, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ErrorHandler, Injectable, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { IonSlides, ModalController, NavController, Platform } from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import moment from "moment";
@@ -16,6 +16,7 @@ import { BroadcastService } from "src/app/broadcast.service";
 import { Subscription } from 'rxjs';
 import { Location } from "@angular/common";
 import { NutritionComponent } from "src/app/components/nutrition/nutrition.component";
+import { BrowserMultiFormatReader } from '@zxing/browser';
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
@@ -149,7 +150,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   
     this.companyLogoBase64 = this.compConfig?.companyLogoBase64;
     this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
-   
+
   }
   defaultPlanCheck=false;
   logSlot(d,slot){
@@ -190,11 +191,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
-       //   this.getDietdata.emit(CONSTANTS.dietDate);
-       //   this.utilities.showSuccessToast(status);
-          // this.todaysCalCount();
-      //    this.getDietdata(CONSTANTS.dietDate);
-          console.log("");
+             console.log("");
         },
         (err) => {
           console.log("details error", err);
@@ -681,6 +678,13 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      localStorage.setItem("company_id","Fitrofy");
       this.downloadPdfFromApiNew1();
      }
+      if(this.clientId==='metropolis'){
+        debugger;
+        this.design='new';
+     this.isdoenloadclicked=true;
+     localStorage.setItem("company_id","metropolis");
+      this.downloadPdfFromApiNew1();
+     }
      else {
       this.isdoenloadclicked=true;
       this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
@@ -818,11 +822,6 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
        const url = window.URL.createObjectURL(res);
        a.href = url;
        this.downloadPdf(url);
-      //  a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
-      //  document.body.appendChild(a);
-      //  a.click();
-      //   document.body.removeChild(a);
-      //   window.URL.revokeObjectURL(url);
       
         setTimeout(()=>{
           this.isdoenloadclicked=false;
@@ -975,7 +974,9 @@ gotoChat(){
      
       });
   }
-
+closeCamera(event){
+  this.isOpenBar=event;
+}
   getOnePlanForDefaultDate(){
     this.appServices.getOnePlan().subscribe((res) => {
       this.plandata = res;
@@ -1072,17 +1073,96 @@ gotoChat(){
         console.log('getInstructionDataError: ', getInstructionDataError);
       })
   }
-
+isOpenBar=false;
   async openItemScanner(){
-   // alert("This feature will be available soon!");
-    const modal = await this.modalController.create({
-      component: NutritionComponent,
-      cssClass: 'scanner-modal', // optional for styling
-      backdropDismiss: false     // disable closing by clicking outside
-    });
-
-    await modal.present();
+    this.isOpenBar=true;
+  
   }
+  preview: string = null;
+   onFileSelected(event: Event,ind) {
+    const input = event.target as HTMLInputElement;
+    if (!input.files || input.files.length === 0) return;
+
+    const file = input.files[0];
+
+    // Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.preview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+
+    // Upload
+  //  this.uploadImage(file,ind);
+  }
+uploadImage(file: File,ind:number){ 
+  const formData = new FormData();
+  formData.append("image", file, file.name);
+  console.log("formData",file );
+  if(ind===1){
+    this.appServices.foodImageSend(formData).subscribe((res:any)=>{
+      console.log("foodImageSend", res);
+      if(res.status===200){
+        this.utilities.presentAlert("Image sent successfully!");
+      }
+      else{
+        this.utilities.presentAlert("Something went wrong! Please try again.");
+      }
+     
+    },err=>{
+      this.utilities.presentAlert("Something went wrong! Please try again.");
+    });
+    
+  }
+  else if(ind===2){
+    this.appServices.barcodeImageSend(formData).subscribe((res:any)=>{
+      console.log("barcodeImageSend", res);
+      if(res.status===200){
+        this.utilities.presentAlert("Image sent successfully!");
+      }
+      else{
+        this.utilities.presentAlert("Something went wrong! Please try again.");
+      }
+     
+    },err=>{
+      this.utilities.presentAlert("Something went wrong! Please try again.");
+    });
+    
+  }
+  else if(ind===3){
+    this.appServices.nutritionLabelSend(formData).subscribe((res:any)=>{
+      console.log("nutritionLabelSend", res);
+      if(res.status===200){
+        this.utilities.presentAlert("Image sent successfully!");
+      }
+      else{
+        this.utilities.presentAlert("Something went wrong! Please try again.");
+      }
+     
+    },err=>{
+      this.utilities.presentAlert("Something went wrong! Please try again.");
+    });
+    
+  }
+
+
+}
+barcodeNumber=0;
+sendBarcodeNumber(){
+  this.appServices.barcodeFootnoteImageSend(this.barcodeNumber).subscribe((res:any)=>{
+    console.log("response", res);
+    if(res.status===200){
+      this.utilities.presentAlert("Image sent successfully!");
+    }
+    else{
+      this.utilities.presentAlert("Something went wrong! Please try again.");
+    }
+   
+  },err=>{
+    this.utilities.presentAlert("Something went wrong! Please try again.");
+  }); 
+}
+
 }
 
 

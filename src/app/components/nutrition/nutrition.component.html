@@ -36,7 +36,7 @@
 
     <ion-card-content style="padding: 0;">
       <ion-grid style="padding: 0;">
-        <ion-row class="table-header">
+        <ion-row class="table-header" >
           <ion-col style="text-align: left;">Food Item</ion-col>
           <ion-col style="text-align: center;">Weight / Volume</ion-col>
           <ion-col style="text-align: right;">Calories</ion-col>
@@ -59,7 +59,7 @@
   <ion-card style="margin: 0;padding:0;border-radius: 0;">
     <ion-card-content style="padding: 0;">
       <ion-grid style="padding: 0;">
-        <ion-row class="nutrient-header" style="background: #FFC224;padding:1rem;">
+        <ion-row class="nutrient-header" style="background: #FFE8AE;padding:1rem;">
           <ion-col style="text-align: left;">Nutrient</ion-col>
           <ion-col style="text-align: center;">Total Amount</ion-col>
         </ion-row>
@@ -85,7 +85,7 @@
 
   <!-- Health Rating -->
   <ion-card style="margin: 0;padding:0;border-radius: 0;">
-    <ion-card-header style="padding: .8rem;background: #A1A1A1;">
+    <ion-card-header style="padding: .8rem;background: #DEDEDE;">
       <ion-card-title style="font-size: 1rem;padding:0;">Health Rating</ion-card-title>
     </ion-card-header>
     <ion-card-content style="padding: 0;">
@@ -103,7 +103,16 @@
   </ion-card>
 
   <!-- Close Button -->
+   <ion-row><ion-col class="ion-text-center">
   <ion-button expand="block" color="medium" routerLink="/">
     Close
   </ion-button>
+  </ion-col>
+  <ion-col class="ion-text-center">
+  <ion-button expand="block" style="--background:#2C7C3E;color:#fff" routerLink="/">
+    Log+
+  </ion-button>
+  </ion-col>
+  </ion-row>
+  
 </ion-content>

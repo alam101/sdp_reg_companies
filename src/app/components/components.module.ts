@@ -35,6 +35,7 @@ import { WbloodGlucoseComponent } from "./wblood-glucose/wblood-glucose.componen
 import { WcholesterolComponent } from "./wcholesterol/wcholesterol.component";
 import { ChatComponent } from "./chat/chat.component";
 import { NutritionComponent } from "./nutrition/nutrition.component";
+import { OpenCameraComponent } from "./open-camera/open-camera.component";
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { NutritionComponent } from "./nutrition/nutrition.component";
     WbloodGlucoseComponent,
     WcholesterolComponent,
     ChatComponent,
-    NutritionComponent
+    NutritionComponent,
+    OpenCameraComponent
 
   ],
   imports: [
@@ -120,7 +122,8 @@ import { NutritionComponent } from "./nutrition/nutrition.component";
     WbloodGlucoseComponent,
     WcholesterolComponent,
     ChatComponent,
-    NutritionComponent
+    NutritionComponent,
+    OpenCameraComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

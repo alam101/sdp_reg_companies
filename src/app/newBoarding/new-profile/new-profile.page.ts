@@ -202,6 +202,7 @@ kgToLbs(kg: number): number {
     this.profileData = [];
     this.appservice.getProfile().then((res) => {
       this.profileData = res;
+      debugger;
       this.goalName = this.compConfig.editGoalForDisplay.filter((item:any)=>{
         return item.value === this.profileData?.lifeStyle?.dietPlanName;
       })
