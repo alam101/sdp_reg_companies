@@ -57,7 +57,7 @@ export class SearchPage implements OnInit {
   expandH = false;
   expandP = false;
   expandR = false;
-
+  dietplanName = "";
   constructor(
     private modalCtrl: ModalController,
     private utilities: UTILITIES,
@@ -74,6 +74,7 @@ export class SearchPage implements OnInit {
 
   
   ngAfterViewInit() {
+   
     this.cdr.detectChanges();
   }
   highlightText(text: string, search: string): string {
@@ -170,14 +171,57 @@ export class SearchPage implements OnInit {
     //   event.target.complete();
     // }, 500);
   }
+getScoreClass(item: any): string {
+  let score: number | string | undefined;
+
+  console.log("this.dietplanName:->>>>>>", localStorage.getItem("dietplanname"), item?._source?.obesityScore);
+
+  // Select the correct score field based on diet plan
+  switch (localStorage.getItem("dietplanname")?.toLowerCase()) {
+    case 'weightloss':
+      score = item?._source?.obesityScore;
+      break;
+    case 'diabetes':
+      score = item?._source?.Diabetes_score;
+      break;
+    case 'pcos':
+      score = item?._source?.PCOS_score;
+      break;
+    case 'cholesterol':
+      score = item?._source?.Cholestrol_score;
+      break;
+    default:
+      score = undefined;
+      break;
+  }
+
+  console.log("score:", score);
+
+  // Ensure score is a number for consistent switch logic
+  const numericScore = Number(score);
+
+  switch (numericScore) {
+    case 9:
+      return 'Best';
+    case 6:
+      return 'Good';
+    case 3:
+      return 'Average';
+    case 1:
+      return 'Fair';
+    default:
+      return 'Unverified';
+  }
+}
 
   dataInitList() {
     console.log("data init called");
+   //  this.dietplanName = CONSTANTS.selectedDietPlan;
     // this.slot = 1;
     // slot visible for non premium user
     // this.checkPremiumUser();
     // this.utilities.showLoading();
-
+   
     this.appService
       .getDietPlans(
         CONSTANTS.isDetox,
@@ -275,6 +319,7 @@ export class SearchPage implements OnInit {
       );
   }
 
+ 
   checkFoodItemEatenStatus(type) {
     if (type == "all") {
       this.allCaloriesData.filter((ele) => {

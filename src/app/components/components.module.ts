@@ -36,7 +36,7 @@ import { WcholesterolComponent } from "./wcholesterol/wcholesterol.component";
 import { ChatComponent } from "./chat/chat.component";
 import { NutritionComponent } from "./nutrition/nutrition.component";
 import { OpenCameraComponent } from "./open-camera/open-camera.component";
-
+import {AiChatComponent} from './ai-chat/ai-chat.component';
 @NgModule({
   declarations: [
     ButtonPreviousComponent,
@@ -69,9 +69,9 @@ import { OpenCameraComponent } from "./open-camera/open-camera.component";
     WbloodGlucoseComponent,
     WcholesterolComponent,
     ChatComponent,
-    NutritionComponent,
-    OpenCameraComponent
-
+    OpenCameraComponent,
+   NutritionComponent,
+   AiChatComponent
   ],
   imports: [
     // IonIntlTelInputModule,
@@ -123,7 +123,9 @@ import { OpenCameraComponent } from "./open-camera/open-camera.component";
     WcholesterolComponent,
     ChatComponent,
     NutritionComponent,
-    OpenCameraComponent
+    OpenCameraComponent,
+    AiChatComponent
+   
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

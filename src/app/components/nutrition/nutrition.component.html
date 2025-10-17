@@ -1,25 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Banana</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content class="ion-padding">
-
+<ion-content>
   <!-- Fruit Image -->
+   <div style="position: absolute;
+    width: 100%;
+    font-size: 1.5rem;">
+    <ion-row>
+    <ion-col class="ion-text-center" size="2">
+        <ion-icon style="color:#fff;border-radius: 5px;height: 20px;font-size: 1.5rem;background: gray;padding: .3rem;opacity: .95;" name="arrow-back-outline" (click)="closeModal()"></ion-icon>
+    </ion-col>
+    <ion-col class="ion-text-center" size="2">
+     <div> 
+      <ion-input class="custom-input" placeholder="Portion" [(ngModel)]="portion"></ion-input>
+     </div>
+    </ion-col>
+    <ion-col size=".5"></ion-col>
+     <ion-col class="ion-text-center" size="2.5">
+     <div> 
+      <ion-input [(ngModel)]="unit" type="text" (ionChange)="unitChanged($event)" 
+      class="custom-input"  placeholder="Unit"></ion-input>
+     </div>
+    </ion-col>
+     <ion-col size=".5"></ion-col>
+    <ion-col class="ion-text-center" size="4">
+      <div>
+        <ion-select style="color:#fff;border-radius: 5px;background: gray;padding: .3rem;font-size:.8rem;opacity: .95;" 
+        [(ngModel)]="slot" interface="popover" placeholder="Meal Type" (ionChange)="mealChanged($event)">
+           <ion-select-option value="">Select Slot</ion-select-option>
+          <ion-select-option value="1">When You Wake up</ion-select-option>
+          <ion-select-option value="2">Before Breakfast</ion-select-option>
+          <ion-select-option value="3">Breakfast</ion-select-option>
+          <ion-select-option value="4">Mid Day Meal</ion-select-option>
+          <ion-select-option value="5">Lunch</ion-select-option>
+          <ion-select-option value="6">Evening Snack</ion-select-option>
+          <ion-select-option value="7">Dinner</ion-select-option>
+          <ion-select-option value="8">Before Sleep</ion-select-option>
+        </ion-select>
+      </div>
+    </ion-col>
+     <ion-col size=".5"></ion-col>
+  </ion-row>
+  </div>
   <div class="image-container">
-    <img src="./assets/img/immunity.jpeg" alt="Banana" />
+    <img [src]="sanitizer.bypassSecurityTrustUrl(items.image)" alt="{{items.foodName}}" />
   </div>
 
   <!-- Info Section -->
   <ion-card style="margin:0;padding: 0;box-shadow: none;">
     <ion-header style="padding: 0;font-size: 1rem;color:#000; font-weight:600;">
-      Banana
+      {{items.foodName?.text}}
     </ion-header>
-    <ion-card-content style="padding: 0;">
+    <ion-card-content style="padding: 0;margin: 1rem;">
       <p class="info-text">
         Fitrofy provides calorie and nutrition info estimates intended to be helpful
         reference purpose only. They should not be taken as completely precise figures.
@@ -42,14 +72,14 @@
           <ion-col style="text-align: right;">Calories</ion-col>
         </ion-row>
         <ion-row style="padding: 1rem;background: #E4F3EC;">
-          <ion-col style="text-align: left;">Banana</ion-col>
-          <ion-col style="text-align: center;">30g</ion-col>
-          <ion-col style="text-align: right;">55 Cal</ion-col>
+          <ion-col style="text-align: left;">{{items.foodName?.text}}</ion-col>
+          <ion-col style="text-align: center;">-</ion-col>
+          <ion-col style="text-align: right;">{{items.foodDetail?.macros?.calories}} Cal</ion-col>
         </ion-row>
         <ion-row class="table-footer" style="padding: 1rem;background: #E4F3EC;">
           <ion-col style="text-align: left;">Total</ion-col>
-          <ion-col style="text-align: center;">30g</ion-col>
-          <ion-col style="text-align: right;">55 Cal</ion-col>
+          <ion-col style="text-align: center;">-</ion-col>
+          <ion-col style="text-align: right;">{{items.foodDetail?.macros?.calories}} Cal</ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
@@ -65,19 +95,19 @@
         </ion-row>
         <ion-row style="background: #FFF5D7;padding: 1rem;">
           <ion-col style="text-align: left;">Carbohydrates</ion-col>
-          <ion-col style="text-align: center;">30g</ion-col>
+          <ion-col style="text-align: center;">{{items.foodDetail?.macros?.carbs}}g</ion-col>
         </ion-row>
         <ion-row style="background: #FFF5D7;padding: 1rem;">
           <ion-col style="text-align: left;">Protein</ion-col>
-          <ion-col style="text-align: center;">30g</ion-col>
+          <ion-col style="text-align: center;">{{items.foodDetail?.macros?.protein}}g</ion-col>
         </ion-row>
         <ion-row style="background: #FFF5D7;padding: 1rem;">
           <ion-col style="text-align: left;">Fat</ion-col>
-          <ion-col style="text-align: center;">30g</ion-col>
+          <ion-col style="text-align: center;">{{items.foodDetail?.macros?.fats}}g</ion-col>
         </ion-row>
         <ion-row style="background: #FFF5D7;padding: 1rem;">
           <ion-col style="text-align: left;">Fiber</ion-col>
-          <ion-col style="text-align: center;">30g</ion-col>
+          <ion-col style="text-align: center;">{{items.foodDetail?.macros?.fiber}}g</ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
@@ -104,15 +134,48 @@
 
   <!-- Close Button -->
    <ion-row><ion-col class="ion-text-center">
-  <ion-button expand="block" color="medium" routerLink="/">
+  <ion-button expand="block" color="medium" (click)="closeModal()">
     Close
   </ion-button>
   </ion-col>
   <ion-col class="ion-text-center">
-  <ion-button expand="block" style="--background:#2C7C3E;color:#fff" routerLink="/">
+  <ion-button expand="block" style="--background:#2C7C3E;color:#fff" (click)="submit()">
     Log+
   </ion-button>
   </ion-col>
   </ion-row>
   
+ 
 </ion-content>
+  <!-- <div *ngIf="isOpen" style="position: fixed; height:100%;width:100%;background:#000;opacity: .92;top:0;z-index:10;"></div>
+  <div *ngIf="isOpen" style="position: fixed; height:40%;width:80%;background:#fff;opacity: .5;top:25%;left:10%;z-index:11;border-radius: 10px;">
+    <div style="text-align: center;margin-top:2rem;">
+      <ion-icon name="close-outline" (click)="isOpen=false" style="float: right;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0;
+    right: -18px;"></ion-icon>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item lines="none" style="margin-top: 1rem;">
+            <label style="width:25%;" slot="start">Slot</label>
+            <ion-input  [(ngModel)]="slot" type="number" style="margin-left: 1rem;border:1px solid;padding:0 1rem !important;" placeholder="Enter Slot"></ion-input>
+          </ion-item>
+            <ion-item lines="none" style="margin-top: 1rem;">
+            <label style="width:25%;" slot="start">Portion</label>
+            <ion-input  [(ngModel)]="portion" type="number" style="margin-left: 1rem;border:1px solid;padding:0 1rem !important;" placeholder="Enter Portion"></ion-input>
+          </ion-item>
+            <ion-item lines="none" style="margin-top: 1rem;">
+            <label style="width:25%;" slot="start">Unit</label>
+            <ion-input  type="text" [(ngModel)]="unit" style="margin-left: 1rem;border:1px solid;padding:0 1rem !important;" placeholder="Enter Unit"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+        <ion-row style="margin-top: 2rem;">
+          <ion-col class="ion-text-center">
+              <ion-button (click)="submit()">Submit</ion-button>  
+          </ion-col>
+        </ion-row>
+    </div>
+  </div> -->

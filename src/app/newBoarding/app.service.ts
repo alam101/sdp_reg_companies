@@ -62,7 +62,7 @@ export class AppService {
   downloadPdfFromApiNew1(comp_id='alyve.health',
     user_id,dietitian_name,dietitan_email,response_type,design) {
     const url = APIS.pithanURL+`${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
-    &dietitian_email=${dietitan_email.trim()}&response_type=${response_type}&design=${design}` ;
+    &dietitian_email=${dietitan_email?.trim()}&response_type=${response_type}&design=${design}` ;
 
     return this.httpClient.get(url, {});
    }
@@ -80,7 +80,7 @@ export class AppService {
    downloadPdfFromApiNew(comp_id='alyve.health',
     user_id,dietitian_name,dietitan_email,response_type,design):Observable<Blob> {
     const url = APIS.pithanURL+`${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
-    &dietitian_email=${dietitan_email.trim()}&response_type=${response_type}&design=${design}` ;
+    &dietitian_email=${dietitan_email?.trim()}&response_type=${response_type}&design=${design}` ;
 
     return this.httpClient.get(url, {responseType:'blob'});
    }
@@ -204,6 +204,18 @@ export class AppService {
     return this.httpClient.post(url, foodCodeList, {}).toPromise();
   }
 
+    updateFoodfromScannedImage(foodCodeList) {
+    let url;
+    if(this.isNew){
+      foodCodeList["customerId"] = CONSTANTS.email,
+      url = APIS.refreshBaseUrl + "" + APIS.optionSelectionNew;
+    }else{
+      url = APIS.BASEURL + "" + APIS.optionSelection;
+    }
+
+    return this.httpClient.post(url, foodCodeList, {}).toPromise();
+  }
+
   fetchCustDailyDiets(data: any) {
     // id = id ? id : 'IND';
     const url = APIS.refreshBaseUrl + '' + APIS.fetchCustDailyDiets + `?fromDate=${data.fromDate}&dateRange=${data.dateRange}`;
@@ -248,6 +260,13 @@ export class AppService {
     headers.append('Content-Type', 'application/json');
     return this.httpClient1.post(url, {food_name:'pasta', health_conditions:''} ,{headers:headers});
   }
+  
 
+  sendChat(payload):Observable<any>{
+     const url = "https://aiapi.fitrofy.com/chat";
+    const headers= new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.httpClient1.post(url, payload, { headers: headers });
+  }
 
 }

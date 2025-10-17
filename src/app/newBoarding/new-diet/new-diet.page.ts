@@ -15,8 +15,9 @@ import { SearchPage } from '../../search/search.page';
 import { BroadcastService } from "src/app/broadcast.service";
 import { Subscription } from 'rxjs';
 import { Location } from "@angular/common";
-import { NutritionComponent } from "src/app/components/nutrition/nutrition.component";
+// import { NutritionComponent } from "src/app/components/nutrition/nutrition.component";
 import { BrowserMultiFormatReader } from '@zxing/browser';
+import { AiChatComponent } from "src/app/components/ai-chat/ai-chat.component";
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
@@ -140,6 +141,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.displayFooter=event;
   }
   ngAfterViewInit() {
+   // this.openNutritionModel('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg.webp','','');
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
       this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
     } else {
@@ -338,7 +340,9 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
         localStorage.setItem("activities",JSON.stringify(profileData["lifeStyle"]["activities"]));
         console.log("profileData",profileData);
         this.profileData = profileData;
+       
         this.dietplanName = profileData["lifeStyle"]["dietPlanName"];
+         localStorage.setItem("dietplanname",this.dietplanName);
         localStorage.setItem("weightTracker",JSON.stringify(this.profileData));
           let userData = {
           email: profileData["profile"]["email"],
@@ -586,6 +590,24 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       
     });
   }
+
+//   async openNutritionModel(image,foodName,foodDetail){
+//     const modal = await this.modalController.create({
+//     component: NutritionComponent,
+//     componentProps: {
+//       items: {image,foodName,foodDetail,mode:'image' }
+//     },
+//     cssClass: 'image-preview-modal'
+//   });
+
+//   await modal.present();
+  
+//   const { data } = await modal.onDidDismiss();
+//   if (data?.close) {
+ 
+//   }
+// }
+
   deititianName="";
   deititianEmail="";
   whatsappNum="";
@@ -621,6 +643,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
    
   }
   isIosDevice = this.utilities.isDeviceiOS();
+ 
   gotoWhatsApp(){
 
    if(this.isIosDevice){
@@ -672,13 +695,13 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       localStorage.setItem("company_id","drstore");
       this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
      }
-      if(this.clientId==='lalpathlabs'){
+     else if(this.clientId==='lalpathlabs'){
         this.design='new';
      this.isdoenloadclicked=true;
      localStorage.setItem("company_id","Fitrofy");
       this.downloadPdfFromApiNew1();
      }
-      if(this.clientId==='metropolis'){
+     else if(this.clientId==='metropolis'){
         debugger;
         this.design='new';
      this.isdoenloadclicked=true;
@@ -860,6 +883,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       component: SearchPage,
       backdropDismiss: true,
       componentProps: {
+
        },
     });
     this.utilss.storeModal(modal);
@@ -896,8 +920,23 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
    
   }
-gotoChat(){
-  this.navCtrl.navigateForward(["/chat"]);
+async gotoChat(){
+      
+    const modal = await this.modalController.create({
+    component: AiChatComponent,
+    componentProps: {
+      items: {profile:this.profileData }
+    },
+    cssClass: 'ai-chat'
+  });
+
+  await modal.present();
+  
+  const { data } = await modal.onDidDismiss();
+  if (data?.close) {
+ 
+  }
+
 }
   openDilar(){
     let url = "tel:+919999118595"; // add the links to body

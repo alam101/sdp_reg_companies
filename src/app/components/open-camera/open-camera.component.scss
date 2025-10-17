@@ -40,34 +40,48 @@
   color: white;
 }
 .scan-box {
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--theme-color);
     margin: 0% 6%;
     border-radius: 12px;
-    top: 9rem;
+    top: 4rem;
     position: absolute;
-    height: 28rem;
+    height: 40%;
     width: 88%;
+    max-height: 50%;
 }
 
 .bottom-bar {
-  text-align: center;
   padding: 20px;
-  color: white;
   background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
   pointer-events: auto;
   position: absolute;
   bottom: 35%;
   width: 100%;
 
-  .capture-btn {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
+
+.capture-btn {
+ --color: var(--theme-color);
+    --background: #fff;
     --border-radius: 50%;
     --padding-start: 0;
-    --padding-end: 25px;
-    --background: #fff;
-  }
+    --padding-end: 0;
+    width: 60px;
+    height: 60px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+}
+
+.capture-btn ion-icon {
+  font-size: 40px; /* adjust icon size */
+}
 
   .toggle-btn {
-  --color: white;
+ --color: var(--theme-color);
     margin-left: 12px;
     position: absolute;
     right: 3rem;

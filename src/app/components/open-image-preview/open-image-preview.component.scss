@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .close-btn {
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    font-size: 2rem;
+    padding: 8px;
+  }
+}
+.instruction-text{
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0 1rem 0;
+  text-align: left;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+
+  ion-img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+}
+
+ion-item {
+  margin: 1rem 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}

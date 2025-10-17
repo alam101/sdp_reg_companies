@@ -4,6 +4,11 @@ import { BarcodeFormat, DecodeHintType } from '@zxing/library';
 import { AppService } from "../../newBoarding/app.service";
 import { UTILITIES } from 'src/app/core/utility/utilities';
 import moment from 'moment';
+import { OpenImagePreviewComponent } from '../open-image-preview/open-image-preview.component';
+import { ModalController, NavController } from '@ionic/angular';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { NutritionComponent } from '../nutrition/nutrition.component';
 @Component({
   selector: 'app-open-camera',
   templateUrl: './open-camera.component.html',
@@ -18,7 +23,7 @@ export class OpenCameraComponent implements AfterViewInit, OnDestroy {
   isOpen = false;
   mode: 'photo' | 'barcode' = 'photo';
   
-  constructor(private appServices: AppService, private utilities: UTILITIES) {
+  constructor(private navController:NavController,private router:Router,private sanitizer: DomSanitizer,private modalCtrl: ModalController, private appServices: AppService, private utilities: UTILITIES) {
     
   }  
   ngAfterViewInit() {
@@ -27,15 +32,26 @@ export class OpenCameraComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
  }
-
+private stream: MediaStream | null = null;
   startCamera() {
     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
       .then(stream => {
+        this.stream = stream;
         this.video.nativeElement.srcObject = stream;
       })
       .catch(err => console.error('Camera error:', err));
   }
 
+  stopCamera() {
+  if (this.stream) {
+    this.stream.getTracks().forEach(track => track.stop());
+    this.stream = null;
+   this.goBack();
+  }
+  if (this.video?.nativeElement) {
+    this.video.nativeElement.srcObject = null;
+  }
+}
   toggleMode() {
     if (this.mode === 'photo') {
       this.mode = 'barcode';   
@@ -56,7 +72,9 @@ export class OpenCameraComponent implements AfterViewInit, OnDestroy {
     // in barcode mode, scanning happens automatically
   }
 foodName="";
-  capturePhoto() {
+previewUrl:any;
+
+  async capturePhoto() {
   const video = this.video.nativeElement;
   const canvas = this.canvas.nativeElement;
   const ctx = canvas.getContext('2d')!;
@@ -66,10 +84,27 @@ foodName="";
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
   // Convert canvas to Blob
-canvas.toBlob((blob) => {
+canvas.toBlob(async(blob) => {
   if (blob) {
     const file = new File([blob], "food.jpg", { type: "image/jpeg" });
-    const formData = new FormData();
+   const url = URL.createObjectURL(file);
+   this.previewUrl = url;
+
+  const modal = await this.modalCtrl.create({
+    component: OpenImagePreviewComponent,
+    componentProps: {
+      previewUrl: this.previewUrl
+    },
+    cssClass: 'image-preview-modal'
+  });
+
+  await modal.present();
+
+  const { data } = await modal.onDidDismiss();
+  if (data?.confirmed) {
+    this.utilities.presentLoading();
+  //  this.stopCamera();
+      const formData = new FormData();
     formData.append("image", file);
     
     this.appServices.foodImageSend(formData).subscribe(
@@ -79,6 +114,7 @@ canvas.toBlob((blob) => {
         if (res?.food_name !== undefined) {
           
           this.foodDetailScanned(res?.food_name) ;
+
         } else {
           this.utilities.presentAlert("Something went wrong! Please try again.");
         }
@@ -87,6 +123,12 @@ canvas.toBlob((blob) => {
         this.utilities.presentAlert("Something went wrong! Please try again.");
       }
     );
+    console.log('User confirmed image:', this.previewUrl);
+    // proceed with upload or saving
+  } else {
+    console.log('User wants to retake');
+  }
+  
   }
 }, "image/jpeg", 0.9);
 }
@@ -97,16 +139,41 @@ foodDetailScanned(foodName){
       console.log("nutritionValueScan", res);
         this.isOpen = true;
         this.foodDetail = res;
+      this.openNutritionModel(this.previewUrl,this.foodName,this.foodDetail);
+    
+      // this.router.navigate(["nutrition"], { queryParams: { foodName: this.foodName,foodDetail:this.foodDetail }});
     },
     (err) => {
       this.utilities.presentAlert("Something went wrong! Please try again.");
     }
   );
 }
+async openNutritionModel(image,foodName,foodDetail){
+    const modal = await this.modalCtrl.create({
+    component: NutritionComponent,
+    componentProps: {
+      items: {image,foodName,foodDetail,mode:this.mode}
+    },
+    cssClass: 'image-preview-modal'
+  });
+
+  await modal.present();
+  setTimeout(() => {
+    this.utilities.hideLoader();
+  }, 4000);  
+  
+  this.stopCamera();
+  const { data } = await modal.onDidDismiss();
+  if (data?.close) {
+    this.isOpen = false;
+    this.goBack();
+  }
+}
 slot=0;
 portion=0;
 unit="";
 submitFoodDetailForUpdate(){
+  
   if(this.mode === 'photo'){
    const data ={
           "food":this.foodName,
@@ -146,6 +213,7 @@ submitFoodDetailForUpdate(){
 updateFoodDetailPraveenapi(data){
  this.appServices.updateFoodDetailPraveenApi(data).then(
     (res: any) => {
+      this.isOpen=false;
       console.log("updateFoodDetailPraveenApi", res);
     },
     (err) => {
@@ -197,7 +265,8 @@ barcodeFootnoteImageSend(itemNumber){
         if(res?.product_name !== undefined){
           this.isOpen = true;
            this.barcodeFoodDetail = res;
-          
+            // this.stopCamera();
+             this.openNutritionModel(this.previewUrl,this.foodName,this.barcodeFoodDetail);          
         }else{
           this.utilities.presentAlert("Something went wrong! Please try again.");
         }
@@ -210,6 +279,7 @@ barcodeFootnoteImageSend(itemNumber){
 
   goBack() {
     // navigate back or dismiss modal
+    this.stopCamera();
      this.backButton.emit(false); 
     
   }

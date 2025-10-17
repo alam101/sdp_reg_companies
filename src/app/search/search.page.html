@@ -94,14 +94,34 @@ name="close-circle"
             </span>
             </ion-label>
             <div slot="end" style="vertical-align: middle;display: inherit;">
-              <div  style="
+          <!-- score logic -->
+
+          <div style="
+            color: #fff;
+            curson:none;
+            width: 80px;
+            text-align:center;
+            height:23px;margin-right: 1.5rem;--box-shadow: none;"
+            [ngClass]="getScoreClass(item)" shape="round">
+             <span style="font-size:.7rem;text-transform:capitalize;">{{ item?._source?.Calories | number:'1.0-0' }} Kcal</span>
+          </div>
+
+
+           <!-- <div  style="
             color: #fff;
             curson:none;
             width: 80px;
             text-align:center;
             height:23px;margin-right: 1.5rem;--box-shadow: none;" 
-            [ngClass]="item?._source?.Score == '9' ? 'Best' : item?._source?.Score == '6' ? 'Good' :item?._source?.Score == '3' ? 'Average': item?._source?.Score == '1' ? 'Fair' :'Unverified'"
-            shape="round"><span style="font-size:.7rem;text-transform:capitalize;">{{item?._source?.Calories | number:'1.0-0'}} Kcal</span></div>
+            [ngClass]="item?._source?.PCOS_score == '9' ? 'Best' : item?._source?.PCOS_score == '6' ? 'Good' :item?._source?.PCOS_score == '3' ? 'Average': item?._source?.PCOS_score == '1' ? 'Fair' :'Unverified'"
+            shape="round">
+            <span style="font-size:.7rem;text-transform:capitalize;">{{item?._source?.Calories | number:'1.0-0'}} Kcal</span>
+          </div> -->
+
+          
+
+            <!-- end score logic -->
+
             <ion-icon name="add-outline" style="color:var(--theme-color);margin-left:1rem;font-size:1.1rem;right: 0;
             position: absolute;border: 1px solid;
             border-radius: 5px;border:1px solid; border-radius:5px;"

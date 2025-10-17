@@ -21,9 +21,11 @@ import { BroadcastService } from './broadcast.service';
 import { ViewProductPageModule } from 'src/app/view-product/view-product.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+    
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [
     {
@@ -57,6 +59,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     InAppBrowser,
     BroadcastService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

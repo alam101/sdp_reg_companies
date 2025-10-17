@@ -1,0 +1,61 @@
+
+<ion-content [fullscreen] class="chat-content">
+  <ion-header translucent>
+  <ion-toolbar class="top-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>AI BOT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <div class="hero">
+  <img class="hero-avatar" [src]="avatarUrl" alt="User avatar" />
+  <div class="hero-text">
+    <div class="greeting">Hi Shweta!</div>
+    <div class="sub">Currently on: <strong>Kit 2</strong></div>
+  </div>
+</div>
+  <div class="messages" #content>
+    <ng-container *ngFor="let m of messages">
+      <!-- Bot message (Left aligned) -->
+      <img *ngIf="m.from === 'bot'" class="msg-avatar" [src]="'assets/bot-icon.png'" alt="bot" />
+      <span *ngIf="m.from === 'bot'" style="position: relative;top: -.7rem;">Traya Diet AI</span>
+      <div *ngIf="m.from === 'bot'" class="message-row bot">   
+        <div class="bubble bot-bubble" [innerHTML]="m.html || m.text">
+            <!-- <div class="bubble" [innerHTML]="m.html || m.text"></div> -->
+          </div>
+      </div>
+      <!-- User message (Right aligned) -->
+      <div *ngIf="m.from === 'user'" class="message-row user">
+        <div class="bubble user-bubble">
+         {{m.text}}
+        </div>
+      </div>
+     
+    </ng-container>
+     <div class="loading-container" *ngIf="isApiResponse">
+        <div class="loading-icon"></div>
+        <span class="loading-text">Analyzing</span>
+        <span class="dot one">.</span>
+        <span class="dot two">.</span>
+        <span class="dot three">.</span>
+      </div>
+  </div>
+
+  <div class="quick-chips">
+    <ion-chip *ngFor="let opt of quickOptions" (click)="selectQuick(opt)">
+      <ion-label>{{ opt.name }}</ion-label>
+    </ion-chip>
+  </div>
+
+  <div class="composer">
+    <ion-item lines="none" class="composer-item">
+      <ion-input [formControl]="input" placeholder="Type a message..." maxlength="500"></ion-input>
+      <ion-button fill="clear" (click)="sendMessage()" class="send-btn" aria-label="send">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </div>
+
+</ion-content>
