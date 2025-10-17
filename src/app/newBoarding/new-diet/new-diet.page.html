@@ -426,15 +426,6 @@
     z-index: 11;">
     <img src="./assets/img/whatsapp.png">
   </div> 
-
-  <div  (click)="gotoChat()" style="width: 13%;
-    position: fixed;
-    right: 2%;
-    bottom: 9%;
-    z-index: 11;">
-    <img src="./assets/img/whatsapp.png">
-  </div> 
-
 </ion-content>
 <ion-footer *ngIf="compConfig?.isSearch && displayFooter===true" style="position: fixed;
 bottom: 0;
@@ -454,7 +445,12 @@ border-top-left-radius: 10px;
      (click)="gotoSearch()"
    >
     </ion-searchbar>
-  
+  <ion-icon name="barcode-outline" slot="start" style="font-size: 1.5rem;
+    color: var(--theme-color);
+    position: relative;
+    right: 0;
+    top: 2px;" (click)="openItemScanner()"> 
+  </ion-icon>
 
  </div>
 </ion-footer>
