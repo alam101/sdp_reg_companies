@@ -72,6 +72,7 @@ private stream: MediaStream | null = null;
     // in barcode mode, scanning happens automatically
   }
 foodName="";
+fullObjectfromImageScan:any;
 previewUrl:any;
 
   async capturePhoto() {
@@ -110,10 +111,11 @@ canvas.toBlob(async(blob) => {
     this.appServices.foodImageSend(formData).subscribe(
       (res: any) => {
         console.log("foodImageSend", res);
-        this.foodName=res?.food_name;
-        if (res?.food_name !== undefined) {
+        this.foodName = res?.food_name;
+        this.fullObjectfromImageScan = res;
+        if (res?.food_name?.text !== undefined) {
           
-          this.foodDetailScanned(res?.food_name) ;
+          this.foodDetailScanned(res?.food_name?.text) ;
 
         } else {
           this.utilities.presentAlert("Something went wrong! Please try again.");
@@ -139,7 +141,7 @@ foodDetailScanned(foodName){
       console.log("nutritionValueScan", res);
         this.isOpen = true;
         this.foodDetail = res;
-      this.openNutritionModel(this.previewUrl,this.foodName,this.foodDetail);
+      this.openNutritionModel(this.previewUrl,this.fullObjectfromImageScan,this.foodDetail);
     
       // this.router.navigate(["nutrition"], { queryParams: { foodName: this.foodName,foodDetail:this.foodDetail }});
     },

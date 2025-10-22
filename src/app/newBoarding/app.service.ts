@@ -258,7 +258,7 @@ export class AppService {
     const url = "https://aiapi.fitrofy.com/api/scan";
      const headers= new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.httpClient1.post(url, {food_name:'pasta', health_conditions:''} ,{headers:headers});
+    return this.httpClient1.post(url, {food_name:name, health_conditions:''} ,{headers:headers});
   }
   
 

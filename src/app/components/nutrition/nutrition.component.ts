@@ -34,9 +34,7 @@ export class NutritionComponent implements OnInit {
     this.unit = event.detail.value;
   }
   ngOnInit() {
-    if(this.items?.image){
-    localStorage.setItem('photoImage',this.items?.image);
-    }
+   
     console.log("foodDetail", this.items);
 
   }
@@ -67,7 +65,7 @@ export class NutritionComponent implements OnInit {
   submit() {
     if (this.items?.mode === 'photo') {
       const data = {
-        "food": this.items?.foodName?.text,
+        "food": this.items?.foodName?.food_name?.text,
         "type": "V",
         "calories": this.items?.foodDetail?.macros?.calories === undefined ? 0 : this.items?.foodDetail.macros?.calories,
         "protein": this.items?.foodDetail?.macros?.protein === undefined ? 0 : this.items?.foodDetail.macros?.protein,
@@ -79,7 +77,8 @@ export class NutritionComponent implements OnInit {
         "portionQuantity": this.portion,
         "score": this.items?.foodDetail?.macros?.nutri_score === undefined ? 3 : this.items?.foodDetail?.macros?.nutri_score,
         "date": moment().format('DDMMYYYY'),
-       // "id": new Date().getTime(),
+        "id": this.items.foodName?._id,
+        "imagePath": this.items.foodName?.path
       }
       this.updateFoodDetailPraveenapi(data);
     }
