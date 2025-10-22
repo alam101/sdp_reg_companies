@@ -165,7 +165,7 @@
   [duration]="plandata?.trail"
 ></app-appointent>
 
-    <div class="meal_workout_title_div" *ngIf="firstConsult!==false" style="margin-bottom: 2rem;">
+    <div class="meal_workout_title_div" *ngIf="firstConsult!==false" style="margin-bottom: .5rem;">
       <p class="meal_workout_title" style="white-space: nowrap;"> 
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(today).format('DD-MM-YYYY') ? 'Today' :
@@ -214,8 +214,30 @@
       
     </div>
     </div>
-   
+  
+    <div class="new-search">
+       <div class="search_div center" style="margin-bottom: 1.4rem;">
+      <ion-searchbar mode="md" 
+        style="width: 78%;
+    --box-shadow: none;
+    border: 1px solid var(--theme-color);
+    border-radius: 25px;
+    height: 50px;
+    margin: 0 .5rem;"
+        placeholder="Search for a Food"
+        (click)="gotoSearch()"
+      >
+        </ion-searchbar>
+       <ion-icon name="barcode-outline" slot="start" style="font-size: 1.5rem;
+        color: var(--theme-color);
+        position: relative;
+        right: 0;
+        top: 2px;" (click)="openItemScanner()"> 
+      </ion-icon>
 
+    </div>
+    </div>
+    <br><br>
  <div *ngIf="((aibasedDietplan===true) || ( clientId==='plix'  && aibasedDietplan===true)) || ((clientId!=='plix') && firstConsult!==false && isPlanExpired===false)">
   <div
     class="meal_workout_div"
@@ -428,29 +450,16 @@
   </div> 
 </ion-content>
 <ion-footer *ngIf="compConfig?.isSearch && displayFooter===true" style="position: fixed;
-bottom: 0;
+bottom: 1rem;
 width: 100%;
 left: 0;
-background: #fff;
 height: 63px;
 padding-top: 4px;
-box-shadow: 7px 5px 15px #000;
 border-top-left-radius: 10px;
     border-top-right-radius: 10px;">
- <div class="search_div center searchbar1">
-   <ion-searchbar mode="md" 
-    style="width: 85%;
-    --box-shadow: none;"
-     placeholder="Search for a Food"
-     (click)="gotoSearch()"
-   >
-    </ion-searchbar>
-  <ion-icon name="barcode-outline" slot="start" style="font-size: 1.5rem;
-    color: var(--theme-color);
-    position: relative;
-    right: 0;
-    top: 2px;" (click)="openItemScanner()"> 
-  </ion-icon>
+ <div  class="search_div center searchbar1">
+
+  <img src="./assets/img/bot.png" (click)="gotoChat()"/>
 
  </div>
 </ion-footer>
@@ -458,8 +467,8 @@ border-top-left-radius: 10px;
  <app-open-camera *ngIf="isOpenBar" (backButton)="closeCamera($event)"></app-open-camera> 
 
 
-<div *ngIf="compConfig?.isChat"  (click)="gotoChat()" 
+<!-- <div *ngIf="compConfig?.isChat"  (click)="gotoChat()" 
 style="border-radius:50%;width:50px;height:50px;position: fixed; bottom:1rem; 
 right:1rem; text-align:center;background:red;">
 <ion-icon name="chatbubbles" style="font-size: 2.5rem;color:#fff;" ></ion-icon>
-</div>
+</div> -->

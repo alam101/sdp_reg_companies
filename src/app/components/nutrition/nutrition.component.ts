@@ -34,6 +34,9 @@ export class NutritionComponent implements OnInit {
     this.unit = event.detail.value;
   }
   ngOnInit() {
+    if(this.items?.image){
+    localStorage.setItem('photoImage',this.items?.image);
+    }
     console.log("foodDetail", this.items);
 
   }
@@ -71,11 +74,12 @@ export class NutritionComponent implements OnInit {
         "fat": this.items?.foodDetail?.macros?.fats === undefined ? 0 : this.items?.foodDetail.macros?.fats,
         "carbs": this.items?.foodDetail?.macros?.carbs === undefined ? 0 : this.items?.foodDetail.macros?.carbs,
         "fiber": this.items?.foodDetail?.macros?.fiber === undefined ? 0 : this.items?.foodDetail.macros?.fiber,
-        "slot": this.slot,
+        "slot": Number(this.slot),
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
-        "score": this.items?.foodDetail?.macros?.nutri_score === undefined ? 0 : this.items?.foodDetail?.macros?.nutri_score,
+        "score": this.items?.foodDetail?.macros?.nutri_score === undefined ? 3 : this.items?.foodDetail?.macros?.nutri_score,
         "date": moment().format('DDMMYYYY'),
+       // "id": new Date().getTime(),
       }
       this.updateFoodDetailPraveenapi(data);
     }
@@ -91,7 +95,7 @@ export class NutritionComponent implements OnInit {
         "slot": this.slot,
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
-        "score": this.items?.foodDetail?.barcodeFoodDetail?.nutriscore_score === "" ? 0 : this.items?.foodDetail?.barcodeFoodDetail?.nutriscore_score,
+        "score": this.items?.foodDetail?.barcodeFoodDetail?.nutriscore_score === "" ? 3 : this.items?.foodDetail?.barcodeFoodDetail?.nutriscore_score,
         "date": moment().format('DDMMYYYY'),
       }
       this.updateFoodDetailPraveenapi(data);
@@ -101,9 +105,12 @@ export class NutritionComponent implements OnInit {
     this.appServices.updateFoodDetailPraveenApi(data).then(
       (res: any) => {
         this.isOpen = false;
- console.log("updateFoodDetailPraveenApi", res);
-        this.logData("");
-       
+        console.log("updateFoodDetailPraveenApi", res);
+       this.navController.navigateForward(['/new-diet']).then(res=>{
+          location.reload();
+       },err=>{
+
+       });
       },
       (err) => {
         this.utilities.presentAlert("Something went wrong! Please try again.");

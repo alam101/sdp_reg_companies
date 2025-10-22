@@ -87,14 +87,13 @@
     
         </div>
         <ion-grid class="w_100">
-          <ion-row style="margin-top: 5px;margin-left: 5px;">
+          <ion-row>
+            <ion-col size="11.5">
+               <ion-row style="margin-top: 5px;margin-left: 5px;">
             <ion-col size="10">
-              <p class="meal_pro">{{d?.Food}}</p>
-              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}/ {{Math.round(d?.Calories)}} Kcal, {{d?.Protien}} gms Protein</p>
-            </ion-col>
-
-            <ion-col size="2" class="right" style="align-items: flex-start">
-              <div
+              <ion-row>
+                 <ion-col size="1.5" class="left" class="ion-align-self-start" >
+                  <div
                 class="dot_boarder"
                 [ngStyle]="{'border-color':d?.foodType==='Ve' || d?.foodType==='V' ? 'var(--green)' : d?.foodType==='E' ? 'var(--yellow)': d?.foodType==='NV' ?'var(--red)':'lightgrey'}"
               >
@@ -103,8 +102,30 @@
                   [ngStyle]="{'background':d?.foodType==='Ve' || d?.foodType==='V' ? 'var(--green)' : d?.foodType==='E' ? 'var(--yellow)':  d?.foodType==='NV' ?'var(--red)':'lightgrey'}"
                 ></div>
               </div>
-            </ion-col>
+                 </ion-col>
+                 <ion-col size="10.5">
+              <p class="meal_pro">{{d?.Food}}</p>
+              <p class="meal_cal" style="margin-top: 5px;">{{d?.portion}} {{d?.portion_unit}}/ {{Math.round(d?.Calories)}} Kcal, {{d?.Protien}} gms Protein</p>
+        
+                 </ion-col>
+              </ion-row>
+               </ion-col>
+
+            <!-- <ion-col size="2" class="right" style="align-items: flex-start"> -->
+              <!-- <div
+                class="dot_boarder"
+                [ngStyle]="{'border-color':d?.foodType==='Ve' || d?.foodType==='V' ? 'var(--green)' : d?.foodType==='E' ? 'var(--yellow)': d?.foodType==='NV' ?'var(--red)':'lightgrey'}"
+              >
+                <div
+                  class="dot"
+                  [ngStyle]="{'background':d?.foodType==='Ve' || d?.foodType==='V' ? 'var(--green)' : d?.foodType==='E' ? 'var(--yellow)':  d?.foodType==='NV' ?'var(--red)':'lightgrey'}"
+                ></div>
+              </div> -->
+            <!-- </ion-col> -->
+           
           </ion-row>
+          
+         
 
           <div class="meal_pro_div" style="margin-top: 10px;">
             <div>
@@ -156,6 +177,12 @@
               </ion-col>
             </ion-row>
           </div>
+            </ion-col>
+             <ion-col size=".5" class="ion-align-self-center">
+              <!-- <ion-icon mode="md" name="arrow-forward" style="font-size: 1.3rem;"></ion-icon> -->
+              <ion-icon name="chevron-forward-outline" style="font-size: 1.3rem;color:var(--theme-color)" (click)="gotoView(d)"></ion-icon>
+            </ion-col>
+          </ion-row>
         </ion-grid>
       </div>
      
@@ -316,6 +343,7 @@ Logged
                 </div>
                <p _ngcontent-nob-c158="" class="cal_title"> {{popup?.Fat?.toFixed(1)}} g </p></div></div></div>
   </ion-col>
+ 
 </ion-row>
 
 <fieldset *ngIf="gredientArray?.length>=1" style="border:.5px solid; border-radius: 1rem;border-color: var(--theme-color);">

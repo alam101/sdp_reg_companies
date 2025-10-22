@@ -1,10 +1,11 @@
+@import "../../../theme/fonts.scss";
 ion-content{
 --offset-bottom: -15% !important;
 }
 .hero {
   display: flex;
   align-items: center;
-  background: linear-gradient(180deg, #1b3a1b 0%, #224422 100%);
+  background: linear-gradient(180deg, var(--theme-background) 0%, var(--theme-profile-background) 100%);
   color: #fff;
   padding: 12px 16px;
   border-radius: 0 0 12px 12px;
@@ -141,7 +142,7 @@ background: #f3f3f3;
 border-radius: 12px;
 box-shadow: 0 2px 8px rgba(16, 24, 40, 0.06);
 padding: 8px;
-border: 1px solid #b3b3b3;
+border: 1px solid var(--theme-background);
 }
 
 .send-btn {
@@ -172,7 +173,7 @@ border: 1px solid #b3b3b3;
 ion-chip {
   flex-shrink: 0; /* prevent chips from shrinking */
   background: #f3f3f3;
-    border: 1px solid green;
+    border: 1px solid var(--theme-background);
     color: #666;
 }
 

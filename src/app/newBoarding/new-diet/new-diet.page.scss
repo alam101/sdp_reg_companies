@@ -134,9 +134,9 @@
         border-top-right-radius: 5px;
   }
 }
-.bottom-offset{
-  --offset-bottom: -3rem !important;
-}
+// .bottom-offset{
+//   --offset-bottom: -3rem !important;
+// }
 ion-content {
   --background: #fff !important;
   // --background: -webkit-linear-gradient(top, #FF980D 50%, #F6F7FC 50%)!important;
@@ -716,7 +716,7 @@ ion-content {
  }
 
 .meal_workout_div {
-  padding: 10px 10px;
+  padding: 10px 5px;
 }
 
 .meal_workout_title_div {
@@ -731,7 +731,7 @@ ion-content {
   font-weight: 500;
   color: var(--black);
   text-align: center;
-  margin: 10px 0;
+  margin: -10px 0;
 }
 
 .meal_workout_button {

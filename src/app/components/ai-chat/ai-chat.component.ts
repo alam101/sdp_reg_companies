@@ -45,54 +45,80 @@ export class AiChatComponent implements OnInit, OnDestroy {
   constructor(private appService:AppService,private sanitizer: DomSanitizer) {
     
   }
-
+name:string=''; 
   ngOnInit(): void {
-    console.log("items", this.items);
-    
-    const cached = localStorage.getItem(this.STORAGE_KEY);
-    if (cached) {
-      this.messages = JSON.parse(cached);
-    } else {
-      this.messages.push({ id: 1, from: 'bot', text: 'How can I help you today?' });
-    }
-    setTimeout(() => this.scrollToBottom(), 100);
+  console.log("items", this.items);
+  this.name = this.items.profile?.profile?.name;
+  const cached = localStorage.getItem(this.STORAGE_KEY);
+  if (cached) {
+    const parsed: ChatMessage[] = JSON.parse(cached);
+
+    // Rebuild SafeHtml for any bot messages
+    this.messages = parsed.map(msg => {
+      if (msg.from === 'bot' && msg.text) {
+        return {
+          ...msg,
+          html: this.formatResponse(msg.text)
+        };
+      }
+      return msg;
+    });
+  } else {
+    this.messages.push({ id: 1, from: 'bot', text: 'How can I help you today?' });
   }
+
+  setTimeout(() => this.scrollToBottom(), 100);
+}
+
 
   ngOnDestroy(): void {
     this.saveMessages();
   }
-private formatResponse(text: string): SafeHtml {
-  marked.setOptions({
-    breaks: true,
-    gfm: true,
-    //headerIds: false,
-    //mangle: false,
-  });
 
-  const markdown = text.replace(/\*/g, '**');
-  const html: string = marked.parse(markdown, { async: false }) as string;
+ private formatResponse(text: string): SafeHtml {
+  if (!text) return '';
 
+  // ✅ Step 1: Escape HTML first to prevent injection
+  let safeText = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  // ✅ Step 2: Handle WhatsApp-style formatting
+  // *bold*, _italic_, ~strike~, ```code``` or `inline code`
+  safeText = safeText
+    .replace(/\*([^\*]+)\*/g, '<strong>$1</strong>')     // *bold*
+    .replace(/_([^_]+)_/g, '<em>$1</em>')               // _italic_
+    .replace(/~([^~]+)~/g, '<del>$1</del>')             // ~strike~
+    .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>') // ```code block```
+    .replace(/`([^`]+)`/g, '<code>$1</code>');          // `inline code`
+
+  // ✅ Step 3: Convert newlines to paragraph breaks
+  safeText = safeText.replace(/\n/g, '<br>');
+
+  // ✅ Step 4: Replace YouTube links with playable embeds
   const youtubeRegex =
     /https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})(?:[?&][^\s<]*)?/g;
 
-  const finalHtml = html.replace(youtubeRegex, (match, videoId) => {
+  safeText = safeText.replace(youtubeRegex, (match, videoId) => {
     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
     return `
       <div class="video-container">
         <iframe
           width="100%"
-          style="height: 150px;border-radius: 11px;"
+          style="height: 150px; border-radius: 11px;"
           src="${embedUrl}"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
         </iframe>
-      </div>
-    `;
+      </div>`;
   });
 
-  return this.sanitizer.bypassSecurityTrustHtml(finalHtml);
+  // ✅ Step 5: Return sanitized HTML
+  return this.sanitizer.bypassSecurityTrustHtml(safeText);
 }
+
 
   isApiResponse=false;
   sendMessage() {
@@ -128,7 +154,7 @@ private formatResponse(text: string): SafeHtml {
           const botMsg: ChatMessage = {
             id: Date.now() + 1,
             from: 'bot',
-            text: '', // keep raw text
+            text: botReply, // keep raw text
             html: formatted,    // keep formatted version
             time: new Date().toLocaleTimeString()
           };
@@ -168,7 +194,11 @@ private formatResponse(text: string): SafeHtml {
     } catch (e) {}
   }
 
-  private saveMessages() {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.messages));
-  }
+ private saveMessages() {
+  const safeToStore = this.messages.map(m => ({
+    ...m,
+    html: undefined, // strip non-serializable SafeHtml
+  }));
+  localStorage.setItem(this.STORAGE_KEY, JSON.stringify(safeToStore));
+}
 }
