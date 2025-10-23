@@ -1,17 +1,7 @@
 
 <ion-content [fullscreen] class="chat-content">
-  <!-- <ion-header translucent>
-  <ion-toolbar class="top-toolbar">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" color="light"></ion-back-button>
-    </ion-buttons>
-    <ion-title>AI BOT</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
   <div class="hero">
-  <!-- <img class="hero-avatar" [src]="avatarUrl" alt="User avatar" /> -->
-   <ion-icon name="close" style="font-size: 2rem; position:absolute; right:0" ></ion-icon>
+   <ion-icon name="close" style="font-size: 2rem; position:absolute; right:0" (click)="modalController.dismiss()"></ion-icon>
   <div class="hero-text">
     <div class="greeting">Hi {{name}}!</div>
     <div class="sub">I am Naysha, your AI based coach !</div>
@@ -48,6 +38,9 @@
     <ion-chip *ngFor="let opt of quickOptions" (click)="selectQuick(opt)">
       <ion-label>{{ opt.name }}</ion-label>
     </ion-chip>
+    <ion-chip (click)="startRecall()">
+  <ion-label>Start Diet Recall</ion-label>
+</ion-chip>
   </div>
 
   <div class="composer">
@@ -58,5 +51,9 @@
       </ion-button>
     </ion-item>
   </div>
+  <!-- <div class="recall-summary">
+    <app-ai-diet-recall-summary [items]="recallItem"></app-ai-diet-recall-summary>
+  </div> -->
+ 
 
 </ion-content>

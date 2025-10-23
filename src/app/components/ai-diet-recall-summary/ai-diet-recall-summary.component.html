@@ -1,0 +1,59 @@
+<div class="diet-summary-card">
+  <h2 class="title">
+    <ion-icon name="clipboard-outline"></ion-icon>
+    Your Diet Recall Summary
+  </h2>
+
+  <!-- Each Section -->
+  <div class="summary-section" *ngFor="let item of recallSummary; let i = index">
+    <div class="section-header">
+      <ion-icon [name]="item.icon"></ion-icon>
+      <span class="section-label">{{ item.label }}</span>
+      <ion-button
+        fill="clear"
+        size="small"
+        class="edit-btn"
+        (click)="editSection(i)"
+      >
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Editable Section -->
+    <div *ngIf="editingIndex === i" class="edit-box">
+      <ion-textarea
+        [(ngModel)]="item.value"
+        autoGrow="true"
+        placeholder="Enter your response..."
+      ></ion-textarea>
+      <div class="edit-actions">
+        <ion-button size="small" color="success" (click)="saveEdit(i)">
+          <ion-icon name="checkmark-outline"></ion-icon>
+          Save
+        </ion-button>
+        <ion-button size="small" fill="outline" color="medium" (click)="cancelEdit()">
+          <ion-icon name="close-outline"></ion-icon>
+          Cancel
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Non-edit Mode -->
+    <div *ngIf="editingIndex !== i" class="section-value">
+      {{ item.value || 'none' }}
+    </div>
+  </div>
+
+  <!-- Footer Buttons -->
+  <div class="footer-actions">
+    <ion-button color="warning" fill="solid" (click)="startOver()">
+      <ion-icon name="refresh-outline"></ion-icon>
+      Start Over
+    </ion-button>
+
+    <ion-button color="primary" fill="solid" (click)="continue()">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+      Continue
+    </ion-button>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, OnDestroy } from '@angular/core';
+import { IonContent, ModalController } from "@ionic/angular";
 import { FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { AppService } from 'src/app/newBoarding/app.service';
-import { marked } from 'marked';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { AiDietRecallSummaryComponent } from "src/app/components/ai-diet-recall-summary/ai-diet-recall-summary.component";
 interface ChatMessage {
   id: number;
   from: 'bot' | 'user';
@@ -18,7 +18,7 @@ interface ChatMessage {
   styleUrls: ['./ai-chat.component.scss']
 })
 export class AiChatComponent implements OnInit, OnDestroy {
-  @ViewChild('content') content!: ElementRef;
+ @ViewChild(IonContent, { static: false }) content!: IonContent;
   @Input() items: any;
 
   messages: ChatMessage[] = [];
@@ -35,92 +35,157 @@ export class AiChatComponent implements OnInit, OnDestroy {
     { id: 8, name:"⁠Travel Diet Tips ",label: 'What should I eat while traveling to stay healthy?' },
     { id: 9, name:"Alcohol Guidance",label: 'Can I drink alcohol? If yes, what’s allowed for my condition?' },
     { id: 10, name:"Weight Loss Tips",label: 'How can I lose weight safely and effectively?' },
-    { id: 11, name:"Sleep & Stress",label: 'Share some tips to improve sleep and reduce stress.' }
-   
+    { id: 11, name:"Sleep & Stress",label: 'Share some tips to improve sleep and reduce stress.' },
+    { id: 12, name:"Start Diet Recall", label: 'Let’s do a diet recall session.' } // 👈 Added recall trigger
   ];
 
+  recall = [
+    { question: "How do you usually start your day?", placeholder: "e.g. tea, milk or none" },
+    { question: "What do you usually have for breakfast?", placeholder: "e.g. poha, eggs or none" },
+    { question: "What do you typically have during mid-day?", placeholder: "e.g. fruits or none" },
+    { question: "What do you generally have for lunch?", placeholder: "e.g. rice, roti, sabji or none" },
+    { question: "What do you usually have in the evening?", placeholder: "e.g. coffee, snacks or none" },
+    { question: "What do you typically have for dinner?", placeholder: "e.g. chapati, rice or none" },
+    { question: "Do you usually have anything after dinner?", placeholder: "e.g. milk, sweets or none" }
+  ];
+  
+  responses: string[] = [];
+  currentQuestion = 0;
+  isRecallMode = false;
+  isRecallSummary = false;
   avatarUrl = 'assets/avatar.jpg';
   private readonly STORAGE_KEY = 'aiChatMessages';
+  private readonly RECALL_KEY = 'dietRecallSession';
 
-  constructor(private appService:AppService,private sanitizer: DomSanitizer) {
+  constructor(
+    private appService:AppService,
+    private sanitizer: DomSanitizer,
+    private modalController:ModalController
+  ) {
     
   }
-name:string=''; 
+
+  name:string=''; 
+
   ngOnInit(): void {
-  console.log("items", this.items);
-  this.name = this.items.profile?.profile?.name;
-  const cached = localStorage.getItem(this.STORAGE_KEY);
-  if (cached) {
-    const parsed: ChatMessage[] = JSON.parse(cached);
-
-    // Rebuild SafeHtml for any bot messages
-    this.messages = parsed.map(msg => {
-      if (msg.from === 'bot' && msg.text) {
-        return {
-          ...msg,
-          html: this.formatResponse(msg.text)
-        };
-      }
-      return msg;
-    });
-  } else {
-    this.messages.push({ id: 1, from: 'bot', text: 'How can I help you today?' });
+   
+    this.name = this.items?.profile?.profile?.name;
+    this.loadChatCache();
+    this.loadRecallCache();
+    setTimeout(() => this.scrollToBottom(), 100);
+    console.log("this.responses", this.responses);
+    
+  
   }
-
-  setTimeout(() => this.scrollToBottom(), 100);
-}
-
 
   ngOnDestroy(): void {
-    this.saveMessages();
+    this.saveChatCache();
+    this.saveRecallCache();
   }
 
- private formatResponse(text: string): SafeHtml {
-  if (!text) return '';
+  // 🧩 Recall Caching
+  saveRecallCache() {
+    const data = {
+      isRecallMode: this.isRecallMode,
+      isRecallSummary: this.isRecallSummary,
+      currentQuestion: this.currentQuestion,
+      responses: this.responses
+    };
+    localStorage.setItem(this.RECALL_KEY, JSON.stringify(data));
+  }
 
-  // ✅ Step 1: Escape HTML first to prevent injection
-  let safeText = text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+  loadRecallCache() {
+    const cached = localStorage.getItem(this.RECALL_KEY);
+    debugger;
+    if (cached) {
+      const data = JSON.parse(cached);
+      this.isRecallMode = data.isRecallMode;
+      this.isRecallSummary = data.isRecallSummary;
+      this.currentQuestion = data.currentQuestion;
+      this.responses = data.responses || [];
 
-  // ✅ Step 2: Handle WhatsApp-style formatting
-  // *bold*, _italic_, ~strike~, ```code``` or `inline code`
-  safeText = safeText
-    .replace(/\*([^\*]+)\*/g, '<strong>$1</strong>')     // *bold*
-    .replace(/_([^_]+)_/g, '<em>$1</em>')               // _italic_
-    .replace(/~([^~]+)~/g, '<del>$1</del>')             // ~strike~
-    .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>') // ```code block```
-    .replace(/`([^`]+)`/g, '<code>$1</code>');          // `inline code`
+      if (this.isRecallMode && !this.isRecallSummary) {
+        this.askNextRecallQuestion();
+      } else if (this.isRecallSummary) {
+        this.showRecallSummary();
+      }
+    }
+  }
 
-  // ✅ Step 3: Convert newlines to paragraph breaks
-  safeText = safeText.replace(/\n/g, '<br>');
+  clearRecallCache() {
+    localStorage.removeItem(this.RECALL_KEY);
+  }
 
-  // ✅ Step 4: Replace YouTube links with playable embeds
-  const youtubeRegex =
-    /https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})(?:[?&][^\s<]*)?/g;
+  // 🧠 Recall Mode Logic
+  startRecall() {
+    this.clearRecallCache();
+    this.isRecallMode = true;
+    this.isRecallSummary = false;
+    this.currentQuestion = 0;
+    this.responses = [];
+    this.pushBotMessage("Let's start your diet recall session 🍽️");
+    this.askNextRecallQuestion();
+    this.saveRecallCache();
+  }
 
-  safeText = safeText.replace(youtubeRegex, (match, videoId) => {
-    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-    return `
-      <div class="video-container">
-        <iframe
-          width="100%"
-          style="height: 150px; border-radius: 11px;"
-          src="${embedUrl}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>`;
-  });
+  askNextRecallQuestion() {
+    if (this.currentQuestion < this.recall.length) {
+      const q = this.recall[this.currentQuestion].question;
+      this.pushBotMessage(q);
+      this.saveRecallCache();
+    } else {
+      this.isRecallSummary = true;
+      this.showRecallSummary();
+    }
+  }
+  recallItem=[];
+  async showRecallSummary() {
+    this.pushBotMessage("Thanks! Here's your Diet Recall Summary!");
+     this.recallItem.push({recall:this.responses});
+     if(this.responses?.length>0){
+       const modal = await this.modalController.create({
+      component: AiDietRecallSummaryComponent,
+      componentProps: {
+        items: {recall:this.responses }
+      },
+      cssClass: 'ai-chat'
+    });
+  
+    await modal.present();
+    
+    const { data } = await modal.onDidDismiss();
+   if (data?.apiCall) {
+    let payload=``;
+    console.log('API call requested from modal:', data);
+    for (let index = 0; index < data?.data.length; index++) {
+      payload += `${data?.data[index].label} - ${data?.data[index].value}\n`;
+      
+    }
+    const payld = {"data":{"id":this.items?.profile?.profile?.email},
+    "dateTime": new Date().toISOString(),
+    "query":payload, 
+    "intent": "analyze_diet"
+     }
+     await this.apiCall(payld); 
+   }
+   else{
+    this.clearRecallCache();
+   }
+  }
+  }
+ 
+  restartRecall() {
+    this.isRecallMode = false;
+    this.isRecallSummary = false;
+    this.responses = [];
+    this.currentQuestion = 0;
+    this.clearRecallCache();
+    this.pushBotMessage("Okay! You can restart anytime by typing or selecting *Start Diet Recall*.");
+  }
 
-  // ✅ Step 5: Return sanitized HTML
-  return this.sanitizer.bypassSecurityTrustHtml(safeText);
-}
-
-
+  // 💬 Normal Chat Logic
   isApiResponse=false;
+
   sendMessage() {
     const text = (this.input.value || '').toString().trim();
     if (!text) return;
@@ -134,71 +199,147 @@ name:string='';
 
     this.messages.push(userMsg);
     this.input.setValue('');
-    this.saveMessages();
+    this.saveChatCache();
     this.scrollToBottom();
 
-    console.log("this.itemsthis.items:-", this.items);
-    
-    // prepare payload
-    const payload = {data:{"id":this.items?.profile?.profile?.email},
-      "dateTime": new Date().toISOString(),
-      "query": text
-  };
-  this.isApiResponse=true;
-    this.appService.sendChat(payload)
-      .subscribe( (res: any) => {
-         
-          console.log("sucess res:",res);          
-          const botReply = res?.response || res?.response || 'Sorry, I didn’t get that.';
-          const formatted = this.formatResponse(botReply);
-          const botMsg: ChatMessage = {
-            id: Date.now() + 1,
-            from: 'bot',
-            text: botReply, // keep raw text
-            html: formatted,    // keep formatted version
-            time: new Date().toLocaleTimeString()
-          };
-          this.messages.push(botMsg);
-          this.saveMessages();
-          this.scrollToBottom();
-           this.isApiResponse=false;
+    // 🔹 Handle Recall Mode
+    if (this.isRecallMode && !this.isRecallSummary) {
+      this.responses[this.currentQuestion] = text;
+      this.currentQuestion++;
+      this.saveRecallCache();
+      setTimeout(() => this.askNextRecallQuestion(), 400);
+      return;
+    }
+
+    // 🔹 Normal Chat Flow
+    if (text.toLowerCase().includes('diet recall')) {
+      this.startRecall();
+      return;
+    }
+
+    const payload = {
+      data: { id: this.items?.profile?.profile?.email },
+      dateTime: new Date().toISOString(),
+      query: text
+    };
+
+    this.isApiResponse = true;
+    this.appService.sendChat(payload).subscribe({
+      next: (res: any) => {
+        const botReply = res?.response || 'Sorry, I didn’t get that.';
+        const formatted = this.formatResponse(botReply);
+        const botMsg: ChatMessage = {
+          id: Date.now() + 1,
+          from: 'bot',
+          text: botReply,
+          html: formatted,
+          time: new Date().toLocaleTimeString()
+        };
+        this.messages.push(botMsg);
+        this.saveChatCache();
+        this.scrollToBottom();
+        this.isApiResponse = false;
       },
-        (err) => {
-          console.log("Error res:",err);
-          const errMsg: ChatMessage = {
-            id: Date.now() + 2,
-            from: 'bot',
-            text: 'Sorry, there was an error connecting to the AI service.',
-            time: new Date().toLocaleTimeString()
-          };
-          this.messages.push(errMsg);
-          this.saveMessages();
-          this.scrollToBottom();
-          console.error('Chat API Error:', err);
-           this.isApiResponse=false;
-        
-      });
+      error: (err) => {
+        console.error('Chat API Error:', err);
+        this.pushBotMessage('Sorry, there was an error connecting to the AI service.');
+        this.saveChatCache();
+        this.scrollToBottom();
+        this.isApiResponse = false;
+      }
+    });
   }
 
   selectQuick(option: { id: number; label: string}) {
     this.input.setValue(option.label);
-    this.sendMessage(); // auto-send
+    this.sendMessage();
   }
 
-  private scrollToBottom() {
-    try {
-      setTimeout(() => {
-        const el = this.content?.nativeElement as HTMLElement;
-        if (el) el.scrollTop = el.scrollHeight;
-      }, 100);
-    } catch (e) {}
+  // 🔧 Formatting and Cache
+  private formatResponse(text: string): SafeHtml {
+    if (!text) return '';
+    let safeText = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\*([^\*]+)\*/g, '<strong>$1</strong>')
+      .replace(/_([^_]+)_/g, '<em>$1</em>')
+      .replace(/~([^~]+)~/g, '<del>$1</del>')
+      .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\n/g, '<br>');
+    return this.sanitizer.bypassSecurityTrustHtml(safeText);
   }
 
- private saveMessages() {
-  const safeToStore = this.messages.map(m => ({
-    ...m,
-    html: undefined, // strip non-serializable SafeHtml
-  }));
-  localStorage.setItem(this.STORAGE_KEY, JSON.stringify(safeToStore));
+  pushBotMessage(text: string) {
+    this.messages.push({
+      id: Date.now() + Math.random(),
+      from: 'bot',
+      text,
+      html: this.formatResponse(text),
+      time: new Date().toLocaleTimeString()
+    });
+    this.saveChatCache();
+    this.scrollToBottom();
+  }
+
+ private scrollToBottom(duration: number = 300) {
+  if (this.content) {
+    setTimeout(() => {
+      this.content.scrollToBottom(duration).catch(err => console.warn('Scroll failed:', err));
+    }, 100);
+  }
 }
+
+  private saveChatCache() {
+    const safeToStore = this.messages.map(m => ({ ...m, html: undefined }));
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(safeToStore));
+  }
+
+  private loadChatCache() {
+    const cached = localStorage.getItem(this.STORAGE_KEY);
+    if (cached) {
+      const parsed: ChatMessage[] = JSON.parse(cached);
+      this.messages = parsed.map(msg => ({
+        ...msg,
+        html: msg.from === 'bot' ? this.formatResponse(msg.text) : undefined
+      }));
+    } else {
+      this.pushBotMessage('How can I help you today?');
+    }
+  }
+ 
+  apiCall(payload){
+    //   const payload = {
+    //   data: { id: this.items?.profile?.profile?.email },
+    //   dateTime: new Date().toISOString(),
+    //   query: text
+    // };
+
+    this.isApiResponse = true;
+    this.appService.sendChat(payload).subscribe({
+      next: (res: any) => {
+        const botReply = res?.response || 'Sorry, I didn’t get that.';
+        const formatted = this.formatResponse(botReply);
+        const botMsg: ChatMessage = {
+          id: Date.now() + 1,
+          from: 'bot',
+          text: botReply,
+          html: formatted,
+          time: new Date().toLocaleTimeString()
+        };
+        this.messages.push(botMsg);
+        this.saveChatCache();
+        this.scrollToBottom();
+        this.isApiResponse = false;
+      },
+      error: (err) => {
+        console.error('Chat API Error:', err);
+        this.pushBotMessage('Sorry, there was an error connecting to the AI service.');
+        this.saveChatCache();
+        this.scrollToBottom();
+        this.isApiResponse = false;
+      }
+    });
+  }
 }
