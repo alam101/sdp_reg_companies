@@ -96,7 +96,6 @@ export class AiChatComponent implements OnInit, OnDestroy {
 
   loadRecallCache() {
     const cached = localStorage.getItem(this.RECALL_KEY);
-    debugger;
     if (cached) {
       const data = JSON.parse(cached);
       this.isRecallMode = data.isRecallMode;
@@ -161,7 +160,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
       payload += `${data?.data[index].label} - ${data?.data[index].value}\n`;
       
     }
-    const payld = {"data":{"id":this.items?.profile?.profile?.email},
+    const payld = {"data":{"id":this.items?.profile?.profile?.email},//this.items?.profile?.profile?.email
     "dateTime": new Date().toISOString(),
     "query":payload, 
     "intent": "analyze_diet"
@@ -173,7 +172,16 @@ export class AiChatComponent implements OnInit, OnDestroy {
    }
   }
   }
- 
+ async startAnalyze(){
+   const payld = {"data":{"id":'91-9958469834'},//this.items?.profile?.profile?.email
+    "dateTime": new Date().toISOString(),
+    "query": "Please Analyze my diet score.",
+    "intent": "json_score_analysis"
+    // "query":payload, 
+    // "intent": "analyze_diet"
+     }
+     await this.apiCall(payld); 
+ }
   restartRecall() {
     this.isRecallMode = false;
     this.isRecallSummary = false;
@@ -256,20 +264,49 @@ export class AiChatComponent implements OnInit, OnDestroy {
   }
 
   // 🔧 Formatting and Cache
-  private formatResponse(text: string): SafeHtml {
-    if (!text) return '';
-    let safeText = text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/\*([^\*]+)\*/g, '<strong>$1</strong>')
-      .replace(/_([^_]+)_/g, '<em>$1</em>')
-      .replace(/~([^~]+)~/g, '<del>$1</del>')
-      .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>')
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
-      .replace(/\n/g, '<br>');
-    return this.sanitizer.bypassSecurityTrustHtml(safeText);
-  }
+ private formatResponse(text: string): SafeHtml {
+  if (!text) return '';
+
+  // ✅ Step 1: Escape HTML first to prevent injection
+  let safeText = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  // ✅ Step 2: Handle WhatsApp-style formatting
+  // *bold*, _italic_, ~strike~, ```code``` or `inline code`
+  safeText = safeText
+    .replace(/\*([^\*]+)\*/g, '<strong>$1</strong>')     // *bold*
+    .replace(/_([^_]+)_/g, '<em>$1</em>')               // _italic_
+    .replace(/~([^~]+)~/g, '<del>$1</del>')             // ~strike~
+    .replace(/```([^`]+)```/g, '<pre><code>$1</code></pre>') // ```code block```
+    .replace(/`([^`]+)`/g, '<code>$1</code>');          // `inline code`
+
+  // ✅ Step 3: Convert newlines to paragraph breaks
+  safeText = safeText.replace(/\n/g, '<br>');
+
+  // ✅ Step 4: Replace YouTube links with playable embeds
+  const youtubeRegex =
+    /https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})(?:[?&][^\s<]*)?/g;
+
+  safeText = safeText.replace(youtubeRegex, (match, videoId) => {
+    const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    return `
+      <div class="video-container">
+        <iframe
+          width="100%"
+          style="height: 150px; border-radius: 11px;"
+          src="${embedUrl}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>`;
+  });
+
+  // ✅ Step 5: Return sanitized HTML
+  return this.sanitizer.bypassSecurityTrustHtml(safeText);
+}
 
   pushBotMessage(text: string) {
     this.messages.push({

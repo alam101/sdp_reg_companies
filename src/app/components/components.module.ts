@@ -38,6 +38,7 @@ import { NutritionComponent } from "./nutrition/nutrition.component";
 import { OpenCameraComponent } from "./open-camera/open-camera.component";
 import {AiChatComponent} from './ai-chat/ai-chat.component';
 import { AiDietRecallSummaryComponent } from "./ai-diet-recall-summary/ai-diet-recall-summary.component";
+import { HealthRatingComponent } from "./health-rating/health-rating.component";
 @NgModule({
   declarations: [
     ButtonPreviousComponent,
@@ -73,7 +74,8 @@ import { AiDietRecallSummaryComponent } from "./ai-diet-recall-summary/ai-diet-r
     OpenCameraComponent,
    NutritionComponent,
    AiChatComponent,
-   AiDietRecallSummaryComponent
+   AiDietRecallSummaryComponent,
+   HealthRatingComponent
   ],
   imports: [
     // IonIntlTelInputModule,
@@ -127,7 +129,8 @@ import { AiDietRecallSummaryComponent } from "./ai-diet-recall-summary/ai-diet-r
     NutritionComponent,
     OpenCameraComponent,
     AiChatComponent,
-    AiDietRecallSummaryComponent
+    AiDietRecallSummaryComponent,
+    HealthRatingComponent
    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

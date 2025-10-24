@@ -103,7 +103,7 @@ canvas.toBlob(async(blob) => {
 
   const { data } = await modal.onDidDismiss();
   if (data?.confirmed) {
-    this.utilities.presentLoading();
+    this.utilities.showLoading();
   //  this.stopCamera();
       const formData = new FormData();
     formData.append("image", file);
@@ -160,9 +160,9 @@ async openNutritionModel(image,foodName,foodDetail){
   });
 
   await modal.present();
-  setTimeout(() => {
-    this.utilities.hideLoader();
-  }, 4000);  
+ 
+     this.utilities.hideLoader();
+ 
   
   this.stopCamera();
   const { data } = await modal.onDidDismiss();

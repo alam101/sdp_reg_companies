@@ -1,0 +1,57 @@
+.rating-bar {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  font-family: 'Inter', sans-serif;
+
+  .label {
+    background: #e0e0e0;
+    padding: 8px;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .bar {
+    display: flex;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    margin-top: 10px;
+
+    span {
+      flex: 1;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .bad {
+      background-color: #e53935;
+    }
+    .poor {
+      background-color: #f9a825;
+    }
+    .good {
+      background-color: #9ccc65;
+    }
+    .great {
+      background-color: #388e3c;
+    }
+    .excellent {
+      background-color: #4682b4;
+    }
+  }
+
+  .indicator {
+    position: absolute;
+    top: 45px; // adjust depending on bar height
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid #333;
+    transition: left 0.4s ease;
+  }
+}

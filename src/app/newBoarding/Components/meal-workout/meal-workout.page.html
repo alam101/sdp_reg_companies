@@ -37,7 +37,7 @@
       <div *ngFor="let d of data?.data.slice(0,disabled?1 :data?.data.length );let i = index">
       <div
         class="aditional_div"
-        *ngIf="d?.foodStatus === 'A'">
+        *ngIf="d?.foodStatus === 'A' || d.foodSource==='PERSONALISED'">
         <p>Additional</p>
       </div>
       <div

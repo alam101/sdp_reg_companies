@@ -163,7 +163,12 @@ export class UTILITIES {
         cssClass: "my-custom-class",
         showBackdrop: false,
         spinner: null,
-        message: `<ion-spinner name="bubbles"></ion-spinner>`,
+        message: `
+        <ion-spinner name="bubbles" style="background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    color: var(--theme-color);"></ion-spinner>
+        `,
       })
       .then((a) => {
         this.isLoading = true;

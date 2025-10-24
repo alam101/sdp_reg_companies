@@ -72,7 +72,7 @@
           <ion-col style="text-align: right;">Calories</ion-col>
         </ion-row>
         <ion-row style="padding: 1rem;background: #E4F3EC;">
-          <ion-col style="text-align: left;">{{items.foodName?.text}}</ion-col>
+          <ion-col style="text-align: left;">{{items.foodName?.food_name?.text}}</ion-col>
           <ion-col style="text-align: center;">-</ion-col>
           <ion-col style="text-align: right;">{{items.foodDetail?.macros?.calories}} Cal</ion-col>
         </ion-row>
@@ -119,7 +119,8 @@
       <ion-card-title style="font-size: 1rem;padding:0;">Health Rating</ion-card-title>
     </ion-card-header>
     <ion-card-content style="padding: 0;">
-      <div class="rating-bar">
+      <app-health-rating [score]="3"></app-health-rating>
+      <!-- <div class="rating-bar">
         <div class="bar">
           <span class="bad">Bad</span>
           <span class="poor">Poor</span>
@@ -128,7 +129,7 @@
           <span class="excellent">Excellent</span>
         </div>
         <div class="indicator"></div>
-      </div>
+      </div> -->
     </ion-card-content>
   </ion-card>
 

@@ -75,10 +75,10 @@ export class NutritionComponent implements OnInit {
         "slot": Number(this.slot),
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
-        "score": this.items?.foodDetail?.macros?.nutri_score === undefined ? 3 : this.items?.foodDetail?.macros?.nutri_score,
+        "score": this.items?.foodDetail?.macros?.score === undefined ? 3 : Number(this.items?.foodDetail?.macros?.score),
         "date": moment().format('DDMMYYYY'),
         "id": this.items.foodName?._id,
-        "imagePath": this.items.foodName?.path
+        "imagePath": this.items.foodName?.imageUrl
       }
       this.updateFoodDetailPraveenapi(data);
     }
@@ -94,7 +94,7 @@ export class NutritionComponent implements OnInit {
         "slot": this.slot,
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
-        "score": this.items?.foodDetail?.barcodeFoodDetail?.nutriscore_score === "" ? 3 : this.items?.foodDetail?.barcodeFoodDetail?.nutriscore_score,
+        "score": this.items?.foodDetail?.barcodeFoodDetail?.score === "" ? 3 : this.items?.foodDetail?.barcodeFoodDetail?.score,
         "date": moment().format('DDMMYYYY'),
       }
       this.updateFoodDetailPraveenapi(data);
@@ -116,4 +116,6 @@ export class NutritionComponent implements OnInit {
       }
     );
   }
+
+  
 }
