@@ -222,10 +222,11 @@ ion-checkbox{
     height: 50px;
     width: 100%;
     &::part(native){
-        --background: var(--theme-newButton);
+         --background: var(--profile-color) !important;
+        color:var(--button-text) !important;
         text-transform: none;
         box-shadow: var(--btnShaddow);
-        color: var(--button-text);
+        
         font-family: var(--theme-newFont);
     }
 }

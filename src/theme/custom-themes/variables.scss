@@ -55,7 +55,7 @@
     --theme-textHeading:0.9rem; 
     --theme-titleProfile:#000; 
     --box-shadow:rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    --boxshadow:#00000012 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --theme-milestone:#fff; 
 --theme-milestone2:#000;
 --button-text:#fff;
@@ -130,7 +130,7 @@ body[color-theme="birla"] {
   --medium-font:.8rem; //18px
   --large-font:1.1rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#B8E6F5;
   --normal-color:#393939;
@@ -210,7 +210,7 @@ body[color-theme="newmi"] {
   --medium-font:1.125rem; //18px
   --large-font:1.5rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#B8E6F5;
   --normal-color:#393939;
@@ -286,7 +286,7 @@ body[color-theme="beato"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#F2B70B;
   --normal-color:#393939;
@@ -360,7 +360,7 @@ body[color-theme="infinite"] {
   --medium-font:1.125rem; //18px
   --large-font:1.5rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#B8E6F5;
   --normal-color:#393939;
@@ -438,7 +438,7 @@ body[color-theme="kapiva"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#F2B70B;
   --normal-color:#393939;
@@ -515,7 +515,7 @@ body[color-theme="traya"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#F2B70B;
   --normal-color:#393939;
@@ -593,7 +593,7 @@ body[color-theme="traya-female"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#F2B70B;
     --normal-color:#393939;
@@ -672,7 +672,7 @@ body[color-theme="fitelo"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#F2B70B;
   --normal-color:#393939;
@@ -749,7 +749,7 @@ body[color-theme="eatfit"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -824,7 +824,7 @@ body[color-theme="alyve"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -899,7 +899,7 @@ body[color-theme="plix"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -974,7 +974,7 @@ body[color-theme="plix-global"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#fff;
     --normal-color:#393939;
@@ -1048,7 +1048,7 @@ body[color-theme="stepgo"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1116,7 +1116,7 @@ body[color-theme="prana"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1185,7 +1185,7 @@ body[color-theme="yolo"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#fff;
     --normal-color:#393939;
@@ -1252,7 +1252,7 @@ body[color-theme="truworth"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1318,7 +1318,7 @@ body[color-theme="orthocure"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1389,7 +1389,7 @@ body[color-theme="aviva"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1457,7 +1457,7 @@ body[color-theme="redcliffe"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1524,7 +1524,7 @@ body[color-theme="kenko"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1596,7 +1596,7 @@ body[color-theme="blubein"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1667,7 +1667,7 @@ body[color-theme="yellowsquash"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1737,7 +1737,7 @@ body[color-theme="elderfly"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1808,7 +1808,7 @@ body[color-theme="brilliant"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1879,7 +1879,7 @@ body[color-theme="nizcare"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -1952,7 +1952,7 @@ body[color-theme="smartdietplanner"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -2019,7 +2019,7 @@ body[color-theme="mswastha"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -2091,7 +2091,7 @@ body[color-theme="wellbeing"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#fff;
     --normal-color:#393939;
@@ -2158,7 +2158,7 @@ body[color-theme="individual1"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -2230,7 +2230,7 @@ body[color-theme="individual2"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#F2B70B;
   --normal-color:#393939;
@@ -2304,7 +2304,7 @@ body[color-theme="individual3"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -2377,7 +2377,7 @@ body[color-theme="individual4"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#fff;
     --normal-color:#393939;
@@ -2450,7 +2450,7 @@ body[color-theme="gravid"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -2526,7 +2526,7 @@ body[color-theme="youmatter"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#fff;
     --normal-color:#393939;
@@ -2599,7 +2599,7 @@ body[color-theme="trunord1"] {
 --medium-font:.9rem; //18px
 --large-font:1.2rem;  //24px;
 --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
---boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+--boxshadow:1px 2px 7px rgba(0,0,0,.3);
 --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
 --radio-background:#fff;
 --normal-color:#393939;
@@ -2673,7 +2673,7 @@ body[color-theme="gravid1"] {
 --medium-font:.9rem; //18px
 --large-font:1.2rem;  //24px;
 --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
---boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+--boxshadow:1px 2px 7px rgba(0,0,0,.3);
 --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
 --radio-background:#fff;
 --normal-color:#393939;
@@ -2747,7 +2747,7 @@ body[color-theme="gravid2"] {
 --medium-font:.9rem; //18px
 --large-font:1.2rem;  //24px;
 --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
---boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+--boxshadow:1px 2px 7px rgba(0,0,0,.3);
 --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
 --radio-background:#fff;
 --normal-color:#393939;
@@ -2821,7 +2821,7 @@ body[color-theme="gravid3"] {
 --medium-font:.9rem; //18px
 --large-font:1.2rem;  //24px;
 --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
---boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+--boxshadow:1px 2px 7px rgba(0,0,0,.3);
 --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
 --radio-background:#fff;
 --normal-color:#393939;
@@ -2893,7 +2893,7 @@ body[color-theme="originn"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -2964,7 +2964,7 @@ body[color-theme="trunativ"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -3037,7 +3037,7 @@ body[color-theme="nutrabox"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#fff;
     --normal-color:#393939;
@@ -3109,7 +3109,7 @@ body[color-theme="enkeltec"] {
     --medium-font:.9rem; //18px
     --large-font:1.2rem;  //24px;
     --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+    --boxshadow:1px 2px 7px rgba(0,0,0,.3);
     --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
     --radio-background:#fff;
     --normal-color:#393939;
@@ -3182,7 +3182,7 @@ body[color-theme="metropolis"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -3256,7 +3256,7 @@ body[color-theme="drstore"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -3330,7 +3330,7 @@ body[color-theme="lalpathlabs"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -3347,6 +3347,80 @@ body[color-theme="lalpathlabs"] {
   --theme-milestone:#fff; 
 --theme-milestone2:#000;
 --button-text:#fff;
+}
+
+body[color-theme="beatodoc"] {
+  --font: "metropolis-regular", "Helvetica Neue", Arial, sans-serif;
+  --font-bold: "metropolis-bold", "Helvetica Neue", Arial, sans-serif;
+  --font-light: "metropolis-light", "Helvetica Neue", Arial, sans-serif;
+  --font-medium: "metropolis-medium", "Helvetica Neue", Arial, sans-serif;
+  --font-medium-extended: "metropolis-extendedMedium", "Helvetica Neue",
+    Arial, sans-serif;
+    $sans-font-regular: "metropolis-ragular", "Helvetica Neue", Arial, sans-serif;
+  --theme-profile-background: #1c4448; //8775ed
+  --theme-background:#1c4448; //#00a6a8
+  --theme-header:#1c4448;
+  --theme-headerText:#fff;
+  --theme-logslot:#1c4448;
+  --theme-button:#1c4448;
+  --theme-heading:#1c4448;
+  --theme-activeBtn:#fecc4e;//#01A3A4       
+  --theme-plusBtn:#fecc4e; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #1c4448;//#01A3A4;
+  --theme-plusBtnWaterGuage:#fecc4e;  //#509bed;   
+  --theme-minusBtnWaterGuage:#fecc4e;  //#509bed;  
+  --theme-waterCenterPercent:#1c4448;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #1c4448; //#01A3A5;
+  --theme-color:#1c4448; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #1c4448 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#000; 
+  --theme-color:#1c4448;
+  --theme-newHeader:#1c4448;
+  --theme-newButton:#1c4448;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'metropolis-regular', sans-serif;
+  --ion-font-family: 'metropolis-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#0A1F5B;
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  --goal: #fecc4e;
+  --profile-color: #fecc4e;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #fecc4e;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#1c4448;
+  --theme-milestone:#fff; 
+--theme-milestone2:#000;
+--button-text:#000;
 }
 
 
@@ -3399,7 +3473,7 @@ body[color-theme="trunord"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -3468,7 +3542,7 @@ body[color-theme="nutrikorner"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -3540,7 +3614,7 @@ body[color-theme="fitrofy"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;
@@ -3614,7 +3688,7 @@ body[color-theme="multifit"] {
   --medium-font:.9rem; //18px
   --large-font:1.2rem;  //24px;
   --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  --boxshadow:rgba(0, 0, 0, 0.07) 0px 10px 40px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
   --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
   --radio-background:#fff;
   --normal-color:#393939;

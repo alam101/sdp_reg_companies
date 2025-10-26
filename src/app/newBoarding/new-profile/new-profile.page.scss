@@ -314,10 +314,11 @@ ion-segment {
     height: 40px;
     margin-top: 10px;
     &::part(native){
-        --background: var(--theme-newButton);
+         --background: var(--profile-color) !important;
+        color:var(--button-text) !important;
         text-transform: none;
         box-shadow: var(--btnShaddow);
-        color: var(--white);
+        
         font-size: var(--small-font);
         font-family: var(--theme-newFont);
     }

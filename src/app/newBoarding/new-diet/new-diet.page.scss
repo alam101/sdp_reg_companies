@@ -16,6 +16,18 @@
     border-radius: 30px;
     text-align: center;
 }
+.search_div{
+  // margin-bottom: 1.4rem;
+  //   border: 1px solid var(--theme-color);
+  //   width: 80%;
+  //   align-items: center;
+  //   left: 5%;
+  //   position: relative;
+  //   padding: .5rem 1rem;
+  //   height: 35px;
+  //   display: flex;
+  //   border-radius: 10px;
+}
 .searchbat1{
   border: 1px solid var(--theme-color);
     color: var(--black);
@@ -702,8 +714,8 @@ ion-content {
 .isSelectedDate {
  color:var(--button-text) !important;
  font-weight: 500 !important;
- background: var(--theme-color) !important;
- font-size: .9rem;
+ background: var(--profile-color) !important;
+ font-size: .8rem;
 }
 .isSelectedDate1 {
   color: #000 !important;
@@ -722,7 +734,7 @@ ion-content {
 .meal_workout_title_div {
   display: flex;
   justify-content: space-between;
-  margin: 20px 20px 0px;
+  margin: 25px 20px 0px;
 }
 
 .meal_workout_title {

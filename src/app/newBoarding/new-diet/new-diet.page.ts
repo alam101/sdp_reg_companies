@@ -233,7 +233,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   getOnePlan(){
     this.appServices.getOnePlan().subscribe((res) => {
       this.plandata = res;
-    this.weeks = [];
+    this.weeks = [];  
     for (var i = 0; i < 7; i++) {
       let date = moment().add(i, "days");
       this.weeks.push({

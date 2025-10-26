@@ -94,44 +94,20 @@ canvas.toBlob(async(blob) => {
   const modal = await this.modalCtrl.create({
     component: OpenImagePreviewComponent,
     componentProps: {
-      previewUrl: this.previewUrl
+      previewUrl: {url:this.previewUrl, file:file,mode:this.mode}
     },
     cssClass: 'image-preview-modal'
   });
-
   await modal.present();
-
+  // this.stopCamera();
   const { data } = await modal.onDidDismiss();
-  if (data?.confirmed) {
-    this.utilities.showLoading();
-  //  this.stopCamera();
-      const formData = new FormData();
-    formData.append("image", file);
-    
-    this.appServices.foodImageSend(formData).subscribe(
-      (res: any) => {
-        console.log("foodImageSend", res);
-        this.foodName = res?.food_name;
-        this.fullObjectfromImageScan = res;
-        if (res?.food_name?.text !== undefined) {
-          
-          this.foodDetailScanned(res?.food_name?.text) ;
-
-        } else {
-          this.utilities.presentAlert("Something went wrong! Please try again.");
-        }
-      },
-      (err) => {
-        this.utilities.presentAlert("Something went wrong! Please try again.");
-      }
-    );
-    console.log('User confirmed image:', this.previewUrl);
-    // proceed with upload or saving
-  } else {
-    console.log('User wants to retake');
+  if (data?.confirmed) {  
+   //  this.openNutritionModel();
   }
-  
+  else{
+    this.startCamera();  
   }
+}
 }, "image/jpeg", 0.9);
 }
 foodDetail:any;
@@ -141,7 +117,8 @@ foodDetailScanned(foodName){
       console.log("nutritionValueScan", res);
         this.isOpen = true;
         this.foodDetail = res;
-      this.openNutritionModel(this.previewUrl,this.fullObjectfromImageScan,this.foodDetail);
+        
+      this.openNutritionModel();
     
       // this.router.navigate(["nutrition"], { queryParams: { foodName: this.foodName,foodDetail:this.foodDetail }});
     },
@@ -150,26 +127,21 @@ foodDetailScanned(foodName){
     }
   );
 }
-async openNutritionModel(image,foodName,foodDetail){
-    const modal = await this.modalCtrl.create({
+async openNutritionModel(){
+  this.stopCamera();
+}
+async openNutritionModelBarCode(previewUrl,foodName,foodDetail){
+   const modal = await this.modalCtrl.create({
     component: NutritionComponent,
     componentProps: {
-      items: {image,foodName,foodDetail,mode:this.mode}
+      items: {previewUrl,foodName,foodDetail,mode:'barcode'}
     },
     cssClass: 'image-preview-modal'
   });
 
   await modal.present();
- 
      this.utilities.hideLoader();
- 
-  
-  this.stopCamera();
-  const { data } = await modal.onDidDismiss();
-  if (data?.close) {
-    this.isOpen = false;
-    this.goBack();
-  }
+     await modal.onDidDismiss();
 }
 slot=0;
 portion=0;
@@ -268,7 +240,7 @@ barcodeFootnoteImageSend(itemNumber){
           this.isOpen = true;
            this.barcodeFoodDetail = res;
             // this.stopCamera();
-             this.openNutritionModel(this.previewUrl,this.foodName,this.barcodeFoodDetail);          
+             this.openNutritionModelBarCode("",res?.product_name,this.barcodeFoodDetail);          
         }else{
           this.utilities.presentAlert("Something went wrong! Please try again.");
         }
@@ -282,7 +254,6 @@ barcodeFootnoteImageSend(itemNumber){
   goBack() {
     // navigate back or dismiss modal
     this.stopCamera();
-     this.backButton.emit(false); 
-    
+     this.backButton.emit(false);    
   }
 }

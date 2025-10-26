@@ -5,7 +5,11 @@
   </div>
 
   <div class="image-container">
-    <ion-img [src]="previewUrl" alt="Captured Image"></ion-img>
+    <div class="scan-wrap">
+  <ion-img [src]="previewUrl?.url" alt="Captured Image"></ion-img>
+  <div [ngClass]="{ 'scan-line': loading }"></div>
+</div>
+   
   </div>
 
   <ion-item lines="none">

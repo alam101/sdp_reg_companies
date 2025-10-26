@@ -65,7 +65,7 @@ export class NutritionComponent implements OnInit {
   submit() {
     if (this.items?.mode === 'photo') {
       const data = {
-        "food": this.items?.foodName?.food_name?.text,
+        "food": this.items?.foodName,
         "type": "V",
         "calories": this.items?.foodDetail?.macros?.calories === undefined ? 0 : this.items?.foodDetail.macros?.calories,
         "protein": this.items?.foodDetail?.macros?.protein === undefined ? 0 : this.items?.foodDetail.macros?.protein,
@@ -77,8 +77,8 @@ export class NutritionComponent implements OnInit {
         "portionQuantity": this.portion,
         "score": this.items?.foodDetail?.macros?.score === undefined ? 3 : Number(this.items?.foodDetail?.macros?.score),
         "date": moment().format('DDMMYYYY'),
-        "id": this.items.foodName?._id,
-        "imagePath": this.items.foodName?.imageUrl
+        "id": this.items.imageDetail?._id,
+        "imagePath": this.items.imageDetail?.imageUrl
       }
       this.updateFoodDetailPraveenapi(data);
     }

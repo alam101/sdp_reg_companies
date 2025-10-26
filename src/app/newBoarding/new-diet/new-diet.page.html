@@ -16,7 +16,7 @@
              <b>{{profileName}} 
               <ion-icon *ngIf="compConfig?.isEditProfile"  (click)="gotoProfile()" name="pencil-outline" style="position: relative;
               width: 5%;
-              top: 0.2rem;"></ion-icon></b> 
+              top: 0.1rem;"></ion-icon></b> 
             </ion-col>
             <ion-col *ngIf="clientId==='nutrabox'">
               <img style="    width: 40%;
@@ -45,24 +45,24 @@
           </ion-row>
           <ion-row>
             <ion-col class="ion-text-left" 
-            style="font-size: .9rem;padding-top: 1rem;">
+            style="font-size: .9rem;padding-top: .5rem;">
               {{compConfig.headerText}}
             </ion-col>
           </ion-row>
       </div>
       <ion-card style="height: 180px;
       position: absolute;
-      top: 50%;
+      top: 40%;
       width: 90%;
       left: 2.5%;
       margin: 0 auto;
       right: 2.5%;">
         <ion-card-content style="padding-left: 15px;">
           <ion-row>
-            <ion-col class="ion-text-left" >
+            <!-- <ion-col class="ion-text-left" >
               <span style="font-size: 1rem;"><b>Daily intake</b></span>
-            </ion-col>
-            <ion-col class="ion-text-right">
+            </ion-col> -->
+            <ion-col class="ion-text-left">
               <span style="font-size: .8rem;color:#A3A3A3">
                 Your Daily Target <img src="./assets/img/aim.png">
               </span>
@@ -83,7 +83,7 @@
       <br>
           <ion-row>
             <ion-col class="ion-text-center" size="3.5">
-              <span style="font-size: 1rem;">Carbs</span><br>
+              <span style="font-size: .9rem;">Carbs</span><br>
               <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
                 <div style="height: 6px;border-radius: 10px;background: #489C75;max-width: 100%;" 
                 [style.width.%]="((allData.Carbs*100)/profileData?.lifeStyle?.carb)">
@@ -93,7 +93,7 @@
             </ion-col>
             <ion-col size=".75"></ion-col>
             <ion-col class="ion-text-center" size="3.5">
-              <span style="font-size: 1rem;">Protein</span><br>
+              <span style="font-size: .9rem;">Protein</span><br>
               <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
                 <div style="height: 6px;border-radius: 10px;background: #DD85E0;max-width: 100%;"
                 [style.width.%]="((allData?.Protien*100)/profileData?.lifeStyle?.protien)">
@@ -103,7 +103,7 @@
             </ion-col>
             <ion-col size=".75"></ion-col>
             <ion-col class="ion-text-center" size="3.5">
-              <span style="font-size: 1rem;">Fat</span><br>
+              <span style="font-size: .9rem;">Fat</span><br>
               <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
                 <div style="height: 6px;border-radius: 10px;background: #8054D7;max-width: 100%;"
                 [style.width.%]="((allData?.Fat*100)/profileData?.lifeStyle?.fat)">
@@ -123,15 +123,17 @@
   <br>
   <br>
   <br>
+  <!-- {{weeks.length}}-- -->
     <div style="position: relative;margin: 1.5rem 0;">
     <ion-row *ngIf="weeks && weeks.length" class="date-container">
       <ion-col  class="ion-text-center">
         <div class="week_array">
+         
           <div style="float:left" *ngFor="let date of weekArray;" (click)="changeDate(date)" 
           [ngStyle]="{'color': moment(date).format('DD-MM-YYYY') == moment(newSelectedDate).format('DD-MM-YYYY')
            ?'dark-css':'cust-grey' }">
            
-           <div>
+           <div style="font-size: .8rem;">
             {{moment(date).format('DD-MM-YYYY') ===
             moment(today).format('DD-MM-YYYY') ? 'Today' :
             moment(date).format('DD-MM-YYYY') ===
@@ -216,25 +218,32 @@
     </div>
   
     <div class="new-search">
-       <div class="search_div center" style="margin-bottom: 1.4rem;">
-      <ion-searchbar mode="md" 
-        style="width: 78%;
-    --box-shadow: none;
-    border: 1px solid var(--theme-color);
-    border-radius: 25px;
-    height: 50px;
-    margin: 0 .5rem;"
+       <div style="position: relative;">
+      <!-- <ion-searchbar mode="md" 
+        style="--box-shadow: none;height: 35px;--padding-top: 6px 0px !important;"
         placeholder="Search for a Food"
         (click)="gotoSearch()"
       >
-        </ion-searchbar>
-       <ion-icon name="barcode-outline" slot="start" style="font-size: 1.5rem;
+        </ion-searchbar> -->
+        <div style=" margin-bottom: 1.4rem;
+    border: 1px solid var(--theme-color);
+    width: 70%;
+    align-items: center;
+    left: 5%;
+    position: relative;
+    padding: .5rem 1rem;
+    height: 35px;
+    display: flex;
+    border-radius: 10px;">
+        <ion-icon name="search" style="color:#b3b3b3;"></ion-icon>
+       <ion-input placeholder="Search Food" (click)="gotoSearch()"></ion-input> 
+        </div>
+       <ion-icon *ngIf="compConfig?.scanner" name="camera-outline" slot="start" style="font-size: 2rem;
         color: var(--theme-color);
-        position: relative;
-        right: 0;
+        position: absolute;
+        right: 12%;
         top: 2px;" (click)="openItemScanner()"> 
       </ion-icon>
-
     </div>
     </div>
     <br><br>
@@ -449,7 +458,7 @@
     <img src="./assets/img/whatsapp.png">
   </div> 
 </ion-content>
-<ion-footer *ngIf="compConfig?.isSearch && displayFooter===true" style="position: fixed;
+<ion-footer *ngIf="compConfig?.bot" style="position: fixed;
 bottom: 1rem;
 width: 100%;
 left: 0;

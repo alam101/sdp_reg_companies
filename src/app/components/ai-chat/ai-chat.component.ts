@@ -35,8 +35,8 @@ export class AiChatComponent implements OnInit, OnDestroy {
     { id: 8, name:"⁠Travel Diet Tips ",label: 'What should I eat while traveling to stay healthy?' },
     { id: 9, name:"Alcohol Guidance",label: 'Can I drink alcohol? If yes, what’s allowed for my condition?' },
     { id: 10, name:"Weight Loss Tips",label: 'How can I lose weight safely and effectively?' },
-    { id: 11, name:"Sleep & Stress",label: 'Share some tips to improve sleep and reduce stress.' },
-    { id: 12, name:"Start Diet Recall", label: 'Let’s do a diet recall session.' } // 👈 Added recall trigger
+    { id: 11, name:"Sleep & Stress",label: 'Share some tips to improve sleep and reduce stress.' }
+    // { id: 12, name:"Start Diet Recall", label: 'Let’s do a diet recall session.' } // 👈 Added recall trigger
   ];
 
   recall = [
@@ -208,7 +208,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
     this.messages.push(userMsg);
     this.input.setValue('');
     this.saveChatCache();
-    this.scrollToBottom();
+   this.scrollToBottom();
 
     // 🔹 Handle Recall Mode
     if (this.isRecallMode && !this.isRecallSummary) {
@@ -245,14 +245,14 @@ export class AiChatComponent implements OnInit, OnDestroy {
         };
         this.messages.push(botMsg);
         this.saveChatCache();
-        this.scrollToBottom();
+       //this.scrollToBottom();
         this.isApiResponse = false;
       },
       error: (err) => {
         console.error('Chat API Error:', err);
         this.pushBotMessage('Sorry, there was an error connecting to the AI service.');
         this.saveChatCache();
-        this.scrollToBottom();
+       //this.scrollToBottom();
         this.isApiResponse = false;
       }
     });
@@ -317,7 +317,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
       time: new Date().toLocaleTimeString()
     });
     this.saveChatCache();
-    this.scrollToBottom();
+   //this.scrollToBottom();
   }
 
  private scrollToBottom(duration: number = 300) {
@@ -347,12 +347,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
   }
  
   apiCall(payload){
-    //   const payload = {
-    //   data: { id: this.items?.profile?.profile?.email },
-    //   dateTime: new Date().toISOString(),
-    //   query: text
-    // };
-
+  
     this.isApiResponse = true;
     this.appService.sendChat(payload).subscribe({
       next: (res: any) => {
@@ -367,14 +362,14 @@ export class AiChatComponent implements OnInit, OnDestroy {
         };
         this.messages.push(botMsg);
         this.saveChatCache();
-        this.scrollToBottom();
+       //this.scrollToBottom();
         this.isApiResponse = false;
       },
       error: (err) => {
         console.error('Chat API Error:', err);
         this.pushBotMessage('Sorry, there was an error connecting to the AI service.');
         this.saveChatCache();
-        this.scrollToBottom();
+       //this.scrollToBottom();
         this.isApiResponse = false;
       }
     });
