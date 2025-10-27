@@ -6,6 +6,7 @@ import { IonicModule, ModalController } from '@ionic/angular';
 import { NavController } from "@ionic/angular";
 import { AppService } from "../../newBoarding/app.service";
 import { UTILITIES } from 'src/app/core/utility/utilities';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nutrition',
@@ -19,7 +20,7 @@ export class NutritionComponent implements OnInit {
   portion = "1";
   unit = "pc";
   isOpen = false;
-  constructor( private navCtrl: NavController,private appServices: AppService, private utilities: UTILITIES, private sanitizer: DomSanitizer, private navController: NavController, private modalCtrl: ModalController) {
+  constructor( private router:Router, private navCtrl: NavController,private appServices: AppService, private utilities: UTILITIES, private sanitizer: DomSanitizer, private navController: NavController, private modalCtrl: ModalController) {
 
   }
   mealChanged(event: any) {
@@ -39,8 +40,13 @@ export class NutritionComponent implements OnInit {
 
   }
   closeModal() {
-    this.modalCtrl.dismiss({ close: true });
+   // this.modalCtrl.dismiss({ close: true })
+    this.navController.navigateForward(['/new-diet']).then(res=>{
+          location.reload();
+       },err=>{
 
+       });
+        
   }
 
   logData(code) {

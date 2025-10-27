@@ -1,7 +1,7 @@
 <ion-content class="ion-padding">
   <div class="header">
     <ion-icon name="close-outline" (click)="retakeImage()" class="close-btn"></ion-icon>
-    <h2>Confirm your photo?</h2>
+    <h2 style="font-size: 1.3rem;">Confirm your photo?</h2>
   </div>
 
   <div class="image-container">
@@ -21,7 +21,7 @@
     left: 6%;">
     <ion-row>
       <ion-col class="ion-text-center">
- <ion-button (click)="retakeImage()"  expand="block" color="dark" class="buttons">Retake</ion-button>
+          <ion-button (click)="retakeImage()"  expand="block" color="dark" class="buttons">Retake</ion-button>
       </ion-col>
       <ion-col size="1"></ion-col>
       <ion-col class="ion-text-center">
@@ -31,5 +31,21 @@
    
 
 </ion-footer>
-
-</ion-content>
+ <div *ngIf="openHelp" style="width: 100%; height:100%;position: fixed; background: #000; top:0; opacity: .5; z-index: 10;"></div>
+ <div *ngIf="openHelp" style="width: 100%; position: fixed;bottom:0;background: #fff; text-align: center;top:45%;z-index: 11;">
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <p>Capture a clear, frontal shot of any food or meals; if packaged, focus on the front.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <img src= "./assets/img/shots.png" style="width: 85%;" />
+      </ion-col>
+    </ion-row>
+     <ion-row>
+      <ion-col size="11" class="ion-text-center">
+         <ion-button (click)="retakeImage()"  expand="block" color="success" class="buttons">Retake</ion-button>
+      </ion-col>
+    </ion-row>
+ </div>

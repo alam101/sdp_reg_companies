@@ -26,6 +26,7 @@ export class OpenImagePreviewComponent implements OnInit {
   }
 foodName;
 loading=false;
+openHelp=false;
 fullObjectfromImageScan:any;
   confirmImage() {
       this.loading=true;
@@ -37,7 +38,14 @@ fullObjectfromImageScan:any;
     this.appServices.foodImageSend(formData).subscribe(
       (res: any) => {
         console.log("foodImageSend", res);
-        this.foodName = res?.food_name;
+        
+        this.foodName = res?.food_name?.text!==undefined?res?.food_name?.text:res?.food_name;
+        if(this.foodName?.includes('no') || this.foodName?.includes('not') || this.foodName?.includes('no food')){
+          this.openHelp=true;
+          this.utilities.hideLoader();
+          this.loading=false;
+          return;
+        }
         this.fullObjectfromImageScan = res;
        
         if (res?.food_name?.text !== undefined) {

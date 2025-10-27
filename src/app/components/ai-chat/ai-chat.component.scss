@@ -10,6 +10,9 @@ ion-content{
   padding: 12px 16px;
   border-radius: 0 0 12px 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  width:100%;
+  z-index: 11;
 }
 .video-container {
   position: relative;
@@ -54,7 +57,7 @@ ion-content{
 }
 
 .messages{
-    margin-top:1rem;
+  margin-top:20%;
 }
 .message-row {
   display: flex;
