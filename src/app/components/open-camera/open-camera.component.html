@@ -22,8 +22,10 @@
     <ion-icon name="radio-button-on-outline"></ion-icon>
   </ion-button>
 
-  <ion-button class="toggle-btn" fill="clear" (click)="toggleMode()">
-    <ion-icon style="font-size: 2rem;" [name]="mode === 'photo' ? 'barcode-outline' : 'camera-outline'"></ion-icon>
+  <ion-button class="toggle-btn" fill="clear" >
+    <!-- (click)="toggleMode()" -->
+    <!-- <ion-icon style="font-size: 2rem;" [name]="mode === 'photo' ? 'barcode-outline' : 'camera-outline'"></ion-icon> -->
+      <ion-icon style="font-size: 2rem;" [name]="mode === 'photo' ? '' : 'camera-outline'"></ion-icon>
   </ion-button>
     </div>
   </div>
