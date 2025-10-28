@@ -44,8 +44,8 @@ export class AppComponent implements OnInit{
   
     if (linkElement) {
       // Here, we modify the href attribute of the manifest based on the client ID
-      const newManifestPath = `assets/${clientId}/manifest.webmanifest`;
-      linkElement.href = newManifestPath;
+      // const newManifestPath = `assets/${clientId}/manifest.webmanifest`;
+      // linkElement.href = newManifestPath;
   
       // Optionally, you can modify the contents of the manifest file dynamically using Fetch API or some other approach.
     }
