@@ -81,7 +81,7 @@ export class NutritionComponent implements OnInit {
         "slot": Number(this.slot),
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
-        "score": this.items?.foodDetail?.macros?.score === undefined ? 3 : Number(this.items?.foodDetail?.macros?.score),
+        "score": this.items?.foodDetail?.score === undefined ? 3 : Number(this.items?.foodDetail?.score),
         "date": moment().format('DDMMYYYY'),
         "id": this.items.imageDetail?._id,
         "imagePath": this.items.imageDetail?.imageUrl
