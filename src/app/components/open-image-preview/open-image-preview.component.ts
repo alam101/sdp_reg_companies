@@ -25,6 +25,7 @@ export class OpenImagePreviewComponent implements OnInit {
     this.modalCtrl.dismiss({ confirmed: false });
   }
 foodName;
+noFoddMessage="Confirm your photo";
 loading=false;
 openHelp=false;
 fullObjectfromImageScan:any;
@@ -40,14 +41,15 @@ fullObjectfromImageScan:any;
         console.log("foodImageSend", res);
         
         this.foodName = res?.food_name?.text!==undefined?res?.food_name?.text:res?.food_name;
-        if(this.foodName?.includes('no') || this.foodName?.includes('not') || this.foodName?.includes('no food')){
+        if(this.foodName?.includes('no ') || this.foodName?.includes('not') || this.foodName?.includes('no food')){
           this.openHelp=true;
           this.utilities.hideLoader();
           this.loading=false;
+          this.noFoddMessage = "No food item available";
           return;
         }
         this.fullObjectfromImageScan = res;
-       
+      
         if (res?.food_name?.text !== undefined) {
           this.foodDetailScanned(res?.food_name?.text);
 
