@@ -6811,7 +6811,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
-      "isGraph": false,
+      "isGraph": true,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
