@@ -302,7 +302,7 @@ targetWeightMessage=false;
       age: { code: "A1", label: "15 to 18 years", avg_age: Math.ceil(age) },
       gender: {
         code: this.gender,
-        gender: this.gender === "G1" ? "Male" : "Female",
+        label: this.gender === "G1" ? "Male" : "Female",
       },
       height: {
         value: this.convertToInFromCM(),

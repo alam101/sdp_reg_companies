@@ -72,7 +72,7 @@
             </ion-col>
             <ion-col size="7">
               <p class="commonText">
-                Gender:<span>{{profileData?.demographic?.gender?.gender}}
+                Gender:<span>{{profileData?.demographic?.gender?.label===undefined?profileData?.demographic?.gender?.gender:profileData?.demographic?.gender?.label}}
                 </span>
               </p>
               <p class="commonText">
