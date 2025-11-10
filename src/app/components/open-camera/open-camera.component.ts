@@ -118,7 +118,7 @@ foodDetailScanned(foodName){
         this.isOpen = true;
         this.foodDetail = res;
         
-      this.openNutritionModel();
+     this.fromBarcodeUpdateFoodDetail(this.foodName,this.foodDetail);
     
       // this.router.navigate(["nutrition"], { queryParams: { foodName: this.foodName,foodDetail:this.foodDetail }});
     },
@@ -131,6 +131,11 @@ async openNutritionModel(){
   this.stopCamera();
 }
 async openNutritionModelBarCode(previewUrl,foodName,foodDetail){
+  console.log("previewUrl,foodName,foodDetail", previewUrl,foodName,foodDetail);
+  this.foodDetailScanned(foodName);
+}
+
+async openForBarcode(previewUrl,foodName,foodDetail){
    const modal = await this.modalCtrl.create({
     component: NutritionComponent,
     componentProps: {
@@ -166,8 +171,11 @@ submitFoodDetailForUpdate(){
     
         this.updateFoodDetailPraveenapi(data);
     }
-    else if(this.mode === 'barcode'){
-        const data ={
+    
+}
+
+fromBarcodeUpdateFoodDetail(foodName,foodDetail){
+   const data ={
           "food":this.foodName,
           "type":"V",
           "calories":this.barcodeFoodDetail?.calories_kcal ===undefined?0:this.barcodeFoodDetail?.calories_kcal,
@@ -182,8 +190,8 @@ submitFoodDetailForUpdate(){
           "date":moment().format('DDMMYYYY'),
       }
         this.updateFoodDetailPraveenapi(data);
-    }
 }
+
 updateFoodDetailPraveenapi(data){
  this.appServices.updateFoodDetailPraveenApi(data).then(
     (res: any) => {
@@ -215,6 +223,7 @@ async startBarcodeScanner() {
 
     this.appServices.barcodeImageSend(formData).subscribe(
       (res: any) => {
+        debugger;
         if (res?.barcode !== undefined) {
            this.barcodeFootnoteImageSend(res?.barcode);
          
@@ -239,6 +248,7 @@ barcodeFootnoteImageSend(itemNumber){
         if(res?.product_name !== undefined){
           this.isOpen = true;
            this.barcodeFoodDetail = res;
+
             // this.stopCamera();
              this.openNutritionModelBarCode("",res?.product_name,this.barcodeFoodDetail);          
         }else{

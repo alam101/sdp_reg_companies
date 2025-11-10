@@ -16,13 +16,22 @@ import { Router } from '@angular/router';
 export class NutritionComponent implements OnInit {
   randomNumber = Number(Date.now()) * Math.random();
   @Input() items: any | null = null;
-  slot = "5";
+  
   portion = "1";
   unit = "pc";
   isOpen = false;
   constructor( private router:Router, private navCtrl: NavController,private appServices: AppService, private utilities: UTILITIES, private sanitizer: DomSanitizer, private navController: NavController, private modalCtrl: ModalController) {
 
   }
+  slot: string = '';
+  slots = [
+    { value: '2', label: 'Breakfast' },
+    { value: '3', label: 'Mid Day Snack' },
+    { value: '4', label: 'Lunch' },
+    { value: '6', label: 'Evening Snack' },
+    { value: '7', label: 'Dinner' },
+  ];
+  
   mealChanged(event: any) {
     this.slot = event.detail.value;
     console.log(this.slot);
@@ -35,18 +44,16 @@ export class NutritionComponent implements OnInit {
     this.unit = event.detail.value;
   }
   ngOnInit() {
-   
+   this.setSlotByTime();
+   setInterval(() => this.setSlotByTime(), 60 * 1000);
     console.log("foodDetail", this.items);
-
+    this.scoreRate(this.items?.foodDetail?.score === undefined ? 3 : Number(this.items?.foodDetail?.score));
   }
   closeModal() {
    // this.modalCtrl.dismiss({ close: true })
     this.navController.navigateForward(['/new-diet']).then(res=>{
           location.reload();
-       },err=>{
-
-       });
-        
+       },err=>{});      
   }
 
   logData(code) {
@@ -66,6 +73,41 @@ export class NutritionComponent implements OnInit {
               { refresh: new Date().getTime() },
             ]);
      });
+  }
+
+   setSlotByTime() {
+    const now = new Date();
+    const hour = now.getHours();
+    if (hour < 10) this.slot = '2';             // Till 10 am — Breakfast
+    else if (hour < 13) this.slot = '3';        // 10 am – 1 pm — Mid Day Snack
+    else if (hour < 15) this.slot = '4';        // 1 pm – 3 pm — Lunch
+    else if (hour < 19) this.slot = '6';        // 3 pm – 7 pm — Evening Snack
+    else this.slot = '7';                       // After 7 pm — Dinner
+  }
+
+  scoreLegth='10%';
+  scoreRate(score){
+     let index = '0%';
+    switch (score) {
+      case -1:
+        index = '10%'; // Bad
+        break;
+      case 1:
+        index = '30%'; // Poor
+        break;
+      case 3:
+        index = '50%'; // Good
+        break;
+      case 6:
+        index = '70%'; // Great
+        break;
+      case 9:
+        index = '90%'; // Excellent
+        break;
+      default:
+        index = '0%';
+    }
+    this.scoreLegth = index;
   }
 
   submit() {

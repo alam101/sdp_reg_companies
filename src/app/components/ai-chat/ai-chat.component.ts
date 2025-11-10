@@ -67,12 +67,11 @@ export class AiChatComponent implements OnInit, OnDestroy {
 
   name:string=''; 
 
-  ngOnInit(): void {
-   
+  ngOnInit(): void { 
     this.name = this.items?.profile?.profile?.name;
     this.loadChatCache();
     this.loadRecallCache();
-    setTimeout(() => this.scrollToBottom(), 100);
+    setTimeout(() => this.scrollToBottom(1), 100);
     console.log("this.responses", this.responses);
     
   
@@ -182,6 +181,23 @@ export class AiChatComponent implements OnInit, OnDestroy {
      }
      await this.apiCall(payld); 
  }
+  async startAnalyzeNew(obj){
+      const user:ChatMessage ={
+      id: Date.now(),
+      from: 'user',
+      text: obj.msg,
+      time: new Date().toLocaleTimeString()
+    };
+
+    this.messages.push(user);
+    this.scrollToBottom(1);
+   const payld = {"data":{"id":this.items?.profile?.profile?.email},//this.items?.profile?.profile?.email
+    "dateTime": new Date().toISOString(),
+    "query": obj.msg,
+    "intent": obj.intent
+    }
+     await this.apiCall(payld); 
+ }
   restartRecall() {
     this.isRecallMode = false;
     this.isRecallSummary = false;
@@ -208,7 +224,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
     this.messages.push(userMsg);
     this.input.setValue('');
     this.saveChatCache();
-   this.scrollToBottom();
+   this.scrollToBottom(1);
 
     // 🔹 Handle Recall Mode
     if (this.isRecallMode && !this.isRecallSummary) {
@@ -243,16 +259,17 @@ export class AiChatComponent implements OnInit, OnDestroy {
           html: formatted,
           time: new Date().toLocaleTimeString()
         };
+
         this.messages.push(botMsg);
         this.saveChatCache();
-       //this.scrollToBottom();
+       this.scrollToBottom(.2,600);
         this.isApiResponse = false;
       },
       error: (err) => {
         console.error('Chat API Error:', err);
         this.pushBotMessage('Sorry, there was an error connecting to the AI service.');
         this.saveChatCache();
-       //this.scrollToBottom();
+       this.scrollToBottom(.2);
         this.isApiResponse = false;
       }
     });
@@ -316,18 +333,29 @@ export class AiChatComponent implements OnInit, OnDestroy {
       html: this.formatResponse(text),
       time: new Date().toLocaleTimeString()
     });
+
     this.saveChatCache();
-   //this.scrollToBottom();
+   this.scrollToBottom();
   }
 
- private scrollToBottom(duration: number = 300) {
-  if (this.content) {
-    setTimeout(() => {
-      this.content.scrollToBottom(duration).catch(err => console.warn('Scroll failed:', err));
-    }, 100);
-  }
+private scrollToBottom(percent: number = 0.2, duration: number = 300) {
+  if (!this.content) return;
+
+  setTimeout(async () => {
+    const el = await this.content.getScrollElement();
+    const currentY = el.scrollTop;
+    const maxY = el.scrollHeight - el.clientHeight;
+
+    // ✅ 20% of *remaining* scroll instead of full height
+    const remaining = maxY - currentY;
+    const scrollAmount = remaining * percent;
+
+    const newY = currentY + scrollAmount;
+
+    this.content.scrollToPoint(0, newY, duration)
+      .catch(err => console.warn('Scroll failed:', err));
+  }, 100);
 }
-
   private saveChatCache() {
     const safeToStore = this.messages.map(m => ({ ...m, html: undefined }));
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(safeToStore));
@@ -346,8 +374,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
     }
   }
  
-  apiCall(payload){
-  
+  apiCall(payload){  
     this.isApiResponse = true;
     this.appService.sendChat(payload).subscribe({
       next: (res: any) => {
@@ -362,14 +389,14 @@ export class AiChatComponent implements OnInit, OnDestroy {
         };
         this.messages.push(botMsg);
         this.saveChatCache();
-       //this.scrollToBottom();
+       this.scrollToBottom(.5);
         this.isApiResponse = false;
       },
       error: (err) => {
         console.error('Chat API Error:', err);
         this.pushBotMessage('Sorry, there was an error connecting to the AI service.');
         this.saveChatCache();
-       //this.scrollToBottom();
+       this.scrollToBottom(.5);
         this.isApiResponse = false;
       }
     });

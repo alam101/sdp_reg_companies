@@ -819,8 +819,18 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
    
    this.utilities.hideLdr();
     }, (error) => {
+ this.percentwithPer='100%';
+      const a = document.createElement('a');
+      console.log("error", error);  
+      this.downloadPdf(error["url"]);
+        setTimeout(()=>{
+          this.isdoenloadclicked=false;
+         },2000);
+         clearInterval(this.iscloseInterval);
+        console.log('Page loaded:', event);
       this.utilities.hideLdr();
       console.error('Error downloading PDF:', error);
+      
     });
 
   }

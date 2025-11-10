@@ -35,6 +35,9 @@
   </div>
 
   <div class="quick-chips">
+    <ion-chip (click)="startAnalyzeNew({intent:'score_day_analysis',msg:'Analyze My today’s Diet'})">
+  <ion-label>Analyze today’s Diet</ion-label>
+</ion-chip> 
     <ion-chip *ngFor="let opt of quickOptions" (click)="selectQuick(opt)">
       <ion-label>{{ opt.name }}</ion-label>
     </ion-chip>
@@ -44,6 +47,7 @@
    <ion-chip (click)="startAnalyze()">
   <ion-label>Analyze</ion-label>
 </ion-chip> -->
+ 
   </div>
 
   <div class="composer">

@@ -1,12 +1,19 @@
 .camera-preview {
- position: absolute;
-    top: 8%;
-    left: 6%;
-    width: 88%;
-    height: 15%;
-    object-fit: cover;
-    border-radius: 10px;
-    margin: 0rem 1rem 1rem 0rem;
+  position: absolute;
+  top: 11%;
+  left: 6%;
+  width: 88%;
+  height: 15%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0rem 1rem 1rem 0rem;
+  transform: scale(1.9);
+  transition: transform 1.5s ease-in-out;
+}
+
+/* When camera starts */
+.camera-preview.zoomed {
+  transform: scale(1.3);
 }
 
 .overlay {
@@ -47,7 +54,7 @@
     border-radius: 12px;
     top: 10.5%;
     position: absolute;
-    height: 19.5%;
+    height: 26.5%;
     width: 88%;
     max-height: 50%;
 }

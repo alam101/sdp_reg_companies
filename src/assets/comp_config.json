@@ -966,6 +966,8 @@
       "defaultPlanCheck": false,
       "showWhatsApp": true,
       "dietitianAction": true,
+      "bot": true,
+      "scanner":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1132,6 +1134,8 @@
       "defaultPlanCheck": false,
       "showWhatsApp": false,
       "dietitianAction": true,
+        "bot": true,
+      "scanner":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -6472,6 +6476,8 @@
       "defaultPlanCheck": false,
       "showWhatsApp": true,
       "dietitianAction": true,
+        "bot": true,
+      "scanner":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -6811,7 +6817,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
-      "isGraph": true,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,

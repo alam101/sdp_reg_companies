@@ -1,10 +1,10 @@
 
 <ion-content>
   <!-- Fruit Image -->
-   <div style="    position: fixed;
+   <div style="position: fixed;
     width: 100%;
     font-size: 1.5rem;
-    background: #000;z-index: 11;">
+    background: #000;z-index: 11;padding: .5rem;">
     <ion-row>
     <ion-col class="ion-text-center" size="2">
         <ion-icon style="color:#fff;border-radius: 5px;height: 20px;font-size: 1.5rem;background: gray;padding: .3rem;opacity: .95;" name="arrow-back-outline" (click)="closeModal()"></ion-icon>
@@ -24,18 +24,16 @@
      <ion-col size=".5"></ion-col>
     <ion-col class="ion-text-center" size="4">
       <div>
-        <ion-select style="color:#fff;border-radius: 5px;background: gray;padding: .3rem;font-size:.8rem;opacity: .95;" 
-        [(ngModel)]="slot" interface="popover" placeholder="Meal Type" (ionChange)="mealChanged($event)">
-           <ion-select-option value="">Select Slot</ion-select-option>
-          <ion-select-option value="1">When You Wake up</ion-select-option>
-          <ion-select-option value="2">Before Breakfast</ion-select-option>
-          <ion-select-option value="3">Breakfast</ion-select-option>
-          <ion-select-option value="4">Mid Day Meal</ion-select-option>
-          <ion-select-option value="5">Lunch</ion-select-option>
-          <ion-select-option value="6">Evening Snack</ion-select-option>
-          <ion-select-option value="7">Dinner</ion-select-option>
-          <ion-select-option value="8">Before Sleep</ion-select-option>
-        </ion-select>
+      <ion-select
+  style="color:#fff;border-radius:5px;background:gray;padding:.3rem;font-size:.8rem;opacity:.95;"
+  [(ngModel)]="slot"
+  interface="popover"
+  placeholder="Meal Type"
+  (ionChange)="mealChanged($event)"
+>
+  <ion-select-option value="">Select Slot</ion-select-option>
+  <ion-select-option *ngFor="let s of slots" [value]="s.value">{{ s.label }}</ion-select-option>
+</ion-select>
       </div>
     </ion-col>
      <ion-col size=".5"></ion-col>
@@ -115,7 +113,8 @@
   </ion-card>
 
   <!-- Health Rating -->
-      <app-health-rating [score]="3"></app-health-rating>
+ 
+      <app-health-rating [score]="scoreLegth"></app-health-rating>
       <!-- <div class="rating-bar">
         <div class="bar">
           <span class="bad">Bad</span>
