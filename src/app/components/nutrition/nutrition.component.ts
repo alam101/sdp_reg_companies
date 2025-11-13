@@ -132,18 +132,19 @@ export class NutritionComponent implements OnInit {
     }
     else if (this.items?.mode === 'barcode') {
       const data = {
-        "food": this.items?.foodName?.text,
+        "food": this.items?.foodDetail?.food,
         "type": "V",
-        "calories": this.items?.foodDetail?.barcodeFoodDetail?.calories_kcal === undefined ? 0 : this.items?.foodDetail?.barcodeFoodDetail?.calories_kcal,
-        "protein": this.items?.foodDetail?.barcodeFoodDetail?.protein_g === undefined ? 0 : this.items?.foodDetail?.barcodeFoodDetail?.protein_g,
-        "fat": this.items?.foodDetail?.barcodeFoodDetail?.fat_g === undefined ? 0 : this.items?.foodDetail?.barcodeFoodDetail?.fat_g,
-        "carbs": this.items?.foodDetail?.barcodeFoodDetail?.carbs_g === undefined ? 0 : this.items?.foodDetail?.barcodeFoodDetail?.carbs_g,
-        "fiber": this.items?.foodDetail?.barcodeFoodDetail?.fiber_g === undefined ? 0 : this.items?.foodDetail?.barcodeFoodDetail?.fiber_g,
+        "calories": this.items?.foodDetail?.macros?.calories === undefined ? 0 : this.items?.foodDetail?.macros?.calories,
+        "protein": this.items?.foodDetail?.macros?.protein === undefined ? 0 : this.items?.foodDetail?.macros?.protein,
+        "fat": this.items?.foodDetail?.macros?.fats === undefined ? 0 : this.items?.foodDetail?.macros?.fats,
+        "carbs": this.items?.foodDetail?.macros?.carbs === undefined ? 0 : this.items?.foodDetail?.macros?.carbs,
+        "fiber": this.items?.foodDetail?.macros?.fiber === undefined ? 0 : this.items?.foodDetail?.macros?.fiber,
         "slot": this.slot,
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
-        "score": this.items?.foodDetail?.barcodeFoodDetail?.score === "" ? 3 : this.items?.foodDetail?.barcodeFoodDetail?.score,
+        "score": this.items?.foodDetail?.score === "" ? 3 : this.items?.foodDetail?.score,
         "date": moment().format('DDMMYYYY'),
+        "imagePath": this.items.previewUrl
       }
       this.updateFoodDetailPraveenapi(data);
     }
@@ -153,6 +154,7 @@ export class NutritionComponent implements OnInit {
       (res: any) => {
         this.isOpen = false;
         console.log("updateFoodDetailPraveenApi", res);
+        debugger;
        this.navController.navigateForward(['/new-diet']).then(res=>{
           location.reload();
        },err=>{

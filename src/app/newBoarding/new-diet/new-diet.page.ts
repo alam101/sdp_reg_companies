@@ -708,6 +708,14 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      localStorage.setItem("company_id","metropolis");
       this.downloadPdfFromApiNew1();
      }
+     else if(this.clientId==='fitelo'){
+        debugger;
+        this.design='new';
+     this.isdoenloadclicked=true;
+      localStorage.setItem("company_id","fitelo");
+      this.downloadPdfFromApiNew1();
+     }
+
      else {
       this.isdoenloadclicked=true;
       this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();

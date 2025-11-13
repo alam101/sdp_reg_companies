@@ -169,7 +169,7 @@
       "video": false,
       "date_selection1": true,
       "date_selection2": false,
-      "goal": false,
+      "goal": true,
       "notes": true,
       "modifyNotes": true,
       "caloriesCircle": false,
@@ -182,12 +182,14 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "headerText": "Welcome to your daily diet plan.",
       "showWhatsApp": false,
       "dietitianAction": false,
+       "bot": false,
+      "scanner":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -212,12 +214,6 @@
               "value": "muscleGain",
               "label": "Pump and get stronger",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
-            },
-            {
-              "name": "Lean Body",
-              "value": "fatShredding",
-              "label": " Maintain muscles and lose fat",
-              "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
             }
           ]
         },

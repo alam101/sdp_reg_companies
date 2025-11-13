@@ -123,6 +123,7 @@ foodDetailScanned(foodName){
       // this.router.navigate(["nutrition"], { queryParams: { foodName: this.foodName,foodDetail:this.foodDetail }});
     },
     (err) => {
+      this.utilities.hideLoader();
       this.utilities.presentAlert("Something went wrong! Please try again.");
     }
   );
@@ -174,19 +175,21 @@ submitFoodDetailForUpdate(){
     
 }
 
+foodDetailForBarcode:any;
 fromBarcodeUpdateFoodDetail(foodName,foodDetail){
+  this.foodDetailForBarcode = foodDetail;
    const data ={
-          "food":this.foodName,
+          "food":foodDetail.food,
           "type":"V",
-          "calories":this.barcodeFoodDetail?.calories_kcal ===undefined?0:this.barcodeFoodDetail?.calories_kcal,
-          "protein": this.barcodeFoodDetail?.protein_g ===undefined?0:this.barcodeFoodDetail?.protein_g,
-          "fat":this.barcodeFoodDetail?.fat_g ===undefined?0:this.barcodeFoodDetail?.fat_g,
-          "carbs":this.barcodeFoodDetail?.carbs_g ===undefined?0:this.barcodeFoodDetail?.carbs_g,
-          "fiber":this.barcodeFoodDetail?.fiber_g ===undefined?0:this.barcodeFoodDetail?.fiber_g,
+          "calories":foodDetail?.macros?.calories===undefined?0:foodDetail.macros?.calories,
+          "protein": foodDetail?.macros?.protein===undefined?0:foodDetail.macros?.protein,
+          "fat":foodDetail?.macros?.fats===undefined?0:foodDetail.macros?.fats,
+          "carbs":foodDetail?.macros?.carbs===undefined?0:foodDetail.macros?.carbs,
+          "fiber":foodDetail?.macros?.fiber===undefined?0:foodDetail.macros?.fiber,
           "slot":this.slot,
           "portionUnit":this.unit,
           "portionQuantity": this.portion,
-          "score": this.barcodeFoodDetail?.nutriscore_score ===""?0:this.barcodeFoodDetail?.nutriscore_score,
+          "score": !foodDetail.score?0:foodDetail.score,
           "date":moment().format('DDMMYYYY'),
       }
         this.updateFoodDetailPraveenapi(data);
@@ -196,9 +199,12 @@ updateFoodDetailPraveenapi(data){
  this.appServices.updateFoodDetailPraveenApi(data).then(
     (res: any) => {
       this.isOpen=false;
+      this.utilities.hideLoader();
+      this.openForBarcode(this.previewUrl,this.foodDetailForBarcode?.food,this.foodDetailForBarcode);
       console.log("updateFoodDetailPraveenApi", res);
     },
     (err) => {
+      this.utilities.hideLoader();
       this.utilities.presentAlert("Something went wrong! Please try again.");
     }
   );
@@ -218,12 +224,14 @@ async startBarcodeScanner() {
   canvas.toBlob((blob) => {
   if (blob) {
     const file = new File([blob], "barcode.jpeg", { type: "image/jpeg" });
+    const url = URL.createObjectURL(file);
+   this.previewUrl = url;
     const formData = new FormData();
     formData.append("image", file);
-
+    
     this.appServices.barcodeImageSend(formData).subscribe(
       (res: any) => {
-        debugger;
+        this.utilities.showLoading();
         if (res?.barcode !== undefined) {
            this.barcodeFootnoteImageSend(res?.barcode);
          
@@ -250,12 +258,14 @@ barcodeFootnoteImageSend(itemNumber){
            this.barcodeFoodDetail = res;
 
             // this.stopCamera();
-             this.openNutritionModelBarCode("",res?.product_name,this.barcodeFoodDetail);          
+             this.openNutritionModelBarCode(this.previewUrl,res?.product_name,this.barcodeFoodDetail);          
         }else{
+          this.utilities.hideLoader();
           this.utilities.presentAlert("Something went wrong! Please try again.");
         }
       },
       (err) => {
+        this.utilities.hideLoader();
         this.utilities.presentAlert("Something went wrong! Please try again.");
       }
     );  

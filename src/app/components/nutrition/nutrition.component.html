@@ -40,7 +40,8 @@
   </ion-row>
   </div>
   <div class="image-container">
-    <img [src]="sanitizer.bypassSecurityTrustUrl(items.image)" alt="{{items.foodName}}" />
+    <img [src]="sanitizer.bypassSecurityTrustUrl(items.image)" alt="{{items.foodName}}" *ngIf="this.items.mode==='photo'" />
+     <img [src]="sanitizer.bypassSecurityTrustUrl(items.previewUrl)" alt="{{items.foodName}}" *ngIf="this.items.mode==='barcode'" />
   </div>
 
   <!-- Info Section -->
