@@ -154,7 +154,6 @@ export class NutritionComponent implements OnInit {
       (res: any) => {
         this.isOpen = false;
         console.log("updateFoodDetailPraveenApi", res);
-        debugger;
        this.navController.navigateForward(['/new-diet']).then(res=>{
           location.reload();
        },err=>{

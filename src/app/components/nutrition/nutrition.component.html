@@ -39,9 +39,11 @@
      <ion-col size=".5"></ion-col>
   </ion-row>
   </div>
-  <div class="image-container">
-    <img [src]="sanitizer.bypassSecurityTrustUrl(items.image)" alt="{{items.foodName}}" *ngIf="this.items.mode==='photo'" />
-     <img [src]="sanitizer.bypassSecurityTrustUrl(items.previewUrl)" alt="{{items.foodName}}" *ngIf="this.items.mode==='barcode'" />
+  <div class="image-container" *ngIf="this.items.mode==='photo'">
+    <img [src]="sanitizer.bypassSecurityTrustUrl(items.image)" alt="{{items.foodName}}"  />
+  </div>
+  <div class="image-containerbarcode" *ngIf="this.items.mode==='barcode'">
+     <img src="./assets/newImages/null.jpg" alt="{{items.foodName}}"  />
   </div>
 
   <!-- Info Section -->

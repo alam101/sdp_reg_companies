@@ -20,6 +20,8 @@ export class OpenCameraComponent implements AfterViewInit, OnDestroy {
   @Output() backButton = new EventEmitter<boolean>();
   private scanner: BrowserMultiFormatReader | null = null;
   private controls: IScannerControls | null = null;
+  private codeReader!: BrowserMultiFormatReader;
+  scannedBarcode: string | null = null;
   isOpen = false;
   mode: 'photo' | 'barcode' = 'photo';
   
@@ -55,6 +57,7 @@ private stream: MediaStream | null = null;
   toggleMode() {
     if (this.mode === 'photo') {
       this.mode = 'barcode';   
+      this.startBarcodeScanner();
     } else {
       this.mode = 'photo';
     }
@@ -66,7 +69,7 @@ private stream: MediaStream | null = null;
       this.capturePhoto();
     }
     else{
-      this.startBarcodeScanner();
+     // this.startBarcodeScanner();
     }
     
     // in barcode mode, scanning happens automatically
@@ -198,56 +201,104 @@ fromBarcodeUpdateFoodDetail(foodName,foodDetail){
 updateFoodDetailPraveenapi(data){
  this.appServices.updateFoodDetailPraveenApi(data).then(
     (res: any) => {
+       this.stopScanner();
+        this.loading=false;
       this.isOpen=false;
       this.utilities.hideLoader();
       this.openForBarcode(this.previewUrl,this.foodDetailForBarcode?.food,this.foodDetailForBarcode);
       console.log("updateFoodDetailPraveenApi", res);
     },
     (err) => {
+       this.loading=false;
       this.utilities.hideLoader();
       this.utilities.presentAlert("Something went wrong! Please try again.");
     }
   );
 }
-
-
+loading=false;
 async startBarcodeScanner() {
-    const video = this.video.nativeElement;
-  const canvas = this.canvas.nativeElement;
-  const ctx = canvas.getContext('2d')!;
+    try {
+      this.loading=true;
+      // 1️⃣ Configure hints to detect multiple barcode formats
+      const hints = new Map();
+      const formats = [
+        BarcodeFormat.CODE_128,
+        BarcodeFormat.CODE_39,
+        BarcodeFormat.EAN_13,
+        BarcodeFormat.EAN_8,
+        BarcodeFormat.UPC_A,
+        BarcodeFormat.UPC_E,
+        BarcodeFormat.QR_CODE,
+      ];
+      hints.set(DecodeHintType.POSSIBLE_FORMATS, formats);
 
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      // 2️⃣ Create reader with hints
+      this.codeReader = new BrowserMultiFormatReader(hints);
 
-  // Convert canvas to Blob
-  canvas.toBlob((blob) => {
-  if (blob) {
-    const file = new File([blob], "barcode.jpeg", { type: "image/jpeg" });
-    const url = URL.createObjectURL(file);
-   this.previewUrl = url;
-    const formData = new FormData();
-    formData.append("image", file);
-    
-    this.appServices.barcodeImageSend(formData).subscribe(
-      (res: any) => {
-        this.utilities.showLoading();
-        if (res?.barcode !== undefined) {
-           this.barcodeFootnoteImageSend(res?.barcode);
-         
-      //    this.utilities.presentAlert("barcode Image: "+ res?.barcode);
-        } else {
-          this.utilities.presentAlert("Error:-"+JSON.stringify(res));
-
+      // 3️⃣ Start video scanning
+      const videoElement = this.video.nativeElement;
+      this.controls = await this.codeReader.decodeFromVideoDevice(
+        undefined, // default camera
+        videoElement,
+        (result, error, controls) => {
+          if (result) {
+            this.scannedBarcode = result.getText();
+            console.log('✅ Scanned Barcode:', this.scannedBarcode);
+            this.barcodeFootnoteImageSend(this.scannedBarcode);
+            //controls.stop(); // stop scanning after first success
+          }
+          if (error && error.name !== 'NotFoundException') {
+            console.warn('Scanning error:', error);
+          }
         }
-      },
-      (err) => {
-        this.utilities.presentAlert(JSON.stringify(err.error?.detail));
-      }
-    );
+      );
+    } catch (err) {
+      console.error('Camera error:', err);
+    }
   }
-}, "image/jpeg", 0.9);
-}
+
+  stopScanner() {
+    this.controls?.stop();
+  }
+
+
+// async startBarcodeScanner() {
+//     const video = this.video.nativeElement;
+//   const canvas = this.canvas.nativeElement;
+//   const ctx = canvas.getContext('2d')!;
+
+//   canvas.width = video.videoWidth;
+//   canvas.height = video.videoHeight;
+//   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+//   // Convert canvas to Blob
+//   canvas.toBlob((blob) => {
+//   if (blob) {
+//     const file = new File([blob], "barcode.jpeg", { type: "image/jpeg" });
+//     const url = URL.createObjectURL(file);
+//    this.previewUrl = url;
+//     const formData = new FormData();
+//     formData.append("image", file);
+    
+//     this.appServices.barcodeImageSend(formData).subscribe(
+//       (res: any) => {
+//         this.utilities.showLoading();
+//         if (res?.barcode !== undefined) {
+//            this.barcodeFootnoteImageSend(res?.barcode);
+         
+//       //    this.utilities.presentAlert("barcode Image: "+ res?.barcode);
+//         } else {
+//           this.utilities.presentAlert("Error:-"+JSON.stringify(res));
+
+//         }
+//       },
+//       (err) => {
+//         this.utilities.presentAlert(JSON.stringify(err.error?.detail));
+//       }
+//     );
+//   }
+// }, "image/jpeg", 0.9);
+// }
 barcodeFoodDetail:any;
 barcodeFootnoteImageSend(itemNumber){ 
     this.appServices.barcodeFootnoteImageSend(itemNumber).subscribe(

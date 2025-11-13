@@ -97,3 +97,63 @@
     top: 30px;
   }
 }
+
+/* scanner bar variables */
+.scan-line{
+--bar-h: 28px;
+    --color: rgba(166, 230, 0, 0.85);
+    --glow: 18px;
+    --speed: 5.4s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 82px;
+    transform: translateY(-100%);
+    pointer-events: none;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.04) 20%, var(--color) 50%, rgba(255, 255, 255, 0.03) 80%, rgba(0, 0, 0, 0.02) 100%);
+    border-top: 2px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0 var(--glow) calc(var(--glow) / 6) var(--color), 0 10px 18px -12px rgba(0, 0, 0, 0.55);
+    animation: scanY var(--speed) 
+ease-in-out infinite;
+    top: 16%;
+}
+
+/* a thin bright rim line centered inside the bar for crispness */
+.scan-line::after{
+  content: "";
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    top: 0;
+    height: 2px;
+    transform: translateY(-86%);
+    background: rgba(255, 255, 255, 0.65);
+    filter: blur(0.6px);
+    mix-blend-mode: screen;
+}
+
+/* shadow at the bottom edge where the bar is currently located
+   this pseudo-element creates a cast shadow below the bar */
+.scan-line::before{
+ content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 14px;
+    transform: translateY(2px);
+    background: radial-gradient(closest-side, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0) 70%);
+    opacity: 0.9;
+    filter: blur(6px);
+}
+
+/* animation: moves the bar from top -> bottom -> top */
+@keyframes scanY {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  8%   { opacity: 1; }
+  50%  { transform: translateY(calc(100% - var(--bar-h))); opacity: 1; } /* bottom */
+  92%  { opacity: 1; }
+  100% { transform: translateY(-100%); opacity: 0; }
+}
