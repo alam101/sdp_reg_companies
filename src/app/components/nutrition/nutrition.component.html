@@ -42,9 +42,21 @@
   <div class="image-container" *ngIf="this.items.mode==='photo'">
     <img [src]="sanitizer.bypassSecurityTrustUrl(items.image)" alt="{{items.foodName}}"  />
   </div>
-  <div class="image-containerbarcode" *ngIf="this.items.mode==='barcode'">
-     <img src="./assets/newImages/null.jpg" alt="{{items.foodName}}"  />
+  <div class="image-containerbarcode" *ngIf="this.items.mode==='barcode' && this.items?.image?.includes(':')">    
+     <img style="width: 100%;" [src]="items?.image?sanitizer.bypassSecurityTrustUrl(items?.image) :'./assets/newImages/null.jpg'" alt="{{items.foodName}}"  />
   </div>
+   <div style="display: flex
+;
+    justify-content: center;
+    height: 143px;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding-top: 4rem;
+    font-size: 2rem;" *ngIf="this.items.mode==='barcode' && !this.items?.image?.includes(':')">    
+     {{items?.image}}
+  </div>
+  
 
   <!-- Info Section -->
   <ion-card style="margin:0;padding: 0;box-shadow: none;">

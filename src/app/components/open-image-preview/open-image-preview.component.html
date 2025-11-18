@@ -6,8 +6,24 @@
 
   <div class="image-container">
     <div class="scan-wrap">
-  <ion-img [src]="previewUrl?.url" alt="Captured Image" style="transform: scale(1.8);
+      previewUrl
+  <ion-img *ngIf="previewUrl?.file!==''" [src]="previewUrl?.url" alt="Captured Image" style="transform: scale(1.8);
 "></ion-img>
+    <div *ngIf="previewUrl?.file===''" style="text-align:center;
+    width:80%;
+    min-height:300px;
+    height:40%;
+    margin-top:5%;
+    border:1px solid var(--theme-color);
+    left:10%;
+    position:relative;
+    display:flex;
+    align-items:center;    font-weight: bold;
+    font-size: 1.7rem;
+    letter-spacing: 4px;
+    border-radius: 18px;justify-content: center;color:#fff">
+        {{previewUrl.url}}
+    </div>
   <div [ngClass]="{ 'scan-line': loading }"></div>
 </div>
    
@@ -42,7 +58,9 @@
     </ion-row>
     <ion-row>
       <ion-col class="ion-text-center">
-        <img src= "./assets/img/shots.png" style="width: 85%;" />
+        food image<img src= "./assets/img/shots.png" style="width: 85%;" *ngIf="previewUrl?.file!=='' && previewUrl?.mode=='photo'" />
+         scanner<img src= "./assets/img/shots.png" style="width: 85%;" *ngIf="previewUrl?.file===''" />
+          barcode<img src= "./assets/img/shots.png" style="width: 85%;" *ngIf="previewUrl?.file!=='' && previewUrl?.mode!=='photo'" />
       </ion-col>
     </ion-row>
      <ion-row>

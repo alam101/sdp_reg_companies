@@ -663,7 +663,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   }
   isdoenloadclicked=false;
   async gotoDownloadPopup(){ 
-     
+     debugger;
      if(this.clientId==='alyve'){
       this.design='new';
      this.isdoenloadclicked=true;
@@ -677,10 +677,11 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      }
      
      else if(this.clientId==='redcliffe'){
+      debugger;
       this.design='new';
-      this.response_type="url";
+      this.response_type="file";
       this.isdoenloadclicked=true;
-      localStorage.setItem("company_id","REDCLIFFE");
+      localStorage.setItem("company_id","RedcliffeLabs");
       if(this.response_type==="file"){
         this.downloadPdfFromApiNew1();
       }

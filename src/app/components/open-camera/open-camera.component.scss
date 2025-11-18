@@ -1,14 +1,29 @@
 .camera-preview {
   position: absolute;
-  top: 11%;
-  left: 6%;
-  width: 88%;
-  height: 15%;
+  top: 12.5%;
+  left: 24%;
+  width: 52%;
+  height: 11.5%;
   object-fit: cover;
   border-radius: 10px;
   margin: 0rem 1rem 1rem 0rem;
   transform: scale(1.9);
-  transition: transform 1.5s ease-in-out;
+  transition: transform 1.5s 
+  ease-in-out;
+}
+
+.camera-preview-barcode {
+  position: absolute;
+  top: 12.5%;
+  left: 24%;
+  width: 52%;
+  height: 7.5% ;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0rem 1rem 1rem 0rem;
+  transform: scale(1.9);
+  transition: transform 1.5s 
+  ease-in-out;
 }
 
 /* When camera starts */
@@ -55,6 +70,16 @@
     top: 10.5%;
     position: absolute;
     height: 26.5%;
+    width: 88%;
+    max-height: 50%;
+}
+.scan-box-barcode{
+  border: 2px solid var(--theme-color);
+    margin: 0% 6%;
+    border-radius: 12px;
+    top: 12.5%;
+    position: absolute;
+    height: 17%;
     width: 88%;
     max-height: 50%;
 }
@@ -110,14 +135,14 @@
     height: 82px;
     transform: translateY(-100%);
     pointer-events: none;
-    z-index: 10;
+    z-index: 14;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.04) 20%, var(--color) 50%, rgba(255, 255, 255, 0.03) 80%, rgba(0, 0, 0, 0.02) 100%);
     border-top: 2px solid rgba(255, 255, 255, 0.06);
     border-bottom: 2px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 0 var(--glow) calc(var(--glow) / 6) var(--color), 0 10px 18px -12px rgba(0, 0, 0, 0.55);
     animation: scanY var(--speed) 
-ease-in-out infinite;
-    top: 16%;
+    ease-in-out infinite;
+    top: 30%;
 }
 
 /* a thin bright rim line centered inside the bar for crispness */
@@ -157,3 +182,39 @@ ease-in-out infinite;
   92%  { opacity: 1; }
   100% { transform: translateY(-100%); opacity: 0; }
 }
+
+.scanner-container {
+  position: absolute;
+  top: 12.5%;
+  left: 24%;
+  width: 52%;
+  height: 11.5%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0rem 1rem 1rem 0rem;
+  transform: scale(1.9);
+  transition: transform 1.5s 
+  ease-in-out;
+}
+
+.scan-frame {
+  position: absolute;
+  top: 18.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  height: 250px;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #00ff00;
+}
+
+.top-left    { border-right: none; border-bottom: none; top: 0; left: 0; }
+.top-right   { border-left: none; border-bottom: none; top: 0; right: 0; }
+.bottom-left { border-right: none; border-top: none; bottom: 0; left: 0; }
+.bottom-right{ border-left: none; border-top: none; bottom: 0; right: 0; }

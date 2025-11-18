@@ -15,21 +15,23 @@ import { NutritionComponent } from '../nutrition/nutrition.component';
 })
 export class OpenImagePreviewComponent implements OnInit {
    @Input() previewUrl: any = null;
-
   constructor(private appServices: AppService,private utilities: UTILITIES,private modalCtrl: ModalController) {
 
   }
 
  retakeImage() {
-  this.loading=false;
+    this.loading=false;
     this.modalCtrl.dismiss({ confirmed: false });
   }
+
 foodName;
 noFoddMessage="Confirm your photo";
 loading=false;
 openHelp=false;
 fullObjectfromImageScan:any;
   confirmImage() {
+
+    if(this.previewUrl.mode==='photo'){
       this.loading=true;
     this.utilities.showLoading();
   //  this.stopCamera();
@@ -65,9 +67,81 @@ fullObjectfromImageScan:any;
         this.utilities.presentAlert("Something went wrong! Please try again.");
       }
     );
-   
   }
+  else if(this.previewUrl.mode!=='photo' && this.previewUrl?.file===''){
+    this.loading=true;
+      this.barcodeFootnoteImageSend(this.previewUrl?.url);
+  }
+  else{
+    this.loading=true;
+   // this.modalCtrl.dismiss({ confirmed: true });
+      const formData = new FormData();
+    formData.append("image", this.previewUrl?.file);
+    this.appServices.barcodeImageSend(formData).subscribe(
+      (res: any) => {
+        console.log("asdada", this.previewUrl?.file);
+        
+        this.utilities.showLoading();
+        if (res?.barcode !== undefined) {
+           this.barcodeFootnoteImageSend(res?.barcode);
+        } else {
+          this.openHelp=true;
+        }
+      },
+      (err) => {
+        this.openHelp=true;
+      }
+    );
+  }
+  }
+
+
+async openNutritionModelBarCode(previewUrl,foodName,foodDetail){
+  console.log("previewUrl,foodName,foodDetail", previewUrl,foodName,foodDetail);
+  // this.openNutritionModel(this.previewUrl.url,foodName,this.barcodeFoodDetail,this.foodDetail);
+  this.foodDetailScannedBarcode(foodName);
+}
+barcodeFoodDetail:any;
+barCodeNumber;
+barcodeFootnoteImageSend(itemNumber){ 
+    this.appServices.barcodeFootnoteImageSend(itemNumber).subscribe(
+      (res: any) => {
+       
+        console.log("barcodeFootnoteImageSend", res);      
+        if(res?.product_name !== undefined){
+          // this.isOpen = true;
+           this.barcodeFoodDetail = res;
+
+            // this.stopCamera();
+             this.openNutritionModelBarCode(this.previewUrl.url,res?.product_name,this.barcodeFoodDetail);          
+        }else{
+          this.utilities.hideLoader();
+           this.openHelp=true;
+        }
+      },
+      (err) => {
+        this.utilities.hideLoader();
+         this.openHelp=true;
+      }
+    );  
+}
   foodDetail:any;
+  foodDetailScannedBarcode(foodName){
+  this.appServices.nutritionValueScan(foodName).subscribe(
+    (res: any) => {
+      console.log("nutritionValueScan", res);
+    //   this.isOpen = true;
+     this.utilities.hideLoader();
+        this.foodDetail = res;
+        console.log("alam barcode:-000",this.previewUrl.url,foodName, this.barcodeFoodDetail,this.foodDetail);
+       this.openNutritionModel(this.previewUrl.url,foodName,this.barcodeFoodDetail,this.foodDetail);
+    },
+    (err) => {
+       this.utilities.hideLoader();
+       this.openHelp=true;
+    }
+  );
+}
 foodDetailScanned(foodName){
   this.appServices.nutritionValueScan(foodName).subscribe(
     (res: any) => {
@@ -80,7 +154,7 @@ foodDetailScanned(foodName){
     },
     (err) => {
        this.utilities.hideLoader();
-      this.utilities.presentAlert("Something went wrong! Please try again.");
+       this.openHelp=true;
     }
   );
 }
@@ -88,9 +162,9 @@ async openNutritionModel(image,foodName,imageDetail,foodDetail){
     const modal = await this.modalCtrl.create({
     component: NutritionComponent,
     componentProps: {
-      items: {image,foodName,imageDetail,foodDetail,mode:'photo'}
+      items: {image,foodName,imageDetail,foodDetail,mode:this.previewUrl.mode}
     },
-    cssClass: 'image-preview-modal'
+    cssClass: 'nutritional-modal'
   });
 
   await modal.present();
@@ -100,6 +174,7 @@ async openNutritionModel(image,foodName,imageDetail,foodDetail){
 
 }
     ngOnInit() {    
+
       console.log('Sanitized preview URL:', this.previewUrl);
     }
 

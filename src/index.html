@@ -139,7 +139,21 @@
   
   
   </script>
+<script>
+  // Show loading animation.
+  var playPromise = video.play();
 
+  if (playPromise !== undefined) {
+    playPromise.then(_ => {
+      // Automatic playback started!
+      // Show playing UI.
+    })
+    .catch(error => {
+      // Auto-play was prevented
+      // Show paused UI.
+    });
+  }
+</script>
 
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>

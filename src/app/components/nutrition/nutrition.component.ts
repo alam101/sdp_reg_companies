@@ -144,7 +144,7 @@ export class NutritionComponent implements OnInit {
         "portionQuantity": this.portion,
         "score": this.items?.foodDetail?.score === "" ? 3 : this.items?.foodDetail?.score,
         "date": moment().format('DDMMYYYY'),
-        "imagePath": this.items.previewUrl
+        "imagePath": this.items?.image
       }
       this.updateFoodDetailPraveenapi(data);
     }
@@ -157,7 +157,7 @@ export class NutritionComponent implements OnInit {
        this.navController.navigateForward(['/new-diet']).then(res=>{
           location.reload();
        },err=>{
-
+          
        });
       },
       (err) => {

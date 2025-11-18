@@ -9,6 +9,7 @@ import { ModalController, NavController } from '@ionic/angular';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { NutritionComponent } from '../nutrition/nutrition.component';
+
 @Component({
   selector: 'app-open-camera',
   templateUrl: './open-camera.component.html',
@@ -24,18 +25,107 @@ export class OpenCameraComponent implements AfterViewInit, OnDestroy {
   scannedBarcode: string | null = null;
   isOpen = false;
   mode: 'photo' | 'barcode' = 'photo';
-  
+  isSupported = 'BarcodeDetector' in window;
+  barcodeDetector: any;
   constructor(private navController:NavController,private router:Router,private sanitizer: DomSanitizer,private modalCtrl: ModalController, private appServices: AppService, private utilities: UTILITIES) {
     
   }  
-  ngAfterViewInit() {
-    this.startCamera();
+  async ngAfterViewInit() {
+    if (this.isSupported) {
+    this.barcodeDetector = new (window as any).BarcodeDetector({
+      formats: ['qr_code', 'ean_13', 'code_128', 'upc_a', 'code_39', 'ean_8']
+    });
+
   }
+   
+     await this.stopCamera();
+     await this.startCamera();
+    
+  }
+scanning = false;
+lastDetectedTime = Date.now();
+NO_DETECTION_TIMEOUT = 5000;
+async startHighAccuracyScan(video: HTMLVideoElement) {
+  if (this.scanning) return; // prevent double start
+  this.scanning = true;
+
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      facingMode: { ideal: "environment" },
+      width: { ideal: 1920 },
+      height: { ideal: 1080 }
+    }
+  });
+
+  video.srcObject = stream;
+try {
+  await video.play();
+} catch (err) {
+  console.warn("Video play interrupted:", err);
+}
+
+  const scanLoop = async () => {
+    if (!this.scanning || !this.isSupported) return;
+
+    try {
+      const barcodes = await this.barcodeDetector.detect(video);
+
+      if (barcodes.length > 0) {
+        console.log("Detected:", barcodes[0].rawValue);
+        this.scannedBarcode = barcodes[0].rawValue;
+        this.loading1=true;
+          const modal = await this.modalCtrl.create({
+    component: OpenImagePreviewComponent,
+    componentProps: {
+      previewUrl: {url:this.scannedBarcode, file:'',mode:this.mode}
+    },
+    cssClass: 'image-preview-modal'
+  });
+  await modal.present();
+  // this.stopCamera();
+  const { data } = await modal.onDidDismiss();
+
+  if (data?.confirmed) {  
+   //  this.openNutritionModel();
+  }
+  else{ 
+    //scanLoop();
+  }
+        // 🔥 Instead of returning, we continue scanning
+        // If you want to debounce detections, add delay:
+        await new Promise(res => setTimeout(res, 300)); 
+      }
+      else{
+        
+      //    const now = Date.now();
+      // const diff = now - this.lastDetectedTime;
+
+      // if (diff >= this.NO_DETECTION_TIMEOUT) {
+      //   console.log("❌ No barcode detected for 5 seconds — sending image…");
+
+      //   this.startBarcodeScannerImageSend();
+
+      //   // Reset timer after sending
+      //   this.lastDetectedTime = Date.now();
+      // }
+        
+      }
+
+    } catch (e) {
+      console.error("Detection error:", e);
+    }
+
+    requestAnimationFrame(scanLoop);
+  };
+
+  scanLoop();
+}
 
   ngOnDestroy() {
  }
-private stream: MediaStream | null = null;
+private stream: MediaStream | null = null; 
   startCamera() {
+   this.scanning=false;
     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
       .then(stream => {
         this.stream = stream;
@@ -54,14 +144,17 @@ private stream: MediaStream | null = null;
     this.video.nativeElement.srcObject = null;
   }
 }
-  toggleMode() {
+  async toggleMode() {
     if (this.mode === 'photo') {
+      // await this.stopCamera();
       this.mode = 'barcode';   
-      this.startBarcodeScanner();
+     // await this.startBarcodeScanner();
+      this.startHighAccuracyScan(this.video.nativeElement);
     } else {
+       this.startCamera();  
       this.mode = 'photo';
     }
-    this.startCamera();  
+   
   }
 
   onCaptureClick() {
@@ -69,7 +162,7 @@ private stream: MediaStream | null = null;
       this.capturePhoto();
     }
     else{
-     // this.startBarcodeScanner();
+      this.startBarcodeScannerImageSend();
     }
     
     // in barcode mode, scanning happens automatically
@@ -104,11 +197,20 @@ canvas.toBlob(async(blob) => {
   await modal.present();
   // this.stopCamera();
   const { data } = await modal.onDidDismiss();
+
   if (data?.confirmed) {  
    //  this.openNutritionModel();
   }
   else{
-    this.startCamera();  
+    console.log("this.mode",this.mode);
+    
+    if(this.mode==='photo'){
+     this.startCamera();  
+    }
+    else{
+
+    }
+    
   }
 }
 }, "image/jpeg", 0.9);
@@ -218,7 +320,7 @@ updateFoodDetailPraveenapi(data){
 loading=false;
 async startBarcodeScanner() {
     try {
-      this.loading=true;
+       console.log("bar code started scannig");
       // 1️⃣ Configure hints to detect multiple barcode formats
       const hints = new Map();
       const formats = [
@@ -230,6 +332,8 @@ async startBarcodeScanner() {
         BarcodeFormat.UPC_E,
         BarcodeFormat.QR_CODE,
       ];
+      
+
       hints.set(DecodeHintType.POSSIBLE_FORMATS, formats);
 
       // 2️⃣ Create reader with hints
@@ -238,20 +342,21 @@ async startBarcodeScanner() {
       // 3️⃣ Start video scanning
       const videoElement = this.video.nativeElement;
       this.controls = await this.codeReader.decodeFromVideoDevice(
-        undefined, // default camera
+        undefined,
         videoElement,
         (result, error, controls) => {
           if (result) {
             this.scannedBarcode = result.getText();
             console.log('✅ Scanned Barcode:', this.scannedBarcode);
-            this.barcodeFootnoteImageSend(this.scannedBarcode);
-            //controls.stop(); // stop scanning after first success
+           // controls.stop(); // stop scanning after first success
+            this.loading1=true;
           }
           if (error && error.name !== 'NotFoundException') {
             console.warn('Scanning error:', error);
           }
         }
       );
+      
     } catch (err) {
       console.error('Camera error:', err);
     }
@@ -260,49 +365,54 @@ async startBarcodeScanner() {
   stopScanner() {
     this.controls?.stop();
   }
+ loading1=false;
+continue(){
+  this.stopScanner();
+  this.loading=true;
+  this.barcodeFootnoteImageSend(this.scannedBarcode);
+}
+async startBarcodeScannerImageSend() {
+    const video = this.video.nativeElement;
+  const canvas = this.canvas.nativeElement;
+  const ctx = canvas.getContext('2d')!;
 
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-// async startBarcodeScanner() {
-//     const video = this.video.nativeElement;
-//   const canvas = this.canvas.nativeElement;
-//   const ctx = canvas.getContext('2d')!;
+  // Convert canvas to Blob
+  canvas.toBlob(async(blob) => {
+  if (blob) {
+    const file = new File([blob], "barcode.jpeg", { type: "image/jpeg" });
+    const url = URL.createObjectURL(file);
+    this.previewUrl = url;
 
-//   canvas.width = video.videoWidth;
-//   canvas.height = video.videoHeight;
-//   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  const modal = await this.modalCtrl.create({
+    component: OpenImagePreviewComponent,
+    componentProps: {
+      previewUrl: {url:this.previewUrl, file:file,mode:this.mode}
+    },
+    cssClass: 'image-preview-modal'
+  });
+  await modal.present();
+  // this.stopCamera();
+  const { data } = await modal.onDidDismiss();
+  if (data?.confirmed) {  
+   
+  }
+  else{
+   // this.startCamera();  
+  }
 
-//   // Convert canvas to Blob
-//   canvas.toBlob((blob) => {
-//   if (blob) {
-//     const file = new File([blob], "barcode.jpeg", { type: "image/jpeg" });
-//     const url = URL.createObjectURL(file);
-//    this.previewUrl = url;
-//     const formData = new FormData();
-//     formData.append("image", file);
-    
-//     this.appServices.barcodeImageSend(formData).subscribe(
-//       (res: any) => {
-//         this.utilities.showLoading();
-//         if (res?.barcode !== undefined) {
-//            this.barcodeFootnoteImageSend(res?.barcode);
-         
-//       //    this.utilities.presentAlert("barcode Image: "+ res?.barcode);
-//         } else {
-//           this.utilities.presentAlert("Error:-"+JSON.stringify(res));
-
-//         }
-//       },
-//       (err) => {
-//         this.utilities.presentAlert(JSON.stringify(err.error?.detail));
-//       }
-//     );
-//   }
-// }, "image/jpeg", 0.9);
-// }
+  }
+}, "image/jpeg", 0.9);
+}
 barcodeFoodDetail:any;
+barCodeNumber;
 barcodeFootnoteImageSend(itemNumber){ 
     this.appServices.barcodeFootnoteImageSend(itemNumber).subscribe(
       (res: any) => {
+       
         console.log("barcodeFootnoteImageSend", res);      
         if(res?.product_name !== undefined){
           this.isOpen = true;
@@ -321,7 +431,10 @@ barcodeFootnoteImageSend(itemNumber){
       }
     );  
 }
-
+closePopup(){
+  this.loading1=false;
+ // this.startCamera();
+}
   goBack() {
     // navigate back or dismiss modal
     this.stopCamera();
