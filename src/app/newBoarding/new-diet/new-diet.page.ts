@@ -1037,11 +1037,15 @@ closeCamera(event){
 }
   getOnePlanForDefaultDate(){
     this.appServices.getOnePlan().subscribe((res) => {
+      debugger;
       this.plandata = res;
       if(this.defaultPlanCheck===true){
       this.isPlanExpired = moment().toDate() <= moment(this.plandata.defaultExpDate).toDate()?false:true;
       }
       console.log(this.isPlanExpired,moment().toDate(),moment(this.plandata.defaultExpDate).toDate());
+      // if(this.isPlanExpired){
+      //   this.utilities.presentAlert("Your plan has been expired. Please renew")
+      // }
     },err=>{});
   }
   getCalData(e, i) {

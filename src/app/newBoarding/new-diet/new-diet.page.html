@@ -218,7 +218,7 @@
     </div>
   
     <div class="new-search">
-       <div style="position: relative;">
+       <div style="position: relative;" *ngIf="compConfig?.isSearch">
       <!-- <ion-searchbar mode="md" 
         style="--box-shadow: none;height: 35px;--padding-top: 6px 0px !important;"
         placeholder="Search for a Food"

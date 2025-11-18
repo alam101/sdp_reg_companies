@@ -29,14 +29,20 @@
    
   </div>
 
-  <ion-item lines="none">
-    <p class="instruction-text">Optional: Improve AI accuracy with details like food type, serving size, and cooking method.</p>`
+  <ion-item lines="none" style="margin-bottom: 0;">
+    <div class="margin:6px 0;">
+    <!-- <p class="instruction-text">Optional: Improve AI accuracy with details like food type, serving size, and cooking method.</p> -->
+      <p class="instruction-text" *ngIf="previewUrl?.file===''" > This is the identified <b>barcode</b>. Please <b>confirm</b> and we will fetch nutrition info of same</p>
+          <p class="instruction-text" *ngIf="previewUrl?.file!=='' && previewUrl?.mode!=='photo'" >This is the image  captured. Please <b>confirm</b> and we will fetch nutrition info of same.</p>
+
+      </div>
   </ion-item>
  </ion-content>
   <ion-footer style="    position: fixed;
     bottom: 5rem;
     width: 88%;
     left: 6%;">
+     
     <ion-row>
       <ion-col class="ion-text-center">
           <ion-button (click)="retakeImage()"  expand="block" color="dark" class="buttons">Retake</ion-button>
@@ -52,19 +58,23 @@
  <div *ngIf="openHelp" style="width: 100%; height:100%;position: fixed; background: #000; top:10%; opacity: .5; z-index: 10;left:0;"></div>
  <div *ngIf="openHelp" style="width: 100%; position: fixed;bottom:0;background: #fff; text-align: center;top:45%;z-index: 11;">
     <ion-row>
-      <ion-col class="ion-text-center">
-        <p>Capture a clear, frontal shot of any food or meals; if packaged, focus on the front.</p>
+      <ion-col class="ion-text-center" style="padding: 1rem;">
+        <p *ngIf="previewUrl?.file!=='' && previewUrl?.mode=='photo'">We are unable to recognise it. Capture clean frontal image of food item.
+          </p>
+         <p *ngIf="previewUrl?.file===''">We are unable to recognize. However, we assure you that we are improving our database on continuous basis</p>
+          <p *ngIf="previewUrl?.file!=='' && previewUrl?.mode!=='photo'">We are unable to recognize. However, we assure you that we are improving our database on continuous basis</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col class="ion-text-center">
-        food image<img src= "./assets/img/shots.png" style="width: 85%;" *ngIf="previewUrl?.file!=='' && previewUrl?.mode=='photo'" />
-         scanner<img src= "./assets/img/shots.png" style="width: 85%;" *ngIf="previewUrl?.file===''" />
-          barcode<img src= "./assets/img/shots.png" style="width: 85%;" *ngIf="previewUrl?.file!=='' && previewUrl?.mode!=='photo'" />
+        <img src= "./assets/img/shots.png" style="width: 85%;" *ngIf="previewUrl?.file!=='' && previewUrl?.mode=='photo'" />
+        <img src= "./assets/img/barcode-scanner.png" style="width: 55%;" *ngIf="previewUrl?.file===''" />
+        <img src= "./assets/img/barcode-scanner.png" style="width: 55%;" *ngIf="previewUrl?.file!=='' && previewUrl?.mode!=='photo'" />
       </ion-col>
     </ion-row>
      <ion-row>
-      <ion-col size="11" class="ion-text-center">
+      <ion-col size="11" class="ion-text-center" style="margin: 0 auto;">
+        
          <ion-button (click)="retakeImage()"  expand="block" color="success" class="buttons">Retake</ion-button>
       </ion-col>
     </ion-row>

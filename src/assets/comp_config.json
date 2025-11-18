@@ -163,7 +163,7 @@
       "profile2": false,
       "consumed_cal": false,
       "cal_count": false,
-      "download": true,
+      "download": false,
       "pie_chart": false,
       "alternative": false,
       "video": false,
@@ -179,17 +179,17 @@
       "isEditProfile": true,
       "dietComponent": false,
       "isLogAll": true,
-      "isSearch": true,
+      "isSearch": false,
       "isDietitian": true,
-      "inSights": true,
+      "inSights": false,
       "isGraph": false,
       "compPhone": "",
-      "defaultPlanCheck": false,
+      "defaultPlanCheck": true,
       "headerText": "Welcome to your daily diet plan.",
       "showWhatsApp": false,
       "dietitianAction": false,
        "bot": false,
-      "scanner":true,
+      "scanner":false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -198,7 +198,7 @@
           "options": [
             {
               "name": "Weight Loss",
-              "value": "weightLoss",
+              "value": "weightloss_fitty",
               "label": "Lose weight not the mind",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png"
             }

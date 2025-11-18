@@ -84,7 +84,7 @@ export class NutritionComponent implements OnInit {
     else if (hour < 19) this.slot = '6';        // 3 pm – 7 pm — Evening Snack
     else this.slot = '7';                       // After 7 pm — Dinner
   }
-
+  
   scoreLegth='10%';
   scoreRate(score){
      let index = '0%';
@@ -157,7 +157,7 @@ export class NutritionComponent implements OnInit {
        this.navController.navigateForward(['/new-diet']).then(res=>{
           location.reload();
        },err=>{
-          
+
        });
       },
       (err) => {
