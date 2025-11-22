@@ -15,6 +15,7 @@ export class NewProfilePage implements OnInit,AfterViewInit {
    profileData: any = {};
   localData: any = {};
   plandata: any;
+ 
 dietitianName="";
 dietitianRole="";
   constructor(
@@ -36,12 +37,16 @@ dietitianRole="";
   compConfig:any;
   preferedItem: any;
   clientId: any;
+  defaultPlanCheck=false;
+  expiryDate="";
   ngOnInit() {
     this.utilities.logEvent("Tracker_profileUpdate", {});
     this.clientId = localStorage.getItem('clientId');
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
   
     console.log("this.compConfig", this.compConfig);
+    this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
+    this.expiryDate = localStorage.getItem("expiryDate");
     this.preferredMeal();
   }
 

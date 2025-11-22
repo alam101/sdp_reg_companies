@@ -635,6 +635,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
       this.assinedDietitianExpDate = res?.expiryDate ===undefined?null:res.expiryDate;
       this.aibasedDietplan = res.aiBasedPlanContinues;
       this.calendlyVisible = res.calendlyVisible;
+     
+      
       }
     },err=>{
 
@@ -789,9 +791,16 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
   dietitianRecord:any;
   skills=[];
   getDietitianDetail1(email){
+    localStorage.setItem("expiryDate","")
     this.appServices.getDietitianRecord(email).subscribe((res:any)=>{
       console.log("response dietitian", res);
       this.dietitianRecord = res;
+      if (res.expiryDate) {
+      localStorage.setItem("expiryDate", moment(res.expiryDate)?.format("DD-MMM-YYYY"));
+      if(this.defaultPlanCheck===true){
+      this.isPlanExpired = moment().toDate() <= moment(res.expiryDate).toDate()?false:true;   
+      }
+      }
       this.skills = res?.speciality?.split(', ');
       this.gender = res?.gender?.toLowerCase();
       },err=>{
@@ -1037,12 +1046,7 @@ closeCamera(event){
 }
   getOnePlanForDefaultDate(){
     this.appServices.getOnePlan().subscribe((res) => {
-      debugger;
       this.plandata = res;
-      if(this.defaultPlanCheck===true){
-      this.isPlanExpired = moment().toDate() <= moment(this.plandata.defaultExpDate).toDate()?false:true;
-      }
-      console.log(this.isPlanExpired,moment().toDate(),moment(this.plandata.defaultExpDate).toDate());
       // if(this.isPlanExpired){
       //   this.utilities.presentAlert("Your plan has been expired. Please renew")
       // }

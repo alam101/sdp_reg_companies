@@ -23,15 +23,19 @@
         
         </ion-segment-button>
        
-        <!-- <ion-segment-button value="insight" class="insightBtn" layout="icon-start">
-          <ion-icon src="'../../../../../../assets/newImages/insight_icon.svg"></ion-icon>
-          <ion-label>My Insights</ion-label>
-        </ion-segment-button> -->
+    
       </ion-segment>
-      <p class="username" style="position: absolute; left:36.5%; top:7%;font-size:.8rem;">Profile ID: <b>{{profileData?.profile?.email}}</b></p>
-      <div class="w_100 left" style="    top: -3rem;
-      position: relative;
-      right: -10px">
+<div style="display: flex;
+    flex-direction: column;
+    align-items: center;justify-content:center;">
+      <p class="username" style="font-size:.8rem;">Profile ID: <b>{{profileData?.profile?.email}}</b></p>
+        <p  class="username" style="font-size:.8rem;" *ngIf="expiryDate!==''">
+          Expiry Date: <b>{{expiryDate}}
+          </b></p>
+          </div>
+      <div class="w_100 left" style="top: 14px;
+    position: absolute;
+    left: 16px;">
       <ion-icon name="arrow-back-outline" class="close_modal_icon" (click)="modalClose()"></ion-icon>
         <!-- <ion-icon
           class="close_modal_icon"

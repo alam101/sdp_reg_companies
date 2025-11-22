@@ -179,9 +179,9 @@
       "isEditProfile": true,
       "dietComponent": false,
       "isLogAll": true,
-      "isSearch": false,
+      "isSearch": true,
       "isDietitian": true,
-      "inSights": false,
+      "inSights": true,
       "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": true,
@@ -189,7 +189,7 @@
       "showWhatsApp": false,
       "dietitianAction": false,
        "bot": false,
-      "scanner":false,
+      "scanner":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -249,7 +249,14 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        { "name": "Weight Loss", "value": "weightloss_fitty" },
+        { "name": "Muscle Building", "value": "muscleGain" },
+        { "name": "Manage Diabetes", "value": "diabetes" },
+        { "name": "Manage PCOS", "value": "pcos" },
+        { "name": "Manage Cholesterol", "value": "cholesterol" },
+        { "name": "Manage Hypertension", "value": "hypertension" }
+      ],
       "deseases": [
         {
           "desease": "D",

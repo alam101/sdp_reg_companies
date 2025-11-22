@@ -185,7 +185,7 @@
     align-items: center;
     margin-right: 5px;" *ngIf="!isDetox">
     
-        <ion-button fill="outline" *ngIf="compConfig?.inSights" class="meal_workout_button" style="font-size: .6rem;
+        <ion-button fill="outline" *ngIf="compConfig?.inSights && !isPlanExpired" class="meal_workout_button" style="font-size: .6rem;
     padding: 0;
     height: 23px;
     width: 60px;--border-color: var(--theme-color);--border-width: 1px;"
@@ -195,7 +195,7 @@
         name="pie-chart"
         (click)="caloryChart()"
       ></ion-icon> 
-        <ion-button fill="outline" *ngIf="compConfig.download!=false" class="meal_workout_button" style="font-size: .6rem;
+        <ion-button fill="outline" *ngIf="compConfig.download && !isPlanExpired" class="meal_workout_button" style="font-size: .6rem;
         padding: 0;
         height: 23px;
         width: 70px;--border-color: var(--theme-color);--border-width: 1px;"
@@ -218,7 +218,7 @@
     </div>
   
     <div class="new-search">
-       <div style="position: relative;" *ngIf="compConfig?.isSearch">
+       <div style="position: relative;" *ngIf="compConfig?.isSearch && !isPlanExpired">
       <!-- <ion-searchbar mode="md" 
         style="--box-shadow: none;height: 35px;--padding-top: 6px 0px !important;"
         placeholder="Search for a Food"
