@@ -6480,7 +6480,7 @@
       "showWhatsApp": true,
       "dietitianAction": true,
         "bot": true,
-      "scanner":true,
+      "scanner":false,
       "goals": [
         {
           "heading": "Weight Management",
