@@ -200,6 +200,10 @@
         height: 23px;
         width: 70px;--border-color: var(--theme-color);--border-width: 1px;"
             [style.color]="clientId==='enkeltec'?'#000':null" (click)="gotoDownloadPopup()">Download</ion-button>
+       
+       
+          <ion-icon style="color: var(--theme-color);padding:1rem;" name="share-outline" (click)="shareOnWhatsapp()"  *ngIf="compConfig?.isShare"></ion-icon>
+       
       </div>
       
       <div *ngIf="isdoenloadclicked" style="float:left;width: 20%;height:6px;border:1px solid #b3b3b3;">

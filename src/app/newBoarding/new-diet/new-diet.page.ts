@@ -71,7 +71,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     private utilss: UTILS,
     private broadcastService: BroadcastService,
     private location:Location,
-    private routerActive: ActivatedRoute
+    private routerActive: ActivatedRoute,
+ 
   ) {
     this.routerActive.queryParams.subscribe(res=>{
      if(res?.companyId===undefined){
@@ -123,6 +124,49 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
      
      
     }
+  }
+ 
+  async shareOnWhatsapp(){
+    /**
+     Hi! I wanted to share my diet plan with you — it has all my meals, recommended portions, and calorie goals for the day.
+If you’d like to explore it or follow a similar plan, here’s the link: {{short_url}}
+      
+     */
+    //  localStorage.getItem("company_id"),
+     
+   const userId =  this.profileData?.profile?.email?.trim();
+   const dietitian_name =  this.dietitianRecord?.deititianName?.toString()?.trim();
+   const dietitian_email = this.dietitianRecord?.dietitianEmailId;
+   //const url =  `https://pythonapi.smartdietplanner.com/generate_pdf?company_id=RedcliffeLabs&user_id=${userId}&trigger_webhook=true&dietitian_name=${dietitian_name}&dietitian_email=${dietitian_email}&response_type=url&design=new`;
+
+
+    
+    this.appServices.downloadPdfFromApiNew(
+    "RedcliffeLabs",
+    this.profileData?.profile?.email?.trim(),
+    this.dietitianRecord?.deititianName?.toString()?.trim() ,
+    this.dietitianRecord?.dietitianEmailId,
+    "url",
+    "new").subscribe((res) => {
+     
+          console.log("short url:--",res["url"]);
+           this.sharePDFOnWhatsapp(res["url"]) ;
+        
+    },err=>{
+      console.log("err url:--",err["url"]);
+           this.sharePDFOnWhatsapp(err["url"]) ;
+    });
+   
+  }
+
+  sharePDFOnWhatsapp(url){
+      const message = `Hi! I wanted to share my diet plan with you — it has all my meals, 
+                              recommended portions, and calorie goals for the day.
+                              If you’d like to explore it or follow a similar plan, here’s the link: ${url}`;
+     
+          const encodedMsg = encodeURIComponent(message.trim());
+          const whatsappUrl = `https://wa.me/?text=${encodedMsg}`;
+          window.open(whatsappUrl, "_blank");
   }
   async openPopupWeight(event){
     this.router.navigate(['/weight-guage']);
@@ -834,7 +878,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
    
    this.utilities.hideLdr();
     }, (error) => {
- this.percentwithPer='100%';
+       this.percentwithPer='100%';
       const a = document.createElement('a');
       console.log("error", error);  
       this.downloadPdf(error["url"]);
@@ -849,6 +893,8 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     });
 
   }
+
+  
    downloadPdfFromApiNew1()
    { 
     this.percent=0.0;
@@ -869,6 +915,7 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     
        const url = window.URL.createObjectURL(res);
        a.href = url;
+       this.pdfUrl = url;
        this.downloadPdf(url);
       
         setTimeout(()=>{

@@ -78,11 +78,11 @@ export class AppService {
   }
   
    downloadPdfFromApiNew(comp_id='alyve.health',
-    user_id,dietitian_name,dietitan_email,response_type,design):Observable<Blob> {
+    user_id,dietitian_name,dietitan_email,response_type,design):Observable<any> {
     const url = APIS.pithanURL+`${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
     &dietitian_email=${dietitan_email?.trim()}&response_type=${response_type}&design=${design}` ;
 
-    return this.httpClient.get(url, {responseType:'blob'});
+    return this.httpClient.get(url,{});
    }
   
   getDietPlans(isDetox, date, country, recommended) {
@@ -191,6 +191,11 @@ export class AppService {
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
+  async shorten(url: string) {
+
+    const api = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`;
+  return this.httpClient1.get(api, { responseType: 'text' });
+  }
   postOptionFoodList(foodCodeList) {
 
     let url;
