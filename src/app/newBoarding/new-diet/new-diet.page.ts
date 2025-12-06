@@ -133,13 +133,15 @@ If you’d like to explore it or follow a similar plan, here’s the link: {{sho
       
      */
     //  localStorage.getItem("company_id"),
+
+
      
    const userId =  this.profileData?.profile?.email?.trim();
    const dietitian_name =  this.dietitianRecord?.deititianName?.toString()?.trim();
    const dietitian_email = this.dietitianRecord?.dietitianEmailId;
    //const url =  `https://pythonapi.smartdietplanner.com/generate_pdf?company_id=RedcliffeLabs&user_id=${userId}&trigger_webhook=true&dietitian_name=${dietitian_name}&dietitian_email=${dietitian_email}&response_type=url&design=new`;
 
-
+    this.utilities.showLdr();
     
     this.appServices.downloadPdfFromApiNew(
     "RedcliffeLabs",
@@ -160,9 +162,12 @@ If you’d like to explore it or follow a similar plan, here’s the link: {{sho
   }
 
   sharePDFOnWhatsapp(url){
+     this.utilities.hideLdr();
       const message = `Hi! I wanted to share my diet plan with you — it has all my meals, 
-                              recommended portions, and calorie goals for the day.
-                              If you’d like to explore it or follow a similar plan, here’s the link: ${url}`;
+recommended portions, and calorie goals for the day. 
+
+If you’d like to explore it or follow a similar plan, here’s the link: 
+${url}`;
      
           const encodedMsg = encodeURIComponent(message.trim());
           const whatsappUrl = `https://wa.me/?text=${encodedMsg}`;
