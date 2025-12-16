@@ -195,24 +195,29 @@
         name="pie-chart"
         (click)="caloryChart()"
       ></ion-icon> 
-        <ion-button fill="outline" *ngIf="compConfig.download && !isPlanExpired" class="meal_workout_button" style="font-size: .6rem;
-        padding: 0;
-        height: 23px;
-        width: 70px;--border-color: var(--theme-color);--border-width: 1px;"
-            [style.color]="clientId==='enkeltec'?'#000':null" (click)="gotoDownloadPopup()">Download</ion-button>
-       
-       
-          <ion-icon style="color: var(--theme-color);padding:.8rem;font-size: 1.5rem;" mode="md" name="share-outline" (click)="shareOnWhatsapp()"  *ngIf="compConfig?.isShare"></ion-icon>
-       
-      </div>
-      
-      <div *ngIf="isdoenloadclicked" style="float:left;width: 20%;height:6px;border:1px solid #b3b3b3;">
+      <!-- *ngIf="isdoenloadclicked" -->
+        <div *ngIf="isdoenloadclicked"  style="float: left;
+    width: 20%;
+    height: 6px;
+    border: 1px solid #b3b3b3;
+    position: absolute;
+    top: 0;
+    right: 10%;">
         <div style="float: left;position: relative;
     font-size: .6rem;color:var(--profile-color);white-space:nowrap;
     top: -17px;" [ngStyle]="{'width':percentwithPer,'left':percentwithPer}">{{percentwithPer}}</div>
         <div [ngStyle]="{'width':percentwithPer}"
         style="background:var(--profile-color);height:5px;"></div>
        </div>
+        <ion-button fill="outline" *ngIf="compConfig.download && !isPlanExpired" class="meal_workout_button" style="font-size: .6rem;
+        padding: 0;
+        height: 23px;
+        width: 70px;--border-color: var(--theme-color);--border-width: 1px;"
+            [style.color]="clientId==='enkeltec'?'#000':null" (click)="gotoDownloadPopup()">Download</ion-button>
+          <ion-icon style="color: var(--theme-color);padding:.8rem;font-size: 1.5rem;" mode="md" name="share-outline" (click)="shareOnWhatsapp()"  *ngIf="compConfig?.isShare"></ion-icon>
+      </div>
+      
+    
       <div class="right" *ngIf="isDetox">
         <p class="meal_workout_button" (click)="switchTonormal()">
           Switch to Normal

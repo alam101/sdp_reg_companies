@@ -1,5 +1,20 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, ErrorHandler, Injectable, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { IonSlides, ModalController, NavController, Platform } from "@ionic/angular";
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  ErrorHandler,
+  Injectable,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
+import {
+  IonSlides,
+  ModalController,
+  NavController,
+  Platform,
+} from "@ionic/angular";
 import { Storage } from "@ionic/storage";
 import moment from "moment";
 import { AppService } from "../app.service";
@@ -10,36 +25,40 @@ import { ActivatedRoute, Router } from "@angular/router";
 import jsPDF from "jspdf";
 import { UserOptions } from "jspdf-autotable";
 import { UTILITIES } from "../utils/utilities";
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { SearchPage } from '../../search/search.page';
+import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
+import { SearchPage } from "../../search/search.page";
 import { BroadcastService } from "src/app/broadcast.service";
-import { Subscription } from 'rxjs';
+import { Subscription } from "rxjs";
 import { Location } from "@angular/common";
 // import { NutritionComponent } from "src/app/components/nutrition/nutrition.component";
-import { BrowserMultiFormatReader } from '@zxing/browser';
+import { BrowserMultiFormatReader } from "@zxing/browser";
 import { AiChatComponent } from "src/app/components/ai-chat/ai-chat.component";
 @Component({
   selector: "app-new-diet",
   templateUrl: "./new-diet.page.html",
   styleUrls: ["./new-diet.page.scss"],
 })
-export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
-  pdfUrl = ''; // This will be set from API
-  userAgentType: 'Android App' | 'IOS App' | 'Web';
+export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
+  pdfUrl = ""; // This will be set from API
+  userAgentType: "Android App" | "IOS App" | "Web";
   slideOpts = {
     slidesPerView: 1.25, // 1 full + 0.25 of next
     spaceBetween: 10,
-    centeredSlides: true
+    centeredSlides: true,
   };
-  clientId="";
+  clientId = "";
   moment: any = moment;
-  displayFooter=false;
+  displayFooter = false;
   diets: any = [];
   selecteddate: any = new Date();
   newSelectedDate: any = new Date();
   activeSlotIndex = 0;
   today = new Date();
-  tomorrow = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDay()+1).toISOString();
+  tomorrow = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDay() + 1
+  ).toISOString();
   allData: {
     Carbs: Number;
     Fat: Number;
@@ -53,40 +72,38 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
 
   weekArray = [];
   isDetox = false;
-  companyLogoBase64="";
+  companyLogoBase64 = "";
   subscription: Subscription;
   planName: any;
-  company_id=null;
+  company_id = null;
   randomNumber = Number(Date.now()) * Math.random();
   constructor(
     private appServices: AppService,
     private cdr: ChangeDetectorRef,
     private navCtrl: NavController,
-    private utils:Utilities,
-    private router:Router,
+    private utils: Utilities,
+    private router: Router,
     private utilities: UTILITIES,
     private modalController: ModalController,
     private iab: InAppBrowser,
     private storage: Storage,
     private utilss: UTILS,
     private broadcastService: BroadcastService,
-    private location:Location,
-    private routerActive: ActivatedRoute,
- 
+    private location: Location,
+    private routerActive: ActivatedRoute
   ) {
-    this.routerActive.queryParams.subscribe(res=>{
-     if(res?.companyId===undefined){
+    this.routerActive.queryParams.subscribe((res) => {
+      if (res?.companyId === undefined) {
         this.company_id = null;
-      }
-      else{
+      } else {
         this.company_id = res.companyId;
       }
     });
-    localStorage.setItem("currentDate",new Date().getTime()+"");
-    this.subscription =  this.broadcastService.getMessage().subscribe(res=>{
+    localStorage.setItem("currentDate", new Date().getTime() + "");
+    this.subscription = this.broadcastService.getMessage().subscribe((res) => {
       console.log("res");
       this.ionViewWillEnter();
-    })
+    });
     this.allData = {
       Carbs: 0,
       Fat: 0,
@@ -98,16 +115,16 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     };
     this.clientId = localStorage.getItem("clientId");
     this.displayFooter = true;
-   const ua = navigator.userAgent; // Or get from API/server
+    const ua = navigator.userAgent; // Or get from API/server
     this.userAgentType = this.appServices.getUserAgentType(ua);
   }
   ngOnDestroy() {
     // Unsubscribe to prevent memory leaks
     this.subscription.unsubscribe();
   }
-  weightTrackerData:any;
+  weightTrackerData: any;
   ionViewWillEnter() {
-     this.newSelectedDate = new Date();
+    this.newSelectedDate = new Date();
     history.forward();
 
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
@@ -118,79 +135,77 @@ export class NewDietPage implements OnInit,AfterViewInit,OnDestroy {
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     this.getProfile();
-    if(localStorage.getItem("weightTracker")!==""){
-    
-      this.weightTrackerData = JSON.parse(localStorage.getItem("weightTracker"));
-     
-     
+    if (localStorage.getItem("weightTracker") !== "") {
+      this.weightTrackerData = JSON.parse(
+        localStorage.getItem("weightTracker")
+      );
     }
   }
- 
-  async shareOnWhatsapp(){
-    /**
-     Hi! I wanted to share my diet plan with you — it has all my meals, recommended portions, and calorie goals for the day.
-If you’d like to explore it or follow a similar plan, here’s the link: {{short_url}}
-      
-     */
-    //  localStorage.getItem("company_id"),
 
-
-     
-   const userId =  this.profileData?.profile?.email?.trim();
-   const dietitian_name =  this.dietitianRecord?.deititianName?.toString()?.trim();
-   const dietitian_email = this.dietitianRecord?.dietitianEmailId;
-   //const url =  `https://pythonapi.smartdietplanner.com/generate_pdf?company_id=RedcliffeLabs&user_id=${userId}&trigger_webhook=true&dietitian_name=${dietitian_name}&dietitian_email=${dietitian_email}&response_type=url&design=new`;
-
-    this.utilities.showLdr();
-    
-    this.appServices.downloadPdfFromApiNew(
-    "RedcliffeLabs",
-    this.profileData?.profile?.email?.trim(),
-    this.dietitianRecord?.deititianName?.toString()?.trim() ,
-    this.dietitianRecord?.dietitianEmailId,
-    "url",
-    "new").subscribe((res) => {
-     
-          console.log("short url:--",res["url"]);
-           this.sharePDFOnWhatsapp(res["url"]) ;
-        
-    },err=>{
-      console.log("err url:--",err["url"]);
-           this.sharePDFOnWhatsapp(err["url"]) ;
-    });
-   
+  async shareOnWhatsapp() {
+    this.isdoenloadclicked = true;
+    this.percent = 0.0;
+    this.percentwithPer = "0%";
+    this.startInterval();
+    this.appServices
+      .downloadPdfFromApiNew(
+        "RedcliffeLabs",
+        this.profileData?.profile?.email?.trim(),
+        this.dietitianRecord?.deititianName?.toString()?.trim(),
+        this.dietitianRecord?.dietitianEmailId,
+        "url",
+        "new"
+      )
+      .subscribe(
+        (res) => {
+          console.log("short url:--", res["url"]);
+          this.sharePDFOnWhatsapp(res["url"]);
+        },
+        (err) => {
+          console.log("err url:--", err["url"]);
+          this.sharePDFOnWhatsapp(err["url"]);
+        }
+      );
   }
 
-  sharePDFOnWhatsapp(url){
-     this.utilities.hideLdr();
-      const message = `Hi! I wanted to share my diet plan with you — it has all my meals, 
+  sharePDFOnWhatsapp(url) {
+    const message = `Hi! I wanted to share my diet plan with you — it has all my meals, 
 recommended portions, and calorie goals for the day. 
 
 If you’d like to explore it or follow a similar plan, here’s the link: 
 ${url}`;
-     
-          const encodedMsg = encodeURIComponent(message.trim());
-          const whatsappUrl = `https://wa.me/?text=${encodedMsg}`;
-          window.open(whatsappUrl, "_blank");
+    const encodedMsg = encodeURIComponent(message.trim());
+    if (this.isIosDevice) {
+      let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
+      window.location.href = urll;
+    } else {
+      let urll = `whatsapp://send?text=${encodedMsg}`;
+      this.iab.create(urll, "_system");
+    }
+
+    setTimeout(() => {
+      this.isdoenloadclicked = false;
+    }, 2000);
+    clearInterval(this.iscloseInterval);
   }
-  async openPopupWeight(event){
-    this.router.navigate(['/weight-guage']);
-   }
- async gotoBloodPressure(event){
-  this.router.navigate(['/blood-pressure-guage']);
- } 
- async gotoBloodGlucose(event){
-  this.router.navigate(['/blood-glucose-guage']);
- }
- async gotoCholesterol(){
-  this.router.navigate(['/cholesterol-guage']);
- }
-   
-  isdisplayFooter(event){
-    this.displayFooter=event;
+  async openPopupWeight(event) {
+    this.router.navigate(["/weight-guage"]);
+  }
+  async gotoBloodPressure(event) {
+    this.router.navigate(["/blood-pressure-guage"]);
+  }
+  async gotoBloodGlucose(event) {
+    this.router.navigate(["/blood-glucose-guage"]);
+  }
+  async gotoCholesterol() {
+    this.router.navigate(["/cholesterol-guage"]);
+  }
+
+  isdisplayFooter(event) {
+    this.displayFooter = event;
   }
   ngAfterViewInit() {
-   // this.openNutritionModel('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg.webp','','');
+    // this.openNutritionModel('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg.webp','','');
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
       this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
     } else {
@@ -198,39 +213,39 @@ ${url}`;
     }
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
-  
+
     this.companyLogoBase64 = this.compConfig?.companyLogoBase64;
     this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
-
   }
-  defaultPlanCheck=false;
-  logSlot(d,slot){
-    this.eatenStatusUpdate(d,slot);
+  defaultPlanCheck = false;
+  logSlot(d, slot) {
+    this.eatenStatusUpdate(d, slot);
   }
-  goToInsites(){
+  goToInsites() {
     this.router.navigate(["/calory-chart"]);
   }
-  async eatenStatusUpdate(item,slot) {
-   
-    console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
-    
-     if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
-     setTimeout(()=>{ this.utilities.showErrorToast("Can not Log for future dates!");
-    },0);
-    }
-    else{ 
+  async eatenStatusUpdate(item, slot) {
+    console.log(
+      "fffdd:-----",
+      CONSTANTS.dietDate,
+      moment(new Date()).format("DDMMYYYY")
+    );
+
+    if (CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")) {
+      setTimeout(() => {
+        this.utilities.showErrorToast("Can not Log for future dates!");
+      }, 0);
+    } else {
       let foodCodeList = [];
-        let dataTotal = [];
+      let dataTotal = [];
       this.utilities.logEvent("Counter_add_home", {});
       for (let index = 0; index < item.data.length; index++) {
-        dataTotal.push(
-          {
-            code: item.data[index].itemCode,
-            portion: Number(item.data[index].portion),
-            eaten: 2,
-            foodSource: "internal"
-          }
-        )
+        dataTotal.push({
+          code: item.data[index].itemCode,
+          portion: Number(item.data[index].portion),
+          eaten: 2,
+          foodSource: "internal",
+        });
       }
       const datas = {
         date: CONSTANTS.dietDate,
@@ -242,188 +257,204 @@ ${url}`;
       // this.appServices.updateEatenFoodItems(data).then(
       this.appServices.postOptionFoodList(datas).then(
         (success: any) => {
-             console.log("");
+          console.log("");
         },
         (err) => {
           console.log("details error", err);
         }
       );
-   
     }
   }
-  tempdesease:any=[];
+  tempdesease: any = [];
 
-  bindDesease(){
-    this.tempdesease=[];
-    for (let index = 0; index < this.profileData.lifeStyle.diseases.length; index++) {
+  bindDesease() {
+    this.tempdesease = [];
+    for (
+      let index = 0;
+      index < this.profileData.lifeStyle.diseases.length;
+      index++
+    ) {
       for (let j = 0; j < this.compConfig.deseases.length; j++) {
-        if(this.profileData.lifeStyle.diseases[index]=== this.compConfig.deseases[j].desease){
-          console.log("this.profileData.lifeStyle.diseases[index]:- ",this.profileData.lifeStyle.diseases[index], this.compConfig.deseases[j].desease);
-          
+        if (
+          this.profileData.lifeStyle.diseases[index] ===
+          this.compConfig.deseases[j].desease
+        ) {
+          console.log(
+            "this.profileData.lifeStyle.diseases[index]:- ",
+            this.profileData.lifeStyle.diseases[index],
+            this.compConfig.deseases[j].desease
+          );
+
           this.tempdesease.push(this.compConfig.deseases[j].description);
         }
-        
       }
-     
     }
 
-    if(this.tempdesease?.length>0){
-    this.tempdesease = this.tempdesease.join(',').split(',');
+    if (this.tempdesease?.length > 0) {
+      this.tempdesease = this.tempdesease.join(",").split(",");
     }
-    console.log("this.tempdesease", this.tempdesease.join(','));
-    return this.tempdesease?.length===0?null:this.tempdesease;
-   
+    console.log("this.tempdesease", this.tempdesease.join(","));
+    return this.tempdesease?.length === 0 ? null : this.tempdesease;
   }
-  compConfig:any;
+  compConfig: any;
   plandata: any;
-  futureDateCSS="";
-  fday=0;
-  isPlanExpired=false;
-  getOnePlan(){
+  futureDateCSS = "";
+  fday = 0;
+  isPlanExpired = false;
+  getOnePlan() {
     this.appServices.getOnePlan().subscribe((res) => {
       this.plandata = res;
-    this.weeks = [];  
-    for (var i = 0; i < 7; i++) {
-      let date = moment().add(i, "days");
-      this.weeks.push({
-        index: i,
-        date: date.toDate(),
-        formatDate: date.format("DDMMYYYY"),
-        detoxDate: date.format("DD-MMM-YYYY"),
-        weekName: date.format('ddd'),
-        displayFormat: date.format("ddd, DD MMM")
-        // displayFormat: i == 0 ? "Today,  " + date.format("DD MMM") : date.format("ddd, DD MMM")
-      })
-    }
-    this.tomorrow = this.weeks[1].date;
+      this.weeks = [];
+      for (var i = 0; i < 7; i++) {
+        let date = moment().add(i, "days");
+        this.weeks.push({
+          index: i,
+          date: date.toDate(),
+          formatDate: date.format("DDMMYYYY"),
+          detoxDate: date.format("DD-MMM-YYYY"),
+          weekName: date.format("ddd"),
+          displayFormat: date.format("ddd, DD MMM"),
+          // displayFormat: i == 0 ? "Today,  " + date.format("DD MMM") : date.format("ddd, DD MMM")
+        });
+      }
+      this.tomorrow = this.weeks[1].date;
 
-    const creationDate = this.plandata?.profile?.createdDate;
-   
-    console.log("new Date(creationDate)",new Date(creationDate),new Date(creationDate).getTime());
-    let dnew= new Date(creationDate);
-    this.fday = new Date(new Date().getTime() - dnew.getTime()).getDate(); 
-    console.log("this.fday:-",creationDate,this.fday);
-    let tDate = new Date(); 
-    let nxtDate = new Date(dnew.setDate(dnew.getDate()));
-    // this.weekArray = [
-    //     new Date(dnew),
-    //     new Date(dnew.setDate(dnew.getDate()+1)),
-    //     new Date(dnew.setDate(dnew.getDate() + 1)),
-    //     new Date(dnew.setDate(dnew.getDate() + 1)),
-    //     new Date(dnew.setDate(dnew.getDate() + 1)),
-    //     new Date(dnew.setDate(dnew.getDate() + 1)),
-    //     new Date(dnew.setDate(dnew.getDate() + 1)),
-    //   ];
-    
+      const creationDate = this.plandata?.profile?.createdDate;
+
+      console.log(
+        "new Date(creationDate)",
+        new Date(creationDate),
+        new Date(creationDate).getTime()
+      );
+      let dnew = new Date(creationDate);
+      this.fday = new Date(new Date().getTime() - dnew.getTime()).getDate();
+      console.log("this.fday:-", creationDate, this.fday);
+      let tDate = new Date();
+      let nxtDate = new Date(dnew.setDate(dnew.getDate()));
+      // this.weekArray = [
+      //     new Date(dnew),
+      //     new Date(dnew.setDate(dnew.getDate()+1)),
+      //     new Date(dnew.setDate(dnew.getDate() + 1)),
+      //     new Date(dnew.setDate(dnew.getDate() + 1)),
+      //     new Date(dnew.setDate(dnew.getDate() + 1)),
+      //     new Date(dnew.setDate(dnew.getDate() + 1)),
+      //     new Date(dnew.setDate(dnew.getDate() + 1)),
+      //   ];
+
       // if(dnew.getTime() < new Date().getTime() && this.clientId==='fitelo'){
       //   this.newSelectedDate = dnew;
       //   this.selecteddate = dnew;
       // }
       // else{
-        this.weekArray = [
-          new Date(),
-          new Date(tDate.setDate(tDate.getDate()+1)),
-          new Date(tDate.setDate(tDate.getDate() + 1)),
-          new Date(tDate.setDate(tDate.getDate() + 1)),
-          new Date(tDate.setDate(tDate.getDate() + 1)),
-          new Date(tDate.setDate(tDate.getDate() + 1)),
-          new Date(tDate.setDate(tDate.getDate() + 1)),
-        ];
-        this.newSelectedDate = new Date();
-        this.futureDateCSS="dark-css";
-     // }
+      this.weekArray = [
+        new Date(),
+        new Date(tDate.setDate(tDate.getDate() + 1)),
+        new Date(tDate.setDate(tDate.getDate() + 1)),
+        new Date(tDate.setDate(tDate.getDate() + 1)),
+        new Date(tDate.setDate(tDate.getDate() + 1)),
+        new Date(tDate.setDate(tDate.getDate() + 1)),
+        new Date(tDate.setDate(tDate.getDate() + 1)),
+      ];
+      this.newSelectedDate = new Date();
+      this.futureDateCSS = "dark-css";
+      // }
     });
   }
   ngOnInit() {
-     this.newSelectedDate = new Date();
+    this.newSelectedDate = new Date();
     this.utilities.logEvent("onboarding_dietplanPage", {});
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
-    
+
     this.getProfile();
-    
-    if(localStorage.getItem("weightTracker")!==""){
-     
-      this.weightTrackerData = JSON.parse(localStorage.getItem("weightTracker"));
+
+    if (localStorage.getItem("weightTracker") !== "") {
+      this.weightTrackerData = JSON.parse(
+        localStorage.getItem("weightTracker")
+      );
     }
-     this. getOnePlan();
-   
+    this.getOnePlan();
   }
-  profileData:any;
+  profileData: any;
   profileName;
-  firstConsult=null;
-  instructions:any = [];
-  openDial(phonenumber){
-    window.open("tel:"+phonenumber+"","_system");
+  firstConsult = null;
+  instructions: any = [];
+  openDial(phonenumber) {
+    window.open("tel:" + phonenumber + "", "_system");
   }
-  openlink(url){
-    window.open(url,"_system");
+  openlink(url) {
+    window.open(url, "_system");
   }
-  gotoApp(){
+  gotoApp() {
     this.router.navigate(["inapp-test"]);
   }
 
-  isIncludeDesease(items,desease){
-     return items?.includes(desease);
+  isIncludeDesease(items, desease) {
+    return items?.includes(desease);
   }
-   isIncludeDietPlanCondition(deitPlanName){
-    if(deitPlanName?.toLowerCase()?.includes('diabetes')){
-      return 'sugar';
-    }
-    else if(deitPlanName?.toLowerCase()?.includes('hypertension')){
-        return 'pressure';
-    }
-    else if(deitPlanName?.toLowerCase()?.includes('cholesterol')){
-        return 'cholesterol';
-    }
-    else{
+  isIncludeDietPlanCondition(deitPlanName) {
+    if (deitPlanName?.toLowerCase()?.includes("diabetes")) {
+      return "sugar";
+    } else if (deitPlanName?.toLowerCase()?.includes("hypertension")) {
+      return "pressure";
+    } else if (deitPlanName?.toLowerCase()?.includes("cholesterol")) {
+      return "cholesterol";
+    } else {
       return false;
     }
   }
-  dietplanName="";
-  getProfile(){
-    localStorage.setItem("weightTracker","");
-    this.appServices.getProfile().then(
-      profileData => {
-        console.log("localStorage.setItem",localStorage.getItem("weightTracker"));
-        localStorage.setItem("activities",JSON.stringify(profileData["lifeStyle"]["activities"]));
-        console.log("profileData",profileData);
-        this.profileData = profileData;
-       
-        this.dietplanName = profileData["lifeStyle"]["dietPlanName"];
-         localStorage.setItem("dietplanname",this.dietplanName);
-        localStorage.setItem("weightTracker",JSON.stringify(this.profileData));
-          let userData = {
-          email: profileData["profile"]["email"],
-          firstName: profileData["profile"]["given_name"],
-          id: profileData["profile"]["email"],
-          lastName: profileData["profile"]["family_name"],
-          name: profileData["profile"]["name"],
-          photoUrl: null,
-          provider: "mobile"
-        };
-        this.getdietitianDetail(this.profileData.profile.email);
-        this.getDietitianDetail1(this.profileData.profile.email);
-        if(this.compConfig.isDietitian){
-        this.firstConsult = this.profileData?.lifeStyle?.firstConsult === undefined?null:this.profileData?.lifeStyle?.firstConsult;
-        }
-       // this.getCommunities(this.profileData?.lifeStyle?.communities);
-        // this.instructions = this.profileData?.lifeStyle?.instructions;
-   
-        this.profileName=userData.name;
-   
-        console.log("getprofile",JSON.stringify(userData));
-        console.log("alam:-", profileData["lifeStyle"]);
-        this. bindDesease();
-        this.getInstructionData(this.profileData?.profile?.email);
-      });
+  dietplanName = "";
+  getProfile() {
+    localStorage.setItem("weightTracker", "");
+    this.appServices.getProfile().then((profileData) => {
+      console.log(
+        "localStorage.setItem",
+        localStorage.getItem("weightTracker")
+      );
+      localStorage.setItem(
+        "activities",
+        JSON.stringify(profileData["lifeStyle"]["activities"])
+      );
+      console.log("profileData", profileData);
+      this.profileData = profileData;
 
-   }
-  
-  gotoProfile(){
-    this.router.navigate(['new-profile'],{queryParams:{params: this.deititianName,role:this.deititianRole}});
- }
- 
+      this.dietplanName = profileData["lifeStyle"]["dietPlanName"];
+      localStorage.setItem("dietplanname", this.dietplanName);
+      localStorage.setItem("weightTracker", JSON.stringify(this.profileData));
+      let userData = {
+        email: profileData["profile"]["email"],
+        firstName: profileData["profile"]["given_name"],
+        id: profileData["profile"]["email"],
+        lastName: profileData["profile"]["family_name"],
+        name: profileData["profile"]["name"],
+        photoUrl: null,
+        provider: "mobile",
+      };
+      this.getdietitianDetail(this.profileData.profile.email);
+      this.getDietitianDetail1(this.profileData.profile.email);
+      if (this.compConfig.isDietitian) {
+        this.firstConsult =
+          this.profileData?.lifeStyle?.firstConsult === undefined
+            ? null
+            : this.profileData?.lifeStyle?.firstConsult;
+      }
+      // this.getCommunities(this.profileData?.lifeStyle?.communities);
+      // this.instructions = this.profileData?.lifeStyle?.instructions;
+
+      this.profileName = userData.name;
+
+      console.log("getprofile", JSON.stringify(userData));
+      console.log("alam:-", profileData["lifeStyle"]);
+      this.bindDesease();
+      this.getInstructionData(this.profileData?.profile?.email);
+    });
+  }
+
+  gotoProfile() {
+    this.router.navigate(["new-profile"], {
+      queryParams: { params: this.deititianName, role: this.deititianRole },
+    });
+  }
 
   roundUpvalue(val) {
     return Math.round(val);
@@ -437,12 +468,15 @@ ${url}`;
       if (index < 6) {
         this.noNextDate = false;
         this.dateSlides.slideTo(index + 1, 200);
-        localStorage.setItem("firstday",JSON.stringify(this.weeks[index+1].formatDate));
+        localStorage.setItem(
+          "firstday",
+          JSON.stringify(this.weeks[index + 1].formatDate)
+        );
         this.selecteddate = this.weeks[index + 1].formatDate;
-        
+
         this.newSelectedDate = this.weeks[index + 1].date;
-       console.log("this.newSelectedDate",this.newSelectedDate);
-       
+        console.log("this.newSelectedDate", this.newSelectedDate);
+
         CONSTANTS.dietDate = this.weeks[index + 1].formatDate;
         this.getDietdata(this.weeks[index + 1].formatDate);
       } else {
@@ -452,64 +486,103 @@ ${url}`;
   }
 
   selectDate(event) {
-    console.log("test",event.target?.value);
+    console.log("test", event.target?.value);
     let index = event.target?.value;
-    localStorage.setItem("firstday",JSON.stringify(this.weeks[index].formatDate));
+    localStorage.setItem(
+      "firstday",
+      JSON.stringify(this.weeks[index].formatDate)
+    );
     this.selecteddate = this.weeks[index].formatDate;
     this.newSelectedDate = this.weeks[index].date;
     CONSTANTS.dietDate = this.weeks[index].formatDate;
-     this.getDietdata(this.weeks[index].formatDate);
+    this.getDietdata(this.weeks[index].formatDate);
   }
   @ViewChild("slides1", { static: false }) slides: IonSlides;
   @ViewChild("slides2", { static: false }) dateSlides: IonSlides;
   prevDateNew() {
-    
     this.dateSlides.getActiveIndex().then((index: number) => {
       this.currentDateIndex = index - 1;
       if (index > 0) {
         this.noPrevDate = false;
         this.dateSlides.slideTo(index - 1, 200);
-        localStorage.setItem("firstday",JSON.stringify(this.weeks[index-1].formatDate));
+        localStorage.setItem(
+          "firstday",
+          JSON.stringify(this.weeks[index - 1].formatDate)
+        );
         this.selecteddate = this.weeks[index - 1].formatDate;
         this.newSelectedDate = this.weeks[index - 1].date;
         CONSTANTS.dietDate = this.weeks[index - 1].formatDate;
-         this.getDietdata(this.weeks[index - 1].formatDate);
+        this.getDietdata(this.weeks[index - 1].formatDate);
       } else {
         this.noPrevDate = true;
       }
-    })
+    });
   }
   getFoodOfTheDay(day) {
-    return day.map(d => d.Food + " (" + d.portion + " " + d.portion_unit +")").join(",\n");
+    return day
+      .map((d) => d.Food + " (" + d.portion + " " + d.portion_unit + ")")
+      .join(",\n");
     // return day[index] ? day[index].Food : ""
   }
   downloadDietPlan() {
-   
     const doc = new jsPDF() as jsPDFWithPlugin;
     let jsonData = [];
 
-    let todayDate = moment(CONSTANTS.dietDate, 'DDMM').format('DDMMY')
-    let tomorrowDate = moment(CONSTANTS.dietDate, 'DDMM').clone().add(1, 'days').format('DDMMY');
-    let dayAftertomorrowDate = moment(CONSTANTS.dietDate, 'DDMM').clone().add(2, 'days').format('DDMMY');
+    let todayDate = moment(CONSTANTS.dietDate, "DDMM").format("DDMMY");
+    let tomorrowDate = moment(CONSTANTS.dietDate, "DDMM")
+      .clone()
+      .add(1, "days")
+      .format("DDMMY");
+    let dayAftertomorrowDate = moment(CONSTANTS.dietDate, "DDMM")
+      .clone()
+      .add(2, "days")
+      .format("DDMMY");
 
-    let getDataTodayPromise = this.appServices.getDietPlans(CONSTANTS.isDetox, todayDate, CONSTANTS.country, CONSTANTS.defaultCalories);
-    let getDataTomorrowPromise = this.appServices.getDietPlans(CONSTANTS.isDetox, tomorrowDate, CONSTANTS.country, CONSTANTS.defaultCalories);
-    let getDataDayAfterTomorrowPromise = this.appServices.getDietPlans(CONSTANTS.isDetox, dayAftertomorrowDate, CONSTANTS.country, CONSTANTS.defaultCalories);
+    let getDataTodayPromise = this.appServices.getDietPlans(
+      CONSTANTS.isDetox,
+      todayDate,
+      CONSTANTS.country,
+      CONSTANTS.defaultCalories
+    );
+    let getDataTomorrowPromise = this.appServices.getDietPlans(
+      CONSTANTS.isDetox,
+      tomorrowDate,
+      CONSTANTS.country,
+      CONSTANTS.defaultCalories
+    );
+    let getDataDayAfterTomorrowPromise = this.appServices.getDietPlans(
+      CONSTANTS.isDetox,
+      dayAftertomorrowDate,
+      CONSTANTS.country,
+      CONSTANTS.defaultCalories
+    );
 
     Promise.all([
-      getDataTodayPromise.catch(error => { this.errorHandler(error) }),
-      getDataTomorrowPromise.catch(error => { this.errorHandler(error) }),
-      getDataDayAfterTomorrowPromise.catch(error => { this.errorHandler(error) })
-    ]).then(values => {
+      getDataTodayPromise.catch((error) => {
+        this.errorHandler(error);
+      }),
+      getDataTomorrowPromise.catch((error) => {
+        this.errorHandler(error);
+      }),
+      getDataDayAfterTomorrowPromise.catch((error) => {
+        this.errorHandler(error);
+      }),
+    ]).then((values) => {
       this.utilities.hideLoader();
 
+      let todayDiets = this.utilities.parseJSON(
+        this.utilities.parseString(values[0])
+      ).diets;
+      let tomorrowDiets = this.utilities.parseJSON(
+        this.utilities.parseString(values[1])
+      ).diets;
+      let dayAfterTomorrowDiets = this.utilities.parseJSON(
+        this.utilities.parseString(values[2])
+      ).diets;
 
-      let todayDiets = this.utilities.parseJSON(this.utilities.parseString(values[0])).diets;
-      let tomorrowDiets = this.utilities.parseJSON(this.utilities.parseString(values[1])).diets;
-      let dayAfterTomorrowDiets = this.utilities.parseJSON(this.utilities.parseString(values[2])).diets;
-
-      let todayCalories = 0, tomorrowCalories = 0, dayAfterTomorrowCalories = 0;
-
+      let todayCalories = 0,
+        tomorrowCalories = 0,
+        dayAfterTomorrowCalories = 0;
 
       todayDiets.forEach((diet, index) => {
         let row = diet.message;
@@ -519,105 +592,167 @@ ${url}`;
         let tomorrowDiet = tomorrowDiets[index].data;
         let dayAfterTomorrowDiet = dayAfterTomorrowDiets[index].data;
 
-        let foodIteratIndex = Math.max(todayDiet.length, tomorrowDiet.length, dayAfterTomorrowDiet.length);
+        let foodIteratIndex = Math.max(
+          todayDiet.length,
+          tomorrowDiet.length,
+          dayAfterTomorrowDiet.length
+        );
 
         for (let i = 0; i < foodIteratIndex; i++) {
           todayCalories += this.getCaloriesOfDay(todayDiet, i);
           tomorrowCalories += this.getCaloriesOfDay(tomorrowDiet, i);
-          dayAfterTomorrowCalories += this.getCaloriesOfDay(dayAfterTomorrowDiet, i);
+          dayAfterTomorrowCalories += this.getCaloriesOfDay(
+            dayAfterTomorrowDiet,
+            i
+          );
         }
         jsonData.push({
-          "row": {
+          row: {
             content: row,
             styles: {
-              'fillColor': '#FD9F33',
-              'textColor': '#FFF',
-              'fontStyle': 'bold',
-              'halign': 'center'
-            }
+              fillColor: "#FD9F33",
+              textColor: "#FFF",
+              fontStyle: "bold",
+              halign: "center",
+            },
           },
 
           [`${todayDate}`]: this.getFoodOfTheDay(todayDiet),
           [`${tomorrowDate}`]: this.getFoodOfTheDay(tomorrowDiet),
-          [`${dayAftertomorrowDate}`]: this.getFoodOfTheDay(dayAfterTomorrowDiet)
+          [`${dayAftertomorrowDate}`]:
+            this.getFoodOfTheDay(dayAfterTomorrowDiet),
         });
-
-
       });
 
       let columns = [
-        { header: '', dataKey: 'row' },
-        { header: moment(todayDate, 'DDMM').format('dddd') + "\n" + Math.ceil(Number(todayCalories))  + " Kcals", dataKey: todayDate },
-        { header: moment(tomorrowDate, 'DDMM').format('dddd') + "\n" + Math.ceil(Number(tomorrowCalories)) + " Kcals", dataKey: tomorrowDate },
-        { header: moment(dayAftertomorrowDate, 'DDMM').format('dddd') + "\n" + Math.ceil(Number(dayAfterTomorrowCalories)) + " Kcals", dataKey: dayAftertomorrowDate },
+        { header: "", dataKey: "row" },
+        {
+          header:
+            moment(todayDate, "DDMM").format("dddd") +
+            "\n" +
+            Math.ceil(Number(todayCalories)) +
+            " Kcals",
+          dataKey: todayDate,
+        },
+        {
+          header:
+            moment(tomorrowDate, "DDMM").format("dddd") +
+            "\n" +
+            Math.ceil(Number(tomorrowCalories)) +
+            " Kcals",
+          dataKey: tomorrowDate,
+        },
+        {
+          header:
+            moment(dayAftertomorrowDate, "DDMM").format("dddd") +
+            "\n" +
+            Math.ceil(Number(dayAfterTomorrowCalories)) +
+            " Kcals",
+          dataKey: dayAftertomorrowDate,
+        },
       ];
 
       doc.autoTable({
         margin: { top: 0, left: 0, right: 0, bottom: 0 },
         tableLineWidth: 1,
         tableLineColor: "#FFF",
-        theme: 'plain',
+        theme: "plain",
         body: [
           [
             { content: "", styles: { cellWidth: 50, fontSize: 14 } },
-            { content: "Diet reccommendations for ", styles: { halign: 'right', fillColor: '#01A3A4', textColor: '#FFF', fontSize: 14 } },
-            { content: this.profileName, styles: { fontStyle: 'bold', halign: 'left', fillColor: '#01A3A4', textColor: '#FFF',fontSize: 14 } },
-            { content: "", styles: { cellWidth: 50, fontSize: 14 } }
-          ]
-        ]
-      })
+            {
+              content: "Diet reccommendations for ",
+              styles: {
+                halign: "right",
+                fillColor: "#01A3A4",
+                textColor: "#FFF",
+                fontSize: 14,
+              },
+            },
+            {
+              content: this.profileName,
+              styles: {
+                fontStyle: "bold",
+                halign: "left",
+                fillColor: "#01A3A4",
+                textColor: "#FFF",
+                fontSize: 14,
+              },
+            },
+            { content: "", styles: { cellWidth: 50, fontSize: 14 } },
+          ],
+        ],
+      });
 
       doc.autoTable({
         startY: 8,
-        margin: { top: 0, left: 5, right: 5, bottom:0},
+        margin: { top: 0, left: 5, right: 5, bottom: 0 },
         tableLineWidth: 1,
-        tableLineColor: '#01A3A4',
+        tableLineColor: "#01A3A4",
         body: JSON.parse(JSON.stringify(jsonData)),
         columns: columns,
-        headStyles: { halign: 'center', textColor: '#FFF', fillColor: '#FFF', cellPadding: 5, fontSize: 14 },
-        bodyStyles: { valign: 'middle', textColor: "#000000", fontSize: 12 },
-        foot: [[{ content: "", colSpan: 4, }]],
-        footStyles :{ halign: 'center', textColor: '#FFF', fillColor: '#01A3A4', fontStyle: 'italic', cellPadding: 1, fontSize: 12},
+        headStyles: {
+          halign: "center",
+          textColor: "#FFF",
+          fillColor: "#FFF",
+          cellPadding: 5,
+          fontSize: 14,
+        },
+        bodyStyles: { valign: "middle", textColor: "#000000", fontSize: 12 },
+        foot: [[{ content: "", colSpan: 4 }]],
+        footStyles: {
+          halign: "center",
+          textColor: "#FFF",
+          fillColor: "#01A3A4",
+          fontStyle: "italic",
+          cellPadding: 1,
+          fontSize: 12,
+        },
 
         didParseCell: (data) => {
-
-          if (data.section === 'head') {
-            if (data.column.index === 1) data.cell.styles.fillColor = '#F9B747';
-            else if (data.column.index === 2) data.cell.styles.fillColor = '#FF8F66';
-            else if (data.column.index === 3) data.cell.styles.fillColor = '#FF535A';
+          if (data.section === "head") {
+            if (data.column.index === 1) data.cell.styles.fillColor = "#F9B747";
+            else if (data.column.index === 2)
+              data.cell.styles.fillColor = "#FF8F66";
+            else if (data.column.index === 3)
+              data.cell.styles.fillColor = "#FF535A";
           }
 
-          if (data.section === 'body') {
+          if (data.section === "body") {
             if (data.column.index === 0) {
               // if (data.row.index < jsonData.length - 1) {
-                data.cell.styles.textColor = "#FFF";
-                data.cell.styles.fontStyle = 'normal';
-                data.cell.styles.halign = 'left';
-                data.cell.styles.cellPadding = 5;
-                data.cell.styles.fontSize = 14;
-                // data.cell.styles.minCellHeight = 27;
+              data.cell.styles.textColor = "#FFF";
+              data.cell.styles.fontStyle = "normal";
+              data.cell.styles.halign = "left";
+              data.cell.styles.cellPadding = 5;
+              data.cell.styles.fontSize = 14;
+              // data.cell.styles.minCellHeight = 27;
 
-                if (data.row.index % 2 === 0 && data.row.index > 1) data.cell.styles.fillColor = '#9B7F88';
-                else data.cell.styles.fillColor = '#826970';
+              if (data.row.index % 2 === 0 && data.row.index > 1)
+                data.cell.styles.fillColor = "#9B7F88";
+              else data.cell.styles.fillColor = "#826970";
               // }
             }
 
             if (data.column.index === 1) {
-              if (data.row.index % 2 === 0 && data.row.index > 1) data.cell.styles.fillColor = '#FEEFD6';
-              else data.cell.styles.fillColor = '#FCE0AF';
+              if (data.row.index % 2 === 0 && data.row.index > 1)
+                data.cell.styles.fillColor = "#FEEFD6";
+              else data.cell.styles.fillColor = "#FCE0AF";
             } else if (data.column.index === 2) {
-              if (data.row.index % 2 === 0 && data.row.index > 1) data.cell.styles.fillColor = '#FFE6DD';
-              else data.cell.styles.fillColor = '#FFCFBD';
+              if (data.row.index % 2 === 0 && data.row.index > 1)
+                data.cell.styles.fillColor = "#FFE6DD";
+              else data.cell.styles.fillColor = "#FFCFBD";
             } else if (data.column.index === 3) {
-              if (data.row.index % 2 === 0 && data.row.index > 1) data.cell.styles.fillColor = '#FFD9DB';
-              else data.cell.styles.fillColor = '#FFB7B9';
+              if (data.row.index % 2 === 0 && data.row.index > 1)
+                data.cell.styles.fillColor = "#FFD9DB";
+              else data.cell.styles.fillColor = "#FFB7B9";
             }
           }
 
           if (data.column.index > 0) data.cell.styles.cellWidth = 55;
           else data.cell.styles.cellWidth = 35;
           data.cell.styles.lineWidth = 0.5;
-          data.cell.styles.lineColor = '#FFF';
+          data.cell.styles.lineColor = "#FFF";
 
           // if(data.section == "foot"){
           //   data.cell.styles.lineWidth = 0;
@@ -625,166 +760,168 @@ ${url}`;
         },
 
         didDrawCell: (data) => {
-          if (data.section === 'head' && data.column.index === 0) {
+          if (data.section === "head" && data.column.index === 0) {
             let base64Img = `data:image/png;base64,${this.companyLogoBase64}`;
-      
-            if(this.companyLogoBase64!==undefined && this.companyLogoBase64!==''){
-            doc.addImage(base64Img, 'PNG', data.cell.x + 2, data.cell.y + 7, 25, 6.5);
+
+            if (
+              this.companyLogoBase64 !== undefined &&
+              this.companyLogoBase64 !== ""
+            ) {
+              doc.addImage(
+                base64Img,
+                "PNG",
+                data.cell.x + 2,
+                data.cell.y + 7,
+                25,
+                6.5
+              );
             }
           }
-        }
+        },
       });
-      
-        doc.save('Diet Plan.pdf');
-      
+
+      doc.save("Diet Plan.pdf");
     });
   }
 
-//   async openNutritionModel(image,foodName,foodDetail){
-//     const modal = await this.modalController.create({
-//     component: NutritionComponent,
-//     componentProps: {
-//       items: {image,foodName,foodDetail,mode:'image' }
-//     },
-//     cssClass: 'image-preview-modal'
-//   });
+  //   async openNutritionModel(image,foodName,foodDetail){
+  //     const modal = await this.modalController.create({
+  //     component: NutritionComponent,
+  //     componentProps: {
+  //       items: {image,foodName,foodDetail,mode:'image' }
+  //     },
+  //     cssClass: 'image-preview-modal'
+  //   });
 
-//   await modal.present();
-  
-//   const { data } = await modal.onDidDismiss();
-//   if (data?.close) {
- 
-//   }
-// }
+  //   await modal.present();
 
-  deititianName="";
-  deititianEmail="";
-  whatsappNum="";
-  deititianRole="";
-  calendlyId="";
-  whatappVisible=false;
-  gender="";
-  image="";
-  calendlyVisible=false;
-  assinedDietitianExpDate=null;
-  aibasedDietplan=false;
-  getdietitianDetail(email){
-  
-   if (this.compConfig.dietitianAction) {
-    this.appServices.getEditProfilePermission(email).then((res:any)=>{
-      if(res.dietitianName!==undefined){
-      this.deititianName = res.dietitianName;
-      this.deititianEmail = res.dietitianEmail;
-      this.deititianRole = res.role;
-      this.calendlyId = res.calendlyId;
-      this.whatsappNum = res.whatsappNum;
-      this.whatappVisible = res.whatsappVisible;  
-      this.gender = res.gender;
-      this.image = res.image;
-      this.assinedDietitianExpDate = res?.expiryDate ===undefined?null:res.expiryDate;
-      this.aibasedDietplan = res.aiBasedPlanContinues;
-      this.calendlyVisible = res.calendlyVisible;
-     
-      
-      }
-    },err=>{
+  //   const { data } = await modal.onDidDismiss();
+  //   if (data?.close) {
 
-    })
-   }
-   
+  //   }
+  // }
+
+  deititianName = "";
+  deititianEmail = "";
+  whatsappNum = "";
+  deititianRole = "";
+  calendlyId = "";
+  whatappVisible = false;
+  gender = "";
+  image = "";
+  calendlyVisible = false;
+  assinedDietitianExpDate = null;
+  aibasedDietplan = false;
+  getdietitianDetail(email) {
+    if (this.compConfig.dietitianAction) {
+      this.appServices.getEditProfilePermission(email).then(
+        (res: any) => {
+          if (res.dietitianName !== undefined) {
+            this.deititianName = res.dietitianName;
+            this.deititianEmail = res.dietitianEmail;
+            this.deititianRole = res.role;
+            this.calendlyId = res.calendlyId;
+            this.whatsappNum = res.whatsappNum;
+            this.whatappVisible = res.whatsappVisible;
+            this.gender = res.gender;
+            this.image = res.image;
+            this.assinedDietitianExpDate =
+              res?.expiryDate === undefined ? null : res.expiryDate;
+            this.aibasedDietplan = res.aiBasedPlanContinues;
+            this.calendlyVisible = res.calendlyVisible;
+          }
+        },
+        (err) => {}
+      );
+    }
   }
   isIosDevice = this.utilities.isDeviceiOS();
- 
-  gotoWhatsApp(){
 
-   if(this.isIosDevice){
-     // let url = "https://api.whatsapp.com/send?phone=+"+this.whatsappNum+"&&text=I am "+this.profileData.profile.name+", Profile ID:'"+this.profileData.profile.email+"'. I need support.";
-     let urll=`https://api.whatsapp.com/send?phone=${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
-     this.iab.create(urll , '_system');
-   }else{
-    //   let 
-    //   let url = "whatsapp://send?phone=+"+this.whatsappNum+"&text=I am "+this.profileData.profile.name+", Profile ID: '"+this.profileData.profile.email+"'. I need support.";
-    //   this.iab.create(url , '_system');
-    let urll=`https://wa.me/${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
-    this.iab.create(urll , '_system');
-     }
+  gotoWhatsApp() {
+    if (this.isIosDevice) {
+      // let url = "https://api.whatsapp.com/send?phone=+"+this.whatsappNum+"&&text=I am "+this.profileData.profile.name+", Profile ID:'"+this.profileData.profile.email+"'. I need support.";
+      let urll = `https://api.whatsapp.com/send?phone=${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
+      this.iab.create(urll, "_system");
+    } else {
+      //   let
+      //   let url = "whatsapp://send?phone=+"+this.whatsappNum+"&text=I am "+this.profileData.profile.name+", Profile ID: '"+this.profileData.profile.email+"'. I need support.";
+      //   this.iab.create(url , '_system');
+      let urll = `https://wa.me/${this.whatsappNum}?text=I am ${this.profileData.profile.name}, Profile ID: ${this.profileData.profile.email}, I need support`;
+      this.iab.create(urll, "_system");
+    }
   }
   getCaloriesOfDay(day, index) {
     return day[index] ? day[index].Calories : 0;
   }
-  isdoenloadclicked=false;
-  async gotoDownloadPopup(){ 
-     if(this.clientId==='alyve'){
-      this.design='new';
-     this.isdoenloadclicked=true;
-     localStorage.setItem("company_id","alyve.health");
-     this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
-     }
-     else if(this.clientId==='wellbeing'){
-      this.isdoenloadclicked=true;
-      localStorage.setItem("company_id","wellbeing");
-      this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
-     }     
-     else if(this.clientId==='redcliffe'){
-      this.design='new';
-      this.response_type="url";
-      this.isdoenloadclicked=true;
-      localStorage.setItem("company_id","RedcliffeLabs");
-      if(this.response_type==="file"){
+  isdoenloadclicked = false;
+  async gotoDownloadPopup() {
+    if (this.clientId === "alyve") {
+      this.design = "new";
+      this.isdoenloadclicked = true;
+      localStorage.setItem("company_id", "alyve.health");
+      this.response_type='url';
+      this.design === "old"
+        ? this.downloadPdfFromApi()
+        : this.downloadPdfFromApiNew();
+    } else if (this.clientId === "wellbeing") {
+      this.isdoenloadclicked = true;
+      localStorage.setItem("company_id", "wellbeing");
+      this.design === "old"
+        ? this.downloadPdfFromApi()
+        : this.downloadPdfFromApiNew();
+    } else if (this.clientId === "redcliffe") {
+      this.design = "new";
+      this.response_type = "url";
+      this.isdoenloadclicked = true;
+      localStorage.setItem("company_id", "RedcliffeLabs");
+      if (this.response_type === "file") {
         this.downloadPdfFromApiNew1();
-      }
-      else{
+      } else {
         this.downloadPdfFromApiNew();
       }
-      
-     }
-
-     else if(this.clientId==='drstore'){
-      this.isdoenloadclicked=true;
-      localStorage.setItem("company_id","drstore");
-      this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
-     }
-     else if(this.clientId==='lalpathlabs'){
-        this.design='new';
-     this.isdoenloadclicked=true;
-     localStorage.setItem("company_id","Fitrofy");
+    } else if (this.clientId === "drstore") {
+      this.isdoenloadclicked = true;
+      localStorage.setItem("company_id", "drstore");
+      this.design === "old"
+        ? this.downloadPdfFromApi()
+        : this.downloadPdfFromApiNew();
+    } else if (this.clientId === "lalpathlabs") {
+      this.design = "new";
+      this.isdoenloadclicked = true;
+      localStorage.setItem("company_id", "Fitrofy");
       this.downloadPdfFromApiNew1();
-     }
-     else if(this.clientId==='metropolis'){
-        debugger;
-        this.design='new';
-     this.isdoenloadclicked=true;
-     localStorage.setItem("company_id","metropolis");
+    } else if (this.clientId === "metropolis") {
+      debugger;
+      this.design = "new";
+      this.isdoenloadclicked = true;
+      localStorage.setItem("company_id", "metropolis");
       this.downloadPdfFromApiNew1();
-     }
-     else if(this.clientId==='fitelo'){
-        debugger;
-        this.design='new';
-     this.isdoenloadclicked=true;
-      localStorage.setItem("company_id","fitelo");
+    } else if (this.clientId === "fitelo") {
+      debugger;
+      this.design = "new";
+      this.isdoenloadclicked = true;
+      localStorage.setItem("company_id", "fitelo");
       this.downloadPdfFromApiNew1();
-     }
-
-     else {
-      this.isdoenloadclicked=true;
-      this.design==='old'?this.downloadPdfFromApi(): this.downloadPdfFromApiNew();
-     }
-    
+    } else {
+      this.isdoenloadclicked = true;
+      this.design === "old"
+        ? this.downloadPdfFromApi()
+        : this.downloadPdfFromApiNew();
+    }
   }
-  percent=0.0;
-  percentwithPer='0%';
+  percent = 0.0;
+  percentwithPer = "0%";
   iscloseInterval;
-  startInterval(){
+  startInterval() {
     clearInterval(this.iscloseInterval);
-   this.iscloseInterval =  setInterval(() => {
-    if(this.percent%2===0){
-      this.percent = Number(Number(this.percent)+3);
-    }
-    else{
-      this.percent = Number(Number(this.percent)+1);
-    }
-      this.percentwithPer = this.percent+'%';
-      if(this.percent >90){
+    this.iscloseInterval = setInterval(() => {
+      if (this.percent % 2 === 0) {
+        this.percent = Number(Number(this.percent) + 3);
+      } else {
+        this.percent = Number(Number(this.percent) + 1);
+      }
+      this.percentwithPer = this.percent + "%";
+      if (this.percent > 90) {
         clearInterval(this.iscloseInterval);
       }
     }, 1000);
@@ -797,161 +934,178 @@ ${url}`;
       return true;
     }
   }
-  downloadPdfFromApi(){ 
-    this.percent=0.0;
-  this.percentwithPer='0%';
+  downloadPdfFromApi() {
+    this.percent = 0.0;
+    this.percentwithPer = "0%";
     this.startInterval();
-  //  this.utilities.showLdr();
-    this.appServices.downloadPdfFromApi(localStorage.getItem("tkn"),7,
-    moment(this.selecteddate).format("DDMMYYYY").trim(),
-    localStorage.getItem("company_id")
-    ,localStorage.getItem('email')).subscribe((blob) => {
-      this.percentwithPer='100%';
-      const url = window.URL.createObjectURL(blob);
+    //  this.utilities.showLdr();
+    this.appServices
+      .downloadPdfFromApi(
+        localStorage.getItem("tkn"),
+        7,
+        moment(this.selecteddate).format("DDMMYYYY").trim(),
+        localStorage.getItem("company_id"),
+        localStorage.getItem("email")
+      )
+      .subscribe(
+        (blob) => {
+          this.percentwithPer = "100%";
+          const url = window.URL.createObjectURL(blob);
 
-      if (this.isInIframe()){
-      this.iab.create(url , '_system');
-      }
-    
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = localStorage.getItem("clientId")+'_Dietplan.pdf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
-        setTimeout(()=>{
-          this.isdoenloadclicked=false;
-         },2000);
-         clearInterval(this.iscloseInterval);
-        console.log('Page loaded:', event);
-  
-   this.utilities.hideLdr();
-    }, (error) => {
-      this.utilities.hideLdr();
-      console.error('Error downloading PDF:', error);
-    });
+          if (this.isInIframe()) {
+            this.iab.create(url, "_system");
+          }
 
-  }
-  
-  dietitianRecord:any;
-  skills=[];
-  getDietitianDetail1(email){
-    localStorage.setItem("expiryDate","")
-    this.appServices.getDietitianRecord(email).subscribe((res:any)=>{
-      console.log("response dietitian", res);
-      this.dietitianRecord = res;
-      if (res.expiryDate) {
-      localStorage.setItem("expiryDate", moment(res.expiryDate)?.format("DD-MMM-YYYY"));
-      if(this.defaultPlanCheck===true){
-      this.isPlanExpired = moment().toDate() <= moment(res.expiryDate).toDate()?false:true;   
-      }
-      }
-      this.skills = res?.speciality?.split(', ');
-      this.gender = res?.gender?.toLowerCase();
-      },err=>{
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = localStorage.getItem("clientId") + "_Dietplan.pdf";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+          setTimeout(() => {
+            this.isdoenloadclicked = false;
+          }, 2000);
+          clearInterval(this.iscloseInterval);
+          console.log("Page loaded:", event);
 
-    });
-  }
-  response_type="file";
-  design='old';
-  downloadPdfFromApiNew(){ 
-    this.percent=0.0;
-  this.percentwithPer='0%';
-
-    this.startInterval();
-  //  this.utilities.showLdr();
-
-    this.appServices.downloadPdfFromApiNew1(
-    localStorage.getItem("company_id"),
-    this.profileData?.profile?.email?.trim(),
-    this.dietitianRecord?.deititianName?.toString()?.trim() ,
-    this.dietitianRecord?.dietitianEmailId,
-    this.response_type,
-    this.design).subscribe((res:any) => {
-      console.log("blob:::---", res);  
-      this.percentwithPer='100%';
-      const a = document.createElement('a');
-      console.log("blob", res);  
-      this.downloadPdf(res["url"]);
-        setTimeout(()=>{
-          this.isdoenloadclicked=false;
-         },2000);
-         clearInterval(this.iscloseInterval);
-        console.log('Page loaded:', event);
-  
-   
-   this.utilities.hideLdr();
-    }, (error) => {
-       this.percentwithPer='100%';
-      const a = document.createElement('a');
-      console.log("error", error);  
-      this.downloadPdf(error["url"]);
-        setTimeout(()=>{
-          this.isdoenloadclicked=false;
-         },2000);
-         clearInterval(this.iscloseInterval);
-        console.log('Page loaded:', event);
-      this.utilities.hideLdr();
-      console.error('Error downloading PDF:', error);
-      
-    });
-
+          this.utilities.hideLdr();
+        },
+        (error) => {
+          this.utilities.hideLdr();
+          console.error("Error downloading PDF:", error);
+        }
+      );
   }
 
-  
-   downloadPdfFromApiNew1()
-   { 
-    this.percent=0.0;
-  this.percentwithPer='0%';
+  dietitianRecord: any;
+  skills = [];
+  getDietitianDetail1(email) {
+    localStorage.setItem("expiryDate", "");
+    this.appServices.getDietitianRecord(email).subscribe(
+      (res: any) => {
+        console.log("response dietitian", res);
+        this.dietitianRecord = res;
+        if (res.expiryDate) {
+          localStorage.setItem(
+            "expiryDate",
+            moment(res.expiryDate)?.format("DD-MMM-YYYY")
+          );
+          if (this.defaultPlanCheck === true) {
+            this.isPlanExpired =
+              moment().toDate() <= moment(res.expiryDate).toDate()
+                ? false
+                : true;
+          }
+        }
+        this.skills = res?.speciality?.split(", ");
+        this.gender = res?.gender?.toLowerCase();
+      },
+      (err) => {}
+    );
+  }
+  response_type = "file";
+  design = "old";
+  downloadPdfFromApiNew() {
+    this.percent = 0.0;
+    this.percentwithPer = "0%";
 
     this.startInterval();
-  //  this.utilities.showLdr();
-    this.appServices.downloadPdfFromApiNew(
-    localStorage.getItem("company_id"),
-    this.profileData?.profile?.email?.trim(),
-    this.dietitianRecord?.deititianName?.toString()?.trim() ,
-    this.dietitianRecord?.dietitianEmailId,
-    this.response_type,
-    this.design).subscribe((res:Blob) => {
-      console.log("blob:::---", res);  
-      this.percentwithPer='100%';
-      const a = document.createElement('a');
-    
-       const url = window.URL.createObjectURL(res);
-       a.href = url;
-       this.pdfUrl = url;
-       this.downloadPdf(url);
-      
-        setTimeout(()=>{
-          this.isdoenloadclicked=false;
-         },2000);
-         clearInterval(this.iscloseInterval);
-        console.log('Page loaded:', event);
-  
-   
-   this.utilities.hideLdr();
-    }, (error) => {
-      this.utilities.hideLdr();
-      console.error('Error downloading PDF:', error);
-    });
+    //  this.utilities.showLdr();
 
+    this.appServices
+      .downloadPdfFromApiNew1(
+        localStorage.getItem("company_id"),
+        this.profileData?.profile?.email?.trim(),
+        this.dietitianRecord?.deititianName?.toString()?.trim(),
+        this.dietitianRecord?.dietitianEmailId,
+        this.response_type,
+        this.design
+      )
+      .subscribe(
+        (res: any) => {
+          console.log("blob:::---", res);
+          this.percentwithPer = "100%";
+          const a = document.createElement("a");
+          console.log("blob", res);
+          this.downloadPdf(res["url"]);
+          setTimeout(() => {
+            this.isdoenloadclicked = false;
+          }, 2000);
+          clearInterval(this.iscloseInterval);
+          console.log("Page loaded:", event);
+
+          this.utilities.hideLdr();
+        },
+        (error) => {
+          this.percentwithPer = "100%";
+          const a = document.createElement("a");
+          console.log("error", error);
+          this.downloadPdf(error["url"]);
+          setTimeout(() => {
+            this.isdoenloadclicked = false;
+          }, 2000);
+          clearInterval(this.iscloseInterval);
+          console.log("Page loaded:", event);
+          this.utilities.hideLdr();
+          console.error("Error downloading PDF:", error);
+        }
+      );
   }
 
-   downloadPdf(pdfUrl) {
-    if (this.userAgentType === 'Web') {
+  downloadPdfFromApiNew1() {
+    this.percent = 0.0;
+    this.percentwithPer = "0%";
+
+    this.startInterval();
+    //  this.utilities.showLdr();
+    this.appServices
+      .downloadPdfFromApiNew(
+        localStorage.getItem("company_id"),
+        this.profileData?.profile?.email?.trim(),
+        this.dietitianRecord?.deititianName?.toString()?.trim(),
+        this.dietitianRecord?.dietitianEmailId,
+        this.response_type,
+        this.design
+      )
+      .subscribe(
+        (res: Blob) => {
+          console.log("blob:::---", res);
+          this.percentwithPer = "100%";
+          const a = document.createElement("a");
+
+          const url = window.URL.createObjectURL(res);
+          a.href = url;
+          this.pdfUrl = url;
+          this.downloadPdf(url);
+
+          setTimeout(() => {
+            this.isdoenloadclicked = false;
+          }, 2000);
+          clearInterval(this.iscloseInterval);
+          console.log("Page loaded:", event);
+
+          this.utilities.hideLdr();
+        },
+        (error) => {
+          this.utilities.hideLdr();
+          console.error("Error downloading PDF:", error);
+        }
+      );
+  }
+
+  downloadPdf(pdfUrl) {
+    if (this.userAgentType === "Web") {
       // Open in new tab for web
-      window.open(pdfUrl, '_blank');
-    } 
-    else if (this.userAgentType === 'Android App') {
+      window.open(pdfUrl, "_blank");
+    } else if (this.userAgentType === "Android App") {
       // Call Android bridge
       (window as any).MyJSClient?.openPdfFromUrl(pdfUrl);
-    } 
-    else if (this.userAgentType === 'IOS App') {
+    } else if (this.userAgentType === "IOS App") {
       // Call iOS bridge
       (window as any).webkit?.messageHandlers?.callbackHandler?.postMessage({
-        action: 'openPdf',
-        url: pdfUrl
+        action: "openPdf",
+        url: pdfUrl,
       });
     }
   }
@@ -959,9 +1113,7 @@ ${url}`;
     const modal = await this.modalController.create({
       component: SearchPage,
       backdropDismiss: true,
-      componentProps: {
-
-       },
+      componentProps: {},
     });
     this.utilss.storeModal(modal);
     await modal.present();
@@ -969,8 +1121,8 @@ ${url}`;
 
     const d = modaldata?.data;
     // if (d) {
-      // this.getDietdata.emit(CONSTANTS.dietDate);
-      this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
+    // this.getDietdata.emit(CONSTANTS.dietDate);
+    this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
     // }
   }
 
@@ -984,7 +1136,11 @@ ${url}`;
     }
     const u =
       url +
-      `?name=${this.profileData?.profile?.name || ''}&email=${email || ''}&a1=${phone || ''}&a2=”I need support for my ${type} plan in Paytm App. My%20profile%20ID%20is%20${this.profileData?.profile?.email}”`;
+      `?name=${this.profileData?.profile?.name || ""}&email=${email || ""}&a1=${
+        phone || ""
+      }&a2=”I need support for my ${type} plan in Paytm App. My%20profile%20ID%20is%20${
+        this.profileData?.profile?.email
+      }”`;
     this.iab.create(u, "_sysyem");
   }
 
@@ -992,40 +1148,40 @@ ${url}`;
     this.selecteddate = date;
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     const dt = new Date(this.selecteddate).getTime();
-    localStorage.setItem("currentDate",dt+"");
+    localStorage.setItem("currentDate", dt + "");
     this.newSelectedDate = date;
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
-   
   }
-async gotoChat(){
-      
+  async gotoChat() {
     const modal = await this.modalController.create({
-    component: AiChatComponent,
-    componentProps: {
-      items: {profile:this.profileData }
-    },
-    cssClass: 'ai-chat'
-  });
+      component: AiChatComponent,
+      componentProps: {
+        items: { profile: this.profileData },
+      },
+      cssClass: "ai-chat",
+    });
 
-  await modal.present();
-  
-  const { data } = await modal.onDidDismiss();
-  if (data?.close) {
- 
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+    if (data?.close) {
+    }
   }
-
-}
-  openDilar(){
+  openDilar() {
     let url = "tel:+919999118595"; // add the links to body
-    this.iab.create(url , '_system');
+    this.iab.create(url, "_system");
   }
-  links : any[]= [""];
-  sendEmail(){
-    let url = "mailto:admin@smartdietplanner.com?subject=Support profile id:('"+this.profileData.profile.email+"')&body="+this.links.join(" ,"); // add the links to body
-       this.iab.create(url , '_system');
+  links: any[] = [""];
+  sendEmail() {
+    let url =
+      "mailto:admin@smartdietplanner.com?subject=Support profile id:('" +
+      this.profileData.profile.email +
+      "')&body=" +
+      this.links.join(" ,"); // add the links to body
+    this.iab.create(url, "_system");
   }
 
-  copyDiet:any;
+  copyDiet: any;
   getDietdata(date) {
     this.allData = {
       Carbs: 0,
@@ -1033,10 +1189,10 @@ async gotoChat(){
       Fiber: 0,
       Protien: 0,
       totalCal: 0,
-      targetCal: {recomended:0},
+      targetCal: { recomended: 0 },
       calConsumed: 0,
     };
-   this.appServices
+    this.appServices
       .getDietPlans(
         CONSTANTS.isDetox,
         date,
@@ -1044,62 +1200,61 @@ async gotoChat(){
         CONSTANTS.defaultCalories
       )
       .then((res) => {
-        console.log("alam101",this.diets);
+        console.log("alam101", this.diets);
         this.storage.set("dietData", res);
-        localStorage.setItem("dtit",JSON.stringify(res));
-        this.copyDiet = {...JSON.parse(localStorage.getItem("dtit"))};
-        this.diets = {...this.copyDiet};
-        if(this.diets.diets?.length>0){
+        localStorage.setItem("dtit", JSON.stringify(res));
+        this.copyDiet = { ...JSON.parse(localStorage.getItem("dtit")) };
+        this.diets = { ...this.copyDiet };
+        if (this.diets.diets?.length > 0) {
           this.diets.diets.forEach((ele) => {
-            console.log("sssssss:-",ele?.data);          
-            if(ele?.data?.length>0){
-            ele?.data.forEach((element) => {
-              if (element.eaten > 0) {
-                this.allData.totalCal = Math.ceil(
-                  Number(this.allData.totalCal + element.Calories)
-                );
-                this.allData.Carbs = Math.ceil(
-                  Number(this.allData.Carbs + element.Carbs)
-                );
-                this.allData.Fat = Math.ceil(
-                  Number(this.allData.Fat + element.Fat)
-                );
-                this.allData.Fiber = Math.ceil(
-                  Number(this.allData.Fiber + element.Fiber)
-                );
-                this.allData.Protien = Math.ceil(
-                  Number(this.allData.Protien + element.Protien)
-                );
-              }
-          
-            });
-           }
-          
+            console.log("sssssss:-", ele?.data);
+            if (ele?.data?.length > 0) {
+              ele?.data.forEach((element) => {
+                if (element.eaten > 0) {
+                  this.allData.totalCal = Math.ceil(
+                    Number(this.allData.totalCal + element.Calories)
+                  );
+                  this.allData.Carbs = Math.ceil(
+                    Number(this.allData.Carbs + element.Carbs)
+                  );
+                  this.allData.Fat = Math.ceil(
+                    Number(this.allData.Fat + element.Fat)
+                  );
+                  this.allData.Fiber = Math.ceil(
+                    Number(this.allData.Fiber + element.Fiber)
+                  );
+                  this.allData.Protien = Math.ceil(
+                    Number(this.allData.Protien + element.Protien)
+                  );
+                }
+              });
+            }
           });
+        } else {
+          this.utilities.presentAlert(
+            "Slots are not available. Please refresh!"
+          );
         }
-        else{
-          this.utilities.presentAlert("Slots are not available. Please refresh!");
-        }
-     
-       
-        
-       this.getOnePlanForDefaultDate();
-       this.getInstructionData(this.profileData.profile.email);
-     
-       this.allData.targetCal = this.diets;
-     
+
+        this.getOnePlanForDefaultDate();
+        this.getInstructionData(this.profileData.profile.email);
+
+        this.allData.targetCal = this.diets;
       });
   }
-closeCamera(event){
-  this.isOpenBar=event;
-}
-  getOnePlanForDefaultDate(){
-    this.appServices.getOnePlan().subscribe((res) => {
-      this.plandata = res;
-      // if(this.isPlanExpired){
-      //   this.utilities.presentAlert("Your plan has been expired. Please renew")
-      // }
-    },err=>{});
+  closeCamera(event) {
+    this.isOpenBar = event;
+  }
+  getOnePlanForDefaultDate() {
+    this.appServices.getOnePlan().subscribe(
+      (res) => {
+        this.plandata = res;
+        // if(this.isPlanExpired){
+        //   this.utilities.presentAlert("Your plan has been expired. Please renew")
+        // }
+      },
+      (err) => {}
+    );
   }
   getCalData(e, i) {
     console.log("getCalData called e", e);
@@ -1138,15 +1293,15 @@ closeCamera(event){
       });
     }
   }
-  openWindow(){
+  openWindow() {
     this.router.navigate(["appinfo"]);
   }
-  
+
   errorHandler(error: any) {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
-  changePlan(){
-    this.router.navigate(['change-plan']);
+  changePlan() {
+    this.router.navigate(["change-plan"]);
   }
 
   caloryChart() {
@@ -1154,47 +1309,59 @@ closeCamera(event){
       queryParams: {
         profileName: this.profileName,
         compConfig: JSON.stringify(this.compConfig),
-        profileData: JSON.stringify(this.profileData)
-      }
+        profileData: JSON.stringify(this.profileData),
+      },
     });
   }
-  
+
   getInstructionData(data) {
-    this.appServices.getInstructionData(data).then((getInstructionDataResponse: any) => {
-      this.instructions = [];
-      console.log('getInstructionDataResponse: ', getInstructionDataResponse);
-      let reference: any;
-      if (getInstructionDataResponse && getInstructionDataResponse.length > 1) {
-        reference = getInstructionDataResponse.reduce((a, b) => {
-          let obj = new Date(a.createdOn) > new Date(b.createdOn) ? a : b;
-          return obj
-        });
-        console.log('reference obj = ', reference);
-      } else if (getInstructionDataResponse && getInstructionDataResponse.length == 1) {
-        reference = getInstructionDataResponse[0];
-      }
-        this.planName = this.diets.dietPlanName.toLowerCase().includes('cheat') ? "cheat" :
-        this.diets.dietPlanName.toLowerCase().includes('detox') ? "detox" : "normal";
-        Object.keys(reference).forEach(ele => {
+    this.appServices
+      .getInstructionData(data)
+      .then((getInstructionDataResponse: any) => {
+        this.instructions = [];
+        console.log("getInstructionDataResponse: ", getInstructionDataResponse);
+        let reference: any;
+        if (
+          getInstructionDataResponse &&
+          getInstructionDataResponse.length > 1
+        ) {
+          reference = getInstructionDataResponse.reduce((a, b) => {
+            let obj = new Date(a.createdOn) > new Date(b.createdOn) ? a : b;
+            return obj;
+          });
+          console.log("reference obj = ", reference);
+        } else if (
+          getInstructionDataResponse &&
+          getInstructionDataResponse.length == 1
+        ) {
+          reference = getInstructionDataResponse[0];
+        }
+        this.planName = this.diets.dietPlanName.toLowerCase().includes("cheat")
+          ? "cheat"
+          : this.diets.dietPlanName.toLowerCase().includes("detox")
+          ? "detox"
+          : "normal";
+        Object.keys(reference).forEach((ele) => {
           if (ele.toLowerCase().includes(this.planName)) {
-            if(reference[ele].length>10){
-            this.instructions = reference[ele] ? reference[ele].split(/\n/g) : [];
+            if (reference[ele].length > 10) {
+              this.instructions = reference[ele]
+                ? reference[ele].split(/\n/g)
+                : [];
             }
             return;
           }
-        })
-    })
-      .catch(getInstructionDataError => {
-        console.log('getInstructionDataError: ', getInstructionDataError);
+        });
       })
+      .catch((getInstructionDataError) => {
+        console.log("getInstructionDataError: ", getInstructionDataError);
+      });
   }
-isOpenBar=false;
-  async openItemScanner(){
-    this.isOpenBar=true;
-  
+  isOpenBar = false;
+  async openItemScanner() {
+    this.isOpenBar = true;
   }
   preview: string = null;
-   onFileSelected(event: Event,ind) {
+  onFileSelected(event: Event, ind) {
     const input = event.target as HTMLInputElement;
     if (!input.files || input.files.length === 0) return;
 
@@ -1208,87 +1375,95 @@ isOpenBar=false;
     reader.readAsDataURL(file);
 
     // Upload
-  //  this.uploadImage(file,ind);
+    //  this.uploadImage(file,ind);
   }
-uploadImage(file: File,ind:number){ 
-  const formData = new FormData();
-  formData.append("image", file, file.name);
-  console.log("formData",file );
-  if(ind===1){
-    this.appServices.foodImageSend(formData).subscribe((res:any)=>{
-      console.log("foodImageSend", res);
-      if(res.status===200){
-        this.utilities.presentAlert("Image sent successfully!");
-      }
-      else{
-        this.utilities.presentAlert("Something went wrong! Please try again.");
-      }
-     
-    },err=>{
-      this.utilities.presentAlert("Something went wrong! Please try again.");
-    });
-    
-  }
-  else if(ind===2){
-    this.appServices.barcodeImageSend(formData).subscribe((res:any)=>{
-      console.log("barcodeImageSend", res);
-      if(res.status===200){
-        this.utilities.presentAlert("Image sent successfully!");
-      }
-      else{
-        this.utilities.presentAlert("Something went wrong! Please try again.");
-      }
-     
-    },err=>{
-      this.utilities.presentAlert("Something went wrong! Please try again.");
-    });
-    
-  }
-  else if(ind===3){
-    this.appServices.nutritionLabelSend(formData).subscribe((res:any)=>{
-      console.log("nutritionLabelSend", res);
-      if(res.status===200){
-        this.utilities.presentAlert("Image sent successfully!");
-      }
-      else{
-        this.utilities.presentAlert("Something went wrong! Please try again.");
-      }
-     
-    },err=>{
-      this.utilities.presentAlert("Something went wrong! Please try again.");
-    });
-    
-  }
-
-
-}
-barcodeNumber=0;
-sendBarcodeNumber(){
-  this.appServices.barcodeFootnoteImageSend(this.barcodeNumber).subscribe((res:any)=>{
-    console.log("response", res);
-    if(res.status===200){
-      this.utilities.presentAlert("Image sent successfully!");
+  uploadImage(file: File, ind: number) {
+    const formData = new FormData();
+    formData.append("image", file, file.name);
+    console.log("formData", file);
+    if (ind === 1) {
+      this.appServices.foodImageSend(formData).subscribe(
+        (res: any) => {
+          console.log("foodImageSend", res);
+          if (res.status === 200) {
+            this.utilities.presentAlert("Image sent successfully!");
+          } else {
+            this.utilities.presentAlert(
+              "Something went wrong! Please try again."
+            );
+          }
+        },
+        (err) => {
+          this.utilities.presentAlert(
+            "Something went wrong! Please try again."
+          );
+        }
+      );
+    } else if (ind === 2) {
+      this.appServices.barcodeImageSend(formData).subscribe(
+        (res: any) => {
+          console.log("barcodeImageSend", res);
+          if (res.status === 200) {
+            this.utilities.presentAlert("Image sent successfully!");
+          } else {
+            this.utilities.presentAlert(
+              "Something went wrong! Please try again."
+            );
+          }
+        },
+        (err) => {
+          this.utilities.presentAlert(
+            "Something went wrong! Please try again."
+          );
+        }
+      );
+    } else if (ind === 3) {
+      this.appServices.nutritionLabelSend(formData).subscribe(
+        (res: any) => {
+          console.log("nutritionLabelSend", res);
+          if (res.status === 200) {
+            this.utilities.presentAlert("Image sent successfully!");
+          } else {
+            this.utilities.presentAlert(
+              "Something went wrong! Please try again."
+            );
+          }
+        },
+        (err) => {
+          this.utilities.presentAlert(
+            "Something went wrong! Please try again."
+          );
+        }
+      );
     }
-    else{
-      this.utilities.presentAlert("Something went wrong! Please try again.");
-    }
-   
-  },err=>{
-    this.utilities.presentAlert("Something went wrong! Please try again.");
-  }); 
+  }
+  barcodeNumber = 0;
+  sendBarcodeNumber() {
+    this.appServices.barcodeFootnoteImageSend(this.barcodeNumber).subscribe(
+      (res: any) => {
+        console.log("response", res);
+        if (res.status === 200) {
+          this.utilities.presentAlert("Image sent successfully!");
+        } else {
+          this.utilities.presentAlert(
+            "Something went wrong! Please try again."
+          );
+        }
+      },
+      (err) => {
+        this.utilities.presentAlert("Something went wrong! Please try again.");
+      }
+    );
+  }
 }
-
-}
-
 
 interface jsPDFWithPlugin extends jsPDF {
   autoTable: (options: UserOptions) => jsPDF;
 }
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor() { }
+  constructor() {}
   handleError(error) {
     console.log(error);
   }
-
 }
