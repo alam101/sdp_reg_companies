@@ -2,6 +2,8 @@
   <!-- Camera preview -->
  
    <div>
+
+    <div id="reader" style="width:100%;"></div>
   <video #video playsinline muted autoplay class="camera-preview"></video> 
 
  <div class="scan-frame">
@@ -38,8 +40,8 @@
 
   <ion-button class="toggle-btn" fill="clear"  (click)="toggleMode()">
     <!-- (click)="toggleMode()" -->
-    <!-- <ion-icon style="font-size: 2rem;" [name]="mode === 'photo' ? 'barcode-outline' : 'camera-outline'"></ion-icon>  -->
-      <ion-icon style="font-size: 2rem;" [name]="mode === 'photo' ? '' : 'camera-outline'"></ion-icon>
+    <ion-icon style="font-size: 2rem;" [name]="mode === 'photo' ? 'barcode-outline' : 'camera-outline'"></ion-icon> 
+      <!-- <ion-icon style="font-size: 2rem;" [name]="mode === 'photo' ? '' : 'camera-outline'"></ion-icon> -->
   </ion-button>
     </div>
   </div>

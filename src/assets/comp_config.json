@@ -7085,7 +7085,7 @@
     }
   },
   {
-    "fitrofy": {
+    "fitrofy":  {
       "logo": false,
       "isChild": false,
       "profile1": true,
@@ -7098,7 +7098,7 @@
       "video": true,
       "date_selection1": true,
       "date_selection2": true,
-      "goal": true,
+      "goal": false,
       "notes": false,
       "modifyNotes": false,
       "caloriesCircle": true,
@@ -7118,6 +7118,8 @@
       "defaultPlanCheck": false,
       "showWhatsApp": true,
       "dietitianAction": true,
+      "bot": true,
+      "scanner":true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -7142,6 +7144,12 @@
               "value": "muscleGain_morning",
               "label": "Pump and get stronger",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
+            },
+            {
+              "name": "Lean Body",
+              "value": "fatShredding_morning",
+              "label": " Maintain muscles and lose fat",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
             }
           ]
         },

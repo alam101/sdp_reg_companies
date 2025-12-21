@@ -30,7 +30,7 @@
   justify-content: center;
   margin-bottom: 1rem;
   ion-img {
-    max-width: 100%;
+    max-width: 90%;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
@@ -49,7 +49,7 @@ ion-item {
 .scan-wrap{
   position: relative;
   width: 480px;            /* change as needed */
-  height: 285px;           /* change as needed */
+  height: auto;           /* change as needed */
   overflow: hidden;
   border-radius: 6px;
   background: #111;        /* fallback bg */

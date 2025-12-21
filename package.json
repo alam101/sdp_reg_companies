@@ -47,6 +47,7 @@
     "crypto-js": "^4.1.1",
     "flag-icon-css": "^3.5.0",
     "google-libphonenumber": "^3.2.34",
+    "html5-qrcode": "^2.3.8",
     "install": "^0.13.0",
     "ionic-selectable": "^4.9.0",
     "jsbridge": "^1.0.10",
