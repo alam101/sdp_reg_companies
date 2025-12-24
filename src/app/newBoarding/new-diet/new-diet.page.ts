@@ -1028,10 +1028,11 @@ ${url}`;
           this.percentwithPer = "100%";
           const a = document.createElement("a");
           console.log("blob", res);
-          this.downloadPdf(res["url"]);
-          setTimeout(() => {
+           setTimeout(() => {
             this.isdoenloadclicked = false;
           }, 2000);
+          this.downloadPdf(res["url"]);
+         
           clearInterval(this.iscloseInterval);
           console.log("Page loaded:", event);
 
@@ -1041,7 +1042,10 @@ ${url}`;
           this.percentwithPer = "100%";
           const a = document.createElement("a");
           console.log("error", error);
-          this.downloadPdf(error["url"]);
+           setTimeout(() => {
+            this.isdoenloadclicked = false;
+          }, 2000);
+          this.downloadPdf(error["url"]); 
           setTimeout(() => {
             this.isdoenloadclicked = false;
           }, 2000);
@@ -1095,9 +1099,11 @@ ${url}`;
   }
 
   downloadPdf(pdfUrl) {
+     let pdfWindow: Window | null = null;
     if (this.userAgentType === "Web") {
       // Open in new tab for web
-      window.open(pdfUrl, "_blank");
+    //  window.open(pdfUrl, "_blank");
+       pdfWindow.location.href = pdfUrl;
     } else if (this.userAgentType === "Android App") {
       // Call Android bridge
       (window as any).MyJSClient?.openPdfFromUrl(pdfUrl);
