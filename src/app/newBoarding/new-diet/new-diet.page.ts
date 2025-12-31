@@ -1363,8 +1363,10 @@ ${url}`;
       });
   }
   isOpenBar = false;
-  async openItemScanner() {
+  isOpenBarCode='photo';
+  async openItemScanner(barcode) {
     this.isOpenBar = true;
+    this.isOpenBarCode=barcode;
   }
   preview: string = null;
   onFileSelected(event: Event, ind) {

@@ -227,7 +227,7 @@
     </div>
   
     <div class="new-search">
-       <div style="position: relative;" *ngIf="compConfig?.isSearch && !isPlanExpired">
+       <div style="position: relative;display: flex;" *ngIf="compConfig?.isSearch && !isPlanExpired">
       <!-- <ion-searchbar mode="md" 
         style="--box-shadow: none;height: 35px;--padding-top: 6px 0px !important;"
         placeholder="Search for a Food"
@@ -247,12 +247,21 @@
         <ion-icon name="search" style="color:#b3b3b3;"></ion-icon>
        <ion-input placeholder="Search Food" (click)="gotoSearch()"></ion-input> 
         </div>
+        <div style="display: flex;
+        justify-content: center;
+        width: 100%;
+        flex: 1;">
        <ion-icon *ngIf="compConfig?.scanner" name="camera-outline" slot="start" style="font-size: 2rem;
         color: var(--theme-color);
-        position: absolute;
         right: 12%;
-        top: 2px;" (click)="openItemScanner()"> 
+        top: 2px;" (click)="openItemScanner('photo')"> 
       </ion-icon>
+      <ion-icon *ngIf="compConfig?.scanner" name="barcode-outline" slot="start" style="font-size: 2rem;
+      color: var(--theme-color);
+      right: 12%;
+      top: 2px;" (click)="openItemScanner('barcode')"> 
+    </ion-icon>
+    </div>
     </div>
     </div>
     <br>
@@ -454,7 +463,7 @@ border-top-left-radius: 10px;
  </div>
 </ion-footer>
 <!-- <input #fileInput type="file" hidden accept="image/*" capture="environment" (change)="onFileSelected($event,1)">  -->
- <app-open-camera *ngIf="isOpenBar" (backButton)="closeCamera($event)"></app-open-camera> 
+ <app-open-camera *ngIf="isOpenBar" [isOpenBarCode]="isOpenBarCode" (backButton)="closeCamera($event)"></app-open-camera> 
 
 
 <!-- <div *ngIf="compConfig?.isChat"  (click)="gotoChat()" 

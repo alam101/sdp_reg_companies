@@ -21,6 +21,7 @@ export class OpenImagePreviewComponent implements OnInit {
 
  retakeImage() {
     this.loading=false;
+    debugger;
     this.modalCtrl.dismiss({ confirmed: false });
   }
 
@@ -43,7 +44,7 @@ fullObjectfromImageScan:any;
         console.log("foodImageSend", res);
         
         this.foodName = res?.food_name?.text!==undefined?res?.food_name?.text:res?.food_name;
-        if(this.foodName?.includes('no ') || this.foodName?.includes('not') || this.foodName?.includes('no food')){
+        if(this.foodName?.includes('no ') || this.foodName?.includes('not') || this.foodName?.includes('no food')|| this.foodName?.includes('unknown')){
           this.openHelp=true;
           this.utilities.hideLoader();
           this.loading=false;
@@ -127,20 +128,20 @@ barcodeFootnoteImageSend(itemNumber){
 }
   foodDetail:any;
   foodDetailScannedBarcode(foodName){
-  this.appServices.nutritionValueScan(foodName).subscribe(
-    (res: any) => {
-      console.log("nutritionValueScan", res);
-    //   this.isOpen = true;
-     this.utilities.hideLoader();
-        this.foodDetail = res;
+  // this.appServices.nutritionValueScan(foodName).subscribe(
+  //   (res: any) => {
+  //     console.log("nutritionValueScan", res);
+  //   //   this.isOpen = true;
+  //    this.utilities.hideLoader();
+  //       this.foodDetail = res;
         console.log("alam barcode:-000",this.previewUrl.url,foodName, this.barcodeFoodDetail,this.foodDetail);
-       this.openNutritionModel(this.previewUrl.url,foodName,this.barcodeFoodDetail,this.foodDetail);
-    },
-    (err) => {
-       this.utilities.hideLoader();
-       this.openHelp=true;
-    }
-  );
+       this.openNutritionModel(this.previewUrl.url,this.barcodeFoodDetail?.product_name,this.barcodeFoodDetail,this.barcodeFoodDetail);
+  //   },
+  //   (err) => {
+  //      this.utilities.hideLoader();
+  //      this.openHelp=true;
+  //   }
+  // );
 }
 foodDetailScanned(foodName){
   this.appServices.nutritionValueScan(foodName).subscribe(

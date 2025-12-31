@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Output, ViewChild, EventEmitter, Input, OnChanges, NgZone } from '@angular/core';
 import { BrowserMultiFormatReader, IScannerControls } from '@zxing/browser';
 import { BarcodeFormat, DecodeHintType } from '@zxing/library';
 import { AppService } from "../../newBoarding/app.service";
@@ -19,7 +19,7 @@ import {
   templateUrl: './open-camera.component.html',
   styleUrls: ['./open-camera.component.scss'],
 })
-export class OpenCameraComponent implements AfterViewInit, OnDestroy {
+export class OpenCameraComponent implements AfterViewInit,OnChanges, OnDestroy {
   @ViewChild('video', { static: false }) video!: ElementRef<HTMLVideoElement>;
   @ViewChild('canvas', { static: false }) canvas!: ElementRef<HTMLCanvasElement>;
   @Output() backButton = new EventEmitter<boolean>();
@@ -27,105 +27,45 @@ export class OpenCameraComponent implements AfterViewInit, OnDestroy {
   private controls: IScannerControls | null = null;
   private codeReader!: BrowserMultiFormatReader;
   scannedBarcode: string | null = null;
+  @Input() isOpenBarCode:string='photo';
   isOpen = false;
-  mode: 'photo' | 'barcode' = 'photo';
+  mode:string = 'photo';
   isSupported = 'BarcodeDetector' in window;
-  barcodeDetector: any;
-  constructor(private navController:NavController,private router:Router,private sanitizer: DomSanitizer,private modalCtrl: ModalController, private appServices: AppService, private utilities: UTILITIES) {
-    
+  //barcodeDetector: any;
+  constructor(private zone: NgZone,private navController:NavController,private router:Router,private sanitizer: DomSanitizer,private modalCtrl: ModalController, private appServices: AppService, private utilities: UTILITIES) {
+   
   }  
   async ngAfterViewInit() {
     if (this.isSupported) {
-    this.barcodeDetector = new (window as any).BarcodeDetector({
-      formats: ['qr_code', 'ean_13', 'code_128', 'upc_a', 'code_39', 'ean_8','upc_e','itf','codabar']
-    });
-
-   
+    // this.barcodeDetector = new (window as any).BarcodeDetector({
+    //   formats: ['qr_code', 'ean_13', 'code_128', 'upc_a', 'code_39', 'ean_8','upc_e','itf','codabar']
+    // });
+    console.log("this.isOpenBarCode",this.isOpenBarCode);
   }
-   
+  Promise.resolve().then(() => {
+    this.zone.run(() => {
+      this.mode = this.isOpenBarCode;
+    });
+  });
      await this.stopCamera();
      await this.startCamera();
     
   }
+
+  async ngOnChanges() {
+    this.zone.run(() => {
+      setTimeout(() => {
+        this.startHighAccuracyScan();
+      });
+    });
+  }
+
+
 scanning = false;
 lastDetectedTime = Date.now();
 NO_DETECTION_TIMEOUT = 5000;
 html5QrCode=null;
-// async startHighAccuracyScan(video: HTMLVideoElement) {
-//   if (this.scanning) return; // prevent double start
-//   this.scanning = true;
-// new Html5Qrcode("reader")
-//   const stream = await navigator.mediaDevices.getUserMedia({
-//     video: {
-//       facingMode: { ideal: "environment" },
-//       width: { ideal: 1920 },
-//       height: { ideal: 1080 }
-//     }
-//   });
 
-//   video.srcObject = stream;
-// try {
-//   await video.play();
-// } catch (err) {
-//   console.warn("Video play interrupted:", err);
-// }
-
-//   const scanLoop = async () => {
-//     if (!this.scanning || !this.isSupported) return;
-
-//     try {
-//       const barcodes = await this.barcodeDetector.detect(video);
-
-//       if (barcodes.length > 0) {
-//         console.log("Detected:", barcodes[0].rawValue);
-//         this.scannedBarcode = barcodes[0].rawValue;
-//         this.loading1=true;
-//           const modal = await this.modalCtrl.create({
-//     component: OpenImagePreviewComponent,
-//     componentProps: {
-//       previewUrl: {url:this.scannedBarcode, file:'',mode:this.mode}
-//     },
-//     cssClass: 'image-preview-modal'
-//   });
-//   await modal.present();
-//   // this.stopCamera();
-//   const { data } = await modal.onDidDismiss();
-
-//   if (data?.confirmed) {  
-//    //  this.openNutritionModel();
-//   }
-//   else{ 
-//     //scanLoop();
-//   }
-//         // 🔥 Instead of returning, we continue scanning
-//         // If you want to debounce detections, add delay:
-//         await new Promise(res => setTimeout(res, 300)); 
-//       }
-//       else{
-        
-//       //    const now = Date.now();
-//       // const diff = now - this.lastDetectedTime;
-
-//       // if (diff >= this.NO_DETECTION_TIMEOUT) {
-//       //   console.log("❌ No barcode detected for 5 seconds — sending image…");
-
-//       //   this.startBarcodeScannerImageSend();
-
-//       //   // Reset timer after sending
-//       //   this.lastDetectedTime = Date.now();
-//       // }
-        
-//       }
-
-//     } catch (e) {
-//       console.error("Detection error:", e);
-//     }
-
-//     requestAnimationFrame(scanLoop);
-//   };
-
-//   scanLoop();
-// }
 async startHighAccuracyScan() {
   if (this.scanning) return;
   this.scanning = true;
@@ -151,42 +91,46 @@ async startHighAccuracyScan() {
     };
 
     await this.html5QrCode.start(
-      { facingMode: 'environment' }, // ✅ FIXED
+      { facingMode: 'environment' },
       config,
       async (decodedText) => {
-        if (!this.scanning) return;
-
-        this.scanning = false;
-        this.scannedBarcode = decodedText;
-
-        const modal = await this.modalCtrl.create({
-          component: OpenImagePreviewComponent,
-          componentProps: {
-            previewUrl: {
-              url: decodedText,
-              file: '',
-              mode: this.mode
-            }
-          },
-          backdropDismiss: false
+        this.zone.run(async () => {
+          if (!this.scanning) return;
+    
+          this.scanning = false;
+          this.scannedBarcode = decodedText;
+    
+          const modal = await this.modalCtrl.create({
+            component: OpenImagePreviewComponent,
+            componentProps: {
+              previewUrl: {
+                url: decodedText,
+                file: '',
+                mode: this.mode
+              }
+            },
+            backdropDismiss: false
+          });
+          await modal.present();
+          const { data } = await modal.onDidDismiss();
+              if (!data?.confirmed) {
+                  this.zone.run(() => {
+                    setTimeout(() => {
+                      this.startHighAccuracyScan();
+                    });
+                  });
+              }
         });
-
-        await modal.present();
-        const { data } = await modal.onDidDismiss();
-
-        if (data?.confirmed) {
-          await this.stopScanner();
-        } else {
-          await new Promise(res => setTimeout(res, 400));
-          this.scanning = true;
-        }
       },
-      () => {} // ignore frame errors
+      () => {}
     );
+    
 
   } catch (err) {
-    console.error('Scanner start failed:', err);
-    this.scanning = false;
+    this.zone.run(() => {
+      this.scanning = false;
+      this.mode = 'barcode'; // or whatever updates your title
+    });
   }
 }
 
@@ -199,8 +143,7 @@ private stream: MediaStream | null = null;
       .then(stream => {
         this.stream = stream;
         this.video.nativeElement.srcObject = stream;
-      })
-      .catch(err => console.error('Camera error:', err));
+      }).catch(err => console.error('Camera error:', err));
   }
 
   stopCamera() {
@@ -387,49 +330,49 @@ updateFoodDetailPraveenapi(data){
   );
 }
 loading=false;
-async startBarcodeScanner() {
-    try {
-       console.log("bar code started scannig");
-      // 1️⃣ Configure hints to detect multiple barcode formats
-      const hints = new Map();
-      const formats = [
-        BarcodeFormat.CODE_128,
-        BarcodeFormat.CODE_39,
-        BarcodeFormat.EAN_13,
-        BarcodeFormat.EAN_8,
-        BarcodeFormat.UPC_A,
-        BarcodeFormat.UPC_E,
-        BarcodeFormat.QR_CODE,
-      ];
+// async startBarcodeScanner() {
+//     try {
+//        console.log("bar code started scannig");
+//       // 1️⃣ Configure hints to detect multiple barcode formats
+//       const hints = new Map();
+//       const formats = [
+//         BarcodeFormat.CODE_128,
+//         BarcodeFormat.CODE_39,
+//         BarcodeFormat.EAN_13,
+//         BarcodeFormat.EAN_8,
+//         BarcodeFormat.UPC_A,
+//         BarcodeFormat.UPC_E,
+//         BarcodeFormat.QR_CODE,
+//       ];
       
 
-      hints.set(DecodeHintType.POSSIBLE_FORMATS, formats);
+//       hints.set(DecodeHintType.POSSIBLE_FORMATS, formats);
 
-      // 2️⃣ Create reader with hints
-      this.codeReader = new BrowserMultiFormatReader(hints);
+//       // 2️⃣ Create reader with hints
+//       this.codeReader = new BrowserMultiFormatReader(hints);
 
-      // 3️⃣ Start video scanning
-      const videoElement = this.video.nativeElement;
-      this.controls = await this.codeReader.decodeFromVideoDevice(
-        undefined,
-        videoElement,
-        (result, error, controls) => {
-          if (result) {
-            this.scannedBarcode = result.getText();
-            console.log('✅ Scanned Barcode:', this.scannedBarcode);
-           // controls.stop(); // stop scanning after first success
-            this.loading1=true;
-          }
-          if (error && error.name !== 'NotFoundException') {
-            console.warn('Scanning error:', error);
-          }
-        }
-      );
+//       // 3️⃣ Start video scanning
+//       const videoElement = this.video.nativeElement;
+//       this.controls = await this.codeReader.decodeFromVideoDevice(
+//         undefined,
+//         videoElement,
+//         (result, error, controls) => {
+//           if (result) {
+//             this.scannedBarcode = result.getText();
+//             console.log('✅ Scanned Barcode:', this.scannedBarcode);
+//            // controls.stop(); // stop scanning after first success
+//             this.loading1=true;
+//           }
+//           if (error && error.name !== 'NotFoundException') {
+//             console.warn('Scanning error:', error);
+//           }
+//         }
+//       );
       
-    } catch (err) {
-      console.error('Camera error:', err);
-    }
-  }
+//     } catch (err) {
+//       console.error('Camera error:', err);
+//     }
+//   }
 
   async stopScanner() {
     if (this.html5QrCode && this.scanning) {
@@ -470,6 +413,7 @@ async startBarcodeScannerImageSend() {
   await modal.present();
   // this.stopCamera();
   const { data } = await modal.onDidDismiss();
+  debugger;
   if (data?.confirmed) {  
    
   }

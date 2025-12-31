@@ -32,10 +32,11 @@ ion-input.custom-input {
   --background: gray;
   border-radius: 5px;
   border: 1px solid #fff;
-  height: 30px;
-  font-size: 0.8rem;
+  height: 35px;
+  font-size: 1rem;
   text-align: center;
-  padding: 0 1rem !important;
+  --padding-top: 0;
+  --padding-bottom: 0;
 }
 .info-text {
   font-size: 14px;

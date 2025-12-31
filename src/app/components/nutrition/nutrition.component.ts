@@ -17,7 +17,7 @@ export class NutritionComponent implements OnInit {
   randomNumber = Number(Date.now()) * Math.random();
   @Input() items: any | null = null;
   
-  portion = "1";
+  portion = 1;
   unit = "pc";
   isOpen = false;
   constructor( private router:Router, private navCtrl: NavController,private appServices: AppService, private utilities: UTILITIES, private sanitizer: DomSanitizer, private navController: NavController, private modalCtrl: ModalController) {
@@ -39,6 +39,7 @@ export class NutritionComponent implements OnInit {
   }
   portionChanged(event: any) {
     this.portion = event.detail.value;
+    
   }
   unitChanged(event: any) {
     this.unit = event.detail.value;
@@ -46,8 +47,10 @@ export class NutritionComponent implements OnInit {
   ngOnInit() {
    this.setSlotByTime();
    setInterval(() => this.setSlotByTime(), 60 * 1000);
-    console.log("foodDetail", this.items);
+    console.log("foodDetail:--", this.items);
     this.scoreRate(this.items?.foodDetail?.score === undefined ? 3 : Number(this.items?.foodDetail?.score));
+    this.portion = Number(this.items?.foodDetail?.quantity===undefined?1:this.items?.foodDetail?.quantity);
+    this.unit = this.items?.foodDetail?.unit===undefined?1:this.items?.foodDetail?.unit;
   }
   closeModal() {
    // this.modalCtrl.dismiss({ close: true })
@@ -115,11 +118,11 @@ export class NutritionComponent implements OnInit {
       const data = {
         "food": this.items?.foodName,
         "type": "V",
-        "calories": this.items?.foodDetail?.macros?.calories === undefined ? 0 : this.items?.foodDetail.macros?.calories,
-        "protein": this.items?.foodDetail?.macros?.protein === undefined ? 0 : this.items?.foodDetail.macros?.protein,
-        "fat": this.items?.foodDetail?.macros?.fats === undefined ? 0 : this.items?.foodDetail.macros?.fats,
-        "carbs": this.items?.foodDetail?.macros?.carbs === undefined ? 0 : this.items?.foodDetail.macros?.carbs,
-        "fiber": this.items?.foodDetail?.macros?.fiber === undefined ? 0 : this.items?.foodDetail.macros?.fiber,
+        "calories": (this.items?.foodDetail?.macros?.calories === undefined ? 0 : this.items?.foodDetail.macros?.calories),
+        "protein": (this.items?.foodDetail?.macros?.protein === undefined ? 0 : this.items?.foodDetail.macros?.protein),
+        "fat": (this.items?.foodDetail?.macros?.fats === undefined ? 0 : this.items?.foodDetail.macros?.fats),
+        "carbs": (this.items?.foodDetail?.macros?.carbs === undefined ? 0 : this.items?.foodDetail.macros?.carbs),
+        "fiber": (this.items?.foodDetail?.macros?.fiber === undefined ? 0 : this.items?.foodDetail.macros?.fiber),
         "slot": Number(this.slot),
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
@@ -134,11 +137,11 @@ export class NutritionComponent implements OnInit {
       const data = {
         "food": this.items?.foodDetail?.food,
         "type": "V",
-        "calories": this.items?.foodDetail?.macros?.calories === undefined ? 0 : this.items?.foodDetail?.macros?.calories,
-        "protein": this.items?.foodDetail?.macros?.protein === undefined ? 0 : this.items?.foodDetail?.macros?.protein,
-        "fat": this.items?.foodDetail?.macros?.fats === undefined ? 0 : this.items?.foodDetail?.macros?.fats,
-        "carbs": this.items?.foodDetail?.macros?.carbs === undefined ? 0 : this.items?.foodDetail?.macros?.carbs,
-        "fiber": this.items?.foodDetail?.macros?.fiber === undefined ? 0 : this.items?.foodDetail?.macros?.fiber,
+        "calories": (this.items?.foodDetail?.macros?.calories === undefined ? 0 : this.items?.foodDetail?.macros?.calories),
+        "protein": (this.items?.foodDetail?.macros?.protein === undefined ? 0 : this.items?.foodDetail?.macros?.protein),
+        "fat": (this.items?.foodDetail?.macros?.fats === undefined ? 0 : this.items?.foodDetail?.macros?.fats),
+        "carbs": (this.items?.foodDetail?.macros?.carbs === undefined ? 0 : this.items?.foodDetail?.macros?.carbs),
+        "fiber": (this.items?.foodDetail?.macros?.fiber === undefined ? 0 : this.items?.foodDetail?.macros?.fiber),
         "slot": this.slot,
         "portionUnit": this.unit,
         "portionQuantity": this.portion,
