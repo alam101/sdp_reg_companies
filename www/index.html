@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+
+  <title>Diet Plan</title>
+
+  <base href="/"/>
+
+  <meta http-equiv="Permissions-Policy" content="ch-ua-form-factor=()">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="msapplication-tap-highlight" content="no"/>
+
+  <!-- <link rel="icon" type="image/png" href="assets/icon/favicon.png" /> -->
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black" /> -->
+  <meta name="color-scheme" content="#009688"/>
+  <meta name="“theme-color”" content="#fff">
+  <style>
+    @media (min-width: 1000px) {
+      body {
+        max-width: 35% !important;
+        left: 50%;
+        transform: translate(-50%, 0) !important;
+        box-shadow: 0px 4px 10px 0px #888888;
+        position: absolute;
+        background: #f6f7fc !important;
+      }
+    }
+   @media (min-width: 500px) and (max-width:999px) {
+        html {
+          --ion-font-size: 16px;
+        }
+
+        body {
+          max-width: 80% !important;
+          left: 20%;
+          transform: translate(-13%, 0) !important;
+          box-shadow: 0px 4px 10px 0px #888888;
+          position: absolute;
+          background: #f6f7fc !important;
+        }
+      }
+     
+    ion-popover app-portion-count {
+    background: #000;
+    position: fixed;
+    right: 0;
+    top:none !important;
+}
+    
+    .div{
+        box-shadow: 0 1px 3px 5px #f3f3f3 !important;
+        height: 100% !important;
+      }
+    
+  </style>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<link rel="stylesheet" href="styles.css"></head>
+
+<body>
+<div class="div" style="height: 100%;">
+  <app-root></app-root>
+</div>
+<!-- <button id="install-btn" style="display: none;    display: block;
+    position: absolute;
+    top: 1rem;
+    z-index: 11;
+    padding: 1rem;
+    border-radius: 5px;
+    right: 1rem;">Install App</button> -->
+ <script>
+  let deferredPrompt;
+  const installBtn = document.getElementById("install-btn");
+  const isIOS = /iphone|ipad|ipod|safari/i.test(navigator.userAgent);
+  const isInStandaloneMode = window.navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
+  
+  function isSafari() {
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  }
+  
+ /* if (!isSafari()) {
+    alert("For the best experience, please open this app in Safari on iOS.");
+  }*/
+  // Function to check if PWA is installed
+  function checkPWAInstalled() {
+    return localStorage.getItem("pwaInstalled") === "true" || isInStandaloneMode;
+  }
+  
+  // Hide button if PWA is installed
+  if (checkPWAInstalled()) {
+    installBtn.style.display = "none";
+  } else {
+    if (isIOS) {
+      // Show button with instructions for iOS users
+    //  installBtn?.style?.display = "block";
+     // installBtn.innerText = "Install on iOS";
+     // installBtn.addEventListener("click", () => {
+     //   alert("To install this app on iOS, tap the 'Share' button and select 'Add to Home Screen'.");
+     // });
+    } else {
+      // Listen for the install prompt event (for Chrome, Edge, etc.)
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+     //   installBtn?.style?.display = "block";
+      });
+  
+      // Install button click handler
+      installBtn.addEventListener("click", async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+  
+          if (outcome === "accepted") {
+            installBtn.style.display = "none";
+            localStorage.setItem("pwaInstalled", "true");
+          }
+  
+          deferredPrompt = null;
+        }
+      });
+  
+      // Hide button after installation
+      window.addEventListener("appinstalled", () => {
+        installBtn.style.display = "none";
+        localStorage.setItem("pwaInstalled", "true");
+      });
+    }
+  }
+  
+  
+  </script>
+<script>
+  // Show loading animation.
+  var playPromise = video.play();
+
+  if (playPromise !== undefined) {
+    playPromise.then(_ => {
+      // Automatic playback started!
+      // Show playing UI.
+    })
+    .catch(error => {
+      // Auto-play was prevented
+      // Show paused UI.
+    });
+  }
+</script>
+
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="vendor.js" type="module"></script><script src="main.js" type="module"></script></body>
+
+</html>

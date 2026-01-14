@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.613" height="17.613" viewBox="0 0 17.613 17.613">
+  <g id="PLAYLIST" opacity="0.802">
+    <line id="Line_359" data-name="Line 359" x2="13.943" transform="translate(1.835 2.758)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <line id="Line_360" data-name="Line 360" x2="13.943" transform="translate(1.835 5.119)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <line id="Line_361" data-name="Line 361" x2="13.943" transform="translate(1.835 7.392)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <line id="Line_362" data-name="Line 362" x2="13.943" transform="translate(1.835 9.665)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <line id="Line_363" data-name="Line 363" x2="7.339" transform="translate(1.835 11.937)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <g id="Group_14108" data-name="Group 14108">
+      <path id="Path_11994" data-name="Path 11994" d="M2.935,0H14.677a2.935,2.935,0,0,1,2.935,2.935V14.677a2.935,2.935,0,0,1-2.935,2.935H2.935A2.935,2.935,0,0,1,0,14.677V2.935A2.935,2.935,0,0,1,2.935,0Z" fill="#737777"/>
+      <g id="Icon_Menu_Filled" data-name="Icon / Menu / Filled" transform="translate(2.776 2.469)">
+        <path id="Path_417" data-name="Path 417" d="M604-1406.54h7.891v-.91H604Zm0-2.275h11.1v-.91H604Zm0-3.185v.91h11.1v-.91Z" transform="translate(-604 1414.248)" fill="none"/>
+        <path id="Path_11961" data-name="Path 11961" d="M604-1408.815h11.1v-.91H604Zm0-3.185v.91h11.1v-.91Z" transform="translate(-604 1412)" fill="none"/>
+      </g>
+    </g>
+    <g id="Group_14109" data-name="Group 14109" transform="translate(2.484 2.935)">
+      <line id="Line_337" data-name="Line 337" x2="12.193" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_338" data-name="Line 338" x2="12.193" transform="translate(0 2.373)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_344" data-name="Line 344" x2="12.193" transform="translate(0 4.746)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_345" data-name="Line 345" x2="12.193" transform="translate(0 7.118)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+      <line id="Line_341" data-name="Line 341" x2="6.689" transform="translate(0 9.491)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
