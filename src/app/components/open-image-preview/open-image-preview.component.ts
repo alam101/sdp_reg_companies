@@ -44,7 +44,7 @@ fullObjectfromImageScan:any;
         console.log("foodImageSend", res);
         
         this.foodName = res?.food_name?.text!==undefined?res?.food_name?.text:res?.food_name;
-        if(this.foodName?.includes('no ') || this.foodName?.includes('not') || this.foodName?.includes('no food')|| this.foodName?.includes('unknown')){
+        if(this.foodName?.includes('no ') || this.foodName?.includes('not') || this.foodName?.includes('no food')|| this.foodName?.includes('Unknown') || (this.foodName?.includes('Not_Found')){
           this.openHelp=true;
           this.utilities.hideLoader();
           this.loading=false;

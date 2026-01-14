@@ -93,7 +93,7 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
     private routerActive: ActivatedRoute
   ) {
     this.routerActive.queryParams.subscribe((res) => {
-      if (res?.companyId === undefined) {
+      if (res ?.companyId === undefined) {
         this.company_id = null;
       } else {
         this.company_id = res.companyId;
@@ -150,9 +150,9 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
     this.appServices
       .downloadPdfFromApiNew(
         "RedcliffeLabs",
-        this.profileData?.profile?.email?.trim(),
-        this.dietitianRecord?.deititianName?.toString()?.trim(),
-        this.dietitianRecord?.dietitianEmailId,
+        this.profileData ?.profile ?.email ?.trim(),
+        this.dietitianRecord ?.deititianName ?.toString() ?.trim(),
+        this.dietitianRecord ?.dietitianEmailId,
         "url",
         "new"
       )
@@ -176,9 +176,24 @@ If you’d like to explore it or follow a similar plan, here’s the link:
 ${url}`;
     const encodedMsg = encodeURIComponent(message.trim());
     if (this.isIosDevice) {
-      let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
-      window.location.href = urll;
-    } else {
+      if (this.clientId.toLowerCase() !== 'redcliffe') {
+        let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
+        window.location.href = urll;
+      }
+      if (this.clientId.toLowerCase() === 'redcliffe') {
+        if (!this.isIosDevice) {
+          // Call Android bridge
+          (window as any).MyJSClient ?.onDietPlanWhatsappShare(url);
+        } else {
+          // Call iOS bridge
+          (window as any).webkit ?.messageHandlers ?.callbackHandler ?.postMessage({
+            action: "shareFitrofyUrl",
+            url: url,
+          });
+        }
+      }
+    }
+    else {
       let urll = `whatsapp://send?text=${encodedMsg}`;
       this.iab.create(urll, "_system");
     }
@@ -214,7 +229,7 @@ ${url}`;
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
 
-    this.companyLogoBase64 = this.compConfig?.companyLogoBase64;
+    this.companyLogoBase64 = this.compConfig ?.companyLogoBase64;
     this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
   }
   defaultPlanCheck = false;
@@ -290,11 +305,11 @@ ${url}`;
       }
     }
 
-    if (this.tempdesease?.length > 0) {
+    if (this.tempdesease ?.length > 0) {
       this.tempdesease = this.tempdesease.join(",").split(",");
     }
     console.log("this.tempdesease", this.tempdesease.join(","));
-    return this.tempdesease?.length === 0 ? null : this.tempdesease;
+    return this.tempdesease ?.length === 0 ? null : this.tempdesease;
   }
   compConfig: any;
   plandata: any;
@@ -319,7 +334,7 @@ ${url}`;
       }
       this.tomorrow = this.weeks[1].date;
 
-      const creationDate = this.plandata?.profile?.createdDate;
+      const creationDate = this.plandata ?.profile ?.createdDate;
 
       console.log(
         "new Date(creationDate)",
@@ -390,14 +405,14 @@ ${url}`;
   }
 
   isIncludeDesease(items, desease) {
-    return items?.includes(desease);
+    return items ?.includes(desease);
   }
   isIncludeDietPlanCondition(deitPlanName) {
-    if (deitPlanName?.toLowerCase()?.includes("diabetes")) {
+    if (deitPlanName ?.toLowerCase() ?.includes("diabetes")) {
       return "sugar";
-    } else if (deitPlanName?.toLowerCase()?.includes("hypertension")) {
+    } else if (deitPlanName ?.toLowerCase() ?.includes("hypertension")) {
       return "pressure";
-    } else if (deitPlanName?.toLowerCase()?.includes("cholesterol")) {
+    } else if (deitPlanName ?.toLowerCase() ?.includes("cholesterol")) {
       return "cholesterol";
     } else {
       return false;
@@ -434,9 +449,9 @@ ${url}`;
       this.getDietitianDetail1(this.profileData.profile.email);
       if (this.compConfig.isDietitian) {
         this.firstConsult =
-          this.profileData?.lifeStyle?.firstConsult === undefined
+          this.profileData ?.lifeStyle ?.firstConsult === undefined
             ? null
-            : this.profileData?.lifeStyle?.firstConsult;
+            : this.profileData ?.lifeStyle ?.firstConsult;
       }
       // this.getCommunities(this.profileData?.lifeStyle?.communities);
       // this.instructions = this.profileData?.lifeStyle?.instructions;
@@ -446,7 +461,7 @@ ${url}`;
       console.log("getprofile", JSON.stringify(userData));
       console.log("alam:-", profileData["lifeStyle"]);
       this.bindDesease();
-      this.getInstructionData(this.profileData?.profile?.email);
+      this.getInstructionData(this.profileData ?.profile ?.email);
     });
   }
 
@@ -486,8 +501,8 @@ ${url}`;
   }
 
   selectDate(event) {
-    console.log("test", event.target?.value);
-    let index = event.target?.value;
+    console.log("test", event.target ?.value);
+    let index = event.target ?.value;
     localStorage.setItem(
       "firstday",
       JSON.stringify(this.weeks[index].formatDate)
@@ -826,12 +841,12 @@ ${url}`;
             this.gender = res.gender;
             this.image = res.image;
             this.assinedDietitianExpDate =
-              res?.expiryDate === undefined ? null : res.expiryDate;
+              res ?.expiryDate === undefined ? null : res.expiryDate;
             this.aibasedDietplan = res.aiBasedPlanContinues;
             this.calendlyVisible = res.calendlyVisible;
           }
         },
-        (err) => {}
+        (err) => { }
       );
     }
   }
@@ -859,7 +874,7 @@ ${url}`;
       this.design = "new";
       this.isdoenloadclicked = true;
       localStorage.setItem("company_id", "alyve.health");
-      this.response_type='url';
+      this.response_type = 'url';
       this.design === "old"
         ? this.downloadPdfFromApi()
         : this.downloadPdfFromApiNew();
@@ -989,7 +1004,7 @@ ${url}`;
         if (res.expiryDate) {
           localStorage.setItem(
             "expiryDate",
-            moment(res.expiryDate)?.format("DD-MMM-YYYY")
+            moment(res.expiryDate) ?.format("DD-MMM-YYYY")
           );
           if (this.defaultPlanCheck === true) {
             this.isPlanExpired =
@@ -998,10 +1013,10 @@ ${url}`;
                 : true;
           }
         }
-        this.skills = res?.speciality?.split(", ");
-        this.gender = res?.gender?.toLowerCase();
+        this.skills = res ?.speciality ?.split(", ");
+        this.gender = res ?.gender ?.toLowerCase();
       },
-      (err) => {}
+      (err) => { }
     );
   }
   response_type = "file";
@@ -1016,9 +1031,9 @@ ${url}`;
     this.appServices
       .downloadPdfFromApiNew1(
         localStorage.getItem("company_id"),
-        this.profileData?.profile?.email?.trim(),
-        this.dietitianRecord?.deititianName?.toString()?.trim(),
-        this.dietitianRecord?.dietitianEmailId,
+        this.profileData ?.profile ?.email ?.trim(),
+        this.dietitianRecord ?.deititianName ?.toString() ?.trim(),
+        this.dietitianRecord ?.dietitianEmailId,
         this.response_type,
         this.design
       )
@@ -1028,11 +1043,11 @@ ${url}`;
           this.percentwithPer = "100%";
           const a = document.createElement("a");
           console.log("blob", res);
-           setTimeout(() => {
+          setTimeout(() => {
             this.isdoenloadclicked = false;
           }, 2000);
           this.downloadPdf(res["url"]);
-         
+
           clearInterval(this.iscloseInterval);
           console.log("Page loaded:", event);
 
@@ -1042,10 +1057,10 @@ ${url}`;
           this.percentwithPer = "100%";
           const a = document.createElement("a");
           console.log("error", error);
-           setTimeout(() => {
+          setTimeout(() => {
             this.isdoenloadclicked = false;
           }, 2000);
-          this.downloadPdf(error["url"]); 
+          this.downloadPdf(error["url"]);
           setTimeout(() => {
             this.isdoenloadclicked = false;
           }, 2000);
@@ -1066,9 +1081,9 @@ ${url}`;
     this.appServices
       .downloadPdfFromApiNew(
         localStorage.getItem("company_id"),
-        this.profileData?.profile?.email?.trim(),
-        this.dietitianRecord?.deititianName?.toString()?.trim(),
-        this.dietitianRecord?.dietitianEmailId,
+        this.profileData ?.profile ?.email ?.trim(),
+        this.dietitianRecord ?.deititianName ?.toString() ?.trim(),
+        this.dietitianRecord ?.dietitianEmailId,
         this.response_type,
         this.design
       )
@@ -1099,17 +1114,17 @@ ${url}`;
   }
 
   downloadPdf(pdfUrl) {
-     let pdfWindow: Window | null = null;
+    let pdfWindow: Window | null = null;
     if (this.userAgentType === "Web") {
       // Open in new tab for web
-    //  window.open(pdfUrl, "_blank");
-       pdfWindow.location.href = pdfUrl;
+      //  window.open(pdfUrl, "_blank");
+      pdfWindow.location.href = pdfUrl;
     } else if (this.userAgentType === "Android App") {
       // Call Android bridge
-      (window as any).MyJSClient?.openPdfFromUrl(pdfUrl);
+      (window as any).MyJSClient ?.openPdfFromUrl(pdfUrl);
     } else if (this.userAgentType === "IOS App") {
       // Call iOS bridge
-      (window as any).webkit?.messageHandlers?.callbackHandler?.postMessage({
+      (window as any).webkit ?.messageHandlers ?.callbackHandler ?.postMessage({
         action: "openPdf",
         url: pdfUrl,
       });
@@ -1125,7 +1140,7 @@ ${url}`;
     await modal.present();
     const modaldata = await modal.onDidDismiss();
 
-    const d = modaldata?.data;
+    const d = modaldata ?.data;
     // if (d) {
     // this.getDietdata.emit(CONSTANTS.dietDate);
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
@@ -1135,17 +1150,17 @@ ${url}`;
   gotoApply(url, type) {
     let email: any = "";
     let phone: any = "";
-    if (this.appServices.emailOnly(this.profileData?.profile?.email)) {
-      email = this.profileData?.profile?.email;
+    if (this.appServices.emailOnly(this.profileData ?.profile ?.email)) {
+      email = this.profileData ?.profile ?.email;
     } else {
-      phone = this.profileData?.profile?.email;
+      phone = this.profileData ?.profile ?.email;
     }
     const u =
       url +
-      `?name=${this.profileData?.profile?.name || ""}&email=${email || ""}&a1=${
-        phone || ""
+      `?name=${this.profileData ?.profile ?.name || ""}&email=${email || ""}&a1=${
+      phone || ""
       }&a2=”I need support for my ${type} plan in Paytm App. My%20profile%20ID%20is%20${
-        this.profileData?.profile?.email
+      this.profileData ?.profile ?.email
       }”`;
     this.iab.create(u, "_sysyem");
   }
@@ -1170,7 +1185,7 @@ ${url}`;
     await modal.present();
 
     const { data } = await modal.onDidDismiss();
-    if (data?.close) {
+    if (data ?.close) {
     }
   }
   openDilar() {
@@ -1211,11 +1226,11 @@ ${url}`;
         localStorage.setItem("dtit", JSON.stringify(res));
         this.copyDiet = { ...JSON.parse(localStorage.getItem("dtit")) };
         this.diets = { ...this.copyDiet };
-        if (this.diets.diets?.length > 0) {
+        if (this.diets.diets ?.length > 0) {
           this.diets.diets.forEach((ele) => {
-            console.log("sssssss:-", ele?.data);
-            if (ele?.data?.length > 0) {
-              ele?.data.forEach((element) => {
+            console.log("sssssss:-", ele ?.data);
+            if (ele ?.data ?.length > 0) {
+              ele ?.data.forEach((element) => {
                 if (element.eaten > 0) {
                   this.allData.totalCal = Math.ceil(
                     Number(this.allData.totalCal + element.Calories)
@@ -1259,7 +1274,7 @@ ${url}`;
         //   this.utilities.presentAlert("Your plan has been expired. Please renew")
         // }
       },
-      (err) => {}
+      (err) => { }
     );
   }
   getCalData(e, i) {
@@ -1345,8 +1360,8 @@ ${url}`;
         this.planName = this.diets.dietPlanName.toLowerCase().includes("cheat")
           ? "cheat"
           : this.diets.dietPlanName.toLowerCase().includes("detox")
-          ? "detox"
-          : "normal";
+            ? "detox"
+            : "normal";
         Object.keys(reference).forEach((ele) => {
           if (ele.toLowerCase().includes(this.planName)) {
             if (reference[ele].length > 10) {
@@ -1363,10 +1378,10 @@ ${url}`;
       });
   }
   isOpenBar = false;
-  isOpenBarCode='photo';
+  isOpenBarCode = 'photo';
   async openItemScanner(barcode) {
     this.isOpenBar = true;
-    this.isOpenBarCode=barcode;
+    this.isOpenBarCode = barcode;
   }
   preview: string = null;
   onFileSelected(event: Event, ind) {
@@ -1470,7 +1485,7 @@ interface jsPDFWithPlugin extends jsPDF {
 }
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor() {}
+  constructor() { }
   handleError(error) {
     console.log(error);
   }
