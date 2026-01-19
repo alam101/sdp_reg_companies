@@ -1,18 +1,12 @@
-<ion-icon
-class="close"
-name="close-circle"
-(click)="goBack()"
-[ngStyle]="{'top':platform ?'15px':'15px'}"
->
+<ion-icon class="close" name="close-circle" (click)="goBack()" [ngStyle]="{'top':platform ?'15px':'15px'}">
 </ion-icon>
 <ion-content>
- 
+
   <div>
     <ion-row style="margin-top: 3rem;">
       <ion-col size="11" class="ion-text-left" style="border: 1px solid #b3b3b3;padding-left: .5rem;
       border-radius: 1rem;">
-          <ion-input  class="sc-ion-input-ios" 
-          [(ngModel)]="searchValue"  (input)="searchAutoAllApidataOptional2($event)"
+        <ion-input class="sc-ion-input-ios" [(ngModel)]="searchValue" (input)="searchAutoAllApidataOptional2($event)"
           placeholder="Search for Food" style="font-size: .8rem;"></ion-input>
       </ion-col>
       <ion-col size="1" class="ion-text-left">
@@ -23,91 +17,91 @@ name="close-circle"
         color: var(--theme-color);"></ion-icon> -->
       </ion-col>
     </ion-row>
-   <ion-row *ngIf="isSearch">
-    <ion-col>
-      <div style="margin-top:.2rem"> 
-        <ion-row>
-          <ion-col class="ion-text-left">
-            <div style="width:100%;font-size:1rem; color:#565656;"><span style="font-weight: 500;color:#000;">{{searchData?.length}}</span> results found.</div>
-          </ion-col>
-        </ion-row>
-    </div>
-    </ion-col>
-   </ion-row>
-   
+    <ion-row *ngIf="isSearch">
+      <ion-col>
+        <div style="margin-top:.2rem">
+          <ion-row>
+            <ion-col class="ion-text-left">
+              <div style="width:100%;font-size:1rem; color:#565656;"><span
+                  style="font-weight: 500;color:#000;">{{searchData?.length}}</span> results found.</div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-col>
+    </ion-row>
+
   </div>
 
   <p class="change" *ngIf="!isSearchedItems">Recent Dishes</p>
   <div class="change_content" *ngIf="!isSearchedItems">
     <div class="left scroll_x">
-      <app-small-meal-card
-        *ngFor="let d of allCaloriesData"
-        [mealData]="d"
-        (replacedModal)="addCal($event,'')"
-        (gotoView)="gotoView($event)"
-      >
+      <app-small-meal-card *ngFor="let d of allCaloriesData" [mealData]="d" (replacedModal)="addCal($event,'')"
+        (gotoView)="gotoView($event)">
       </app-small-meal-card>
     </div>
   </div>
   <div>
-  <div style="margin-top: 30px">
-    <ion-grid class="pad_0" *ngIf="!isSearchedItems ">
-      <ion-row>
-        <ion-col size="8">
-          <p class="change">Whats's on your mind?</p>
-        </ion-col>
-        <ion-col
-          size="4"
-          class="right"
-          *ngIf="isSearchedItems && allSearchData?.homeBased.length > 3"
-        >
-        </ion-col>
-      </ion-row>
-      <p class="change2">Best Home based suggestions</p>
-    </ion-grid>
-    
-    <ion-grid class="pad_0" *ngIf="isSearchedItems">
-      <div *ngIf="!loaded">
-        <ion-row *ngFor="let item of [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]">
-          <ion-col size="5.5">  <ion-skeleton-text *ngIf="!loaded" animated class="sketloan" style="height: 40px;"></ion-skeleton-text></ion-col>
-          <ion-col size="1"></ion-col>
-          <ion-col size="5.5">  <ion-skeleton-text *ngIf="!loaded" animated class="sketloan" style="height: 40px;"></ion-skeleton-text></ion-col>
-        </ion-row> 
-       
-    
-      </div>
-     
-      <div class="search-auto" style="margin-top:-1rem;"  *ngIf="searchData?.length>0"> 
-        <ion-card style="margin: 0; box-shadow:none;width:98%;">
-          <ion-item *ngFor="let item of searchData; let ind=index;" no-lines style="--border-color:#fff; height: 90px;">
-            <ion-label slot="start" style="font-size:.8rem;font-weight:400;line-height: 1.2;white-space:normal;flex: 0 0 60%;">
-              <span style="font-size: var(--small-font);
+    <div style="margin-top: 30px">
+      <ion-grid class="pad_0" *ngIf="!isSearchedItems ">
+        <ion-row>
+          <ion-col size="8">
+            <p class="change">Whats's on your mind?</p>
+          </ion-col>
+          <ion-col size="4" class="right" *ngIf="isSearchedItems && allSearchData?.homeBased.length > 3">
+          </ion-col>
+        </ion-row>
+        <p class="change2">Best Home based suggestions</p>
+      </ion-grid>
+
+      <ion-grid class="pad_0" *ngIf="isSearchedItems">
+        <div *ngIf="!loaded">
+          <ion-row *ngFor="let item of [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]">
+            <ion-col size="5.5">
+              <ion-skeleton-text *ngIf="!loaded" animated class="sketloan" style="height: 40px;"></ion-skeleton-text>
+            </ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col size="5.5">
+              <ion-skeleton-text *ngIf="!loaded" animated class="sketloan" style="height: 40px;"></ion-skeleton-text>
+            </ion-col>
+          </ion-row>
+
+
+        </div>
+
+        <div class="search-auto" style="margin-top:-1rem;" *ngIf="searchData?.length>0">
+          <ion-card style="margin: 0; box-shadow:none;width:98%;">
+            <ion-item *ngFor="let item of searchData; let ind=index;" no-lines
+              style="--border-color:#fff; height: 90px;">
+              <ion-label slot="start"
+                style="font-size:.8rem;font-weight:400;line-height: 1.2;white-space:normal;flex: 0 0 60%;">
+                <span style="font-size: var(--small-font);
                             font-family: var(--font-medium);
                             font-weight: 500;
                             color: #666666;">{{item?._source?.Food}}</span><br>
-              <span style="    font-size: var(--small-font);
+                <span style="    font-size: var(--small-font);
     font-family: var(--theme-newFont);
     font-weight: 300;
     color: #666666;">{{item?._source?.portion}} {{item?._source?.portion_unit}}</span><br>
-            <span style="font-size:var(--small-font); color:#707070;" 
+                <span style="font-size:var(--small-font); color:#707070;"
                   [innerHTML]="highlightText(item?._source?.SynonymsName, searchValue)">
-            </span>
-            </ion-label>
-            <div slot="end" style="vertical-align: middle;display: inherit;">
-          <!-- score logic -->
+                </span>
+              </ion-label>
+              <div slot="end" style="vertical-align: middle;display: inherit;">
+                <!-- score logic -->
 
-          <div style="
+                <div style="
             color: #fff;
             curson:none;
             width: 80px;
             text-align:center;
-            height:23px;margin-right: 1.5rem;--box-shadow: none;"
-            [ngClass]="getScoreClass(item)" shape="round">
-             <span style="font-size:.7rem;text-transform:capitalize;">{{ item?._source?.Calories | number:'1.0-0' }} Kcal</span>
-          </div>
+            height:23px;margin-right: 1.5rem;--box-shadow: none;" [ngClass]="getScoreClass(item)" shape="round">
+                  <span
+                    style="font-size:.7rem;text-transform:capitalize;">{{ (item?._source?.Calories * item?._source?.portion) | number:'1.0-0' }}
+                    Kcal</span>
+                </div>
 
 
-           <!-- <div  style="
+                <!-- <div  style="
             color: #fff;
             curson:none;
             width: 80px;
@@ -118,23 +112,22 @@ name="close-circle"
             <span style="font-size:.7rem;text-transform:capitalize;">{{item?._source?.Calories | number:'1.0-0'}} Kcal</span>
           </div> -->
 
-          
 
-            <!-- end score logic -->
 
-            <ion-icon name="add-outline" style="color:var(--theme-color);margin-left:1rem;font-size:1.1rem;right: 0;
+                <!-- end score logic -->
+
+                <ion-icon name="add-outline" style="color:var(--theme-color);margin-left:1rem;font-size:1.1rem;right: 0;
             position: absolute;border: 1px solid;
-            border-radius: 5px;border:1px solid; border-radius:5px;"
-            (click)="addCal(item)"></ion-icon>
-          </div>
-          </ion-item>
-        
-         </ion-card> 
-      </div>
-     
-    </ion-grid>
+            border-radius: 5px;border:1px solid; border-radius:5px;" (click)="addCal(item)"></ion-icon>
+              </div>
+            </ion-item>
 
-    <!-- <ion-grid class="pad_0" *ngIf="isSearchedItems">
+          </ion-card>
+        </div>
+
+      </ion-grid>
+
+      <!-- <ion-grid class="pad_0" *ngIf="isSearchedItems">
       <ion-row>
         <ion-col size="8">
           <p class="change">Home based Items:</p>
@@ -178,63 +171,47 @@ name="close-circle"
       </ion-row>
     </ion-grid>
      -->
-    <div class="scroll_x" style="padding: 10px" *ngIf="!isSearchedItems">
-      <div class="avtar_div">
-        <div
-          class="left flex_col avtar_div2"
-          *ngFor="let hb of allHomeBased;let i=index"
-          (click)="viewSuggestions('H',hb?.name)"
-          [ngStyle]="{'margin-right':i%2 === 0?'5px':'0px'}"
-        >
-          <ion-avatar class="avtars" *ngIf="i%2 === 0">
-            <img
-              src="{{hb?.imageId}}"
-              onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
-            />
-          </ion-avatar>
-          <p *ngIf="i%2 === 0" class="meal_cal alter_name">{{hb?.name}}</p>
+      <div class="scroll_x" style="padding: 10px" *ngIf="!isSearchedItems">
+        <div class="avtar_div">
+          <div class="left flex_col avtar_div2" *ngFor="let hb of allHomeBased;let i=index"
+            (click)="viewSuggestions('H',hb?.name)" [ngStyle]="{'margin-right':i%2 === 0?'5px':'0px'}">
+            <ion-avatar class="avtars" *ngIf="i%2 === 0">
+              <img src="{{hb?.imageId}}"
+                onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'" />
+            </ion-avatar>
+            <p *ngIf="i%2 === 0" class="meal_cal alter_name">{{hb?.name}}</p>
+          </div>
         </div>
-      </div>
-      <div class="avtar_div">
-        <div
-          *ngFor="let hb of allHomeBased;let i=index"
-          (click)="viewSuggestions('H',hb?.name)"
-          class="left flex_col avtar_div2"
-          [ngStyle]="{'margin-right':i%2 !== 0?'5px':'0px'}"
-        >
-          <ion-avatar class="avtars" *ngIf="i%2 !== 0">
-            <img
-              src="{{hb?.imageId}}"
-              onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
-            />
-          </ion-avatar>
-          <p *ngIf="i%2 !== 0" class="meal_cal alter_name">{{hb?.name}}</p>
+        <div class="avtar_div">
+          <div *ngFor="let hb of allHomeBased;let i=index" (click)="viewSuggestions('H',hb?.name)"
+            class="left flex_col avtar_div2" [ngStyle]="{'margin-right':i%2 !== 0?'5px':'0px'}">
+            <ion-avatar class="avtars" *ngIf="i%2 !== 0">
+              <img src="{{hb?.imageId}}"
+                onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'" />
+            </ion-avatar>
+            <p *ngIf="i%2 !== 0" class="meal_cal alter_name">{{hb?.name}}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div style="margin-top: 20px">
-    <ion-grid class="pad_0" *ngIf="!isSearchedItems">
-      <ion-row>
-        <ion-col size="6">
-          <p class="change" style="white-space: nowrap;">Popular Restaurants</p>
-        </ion-col>
-        <ion-col size="6" class="ion-text-left">
-          <p
-            *ngIf="!isSearchedItems"
-            class="change"
-            style="color: var(--theme-color); font-weight: 400"
-            (click)="viewSuggestions('R')"
-          >
-            View All
-          </p>
-        </ion-col>
-      </ion-row>
-      <p class="change2">Let us help you to find the bad from the worst</p>
-    </ion-grid>
+    <div style="margin-top: 20px">
+      <ion-grid class="pad_0" *ngIf="!isSearchedItems">
+        <ion-row>
+          <ion-col size="6">
+            <p class="change" style="white-space: nowrap;">Popular Restaurants</p>
+          </ion-col>
+          <ion-col size="6" class="ion-text-left">
+            <p *ngIf="!isSearchedItems" class="change" style="color: var(--theme-color); font-weight: 400"
+              (click)="viewSuggestions('R')">
+              View All
+            </p>
+          </ion-col>
+        </ion-row>
+        <p class="change2">Let us help you to find the bad from the worst</p>
+      </ion-grid>
 
-    <!-- <ion-grid class="pad_0" *ngIf="isSearchedItems">
+      <!-- <ion-grid class="pad_0" *ngIf="isSearchedItems">
       <ion-row>
         <ion-col size="8">
           <p class="change">Restaurant items:</p>
@@ -276,27 +253,23 @@ name="close-circle"
         </ion-col>
       </ion-row>
     </ion-grid> -->
-    <div class="scroll_x left" *ngIf="!isSearchedItems">
-      <app-restaurant-card
-        *ngFor="let d of allRestaurant"
-        [data]="d"
-        (goBack)="goBack()"
-        [slot]="slot"
-      ></app-restaurant-card>
+      <div class="scroll_x left" *ngIf="!isSearchedItems">
+        <app-restaurant-card *ngFor="let d of allRestaurant" [data]="d" (goBack)="goBack()" [slot]="slot">
+        </app-restaurant-card>
+      </div>
     </div>
-  </div>
 
-  <div style="margin-top: 30px">
-    <ion-grid class="pad_0" *ngIf="!isSearchedItems">
-      <ion-row>
-        <ion-col>
-          <p class="change">Go - To items from Groceries</p>
-        </ion-col>
-      </ion-row>
-      <p class="change2">Let us help you to find the best of the lot</p>
-    </ion-grid>
+    <div style="margin-top: 30px">
+      <ion-grid class="pad_0" *ngIf="!isSearchedItems">
+        <ion-row>
+          <ion-col>
+            <p class="change">Go - To items from Groceries</p>
+          </ion-col>
+        </ion-row>
+        <p class="change2">Let us help you to find the best of the lot</p>
+      </ion-grid>
 
-    <!-- <ion-grid class="pad_0" *ngIf="isSearchedItems">
+      <!-- <ion-grid class="pad_0" *ngIf="isSearchedItems">
       <ion-row>
         <ion-col size="8">
           <p class="change">Packaged items:</p>
@@ -338,29 +311,22 @@ name="close-circle"
         </ion-col>
       </ion-row>
     </ion-grid> -->
-    <div *ngIf="!isSearchedItems">
-      <ion-grid>
-        <ion-row>
-          <ion-col
-            size="4"
-            *ngFor="let pkg of allPackages"
-            class="center flex-col"
-            style="padding: 10px 0px"
-            (click)="viewSuggestions('P',pkg?.name)"
-          >
-            <div class="left flex_col">
-              <ion-avatar class="avtar">
-                <img
-                  src="{{pkg?.imageId}}"
-                  onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'"
-                />
-              </ion-avatar>
-              <p class="meal_cal alter_name">{{pkg?.name}}</p>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <div *ngIf="!isSearchedItems">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="4" *ngFor="let pkg of allPackages" class="center flex-col" style="padding: 10px 0px"
+              (click)="viewSuggestions('P',pkg?.name)">
+              <div class="left flex_col">
+                <ion-avatar class="avtar">
+                  <img src="{{pkg?.imageId}}"
+                    onerror="this.src='./assets/newImages/null.jpg';this.style='object-fit: contain'" />
+                </ion-avatar>
+                <p class="meal_cal alter_name">{{pkg?.name}}</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
     </div>
   </div>
-</div>
 </ion-content>
