@@ -27,7 +27,7 @@
       "isChat": false,
       "isDietitian": false,
       "inSights": false,
-      "isGraph": false,    
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
@@ -98,8 +98,12 @@
           ]
         }
       ],
-
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -112,7 +116,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -188,8 +195,8 @@
       "headerText": "Welcome to your daily diet plan.",
       "showWhatsApp": false,
       "dietitianAction": false,
-       "bot": false,
-      "scanner":true,
+      "bot": false,
+      "scanner": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -250,12 +257,30 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightloss_fitty" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightloss_fitty"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -269,11 +294,16 @@
         },
         {
           "desease": "B",
-          "description": ["Minimise Salt", "Do not sprinkle salt"]
+          "description": [
+            "Minimise Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
-          "description": ["Eat health home based food only"]
+          "description": [
+            "Eat health home based food only"
+          ]
         },
         {
           "desease": "T",
@@ -410,7 +440,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -423,11 +458,16 @@
         },
         {
           "desease": "B",
-          "description": ["Minimise Salt", "Do not sprinkle salt"]
+          "description": [
+            "Minimise Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
-          "description": ["Eat health home based food only"]
+          "description": [
+            "Eat health home based food only"
+          ]
         },
         {
           "desease": "T",
@@ -491,10 +531,10 @@
       "headerText": "Welcome to your daily diet plan for improved and healthy hair!",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -564,7 +604,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -577,7 +622,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -648,10 +696,10 @@
       "headerText": "Welcome to your daily diet plan.",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -721,7 +769,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -734,7 +787,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -805,10 +861,10 @@
       "headerText": "Welcome to your daily diet plan.",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -878,7 +934,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -891,7 +952,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -970,7 +1034,7 @@
       "showWhatsApp": true,
       "dietitianAction": true,
       "bot": true,
-      "scanner":true,
+      "scanner": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1037,13 +1101,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -1057,7 +1142,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -1129,16 +1217,16 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
       "dietitianAction": true,
-        "bot": true,
-      "scanner":true,
+      "bot": true,
+      "scanner": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -1186,11 +1274,26 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Management", "value": "weight_loss_plix" },
-        { "name": "Improve Immunity", "value": "immunity_booster_plix" },
-        { "name": "Manage Skincare", "value": "skincare_plix" },
-        { "name": "Manage Stress", "value": "stress_plix" },
-        { "name": "Hair Care", "value": "trayaHealth" }
+        {
+          "name": "Weight Management",
+          "value": "weight_loss_plix"
+        },
+        {
+          "name": "Improve Immunity",
+          "value": "immunity_booster_plix"
+        },
+        {
+          "name": "Manage Skincare",
+          "value": "skincare_plix"
+        },
+        {
+          "name": "Manage Stress",
+          "value": "stress_plix"
+        },
+        {
+          "name": "Hair Care",
+          "value": "trayaHealth"
+        }
       ],
       "deseases": [
         {
@@ -1204,7 +1307,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -1275,10 +1381,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -1329,7 +1435,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -1342,7 +1453,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -1413,10 +1527,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -1486,7 +1600,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -1499,7 +1618,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -1570,10 +1692,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -1624,7 +1746,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -1637,7 +1764,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -1707,10 +1837,10 @@
       "mealPref": false,
       "isAllergies": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "headerText": "Welcome to your daily diet plan!",
@@ -1787,7 +1917,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -1800,7 +1935,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -1902,10 +2040,10 @@
       "mealPref": false,
       "isAllergies": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "headerText": "Welcome to your daily diet plan!",
@@ -1982,7 +2120,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -1995,7 +2138,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -2167,7 +2313,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -2180,7 +2331,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -2249,10 +2403,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "headerText": "Welcome to your daily diet plan.",
       "defaultPlanCheck": false,
@@ -2324,7 +2478,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -2337,7 +2496,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -2406,10 +2568,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
@@ -2481,7 +2643,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -2494,7 +2661,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -2563,10 +2733,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "companyLogoBase64": "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",
@@ -2637,7 +2807,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -2650,7 +2825,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -2719,10 +2897,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "headerText": "Welcome to your daily diet plan.",
       "defaultPlanCheck": false,
@@ -2789,12 +2967,30 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss_blubin" },
-        { "name": "Muscle Building", "value": "musclebuildmorning_blubin" },
-        { "name": "Lean Body", "value": "leanbodymorning_blubin" },
-        { "name": "Manage Diabetes", "value": "diabetes_blubin" },
-        { "name": "Manage Cholesterol", "value": "cholesterol_blubin" },
-        { "name": "Manage Skincare", "value": "skin_blubin" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss_blubin"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "musclebuildmorning_blubin"
+        },
+        {
+          "name": "Lean Body",
+          "value": "leanbodymorning_blubin"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes_blubin"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol_blubin"
+        },
+        {
+          "name": "Manage Skincare",
+          "value": "skin_blubin"
+        }
       ],
       "deseases": [
         {
@@ -2808,7 +3004,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -2877,10 +3076,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "headerText": "Welcome to your daily diet plan.",
       "defaultPlanCheck": false,
@@ -2946,7 +3145,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -2959,7 +3163,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -3028,10 +3235,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "headerText": "Welcome to your daily diet plan.",
       "defaultPlanCheck": false,
@@ -3097,7 +3304,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -3110,7 +3322,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -3181,7 +3396,7 @@
       "isSearch": true,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "headerText": "Welcome to your daily diet plan.",
       "defaultPlanCheck": false,
@@ -3247,7 +3462,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -3260,7 +3480,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -3333,7 +3556,7 @@
       "isSearch": true,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -3403,7 +3626,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -3416,7 +3644,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -3489,7 +3720,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -3559,7 +3790,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -3572,7 +3808,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -3645,7 +3884,7 @@
       "isSearch": true,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -3715,7 +3954,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -3728,7 +3972,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -3799,10 +4046,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -3851,7 +4098,6 @@
               "label": "Balance Hormones, Transform Your Health",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
-
             {
               "name": "Hypothyroid",
               "value": "wellbeing_hypothyroid",
@@ -3880,15 +4126,42 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "wellbeing_weightloss" },
-        { "name": "Muscle Gain Plan", "value": "wellbeing_musclegainMorning" },
-        { "name": "Lean Body", "value": "leanbodymorning_blubin" },
-        { "name": "Diabetes", "value": "wellbeing_diabetes" },
-        { "name": "PCOS", "value": "wellbeing_pcos" },
-        { "name": "Wellbeing Hypothyroid", "value": "wellbeing_hypothyroid" },
-        { "name": "Joints Health", "value": "wellbeing_jointshealth" },
-        { "name": "Skin and Hair care", "value": "welbbeing_skinhair" },
-        { "name": "Gut health", "value": "wellbeing_guthealth" }
+        {
+          "name": "Weight Loss",
+          "value": "wellbeing_weightloss"
+        },
+        {
+          "name": "Muscle Gain Plan",
+          "value": "wellbeing_musclegainMorning"
+        },
+        {
+          "name": "Lean Body",
+          "value": "leanbodymorning_blubin"
+        },
+        {
+          "name": "Diabetes",
+          "value": "wellbeing_diabetes"
+        },
+        {
+          "name": "PCOS",
+          "value": "wellbeing_pcos"
+        },
+        {
+          "name": "Wellbeing Hypothyroid",
+          "value": "wellbeing_hypothyroid"
+        },
+        {
+          "name": "Joints Health",
+          "value": "wellbeing_jointshealth"
+        },
+        {
+          "name": "Skin and Hair care",
+          "value": "welbbeing_skinhair"
+        },
+        {
+          "name": "Gut health",
+          "value": "wellbeing_guthealth"
+        }
       ],
       "deseases": [
         {
@@ -3902,7 +4175,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -3973,10 +4249,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -4041,12 +4317,30 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "trunativ_weightloss" },
-        { "name": "Muscle Gain Plan", "value": "trunativ_musclebuild" },
-        { "name": "Diabetes", "value": "trunativ_diabetes" },
-        { "name": "PCOS", "value": "trunativ_pcos" },
-        { "name": "Joints Health", "value": "trunativ_jointshealth" },
-        { "name": "Skin and Hair care", "value": "trunativ_skinhair" }
+        {
+          "name": "Weight Loss",
+          "value": "trunativ_weightloss"
+        },
+        {
+          "name": "Muscle Gain Plan",
+          "value": "trunativ_musclebuild"
+        },
+        {
+          "name": "Diabetes",
+          "value": "trunativ_diabetes"
+        },
+        {
+          "name": "PCOS",
+          "value": "trunativ_pcos"
+        },
+        {
+          "name": "Joints Health",
+          "value": "trunativ_jointshealth"
+        },
+        {
+          "name": "Skin and Hair care",
+          "value": "trunativ_skinhair"
+        }
       ],
       "deseases": [
         {
@@ -4060,7 +4354,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -4133,7 +4430,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -4203,7 +4500,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -4216,7 +4518,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -4289,7 +4594,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -4359,7 +4664,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -4372,7 +4682,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -4445,7 +4758,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -4515,7 +4828,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -4528,7 +4846,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -4601,7 +4922,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -4671,7 +4992,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -4684,7 +5010,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -4757,7 +5086,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -4840,13 +5169,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -4860,7 +5210,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -4933,7 +5286,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -5004,13 +5357,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -5024,7 +5398,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -5095,10 +5472,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -5149,7 +5526,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -5162,7 +5544,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -5235,7 +5620,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -5274,13 +5659,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -5294,7 +5700,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -5367,7 +5776,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -5406,13 +5815,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -5426,7 +5856,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -5499,7 +5932,7 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -5550,13 +5983,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -5570,7 +6024,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -5639,10 +6096,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "headerText": "Welcome to your daily diet plan.",
       "defaultPlanCheck": false,
@@ -5693,7 +6150,6 @@
               "label": " No more irregular period",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
-
             {
               "name": "Manage Hypertension",
               "value": "origin_hypertension",
@@ -5716,13 +6172,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "origin_weightloss" },
-        { "name": "Muscle Building", "value": "origin_musclebuildingMorning" },
-        { "name": "Lean Body", "value": "origin_leanbodyMorning" },
-        { "name": "Manage Diabetes", "value": "origin_diabetes" },
-        { "name": "Manage Cholesterol", "value": "origin_cholesterol" },
-        { "name": "Manage PCOS", "value": "origin_pcos" },
-        { "name": "Manage Hypertension", "value": "origin_hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "origin_weightloss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "origin_musclebuildingMorning"
+        },
+        {
+          "name": "Lean Body",
+          "value": "origin_leanbodyMorning"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "origin_diabetes"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "origin_cholesterol"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "origin_pcos"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "origin_hypertension"
+        }
       ],
       "deseases": [
         {
@@ -5736,7 +6213,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -5807,10 +6287,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -5837,28 +6317,24 @@
             {
               "name": "Muscle Gain Morning Plan",
               "value": "nutrabox_musclebuildmorning",
-
               "label": "Power Up muscles with high protein diet",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             },
             {
               "name": "Muscle Gain Evening Plan",
               "value": "nutrabox_musclebuildevening",
-
               "label": "Power Up muscles with high protein diet",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             },
             {
               "name": "Fats shredding Morning Plan",
               "value": "nutrabox_fatshreddingmorning",
-
               "label": "Shred Fats for Lean body",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             },
             {
               "name": "Fats shredding Evening Plan",
               "value": "nutrabox_fatshreddingevening",
-
               "label": "Shred Fats for Lean body",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             }
@@ -5880,7 +6356,10 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "nutrabox_weightloss" },
+        {
+          "name": "Weight Loss",
+          "value": "nutrabox_weightloss"
+        },
         {
           "name": "Muscle Gain Plan Morning",
           "value": "nutrabox_musclebuildmorning"
@@ -5897,7 +6376,10 @@
           "name": "Fats Shredding Plan Evening",
           "value": "nutrabox_fatshreddingevening"
         },
-        { "name": "General wellness", "value": "nutrabox_wellness" }
+        {
+          "name": "General wellness",
+          "value": "nutrabox_wellness"
+        }
       ],
       "deseases": [
         {
@@ -5911,7 +6393,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -5980,10 +6465,10 @@
       "dietComponent": false,
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "headerText": "Welcome to your daily diet plan.",
       "defaultPlanCheck": false,
@@ -6031,7 +6516,10 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "ADHD", "value": "enkeltec_adhd" },
+        {
+          "name": "ADHD",
+          "value": "enkeltec_adhd"
+        },
         {
           "name": "Autism",
           "value": "enkeltec_autism"
@@ -6053,7 +6541,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -6095,7 +6586,6 @@
           ]
         }
       ],
-
       "activies": [
         {
           "calories": 200,
@@ -6172,10 +6662,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -6221,10 +6711,22 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Management", "value": "weight_loss_plix_global" },
-        { "name": "Improve Immunity", "value": "Plix_immunity_usaindia" },
-        { "name": "Manage Skincare", "value": "skincare_plix" },
-        { "name": "Manage Stress", "value": "Plix_stress_usaindia" }
+        {
+          "name": "Weight Management",
+          "value": "weight_loss_plix_global"
+        },
+        {
+          "name": "Improve Immunity",
+          "value": "Plix_immunity_usaindia"
+        },
+        {
+          "name": "Manage Skincare",
+          "value": "skincare_plix"
+        },
+        {
+          "name": "Manage Stress",
+          "value": "Plix_stress_usaindia"
+        }
       ],
       "deseases": [
         {
@@ -6238,7 +6740,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -6311,7 +6816,7 @@
       "isSearch": false,
       "isDietitian": true,
       "inSights": false,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
@@ -6382,13 +6887,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "metropolis_diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "metropolis_diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -6402,7 +6928,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -6475,13 +7004,13 @@
       "isSearch": true,
       "isDietitian": true,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": true,
       "dietitianAction": true,
-        "bot": true,
-      "scanner":false,
+      "bot": true,
+      "scanner": false,
       "goals": [
         {
           "heading": "Weight Management",
@@ -6548,13 +7077,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -6568,7 +7118,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -6664,10 +7217,7 @@
           "heading": "Fitness",
           "label": " Exercise is king, nutrition is Queen",
           "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png",
-          "options": [
-           
-           
-          ]
+          "options": []
         },
         {
           "heading": "Disease Management",
@@ -6692,7 +7242,7 @@
               "label": "Balance hormones, regulate cycles",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
-             {
+            {
               "name": "Manage Hypertension",
               "value": "hypertension",
               "label": "Control and lower blood pressure",
@@ -6703,7 +7253,7 @@
               "value": "cholesterol",
               "label": "Improve heart health naturally",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
-            },           
+            },
             {
               "name": "Manage Hypothyroid",
               "value": "hypothyroid",
@@ -6716,7 +7266,6 @@
               "label": "Heal your liver with food",
               "imgUrl": "../../../assets/img/fattyliver.png"
             },
-            
             {
               "name": "Manage Inflammation",
               "value": "antiInflammatory",
@@ -6727,14 +7276,38 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Manage Diabetes", "value": "metropolis_diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" },
-        { "name": "Hypothyroid", "value": "hypothyroid" },
-        { "name": "Inflammation", "value": "antiInflammatory" },
-        { "name": "Manage Pre-Diabetes", "value": "preDiabetic" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "metropolis_diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        },
+        {
+          "name": "Hypothyroid",
+          "value": "hypothyroid"
+        },
+        {
+          "name": "Inflammation",
+          "value": "antiInflammatory"
+        },
+        {
+          "name": "Manage Pre-Diabetes",
+          "value": "preDiabetic"
+        }
       ],
       "deseases": [
         {
@@ -6748,7 +7321,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -6792,7 +7368,7 @@
       ]
     }
   },
-   {
+  {
     "beatodoc": {
       "logo": false,
       "isChild": false,
@@ -6827,7 +7403,7 @@
       "showWhatsApp": true,
       "dietitianAction": true,
       "bot": true,
-      "scanner":true,
+      "scanner": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -6842,7 +7418,6 @@
             }
           ]
         },
-       
         {
           "heading": "Disease Management",
           "label": "Let food be thy medicine ",
@@ -6854,14 +7429,13 @@
               "label": "Keep sugar levels in check",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
             },
-            
             {
               "name": "Manage PCOS",
               "value": "pcos",
               "label": "Balance hormones, regulate cycles",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
             },
-             {
+            {
               "name": "Manage Hypertension",
               "value": "hypertension",
               "label": "Control and lower blood pressure",
@@ -6872,7 +7446,7 @@
               "value": "cholesterol",
               "label": "Improve heart health naturally",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
-            },           
+            },
             {
               "name": "Manage Hypothyroid",
               "value": "hypothyroid",
@@ -6883,12 +7457,30 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Manage Diabetes", "value": "metropolis_diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" },
-        { "name": "Hypothyroid", "value": "hypothyroid" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "metropolis_diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        },
+        {
+          "name": "Hypothyroid",
+          "value": "hypothyroid"
+        }
       ],
       "deseases": [
         {
@@ -6902,7 +7494,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -6946,7 +7541,7 @@
       ]
     }
   },
-   {
+  {
     "nutrikorner": {
       "logo": false,
       "isChild": false,
@@ -6973,10 +7568,10 @@
       "headerText": "Welcome to your daily diet plan",
       "isLogAll": true,
       "isSearch": false,
-"isChat": false,
+      "isChat": false,
       "isDietitian": false,
       "inSights": true,
- "isGraph": false,
+      "isGraph": false,
       "compPhone": "",
       "defaultPlanCheck": false,
       "showWhatsApp": false,
@@ -7027,7 +7622,12 @@
           ]
         }
       ],
-      "editGoalForDisplay": [{ "name": "", "value": "" }],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
       "deseases": [
         {
           "desease": "D",
@@ -7040,7 +7640,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -7085,7 +7688,7 @@
     }
   },
   {
-    "fitrofy":  {
+    "fitrofy": {
       "logo": false,
       "isChild": false,
       "profile1": true,
@@ -7119,7 +7722,7 @@
       "showWhatsApp": true,
       "dietitianAction": true,
       "bot": true,
-      "scanner":true,
+      "scanner": true,
       "goals": [
         {
           "heading": "Weight Management",
@@ -7186,13 +7789,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -7206,7 +7830,10 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",
@@ -7344,13 +7971,34 @@
         }
       ],
       "editGoalForDisplay": [
-        { "name": "Weight Loss", "value": "weightLoss" },
-        { "name": "Muscle Building", "value": "muscleGain" },
-        { "name": "Lean Body", "value": "fatShredding" },
-        { "name": "Manage Diabetes", "value": "diabetes" },
-        { "name": "Manage PCOS", "value": "pcos" },
-        { "name": "Manage Cholesterol", "value": "cholesterol" },
-        { "name": "Manage Hypertension", "value": "hypertension" }
+        {
+          "name": "Weight Loss",
+          "value": "weightLoss"
+        },
+        {
+          "name": "Muscle Building",
+          "value": "muscleGain"
+        },
+        {
+          "name": "Lean Body",
+          "value": "fatShredding"
+        },
+        {
+          "name": "Manage Diabetes",
+          "value": "diabetes"
+        },
+        {
+          "name": "Manage PCOS",
+          "value": "pcos"
+        },
+        {
+          "name": "Manage Cholesterol",
+          "value": "cholesterol"
+        },
+        {
+          "name": "Manage Hypertension",
+          "value": "hypertension"
+        }
       ],
       "deseases": [
         {
@@ -7364,7 +8012,175 @@
         },
         {
           "desease": "B",
-          "description": ["Less Salt", "Do not sprinkle salt"]
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
+        },
+        {
+          "desease": "P",
+          "description": [
+            "Avoid high Glycemic index foods like ragi/ white bread/ white rice",
+            "If you have taken hormonal theraphy in past, please reduce the fat intake"
+          ]
+        },
+        {
+          "desease": "T",
+          "description": [
+            " Avoid soy, brocolli, cabbage and all cruciferous food",
+            "Avoid soy contain breads (white or brown). Please check bread ingredients",
+            "Avoid taking antacids with thyroid medicines ",
+            "Monitor thyroid profile after every 3 months "
+          ]
+        },
+        {
+          "desease": "G",
+          "description": [
+            "Add vitamin B12 rich food in diet ",
+            "Get your iron and vitamin B12 test done after every 6 months",
+            "Avoid gluten for lifetime"
+          ]
+        },
+        {
+          "desease": "ML",
+          "description": [
+            " Say no to milk and milk products but can take curd/ paneer ",
+            "Get your iron and vitamin B12 tests done after every 6 months"
+          ]
+        },
+        {
+          "desease": "A",
+          "description": [
+            " Increase intake of water/ fluids ",
+            "Stop retention of stool or avoid painful evacuation of stool ",
+            "Increase fiber intake"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "vieroots": {
+      "logo": false,
+      "isChild": false,
+      "profile1": true,
+      "profile2": false,
+      "consumed_cal": true,
+      "cal_count": true,
+      "download": false,
+      "pie_chart": false,
+      "alternative": true,
+      "video": true,
+      "date_selection1": true,
+      "date_selection2": true,
+      "goal": false,
+      "notes": false,
+      "modifyNotes": false,
+      "caloriesCircle": true,
+      "itemCalories": true,
+      "isBanner": true,
+      "isProfileIcons": true,
+      "isEditProfile": false,
+      "dietComponent": false,
+      "mealPref": false,
+      "headerText": "Welcome to your daily diet plan",
+      "isLogAll": true,
+      "isSearch": false,
+      "isChat": false,
+      "isDietitian": false,
+      "inSights": true,
+      "isGraph": false,
+      "compPhone": "",
+      "defaultPlanCheck": false,
+      "showWhatsApp": false,
+      "dietitianAction": false,
+      "goals": [
+        {
+          "heading": "Weight Management",
+          "label": "Eat up, Heal up",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png",
+          "options": [
+            {
+              "name": "Weight Loss",
+              "value": "weightLoss",
+              "label": "Lose weight not the mind",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-1.png"
+            }
+          ]
+        },
+        {
+          "heading": "Fitness",
+          "label": " Exercise is king, nutrition is Queen",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png",
+          "options": [
+            {
+              "name": "Muscle Building",
+              "value": "muscleGain",
+              "label": "Pump and get stronger",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
+            },
+            {
+              "name": "Lean Body",
+              "value": "fatShredding",
+              "label": " Maintain muscles and lose fat",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-3.png"
+            }
+          ]
+        },
+        {
+          "heading": "Disease Management",
+          "label": "Let food be thy medicine ",
+          "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png",
+          "options": [
+            {
+              "name": "Manage Diabetes",
+              "value": "diabetes",
+              "label": " Optimize blood glucose levels ",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-4.png"
+            },
+            {
+              "name": "Manage PCOS",
+              "value": "pcos",
+              "label": " No more irregular period",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-5.png"
+            },
+            {
+              "name": "Manage Cholesterol",
+              "value": "cholesterol",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-6.png"
+            },
+            {
+              "name": "Manage Hypertension",
+              "value": "hypertension",
+              "label": "No more high blood pressure",
+              "imgUrl": "../../../assets/newImages/aviva-images/goal-7.png"
+            }
+          ]
+        }
+      ],
+      "editGoalForDisplay": [
+        {
+          "name": "",
+          "value": ""
+        }
+      ],
+      "deseases": [
+        {
+          "desease": "D",
+          "description": [
+            "Avoid ragi/ white bread/ jowar",
+            "Eat frequent meals with 2-3 hours of gap",
+            "Add vit B12 rich food in diet ",
+            "Monitor HBA1C , kidney test after 3 months"
+          ]
+        },
+        {
+          "desease": "B",
+          "description": [
+            "Less Salt",
+            "Do not sprinkle salt"
+          ]
         },
         {
           "desease": "P",

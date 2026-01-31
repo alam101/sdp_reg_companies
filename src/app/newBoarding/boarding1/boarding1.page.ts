@@ -17,7 +17,7 @@ import { FormsModule } from "@angular/forms";
 export class Boarding1Page implements OnInit, AfterViewInit {
   name = "";
   prof;
-  isChild = true;
+  isChild = false;
   regex: RegExp = /^[A-Za-z0-9 ]+$/;
   isNameValid = true;
   client = "";

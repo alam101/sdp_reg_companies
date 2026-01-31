@@ -15,7 +15,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class Boarding4Page implements OnInit {
   @Input() from = "";
   clientId = "";
-  isChild = true;
+  isChild = false;
   healths: any = [];
   showData: Boolean = false;
   showDataAl: Boolean = false;

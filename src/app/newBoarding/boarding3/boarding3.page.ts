@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class Boarding3Page implements OnInit {
   @Input() from = "";
-  isChild = true;
+  isChild = false;
   selectedValue: any = {};
   localData: any;
   profileData: any;

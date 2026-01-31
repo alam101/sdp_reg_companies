@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 })
 export class FinalBoardingPage implements OnInit {
   moment: any = moment;
-  isChild = true;
+  isChild = false;
   date: any = new Date();
   randomNumber = Number(Date.now()) * Math.random();
   next3: any = new Date().setMonth(new Date().getMonth() + 3);

@@ -25,7 +25,7 @@
           <div class="card_div" (click)="newModal=activity?.val"
             *ngFor="let activity of localData?.otherMaster?.activities;let ind=index">
             <ion-radio class="radio-button" [value]="activity?.val" mode="ios"></ion-radio>
-            <ion-card class="section-card" *ngIf="ind!==1 && ind!==3"
+            <ion-card class="section-card" *ngIf="!isChild || (ind!==1 && ind!==3)"
               [ngClass]="newModal === activity?.val && 'card_Border'">
               <p class="fitness">{{activity?.val}}</p>
               <p class="desc">{{activity?.sub_val}}</p>
