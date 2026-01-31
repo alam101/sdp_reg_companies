@@ -2,67 +2,62 @@
   <div class="mainDiv">
     <div class="header_div">
 
-      <ion-row *ngIf="client==='aviva'" class="header-container">
+      <!-- <ion-row *ngIf="isChild" class="header-container">
         <ion-col size="12" class="ion-no-padding">
-          <img class="aviva-logo"  src="./assets/newImages/aviva-logo.png">
+          <img class="aviva-logo" src="./assets/child/child-6.jpeg">
         </ion-col>
-      </ion-row>
-      <ion-row *ngIf="client==='yellowsquash'" class="header-container">
-        <ion-col size="12" class="ion-no-padding">
-          <img class="yellowsquash-logo"  src="./assets/companyLogo/YellowSquash.png">
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="client==='elderfly'" class="header-container">
-        <ion-col size="12" class="ion-no-padding">
-          <img class="elderfly-logo"  src="./assets/companyLogo/elderfly.png">
-        </ion-col>
-      </ion-row>
-      
+      </ion-row> -->
+      <div *ngIf="!isChild">
+        <ion-row *ngIf="client==='aviva'" class="header-container">
+          <ion-col size="12" class="ion-no-padding">
+            <img class="aviva-logo" src="./assets/newImages/aviva-logo.png">
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="client==='yellowsquash'" class="header-container">
+          <ion-col size="12" class="ion-no-padding">
+            <img class="yellowsquash-logo" src="./assets/companyLogo/YellowSquash.png">
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="client==='elderfly'" class="header-container">
+          <ion-col size="12" class="ion-no-padding">
+            <img class="elderfly-logo" src="./assets/companyLogo/elderfly.png">
+          </ion-col>
+        </ion-row>
+      </div>
       <h3 class="title ion-text-center"></h3>
-      
+
     </div>
 
     <div class="content_div">
-      <ion-img *ngIf="client!='plix' && client!='orthocure' && client!='aviva' && client!='yellowsquash' && client!='elderfly'"
-        src="../../../assets/newImages/registration.svg"
-        class="reg_img"
-      ></ion-img>
-      <img *ngIf="client==='plix'"
-        src="./assets/newImages/plixlogo.jpeg"
-        style="    width: 24%;
+      <ion-img
+        *ngIf="client!='plix' && client!='orthocure' && client!='aviva' && client!='yellowsquash' && client!='elderfly' && !isChild"
+        src="../../../assets/newImages/registration.svg" class="reg_img"></ion-img>
+      <ion-img *ngIf="isChild" src="../../../assets/child/child-6.jpeg" class="reg_img_child">
+      </ion-img>
+      <img *ngIf="client==='plix'" src="./assets/newImages/plixlogo.jpeg" style="    width: 24%;
         position: absolute;
         left: 38%;
         top: 5rem;
         border-radius: 1rem;">
-         <img *ngIf="client==='orthocure'"
-         src="./assets/newImages/orthocure.png"
-         style="width: 50%;
+      <img *ngIf="client==='orthocure'" src="./assets/newImages/orthocure.png" style="width: 50%;
          position: absolute;
          left: 24%;
          top: 5rem;
          border-radius: 1rem;">
-     
+
       <h3 class="title-text ion-text-center">Hey, answer a few questions to help us get your personalised plan</h3>
 
-      <ion-input
-      type="text"
-      (ionInput)="onInputChange($event)"
-        class="input"
-        placeholder="Your Name"
-        [(ngModel)]="name"
-      ></ion-input>
+      <ion-input type="text" (ionInput)="onInputChange($event)" class="input" placeholder="Your Name"
+        [(ngModel)]="name"></ion-input>
       <ion-note color="danger" *ngIf="form?.get('textInput')?.hasError('pattern')">
         Numbers are not allowed!
       </ion-note>
     </div>
     <div class="go_btn_div">
-      <ion-button 
-      class="go_btn" 
-      shape="round" 
-      (click)="goNext()" 
-      style="z-index: 10; touch-action: manipulation; -webkit-transform: translate3d(0, 0, 0);">
-      Let's Start
-    </ion-button>
+      <ion-button class="go_btn" shape="round" (click)="goNext()"
+        style="z-index: 10; touch-action: manipulation; -webkit-transform: translate3d(0, 0, 0);">
+        Let's Start
+      </ion-button>
     </div>
   </div>
   <br><br><br>

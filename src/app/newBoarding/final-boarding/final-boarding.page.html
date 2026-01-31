@@ -5,19 +5,17 @@
         <p class="heading_title">
           Thank You! <br />We appreciate your dedication.
         </p>
-        <ion-img *ngIf="clientId == 'aviva'" src="../../../../assets/newImages/nutritional.png" class="aviva-header-image"></ion-img>
+        <ion-img *ngIf="clientId == 'aviva'" src="../../../../assets/newImages/nutritional.png"
+          class="aviva-header-image"></ion-img>
       </div>
     </div>
     <div class="content_div">
       <p class="title-text">
         From the information provided, that is our basic analysis.
       </p>
-      <div class="condition_card" >
+      <div class="condition_card" *ngIf="!isChild">
         <div class="card_div">
-          <ion-img *ngIf="clientId != 'aviva'"
-            src="../../../../assets/newImages/bmi.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img *ngIf="clientId != 'aviva'" src="../../../../assets/newImages/bmi.png" class="card_image"></ion-img>
           <p class="title">Your BMI: {{localData?.otherMaster?.bmi?.bmi}}</p>
           <p class="sub_title" *ngIf="clientId!=='enkeltec'">
             BMI range of men & women for your age: 18.5 - 25
@@ -25,22 +23,20 @@
         </div>
       </div>
 
-      <div class="condition_card" *ngIf="clientId!=='enkeltec'">
+      <div class="condition_card" *ngIf="clientId!=='enkeltec' && !isChild">
         <div class="card_div">
-          <ion-img *ngIf="clientId != 'aviva'"
-            src="../../../../assets/newImages/weight_machine.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img *ngIf="clientId != 'aviva'" src="../../../../assets/newImages/weight_machine.png" class="card_image">
+          </ion-img>
           <p class="title">
             Current Weight: {{localData?.otherMaster?.weight[0]?.value}}
             {{unit}}
           </p>
-          <p class="title" >Desired Weight: {{plan.suggestedWeight}} {{unit}}</p>
-        <p class="sub_title">
-  Target/Ideal weight recommended:
-  {{ unit === 'lbs' ? (kgToLbs(suggestedWeightRange - 2) + ' - ' + kgToLbs(suggestedWeightRange + 2) + ' lbs') :
+          <p class="title">Desired Weight: {{plan.suggestedWeight}} {{unit}}</p>
+          <p class="sub_title">
+            Target/Ideal weight recommended:
+            {{ unit === 'lbs' ? (kgToLbs(suggestedWeightRange - 2) + ' - ' + kgToLbs(suggestedWeightRange + 2) + ' lbs') :
                       ((suggestedWeightRange - 2) + ' - ' + (suggestedWeightRange + 2) + ' kg') }}
-</p>
+          </p>
         </div>
       </div>
 
@@ -64,10 +60,8 @@
 
       <div class="condition_card">
         <div class="card_div">
-          <ion-img *ngIf="clientId != 'aviva'"
-            src="../../../../assets/newImages/nutritional.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img *ngIf="clientId != 'aviva'" src="../../../../assets/newImages/nutritional.png" class="card_image">
+          </ion-img>
           <p class="title">
             Nutritional <br />
             Requirement <span class="sub_title">(On daily basis)</span>
@@ -75,20 +69,14 @@
           <div class="cal_calculation_div">
             <div class="cal_main_div">
               <div class="cal_col">
-                <ion-img
-                  src="../../../../assets/newImages/calorie.png"
-                  class="card_cal_image"
-                ></ion-img>
+                <ion-img src="../../../../assets/newImages/calorie.png" class="card_cal_image"></ion-img>
                 <p class="cal_sub_title">Daily calorie target</p>
                 <p class="cal_title">
                   {{localData?.otherMaster?.calories?.calories}} Kcal
                 </p>
               </div>
               <div class="cal_col">
-                <ion-img
-                  src="../../../../assets/newImages/carbs.png"
-                  class="card_cal_image"
-                ></ion-img>
+                <ion-img src="../../../../assets/newImages/carbs.png" class="card_cal_image"></ion-img>
                 <p class="cal_sub_title">Carbs</p>
                 <p class="cal_title">
                   {{localData?.otherMaster?.calories?.carb}}g
@@ -96,10 +84,7 @@
               </div>
 
               <div class="cal_col">
-                <ion-img
-                  src="../../../../assets/newImages/protein.png"
-                  class="card_cal_image"
-                ></ion-img>
+                <ion-img src="../../../../assets/newImages/protein.png" class="card_cal_image"></ion-img>
                 <p class="cal_sub_title">Protein</p>
                 <p class="cal_title">
                   {{localData?.otherMaster?.calories?.protien}}g
@@ -107,10 +92,7 @@
               </div>
 
               <div class="cal_col">
-                <ion-img
-                  src="../../../../assets/newImages/fats.png"
-                  class="card_cal_image"
-                ></ion-img>
+                <ion-img src="../../../../assets/newImages/fats.png" class="card_cal_image"></ion-img>
                 <p class="cal_sub_title">Fats</p>
                 <p class="cal_title">
                   {{localData?.otherMaster?.calories?.fat}}g
@@ -121,20 +103,11 @@
         </div>
       </div>
 
-      <div
-        class="condition_card pad_0"
-        *ngIf='plans?.fitnessValue && plans?.fitnessValue === "MuscleBuilding"'
-      >
+      <div class="condition_card pad_0" *ngIf='plans?.fitnessValue && plans?.fitnessValue === "MuscleBuilding"'>
         <div class="card_div" style="margin: 20px 20px 10px">
-          <ion-img
-            src="../../../../assets/newImages/timing.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/timing.png" class="card_image"></ion-img>
           <p class="title">Timeline for Muscle <br />Gain</p>
-          <ion-img
-            src="../../../../assets/newImages/muscle-building.png"
-            class="muscle_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/muscle-building.png" class="muscle_image"></ion-img>
           <div class="between_time">
             <p class="cal_sub_title" style="margin-top: 5px; font-weight: 500">
               {{moment(date).format("Do MMM YYYY")}}
@@ -157,41 +130,17 @@
 
       <div class="condition_card pad_0" *ngIf="plans?.deasesValue">
         <div class="card_div" style="margin: 20px 20px 10px">
-          <ion-img
-            src="../../../../assets/newImages/timing.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/timing.png" class="card_image"></ion-img>
           <!-- <p class="title">Disease Management<br />({{plans?.deasesValue}})</p> -->
           <p class="title">Transformation</p>
           <div class="desease_div">
-            <ion-img
-              src="../../../../assets/newImages/very_bad.png"
-              class="Disease_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/arrow.png"
-              class="Disease_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/bad.png"
-              class="Disease_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/arrow.png"
-              class="Disease_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/mediumpng.png"
-              class="Disease_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/arrow.png"
-              class="Disease_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/goodpng.png"
-              class="Disease_image"
-            ></ion-img>
+            <ion-img src="../../../../assets/newImages/very_bad.png" class="Disease_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/arrow.png" class="Disease_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/bad.png" class="Disease_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/arrow.png" class="Disease_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/mediumpng.png" class="Disease_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/arrow.png" class="Disease_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/goodpng.png" class="Disease_image"></ion-img>
           </div>
 
           <div class="between_time">
@@ -214,45 +163,18 @@
         </div>
       </div>
 
-      <div
-        class="condition_card pad_0"
-        *ngIf='plans?.fitnessValue && plans?.fitnessValue === "LeanBody"'
-      >
+      <div class="condition_card pad_0" *ngIf='plans?.fitnessValue && plans?.fitnessValue === "LeanBody"'>
         <div class="card_div" style="margin: 20px 20px 10px">
-          <ion-img
-            src="../../../../assets/newImages/timing.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/timing.png" class="card_image"></ion-img>
           <p class="title">Timeline for Fat<br />Shredding</p>
           <div class="desease_div">
-            <ion-img
-              src="../../../../assets/newImages/fat1.png"
-              class="Fat_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/arrow.png"
-              class="arrow_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/fat2.png"
-              class="Fat_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/arrow.png"
-              class="arrow_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/fat3.png"
-              class="Fat_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/arrow.png"
-              class="arrow_image"
-            ></ion-img>
-            <ion-img
-              src="../../../../assets/newImages/fat5.png"
-              class="Fat_image"
-            ></ion-img>
+            <ion-img src="../../../../assets/newImages/fat1.png" class="Fat_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/arrow.png" class="arrow_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/fat2.png" class="Fat_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/arrow.png" class="arrow_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/fat3.png" class="Fat_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/arrow.png" class="arrow_image"></ion-img>
+            <ion-img src="../../../../assets/newImages/fat5.png" class="Fat_image"></ion-img>
           </div>
 
           <div class="between_time">
@@ -275,20 +197,11 @@
         </div>
       </div>
 
-      <div
-        class="condition_card pad_0"
-        *ngIf='plans?.weightValue && plans?.weightValue === "WeightLoss"'
-      >
+      <div class="condition_card pad_0" *ngIf='plans?.weightValue && plans?.weightValue === "WeightLoss"'>
         <div class="card_div" style="margin: 20px 20px 10px">
-          <ion-img
-            src="../../../../assets/newImages/timing.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/timing.png" class="card_image"></ion-img>
           <p class="title">Timeline for Weight Loss</p>
-          <ion-img
-            src="../../../../assets/newImages/weightloss.svg"
-            class="muscle_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/weightloss.svg" class="muscle_image"></ion-img>
           <div class="between_time">
             <p class="cal_sub_title" style="margin-top: 5px; font-weight: 500">
               {{moment(date).format("Do MMM YYYY")}}
@@ -310,20 +223,11 @@
         </div>
       </div>
 
-      <div
-        class="condition_card pad_0"
-        *ngIf='plans?.weightValue && plans?.weightValue === "WeightMaintenance"'
-      >
+      <div class="condition_card pad_0" *ngIf='plans?.weightValue && plans?.weightValue === "WeightMaintenance"'>
         <div class="card_div" style="margin: 20px 20px 10px">
-          <ion-img
-            src="../../../../assets/newImages/timing.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/timing.png" class="card_image"></ion-img>
           <p class="title">Timeline for Weight<br />Maintenance</p>
-          <ion-img
-            src="../../../../assets/newImages/weightmgmnt.svg"
-            class="muscle_image"
-          ></ion-img>
+          <ion-img src="../../../../assets/newImages/weightmgmnt.svg" class="muscle_image"></ion-img>
           <div class="between_time">
             <p class="cal_sub_title" style="margin-top: 5px; font-weight: 500">
               {{moment(date).format("Do MMM YYYY")}}
@@ -345,7 +249,8 @@
       </div>
 
       <div *ngIf="clientId==='eatfit'">
-        <app-meal-selected [selectedItem]="selectedItem" [slot]="slot?.name" [time]="slot?.time" [likeFood]="likeFood"></app-meal-selected>
+        <app-meal-selected [selectedItem]="selectedItem" [slot]="slot?.name" [time]="slot?.time" [likeFood]="likeFood">
+        </app-meal-selected>
       </div>
       <div class="footer_div">
         <p class="title">Lets get you started with our journey</p>
@@ -359,18 +264,10 @@
           <ion-grid>
             <ion-row>
               <ion-col size="6" class="left">
-                <ion-button
-                  class="back_btn"
-                  shape="round"
-                  fill="outline"
-                  (click)="goBack()"
-                  >Back</ion-button
-                >
+                <ion-button class="back_btn" shape="round" fill="outline" (click)="goBack()">Back</ion-button>
               </ion-col>
               <ion-col size="6" class="right">
-                <ion-button class="go_btn" shape="round" (click)="goNext()"
-                  >Start Journey</ion-button
-                >
+                <ion-button class="go_btn" shape="round" (click)="goNext()">Start Journey</ion-button>
               </ion-col>
             </ion-row>
           </ion-grid>

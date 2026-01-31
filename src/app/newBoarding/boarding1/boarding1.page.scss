@@ -97,7 +97,14 @@ ion-content::part(background) {
   margin-left: 10%;
   margin-top: -134px;
 }
-
+.reg_img_child{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: -134px;
+  img{
+  border-radius: 12rem;
+  }
+}
 .input {
   border-bottom: 3px solid var(--card-border);
   font-size: var(--large-font);

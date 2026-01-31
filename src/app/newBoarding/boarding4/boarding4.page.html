@@ -13,71 +13,47 @@
         <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'">5</p>
       </div>
     </div>
-    <div
-      class="content_div"
-      [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}"
-    >
+    <div class="content_div" [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}">
       <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
-        <ion-icon
-          class="close_modal_icon"
-          name="close-circle"
-          (click)="modalClose()"
-        ></ion-icon>
+        <ion-icon class="close_modal_icon" name="close-circle" (click)="modalClose()"></ion-icon>
       </div>
       <p class="title-text">
         Do you have any health conditions or allergies?
       </p>
-      <div class="condition_card">
+      <div class="condition_card" *ngIf="!isChild">
         <div class="card_div">
-          <ion-img
-            src="../../../assets/newImages/healthCondition.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img src="../../../assets/newImages/healthCondition.png" class="card_image"></ion-img>
           <div class="section-card">
             <p class="fitness">
               Health condition
-             
+
             </p>
           </div>
         </div>
         <ion-grid>
           <ion-row>
-           
-            <ion-col
-              size="6"
-              *ngFor="let health of healths.slice(0,this.showData? healths.length:6)"
-              (click)="popupShow(health)"
-            >
-              <ion-item lines="none" class="check_item" *ngIf="health.code !== 'K' && health.code !== 'L' && health.code !== 'M'">
-                <ion-checkbox
-                  [checked]="health.isSelected"
-                  [value]="health.value"
+
+            <ion-col size="6" *ngFor="let health of healths.slice(0,this.showData? healths.length:6)"
+              (click)="popupShow(health)">
+              <ion-item lines="none" class="check_item"
+                *ngIf="health.code !== 'K' && health.code !== 'L' && health.code !== 'M'">
+                <ion-checkbox [checked]="health.isSelected" [value]="health.value"
                   (ionChange)="healthSelection($event,health,health.value)"
-                  [disabled]="health.code === 'K' || health.code === 'L' || health.code === 'M'"
-                  slot="start"
-                >
+                  [disabled]="health.code === 'K' || health.code === 'L' || health.code === 'M'" slot="start">
                 </ion-checkbox>
                 <ion-label class="label_checkbox">{{health.value}} </ion-label>
               </ion-item>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-button
-        *ngIf="!compConfig.isChild"
-          class="more_btn"
-          shape="round"
-          fill="outline"
-          (click)="showData=!showData"
-          >{{(showData) ?'Show Less' :'Show More'}}</ion-button
-        >
+        <ion-button *ngIf="!compConfig.isChild" class="more_btn" shape="round" fill="outline"
+          (click)="showData=!showData">{{(showData) ?'Show Less' :'Show More'}}</ion-button>
       </div>
 
       <div class="condition_card" style="margin-top: 70px">
         <div class="card_div">
-          <ion-img
-            src="../../../assets/newImages/alergies.png"
-            class="card_image"
-          ></ion-img>
+          <ion-img *ngIf="!isChild" src="../../../assets/newImages/alergies.png" class="card_image"></ion-img>
+          <ion-img *ngIf="isChild" src="../../../assets/child/child-1.jpeg" class="card_image"></ion-img>
           <div class="section-card">
             <p class="fitness">
               Allergies
@@ -87,16 +63,10 @@
         </div>
         <ion-grid>
           <ion-row>
-           
-            <ion-col
-              size="6"
-              *ngFor="let a of allergies.slice(0,showDataAl? allergies.length:7)"
-            >
+
+            <ion-col size="6" *ngFor="let a of allergies.slice(0,showDataAl? allergies.length:7)">
               <ion-item lines="none" class="check_item">
-                <ion-checkbox
-                  slot="start"
-                  [checked]="a?.isSelected"
-                  [value]="a?.code"
+                <ion-checkbox slot="start" [checked]="a?.isSelected" [value]="a?.code"
                   (ionChange)="allergySelection($event,a)"></ion-checkbox>
                 <ion-label class="label_checkbox">{{a?.value}} </ion-label>
               </ion-item>
@@ -109,25 +79,17 @@
           fill="outline"
           (click)="showDataAl=!showDataAl"
           >{{showDataAl?'Show Less':'Show More'}}</ion-button -->
-        
+
       </div>
 
       <div class="go_btn_div" *ngIf="!from">
         <ion-grid>
           <ion-row>
             <ion-col size="6" class="center">
-              <ion-button
-                class="back_btn"
-                shape="round"
-                fill="outline"
-                (click)="goBack()"
-                >Back</ion-button
-              >
+              <ion-button class="back_btn" shape="round" fill="outline" (click)="goBack()">Back</ion-button>
             </ion-col>
             <ion-col size="6" class="center">
-              <ion-button class="go_btn" shape="round" (click)="goNext()"
-                >Almost There</ion-button
-              >
+              <ion-button class="go_btn" shape="round" (click)="goNext()">Almost There</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -137,18 +99,10 @@
         <ion-grid>
           <ion-row>
             <ion-col size="6" class="center">
-              <ion-button
-                class="back_btn"
-                shape="round"
-                fill="outline"
-                (click)="modalClose()"
-                >Cancel</ion-button
-              >
+              <ion-button class="back_btn" shape="round" fill="outline" (click)="modalClose()">Cancel</ion-button>
             </ion-col>
             <ion-col size="6" class="center">
-              <ion-button class="go_btn" shape="round" (click)="goNext()"
-                >Save</ion-button
-              >
+              <ion-button class="go_btn" shape="round" (click)="goNext()">Save</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

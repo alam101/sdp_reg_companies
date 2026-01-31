@@ -5,7 +5,7 @@ import { Storage } from "@ionic/storage";
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { CONSTANTS } from "src/app/core/constants/constants";
 import { AppService } from "../app.service";
-import { Location } from '@angular/common'; 
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-final-boarding",
@@ -14,6 +14,7 @@ import { Location } from '@angular/common';
 })
 export class FinalBoardingPage implements OnInit {
   moment: any = moment;
+  isChild = true;
   date: any = new Date();
   randomNumber = Number(Date.now()) * Math.random();
   next3: any = new Date().setMonth(new Date().getMonth() + 3);
@@ -28,21 +29,21 @@ export class FinalBoardingPage implements OnInit {
   suggestedWeightRange: any;
   couponCode: any = "CU0000";
   achieveValue: any;
-  selectedItem:any;
-  slot:any;
-  likeFood:any;
-  clientId:any="";
+  selectedItem: any;
+  slot: any;
+  likeFood: any;
+  clientId: any = "";
   constructor(
     private navCtrl: NavController,
     private storage: Storage,
     private utilities: UTILITIES,
     private appService: AppService,
-    private location:Location
+    private location: Location
   ) {
-console.log("cccccc:-",localStorage.getItem("clientId"));
+    console.log("cccccc:-", localStorage.getItem("clientId"));
 
-    if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
-      this.clientId="eatfit";
+    if (localStorage.getItem("clientId").toLowerCase() === "eatfit") {
+      this.clientId = "eatfit";
     }
 
   }
@@ -50,75 +51,74 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
 
   ngOnInit() {
     this.clientId = localStorage.getItem("clientId");
-   this.selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
-   this.slot = JSON.parse(localStorage.getItem("slotChoice"));
-   this.likeFood = localStorage.getItem("likeFood");
-   console.log("clientId", this.clientId);
-   this.clientId = localStorage.getItem('clientId');
-   this.storage.get("health-journey").then((res: any) => {
-   
-    if (res) {
-      this.plans = JSON.parse(res);
-      console.log("res...", res);
-    }
-  });
+    this.selectedItem = JSON.parse(localStorage.getItem("selectedItem"));
+    this.slot = JSON.parse(localStorage.getItem("slotChoice"));
+    this.likeFood = localStorage.getItem("likeFood");
+    console.log("clientId", this.clientId);
+    this.clientId = localStorage.getItem('clientId');
+    this.storage.get("health-journey").then((res: any) => {
 
-  this.storage.get("localData").then((res: any) => {
-    if (res) {
-      //this.plan = JSON.parse(res);
-      console.log("localData...", JSON.parse(res));
-      this.localData = JSON.parse(res);
-    }
-  });
-  this.gotoDemographic();
-  this.termsandCond();
-  //this.ditePlanAPIcall();
+      if (res) {
+        this.plans = JSON.parse(res);
+        console.log("res...", res);
+      }
+    });
+
+    this.storage.get("localData").then((res: any) => {
+      if (res) {
+        //this.plan = JSON.parse(res);
+        console.log("localData...", JSON.parse(res));
+        this.localData = JSON.parse(res);
+      }
+    });
+    this.gotoDemographic();
+    this.termsandCond();
+    //this.ditePlanAPIcall();
   }
 
   goNext() {
-  //  this.appService.getOnePlan().subscribe(res=>{
-  //    console.log("getoneplan()",res);
-      /** enable for other company */
-      let clientId=localStorage.getItem("clientId");
-      if(!clientId) 
-        {
-        
-        //  this.location.replaceState('/','',{});
-         //  this.navCtrl.navigateForward(["new-diet"]).then(() => {});
-         this.navCtrl.navigateForward(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
-        }
-        else  {
-        
-          this.location.replaceState(`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`,'',{});
-          
-          this.location.replaceState('/new-diet','params='+Math.floor(this.randomNumber).toString(),{});
-          this.navCtrl.navigateForward(["/new-diet"],{queryParams:{params:Math.floor(this.randomNumber)}});
-      }
-     }
+    //  this.appService.getOnePlan().subscribe(res=>{
+    //    console.log("getoneplan()",res);
+    /** enable for other company */
+    let clientId = localStorage.getItem("clientId");
+    if (!clientId) {
+
+      //  this.location.replaceState('/','',{});
+      //  this.navCtrl.navigateForward(["new-diet"]).then(() => {});
+      this.navCtrl.navigateForward(["/new-diet"], { queryParams: { params: Math.floor(this.randomNumber) } });
+    }
+    else {
+
+      this.location.replaceState(`${location.origin}/read?token=${localStorage.getItem("tkn")}&clientId=${localStorage.getItem("clientId")}&type=1`, '', {});
+
+      this.location.replaceState('/new-diet', 'params=' + Math.floor(this.randomNumber).toString(), {});
+      this.navCtrl.navigateForward(["/new-diet"], { queryParams: { params: Math.floor(this.randomNumber) } });
+    }
+  }
 
   goBack() {
-    if(localStorage.getItem("clientId").toLowerCase()==="eatfit"){
-    this.storage.set("pendingPage", "/meal-pref");
-    this.navCtrl.navigateRoot(["/meal-pref"]);
+    if (localStorage.getItem("clientId").toLowerCase() === "eatfit") {
+      this.storage.set("pendingPage", "/meal-pref");
+      this.navCtrl.navigateRoot(["/meal-pref"]);
     }
-    else{
+    else {
       this.storage.set("pendingPage", "/boarding5");
-                    this.navCtrl.navigateForward(["boarding5"]);
+      this.navCtrl.navigateForward(["boarding5"]);
     }
   }
 
   gotoDemographic() {
     this.utilities.showLoading();
     let selectedCountryID;
-    this.storage.get("localData").then((local) => {  
+    this.storage.get("localData").then((local) => {
       const data = this.utilities.parseJSON(local);
-      console.log("local:::",data);
+      console.log("local:::", data);
       let countri = this.utilities.getSelectedData(data.countries);
       if (countri.length > 0) {
-        let selectedCountryID = countri[0]?._id;
-         CONSTANTS.country = countri[0].name;
+        let selectedCountryID = countri[0] ?._id;
+        CONSTANTS.country = countri[0].name;
       }
-     
+
       this.appService.getDefaultDataDiet(selectedCountryID).then((res) => {
         data.Master = res["Master"];
         const reqBody = this.utilities.getDietRequest(data, selectedCountryID);
@@ -131,15 +131,15 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
             dateBy: dietData.dateBy,
           };
           //this.dateBy = dietData.dateBy;
-//
+          //
           this.plan = data.otherMaster.diet;
-         
-          if (data.otherMaster.height[0]?.param == "in" || data.otherMaster.height[0]?.unit == "in") {
+
+          if (data.otherMaster.height[0] ?.param == "in" || data.otherMaster.height[0] ?.unit == "in") {
             this.suggestedWeightRange = Math.ceil(
               (parseInt(data.otherMaster.height[0].value) * 2.54) - 100
             );
           }
-          else if (data.otherMaster.height[0]?.param == "cm" || data.otherMaster.height[0]?.unit == "cm") {
+          else if (data.otherMaster.height[0] ?.param == "cm" || data.otherMaster.height[0] ?.unit == "cm") {
             this.suggestedWeightRange = Math.ceil(
               parseInt(data.otherMaster.height[0].value) - 100
             );
@@ -150,10 +150,10 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
             this.dateBy = this.plan.dateBy.split("-");
             console.log(this.dateBy);
           }
-          if (data.otherMaster.weight[0]?.param == "pound"){
-             this.unit = "lbs";
+          if (data.otherMaster.weight[0] ?.param == "pound") {
+            this.unit = "lbs";
           }
-          else{
+          else {
             this.unit = "Kg";
           }
           console.log("this.unit", this.unit);
@@ -173,7 +173,7 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
   }
 
   termsandCond() {
-  
+
     let reqData = { tnc: "accepted" };
     this.appService.terms(reqData).then(
       (res) => {
@@ -218,8 +218,8 @@ console.log("cccccc:-",localStorage.getItem("clientId"));
       );
   }
 
-kgToLbs(kg: number): number {
-  const lbsPerKg = 2.20462;
-  return Math.round(kg * lbsPerKg);
-}
+  kgToLbs(kg: number): number {
+    const lbsPerKg = 2.20462;
+    return Math.round(kg * lbsPerKg);
+  }
 }

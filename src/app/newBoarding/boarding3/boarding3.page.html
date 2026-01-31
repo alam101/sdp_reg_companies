@@ -13,72 +13,42 @@
         <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'">5</p>
       </div>
     </div>
-    <div
-      class="content_div"
-      [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}"
-    >
+    <div class="content_div" [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}">
       <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
-        <ion-icon
-          class="close_modal_icon"
-          name="close-circle"
-          (click)="modalClose()"
-        ></ion-icon>
+        <ion-icon class="close_modal_icon" name="close-circle" (click)="modalClose()"></ion-icon>
       </div>
       <p class="title-text">
         How often do you exercise?
       </p>
-      <ion-radio-group
-        value="deasesValue"
-        [(ngModel)]="newModal"
-        (ionChange)="selectActivity($event)">
-         <span *ngIf="compConfig?.activies===undefined"> 
-        <div
-          class="card_div"
-          (click)="newModal=activity?.val"
-          *ngFor="let activity of localData?.otherMaster?.activities">
-          <ion-radio
-            class="radio-button"
-            [value]="activity?.val"
-            mode="ios"></ion-radio>
-          <ion-card
-            class="section-card"
-            [ngClass]="newModal === activity?.val && 'card_Border'">
-            <p class="fitness">{{activity?.val}}</p>
-            <p class="desc">{{activity?.sub_val}}</p>
-            <img [ngClass]="activity?.code" 
-            src="../../../assets/newImages/{{getImage(activity?.code)}}">
-          </ion-card>
-        </div>
-       </span> 
-       <span *ngIf="compConfig?.activies!==undefined">
-        <div
-        class="card_div"
-        (click)="newModal=activity?.val"
-        *ngFor="let activity of compConfig?.activies">
-        <ion-radio
-            class="radio-button"
-            [value]="activity?.val"
-            mode="ios"></ion-radio>
-          <ion-card
-            class="section-card"
-            [ngClass]="newModal === activity?.val && 'card_Border'">
-            <p class="fitness">{{activity?.val}}</p>
-            <p class="desc">{{activity?.sub_val}}</p>
-            <img [ngClass]="activity?.code" 
-            src="{{activity.image}}">
-          </ion-card>
-      </div>
-      </span> 
+      <ion-radio-group value="deasesValue" [(ngModel)]="newModal" (ionChange)="selectActivity($event)">
+        <span *ngIf="compConfig?.activies===undefined">
+          <div class="card_div" (click)="newModal=activity?.val"
+            *ngFor="let activity of localData?.otherMaster?.activities;let ind=index">
+            <ion-radio class="radio-button" [value]="activity?.val" mode="ios"></ion-radio>
+            <ion-card class="section-card" *ngIf="ind!==1 && ind!==3"
+              [ngClass]="newModal === activity?.val && 'card_Border'">
+              <p class="fitness">{{activity?.val}}</p>
+              <p class="desc">{{activity?.sub_val}}</p>
+              <img [ngClass]="activity?.code" src="../../../assets/{{getImage(activity?.code)}}">
+            </ion-card>
+          </div>
+        </span>
+        <span *ngIf="compConfig?.activies!==undefined">
+          <div class="card_div" (click)="newModal=activity?.val" *ngFor="let activity of compConfig?.activies">
+            <ion-radio class="radio-button" [value]="activity?.val" mode="ios"></ion-radio>
+            <ion-card class="section-card" [ngClass]="newModal === activity?.val && 'card_Border'">
+              <p class="fitness">{{activity?.val}}</p>
+              <p class="desc">{{activity?.sub_val}}</p>
+              <img [ngClass]="activity?.code" src="{{activity.image}}">
+            </ion-card>
+          </div>
+        </span>
       </ion-radio-group>
       <div class="go_btn_div" *ngIf="!from">
         <ion-grid>
           <ion-row>
             <ion-col size="6" class="center">
-              <ion-button
-                class="back_btn"
-                shape="round"
-                fill="outline"
-                (click)="goBack()">Back</ion-button>
+              <ion-button class="back_btn" shape="round" fill="outline" (click)="goBack()">Back</ion-button>
             </ion-col>
             <ion-col size="6" class="center">
               <ion-button class="go_btn" shape="round" (click)="goNext()">Next</ion-button>
@@ -90,18 +60,10 @@
         <ion-grid>
           <ion-row>
             <ion-col size="6" class="center">
-              <ion-button
-                class="back_btn"
-                shape="round"
-                fill="outline"
-                (click)="modalClose()"
-                >Cancel</ion-button
-              >
+              <ion-button class="back_btn" shape="round" fill="outline" (click)="modalClose()">Cancel</ion-button>
             </ion-col>
             <ion-col size="6" class="center">
-              <ion-button class="go_btn" shape="round" (click)="goNext()"
-                >Save</ion-button
-              >
+              <ion-button class="go_btn" shape="round" (click)="goNext()">Save</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

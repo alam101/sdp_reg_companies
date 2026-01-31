@@ -14,7 +14,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class Boarding4Page implements OnInit {
   @Input() from = "";
-  clientId="";
+  clientId = "";
+  isChild = true;
   healths: any = [];
   showData: Boolean = false;
   showDataAl: Boolean = false;
@@ -33,24 +34,24 @@ export class Boarding4Page implements OnInit {
     private utilities: UTILITIES,
     private cdr: ChangeDetectorRef,
     private modalCtrl: ModalController,
-    private router:Router,
-    private activatedRoute:ActivatedRoute
-    ) {
-      this.clientId = localStorage.getItem("clientId");
-      this.activatedRoute.queryParams.subscribe(res=>{
-        this.from = res['from'];
-      })
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.clientId = localStorage.getItem("clientId");
+    this.activatedRoute.queryParams.subscribe(res => {
+      this.from = res['from'];
+    })
+  }
+  goBack() {
+    if (this.from) {
+      this.router.navigate(['new-profile']);
     }
-    goBack() {
-      if(this.from){
-       this.router.navigate(['new-profile']);
-      }
-      else{
+    else {
       this.storage.set("pendingPage", "/boarding3");
       this.navCtrl.navigateRoot(["/boarding3"]);
-      }
     }
-    compConfig:any;
+  }
+  compConfig: any;
   ngOnInit() {
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
@@ -61,16 +62,16 @@ export class Boarding4Page implements OnInit {
       this.getProfile();
     });
   }
- 
-trayaAllergies=[];
+
+  trayaAllergies = [];
   getProfile() {
     this.appservice.getProfile().then((res) => {
       console.log(res);
       this.profileData = res;
       const loc = this.localData.otherMaster.diseases.filter((f) =>
-        this.profileData?.lifeStyle?.diseases?.includes(f.code)
+        this.profileData ?.lifeStyle ?.diseases ?.includes(f.code)
       );
-      loc?.forEach((ele) => (ele.isSelected = true));
+      loc ?.forEach((ele) => (ele.isSelected = true));
       console.log("loc=============================>", loc);
       if (this.localData.otherMaster.diseases.length > 0) {
         let gender = this.localData.otherMaster.gender.filter((ele) => {
@@ -84,36 +85,36 @@ trayaAllergies=[];
           gender[0]["value"].toLowerCase() == "male"
         ) {
           this.healths = this.localData.otherMaster.diseases.filter((ele) => {
-            if(
+            if (
               ele.code.toLowerCase() != "pd" &&
-              ele.code.toLowerCase() != "k" &&
-              ele.code.toLowerCase() != "p" &&
-              ele.code.toLowerCase() != "m" &&
-              ele.code.toLowerCase() != "l"&&
-              this.clientId==='lalpathlabs'? 
-              (ele.code.toLowerCase() != "ir" &&
-              ele.code.toLowerCase() != "vb" &&
-              ele.code.toLowerCase() != "vd" &&
-              ele.code.toLowerCase() != "hp" &&
-              ele.code.toLowerCase() != "cr"): true
+                ele.code.toLowerCase() != "k" &&
+                ele.code.toLowerCase() != "p" &&
+                ele.code.toLowerCase() != "m" &&
+                ele.code.toLowerCase() != "l" &&
+                this.clientId === 'lalpathlabs' ?
+                (ele.code.toLowerCase() != "ir" &&
+                  ele.code.toLowerCase() != "vb" &&
+                  ele.code.toLowerCase() != "vd" &&
+                  ele.code.toLowerCase() != "hp" &&
+                  ele.code.toLowerCase() != "cr") : true
 
             ) {
               if (
                 ele.value.includes("Allergy") ||
                 ele.value.includes("allergy")
               ) {
-                if(this.clientId==='traya'){
-                  if(ele.code.toLowerCase() != "f" 
-                  && ele.code.toLowerCase() != "so" 
-                  && ele.code.toLowerCase() != "sf"){
-                  this.allergies.push(ele);
+                if (this.clientId === 'traya') {
+                  if (ele.code.toLowerCase() != "f"
+                    && ele.code.toLowerCase() != "so"
+                    && ele.code.toLowerCase() != "sf") {
+                    this.allergies.push(ele);
                   }
-                  else{
+                  else {
                     this.trayaAllergies.push(ele);
                   }
                 }
-                else{
-                this.allergies.push(ele);
+                else {
+                  this.allergies.push(ele);
                 }
 
                 if (ele.isSelected) {
@@ -129,7 +130,7 @@ trayaAllergies=[];
             }
 
           });
-           
+
 
           if (a.length === 0) {
             this.alergyDisabled = true;
@@ -138,7 +139,7 @@ trayaAllergies=[];
             this.healthDisabled = true;
           }
           console.log(this.healths);
-          
+
           console.log(this.allergies);
         } else {
           this.healths = this.localData.otherMaster.diseases.filter((ele) => {
@@ -165,8 +166,8 @@ trayaAllergies=[];
           }
         }
       }
-      if(this.clientId==='enkeltec'){
-        this.healths =  this.healths.filter(item=>{
+      if (this.clientId === 'enkeltec') {
+        this.healths = this.healths.filter(item => {
           return (
             item.code === "AN" ||
             item.code === "CR" ||
@@ -174,27 +175,27 @@ trayaAllergies=[];
             item.code === "VD" ||
             item.code === "VB" ||
             item.code === "A"
-          );     
+          );
         });
       }
-      if(this.clientId==='lalpathlabs'){
-        this.healths =  this.healths.filter(item=>{
+      if (this.clientId === 'lalpathlabs') {
+        this.healths = this.healths.filter(item => {
           return (
-              item.code.toLowerCase() != "ir" &&
-              item.code.toLowerCase() != "vb" &&
-              item.code.toLowerCase() != "vd" &&
-              item.code.toLowerCase() != "hp" &&
-              item.code.toLowerCase() != "cr"
+            item.code.toLowerCase() != "ir" &&
+            item.code.toLowerCase() != "vb" &&
+            item.code.toLowerCase() != "vd" &&
+            item.code.toLowerCase() != "hp" &&
+            item.code.toLowerCase() != "cr"
           );
-        
-    });
-     }
+
+        });
+      }
     });
   }
 
   modalClose() {
     this.router.navigate(['new-profile']);
- }
+  }
 
   healthSelection(e, health, diseasesName) {
     console.log("e--->>", e);
@@ -275,18 +276,18 @@ trayaAllergies=[];
   }
 
 
-  reqBodyDiet={
+  reqBodyDiet = {
     dietPlanName: 'trayaHealth'
-};
+  };
   goNext() {
     for (let index = 0; index < this.localData.otherMaster.diseases.length; index++) {
       for (let b = 0; b < this.trayaAllergies.length; b++) {
-        if(this.localData.otherMaster.diseases[index].code===this.trayaAllergies[b].code){
-          this.localData.otherMaster.diseases[index].isSelected=true;
+        if (this.localData.otherMaster.diseases[index].code === this.trayaAllergies[b].code) {
+          this.localData.otherMaster.diseases[index].isSelected = true;
         }
-        
+
       }
-     
+
     }
     if (typeof this.localData.otherMaster !== undefined)
       this.storage.set("localData", JSON.stringify(this.localData));
@@ -298,27 +299,27 @@ trayaAllergies=[];
       }
 
     });
-    
-    
+
+
     const reqBody = {
-      activities: this.profileData?.lifeStyle?.activities,
+      activities: this.profileData ?.lifeStyle ?.activities,
       diseases: data,
       communities:
-        typeof this.profileData?.lifeStyle?.communities === undefined ||
-        this.profileData?.lifeStyle?.communities === null
-          ? []
-          : this.profileData?.lifeStyle?.communities,
-          country: this.profileData?.lifeStyle?.country,
-      foodType: this.profileData?.lifeStyle?.foodType,
-      firstConsult: localStorage.getItem("clientId")==="orthocure" ? (this.profileData?.lifeStyle?.firstConsult===undefined?false:this.profileData?.lifeStyle?.firstConsult):null,
-      consultQA: this.profileData?.lifeStyle?.consultQA===undefined?[]:this.profileData?.lifeStyle?.consultQA,
-      instructions: this.profileData?.lifeStyle?.instructions===undefined?'':this.profileData?.lifeStyle?.instructions,
-      dietPlanName:  this.profileData?.lifeStyle?.dietPlanName
+        typeof this.profileData ?.lifeStyle ?.communities === undefined ||
+          this.profileData ?.lifeStyle ?.communities === null
+            ? []
+            : this.profileData ?.lifeStyle ?.communities,
+      country: this.profileData ?.lifeStyle ?.country,
+      foodType: this.profileData ?.lifeStyle ?.foodType,
+      firstConsult: localStorage.getItem("clientId") === "orthocure" ? (this.profileData ?.lifeStyle ?.firstConsult === undefined ? false : this.profileData ?.lifeStyle ?.firstConsult) : null,
+      consultQA: this.profileData ?.lifeStyle ?.consultQA === undefined ? [] : this.profileData ?.lifeStyle ?.consultQA,
+      instructions: this.profileData ?.lifeStyle ?.instructions === undefined ? '' : this.profileData ?.lifeStyle ?.instructions,
+      dietPlanName: this.profileData ?.lifeStyle ?.dietPlanName
     };
     console.log(reqBody);
     this.appservice.postLifeStyle(reqBody).then((success) => {
-      if(localStorage.getItem("clientId")=='traya'){
-        this.appservice.dietPlan(this.reqBodyDiet).then((res) => {});
+      if (localStorage.getItem("clientId") == 'traya') {
+        this.appservice.dietPlan(this.reqBodyDiet).then((res) => { });
       }
     });
     if (this.from) {

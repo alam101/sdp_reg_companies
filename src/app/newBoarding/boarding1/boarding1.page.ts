@@ -14,18 +14,19 @@ import { FormsModule } from "@angular/forms";
   templateUrl: "./boarding1.page.html",
   styleUrls: ["./boarding1.page.scss"],
 })
-export class Boarding1Page implements OnInit,AfterViewInit {
+export class Boarding1Page implements OnInit, AfterViewInit {
   name = "";
   prof;
+  isChild = true;
   regex: RegExp = /^[A-Za-z0-9 ]+$/;
   isNameValid = true;
-  client="";
+  client = "";
   constructor(
     private router: Router,
     private storage: Storage,
     private utilities: UTILITIES,
     private appService: AppService,
-    private loading:LoadingController
+    private loading: LoadingController
   ) {
     this.client = localStorage.getItem("clientId");
     setTimeout(() => {
@@ -67,16 +68,16 @@ export class Boarding1Page implements OnInit,AfterViewInit {
 
   dismissLoader() {
     this.loading.dismiss().then((response) => {
-        console.log('Loader closed!', response);
+      console.log('Loader closed!', response);
     }).catch((err) => {
-        console.log('Error occured : ', err);
+      console.log('Error occured : ', err);
     });
   }
 
   goNext() {
     console.log(this.name);
-   
-    if (this.name?.trim()==="") {
+
+    if (this.name ?.trim() === "") {
       if (!this.regex.test(this.name)) {
         this.name.replace(this.regex, "");
         this.isNameValid = false;
@@ -101,7 +102,7 @@ export class Boarding1Page implements OnInit,AfterViewInit {
       this.prof["profile"]["family_name"] = data.LastName;
       this.prof["profile"]["firstName"] = data.FirstName;
       this.prof["profile"]["lastName"] = data.LastName;
-      
+
     } else {
       this.prof["profile"] = {};
       this.prof["profile"]["name"] =
@@ -112,7 +113,7 @@ export class Boarding1Page implements OnInit,AfterViewInit {
       this.prof["profile"]["family_name"] = data.LastName;
       this.prof["profile"]["firstName"] = data.FirstName;
       this.prof["profile"]["lastName"] = data.LastName;
-      
+
     }
 
     this.storage.set("newProfilePic", JSON.stringify(this.prof["profile"]));
@@ -120,8 +121,15 @@ export class Boarding1Page implements OnInit,AfterViewInit {
       // this.storage.get("localData").then((local) => {
       console.log("profile:-", this.prof);
       this.storage.set("profileData", this.utilities.parseString(this.prof));
-      this.storage.set("pendingPage", "/boarding");
-      this.router.navigate(["/boarding"]);
+      if (this.isChild) {
+        this.storage.set("pendingPage", "/boarding2");
+        this.router.navigate(["/boarding2"]);
+      }
+      else {
+        this.storage.set("pendingPage", "/boarding");
+        this.router.navigate(["/boarding"]);
+      }
+
       // if(this.isEdit != ""){
       //   this.router.navigate(["gender"], { queryParams: {prop: 'edit'} });
       // }else{
