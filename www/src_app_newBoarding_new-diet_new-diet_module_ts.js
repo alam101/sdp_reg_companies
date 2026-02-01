@@ -2518,15 +2518,18 @@ ${url}`;
       }
 
       this.planName = this.diets.dietPlanName.toLowerCase().includes("cheat") ? "cheat" : this.diets.dietPlanName.toLowerCase().includes("detox") ? "detox" : "normal";
-      Object.keys(reference).forEach(ele => {
-        if (ele.toLowerCase().includes(this.planName)) {
-          if (reference[ele].length > 10) {
-            this.instructions = reference[ele] ? reference[ele].split(/\n/g) : [];
-          }
 
-          return;
-        }
-      });
+      if (reference) {
+        Object.keys(reference).forEach(ele => {
+          if (ele.toLowerCase().includes(this.planName)) {
+            if (reference[ele].length > 10) {
+              this.instructions = reference[ele] ? reference[ele].split(/\n/g) : [];
+            }
+
+            return;
+          }
+        });
+      }
     }).catch(getInstructionDataError => {
       console.log("getInstructionDataError: ", getInstructionDataError);
     });
