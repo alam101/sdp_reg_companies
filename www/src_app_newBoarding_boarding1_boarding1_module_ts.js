@@ -118,7 +118,7 @@ let Boarding1Page = class Boarding1Page {
         this.appService = appService;
         this.loading = loading;
         this.name = "";
-        this.isChild = false;
+        this.isChild = localStorage.getItem("kids") === "true" ? true : false;
         this.regex = /^[A-Za-z0-9 ]+$/;
         this.isNameValid = true;
         this.client = "";

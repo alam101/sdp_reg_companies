@@ -1357,9 +1357,9 @@ ${url}`;
         ) {
           reference = getInstructionDataResponse[0];
         }
-        this.planName = this.diets.dietPlanName.toLowerCase().includes("cheat")
+        this.planName = this.diets ?.dietPlanName ?.toLowerCase() ?.includes("cheat")
           ? "cheat"
-          : this.diets.dietPlanName.toLowerCase().includes("detox")
+          : this.diets.dietPlanName ?.toLowerCase() ?.includes("detox")
             ? "detox"
             : "normal";
         if (reference) {

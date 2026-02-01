@@ -123,7 +123,7 @@ let Boarding4Page = class Boarding4Page {
         this.activatedRoute = activatedRoute;
         this.from = "";
         this.clientId = "";
-        this.isChild = false;
+        this.isChild = localStorage.getItem("kids") === "true" ? true : false;
         this.healths = [];
         this.showData = false;
         this.showDataAl = false;

@@ -124,7 +124,7 @@ let FinalBoardingPage = class FinalBoardingPage {
         this.appService = appService;
         this.location = location;
         this.moment = (moment__WEBPACK_IMPORTED_MODULE_2___default());
-        this.isChild = false;
+        this.isChild = localStorage.getItem("kids") === "true" ? true : false;
         this.date = new Date();
         this.randomNumber = Number(Date.now()) * Math.random();
         this.next3 = new Date().setMonth(new Date().getMonth() + 3);

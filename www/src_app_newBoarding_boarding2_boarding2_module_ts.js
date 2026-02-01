@@ -126,7 +126,7 @@ let Boarding2Page = class Boarding2Page {
     this.router = router;
     this.activatedRoute = activatedRoute;
     this.from = "";
-    this.isChild = false;
+    this.isChild = localStorage.getItem("kids") === "true" ? true : false;
     this.terms = true;
     this.targetYear = new Date().getFullYear() - 3;
     this.poundValue = 0.453592;

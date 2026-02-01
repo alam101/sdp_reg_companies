@@ -117,7 +117,7 @@ let Boarding3Page = class Boarding3Page {
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.from = "";
-        this.isChild = false;
+        this.isChild = localStorage.getItem("kids") === "true" ? true : false;
         this.selectedValue = {};
         this.newModal = "";
         this.activatedRoute.queryParams.subscribe(res => {
