@@ -8080,7 +8080,7 @@
       "itemCalories": true,
       "isBanner": true,
       "isProfileIcons": true,
-      "isEditProfile": false,
+      "isEditProfile": true,
       "dietComponent": false,
       "mealPref": false,
       "headerText": "Welcome to your daily diet plan",
