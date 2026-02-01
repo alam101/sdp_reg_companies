@@ -919,6 +919,82 @@ body[color-theme="plix"] {
 --theme-milestone2:#000;
 --button-text:#fff;
 }
+
+body[color-theme="plixkids"] {
+--font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
+--font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;
+--font-light: "gt-america-standard-light", "Helvetica Neue", Arial, sans-serif;
+--font-medium: "gt-america-standard-medium", "Helvetica Neue", Arial, sans-serif;
+--font-medium-extended: "gt-america-standard-extendedMedium", "Helvetica Neue",
+  Arial, sans-serif;
+  $sans-font-regular: "Source-Sans-Pro-ragular", "Helvetica Neue", Arial, sans-serif;
+  --theme-profile-background: #81DC97;
+  --theme-background:#81DC97; //#00a6a8
+  --theme-header:#81DC97;
+  --theme-headerText:#fff;
+  --theme-logslot:#81DC97;
+  --theme-button:#81DC97;
+  --theme-heading:#81DC97;
+  --theme-activeBtn:#81DC97;//#01A3A4       
+  --theme-plusBtn:#81DC97; //#01A3A4  water-guage page plus  defualt color--#509bed;          
+  --theme-text-color: #81DC97;//#01A3A4;
+  --theme-plusBtnWaterGuage:#81DC97;  //#509bed;   
+  --theme-minusBtnWaterGuage:#81DC97;  //#509bed;  
+  --theme-waterCenterPercent:#81DC97;  //#509bed;  
+  --theme-colorWhite:#FFFFFF;       
+  --theme-boxAdd:1px solid #81DC97; //#01A3A5;
+  --theme-color:#81DC97; //#01A3A5;
+  --theme-backgroundLRG: -webkit-linear-gradient(top, #81DC97 50%, #F6F7FC 50%)!important;  //-webkit-linear-gradient(top, #01A3A4 50%, #F6F7FC 50%)!important;    
+  --theme-font:"gt-america-standard-regular", "Helvetica Neue", "Arial", "sans-serif";
+  --theme-progressBarWhite:#FFFFFF;
+  --theme-colorBGShades:#0A1F5B; //change this visaly after check the deafulat color;
+  --theme-notActiveBtn:#707070;//#707070 //DO NOT CHNAGE THIS
+  --theme-headingFont:1.2rem; //merger wirth headeing font 
+  --theme-counters:0.75rem;
+  --theme-cardHeading:1rem;
+  --theme-text:0.85rem;
+  --theme-textHeading:0.9rem; 
+  --theme-titleProfile:#000; 
+  --theme-color:#81DC97;
+  --theme-newHeader: #81DC97;
+  --theme-newButton: #81DC97;
+  --white:#ffffff;
+  --black:#333333;
+  --black-light:#676767;
+  --lightGrey:#FAFAFA;
+  --card-border:#F4F4F4;
+  --green:green;
+  --yellow:yellow;
+  --red:red;
+  --theme-newFont:'gt-america-standard-regular', sans-serif;
+  --ion-font-family: 'gt-america-standard-regular', sans-serif;
+  --xsmall-font:0.625rem;  //10px
+  --small-font:0.75rem; //12px
+  --regular-font:0.871rem; //14px
+  --regularM-font:1rem; //16px
+  --medium-font:.9rem; //18px
+  --large-font:1.2rem;  //24px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --boxshadow:1px 2px 7px rgba(0,0,0,.3);
+  --btnShaddow:rgba(74, 74, 74, 0.2) 0px 12px 30px ;
+  --radio-background:#fff;
+  --normal-color:#393939;
+  --cercle-progress:#0A1F5B;
+
+  --arrow-color:#c97b5a;
+  --arrow-color:#c97b5a;
+  
+  --goal: #99e8d3;
+  --profile-color: #81DC97;
+  --graph-background:#f2f1eb;
+  --close-edit-color: #81DC97;
+  --new-background: #99b9491f;
+  --new-border-color: #99b94933;
+  --theme-color-new:#81DC97;
+  --theme-milestone:#fff; 
+--theme-milestone2:#000;
+--button-text:#fff;
+}
 body[color-theme="plix-global"] {
   --font: "gt-america-standard-regular", "Helvetica Neue", Arial, sans-serif;
   --font-bold: "gt-america-standard-bold", "Helvetica Neue", Arial, sans-serif;

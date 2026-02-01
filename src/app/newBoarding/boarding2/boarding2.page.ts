@@ -18,7 +18,7 @@ import { ActivatedRoute, Route, Router } from "@angular/router";
 })
 export class Boarding2Page implements OnInit, AfterViewInit {
   @Input() from = "";
-  isChild = false;
+  isChild = localStorage.getItem("kids") === "true" ? true : false;
   parseInt(arg0: any) {
     throw new Error("Method not implemented.");
   }
