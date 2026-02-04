@@ -210,12 +210,13 @@ ion-content::part(background) {
 
 
 .female_image {
-  height: 120px;
+  height: 78%;
   object-fit: contain;
   position: absolute;
   z-index: 10;
   bottom: 5px;
   margin-left: 20px;
+  
 }
 
 .male_image {

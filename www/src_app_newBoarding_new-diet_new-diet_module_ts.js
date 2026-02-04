@@ -1532,25 +1532,23 @@ If you’d like to explore it or follow a similar plan, here’s the link:
 ${url}`;
     const encodedMsg = encodeURIComponent(message.trim());
 
-    if (this.isIosDevice) {
-      if (this.clientId.toLowerCase() !== 'redcliffe') {
-        let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
-        window.location.href = urll;
-      }
+    if (this.clientId.toLowerCase() !== 'redcliffe') {
+      let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
+      window.location.href = urll;
+    }
 
-      if (this.clientId.toLowerCase() === 'redcliffe') {
-        if (!this.isIosDevice) {
-          // Call Android bridge
-          window.MyJSClient?.onDietPlanWhatsappShare(url);
-        } else {
-          // Call iOS bridge
-          window.webkit?.messageHandlers?.callbackHandler?.postMessage({
-            action: "shareFitrofyUrl",
-            url: url
-          });
-        }
-      }
-    } else {
+    if (this.userAgentType === "Android App") {
+      // Call Android bridge
+      window.MyJSClient?.onDietPlanWhatsappShare(url);
+    } else if (this.userAgentType === "IOS App") {
+      // Call iOS bridge
+      window.webkit?.messageHandlers?.callbackHandler?.postMessage({
+        action: "shareFitrofyUrl",
+        url: url
+      });
+    }
+
+    if (!this.isIosDevice && this.clientId.toLowerCase() !== 'redcliffe') {
       let urll = `whatsapp://send?text=${encodedMsg}`;
       this.iab.create(urll, "_system");
     }
@@ -2294,14 +2292,10 @@ ${url}`;
     let pdfWindow = null;
 
     if (this.userAgentType === "Web") {
-      // Open in new tab for web
-      //  window.open(pdfUrl, "_blank");
       pdfWindow.location.href = pdfUrl;
     } else if (this.userAgentType === "Android App") {
-      // Call Android bridge
       window.MyJSClient?.openPdfFromUrl(pdfUrl);
     } else if (this.userAgentType === "IOS App") {
-      // Call iOS bridge
       window.webkit?.messageHandlers?.callbackHandler?.postMessage({
         action: "openPdf",
         url: pdfUrl

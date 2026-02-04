@@ -89,7 +89,11 @@ export class Boarding2Page implements OnInit, AfterViewInit {
       this.minHight = 48;
       this.selectedHeight = 66;
     }
+
     this.clientId = localStorage.getItem('clientId');
+    if (this.clientId === 'plixkids') {
+      this.targetYear = new Date().getFullYear() - 12;
+    }
     this.activatedRoute.queryParams.subscribe(res => {
       this.from = res['from'];
     });
@@ -258,8 +262,14 @@ export class Boarding2Page implements OnInit, AfterViewInit {
       this.router.navigate(['new-profile']);
     }
     else {
-      this.storage.set("pendingPage", "/boarding");
-      this.navCtrl.navigateRoot(["/boarding"]);
+      if (this.clientId === 'plixkids') {
+        this.storage.set("pendingPage", "/boarding1");
+        this.navCtrl.navigateRoot(["/boarding1"]);
+      }
+      else {
+        this.storage.set("pendingPage", "/boarding");
+        this.navCtrl.navigateRoot(["/boarding"]);
+      }
     }
   }
 
@@ -373,6 +383,7 @@ export class Boarding2Page implements OnInit, AfterViewInit {
       }
       else {
         this.utilities.showErrorToast("Please enter correct year for child plan");
+        return;
       }
     }
 

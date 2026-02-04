@@ -148,7 +148,7 @@ let Boarding3Page = class Boarding3Page {
             case "AC4":
                 return "newImages/aviva-images/activity-new-4.png";
             case "AC5":
-                return this.isChild ? "child/child-3.jpeg" : "newImages/aviva-images/activity-new-5.png";
+                return this.isChild ? "child/child-2.jpeg" : "newImages/aviva-images/activity-new-5.png";
         }
     }
     goBack() {
@@ -258,6 +258,9 @@ let Boarding3Page = class Boarding3Page {
             consultQA: this.profileData?.lifeStyle?.consultQA === undefined ? [] : this.profileData?.lifeStyle?.consultQA,
             instructions: this.profileData?.lifeStyle?.instructions === undefined ? '' : this.profileData?.lifeStyle?.instructions
         };
+        if (this.clientId === 'plixkids') {
+            localStorage.setItem("goals", localStorage.getItem("childDietPlan"));
+        }
         console.log(reqBody);
         this.appService.postLifeStyle(reqBody).then((success) => {
             if (this.from) {

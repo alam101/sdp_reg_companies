@@ -8310,24 +8310,20 @@
       ],
       "editGoalForDisplay": [
         {
-          "name": "Weight Management",
-          "value": "weight_loss_plix"
+          "name": "3-9",
+          "value": "SK6"
         },
         {
-          "name": "Improve Immunity",
-          "value": "immunity_booster_plix"
+          "name": "6-9",
+          "value": "SK9"
         },
         {
-          "name": "Manage Skincare",
-          "value": "skincare_plix"
+          "name": "12 boy",
+          "value": "SKB12"
         },
         {
-          "name": "Manage Stress",
-          "value": "stress_plix"
-        },
-        {
-          "name": "Hair Care",
-          "value": "trayaHealth"
+          "name": "12 Girls",
+          "value": "SKG12"
         }
       ],
       "deseases": [

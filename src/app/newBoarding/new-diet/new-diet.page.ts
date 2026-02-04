@@ -175,25 +175,25 @@ recommended portions, and calorie goals for the day.
 If you’d like to explore it or follow a similar plan, here’s the link: 
 ${url}`;
     const encodedMsg = encodeURIComponent(message.trim());
-    if (this.isIosDevice) {
-      if (this.clientId.toLowerCase() !== 'redcliffe') {
-        let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
-        window.location.href = urll;
-      }
-      if (this.clientId.toLowerCase() === 'redcliffe') {
-        if (!this.isIosDevice) {
-          // Call Android bridge
-          (window as any).MyJSClient ?.onDietPlanWhatsappShare(url);
-        } else {
-          // Call iOS bridge
-          (window as any).webkit ?.messageHandlers ?.callbackHandler ?.postMessage({
-            action: "shareFitrofyUrl",
-            url: url,
-          });
-        }
-      }
+    if (this.clientId.toLowerCase() !== 'redcliffe') {
+      let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
+      window.location.href = urll;
     }
-    else {
+    if (this.userAgentType === "Android App") {
+      // Call Android bridge
+      (window as any).MyJSClient ?.onDietPlanWhatsappShare(url);
+    }
+
+    else if (this.userAgentType === "IOS App") {
+      // Call iOS bridge
+      (window as any).webkit ?.messageHandlers ?.callbackHandler ?.postMessage({
+        action: "shareFitrofyUrl",
+        url: url,
+      });
+    }
+
+
+    if (!this.isIosDevice && this.clientId.toLowerCase() !== 'redcliffe') {
       let urll = `whatsapp://send?text=${encodedMsg}`;
       this.iab.create(urll, "_system");
     }
@@ -1116,14 +1116,12 @@ ${url}`;
   downloadPdf(pdfUrl) {
     let pdfWindow: Window | null = null;
     if (this.userAgentType === "Web") {
-      // Open in new tab for web
-      //  window.open(pdfUrl, "_blank");
       pdfWindow.location.href = pdfUrl;
+
     } else if (this.userAgentType === "Android App") {
-      // Call Android bridge
       (window as any).MyJSClient ?.openPdfFromUrl(pdfUrl);
-    } else if (this.userAgentType === "IOS App") {
-      // Call iOS bridge
+    }
+    else if (this.userAgentType === "IOS App") {
       (window as any).webkit ?.messageHandlers ?.callbackHandler ?.postMessage({
         action: "openPdf",
         url: pdfUrl,

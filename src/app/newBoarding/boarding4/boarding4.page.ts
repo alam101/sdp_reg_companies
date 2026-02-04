@@ -316,6 +316,7 @@ export class Boarding4Page implements OnInit {
       instructions: this.profileData ?.lifeStyle ?.instructions === undefined ? '' : this.profileData ?.lifeStyle ?.instructions,
       dietPlanName: this.profileData ?.lifeStyle ?.dietPlanName
     };
+
     console.log(reqBody);
     this.appservice.postLifeStyle(reqBody).then((success) => {
       if (localStorage.getItem("clientId") == 'traya') {
