@@ -24,7 +24,7 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["./meal-workout.page.scss"],
 })
 export class MealWorkoutPage implements OnInit {
-  @Input() data: any={};
+  @Input() data: any = {};
   @Input() end_time: any = {};
   @Input() diets: any = [];
   @Input() index: any = [];
@@ -38,18 +38,18 @@ export class MealWorkoutPage implements OnInit {
   customerId: any;
   @Output() getCalData = new EventEmitter();
   @Output() getDietdata = new EventEmitter();
-  @Output() isdisplayFooter=new EventEmitter<boolean>();
+  @Output() isdisplayFooter = new EventEmitter<boolean>();
   totalCal: number = 0;
   moment: any = moment;
   loaded = true;
   parseFloat: any = parseFloat;
   Math: any = Math;
   image_URL = "";
-  logunlog='Log Slot';
+  logunlog = 'Log Slot';
   currentDateIndex: any = 0;
   videoUrl: any;
   streamVideo = false;
-  clientId="";
+  clientId = "";
   constructor(
     private cdr: ChangeDetectorRef,
     private utilities: UTILITIES,
@@ -69,17 +69,29 @@ export class MealWorkoutPage implements OnInit {
     // else{
     //   localStorage.setItem("diett",JSON.stringify(this.data)) ;
     // }
-     
+
   }
-  
-  isFuture:any;
-  compConfig:any;
+  getBackgroundColor(clientId: string, index: number): string {
+    if (clientId === 'nutrabox') return 'rgb(202,63,37)';
+    if (clientId === 'vieroots') return '#f3f3f3';
+
+    const colors = [
+      '#E4F3EC',
+      '#F2E5D8',
+      '#FBEEFC',
+      '#E2F0F6'
+    ];
+
+    return colors[index % colors.length];
+  }
+  isFuture: any;
+  compConfig: any;
   async ngOnInit() {
-    if(Number(localStorage.getItem("currentDate"))> new Date().getTime()){
-        this.isFuture=true;
-       
+    if (Number(localStorage.getItem("currentDate")) > new Date().getTime()) {
+      this.isFuture = true;
+
     }
-  this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
+    this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     this.image_URL = CONSTANTS.image_URL;
     this.customerId = await this.utilities.getUserData("id");
     this.data.data.forEach((elm) => {
@@ -106,68 +118,68 @@ export class MealWorkoutPage implements OnInit {
     // setTimeout(() => {
     //   this.loaded = true;
     // }, 300);
-    let inputDate = CONSTANTS?.dietDate
-  ? moment(CONSTANTS.dietDate, "DDMMYYYY").toDate()
-  : new Date();
+    let inputDate = CONSTANTS ?.dietDate
+      ? moment(CONSTANTS.dietDate, "DDMMYYYY").toDate()
+      : new Date();
     this.compareDates(inputDate);
   }
 
   compareDates(date1) {
     const inputDate = new Date(date1); // Replace with your date
-const currentDate = new Date();
+    const currentDate = new Date();
 
-// Normalize both dates to only compare date (without time)
-const normalizeDate = (date) => {
-  return new Date(date.getFullYear(), date.getMonth(), date.getDate());
-};
+    // Normalize both dates to only compare date (without time)
+    const normalizeDate = (date) => {
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    };
 
-const today = normalizeDate(currentDate);
-const input = normalizeDate(inputDate);
-if (input.getTime() === today.getTime()) {
-  this.isFuture = false;
-} else {
-  this.isFuture = true;
-}
+    const today = normalizeDate(currentDate);
+    const input = normalizeDate(inputDate);
+    if (input.getTime() === today.getTime()) {
+      this.isFuture = false;
+    } else {
+      this.isFuture = true;
+    }
   }
   senitizedData(videoUrl) {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
-   
+
   }
-  gotoBuyUrl(url){
-    window.open(url,'_blank');
+  gotoBuyUrl(url) {
+    window.open(url, '_blank');
   }
   videoClick(data) {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(data);
     this.streamVideo = true;
     this.isShow = false;
-    
+
   }
-  closeVideo(){
-     this.isShow = true;
+  closeVideo() {
+    this.isShow = true;
     this.streamVideo = false;
-   
+
   }
-  close(){
+  close() {
     this.isdisplayFooter.emit(true);
     this.isShow = false;
   }
-  returnIsEaten(dataItem){
-   const dt = dataItem.filter(item=>{
-      return item.eaten<=0;
-     })
-     if(dt?.length>0){
-       this.logunlog= this.clientId==='nutrabox'? 'Done': "Log Slot";
-     }
-     else{
-       this.logunlog=this.clientId==='nutrabox'? 'Undo':"Logged";
-     }
-     return this.logunlog;
-   }
+  returnIsEaten(dataItem) {
+    const dt = dataItem.filter(item => {
+      return item.eaten <= 0;
+    })
+    if (dt ?.length > 0) {
+      this.logunlog = this.clientId === 'nutrabox' ? 'Done' : "Log Slot";
+    }
+    else {
+      this.logunlog = this.clientId === 'nutrabox' ? 'Undo' : "Logged";
+    }
+    return this.logunlog;
+  }
   async changed(data) {
     console.log("data111111", data);
-   
+
     data.slot = this.index;
-   
+
     const modal = await this.modalCtrl.create({
       component: PortionCountPage,
       cssClass: "change_item",
@@ -180,40 +192,40 @@ if (input.getTime() === today.getTime()) {
     });
     await modal.present();
     const modaldata = await modal.onDidDismiss();
-    const d = modaldata?.data;
-    
-   // this.getDietdata.emit(CONSTANTS.dietDate);
-   this.broadcastService.boradcast("reload");
+    const d = modaldata ?.data;
+
+    // this.getDietdata.emit(CONSTANTS.dietDate);
+    this.broadcastService.boradcast("reload");
     // if (d) {
     //   this.eatenStatusUpdate(d, 2, "Updated successfully");
     // }
   }
-logged(d){
-  this.isdisplayFooter.emit(true);
-  this.remove(d, -1, "Removed successfully");
-}
-alternatives(data){
-  //this.changed(data?.data?.updatedData);
-  //this.gotoView(data?.data?.updatedData);
-}
-addRemove(type) {
-  this.isdisplayFooter.emit(true);
-  let calCount = this.popup?.Calories / this.popup.portion;
-  if (type === "add") {
-    this.popup.portion = Number(this.popup?.portion || 0) + 0.5;
-  } else {
-    if (Number(this.popup?.portion) !== 0.5) {
-      this.popup.portion = Number(this.popup?.portion || 0) - 0.5;
-      // this.data.portion = 0;
-    }
+  logged(d) {
+    this.isdisplayFooter.emit(true);
+    this.remove(d, -1, "Removed successfully");
   }
-  this.popup.Calories = calCount * this.popup.portion;
-}
+  alternatives(data) {
+    //this.changed(data?.data?.updatedData);
+    //this.gotoView(data?.data?.updatedData);
+  }
+  addRemove(type) {
+    this.isdisplayFooter.emit(true);
+    let calCount = this.popup ?.Calories / this.popup.portion;
+    if (type === "add") {
+      this.popup.portion = Number(this.popup ?.portion || 0) + 0.5;
+    } else {
+      if (Number(this.popup ?.portion) !== 0.5) {
+        this.popup.portion = Number(this.popup ?.portion || 0) - 0.5;
+        // this.data.portion = 0;
+      }
+    }
+    this.popup.Calories = calCount * this.popup.portion;
+  }
   async addCal(data, i) {
-    if(this.isFuture){
+    if (this.isFuture) {
       this.utilities.showErrorToast("Can not log for future dates!");
       return;
-      }
+    }
     this.isdisplayFooter.emit(true);
     // const modal = await this.modalCtrl.create({
     //   component: PortionCountPage,
@@ -227,8 +239,8 @@ addRemove(type) {
     // await modal.present();
     // const modaldata = await modal.onDidDismiss();
     // const d = modaldata?.data;
-    console.log("xxx:--",data,i);
-    
+    console.log("xxx:--", data, i);
+
     if (data) {
       this.eatenStatusUpdate(data, 2, "Logged successfully");
     }
@@ -240,11 +252,11 @@ addRemove(type) {
       return;
     }
     if (this.from && this.from === "alter") {
-      if (d?.eaten) {
-        if (d?.eaten < 0) {
+      if (d ?.eaten) {
+        if (d ?.eaten < 0) {
           this.addCal(d, "");
         } else {
-          if (d?.foodStatus === "A") {
+          if (d ?.foodStatus === "A") {
             this.remove(d, -1, "Removed successfully");
           } else {
             this.eatenStatusUpdate(d, -1, "Un logged successfully");
@@ -269,27 +281,27 @@ addRemove(type) {
     });
     await popover.present();
     const data = await popover.onDidDismiss();
-    console.log("data check:",data);
-    
-    if (data?.data) {
-      if (data?.data?.type === "track") {
-        this.addCal(data?.data?.updatedData, i);
-      } else if (data?.data?.type === "unlog") {
+    console.log("data check:", data);
+
+    if (data ?.data) {
+      if (data ?.data ?.type === "track") {
+        this.addCal(data ?.data ?.updatedData, i);
+      } else if (data ?.data ?.type === "unlog") {
         this.eatenStatusUpdate(
-          data?.data?.updatedData,
+          data ?.data ?.updatedData,
           -1,
           "Un logged successfully"
         );
-      } else if (data?.data?.type === "info") {
-        this.gotoView(data?.data?.updatedData);
-      } else if (data?.data?.type === "alter") {
-        this.changed(data?.data?.updatedData);
-      } else if (data?.data?.type === "edit") {
-        this.addCal(data?.data?.updatedData, i);
-      } else if (data?.data?.type === "remove") {
+      } else if (data ?.data ?.type === "info") {
+        this.gotoView(data ?.data ?.updatedData);
+      } else if (data ?.data ?.type === "alter") {
+        this.changed(data ?.data ?.updatedData);
+      } else if (data ?.data ?.type === "edit") {
+        this.addCal(data ?.data ?.updatedData, i);
+      } else if (data ?.data ?.type === "remove") {
         data.data.updatedData.portion = 0;
         this.eatenStatusUpdate(
-          data?.data?.updatedData,
+          data ?.data ?.updatedData,
           -1,
           "Removed successfully"
         );
@@ -338,70 +350,70 @@ addRemove(type) {
     //   },
     // });
   }
-  isShow=false;
-  popup:any; 
-  instructionsArray=[];
-  gredientArray=[];
+  isShow = false;
+  popup: any;
+  instructionsArray = [];
+  gredientArray = [];
   wrapFirstWordWithBold(text) {
     // Using regular expression to match the first word followed by ":"
-    let replacedText = text.includes(':')?text.replace(/^(.*?):\s*(.*)$/, "<span class='custom-style1'>$1</span> <span class='custom-style2'>$2</span>"):"<span class='custom-style1'>"+text+"</span><br>";
+    let replacedText = text.includes(':') ? text.replace(/^(.*?):\s*(.*)$/, "<span class='custom-style1'>$1</span> <span class='custom-style2'>$2</span>") : "<span class='custom-style1'>" + text + "</span><br>";
     return replacedText;
-}
+  }
   async gotoView(d) {
     if (this.disabled) {
       return;
     }
-    console.log("d",d);
+    console.log("d", d);
     this.isdisplayFooter.emit(false);
-    if (!d.recipe && d?.video?.includes("http")) {
+    if (!d.recipe && d ?.video ?.includes("http")) {
       d.recipe = "As per video";
     }
-    if (!d.recipe && !d?.video?.includes("http")) {
+    if (!d.recipe && !d ?.video ?.includes("http")) {
       d.recipe = "--";
     }
 
-    if (!d.steps && d?.video?.includes("http")) {
+    if (!d.steps && d ?.video ?.includes("http")) {
       d.steps = "As per video";
     }
-    if (!d.steps && !d?.video?.includes("http")) {
+    if (!d.steps && !d ?.video ?.includes("http")) {
       d.steps = "--";
     }
-   this.popup = d; 
-   this.senitizedData(d.video);
-   this.gredientArray = this.popup.recipe.replace(/\:+/g, ":<br>").split("\n").filter(item => item.trim() !== '');
+    this.popup = d;
+    this.senitizedData(d.video);
+    this.gredientArray = this.popup.recipe.replace(/\:+/g, ":<br>").split("\n").filter(item => item.trim() !== '');
 
-   for (let index = 0; index < this.gredientArray.length; index++) {
-    this.gredientArray[index] = this.wrapFirstWordWithBold(this.gredientArray[index]);
-    
-   }
-   console.log("this.gredientArray",this.gredientArray);
+    for (let index = 0; index < this.gredientArray.length; index++) {
+      this.gredientArray[index] = this.wrapFirstWordWithBold(this.gredientArray[index]);
 
-   this.instructionsArray = this.popup.steps.replace("\n\n","\n")
-   .replace("Step 1","1.")
-   .replace("Step 2","2.")
-   .replace("Step 3","3.")
-   .replace("Step 4","4.")
-   .replace("Step 5","5.")
-   .replace("Step 6","6.")
-   .replace("Step 7","7.")
-   .replace("Step 8","8.")
-   .replace("Step 9","9.")
-   .replace("Step 10","10.")
-   .replace("Step 11","11.")
-   .replace("Step 12","12.")
-   .replace("Step 13","13.")
-   .replace("Step 14","14.")
-   .replace("Step 15","15.")
-   .replace("Step 16","16.").split(/\d+\./).filter(item => item.trim() !== '');
-    this.isShow=true;
+    }
+    console.log("this.gredientArray", this.gredientArray);
+
+    this.instructionsArray = this.popup.steps.replace("\n\n", "\n")
+      .replace("Step 1", "1.")
+      .replace("Step 2", "2.")
+      .replace("Step 3", "3.")
+      .replace("Step 4", "4.")
+      .replace("Step 5", "5.")
+      .replace("Step 6", "6.")
+      .replace("Step 7", "7.")
+      .replace("Step 8", "8.")
+      .replace("Step 9", "9.")
+      .replace("Step 10", "10.")
+      .replace("Step 11", "11.")
+      .replace("Step 12", "12.")
+      .replace("Step 13", "13.")
+      .replace("Step 14", "14.")
+      .replace("Step 15", "15.")
+      .replace("Step 16", "16.").split(/\d+\./).filter(item => item.trim() !== '');
+    this.isShow = true;
   }
 
-  logSlot(d,index){ 
-    if(this.isFuture){
+  logSlot(d, index) {
+    if (this.isFuture) {
       this.utilities.showErrorToast("Can not Log for future dates!");
-    return;
+      return;
     }
-    this.eatenStatusUpdate1(d,index);
+    this.eatenStatusUpdate1(d, index);
   }
   async remove(item, eaten, status) {
     //
@@ -411,7 +423,7 @@ addRemove(type) {
 
       const datas = {
         date: CONSTANTS.dietDate,
-        slot: Number(this.data?.slot),
+        slot: Number(this.data ?.slot),
         foodCodeList: [
           {
             code: item.itemCode,
@@ -429,7 +441,7 @@ addRemove(type) {
         (success: any) => {
           this.utilities.showSuccessToast(status);
           this.getDietdata.emit(CONSTANTS.dietDate);
-          
+
           // this.todaysCalCount();
           console.log("247 called");
         },
@@ -440,25 +452,26 @@ addRemove(type) {
     }
   }
 
-  async eatenStatusUpdate1(item,slot) {
+  async eatenStatusUpdate1(item, slot) {
     //
-    console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
-    
-     if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
-     setTimeout(()=>{ this.utilities.showErrorToast("Can not Log for future dates!");
-    },0);
+    console.log("fffdd:-----", CONSTANTS.dietDate, moment(new Date()).format("DDMMYYYY"));
+
+    if (CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")) {
+      setTimeout(() => {
+        this.utilities.showErrorToast("Can not Log for future dates!");
+      }, 0);
     }
-    else{ 
+    else {
       let foodCodeList = [];
-        let dataTotal = [];
+      let dataTotal = [];
       this.utilities.logEvent("onboarding_Counter_add_home", {});
-    
+
       for (let index = 0; index < item.data.length; index++) {
         dataTotal.push(
           {
             code: item.data[index].itemCode,
             portion: Number(item.data[index].portion),
-            eaten: (this.logunlog ==='Log Slot' || this.logunlog ==='Done')? 2: -1,
+            eaten: (this.logunlog === 'Log Slot' || this.logunlog === 'Done') ? 2 : -1,
             foodSource: item.data[index].foodSource
           }
         )
@@ -475,64 +488,65 @@ addRemove(type) {
         (success: any) => {
           this.utilities.showSuccessToast("Logged Successfully.");
           this.getDietdata.emit(CONSTANTS.dietDate);
-           this.todaysCalCount();
-           if(this.logunlog==='Log Slot'){
-           this.logunlog = (this.logunlog==='Log Slot')? "Logged": "Log Slot";
-           }
-           else if(this.logunlog==='Done'){
-           this.logunlog = (this.logunlog==='Done')? "Undo": "Done";
-           }
-         // this.getDietdata(CONSTANTS.dietDate);
-        //  console.log("");
+          this.todaysCalCount();
+          if (this.logunlog === 'Log Slot') {
+            this.logunlog = (this.logunlog === 'Log Slot') ? "Logged" : "Log Slot";
+          }
+          else if (this.logunlog === 'Done') {
+            this.logunlog = (this.logunlog === 'Done') ? "Undo" : "Done";
+          }
+          // this.getDietdata(CONSTANTS.dietDate);
+          //  console.log("");
         },
         (err) => {
           console.log("details error", err);
         }
       );
-   
+
     }
   }
   async eatenStatusUpdate(item, eaten, status) {
-   //
-    console.log("fffdd:-----",CONSTANTS.dietDate,moment(new Date()).format("DDMMYYYY"));
-    
-     if(CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")){
-     setTimeout(()=>{ this.utilities.showErrorToast("Can not Log for future dates!");
-    },0);
-    }
-    else{ 
-    if (this.currentDateIndex == 0) {
-      let foodCodeList = [];
-      this.utilities.logEvent("onboarding_Counter_add_home", {});
+    //
+    console.log("fffdd:-----", CONSTANTS.dietDate, moment(new Date()).format("DDMMYYYY"));
 
-      const datas = {
-        date: CONSTANTS.dietDate,
-        slot: Number(this.data?.slot),
-        foodCodeList: [
-          {
-            code: item.itemCode,
-            portion: Number(item.portion),
-            eaten: eaten,
-            foodSource: item.foodSource
-          },
-        ],
-        isUpdateDiet: true,
-      };
-      this.utilities.logEvent("onboarding_update_food_details", datas);
-      // this.appServices.updateEatenFoodItems(data).then(
-      this.appServices.postOptionFoodList(datas).then(
-        (success: any) => {
- //         this.utilities.showSuccessToast(success.message);
- this.utilities.showSuccessToast(status);
- this.getDietdata.emit(CONSTANTS.dietDate);
-          // this.todaysCalCount();
-          console.log("247 called");
-        },
-        (err) => {
-          console.log("details error", err);
-        }
-      );
+    if (CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")) {
+      setTimeout(() => {
+        this.utilities.showErrorToast("Can not Log for future dates!");
+      }, 0);
     }
+    else {
+      if (this.currentDateIndex == 0) {
+        let foodCodeList = [];
+        this.utilities.logEvent("onboarding_Counter_add_home", {});
+
+        const datas = {
+          date: CONSTANTS.dietDate,
+          slot: Number(this.data ?.slot),
+          foodCodeList: [
+            {
+              code: item.itemCode,
+              portion: Number(item.portion),
+              eaten: eaten,
+              foodSource: item.foodSource
+            },
+          ],
+          isUpdateDiet: true,
+        };
+        this.utilities.logEvent("onboarding_update_food_details", datas);
+        // this.appServices.updateEatenFoodItems(data).then(
+        this.appServices.postOptionFoodList(datas).then(
+          (success: any) => {
+            //         this.utilities.showSuccessToast(success.message);
+            this.utilities.showSuccessToast(status);
+            this.getDietdata.emit(CONSTANTS.dietDate);
+            // this.todaysCalCount();
+            console.log("247 called");
+          },
+          (err) => {
+            console.log("details error", err);
+          }
+        );
+      }
     }
   }
 
