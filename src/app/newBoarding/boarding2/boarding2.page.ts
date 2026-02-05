@@ -92,7 +92,7 @@ export class Boarding2Page implements OnInit, AfterViewInit {
 
     this.clientId = localStorage.getItem('clientId');
     if (this.clientId === 'plixkids') {
-      this.targetYear = new Date().getFullYear() - 12;
+      this.targetYear = new Date().getFullYear() - 15;
     }
     this.activatedRoute.queryParams.subscribe(res => {
       this.from = res['from'];
@@ -375,10 +375,10 @@ export class Boarding2Page implements OnInit, AfterViewInit {
       else if ((new Date().getFullYear() - this.targetYear) > 6 && (new Date().getFullYear() - this.targetYear) < 9) {
         localStorage.setItem("childDietPlan", "SK9");
       }
-      else if ((new Date().getFullYear() - this.targetYear) > 9 && (new Date().getFullYear() - this.targetYear) < 12 && this.gender == 'G1') {
+      else if ((new Date().getFullYear() - this.targetYear) > 9 && (new Date().getFullYear() - this.targetYear) <= 15 && this.gender == 'G1') {
         localStorage.setItem("childDietPlan", "SKB12");
       }
-      else if ((new Date().getFullYear() - this.targetYear) > 9 && (new Date().getFullYear() - this.targetYear) < 12 && this.gender == 'G2') {
+      else if ((new Date().getFullYear() - this.targetYear) > 9 && (new Date().getFullYear() - this.targetYear) <= 15 && this.gender == 'G2') {
         localStorage.setItem("childDietPlan", "SKG12");
       }
       else {

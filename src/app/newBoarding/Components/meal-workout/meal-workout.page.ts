@@ -63,6 +63,7 @@ export class MealWorkoutPage implements OnInit {
     private broadcastService: BroadcastService
   ) {
     this.clientId = localStorage.getItem("clientId");
+
     // if(!this.data){
     // this.data= JSON.parse(localStorage.getItem("diett"));
     // }
@@ -87,6 +88,8 @@ export class MealWorkoutPage implements OnInit {
   isFuture: any;
   compConfig: any;
   async ngOnInit() {
+    console.log("sssddddd::::-", this.data, this.diets, this.index);
+
     if (Number(localStorage.getItem("currentDate")) > new Date().getTime()) {
       this.isFuture = true;
 
@@ -113,7 +116,7 @@ export class MealWorkoutPage implements OnInit {
       if (!elm.Score || elm.Score == "") {
         elm.option = "Unverified";
       }
-      this.data.slot = this.index;
+      // this.data.slot = this.index;
     });
     // setTimeout(() => {
     //   this.loaded = true;

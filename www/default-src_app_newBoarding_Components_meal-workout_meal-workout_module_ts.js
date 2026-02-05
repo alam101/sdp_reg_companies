@@ -634,6 +634,8 @@ let MealWorkoutPage = class MealWorkoutPage {
     var _this = this;
 
     return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+      console.log("sssddddd::::-", _this.data, _this.diets, _this.index);
+
       if (Number(localStorage.getItem("currentDate")) > new Date().getTime()) {
         _this.isFuture = true;
       }
@@ -665,9 +667,8 @@ let MealWorkoutPage = class MealWorkoutPage {
 
         if (!elm.Score || elm.Score == "") {
           elm.option = "Unverified";
-        }
+        } // this.data.slot = this.index;
 
-        _this.data.slot = _this.index;
       }); // setTimeout(() => {
       //   this.loaded = true;
       // }, 300);

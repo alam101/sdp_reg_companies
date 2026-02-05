@@ -1219,13 +1219,13 @@ ${url}`;
         CONSTANTS.defaultCalories
       )
       .then((res) => {
-        console.log("alam101", this.diets);
         this.storage.set("dietData", res);
         localStorage.setItem("dtit", JSON.stringify(res));
-        this.copyDiet = { ...JSON.parse(localStorage.getItem("dtit")) };
+        this.copyDiet = JSON.parse(localStorage.getItem("dtit"));
         this.diets = { ...this.copyDiet };
+        console.log("alam101::- ", this.diets);
         if (this.diets.diets ?.length > 0) {
-          this.diets.diets.forEach((ele) => {
+          this.diets ?.diets ?.forEach((ele) => {
             console.log("sssssss:-", ele ?.data);
             if (ele ?.data ?.length > 0) {
               ele ?.data.forEach((element) => {

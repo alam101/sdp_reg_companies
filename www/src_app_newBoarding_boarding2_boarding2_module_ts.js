@@ -176,7 +176,7 @@ let Boarding2Page = class Boarding2Page {
     this.clientId = localStorage.getItem('clientId');
 
     if (this.clientId === 'plixkids') {
-      this.targetYear = new Date().getFullYear() - 12;
+      this.targetYear = new Date().getFullYear() - 15;
     }
 
     this.activatedRoute.queryParams.subscribe(res => {
@@ -455,9 +455,9 @@ let Boarding2Page = class Boarding2Page {
         localStorage.setItem("childDietPlan", "SK6");
       } else if (new Date().getFullYear() - this.targetYear > 6 && new Date().getFullYear() - this.targetYear < 9) {
         localStorage.setItem("childDietPlan", "SK9");
-      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear < 12 && this.gender == 'G1') {
+      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == 'G1') {
         localStorage.setItem("childDietPlan", "SKB12");
-      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear < 12 && this.gender == 'G2') {
+      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == 'G2') {
         localStorage.setItem("childDietPlan", "SKG12");
       } else {
         this.utilities.showErrorToast("Please enter correct year for child plan");

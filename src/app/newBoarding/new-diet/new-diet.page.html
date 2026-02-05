@@ -1,181 +1,176 @@
 <ion-content [ngClass]="{'bottom-offset':compConfig?.isSearch===true}">
   <!-- <ion-button (click)="gotoApp()" style="position: fixed;top:0;z-index:11;">goto inapp for testing</ion-button> -->
   <p class="month paddingIos" *ngIf="!platform"></p>
-  <div
-    class="main_div"
-    [ngStyle]="{'border-radius':platform ?'0px':'0px','padding-bottom':'0px','margin-top':'-16px'}"
-  >
-  
-  <div style="top:1rem; position:relative;">
-    <ion-row>
-      <ion-col>
-        <div style="width: 100%;height: 200px;color:var(--theme-headerText);border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem;padding: 1rem;background:var(--theme-profile-background)" >
-          <ion-row>
-            <ion-col class="ion-text-left" style="font-size: 1.1rem;">
-             <b>{{profileName}} 
-              <ion-icon *ngIf="compConfig?.isEditProfile"  (click)="gotoProfile()" name="pencil-outline" style="position: relative;
+  <div class="main_div" [ngStyle]="{'border-radius':platform ?'0px':'0px','padding-bottom':'0px','margin-top':'-16px'}">
+
+    <div style="top:1rem; position:relative;">
+      <ion-row>
+        <ion-col>
+          <div style="width: 100%;height: 200px;color:var(--theme-headerText);border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;padding: 1rem;background:var(--theme-profile-background)">
+            <ion-row>
+              <ion-col class="ion-text-left" style="font-size: 1.1rem;">
+                <b>{{profileName}}
+                  <ion-icon *ngIf="compConfig?.isEditProfile" (click)="gotoProfile()" name="pencil-outline" style="position: relative;
               width: 5%;
-              top: 0.1rem;"></ion-icon></b> 
-            </ion-col>
-            <ion-col *ngIf="clientId==='nutrabox'">
-              <img style="    width: 40%;
+              top: 0.1rem;"></ion-icon></b>
+              </ion-col>
+              <ion-col *ngIf="clientId==='nutrabox'">
+                <img style="    width: 40%;
                     position: absolute;
                     right: 0;
                     top: -13px;" src="./assets/icon/nutraboxLogo.png">
-            </ion-col>
-             <ion-col *ngIf="clientId==='trunord'">
-              <img style="    width: 25%;
+              </ion-col>
+              <ion-col *ngIf="clientId==='trunord'">
+                <img style="    width: 25%;
                     position: absolute;
                     right: 0;
                     top: -13px;" src="./assets/icon/trunordLogo.png">
-            </ion-col>
-            <ion-col *ngIf="clientId==='metropolis'">
-              <img style="    width: 100%;
+              </ion-col>
+              <ion-col *ngIf="clientId==='metropolis'">
+                <img style="    width: 100%;
                     position: absolute;
                     right: 0;
                     top: -15px;" src="./assets/icon/metropolis.png">
-            </ion-col>
-            <ion-col *ngIf="clientId==='lalpathlabs'">
-              <img style="    width: 85%;
+              </ion-col>
+              <ion-col *ngIf="clientId==='lalpathlabs'">
+                <img style="    width: 85%;
                     position: absolute;
                     right: 0;
                     top: -15px;" src="./assets/companyLogo/lalpathlabs.png">
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col class="ion-text-left" 
-            style="font-size: .9rem;padding-top: .5rem;">
-              {{compConfig.headerText}}
-            </ion-col>
-          </ion-row>
-      </div>
-      <ion-card style="height: 180px;
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-left" style="font-size: .9rem;padding-top: .5rem;">
+                {{compConfig.headerText}}
+              </ion-col>
+            </ion-row>
+          </div>
+          <ion-card style="height: 180px;
       position: absolute;
       top: 40%;
       width: 90%;
       left: 2.5%;
       margin: 0 auto;
       right: 2.5%;">
-        <ion-card-content style="padding-left: 15px;">
-          <ion-row>
-            <!-- <ion-col class="ion-text-left" >
+            <ion-card-content style="padding-left: 15px;">
+              <ion-row>
+                <!-- <ion-col class="ion-text-left" >
               <span style="font-size: 1rem;"><b>Daily intake</b></span>
             </ion-col> -->
-            <ion-col class="ion-text-left">
-              <span style="font-size: .8rem;color:#A3A3A3">
-                Your Daily Target <img src="./assets/img/aim.png">
-              </span>
-            </ion-col>
-          </ion-row>
-          <ion-row style="margin-top: .5rem;">
-            <ion-col>
-              <ion-row>
-                <ion-col class="ion-text-left"><strong><span style="color:#414042">Calories</span></strong></ion-col>
-                <ion-col class="ion-text-right"><strong><span style="color:#414042">{{allData?.totalCal}} / {{profileData?.lifeStyle?.calories}} Kcal</span></strong></ion-col>
+                <ion-col class="ion-text-left">
+                  <span style="font-size: .8rem;color:#A3A3A3">
+                    Your Daily Target <img src="./assets/img/aim.png">
+                  </span>
+                </ion-col>
               </ion-row>
-              <div style="width: 100%;background:#E9E9E9;height: 10px;border-radius: 10px;">
-              <div style="height: 10px;border-radius: 10px;background: #ffc224;max-width: 100%;" [style.width.%]="((allData?.totalCal*100)/profileData?.lifeStyle?.calories)">
-              </div>
-            </div>
-            </ion-col>
-          </ion-row>
-      <br>
-          <ion-row>
-            <ion-col class="ion-text-center" size="3.5">
-              <span style="font-size: .9rem;">Carbs</span><br>
-              <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
-                <div style="height: 6px;border-radius: 10px;background: #489C75;max-width: 100%;" 
-                [style.width.%]="((allData.Carbs*100)/profileData?.lifeStyle?.carb)">
-                </div>
-              </div>
-              <span style="font-size: .8rem;">{{allData.Carbs}}/{{(profileData?.lifeStyle?.carb)?.toFixed(0)}}g</span>
-            </ion-col>
-            <ion-col size=".75"></ion-col>
-            <ion-col class="ion-text-center" size="3.5">
-              <span style="font-size: .9rem;">Protein</span><br>
-              <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
-                <div style="height: 6px;border-radius: 10px;background: #DD85E0;max-width: 100%;"
-                [style.width.%]="((allData?.Protien*100)/profileData?.lifeStyle?.protien)">
-                </div>
-              </div>
-              <span style="font-size: .8rem;">{{allData?.Protien}}/{{(profileData?.lifeStyle?.protien)?.toFixed(0)}}g</span>
-            </ion-col>
-            <ion-col size=".75"></ion-col>
-            <ion-col class="ion-text-center" size="3.5">
-              <span style="font-size: .9rem;">Fat</span><br>
-              <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
-                <div style="height: 6px;border-radius: 10px;background: #8054D7;max-width: 100%;"
-                [style.width.%]="((allData?.Fat*100)/profileData?.lifeStyle?.fat)">
-                </div>
-              </div>
-              <span style="font-size: .8rem;">{{allData?.Fat}}/{{(profileData?.lifeStyle?.fat)?.toFixed(0)}}g</span>
-            </ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
-      </ion-col>
-    </ion-row>
-  
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <!-- {{weeks.length}}-- -->
+              <ion-row style="margin-top: .5rem;">
+                <ion-col>
+                  <ion-row>
+                    <ion-col class="ion-text-left"><strong><span style="color:#414042">Calories</span></strong>
+                    </ion-col>
+                    <ion-col class="ion-text-right"><strong><span style="color:#414042">{{allData?.totalCal}} /
+                          {{profileData?.lifeStyle?.calories}} Kcal</span></strong></ion-col>
+                  </ion-row>
+                  <div style="width: 100%;background:#E9E9E9;height: 10px;border-radius: 10px;">
+                    <div style="height: 10px;border-radius: 10px;background: #ffc224;max-width: 100%;"
+                      [style.width.%]="((allData?.totalCal*100)/profileData?.lifeStyle?.calories)">
+                    </div>
+                  </div>
+                </ion-col>
+              </ion-row>
+              <br>
+              <ion-row>
+                <ion-col class="ion-text-center" size="3.5">
+                  <span style="font-size: .9rem;">Carbs</span><br>
+                  <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
+                    <div style="height: 6px;border-radius: 10px;background: #489C75;max-width: 100%;"
+                      [style.width.%]="((allData.Carbs*100)/profileData?.lifeStyle?.carb)">
+                    </div>
+                  </div>
+                  <span
+                    style="font-size: .8rem;">{{allData.Carbs}}/{{(profileData?.lifeStyle?.carb)?.toFixed(0)}}g</span>
+                </ion-col>
+                <ion-col size=".75"></ion-col>
+                <ion-col class="ion-text-center" size="3.5">
+                  <span style="font-size: .9rem;">Protein</span><br>
+                  <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
+                    <div style="height: 6px;border-radius: 10px;background: #DD85E0;max-width: 100%;"
+                      [style.width.%]="((allData?.Protien*100)/profileData?.lifeStyle?.protien)">
+                    </div>
+                  </div>
+                  <span
+                    style="font-size: .8rem;">{{allData?.Protien}}/{{(profileData?.lifeStyle?.protien)?.toFixed(0)}}g</span>
+                </ion-col>
+                <ion-col size=".75"></ion-col>
+                <ion-col class="ion-text-center" size="3.5">
+                  <span style="font-size: .9rem;">Fat</span><br>
+                  <div style="width: 100%;background:#E9E9E9;height: 6px;border-radius: 10px;margin: .5rem;">
+                    <div style="height: 6px;border-radius: 10px;background: #8054D7;max-width: 100%;"
+                      [style.width.%]="((allData?.Fat*100)/profileData?.lifeStyle?.fat)">
+                    </div>
+                  </div>
+                  <span style="font-size: .8rem;">{{allData?.Fat}}/{{(profileData?.lifeStyle?.fat)?.toFixed(0)}}g</span>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- {{weeks.length}}-- -->
     <div style="position: relative;margin: 1.5rem 0;">
-    <ion-row *ngIf="weeks && weeks.length" class="date-container">
-      <ion-col  class="ion-text-center">
-        <div class="week_array">
-         
-          <div style="float:left" *ngFor="let date of weekArray;" (click)="changeDate(date)" 
-          [ngStyle]="{'color': moment(date).format('DD-MM-YYYY') == moment(newSelectedDate).format('DD-MM-YYYY')
+      <ion-row *ngIf="weeks && weeks.length" class="date-container">
+        <ion-col class="ion-text-center">
+          <div class="week_array">
+
+            <div style="float:left" *ngFor="let date of weekArray;" (click)="changeDate(date)" [ngStyle]="{'color': moment(date).format('DD-MM-YYYY') == moment(newSelectedDate).format('DD-MM-YYYY')
            ?'dark-css':'cust-grey' }">
-           
-           <div style="font-size: .8rem;">
-            {{moment(date).format('DD-MM-YYYY') ===
+
+              <div style="font-size: .8rem;">
+                {{moment(date).format('DD-MM-YYYY') ===
             moment(today).format('DD-MM-YYYY') ? 'Today' :
             moment(date).format('DD-MM-YYYY') ===
             moment(tommorow).format('DD-MM-YYYY') ? moment(date).format('ddd') :
             moment(date).format('ddd')}}
-            <br /> 
-            <div  style="margin-top: .8rem;background: #EDEDED;
+                <br />
+                <div style="margin-top: .8rem;background: #EDEDED;
             padding: 8px 5px;
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            text-align: center;" 
-            [ngClass]="{'isSelectedDate':moment(date).format('DD-MM-YYYY') == moment(newSelectedDate).format('DD-MM-YYYY'),'dark-css':moment(date).format('DD-MM-YYYY') !== moment(newSelectedDate).format('DD-MM-YYYY')}">
-            {{moment(date).format('DD')}}
+            text-align: center;"
+                  [ngClass]="{'isSelectedDate':moment(date).format('DD-MM-YYYY') == moment(newSelectedDate).format('DD-MM-YYYY'),'dark-css':moment(date).format('DD-MM-YYYY') !== moment(newSelectedDate).format('DD-MM-YYYY')}">
+                  {{moment(date).format('DD')}}
+                </div>
+              </div>
+
+            </div>
           </div>
-        </div>
-      
-        </div>
-      </div>
-      </ion-col>
-    </ion-row>
-  </div>
-  <app-appointent *ngIf="compConfig?.dietitianAction && compConfig?.isDietitian && calendlyVisible===true && isPlanExpired!==true"
-  [plan]="true"
-  [deititianName]="deititianName"
-  [deititianRole]="deititianRole"
-  [calendlyId] = "calendlyId"
-  [gender] = "gender"
-  image ="https://nodeapi.smartdietplanner.com/api/getResFromPath/{{image}}"
-  [profileData]="profileData?.profile"
-  [duration]="plandata?.trail"
-></app-appointent>
+        </ion-col>
+      </ion-row>
+    </div>
+    <app-appointent
+      *ngIf="compConfig?.dietitianAction && compConfig?.isDietitian && calendlyVisible===true && isPlanExpired!==true"
+      [plan]="true" [deititianName]="deititianName" [deititianRole]="deititianRole" [calendlyId]="calendlyId"
+      [gender]="gender" image="https://nodeapi.smartdietplanner.com/api/getResFromPath/{{image}}"
+      [profileData]="profileData?.profile" [duration]="plandata?.trail"></app-appointent>
 
     <div class="meal_workout_title_div" *ngIf="firstConsult!==false" style="margin-bottom: .5rem;">
-      <p class="meal_workout_title" style="white-space: nowrap;"> 
+      <p class="meal_workout_title" style="white-space: nowrap;">
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(today).format('DD-MM-YYYY') ? 'Today' :
         moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(tomorrow).format('DD-MM-YYYY') ? 'Tomorrow' :
-        moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}} 
+        moment(newSelectedDate).format('DD MMM')}} {{isDetox?'- Detox':''}}
       </p>
-      
+
       <div style="display: flex !important;
     justify-content: flex-end !important;
     text-align: center;
@@ -184,269 +179,280 @@
     position: relative;
     align-items: center;
     margin-right: 5px;" *ngIf="!isDetox">
-    
+
         <ion-button fill="outline" *ngIf="compConfig?.inSights && !isPlanExpired" class="meal_workout_button" style="font-size: .6rem;
     padding: 0;
     height: 23px;
     width: 60px;--border-color: var(--theme-color);--border-width: 1px;"
-        [style.color]="clientId==='enkeltec'?'#000':null" (click)="goToInsites()">Insights</ion-button>
-      <ion-icon *ngIf="compConfig.pie_chart!=false"
-        class="meal_workout_button"
-        name="pie-chart"
-        (click)="caloryChart()"
-      ></ion-icon> 
-      <!-- *ngIf="isdoenloadclicked" -->
-        <div *ngIf="isdoenloadclicked"  style="float: left;
+          [style.color]="clientId==='enkeltec'?'#000':null" (click)="goToInsites()">Insights</ion-button>
+        <ion-icon *ngIf="compConfig.pie_chart!=false" class="meal_workout_button" name="pie-chart"
+          (click)="caloryChart()"></ion-icon>
+        <!-- *ngIf="isdoenloadclicked" -->
+        <div *ngIf="isdoenloadclicked" style="float: left;
     width: 20%;
     height: 6px;
     border: 1px solid #b3b3b3;
     position: absolute;
     top: 0;
     right: 10%;">
-        <div style="float: left;position: relative;
+          <div style="float: left;position: relative;
     font-size: .6rem;color:var(--profile-color);white-space:nowrap;
     top: -17px;" [ngStyle]="{'width':percentwithPer,'left':percentwithPer}">{{percentwithPer}}</div>
-        <div [ngStyle]="{'width':percentwithPer}"
-        style="background:var(--profile-color);height:5px;"></div>
-       </div>
+          <div [ngStyle]="{'width':percentwithPer}" style="background:var(--profile-color);height:5px;"></div>
+        </div>
         <ion-button fill="outline" *ngIf="compConfig.download && !isPlanExpired" class="meal_workout_button" style="font-size: .6rem;
         padding: 0;
         height: 23px;
         width: 70px;--border-color: var(--theme-color);--border-width: 1px;"
-            [style.color]="clientId==='enkeltec'?'#000':null" (click)="gotoDownloadPopup()">Download</ion-button>
-          <ion-icon style="color: var(--theme-color);padding:.8rem;font-size: 1.5rem;" mode="md" name="share-outline" (click)="shareOnWhatsapp()"  *ngIf="compConfig?.isShare"></ion-icon>
+          [style.color]="clientId==='enkeltec'?'#000':null" (click)="gotoDownloadPopup()">Download</ion-button>
+        <ion-icon style="color: var(--theme-color);padding:.8rem;font-size: 1.5rem;" mode="md" name="share-outline"
+          (click)="shareOnWhatsapp()" *ngIf="compConfig?.isShare"></ion-icon>
       </div>
-      
-    
+
+
       <div class="right" *ngIf="isDetox">
         <p class="meal_workout_button" (click)="switchTonormal()">
           Switch to Normal
         </p>
-      
+
+      </div>
     </div>
-    </div>
-  
+
     <div class="new-search">
-       <div style="position: relative;display: flex;" *ngIf="compConfig?.isSearch && !isPlanExpired">
-      <!-- <ion-searchbar mode="md" 
+      <div style="position: relative;display: flex;" *ngIf="compConfig?.isSearch && !isPlanExpired">
+        <!-- <ion-searchbar mode="md" 
         style="--box-shadow: none;height: 35px;--padding-top: 6px 0px !important;"
         placeholder="Search for a Food"
         (click)="gotoSearch()"
       >
         </ion-searchbar> -->
         <div style=" margin-bottom: 1.4rem;
-    border: 1px solid var(--theme-color);
-    width: 70%;
-    align-items: center;
-    left: 5%;
-    position: relative;
-    padding: .5rem 1rem;
-    height: 35px;
-    display: flex;
-    border-radius: 10px;">
-        <ion-icon name="search" style="color:#b3b3b3;"></ion-icon>
-       <ion-input placeholder="Search Food" (click)="gotoSearch()"></ion-input> 
+            border: 1px solid var(--theme-color);
+            width: 70%;
+            align-items: center;
+            left: 5%;
+            position: relative;
+            padding: .5rem 1rem;
+            height: 35px;
+            display: flex;
+            border-radius: 10px;">
+          <ion-icon name="search" style="color:#b3b3b3;"></ion-icon>
+          <ion-input placeholder="Search Food" (click)="gotoSearch()"></ion-input>
         </div>
         <div style="display: flex;
         justify-content: center;
         width: 100%;
         flex: 1;">
-       <ion-icon *ngIf="compConfig?.scanner" name="camera-outline" slot="start" style="font-size: 2rem;
+          <ion-icon *ngIf="compConfig?.scanner" name="camera-outline" slot="start" style="font-size: 2rem;
         color: var(--theme-color);
         right: 12%;
-        top: 2px;" (click)="openItemScanner('photo')"> 
-      </ion-icon>
-      <ion-icon *ngIf="compConfig?.scanner" name="barcode-outline" slot="start" style="font-size: 2rem;
+        top: 2px;" (click)="openItemScanner('photo')">
+          </ion-icon>
+          <ion-icon *ngIf="compConfig?.scanner" name="barcode-outline" slot="start" style="font-size: 2rem;
       color: var(--theme-color);
       right: 12%;
-      top: 2px;" (click)="openItemScanner('barcode')"> 
-    </ion-icon>
-    </div>
-    </div>
+      top: 2px;" (click)="openItemScanner('barcode')">
+          </ion-icon>
+        </div>
+      </div>
     </div>
     <br>
- <div *ngIf="((aibasedDietplan===true) || ( clientId==='plix'  && aibasedDietplan===true)) || ((clientId!=='plix') && firstConsult!==false && isPlanExpired===false)">
-  <div
-    class="meal_workout_div"
-    *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index"
-  >
- 
-    <div #popover [ngClass]="'target'+i">
-      <br/>
-      <app-meal-workout *ngIf="compConfig.dietComponent!==true"
-        [data]="d"
-        [diets]="diets.diets"
-        [index]="i"
-        [selecteddate]="selecteddate"
-        [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
-        (getCalData)="getCalData($event,i)"
-        (isdisplayFooter)="isdisplayFooter($event)"
-        [fullShow]="true"
-        [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
-        [plan]="true" 
-        (getDietdata)="getDietdata($event)"
-        ></app-meal-workout>
-      <app-meal-workout-c  *ngIf="compConfig.dietComponent"
-      [data]="d"
-      [diets]="copyDiet"
-      [index]="i"
-      [selecteddate]="selecteddate"
-      [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
-      (getCalData)="getCalData($event,i)"
-      [fullShow]="true"
-      [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')"
-      [plan]="true" 
-      (getDietdata)="getDietdata($event)">
-      </app-meal-workout-c>
-    </div>
-  </div>
+    <div
+      *ngIf="((aibasedDietplan===true) || ( clientId==='plix'  && aibasedDietplan===true)) || ((clientId!=='plix') && firstConsult!==false && isPlanExpired===false)">
+      <div class="meal_workout_div"
+        *ngFor="let d of diets?.diets?.slice(0,true==true? diets?.diets.length :3);let i = index">
 
- 
+        <div #popover [ngClass]="'target'+i">
+          <br />
+          <app-meal-workout *ngIf="compConfig.dietComponent!==true" [data]="d" [diets]="diets.diets"
+            [index]="diets.diets[i].slot" [selecteddate]="selecteddate"
+            [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
+            (getCalData)="getCalData($event,i)" (isdisplayFooter)="isdisplayFooter($event)" [fullShow]="true"
+            [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')" [plan]="true"
+            (getDietdata)="getDietdata($event)"></app-meal-workout>
+          <app-meal-workout-c *ngIf="compConfig.dietComponent" [data]="d" [diets]="copyDiet"
+            [index]="diets.diets[i].slot" [selecteddate]="selecteddate"
+            [end_time]="diets?.diets.length !== i+1 ? diets?.diets[i+1]?.time: diets?.diets[0]?.time"
+            (getCalData)="getCalData($event,i)" [fullShow]="true"
+            [eat]="moment(selecteddate).format('DD-MM-YYYY') === moment(today).format('DD-MM-YYYY')" [plan]="true"
+            (getDietdata)="getDietdata($event)">
+          </app-meal-workout-c>
+        </div>
+      </div>
 
-  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="instructions && instructions.length && clientId!=='nutrabox'">
-    <ion-card >
-      <ion-card-header style="background-color: var(--theme-profile-background);color:var(--theme-headerText);font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
-        Instructions</ion-card-header>
-      <ion-card-content class="ion-margin-top" style="background: var(--white);">
-                <div class="ion-margin-start d-list-item" *ngFor="let instruction of instructions">{{instruction}}</div>
-         </ion-card-content>
-    </ion-card>
-  </div>
-  
-  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="clientId==='nutrabox'">
-    <ion-card >
-      <ion-card-header style="background-color: var(--theme-profile-background);color:var(--theme-headerText);font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
-        To be noted</ion-card-header>
-      <ion-card-content class="ion-margin-top" style="background: var(--white);">
-                <div class="ion-margin-start d-list-item" style="justify-content: left;">
-                  If you are facing gut issues or sleep issues then take <a style="color:rgb(5, 5, 30); cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/gut-health')">Nutrabox Gut Health supplement</a> and <a style="color:rgb(5, 5, 47); cursor:pointer;font-size:.9rem" (click)="openlink('https://nutrabox.in/products/ksm-66-ashwagandha-capsules')">Nutrabox KSM-66 Ashwagandha</a> respectively.
-                <br>
-              
+
+
+      <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;"
+        *ngIf="instructions && instructions.length && clientId!=='nutrabox'">
+        <ion-card>
+          <ion-card-header
+            style="background-color: var(--theme-profile-background);color:var(--theme-headerText);font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+            Instructions</ion-card-header>
+          <ion-card-content class="ion-margin-top" style="background: var(--white);">
+            <div class="ion-margin-start d-list-item" *ngFor="let instruction of instructions">{{instruction}}</div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="clientId==='nutrabox'">
+        <ion-card>
+          <ion-card-header
+            style="background-color: var(--theme-profile-background);color:var(--theme-headerText);font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+            To be noted</ion-card-header>
+          <ion-card-content class="ion-margin-top" style="background: var(--white);">
+            <div class="ion-margin-start d-list-item" style="justify-content: left;">
+              If you are facing gut issues or sleep issues then take <a
+                style="color:rgb(5, 5, 30); cursor:pointer;font-size:.9rem"
+                (click)="openlink('https://nutrabox.in/products/gut-health')">Nutrabox Gut Health supplement</a> and <a
+                style="color:rgb(5, 5, 47); cursor:pointer;font-size:.9rem"
+                (click)="openlink('https://nutrabox.in/products/ksm-66-ashwagandha-capsules')">Nutrabox KSM-66
+                Ashwagandha</a> respectively.
+              <br>
+
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;"
+        *ngIf="compConfig?.isGraph && diets?.diets?.length>0">
+        <ion-slides [options]="slideOpts" pager="true">
+          <ion-slide>
+            <ion-card>
+              <ion-card-header>
+              </ion-card-header>
+              <ion-card-content>
+                <div class="meal_workout_div card-margin">
+                  <div class="weight">
+                    <app-weight-show [suggestedWeight]="profileData?.demographic?.suggestedWeight" [isShowButton]="true"
+                      [current]="weightTrackerData?.demographic?.currentWeight"
+                      [totalWeight]="weightTrackerData?.demographic?.weightInKg"
+                      (weightgauge)="openPopupWeight($event)"></app-weight-show>
+                  </div>
                 </div>
-         </ion-card-content>
-    </ion-card>
-  </div>
-  <div style="position: relative;padding: 0 0.5rem;height: 100%;top:-2rem;" *ngIf="compConfig?.isGraph && diets?.diets?.length>0">
-  <ion-slides [options]="slideOpts" pager="true">
-    <ion-slide >
-      <ion-card>
-        <ion-card-header>
-        </ion-card-header>
-        <ion-card-content>
-          <div class="meal_workout_div card-margin">
-            <div class="weight">
-              <app-weight-show [suggestedWeight]="profileData?.demographic?.suggestedWeight" [isShowButton]="true" [current]="weightTrackerData?.demographic?.currentWeight" [totalWeight]="weightTrackerData?.demographic?.weightInKg" (weightgauge)="openPopupWeight($event)"></app-weight-show>
-            </div>
-          </div>
-        </ion-card-content>
-      </ion-card>
-   </ion-slide>
-   <ion-slide *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'B') || isIncludeDietPlanCondition(dietPlanName)==='pressure'">
-      <ion-card>
-        <ion-card-header>
-        </ion-card-header>
-        <ion-card-content>
-          <div class="meal_workout_div card-margin">
-            <div class="weight">
-              <app-wblood-pressure [isShowButton]="true" (bloodPressureGauge)="gotoBloodPressure($event)"></app-wblood-pressure>
-            </div>
-          </div>
-        </ion-card-content>
-      </ion-card>
-   </ion-slide>
-   <ion-slide *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'D') || isIncludeDietPlanCondition(dietPlanName)==='sugar'">
-      <ion-card>
-        <ion-card-header>
-        </ion-card-header>
-        <ion-card-content>
-          <div class="meal_workout_div card-margin">
-            <div class="weight">
-              <app-wblood-glucose [isShowButton]="true" (bloodGlucoseGauge)="gotoBloodGlucose($event)"></app-wblood-glucose>
-            </div>
-          </div>
-        </ion-card-content>
-      </ion-card>
-   </ion-slide>
-   <ion-slide *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'C')|| isIncludeDietPlanCondition(dietPlanName)==='cholesterol'">
-      <ion-card>
-        <ion-card-header>
-        </ion-card-header>
-        <ion-card-content>
-          <div class="meal_workout_div card-margin">
-            <div class="weight">
-              <app-wcholesterol [isShowButton]="true" (cholesterolGauge)="gotoCholesterol($event)"></app-wcholesterol>
-            </div>
-          </div>
-        </ion-card-content>
-      </ion-card>
-  </ion-slide>
-  </ion-slides>
-</div>
-<br>
- </div>
- 
-
- <div *ngIf="isPlanExpired===true">
-  <img src="./assets/newImages/expiredplan.png" style="width: auto;height: auto;">
-  <div>
-    <ion-card style="box-shadow: none;">
-      <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
-        Remarks</ion-card-header>
-      <ion-card-content style="background: #f5df7f;">
-        <p style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
-          Your plan is expired as per our records. Please connect us 
-          (<a (click)="openDial(compConfig?.compPhone)">{{compConfig?.compPhone}}</a>) for the renewal of same
-        </p>
-       
-      </ion-card-content>
-    </ion-card>
-
-  </div>
- </div>
-
- <div *ngIf="clientId==='trunord' || clientId==='trunord1'" style="position: relative; top:-.5rem;">
-  <div>
-    <ion-card style="width: 93%;left:2%;padding: .2rem 1rem;">
-      <ion-row>
-        <ion-col class="ion-text-center">
-          <p style="font-size: 1rem;">
-             <a (click)="openWindow()" *ngIf="clientId!=='trunord'" style="color:var(--theme-profile-background);cursor:pointer;text-decoration: underline;">Our source of information</a>
-         <a (click)="openWindow()" *ngIf="clientId==='trunord'" style="color:#333;cursor:pointer;text-decoration: underline;">Our source of information</a>
-            </p>
-        </ion-col>
-      </ion-row>
-    </ion-card>
-  </div>
- </div>
-
- <br>
-   <div *ngIf="compConfig?.isDietitian===true &&  firstConsult===false && isPlanExpired===false" >
-    <img src="./assets/images/nutritionist.jpg" style="width: auto;height: auto;">
-
-    <div>
-      <ion-card style="box-shadow: none;">
-       
-        <ion-card-header style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
-          Remarks</ion-card-header>
-        <ion-card-content style="background: #f5df7f;">
-          <p style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
-            Please schedule the call with Dietitian. <br>Diet plan along with instructions will be available after the consult
-          </p>
-         
-        </ion-card-content>
-      </ion-card>
-
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+          <ion-slide
+            *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'B') || isIncludeDietPlanCondition(dietPlanName)==='pressure'">
+            <ion-card>
+              <ion-card-header>
+              </ion-card-header>
+              <ion-card-content>
+                <div class="meal_workout_div card-margin">
+                  <div class="weight">
+                    <app-wblood-pressure [isShowButton]="true" (bloodPressureGauge)="gotoBloodPressure($event)">
+                    </app-wblood-pressure>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+          <ion-slide
+            *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'D') || isIncludeDietPlanCondition(dietPlanName)==='sugar'">
+            <ion-card>
+              <ion-card-header>
+              </ion-card-header>
+              <ion-card-content>
+                <div class="meal_workout_div card-margin">
+                  <div class="weight">
+                    <app-wblood-glucose [isShowButton]="true" (bloodGlucoseGauge)="gotoBloodGlucose($event)">
+                    </app-wblood-glucose>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+          <ion-slide
+            *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'C')|| isIncludeDietPlanCondition(dietPlanName)==='cholesterol'">
+            <ion-card>
+              <ion-card-header>
+              </ion-card-header>
+              <ion-card-content>
+                <div class="meal_workout_div card-margin">
+                  <div class="weight">
+                    <app-wcholesterol [isShowButton]="true" (cholesterolGauge)="gotoCholesterol($event)">
+                    </app-wcholesterol>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+      <br>
     </div>
-   </div>
+
+
+    <div *ngIf="isPlanExpired===true">
+      <img src="./assets/newImages/expiredplan.png" style="width: auto;height: auto;">
+      <div>
+        <ion-card style="box-shadow: none;">
+          <ion-card-header
+            style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+            Remarks</ion-card-header>
+          <ion-card-content style="background: #f5df7f;">
+            <p
+              style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+              Your plan is expired as per our records. Please connect us
+              (<a (click)="openDial(compConfig?.compPhone)">{{compConfig?.compPhone}}</a>) for the renewal of same
+            </p>
+
+          </ion-card-content>
+        </ion-card>
+
+      </div>
+    </div>
+
+    <div *ngIf="clientId==='trunord' || clientId==='trunord1'" style="position: relative; top:-.5rem;">
+      <div>
+        <ion-card style="width: 93%;left:2%;padding: .2rem 1rem;">
+          <ion-row>
+            <ion-col class="ion-text-center">
+              <p style="font-size: 1rem;">
+                <a (click)="openWindow()" *ngIf="clientId!=='trunord'"
+                  style="color:var(--theme-profile-background);cursor:pointer;text-decoration: underline;">Our source of
+                  information</a>
+                <a (click)="openWindow()" *ngIf="clientId==='trunord'"
+                  style="color:#333;cursor:pointer;text-decoration: underline;">Our source of information</a>
+              </p>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+    </div>
+
+    <br>
+    <div *ngIf="compConfig?.isDietitian===true &&  firstConsult===false && isPlanExpired===false">
+      <img src="./assets/images/nutritionist.jpg" style="width: auto;height: auto;">
+
+      <div>
+        <ion-card style="box-shadow: none;">
+
+          <ion-card-header
+            style="background-color: #434343;color:#fff;font-size: .8rem;font-weight: 500;padding: 10px;padding-left:1rem;">
+            Remarks</ion-card-header>
+          <ion-card-content style="background: #f5df7f;">
+            <p
+              style="text-align:justify;color:#000000;font-size: .75rem;padding: 1rem;font-family:var(--theme-newFont);">
+              Please schedule the call with Dietitian. <br>Diet plan along with instructions will be available after the
+              consult
+            </p>
+
+          </ion-card-content>
+        </ion-card>
+
+      </div>
+    </div>
   </div>
-  <br>  
-  <div *ngIf="compConfig.dietitianAction && whatappVisible && compConfig?.showWhatsApp===true" (click)="gotoWhatsApp()" style="    width: 13%;
+  <br>
+  <div *ngIf="compConfig.dietitianAction && whatappVisible && compConfig?.showWhatsApp===true" (click)="gotoWhatsApp()"
+    style="    width: 13%;
     position: fixed;
     right: 2%;
     bottom: 9%;
     z-index: 11;">
     <img src="./assets/img/whatsapp.png">
-  </div> 
+  </div>
 </ion-content>
 <ion-footer *ngIf="compConfig?.bot" style="position: fixed;
 bottom: 1rem;
@@ -456,14 +462,14 @@ height: 63px;
 padding-top: 4px;
 border-top-left-radius: 10px;
     border-top-right-radius: 10px;">
- <div  class="search_div center searchbar1">
+  <div class="search_div center searchbar1">
 
-  <img src="./assets/img/bot.png" (click)="gotoChat()"/>
+    <img src="./assets/img/bot.png" (click)="gotoChat()" />
 
- </div>
+  </div>
 </ion-footer>
 <!-- <input #fileInput type="file" hidden accept="image/*" capture="environment" (change)="onFileSelected($event,1)">  -->
- <app-open-camera *ngIf="isOpenBar" [isOpenBarCode]="isOpenBarCode" (backButton)="closeCamera($event)"></app-open-camera> 
+<app-open-camera *ngIf="isOpenBar" [isOpenBarCode]="isOpenBarCode" (backButton)="closeCamera($event)"></app-open-camera>
 
 
 <!-- <div *ngIf="compConfig?.isChat"  (click)="gotoChat()" 
