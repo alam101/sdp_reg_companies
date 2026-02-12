@@ -1,18 +1,17 @@
-import { Injectable } from '@angular/core';
-import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
-import { APIS, CONSTANTS } from './core/constants/constants';
-import { Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { HttpBackend, HttpClient, HttpHeaders } from "@angular/common/http";
+import { APIS, CONSTANTS } from "./core/constants/constants";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AppService {
   isNew = CONSTANTS.isNewAPIs;
   private httpClient1: HttpClient;
   constructor(
     private httpClient: HttpClient,
-    httpBackend: HttpBackend
-
+    httpBackend: HttpBackend,
   ) {
     this.httpClient1 = new HttpClient(httpBackend);
   }
@@ -54,33 +53,57 @@ export class AppService {
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
-  downloadPdfFromApi(token, dateRange, date, comp_id = 'alyve.health', user_id): Observable<Blob> {
-    const url = APIS.pithanURL + `${APIS.downloadPdfApi}?auth_token=${token}&date_range=${dateRange}&date=${date}&company_id=${comp_id}&user_id=${user_id}`;
-    return this.httpClient.get(url, { responseType: 'blob' });
+  downloadPdfFromApi(
+    token,
+    dateRange,
+    date,
+    comp_id = "alyve.health",
+    user_id,
+  ): Observable<Blob> {
+    const url =
+      APIS.pithanURL +
+      `${APIS.downloadPdfApi}?auth_token=${token}&date_range=${dateRange}&date=${date}&company_id=${comp_id}&user_id=${user_id}`;
+    return this.httpClient.get(url, { responseType: "blob" });
   }
 
-  downloadPdfFromApiNew1(comp_id = 'alyve.health',
-    user_id, dietitian_name, dietitan_email, response_type, design): Observable<any> {
-    const url = APIS.pithanURL + `${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
-    &dietitian_email=${dietitan_email ?.trim()}&response_type=${response_type}&design=${design}`;
+  downloadPdfFromApiNew1(
+    comp_id = "alyve.health",
+    user_id,
+    dietitian_name,
+    dietitan_email,
+    response_type,
+    design,
+  ): Observable<any> {
+    const url =
+      APIS.pithanURL +
+      `${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
+    &dietitian_email=${dietitan_email?.trim()}&response_type=${response_type}&design=${design}`;
 
     return this.httpClient.get(url, {});
   }
 
-  getUserAgentType(ua: string): 'Android App' | 'IOS App' | 'Web' {
-    if (ua === 'RedcliffeLabsAndroidApp' || ua === 'RedcliffeLabs/1.0.47') {
-      return 'Android App';
-    } else if (ua === 'RedcliffeLabsIOSApp') {
-      return 'IOS App';
+  getUserAgentType(ua: string): "Android App" | "IOS App" | "Web" {
+    if (ua === "RedcliffeLabsAndroidApp" || ua === "RedcliffeLabs/1.0.47") {
+      return "Android App";
+    } else if (ua === "RedcliffeLabsIOSApp") {
+      return "IOS App";
     } else {
-      return 'Web';
+      return "Web";
     }
   }
 
-  downloadPdfFromApiNew(comp_id = 'alyve.health',
-    user_id, dietitian_name, dietitan_email, response_type, design): Observable<any> {
-    const url = APIS.pithanURL + `${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
-    &dietitian_email=${dietitan_email ?.trim()}&response_type=${response_type}&design=${design}`;
+  downloadPdfFromApiNew(
+    comp_id = "alyve.health",
+    user_id,
+    dietitian_name,
+    dietitan_email,
+    response_type,
+    design,
+  ): Observable<any> {
+    const url =
+      APIS.pithanURL +
+      `${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
+    &dietitian_email=${dietitan_email?.trim()}&response_type=${response_type}&design=${design}`;
 
     return this.httpClient.get(url, {});
   }
@@ -89,54 +112,67 @@ export class AppService {
     if (this.isNew) {
       country = country ? country : "IND";
       let reqBody = {
-        "date": date,
+        date: date,
         // "refresh": true,
-        "customerId": CONSTANTS.email,
-        "detox": isDetox,
-      }
+        customerId: CONSTANTS.email,
+        detox: isDetox,
+      };
       if (isDetox) {
-        let b2 = 1200, b3 = 1800, c2 = 500, c3 = 1000, b4 = recommended;
-        recommended = Math.round(recommended - (c2 + (c3 - c2) * (b4 - b2) / (b3 - b2)));
+        let b2 = 1200,
+          b3 = 1800,
+          c2 = 500,
+          c3 = 1000,
+          b4 = recommended;
+        recommended = Math.round(
+          recommended - (c2 + ((c3 - c2) * (b4 - b2)) / (b3 - b2)),
+        );
         reqBody["dietPlanName"] = "Detox";
         reqBody["refresh"] = true;
         reqBody["recommendedCalories"] = recommended;
       }
       // if(isNew) reqBody["refresh"] = true;
       const url = APIS.refreshBaseUrl + "" + APIS.dietPlansDirect; //+ "&detox=" + isDetox;
-      debugger;
       return this.httpClient.post(url, reqBody, {}).toPromise();
     } else {
       country = country ? country : "IND";
-      const url = APIS.BASEURL + "" + APIS.dietPlans + "?date=" + date + "&country=" + country + "&detox=" + isDetox;
+      const url =
+        APIS.BASEURL +
+        "" +
+        APIS.dietPlans +
+        "?date=" +
+        date +
+        "&country=" +
+        country +
+        "&detox=" +
+        isDetox;
       return this.httpClient.get(url, {}).toPromise();
     }
   }
   postDiet(reqBody) {
-
-    const url = APIS.BASEURL + '' + APIS.updateDiet;
+    const url = APIS.BASEURL + "" + APIS.updateDiet;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
   updateTargetWeight(reqBody) {
-    const url = APIS.BASEURL + '' + APIS.updateTargetWeight;
+    const url = APIS.BASEURL + "" + APIS.updateTargetWeight;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
   getLocalData(url) {
     return this.httpClient.get(url, {}).toPromise();
   }
   getProfile() {
-    const url = APIS.BASEURL + '' + APIS.profile;
+    const url = APIS.BASEURL + "" + APIS.profile;
     return this.httpClient.get(url, {}).toPromise();
   }
   getEditProfilePermission(email) {
-    const url = `${APIS.nodeBaseUrl}dietitian/assignedDietitianRecord?userId=${email}`; //APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`; 
+    const url = `${APIS.nodeBaseUrl}dietitian/assignedDietitianRecord?userId=${email}`; //APIS.nodeBaseUrl + '' + APIS.DietitianActions+`${email}`;
     return this.httpClient.get(url, {}).toPromise();
   }
 
   getDietitianRecord(userid: string) {
     return this.httpClient.get(
-      `${APIS.nodeBaseUrl}dietitian/assignedDietitianRecord?userId=${userid}`
+      `${APIS.nodeBaseUrl}dietitian/assignedDietitianRecord?userId=${userid}`,
     );
-    //APIS.nodeBaseUrl + 
+    //APIS.nodeBaseUrl +
   }
 
   // getEditProfilePermission(email) {
@@ -145,64 +181,62 @@ export class AppService {
   //   return this.httpClient.get(url, {}).toPromise();
   // }
   getDefaultData(token) {
-    const url = APIS.BASEURL + '' + APIS.defaultDetail;
-    console.log('manual header', token);
+    const url = APIS.BASEURL + "" + APIS.defaultDetail;
+    console.log("manual header", token);
     return this.httpClient.get(url, {}).toPromise();
   }
 
   getDefaultDataDiet(id: any) {
-    id = id ? id : 'IND';
-    const url = APIS.BASEURL + '' + APIS.defaultDetail + '?country=' + id;
+    id = id ? id : "IND";
+    const url = APIS.BASEURL + "" + APIS.defaultDetail + "?country=" + id;
     return this.httpClient.get(url, {}).toPromise();
   }
 
   postDemographic(reqBody) {
-    const url = APIS.BASEURL + '' + APIS.updateDemographic;
+    const url = APIS.BASEURL + "" + APIS.updateDemographic;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
   postLifeStyle(reqBody) {
     // reqBody.lifeStyle.firstConsult= localStorage.getItem("clientId")==="orthocure"? false:null;
-    const url = APIS.BASEURL + '' + APIS.updateLifeStyle;
+    const url = APIS.BASEURL + "" + APIS.updateLifeStyle;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
   updateWeight(reqBody) {
-    const url = APIS.BASEURL + '' + APIS.updateWeight;
-    console.log(url + ':-update weight:-', reqBody);
+    const url = APIS.BASEURL + "" + APIS.updateWeight;
+    console.log(url + ":-update weight:-", reqBody);
 
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
   updateProfile(reqBody) {
-    const url = APIS.BASEURL + '' + APIS.updateProfile;
+    const url = APIS.BASEURL + "" + APIS.updateProfile;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
   updateDietPlan(reqBody) {
     console.log(reqBody);
     reqBody.customerId = CONSTANTS.email;
-    const url = APIS.refreshBaseUrl + '' + APIS.updateDietPlan;
+    const url = APIS.refreshBaseUrl + "" + APIS.updateDietPlan;
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
-
   registration(reqBody) {
-    const url = 'https://app.smartdietplanner.com/api/authenticateExternal?key=NEWMI2022';
+    const url =
+      "https://app.smartdietplanner.com/api/authenticateExternal?key=NEWMI2022";
     return this.httpClient.post(url, reqBody, {}).toPromise();
   }
 
   async shorten(url: string) {
-
     const api = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`;
-    return this.httpClient1.get(api, { responseType: 'text' });
+    return this.httpClient1.get(api, { responseType: "text" });
   }
   postOptionFoodList(foodCodeList) {
-
     let url;
     if (this.isNew) {
-      foodCodeList["customerId"] = CONSTANTS.email,
-        url = APIS.refreshBaseUrl + "" + APIS.optionSelectionNew;
+      ((foodCodeList["customerId"] = CONSTANTS.email),
+        (url = APIS.refreshBaseUrl + "" + APIS.optionSelectionNew));
     } else {
       url = APIS.BASEURL + "" + APIS.optionSelection;
     }
@@ -213,8 +247,8 @@ export class AppService {
   updateFoodfromScannedImage(foodCodeList) {
     let url;
     if (this.isNew) {
-      foodCodeList["customerId"] = CONSTANTS.email,
-        url = APIS.refreshBaseUrl + "" + APIS.optionSelectionNew;
+      ((foodCodeList["customerId"] = CONSTANTS.email),
+        (url = APIS.refreshBaseUrl + "" + APIS.optionSelectionNew));
     } else {
       url = APIS.BASEURL + "" + APIS.optionSelection;
     }
@@ -224,7 +258,11 @@ export class AppService {
 
   fetchCustDailyDiets(data: any) {
     // id = id ? id : 'IND';
-    const url = APIS.refreshBaseUrl + '' + APIS.fetchCustDailyDiets + `?fromDate=${data.fromDate}&dateRange=${data.dateRange}`;
+    const url =
+      APIS.refreshBaseUrl +
+      "" +
+      APIS.fetchCustDailyDiets +
+      `?fromDate=${data.fromDate}&dateRange=${data.dateRange}`;
     return this.httpClient.get(url, {}).toPromise();
   }
 
@@ -234,45 +272,48 @@ export class AppService {
   }
 
   updateFoodDetailPraveenApi(data) {
-    const url = 'https://app.smartdietplanner.com:8443/api/customer/updateDietPlan';
+    const url =
+      "https://app.smartdietplanner.com:8443/api/customer/updateDietPlan";
     return this.httpClient.post(url, data).toPromise();
   }
 
   foodImageSend(formdata): Observable<any> {
     const url = "https://aiapi.fitrofy.com/api/identify-food";
     const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
+    headers.append("Content-Type", "multipart/form-data");
     return this.httpClient1.post(url, formdata, { headers: headers });
   }
   barcodeImageSend(formdata): Observable<any> {
     const url = "https://aiapi.fitrofy.com/api/barcode-number";
     const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
+    headers.append("Content-Type", "multipart/form-data");
     return this.httpClient1.post(url, formdata);
   }
   barcodeFootnoteImageSend(itemNumber): Observable<any> {
     const url = "https://aiapi.fitrofy.com/api/barcodeid-footnote";
-    return this.httpClient1.post(url, { "barcode_number": `${itemNumber}` });
+    return this.httpClient1.post(url, { barcode_number: `${itemNumber}` });
   }
   nutritionLabelSend(formdata): Observable<any> {
     const url = "https://aiapi.fitrofy.com/api/nutrition-label";
     const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
+    headers.append("Content-Type", "multipart/form-data");
     return this.httpClient1.post(url, formdata);
   }
   nutritionValueScan(name): Observable<any> {
     const url = "https://aiapi.fitrofy.com/api/scan";
     const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    return this.httpClient1.post(url, { food_name: name, health_conditions: '' }, { headers: headers });
+    headers.append("Content-Type", "application/json");
+    return this.httpClient1.post(
+      url,
+      { food_name: name, health_conditions: "" },
+      { headers: headers },
+    );
   }
-
 
   sendChat(payload): Observable<any> {
     const url = "https://aiapi.fitrofy.com/chat";
     const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
+    headers.append("Content-Type", "application/json");
     return this.httpClient1.post(url, payload, { headers: headers });
   }
-
 }

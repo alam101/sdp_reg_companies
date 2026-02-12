@@ -120,17 +120,17 @@ let Boarding3Page = class Boarding3Page {
         this.isChild = localStorage.getItem("kids") === "true" ? true : false;
         this.selectedValue = {};
         this.newModal = "";
-        this.activatedRoute.queryParams.subscribe(res => {
-            this.from = res['from'];
+        this.activatedRoute.queryParams.subscribe((res) => {
+            this.from = res["from"];
         });
     }
     modalClose() {
-        this.router.navigate(['new-profile']);
+        this.router.navigate(["new-profile"]);
     }
     ngOnInit() {
         this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
         console.log("this.compConfig", this.compConfig);
-        this.clientId = localStorage.getItem('clientId');
+        this.clientId = localStorage.getItem("clientId");
         this.storage.get("localData").then((val) => {
             this.localData = this.utilities.parseJSON(val);
             console.log("Local data ", this.localData);
@@ -140,20 +140,26 @@ let Boarding3Page = class Boarding3Page {
     getImage(type) {
         switch (type) {
             case "AC1":
-                return this.isChild ? "child/child-3.jpeg" : "newImages/aviva-images/activity-new-1.png";
+                return this.isChild
+                    ? "child/child-3.jpeg"
+                    : "newImages/aviva-images/activity-new-1.png";
             case "AC2":
                 return "newImages/aviva-images/activity-new-2.png";
             case "AC3":
-                return this.isChild ? "child/child-4.jpeg" : "newImages/aviva-images/activity-new-3.png";
+                return this.isChild
+                    ? "child/child-4.jpeg"
+                    : "newImages/aviva-images/activity-new-3.png";
             case "AC4":
                 return "newImages/aviva-images/activity-new-4.png";
             case "AC5":
-                return this.isChild ? "child/child-2.jpeg" : "newImages/aviva-images/activity-new-5.png";
+                return this.isChild
+                    ? "child/child-2.jpeg"
+                    : "newImages/aviva-images/activity-new-5.png";
         }
     }
     goBack() {
         if (this.from) {
-            this.router.navigate(['new-profile']);
+            this.router.navigate(["new-profile"]);
         }
         else {
             this.storage.set("pendingPage", "/boarding2");
@@ -180,6 +186,17 @@ let Boarding3Page = class Boarding3Page {
                     }
                 });
             }
+            else if (this.compConfig.isChild && this.clientId === "plixkids") {
+                this.localData?.otherMaster?.activities.forEach((ele) => {
+                    ele.val = ele.value.split("(")[0];
+                    ele.sub_val = ele.value.split("(")[1].replace(")", "");
+                    if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
+                        ele.isSelected = true;
+                        this.newModal = ele.val;
+                        localStorage.setItem("activities", JSON.stringify(ele));
+                    }
+                });
+            }
             else {
                 this.compConfig.activies.forEach((ele) => {
                     ele.val = ele.value.split("(")[0];
@@ -195,7 +212,7 @@ let Boarding3Page = class Boarding3Page {
     }
     selectActivity(e) {
         console.log(e);
-        if (this.clientId !== 'enkeltec') {
+        if (this.clientId !== "enkeltec") {
             this.localData?.otherMaster?.activities.forEach((ele) => {
                 if (ele.val === e.detail.value) {
                     ele.isSelected = true;
@@ -222,7 +239,7 @@ let Boarding3Page = class Boarding3Page {
     }
     goNext() {
         let data;
-        if (this.clientId !== 'enkeltec') {
+        if (this.clientId !== "enkeltec") {
             data = this.localData.otherMaster?.activities.find((s) => s.isSelected);
         }
         else {
@@ -252,13 +269,23 @@ let Boarding3Page = class Boarding3Page {
             country: this.profileData?.lifeStyle?.country,
             // foodType: this.profileData?.lifeStyle?.foodType,
             //};
-            firstConsult: localStorage.getItem("clientId") === "orthocure" ? (this.profileData?.lifeStyle?.firstConsult === undefined ? false : this.profileData?.lifeStyle?.firstConsult) : null,
+            firstConsult: localStorage.getItem("clientId") === "orthocure"
+                ? this.profileData?.lifeStyle?.firstConsult === undefined
+                    ? false
+                    : this.profileData?.lifeStyle?.firstConsult
+                : null,
             foodType: this.profileData?.lifeStyle?.foodType,
-            dietPlanName: this.isChild ? localStorage.getItem("childDietPlan") : localStorage.getItem("goals"),
-            consultQA: this.profileData?.lifeStyle?.consultQA === undefined ? [] : this.profileData?.lifeStyle?.consultQA,
-            instructions: this.profileData?.lifeStyle?.instructions === undefined ? '' : this.profileData?.lifeStyle?.instructions
+            dietPlanName: this.isChild
+                ? localStorage.getItem("childDietPlan")
+                : localStorage.getItem("goals"),
+            consultQA: this.profileData?.lifeStyle?.consultQA === undefined
+                ? []
+                : this.profileData?.lifeStyle?.consultQA,
+            instructions: this.profileData?.lifeStyle?.instructions === undefined
+                ? ""
+                : this.profileData?.lifeStyle?.instructions,
         };
-        if (this.clientId === 'plixkids') {
+        if (this.clientId === "plixkids") {
             localStorage.setItem("goals", localStorage.getItem("childDietPlan"));
         }
         console.log(reqBody);

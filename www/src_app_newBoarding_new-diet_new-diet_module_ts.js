@@ -505,7 +505,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "DetoxPage": () => (/* binding */ DetoxPage)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _detox_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./detox.page.html?ngResource */ 55853);
 /* harmony import */ var _detox_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./detox.page.scss?ngResource */ 81285);
@@ -550,7 +550,7 @@ let DetoxPage = class DetoxPage {
   switchDetox() {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this.detoxStatus();
 
       if (src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_5__.CONSTANTS.isDetox) {
@@ -727,7 +727,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MealWorkoutCPage": () => (/* binding */ MealWorkoutCPage)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _meal_workout_c_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./meal-workout-c.page.html?ngResource */ 99961);
 /* harmony import */ var _meal_workout_c_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./meal-workout-c.page.scss?ngResource */ 67971);
@@ -789,7 +789,7 @@ let MealWorkoutCPage = class MealWorkoutCPage {
   ngOnInit() {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
       _this.image_URL = src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_6__.CONSTANTS.image_URL;
       _this.customerId = yield _this.utilities.getUserData("id");
@@ -839,7 +839,7 @@ let MealWorkoutCPage = class MealWorkoutCPage {
   changed(data) {
     var _this2 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log("data111111", data);
       data.slot = _this2.index;
       const modal = yield _this2.modalCtrl.create({
@@ -874,7 +874,7 @@ let MealWorkoutCPage = class MealWorkoutCPage {
   addCal(data, i) {
     var _this3 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const modal = yield _this3.modalCtrl.create({
         component: _alternate_diet_portion_count_portion_count_page__WEBPACK_IMPORTED_MODULE_8__.PortionCountPage,
         cssClass: "portion_count",
@@ -897,7 +897,7 @@ let MealWorkoutCPage = class MealWorkoutCPage {
   loogeAction(event, d, i) {
     var _this4 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this4.disabled) {
         return;
       }
@@ -996,7 +996,7 @@ let MealWorkoutCPage = class MealWorkoutCPage {
   gotoView(d) {
     var _this5 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this5.disabled) {
         return;
       } // food-detail
@@ -1033,7 +1033,7 @@ let MealWorkoutCPage = class MealWorkoutCPage {
   remove(item, eaten, status) {
     var _this6 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this6.currentDateIndex == 0) {
         let foodCodeList = [];
 
@@ -1070,7 +1070,7 @@ let MealWorkoutCPage = class MealWorkoutCPage {
   eatenStatusUpdate(item, eaten, status) {
     var _this7 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this7.currentDateIndex == 0) {
         let foodCodeList = [];
 
@@ -1325,7 +1325,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "GlobalErrorHandler": () => (/* binding */ GlobalErrorHandler),
 /* harmony export */   "NewDietPage": () => (/* binding */ NewDietPage)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _new_diet_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./new-diet.page.html?ngResource */ 80062);
 /* harmony import */ var _new_diet_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./new-diet.page.scss?ngResource */ 92974);
@@ -1447,7 +1447,7 @@ let NewDietPage = class NewDietPage {
     this.design = "old";
     this.links = [""];
     this.isOpenBar = false;
-    this.isOpenBarCode = 'photo';
+    this.isOpenBarCode = "photo";
     this.preview = null;
     this.barcodeNumber = 0;
     this.routerActive.queryParams.subscribe(res => {
@@ -1505,7 +1505,7 @@ let NewDietPage = class NewDietPage {
   shareOnWhatsapp() {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this.isdoenloadclicked = true;
       _this.percent = 0.0;
       _this.percentwithPer = "0%";
@@ -1532,7 +1532,7 @@ If you’d like to explore it or follow a similar plan, here’s the link:
 ${url}`;
     const encodedMsg = encodeURIComponent(message.trim());
 
-    if (this.clientId.toLowerCase() !== 'redcliffe') {
+    if (this.clientId.toLowerCase() !== "redcliffe") {
       let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
       window.location.href = urll;
     }
@@ -1548,7 +1548,7 @@ ${url}`;
       });
     }
 
-    if (!this.isIosDevice && this.clientId.toLowerCase() !== 'redcliffe') {
+    if (!this.isIosDevice && this.clientId.toLowerCase() !== "redcliffe") {
       let urll = `whatsapp://send?text=${encodedMsg}`;
       this.iab.create(urll, "_system");
     }
@@ -1562,7 +1562,7 @@ ${url}`;
   openPopupWeight(event) {
     var _this2 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this2.router.navigate(["/weight-guage"]);
     })();
   }
@@ -1570,7 +1570,7 @@ ${url}`;
   gotoBloodPressure(event) {
     var _this3 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this3.router.navigate(["/blood-pressure-guage"]);
     })();
   }
@@ -1578,7 +1578,7 @@ ${url}`;
   gotoBloodGlucose(event) {
     var _this4 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this4.router.navigate(["/blood-glucose-guage"]);
     })();
   }
@@ -1586,7 +1586,7 @@ ${url}`;
   gotoCholesterol() {
     var _this5 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this5.router.navigate(["/cholesterol-guage"]);
     })();
   }
@@ -1620,7 +1620,7 @@ ${url}`;
   eatenStatusUpdate(item, slot) {
     var _this6 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log("fffdd:-----", src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_6__.CONSTANTS.dietDate, moment__WEBPACK_IMPORTED_MODULE_4___default()(new Date()).format("DDMMYYYY"));
 
       if (src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_6__.CONSTANTS.dietDate !== moment__WEBPACK_IMPORTED_MODULE_4___default()(new Date()).format("DDMMYYYY")) {
@@ -2098,12 +2098,12 @@ ${url}`;
   gotoDownloadPopup() {
     var _this7 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this7.clientId === "alyve") {
         _this7.design = "new";
         _this7.isdoenloadclicked = true;
         localStorage.setItem("company_id", "alyve.health");
-        _this7.response_type = 'url';
+        _this7.response_type = "url";
         _this7.design === "old" ? _this7.downloadPdfFromApi() : _this7.downloadPdfFromApiNew();
       } else if (_this7.clientId === "wellbeing") {
         _this7.isdoenloadclicked = true;
@@ -2131,14 +2131,12 @@ ${url}`;
 
         _this7.downloadPdfFromApiNew1();
       } else if (_this7.clientId === "metropolis") {
-        debugger;
         _this7.design = "new";
         _this7.isdoenloadclicked = true;
         localStorage.setItem("company_id", "metropolis");
 
         _this7.downloadPdfFromApiNew1();
       } else if (_this7.clientId === "fitelo") {
-        debugger;
         _this7.design = "new";
         _this7.isdoenloadclicked = true;
         localStorage.setItem("company_id", "fitelo");
@@ -2306,7 +2304,7 @@ ${url}`;
   gotoSearch() {
     var _this8 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const modal = yield _this8.modalController.create({
         component: _search_search_page__WEBPACK_IMPORTED_MODULE_12__.SearchPage,
         backdropDismiss: true,
@@ -2351,7 +2349,7 @@ ${url}`;
   gotoChat() {
     var _this9 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const modal = yield _this9.modalController.create({
         component: src_app_components_ai_chat_ai_chat_component__WEBPACK_IMPORTED_MODULE_14__.AiChatComponent,
         componentProps: {
@@ -2531,7 +2529,7 @@ ${url}`;
   openItemScanner(barcode) {
     var _this0 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this0.isOpenBar = true;
       _this0.isOpenBarCode = barcode;
     })();
@@ -2686,7 +2684,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Utilities": () => (/* binding */ Utilities)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 22560);
 
@@ -2700,7 +2698,7 @@ let Utilities = class Utilities {
   initStorage(storage) {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       // eslint-disable-next-line no-underscore-dangle
       _this._storage = yield storage.create();
     })();

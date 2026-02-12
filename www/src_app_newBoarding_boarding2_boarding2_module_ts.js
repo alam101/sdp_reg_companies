@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Boarding2Page": () => (/* binding */ Boarding2Page)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _boarding2_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./boarding2.page.html?ngResource */ 94390);
 /* harmony import */ var _boarding2_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./boarding2.page.scss?ngResource */ 82855);
@@ -130,21 +130,24 @@ let Boarding2Page = class Boarding2Page {
     this.terms = true;
     this.targetYear = new Date().getFullYear() - 3;
     this.poundValue = 0.453592;
+    this.profileData = {
+      demographic: {}
+    };
     this.gender = "";
     this.height = 30;
     this.minHight = 30;
     this.maxHight = 84;
-    this.heightType = 'cm';
+    this.heightType = "cm";
     this.heightTypeForAPI = "";
     this.startDigit = 0;
     this.endDigit = 10;
     this.weightType = "kg";
     this.maxWeight = 150.0;
-    this.inputHeight = `2'6"`;
-    this.weight = 20.0;
-    this.minWeight = 20.0;
-    this.targetweight = 20.0;
-    this.targetminWeight = 20.0;
+    this.inputHeight = `2'7"`;
+    this.weight = 15.0;
+    this.minWeight = 15.0;
+    this.targetweight = 15.0;
+    this.targetminWeight = 15.0;
     this.targetmaxWeight = 150.0; // targetweightType: any = "kg";
 
     this.weightArray = [0, 1, 2, 3, 4, 5, 6];
@@ -156,7 +159,7 @@ let Boarding2Page = class Boarding2Page {
     this.localData = {};
     this.selectedHeight = 30; // Default height in inches (5 feet 10 inches)
 
-    this.displayHeight = '';
+    this.displayHeight = "";
     this.weightMessage = false;
     this.targetWeightMessage = false;
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
@@ -168,35 +171,35 @@ let Boarding2Page = class Boarding2Page {
       this.targetweight = 65.0;
       this.targetYear = new Date().getFullYear() - 18;
       this.inputHeight = `5'6"`;
-      this.height = 66;
-      this.minHight = 48;
-      this.selectedHeight = 66;
+      this.height = 80;
+      this.minHight = 80; //  this.selectedHeight = 122;
+    } else {
+      this.weight = 15.0;
+      this.minWeight = 15.0;
+      this.targetweight = 15.0;
+      this.inputHeight = `2'7"`;
     }
 
-    this.clientId = localStorage.getItem('clientId');
+    this.clientId = localStorage.getItem("clientId");
 
-    if (this.clientId === 'plixkids') {
+    if (this.clientId === "plixkids") {
       this.targetYear = new Date().getFullYear() - 15;
     }
 
     this.activatedRoute.queryParams.subscribe(res => {
-      this.from = res['from'];
+      this.from = res["from"];
     });
     this.calculateHeight();
   }
 
-  parseInt(arg0) {
-    throw new Error("Method not implemented.");
-  }
-
   ngOnInit() {
-    this.heightType = 'cm';
+    this.heightType = "cm";
     this.baseHeight = this.profileData?.demographic?.height?.value || 170;
     this.setHeightType(this.heightType);
   }
 
   modalClose() {
-    this.router.navigate(['new-profile']);
+    this.router.navigate(["new-profile"]);
   }
 
   ngAfterViewInit() {
@@ -226,14 +229,15 @@ let Boarding2Page = class Boarding2Page {
 
   getProfile() {
     this.appService.getProfile().then(res => {
-      console.log(res);
+      console.log("profile data:--", res);
 
       if (!this.compConfig.isChild) {
-        this.selectedHeight = 66;
-        this.inputHeight = `5'6"`;
-        this.calculateDesiredWeight();
+        this.selectedHeight = 122;
+        this.inputHeight = `5'6"`; //   this.calculateDesiredWeight();
       } else {
-        this.weight = 20;
+        this.height = 80;
+        this.minHight = 80;
+        this.weight = 15;
         this.targetYear = new Date().getFullYear() - 3;
       }
 
@@ -263,7 +267,7 @@ let Boarding2Page = class Boarding2Page {
         } else {
           this.inputHeight = h;
           this.height = h;
-          this.minHight = 91;
+          this.minHight = 80;
           this.maxHight = 213;
         }
 
@@ -275,21 +279,20 @@ let Boarding2Page = class Boarding2Page {
         console.log(this.height, this.inputHeight);
       } else {
         if (!this.compConfig.isChild) {
-          this.selectedHeight = 66;
+          this.selectedHeight = 122;
           this.inputHeight = `5'6"`;
-          this.minHight = 66;
+          this.minHight = 122;
         } else {
-          this.inputHeight = `4'0"`;
-          this.minHight = 36;
-          this.selectedHeight = 48;
+          this.inputHeight = `80 cm`;
+          this.minHight = 80;
+          this.selectedHeight = 80;
         }
 
-        this.maxHight = 84;
+        this.maxHight = 213;
         let h = Math.floor(this.selectedHeight / 12) + "." + this.selectedHeight % 12;
         this.height = h; //    this.inputHeight = `${Math.floor(this.selectedHeight / 12)}'${(this.selectedHeight % 12)}"`;
 
-        this.heightSplit = h.toString().split(".");
-        this.calculateDesiredWeight();
+        this.heightSplit = h.toString().split("."); //    this.calculateDesiredWeight();
       }
     });
   }
@@ -301,7 +304,7 @@ let Boarding2Page = class Boarding2Page {
   }
 
   getHeight() {
-    if (this.heightType === 'feet') {
+    if (this.heightType === "feet") {
       // convert inches back to cm and update baseHeight
       this.baseHeight = parseFloat((this.selectedHeight * 2.54).toFixed(1));
       const feet = Math.floor(this.selectedHeight / 12);
@@ -315,9 +318,15 @@ let Boarding2Page = class Boarding2Page {
       this.heightSplit = [];
     }
 
-    this.height = this.baseHeight;
-    this.profileData.demographic.height.value = this.baseHeight;
-    this.calculateDesiredWeight();
+    this.height = this.baseHeight; // ensure demographic/height structure exists
+
+    if (!this.profileData) this.profileData = {};
+    if (!this.profileData.demographic) this.profileData.demographic = {};
+    if (!this.profileData.demographic.height) this.profileData.demographic.height = {
+      value: null,
+      unit: this.heightTypeForAPI || "cm"
+    };
+    this.profileData.demographic.height.value = this.baseHeight; //   this.calculateDesiredWeight();
   }
 
   calculateDesiredWeight() {
@@ -336,9 +345,9 @@ let Boarding2Page = class Boarding2Page {
 
   goBack() {
     if (this.from) {
-      this.router.navigate(['new-profile']);
+      this.router.navigate(["new-profile"]);
     } else {
-      if (this.clientId === 'plixkids') {
+      if (this.clientId === "plixkids") {
         this.storage.set("pendingPage", "/boarding1");
         this.navCtrl.navigateRoot(["/boarding1"]);
       } else {
@@ -362,29 +371,29 @@ let Boarding2Page = class Boarding2Page {
       return;
     }
 
-    if (this.weight < 20 && this.weightType !== "lbs") {
+    if (this.weight < 15 && this.weightType !== "lbs") {
       this.weightMessage = true;
       this.cdr.detectChanges();
       return;
     }
 
-    if (this.weight < 44 && this.weightType === "lbs") {
+    if (this.weight < 34 && this.weightType === "lbs") {
       this.weightMessage = true;
       this.cdr.detectChanges();
       return;
     }
 
-    if (!this.targetweight && this.clientId !== 'enkeltec') {
+    if (!this.targetweight && this.clientId !== "enkeltec") {
       this.utilities.presentToast("Please enter your target weight.");
       return;
     }
 
-    if (this.targetweight < 20 && this.weightType !== "lbs" && this.clientId !== 'enkeltec') {
+    if (this.targetweight < 15 && this.weightType !== "lbs" && this.clientId !== "enkeltec") {
       this.targetWeightMessage = true;
       return;
     }
 
-    if (this.targetweight < 44 && this.weightType === "lbs" && this.clientId !== 'enkeltec') {
+    if (this.targetweight < 34 && this.weightType === "lbs" && this.clientId !== "enkeltec") {
       this.targetWeightMessage = true;
       return;
     }
@@ -455,9 +464,9 @@ let Boarding2Page = class Boarding2Page {
         localStorage.setItem("childDietPlan", "SK6");
       } else if (new Date().getFullYear() - this.targetYear > 6 && new Date().getFullYear() - this.targetYear < 9) {
         localStorage.setItem("childDietPlan", "SK9");
-      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == 'G1') {
+      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == "G1") {
         localStorage.setItem("childDietPlan", "SKB12");
-      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == 'G2') {
+      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == "G2") {
         localStorage.setItem("childDietPlan", "SKG12");
       } else {
         this.utilities.showErrorToast("Please enter correct year for child plan");
@@ -508,14 +517,14 @@ let Boarding2Page = class Boarding2Page {
 
   gotoDemographic() {
     if (this.weightType == "kg") {
-      if (this.targetweight < 20 || this.targetweight > 150) {
+      if (this.targetweight < 15 || this.targetweight > 150) {
         this.targetWeightMessage = true;
         return;
       } else {
         this.targetWeightMessage = false;
       }
     } else {
-      if (this.targetweight < 44 || this.targetweight > 333) {
+      if (this.targetweight < 34 || this.targetweight > 333) {
         this.targetWeightMessage = true;
         return;
       } else {
@@ -524,14 +533,14 @@ let Boarding2Page = class Boarding2Page {
     }
 
     if (this.weightType == "kg") {
-      if (this.weight < 20 || this.weight > 150) {
+      if (this.weight < 15 || this.weight > 150) {
         this.weightMessage = true;
         return;
       } else {
         this.weightMessage = false;
       }
     } else {
-      if (this.weight < 44 || this.weight > 333) {
+      if (this.weight < 34 || this.weight > 333) {
         this.weightMessage = true;
         return;
       } else {
@@ -543,7 +552,7 @@ let Boarding2Page = class Boarding2Page {
   openPicker() {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       const picker = yield _this.pickerCtrl.create({
         animated: true,
         mode: "ios",
@@ -731,8 +740,8 @@ let Boarding2Page = class Boarding2Page {
   setHeightType(type) {
     this.heightType = type;
 
-    if (type === 'cm') {
-      this.minHight = 91;
+    if (type === "cm") {
+      this.minHight = 80;
       this.maxHight = 213;
       this.selectedHeight = Math.round(this.baseHeight);
     } else {
@@ -745,8 +754,8 @@ let Boarding2Page = class Boarding2Page {
   }
 
   updateDisplayedHeight() {
-    if (this.heightType === 'cm') {
-      this.minHight = 91;
+    if (this.heightType === "cm") {
+      this.minHight = 80;
       this.maxHight = 213;
       this.selectedHeight = Math.round(this.baseHeight); // keep in cm
     } else {
@@ -757,63 +766,73 @@ let Boarding2Page = class Boarding2Page {
 
 
     this.height = this.selectedHeight;
+    if (!this.profileData) this.profileData = {};
+    if (!this.profileData.demographic) this.profileData.demographic = {};
+    if (!this.profileData.demographic.height) this.profileData.demographic.height = {
+      value: null,
+      unit: this.heightTypeForAPI || "cm"
+    };
     this.profileData.demographic.height.value = this.selectedHeight;
   }
 
   parseint() {
-    this.minHight = 36;
-    this.maxHight = 84;
     return this.heightType === "cm" ? parseInt(this.selectedHeight) : parseInt(this.selectedHeight);
   }
 
   setweightType(type) {
-    let w;
+    let w = Number(this.weight) || 0;
 
     if (type === "kg") {
       this.minWeight = 20.0;
       this.maxWeight = 150.0;
-      w = this.weightType === type ? this.weight : this.weight * 0.45;
+      w = this.weightType === type ? Number(this.weight) : Number(this.weight) * 0.45;
       if (w > this.maxWeight) w = this.maxWeight;
     } else {
       this.minWeight = 20.0 / 0.45;
       this.maxWeight = 150.0 / 0.45;
-      w = this.weightType === type ? this.weight : this.weight / 0.45;
+      w = this.weightType === type ? Number(this.weight) : Number(this.weight) / 0.45;
       if (w > this.maxWeight) w = this.maxWeight;
     }
 
-    this.weight = Math.round(w.toString());
+    this.weight = Math.round(w);
     this.weightType = type;
     this.setTargetweightType(type);
   }
 
   setTargetweightType(type) {
-    let tw = this.targetweight;
+    let tw = Number(this.targetweight) || 0;
 
-    if (type === 'kg') {
-      this.targetminWeight = 20.0;
+    if (type === "kg") {
+      this.targetminWeight = 15.0;
       this.targetmaxWeight = 150.0;
       tw = tw * 0.45;
       if (tw > this.targetmaxWeight) tw = this.targetmaxWeight;
     } else {
-      this.targetminWeight = 20.0 / 0.45;
+      this.targetminWeight = 15.0 / 0.45;
       this.targetmaxWeight = 150.0 / 0.45;
       tw = tw / 0.45;
       if (tw > this.targetmaxWeight) tw = this.targetmaxWeight;
     }
 
-    this.targetweight = Math.round(tw.toString());
+    this.targetweight = Math.round(tw);
   }
 
   setWeight(type) {
     if (type === "add") {
-      if (this.weight !== parseFloat(this.maxWeight).toFixed(1)) {
-        const t = parseFloat(this.weight) + 0.1;
-        this.weight = parseFloat(t).toFixed(1);
+      const max = Number(this.maxWeight) || 9999;
+      let curr = Number(this.weight) || 0;
+
+      if (curr < max) {
+        curr = Number((curr + 0.1).toFixed(1));
+        this.weight = curr;
       }
     } else {
-      if (this.weight !== parseFloat(this.minWeight).toFixed(1)) {
-        const t = parseFloat(this.weight) - 0.1;
-        this.weight = parseFloat(t).toFixed(1);
+      const min = Number(this.minWeight) || 0;
+      let curr = Number(this.weight) || 0;
+
+      if (curr > min) {
+        curr = Number((curr - 0.1).toFixed(1));
+        this.weight = curr;
       }
     }
   }
@@ -827,7 +846,7 @@ let Boarding2Page = class Boarding2Page {
     if (this.from) {
       this.router.navigate(["termsandconditions"], {
         queryParams: {
-          from: 'editProfile'
+          from: "editProfile"
         }
       });
     } else {
@@ -864,25 +883,25 @@ let Boarding2Page = class Boarding2Page {
   removeDecimals(event, field) {
     let value = event.target.value; // Remove decimal part
 
-    value = value.split('.')[0];
+    value = value.split(".")[0];
 
-    if (field === 'weight') {
+    if (field === "weight") {
       const weight = parseInt(value, 10) || 0;
-      const max = this.weightType === 'kg' ? 150 : Math.floor(150 / 0.45);
+      const max = this.weightType === "kg" ? 150 : Math.floor(150 / 0.45);
       this.weight = Math.min(weight, max);
       event.target.value = this.weight;
     }
 
-    if (field === 'targetweight') {
+    if (field === "targetweight") {
       const tWeight = parseInt(value, 10) || 0;
-      const max = this.weightType === 'kg' ? 150 : Math.floor(150 / 0.45);
+      const max = this.weightType === "kg" ? 150 : Math.floor(150 / 0.45);
       this.targetweight = Math.min(tWeight, max);
       event.target.value = this.targetweight;
     }
   }
 
   blockDecimal(event) {
-    const blockedKeys = ['.', ',', 'e', '+', '-'];
+    const blockedKeys = [".", ",", "e", "+", "-"];
 
     if (blockedKeys.includes(event.key)) {
       event.preventDefault();
@@ -949,7 +968,7 @@ module.exports = ".mainDiv {\n  height: 100%;\n  width: 100%;\n}\n\nion-content:
   \**********************************************************************/
 /***/ ((module) => {
 
-module.exports = "<ion-content>\n  <div class=\"mainDiv\">\n    <div class=\"slider_div\" *ngIf=\"!from\">\n      <div [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'\"></div>\n      <div [ngClass]=\"clientId && (clientId == 'aviva') ? '' : 'lines2'\">\n        <div></div>\n      </div>\n      <div class=\"slider_page\">\n        <p [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'\">✓</p>\n        <p [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page-count-active' : 'page_Count_active'\">2</p>\n        <p [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'\">3</p>\n        <p [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'\">4</p>\n        <p [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'\">5</p>\n      </div>\n    </div>\n    <div class=\"content_div\" [ngStyle]=\"from && {'border-radius':'0px','min-height':'100%'}\">\n      <div class=\"w_100 right\" *ngIf=\"from\" style=\"padding-right: 5%\">\n        <ion-icon class=\"close_modal_icon\" name=\"close-circle\" (click)=\"modalClose()\"></ion-icon>\n      </div>\n      <p class=\"title-text\">\n        We need some of your basic information to provide you correct analysis\n      </p>\n      <p class=\"title\">Gender</p>\n      <div class=\"content_sub_div\">\n        <ion-radio-group [value]=\"gender\" [(ngModel)]=\"gender\" (ionChange)=\"selectGender($event)\">\n          <ion-grid class=\"pad_0\">\n            <ion-row>\n              <!-- FEMALE -->\n              <ion-col size=\"6\" style=\"padding-right: 7px\">\n                <div class=\"card_div\" (click)=\"gender = 'G2'\">\n                  <ion-img *ngIf=\"!isChild\" src=\"../../../assets/newImages/female.png\" class=\"female_image\"></ion-img>\n                  <ion-img *ngIf=\"isChild\" src=\"../../../assets/child/child-7.jpeg\" class=\"female_image\"></ion-img>\n                  <p class=\"label\">Female</p>\n                  <ion-card class=\"section-card\" [ngClass]=\"gender === 'G2' && 'card_Border'\">\n                    <div class=\"h_100\">\n                      <ion-radio value=\"G2\" mode=\"ios\" style=\"--color-checked: var(--theme-color);\"></ion-radio>\n                    </div>\n                  </ion-card>\n                </div>\n              </ion-col>\n\n              <!-- MALE -->\n              <ion-col size=\"6\" style=\"padding-left: 7px\">\n                <div class=\"card_div\" [class.disabled]=\"profileData?.profile?.category === 'pcos'\"\n                  (click)=\"profileData?.profile?.category !== 'pcos' && (gender = 'G1')\">\n                  <ion-img *ngIf=\"!isChild\" src=\"../../../assets/newImages/male.png\" class=\"male_image\"></ion-img>\n                  <ion-img *ngIf=\"isChild\" src=\"../../../assets/child/child-5.jpeg\" class=\"female_image\"></ion-img>\n                  <p class=\"label\">Male</p>\n                  <ion-card class=\"section-card\" [ngClass]=\"gender === 'G1' && 'card_Border'\">\n                    <div class=\"h_100\">\n                      <ion-radio value=\"G1\" [disabled]=\"profileData?.profile?.category === 'pcos'\" mode=\"ios\"\n                        style=\"--color-checked: var(--theme-color);\"></ion-radio>\n                    </div>\n                  </ion-card>\n                </div>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-radio-group>\n\n      </div>\n\n      <div class=\"content_sub_div2\">\n        <div class=\"header_btn_div\">\n          <p class=\"title mar_0\">How tall are you?</p>\n          <div class=\"cmfeet_btn_div\">\n            <p class=\"cmfeet_btn\" [ngClass]=\"heightType === 'cm' ? 'activ_cmfeet_btn' : ''\"\n              (click)=\"setHeightType('cm')\">Cm</p>\n            <p class=\"cmfeet_btn\" [ngClass]=\"heightType === 'feet' ? 'activ_cmfeet_btn' : ''\"\n              (click)=\"setHeightType('feet')\">Feet</p>\n\n          </div>\n        </div>\n        <div class=\"main_meter_div\" *ngIf=\"heightType==='feet'\">\n          <div class=\"meter_box_div\">\n            <p class=\"height_value\">{{inputHeight}}</p>\n            <ion-img src=\"../../../assets/newImages/scale.png\" class=\"scale_image\"></ion-img>\n          </div>\n          <div class=\"range_div\">\n            <ion-range [min]=\"minHight\" [max]=\"maxHight\" [(ngModel)]=\"selectedHeight\" [step]=\"1\" mode=\"ios\"\n              class=\"pad_0\" (ionChange)=\"getHeight()\">\n            </ion-range>\n            <!--  -->\n          </div>\n        </div>\n        <div class=\"main_meter_div\" *ngIf=\"heightType==='cm'\">\n          <div class=\"meter_box_div\">\n            <p class=\"height_value\">{{inputHeight}}</p>\n            <ion-img src=\"../../../assets/newImages/scale.png\" class=\"scale_image\"></ion-img>\n          </div>\n          <div class=\"range_div\">\n            <ion-range min=\"122\" max=\"213\" [value]=\"parseint()\" [(ngModel)]=\"selectedHeight\" mode=\"ios\" class=\"pad_0\"\n              [step]=\"1\" (ionChange)=\"getHeight()\">\n            </ion-range>\n            <!--  -->\n          </div>\n        </div>\n      </div>\n\n\n      <div class=\"content_sub_div2\" style=\"background: none\">\n        <div class=\"header_btn_div\">\n          <p class=\"title mar_0\">What is your weight?</p>\n          <div class=\"cmfeet_btn_div\">\n            <p class=\"cmfeet_btn\" [ngClass]=\"weightType==='kg'&& 'activ_cmfeet_btn'\" (click)=\"setweightType('kg')\">\n              Kg\n            </p>\n            <p class=\"cmfeet_btn\" [ngClass]=\"weightType==='lbs'&& 'activ_cmfeet_btn'\" (click)=\"setweightType('lbs')\">\n              Lbs\n            </p>\n          </div>\n        </div>\n        <div class=\"weight_div\">\n          <div class=\"wight_ui_div\">\n            <!-- <ion-img src=\"../../../assets/newImages/squareRing.svg\" class=\"squareRing_img\">\n            </ion-img> -->\n            <ion-img src=\"../../../assets/newImages/squareRing.svg\" class=\"square_img\">\n            </ion-img>\n            <ion-input class=\"weight_value\" name=\"w\" (ionBlur)=\"gotoDemographic()\" [(ngModel)]=\"weight\" type=\"number\"\n              inputmode=\"numeric\" pattern=\"[0-9]*\" (keydown)=\"blockDecimal($event)\"\n              (ionInput)=\"removeDecimals($event,'weight')\"></ion-input>\n          </div>\n\n        </div>\n        <div style=\"text-align: center;color:red;\" *ngIf=\"weightMessage && weightType==='kg'\">\n          Please select weight more than 19kg.\n        </div>\n        <div style=\"text-align: center;color:red;\" *ngIf=\"weightMessage && weightType==='lbs'\">\n          Please select weight more than 43 lbs.\n        </div>\n      </div>\n\n      <div class=\"content_sub_div2\" *ngIf=\"clientId!=='enkeltec' && !isChild\">\n        <div class=\"header_btn_div\">\n          <p class=\"title mar_0\">Desired weight?</p>\n          <!-- <div class=\"cmfeet_btn_div\">\n            <p class=\"cmfeet_btn\" [ngClass]=\"targetweightType==='kg'&& 'activ_cmfeet_btn'\"\n              (click)=\"setTargetweightType('kg')\">\n              Kg\n            </p>\n            <p class=\"cmfeet_btn\" [ngClass]=\"targetweightType==='lbs'&& 'activ_cmfeet_btn'\"\n              (click)=\"setTargetweightType('lbs')\">\n              Lbs\n            </p>\n          </div>-->\n        </div>\n        <div class=\"weight_div\">\n          <div class=\"wight_ui_div\">\n            <!-- <ion-img src=\"../../../assets/newImages/squareRing.svg\" class=\"squareRing_img\">\n            </ion-img> -->\n            <ion-img src=\"../../../assets/newImages/squareRing.svg\" class=\"square_img\">\n            </ion-img>\n            <ion-input class=\"weight_value\" name=\"w\" [(ngModel)]=\"targetweight\" debounce=\"100\"\n              (ionBlur)=\"gotoDemographic()\" type=\"number\" inputmode=\"numeric\" pattern=\"[0-9]*\"\n              (keydown)=\"blockDecimal($event)\" (ionInput)=\"removeDecimals($event,'targetweight')\"></ion-input>\n          </div>\n\n        </div>\n        <div style=\"text-align: center;color:red;\" *ngIf=\"targetweight<20 && weightType==='kg'\">\n          Please select weight more than 19kg.\n        </div>\n        <div style=\"text-align: center;color:red;\" *ngIf=\"targetweight<44 && weightType==='lbs'\">\n          Please select weight more than 43 lbs.\n        </div>\n      </div>\n\n      <div class=\"content_sub_div3\" style=\"background: none\">\n        <div class=\"header_btn_div\" style=\"margin: 0% 5%\">\n          <p class=\"title mar_0\" style=\"width: Auto\">\n            Which year were you born in (e.g. 2022)?\n          </p>\n        </div>\n        <div class=\"main_scroll_Div\">\n          <div class=\"scroll_div2 center\" style=\"height: 30px\">\n            <ion-grid class=\"\">\n              <ion-row class=\"scroll-x\">\n              </ion-row>\n            </ion-grid>\n          </div>\n          <div class=\"born_btn\">\n            <ion-input class=\"weight_value\" style=\"color:var(--theme-newButton) !important;\n                      background: #fff;\n                      width: 105px;\n                      border: 5px solid #ffc893;\n                      border-radius: 1rem;\" name=\"w\" [(ngModel)]=\"targetYear\" debounce=\"1000\" type=\"number\"\n              inputmode=\"numeric\" pattern=\"[0-9]*\" (keydown)=\"blockDecimal($event)\"\n              (ionInput)=\"removeDecimals('targetYear')\"></ion-input>\n          </div>\n        </div>\n      </div>\n\n      <div>\n        <p class=\"note\">\n          *Your Information is confidential and secured safely with us.\n        </p>\n\n        <ion-row style=\"margin: 0 1rem;\">\n          <ion-col>\n            <ion-checkbox [(ngModel)]=\"terms\"></ion-checkbox>\n            <ion-label style=\"    top: -7px;\n          position: relative; color:#b3b3b3\">I agree to accept the <span class=\"condition\" (click)=\"gotoTerm()\">Terms\n                and Conditions</span>.</ion-label>\n          </ion-col>\n        </ion-row>\n        <!-- <ion-row>\n          <ion-col class=\"ion-text-right\">\n            <ion-item lines=\"none\" style=\"display: inline-block;\n            float: left;\">\n              <ion-checkbox checked=\"true\" slot=\"start\"></ion-checkbox>\n              <ion-label class=\"terms\">I agree to accept the\n            </ion-label></ion-item>\n          <ion-row style=\"position: relative;\n          top: 12px;\n          left: 2px;bottom: 12px;\">\n            <ion-col (click)=\"gotoTerm()\" class=\"ion-text-left\" >\n              <span class=\"condition\" >Terms and Conditions</span>.\n            </ion-col>\n          </ion-row>\n            </ion-col>\n          \n        </ion-row> -->\n\n        <div class=\"go_btn_div\" *ngIf=\"!from\">\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button class=\"back_btn\" shape=\"round\" fill=\"outline\" (click)=\"goBack()\">Back</ion-button>\n              </ion-col>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button class=\"go_btn\" shape=\"round\" (click)=\"goNext()\">Next</ion-button>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </div>\n\n        <div class=\"go_btn_div\" *ngIf=\"from\">\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button class=\"back_btn\" shape=\"round\" fill=\"outline\" (click)=\"modalClose()\">Cancel</ion-button>\n              </ion-col>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button class=\"go_btn\" shape=\"round\" (click)=\"goNext()\">Save</ion-button>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </div>\n      </div>\n    </div>\n  </div>\n</ion-content>";
+module.exports = "<ion-content>\n  <div class=\"mainDiv\">\n    <div class=\"slider_div\" *ngIf=\"!from\">\n      <div\n        [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'\"\n      ></div>\n      <div [ngClass]=\"clientId && (clientId == 'aviva') ? '' : 'lines2'\">\n        <div></div>\n      </div>\n      <div class=\"slider_page\">\n        <p\n          [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'\"\n        >\n          ✓\n        </p>\n        <p\n          [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page-count-active' : 'page_Count_active'\"\n        >\n          2\n        </p>\n        <p\n          [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'\"\n        >\n          3\n        </p>\n        <p\n          [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'\"\n        >\n          4\n        </p>\n        <p\n          [ngClass]=\"clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'\"\n        >\n          5\n        </p>\n      </div>\n    </div>\n    <div\n      class=\"content_div\"\n      [ngStyle]=\"from && {'border-radius':'0px','min-height':'100%'}\"\n    >\n      <div class=\"w_100 right\" *ngIf=\"from\" style=\"padding-right: 5%\">\n        <ion-icon\n          class=\"close_modal_icon\"\n          name=\"close-circle\"\n          (click)=\"modalClose()\"\n        ></ion-icon>\n      </div>\n      <p class=\"title-text\">\n        We need some of your basic information to provide you correct analysis\n      </p>\n      <p class=\"title\">Gender</p>\n      <div class=\"content_sub_div\">\n        <ion-radio-group\n          [value]=\"gender\"\n          [(ngModel)]=\"gender\"\n          (ionChange)=\"selectGender($event)\"\n        >\n          <ion-grid class=\"pad_0\">\n            <ion-row>\n              <!-- FEMALE -->\n              <ion-col size=\"6\" style=\"padding-right: 7px\">\n                <div class=\"card_div\" (click)=\"gender = 'G2'\">\n                  <ion-img\n                    *ngIf=\"!isChild\"\n                    src=\"../../../assets/newImages/female.png\"\n                    class=\"female_image\"\n                  ></ion-img>\n                  <ion-img\n                    *ngIf=\"isChild\"\n                    src=\"../../../assets/child/child-7.jpeg\"\n                    class=\"female_image\"\n                  ></ion-img>\n                  <p class=\"label\">Female</p>\n                  <ion-card\n                    class=\"section-card\"\n                    [ngClass]=\"gender === 'G2' && 'card_Border'\"\n                  >\n                    <div class=\"h_100\">\n                      <ion-radio\n                        value=\"G2\"\n                        mode=\"ios\"\n                        style=\"--color-checked: var(--theme-color)\"\n                      ></ion-radio>\n                    </div>\n                  </ion-card>\n                </div>\n              </ion-col>\n\n              <!-- MALE -->\n              <ion-col size=\"6\" style=\"padding-left: 7px\">\n                <div\n                  class=\"card_div\"\n                  [class.disabled]=\"profileData?.profile?.category === 'pcos'\"\n                  (click)=\"profileData?.profile?.category !== 'pcos' && (gender = 'G1')\"\n                >\n                  <ion-img\n                    *ngIf=\"!isChild\"\n                    src=\"../../../assets/newImages/male.png\"\n                    class=\"male_image\"\n                  ></ion-img>\n                  <ion-img\n                    *ngIf=\"isChild\"\n                    src=\"../../../assets/child/child-5.png\"\n                    class=\"female_image\"\n                  ></ion-img>\n                  <p class=\"label\">Male</p>\n                  <ion-card\n                    class=\"section-card\"\n                    [ngClass]=\"gender === 'G1' && 'card_Border'\"\n                  >\n                    <div class=\"h_100\">\n                      <ion-radio\n                        value=\"G1\"\n                        [disabled]=\"profileData?.profile?.category === 'pcos'\"\n                        mode=\"ios\"\n                        style=\"--color-checked: var(--theme-color)\"\n                      ></ion-radio>\n                    </div>\n                  </ion-card>\n                </div>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </ion-radio-group>\n      </div>\n\n      <div class=\"content_sub_div2\">\n        <div class=\"header_btn_div\">\n          <p class=\"title mar_0\">How tall are you?</p>\n          <div class=\"cmfeet_btn_div\">\n            <p\n              class=\"cmfeet_btn\"\n              [ngClass]=\"heightType === 'cm' ? 'activ_cmfeet_btn' : ''\"\n              (click)=\"setHeightType('cm')\"\n            >\n              Cm\n            </p>\n            <p\n              class=\"cmfeet_btn\"\n              [ngClass]=\"heightType === 'feet' ? 'activ_cmfeet_btn' : ''\"\n              (click)=\"setHeightType('feet')\"\n            >\n              Feet\n            </p>\n          </div>\n        </div>\n        <div class=\"main_meter_div\" *ngIf=\"heightType==='feet'\">\n          <div class=\"meter_box_div\">\n            <p class=\"height_value\">{{inputHeight}}</p>\n            <ion-img\n              src=\"../../../assets/newImages/scale.png\"\n              class=\"scale_image\"\n            ></ion-img>\n          </div>\n          <div class=\"range_div\">\n            <ion-range\n              [min]=\"minHight\"\n              [max]=\"maxHight\"\n              [(ngModel)]=\"selectedHeight\"\n              [step]=\"1\"\n              mode=\"ios\"\n              class=\"pad_0\"\n              (ionChange)=\"getHeight()\"\n            >\n            </ion-range>\n            <!--  -->\n          </div>\n        </div>\n        <div class=\"main_meter_div\" *ngIf=\"heightType==='cm'\">\n          <div class=\"meter_box_div\">\n            <p class=\"height_value\">{{inputHeight}}</p>\n            <ion-img\n              src=\"../../../assets/newImages/scale.png\"\n              class=\"scale_image\"\n            ></ion-img>\n          </div>\n          <div class=\"range_div\">\n            <ion-range\n              [min]=\"minHight\"\n              [max]=\"maxHight\"\n              [value]=\"selectedHeight\"\n              [(ngModel)]=\"selectedHeight\"\n              mode=\"ios\"\n              class=\"pad_0\"\n              [step]=\"1\"\n              (ionChange)=\"getHeight()\"\n            >\n            </ion-range>\n            <!--  -->\n          </div>\n        </div>\n      </div>\n\n      <div class=\"content_sub_div2\" style=\"background: none\">\n        <div class=\"header_btn_div\">\n          <p class=\"title mar_0\">What is your weight?</p>\n          <div class=\"cmfeet_btn_div\">\n            <p\n              class=\"cmfeet_btn\"\n              [ngClass]=\"weightType==='kg'&& 'activ_cmfeet_btn'\"\n              (click)=\"setweightType('kg')\"\n            >\n              Kg\n            </p>\n            <p\n              class=\"cmfeet_btn\"\n              [ngClass]=\"weightType==='lbs'&& 'activ_cmfeet_btn'\"\n              (click)=\"setweightType('lbs')\"\n            >\n              Lbs\n            </p>\n          </div>\n        </div>\n        <div class=\"weight_div\">\n          <div class=\"wight_ui_div\">\n            <!-- <ion-img src=\"../../../assets/newImages/squareRing.svg\" class=\"squareRing_img\">\n            </ion-img> -->\n            <ion-img\n              src=\"../../../assets/newImages/squareRing.svg\"\n              class=\"square_img\"\n            >\n            </ion-img>\n            <ion-input\n              class=\"weight_value\"\n              name=\"w\"\n              (ionBlur)=\"gotoDemographic()\"\n              [(ngModel)]=\"weight\"\n              type=\"number\"\n              inputmode=\"numeric\"\n              pattern=\"[0-9]*\"\n              (keydown)=\"blockDecimal($event)\"\n              (ionInput)=\"removeDecimals($event,'weight')\"\n            ></ion-input>\n          </div>\n        </div>\n        <div\n          style=\"text-align: center; color: red\"\n          *ngIf=\"weightMessage && weightType==='kg'\"\n        >\n          Please select weight more than 19kg.\n        </div>\n        <div\n          style=\"text-align: center; color: red\"\n          *ngIf=\"weightMessage && weightType==='lbs'\"\n        >\n          Please select weight more than 43 lbs.\n        </div>\n      </div>\n\n      <div class=\"content_sub_div2\" *ngIf=\"clientId!=='enkeltec' && !isChild\">\n        <div class=\"header_btn_div\">\n          <p class=\"title mar_0\">Desired weight?</p>\n          <!-- <div class=\"cmfeet_btn_div\">\n            <p class=\"cmfeet_btn\" [ngClass]=\"targetweightType==='kg'&& 'activ_cmfeet_btn'\"\n              (click)=\"setTargetweightType('kg')\">\n              Kg\n            </p>\n            <p class=\"cmfeet_btn\" [ngClass]=\"targetweightType==='lbs'&& 'activ_cmfeet_btn'\"\n              (click)=\"setTargetweightType('lbs')\">\n              Lbs\n            </p>\n          </div>-->\n        </div>\n        <div class=\"weight_div\">\n          <div class=\"wight_ui_div\">\n            <!-- <ion-img src=\"../../../assets/newImages/squareRing.svg\" class=\"squareRing_img\">\n            </ion-img> -->\n            <ion-img\n              src=\"../../../assets/newImages/squareRing.svg\"\n              class=\"square_img\"\n            >\n            </ion-img>\n            <ion-input\n              class=\"weight_value\"\n              name=\"w\"\n              [(ngModel)]=\"targetweight\"\n              debounce=\"100\"\n              (ionBlur)=\"gotoDemographic()\"\n              type=\"number\"\n              inputmode=\"numeric\"\n              pattern=\"[0-9]*\"\n              (keydown)=\"blockDecimal($event)\"\n              (ionInput)=\"removeDecimals($event,'targetweight')\"\n            ></ion-input>\n          </div>\n        </div>\n        <div\n          style=\"text-align: center; color: red\"\n          *ngIf=\"targetweight<20 && weightType==='kg'\"\n        >\n          Please select weight more than 19kg.\n        </div>\n        <div\n          style=\"text-align: center; color: red\"\n          *ngIf=\"targetweight<44 && weightType==='lbs'\"\n        >\n          Please select weight more than 43 lbs.\n        </div>\n      </div>\n\n      <div class=\"content_sub_div3\" style=\"background: none\">\n        <div class=\"header_btn_div\" style=\"margin: 0% 5%\">\n          <p class=\"title mar_0\" style=\"width: Auto\">\n            Which year were you born in (e.g. 2022)?\n          </p>\n        </div>\n        <div class=\"main_scroll_Div\">\n          <div class=\"scroll_div2 center\" style=\"height: 30px\">\n            <ion-grid class=\"\">\n              <ion-row class=\"scroll-x\"> </ion-row>\n            </ion-grid>\n          </div>\n          <div class=\"born_btn\">\n            <ion-input\n              class=\"weight_value\"\n              style=\"\n                color: var(--theme-newButton) !important;\n                background: #fff;\n                width: 105px;\n                border: 5px solid #ffc893;\n                border-radius: 1rem;\n              \"\n              name=\"w\"\n              [(ngModel)]=\"targetYear\"\n              debounce=\"1000\"\n              type=\"number\"\n              inputmode=\"numeric\"\n              pattern=\"[0-9]*\"\n              (keydown)=\"blockDecimal($event)\"\n              (ionInput)=\"removeDecimals('targetYear')\"\n            ></ion-input>\n          </div>\n        </div>\n      </div>\n\n      <div>\n        <p class=\"note\">\n          *Your Information is confidential and secured safely with us.\n        </p>\n\n        <ion-row style=\"margin: 0 1rem\">\n          <ion-col>\n            <ion-checkbox [(ngModel)]=\"terms\"></ion-checkbox>\n            <ion-label style=\"top: -7px; position: relative; color: #b3b3b3\"\n              >I agree to accept the\n              <span class=\"condition\" (click)=\"gotoTerm()\"\n                >Terms and Conditions</span\n              >.</ion-label\n            >\n          </ion-col>\n        </ion-row>\n        <!-- <ion-row>\n          <ion-col class=\"ion-text-right\">\n            <ion-item lines=\"none\" style=\"display: inline-block;\n            float: left;\">\n              <ion-checkbox checked=\"true\" slot=\"start\"></ion-checkbox>\n              <ion-label class=\"terms\">I agree to accept the\n            </ion-label></ion-item>\n          <ion-row style=\"position: relative;\n          top: 12px;\n          left: 2px;bottom: 12px;\">\n            <ion-col (click)=\"gotoTerm()\" class=\"ion-text-left\" >\n              <span class=\"condition\" >Terms and Conditions</span>.\n            </ion-col>\n          </ion-row>\n            </ion-col>\n          \n        </ion-row> -->\n\n        <div class=\"go_btn_div\" *ngIf=\"!from\">\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button\n                  class=\"back_btn\"\n                  shape=\"round\"\n                  fill=\"outline\"\n                  (click)=\"goBack()\"\n                  >Back</ion-button\n                >\n              </ion-col>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button class=\"go_btn\" shape=\"round\" (click)=\"goNext()\"\n                  >Next</ion-button\n                >\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </div>\n\n        <div class=\"go_btn_div\" *ngIf=\"from\">\n          <ion-grid>\n            <ion-row>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button\n                  class=\"back_btn\"\n                  shape=\"round\"\n                  fill=\"outline\"\n                  (click)=\"modalClose()\"\n                  >Cancel</ion-button\n                >\n              </ion-col>\n              <ion-col size=\"6\" class=\"center\">\n                <ion-button class=\"go_btn\" shape=\"round\" (click)=\"goNext()\"\n                  >Save</ion-button\n                >\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </div>\n      </div>\n    </div>\n  </div>\n</ion-content>\n";
 
 /***/ })
 

@@ -93,7 +93,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PortionCountPage": () => (/* binding */ PortionCountPage)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _portion_count_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./portion-count.page.html?ngResource */ 52310);
 /* harmony import */ var _portion_count_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./portion-count.page.scss?ngResource */ 9312);
@@ -164,7 +164,7 @@ let PortionCountPage = class PortionCountPage {
   addCal(data, i) {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       //  debugger;
       console.log("DATA----------->>", data);
       const modal = yield _this.modalCtrl2.create({
@@ -192,7 +192,7 @@ let PortionCountPage = class PortionCountPage {
   replacedModal(data) {
     var _this2 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log("DATA----------->>", data); // const modal = await this.modalCtrl2.create({
       //   component: PortionCountPage,
       //   cssClass: "portion_count",
@@ -219,7 +219,7 @@ let PortionCountPage = class PortionCountPage {
   replaced(item) {
     var _this3 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       //debugger;
       if (_this3.currentDateIndex == 0) {
         _this3.utilities.logEvent("onboarding_Counter_add_home", {});
@@ -262,7 +262,7 @@ let PortionCountPage = class PortionCountPage {
   gotoView(d) {
     var _this4 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       // this.modalCtrl.dismiss();
       // this.navCtrl.navigateForward(["/view-product"], {
       //   queryParams: {
@@ -295,7 +295,7 @@ let PortionCountPage = class PortionCountPage {
   eatenStatusUpdate(item, eaten) {
     var _this5 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       //
       if (_this5.currentDateIndex == 0) {
         _this5.utilities.logEvent("onboarding_Counter_add_home", {});
@@ -546,7 +546,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "MealWorkoutPage": () => (/* binding */ MealWorkoutPage)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _meal_workout_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./meal-workout.page.html?ngResource */ 81630);
 /* harmony import */ var _meal_workout_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./meal-workout.page.scss?ngResource */ 43419);
@@ -633,7 +633,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   ngOnInit() {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log("sssddddd::::-", _this.data, _this.diets, _this.index);
 
       if (Number(localStorage.getItem("currentDate")) > new Date().getTime()) {
@@ -740,7 +740,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   changed(data) {
     var _this2 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log("data111111", data);
       data.slot = _this2.index;
       const modal = yield _this2.modalCtrl.create({
@@ -791,7 +791,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   addCal(data, i) {
     var _this3 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this3.isFuture) {
         _this3.utilities.showErrorToast("Can not log for future dates!");
 
@@ -823,7 +823,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   loogeAction(event, d, i) {
     var _this4 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this4.disabled) {
         return;
       }
@@ -928,7 +928,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   gotoView(d) {
     var _this5 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       if (_this5.disabled) {
         return;
       }
@@ -981,7 +981,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   remove(item, eaten, status) {
     var _this6 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       //
       if (_this6.currentDateIndex == 0) {
         let foodCodeList = [];
@@ -1021,7 +1021,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   eatenStatusUpdate1(item, slot) {
     var _this7 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       //
       console.log("fffdd:-----", src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_6__.CONSTANTS.dietDate, moment__WEBPACK_IMPORTED_MODULE_4___default()(new Date()).format("DDMMYYYY"));
 
@@ -1078,7 +1078,7 @@ let MealWorkoutPage = class MealWorkoutPage {
   eatenStatusUpdate(item, eaten, status) {
     var _this8 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       //
       console.log("fffdd:-----", src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_6__.CONSTANTS.dietDate, moment__WEBPACK_IMPORTED_MODULE_4___default()(new Date()).format("DDMMYYYY"));
 
@@ -1562,7 +1562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "ViewProductPage": () => (/* binding */ ViewProductPage)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _view_product_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view-product.page.html?ngResource */ 35968);
 /* harmony import */ var _view_product_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./view-product.page.scss?ngResource */ 40971);
@@ -1781,7 +1781,7 @@ let ViewProductPage = class ViewProductPage {
   addCal(data) {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       // console.log(this.slot);
       if (_this.from === "search" || _this.from === "recipe") {
         const modal = yield _this.modalCtrl.create({
@@ -1848,7 +1848,7 @@ let ViewProductPage = class ViewProductPage {
   replaced(item) {
     var _this2 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       _this2.utilities.logEvent("onboarding_Counter_add_home", {});
 
       const datas = {
@@ -1883,7 +1883,7 @@ let ViewProductPage = class ViewProductPage {
   eatenStatusUpdate(item, eaten, status) {
     var _this3 = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       let datas = {};
 
       if (eaten > 0 && !_this3.mainFood) {

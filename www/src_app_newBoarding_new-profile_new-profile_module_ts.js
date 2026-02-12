@@ -90,7 +90,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "NewProfilePage": () => (/* binding */ NewProfilePage)
 /* harmony export */ });
-/* harmony import */ var _Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
+/* harmony import */ var _Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js */ 71670);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! tslib */ 42321);
 /* harmony import */ var _new_profile_page_html_ngResource__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./new-profile.page.html?ngResource */ 48551);
 /* harmony import */ var _new_profile_page_scss_ngResource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./new-profile.page.scss?ngResource */ 47382);
@@ -137,7 +137,7 @@ let NewProfilePage = class NewProfilePage {
 
   ngOnInit() {
     this.utilities.logEvent("Tracker_profileUpdate", {});
-    this.clientId = localStorage.getItem('clientId');
+    this.clientId = localStorage.getItem("clientId");
     this.compConfig = JSON.parse(localStorage.getItem("clientConfig"));
     console.log("this.compConfig", this.compConfig);
     this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
@@ -226,7 +226,7 @@ let NewProfilePage = class NewProfilePage {
   }
 
   modalClose() {
-    this.router.navigate(['new-diet']);
+    this.router.navigate(["new-diet"]);
   }
 
   getImage(type) {
@@ -297,13 +297,13 @@ let NewProfilePage = class NewProfilePage {
   openModel(component) {
     var _this = this;
 
-    return (0,_Users_fakharealam_Documents_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
+    return (0,_Users_fakharealam_Documents_sdp_sdp_reg_companies_node_modules_babel_runtime_helpers_esm_asyncToGenerator_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function* () {
       console.log(_this.dietitianName);
 
-      if (_this.dietitianName === "" || _this.dietitianName === undefined || _this.clientId === 'lalpathlabs') {
+      if (_this.dietitianName === "" || _this.dietitianName === undefined || _this.clientId === "lalpathlabs") {
         _this.router.navigate([component], {
           queryParams: {
-            from: 'editProfile'
+            from: "editProfile"
           }
         });
 
@@ -330,7 +330,6 @@ let NewProfilePage = class NewProfilePage {
     this.profileData = [];
     this.appservice.getProfile().then(res => {
       this.profileData = res;
-      debugger;
       this.goalName = this.compConfig.editGoalForDisplay.filter(item => {
         return item.value === this.profileData?.lifeStyle?.dietPlanName;
       });
@@ -358,7 +357,7 @@ let NewProfilePage = class NewProfilePage {
         this.profileData.lifeStyle.foodType = this.localData?.otherMaster?.foodPref.find(f => f.code === this.profileData.lifeStyle.foodType);
         this.profileData.lifeStyle.country = this.localData?.countries.find(f => f._id === this.profileData.lifeStyle.country);
 
-        if (this.clientId !== 'enkeltec') {
+        if (this.clientId !== "enkeltec") {
           this.profileData.lifeStyle.activities = this.localData?.otherMaster?.activities.find(item => this.profileData?.lifeStyle?.activities.code === item.code);
         } else {
           this.profileData.lifeStyle.activities = this.compConfig.activies.find(item => this.profileData?.lifeStyle?.activities.code === item.code);
@@ -396,16 +395,16 @@ let NewProfilePage = class NewProfilePage {
 
   getCommunities(communities) {
     for (let index = 0; index < communities.length; index++) {
-      if (communities[index] === 'P') {
-        this.communitiesArr.push('North India');
-      } else if (communities[index] === 'M') {
-        this.communitiesArr.push('Maharashtra');
-      } else if (communities[index] === 'G') {
-        this.communitiesArr.push('Gujarat');
-      } else if (communities[index] === 'B') {
-        this.communitiesArr.push('Bengali');
-      } else if (communities[index] === 'S') {
-        this.communitiesArr.push('South India');
+      if (communities[index] === "P") {
+        this.communitiesArr.push("North India");
+      } else if (communities[index] === "M") {
+        this.communitiesArr.push("Maharashtra");
+      } else if (communities[index] === "G") {
+        this.communitiesArr.push("Gujarat");
+      } else if (communities[index] === "B") {
+        this.communitiesArr.push("Bengali");
+      } else if (communities[index] === "S") {
+        this.communitiesArr.push("South India");
       } else {// this.communitiesArr.push('Universal');
       }
     }

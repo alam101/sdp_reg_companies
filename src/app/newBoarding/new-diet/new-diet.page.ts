@@ -57,7 +57,7 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
   tomorrow = new Date(
     new Date().getFullYear(),
     new Date().getMonth(),
-    new Date().getDay() + 1
+    new Date().getDay() + 1,
   ).toISOString();
   allData: {
     Carbs: Number;
@@ -90,10 +90,10 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
     private utilss: UTILS,
     private broadcastService: BroadcastService,
     private location: Location,
-    private routerActive: ActivatedRoute
+    private routerActive: ActivatedRoute,
   ) {
     this.routerActive.queryParams.subscribe((res) => {
-      if (res ?.companyId === undefined) {
+      if (res?.companyId === undefined) {
         this.company_id = null;
       } else {
         this.company_id = res.companyId;
@@ -137,7 +137,7 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
     this.getProfile();
     if (localStorage.getItem("weightTracker") !== "") {
       this.weightTrackerData = JSON.parse(
-        localStorage.getItem("weightTracker")
+        localStorage.getItem("weightTracker"),
       );
     }
   }
@@ -150,11 +150,11 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
     this.appServices
       .downloadPdfFromApiNew(
         "RedcliffeLabs",
-        this.profileData ?.profile ?.email ?.trim(),
-        this.dietitianRecord ?.deititianName ?.toString() ?.trim(),
-        this.dietitianRecord ?.dietitianEmailId,
+        this.profileData?.profile?.email?.trim(),
+        this.dietitianRecord?.deititianName?.toString()?.trim(),
+        this.dietitianRecord?.dietitianEmailId,
         "url",
-        "new"
+        "new",
       )
       .subscribe(
         (res) => {
@@ -164,7 +164,7 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
         (err) => {
           console.log("err url:--", err["url"]);
           this.sharePDFOnWhatsapp(err["url"]);
-        }
+        },
       );
   }
 
@@ -175,25 +175,22 @@ recommended portions, and calorie goals for the day.
 If you’d like to explore it or follow a similar plan, here’s the link: 
 ${url}`;
     const encodedMsg = encodeURIComponent(message.trim());
-    if (this.clientId.toLowerCase() !== 'redcliffe') {
+    if (this.clientId.toLowerCase() !== "redcliffe") {
       let urll = `https://api.whatsapp.com/send?text=${encodedMsg}`;
       window.location.href = urll;
     }
     if (this.userAgentType === "Android App") {
       // Call Android bridge
-      (window as any).MyJSClient ?.onDietPlanWhatsappShare(url);
-    }
-
-    else if (this.userAgentType === "IOS App") {
+      (window as any).MyJSClient?.onDietPlanWhatsappShare(url);
+    } else if (this.userAgentType === "IOS App") {
       // Call iOS bridge
-      (window as any).webkit ?.messageHandlers ?.callbackHandler ?.postMessage({
+      (window as any).webkit?.messageHandlers?.callbackHandler?.postMessage({
         action: "shareFitrofyUrl",
         url: url,
       });
     }
 
-
-    if (!this.isIosDevice && this.clientId.toLowerCase() !== 'redcliffe') {
+    if (!this.isIosDevice && this.clientId.toLowerCase() !== "redcliffe") {
       let urll = `whatsapp://send?text=${encodedMsg}`;
       this.iab.create(urll, "_system");
     }
@@ -229,7 +226,7 @@ ${url}`;
     CONSTANTS.dietDate = moment(this.selecteddate).format("DDMMYYYY");
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
 
-    this.companyLogoBase64 = this.compConfig ?.companyLogoBase64;
+    this.companyLogoBase64 = this.compConfig?.companyLogoBase64;
     this.defaultPlanCheck = this.compConfig.defaultPlanCheck;
   }
   defaultPlanCheck = false;
@@ -243,7 +240,7 @@ ${url}`;
     console.log(
       "fffdd:-----",
       CONSTANTS.dietDate,
-      moment(new Date()).format("DDMMYYYY")
+      moment(new Date()).format("DDMMYYYY"),
     );
 
     if (CONSTANTS.dietDate !== moment(new Date()).format("DDMMYYYY")) {
@@ -276,7 +273,7 @@ ${url}`;
         },
         (err) => {
           console.log("details error", err);
-        }
+        },
       );
     }
   }
@@ -297,7 +294,7 @@ ${url}`;
           console.log(
             "this.profileData.lifeStyle.diseases[index]:- ",
             this.profileData.lifeStyle.diseases[index],
-            this.compConfig.deseases[j].desease
+            this.compConfig.deseases[j].desease,
           );
 
           this.tempdesease.push(this.compConfig.deseases[j].description);
@@ -305,11 +302,11 @@ ${url}`;
       }
     }
 
-    if (this.tempdesease ?.length > 0) {
+    if (this.tempdesease?.length > 0) {
       this.tempdesease = this.tempdesease.join(",").split(",");
     }
     console.log("this.tempdesease", this.tempdesease.join(","));
-    return this.tempdesease ?.length === 0 ? null : this.tempdesease;
+    return this.tempdesease?.length === 0 ? null : this.tempdesease;
   }
   compConfig: any;
   plandata: any;
@@ -334,12 +331,12 @@ ${url}`;
       }
       this.tomorrow = this.weeks[1].date;
 
-      const creationDate = this.plandata ?.profile ?.createdDate;
+      const creationDate = this.plandata?.profile?.createdDate;
 
       console.log(
         "new Date(creationDate)",
         new Date(creationDate),
-        new Date(creationDate).getTime()
+        new Date(creationDate).getTime(),
       );
       let dnew = new Date(creationDate);
       this.fday = new Date(new Date().getTime() - dnew.getTime()).getDate();
@@ -385,7 +382,7 @@ ${url}`;
 
     if (localStorage.getItem("weightTracker") !== "") {
       this.weightTrackerData = JSON.parse(
-        localStorage.getItem("weightTracker")
+        localStorage.getItem("weightTracker"),
       );
     }
     this.getOnePlan();
@@ -405,14 +402,14 @@ ${url}`;
   }
 
   isIncludeDesease(items, desease) {
-    return items ?.includes(desease);
+    return items?.includes(desease);
   }
   isIncludeDietPlanCondition(deitPlanName) {
-    if (deitPlanName ?.toLowerCase() ?.includes("diabetes")) {
+    if (deitPlanName?.toLowerCase()?.includes("diabetes")) {
       return "sugar";
-    } else if (deitPlanName ?.toLowerCase() ?.includes("hypertension")) {
+    } else if (deitPlanName?.toLowerCase()?.includes("hypertension")) {
       return "pressure";
-    } else if (deitPlanName ?.toLowerCase() ?.includes("cholesterol")) {
+    } else if (deitPlanName?.toLowerCase()?.includes("cholesterol")) {
       return "cholesterol";
     } else {
       return false;
@@ -424,11 +421,11 @@ ${url}`;
     this.appServices.getProfile().then((profileData) => {
       console.log(
         "localStorage.setItem",
-        localStorage.getItem("weightTracker")
+        localStorage.getItem("weightTracker"),
       );
       localStorage.setItem(
         "activities",
-        JSON.stringify(profileData["lifeStyle"]["activities"])
+        JSON.stringify(profileData["lifeStyle"]["activities"]),
       );
       console.log("profileData", profileData);
       this.profileData = profileData;
@@ -449,9 +446,9 @@ ${url}`;
       this.getDietitianDetail1(this.profileData.profile.email);
       if (this.compConfig.isDietitian) {
         this.firstConsult =
-          this.profileData ?.lifeStyle ?.firstConsult === undefined
+          this.profileData?.lifeStyle?.firstConsult === undefined
             ? null
-            : this.profileData ?.lifeStyle ?.firstConsult;
+            : this.profileData?.lifeStyle?.firstConsult;
       }
       // this.getCommunities(this.profileData?.lifeStyle?.communities);
       // this.instructions = this.profileData?.lifeStyle?.instructions;
@@ -461,7 +458,7 @@ ${url}`;
       console.log("getprofile", JSON.stringify(userData));
       console.log("alam:-", profileData["lifeStyle"]);
       this.bindDesease();
-      this.getInstructionData(this.profileData ?.profile ?.email);
+      this.getInstructionData(this.profileData?.profile?.email);
     });
   }
 
@@ -485,7 +482,7 @@ ${url}`;
         this.dateSlides.slideTo(index + 1, 200);
         localStorage.setItem(
           "firstday",
-          JSON.stringify(this.weeks[index + 1].formatDate)
+          JSON.stringify(this.weeks[index + 1].formatDate),
         );
         this.selecteddate = this.weeks[index + 1].formatDate;
 
@@ -501,11 +498,11 @@ ${url}`;
   }
 
   selectDate(event) {
-    console.log("test", event.target ?.value);
-    let index = event.target ?.value;
+    console.log("test", event.target?.value);
+    let index = event.target?.value;
     localStorage.setItem(
       "firstday",
-      JSON.stringify(this.weeks[index].formatDate)
+      JSON.stringify(this.weeks[index].formatDate),
     );
     this.selecteddate = this.weeks[index].formatDate;
     this.newSelectedDate = this.weeks[index].date;
@@ -522,7 +519,7 @@ ${url}`;
         this.dateSlides.slideTo(index - 1, 200);
         localStorage.setItem(
           "firstday",
-          JSON.stringify(this.weeks[index - 1].formatDate)
+          JSON.stringify(this.weeks[index - 1].formatDate),
         );
         this.selecteddate = this.weeks[index - 1].formatDate;
         this.newSelectedDate = this.weeks[index - 1].date;
@@ -557,19 +554,19 @@ ${url}`;
       CONSTANTS.isDetox,
       todayDate,
       CONSTANTS.country,
-      CONSTANTS.defaultCalories
+      CONSTANTS.defaultCalories,
     );
     let getDataTomorrowPromise = this.appServices.getDietPlans(
       CONSTANTS.isDetox,
       tomorrowDate,
       CONSTANTS.country,
-      CONSTANTS.defaultCalories
+      CONSTANTS.defaultCalories,
     );
     let getDataDayAfterTomorrowPromise = this.appServices.getDietPlans(
       CONSTANTS.isDetox,
       dayAftertomorrowDate,
       CONSTANTS.country,
-      CONSTANTS.defaultCalories
+      CONSTANTS.defaultCalories,
     );
 
     Promise.all([
@@ -586,13 +583,13 @@ ${url}`;
       this.utilities.hideLoader();
 
       let todayDiets = this.utilities.parseJSON(
-        this.utilities.parseString(values[0])
+        this.utilities.parseString(values[0]),
       ).diets;
       let tomorrowDiets = this.utilities.parseJSON(
-        this.utilities.parseString(values[1])
+        this.utilities.parseString(values[1]),
       ).diets;
       let dayAfterTomorrowDiets = this.utilities.parseJSON(
-        this.utilities.parseString(values[2])
+        this.utilities.parseString(values[2]),
       ).diets;
 
       let todayCalories = 0,
@@ -610,7 +607,7 @@ ${url}`;
         let foodIteratIndex = Math.max(
           todayDiet.length,
           tomorrowDiet.length,
-          dayAfterTomorrowDiet.length
+          dayAfterTomorrowDiet.length,
         );
 
         for (let i = 0; i < foodIteratIndex; i++) {
@@ -618,7 +615,7 @@ ${url}`;
           tomorrowCalories += this.getCaloriesOfDay(tomorrowDiet, i);
           dayAfterTomorrowCalories += this.getCaloriesOfDay(
             dayAfterTomorrowDiet,
-            i
+            i,
           );
         }
         jsonData.push({
@@ -788,7 +785,7 @@ ${url}`;
                 data.cell.x + 2,
                 data.cell.y + 7,
                 25,
-                6.5
+                6.5,
               );
             }
           }
@@ -841,12 +838,12 @@ ${url}`;
             this.gender = res.gender;
             this.image = res.image;
             this.assinedDietitianExpDate =
-              res ?.expiryDate === undefined ? null : res.expiryDate;
+              res?.expiryDate === undefined ? null : res.expiryDate;
             this.aibasedDietplan = res.aiBasedPlanContinues;
             this.calendlyVisible = res.calendlyVisible;
           }
         },
-        (err) => { }
+        (err) => {},
       );
     }
   }
@@ -874,7 +871,7 @@ ${url}`;
       this.design = "new";
       this.isdoenloadclicked = true;
       localStorage.setItem("company_id", "alyve.health");
-      this.response_type = 'url';
+      this.response_type = "url";
       this.design === "old"
         ? this.downloadPdfFromApi()
         : this.downloadPdfFromApiNew();
@@ -906,13 +903,11 @@ ${url}`;
       localStorage.setItem("company_id", "Fitrofy");
       this.downloadPdfFromApiNew1();
     } else if (this.clientId === "metropolis") {
-      debugger;
       this.design = "new";
       this.isdoenloadclicked = true;
       localStorage.setItem("company_id", "metropolis");
       this.downloadPdfFromApiNew1();
     } else if (this.clientId === "fitelo") {
-      debugger;
       this.design = "new";
       this.isdoenloadclicked = true;
       localStorage.setItem("company_id", "fitelo");
@@ -960,7 +955,7 @@ ${url}`;
         7,
         moment(this.selecteddate).format("DDMMYYYY").trim(),
         localStorage.getItem("company_id"),
-        localStorage.getItem("email")
+        localStorage.getItem("email"),
       )
       .subscribe(
         (blob) => {
@@ -989,7 +984,7 @@ ${url}`;
         (error) => {
           this.utilities.hideLdr();
           console.error("Error downloading PDF:", error);
-        }
+        },
       );
   }
 
@@ -1004,7 +999,7 @@ ${url}`;
         if (res.expiryDate) {
           localStorage.setItem(
             "expiryDate",
-            moment(res.expiryDate) ?.format("DD-MMM-YYYY")
+            moment(res.expiryDate)?.format("DD-MMM-YYYY"),
           );
           if (this.defaultPlanCheck === true) {
             this.isPlanExpired =
@@ -1013,10 +1008,10 @@ ${url}`;
                 : true;
           }
         }
-        this.skills = res ?.speciality ?.split(", ");
-        this.gender = res ?.gender ?.toLowerCase();
+        this.skills = res?.speciality?.split(", ");
+        this.gender = res?.gender?.toLowerCase();
       },
-      (err) => { }
+      (err) => {},
     );
   }
   response_type = "file";
@@ -1031,11 +1026,11 @@ ${url}`;
     this.appServices
       .downloadPdfFromApiNew1(
         localStorage.getItem("company_id"),
-        this.profileData ?.profile ?.email ?.trim(),
-        this.dietitianRecord ?.deititianName ?.toString() ?.trim(),
-        this.dietitianRecord ?.dietitianEmailId,
+        this.profileData?.profile?.email?.trim(),
+        this.dietitianRecord?.deititianName?.toString()?.trim(),
+        this.dietitianRecord?.dietitianEmailId,
         this.response_type,
-        this.design
+        this.design,
       )
       .subscribe(
         (res: any) => {
@@ -1068,7 +1063,7 @@ ${url}`;
           console.log("Page loaded:", event);
           this.utilities.hideLdr();
           console.error("Error downloading PDF:", error);
-        }
+        },
       );
   }
 
@@ -1081,11 +1076,11 @@ ${url}`;
     this.appServices
       .downloadPdfFromApiNew(
         localStorage.getItem("company_id"),
-        this.profileData ?.profile ?.email ?.trim(),
-        this.dietitianRecord ?.deititianName ?.toString() ?.trim(),
-        this.dietitianRecord ?.dietitianEmailId,
+        this.profileData?.profile?.email?.trim(),
+        this.dietitianRecord?.deititianName?.toString()?.trim(),
+        this.dietitianRecord?.dietitianEmailId,
         this.response_type,
-        this.design
+        this.design,
       )
       .subscribe(
         (res: Blob) => {
@@ -1109,7 +1104,7 @@ ${url}`;
         (error) => {
           this.utilities.hideLdr();
           console.error("Error downloading PDF:", error);
-        }
+        },
       );
   }
 
@@ -1117,12 +1112,10 @@ ${url}`;
     let pdfWindow: Window | null = null;
     if (this.userAgentType === "Web") {
       pdfWindow.location.href = pdfUrl;
-
     } else if (this.userAgentType === "Android App") {
-      (window as any).MyJSClient ?.openPdfFromUrl(pdfUrl);
-    }
-    else if (this.userAgentType === "IOS App") {
-      (window as any).webkit ?.messageHandlers ?.callbackHandler ?.postMessage({
+      (window as any).MyJSClient?.openPdfFromUrl(pdfUrl);
+    } else if (this.userAgentType === "IOS App") {
+      (window as any).webkit?.messageHandlers?.callbackHandler?.postMessage({
         action: "openPdf",
         url: pdfUrl,
       });
@@ -1138,7 +1131,7 @@ ${url}`;
     await modal.present();
     const modaldata = await modal.onDidDismiss();
 
-    const d = modaldata ?.data;
+    const d = modaldata?.data;
     // if (d) {
     // this.getDietdata.emit(CONSTANTS.dietDate);
     this.getDietdata(moment(this.selecteddate).format("DDMMYYYY"));
@@ -1148,17 +1141,17 @@ ${url}`;
   gotoApply(url, type) {
     let email: any = "";
     let phone: any = "";
-    if (this.appServices.emailOnly(this.profileData ?.profile ?.email)) {
-      email = this.profileData ?.profile ?.email;
+    if (this.appServices.emailOnly(this.profileData?.profile?.email)) {
+      email = this.profileData?.profile?.email;
     } else {
-      phone = this.profileData ?.profile ?.email;
+      phone = this.profileData?.profile?.email;
     }
     const u =
       url +
-      `?name=${this.profileData ?.profile ?.name || ""}&email=${email || ""}&a1=${
-      phone || ""
+      `?name=${this.profileData?.profile?.name || ""}&email=${email || ""}&a1=${
+        phone || ""
       }&a2=”I need support for my ${type} plan in Paytm App. My%20profile%20ID%20is%20${
-      this.profileData ?.profile ?.email
+        this.profileData?.profile?.email
       }”`;
     this.iab.create(u, "_sysyem");
   }
@@ -1183,7 +1176,7 @@ ${url}`;
     await modal.present();
 
     const { data } = await modal.onDidDismiss();
-    if (data ?.close) {
+    if (data?.close) {
     }
   }
   openDilar() {
@@ -1216,7 +1209,7 @@ ${url}`;
         CONSTANTS.isDetox,
         date,
         CONSTANTS.country,
-        CONSTANTS.defaultCalories
+        CONSTANTS.defaultCalories,
       )
       .then((res) => {
         this.storage.set("dietData", res);
@@ -1224,26 +1217,26 @@ ${url}`;
         this.copyDiet = JSON.parse(localStorage.getItem("dtit"));
         this.diets = { ...this.copyDiet };
         console.log("alam101::- ", this.diets);
-        if (this.diets.diets ?.length > 0) {
-          this.diets ?.diets ?.forEach((ele) => {
-            console.log("sssssss:-", ele ?.data);
-            if (ele ?.data ?.length > 0) {
-              ele ?.data.forEach((element) => {
+        if (this.diets.diets?.length > 0) {
+          this.diets?.diets?.forEach((ele) => {
+            console.log("sssssss:-", ele?.data);
+            if (ele?.data?.length > 0) {
+              ele?.data.forEach((element) => {
                 if (element.eaten > 0) {
                   this.allData.totalCal = Math.ceil(
-                    Number(this.allData.totalCal + element.Calories)
+                    Number(this.allData.totalCal + element.Calories),
                   );
                   this.allData.Carbs = Math.ceil(
-                    Number(this.allData.Carbs + element.Carbs)
+                    Number(this.allData.Carbs + element.Carbs),
                   );
                   this.allData.Fat = Math.ceil(
-                    Number(this.allData.Fat + element.Fat)
+                    Number(this.allData.Fat + element.Fat),
                   );
                   this.allData.Fiber = Math.ceil(
-                    Number(this.allData.Fiber + element.Fiber)
+                    Number(this.allData.Fiber + element.Fiber),
                   );
                   this.allData.Protien = Math.ceil(
-                    Number(this.allData.Protien + element.Protien)
+                    Number(this.allData.Protien + element.Protien),
                   );
                 }
               });
@@ -1251,7 +1244,7 @@ ${url}`;
           });
         } else {
           this.utilities.presentAlert(
-            "Slots are not available. Please refresh!"
+            "Slots are not available. Please refresh!",
           );
         }
 
@@ -1272,7 +1265,7 @@ ${url}`;
         //   this.utilities.presentAlert("Your plan has been expired. Please renew")
         // }
       },
-      (err) => { }
+      (err) => {},
     );
   }
   getCalData(e, i) {
@@ -1280,23 +1273,23 @@ ${url}`;
     console.log(this.diets);
     if (e.eaten < 0) {
       this.allData.totalCal = Math.ceil(
-        Number(this.allData.totalCal + e.Calories)
+        Number(this.allData.totalCal + e.Calories),
       );
       this.allData.Carbs = Math.ceil(Number(this.allData.Carbs + e.Carbs));
       this.allData.Fat = Math.ceil(Number(this.allData.Fat + e.Fat));
       this.allData.Fiber = Math.ceil(Number(this.allData.Fiber + e.Fiber));
       this.allData.Protien = Math.ceil(
-        Number(this.allData.Protien + e.Protien)
+        Number(this.allData.Protien + e.Protien),
       );
     } else {
       this.allData.totalCal = Math.ceil(
-        Number(this.allData.totalCal) - e.Calories
+        Number(this.allData.totalCal) - e.Calories,
       );
       this.allData.Carbs = Math.ceil(Number(this.allData.Carbs) - e.Carbs);
       this.allData.Fat = Math.ceil(Number(this.allData.Fat) - e.Fat);
       this.allData.Fiber = Math.ceil(Number(this.allData.Fiber) - e.Fiber);
       this.allData.Protien = Math.ceil(
-        Number(this.allData.Protien) - e.Protien
+        Number(this.allData.Protien) - e.Protien,
       );
     }
     console.log("this.allData", this.allData);
@@ -1355,9 +1348,11 @@ ${url}`;
         ) {
           reference = getInstructionDataResponse[0];
         }
-        this.planName = this.diets ?.dietPlanName ?.toLowerCase() ?.includes("cheat")
+        this.planName = this.diets?.dietPlanName
+          ?.toLowerCase()
+          ?.includes("cheat")
           ? "cheat"
-          : this.diets.dietPlanName ?.toLowerCase() ?.includes("detox")
+          : this.diets.dietPlanName?.toLowerCase()?.includes("detox")
             ? "detox"
             : "normal";
         if (reference) {
@@ -1378,7 +1373,7 @@ ${url}`;
       });
   }
   isOpenBar = false;
-  isOpenBarCode = 'photo';
+  isOpenBarCode = "photo";
   async openItemScanner(barcode) {
     this.isOpenBar = true;
     this.isOpenBarCode = barcode;
@@ -1412,15 +1407,15 @@ ${url}`;
             this.utilities.presentAlert("Image sent successfully!");
           } else {
             this.utilities.presentAlert(
-              "Something went wrong! Please try again."
+              "Something went wrong! Please try again.",
             );
           }
         },
         (err) => {
           this.utilities.presentAlert(
-            "Something went wrong! Please try again."
+            "Something went wrong! Please try again.",
           );
-        }
+        },
       );
     } else if (ind === 2) {
       this.appServices.barcodeImageSend(formData).subscribe(
@@ -1430,15 +1425,15 @@ ${url}`;
             this.utilities.presentAlert("Image sent successfully!");
           } else {
             this.utilities.presentAlert(
-              "Something went wrong! Please try again."
+              "Something went wrong! Please try again.",
             );
           }
         },
         (err) => {
           this.utilities.presentAlert(
-            "Something went wrong! Please try again."
+            "Something went wrong! Please try again.",
           );
-        }
+        },
       );
     } else if (ind === 3) {
       this.appServices.nutritionLabelSend(formData).subscribe(
@@ -1448,15 +1443,15 @@ ${url}`;
             this.utilities.presentAlert("Image sent successfully!");
           } else {
             this.utilities.presentAlert(
-              "Something went wrong! Please try again."
+              "Something went wrong! Please try again.",
             );
           }
         },
         (err) => {
           this.utilities.presentAlert(
-            "Something went wrong! Please try again."
+            "Something went wrong! Please try again.",
           );
-        }
+        },
       );
     }
   }
@@ -1469,13 +1464,13 @@ ${url}`;
           this.utilities.presentAlert("Image sent successfully!");
         } else {
           this.utilities.presentAlert(
-            "Something went wrong! Please try again."
+            "Something went wrong! Please try again.",
           );
         }
       },
       (err) => {
         this.utilities.presentAlert("Something went wrong! Please try again.");
-      }
+      },
     );
   }
 }
@@ -1485,7 +1480,7 @@ interface jsPDFWithPlugin extends jsPDF {
 }
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor() { }
+  constructor() {}
   handleError(error) {
     console.log(error);
   }

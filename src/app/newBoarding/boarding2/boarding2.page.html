@@ -1,39 +1,87 @@
 <ion-content>
   <div class="mainDiv">
     <div class="slider_div" *ngIf="!from">
-      <div [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'"></div>
+      <div
+        [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'"
+      ></div>
       <div [ngClass]="clientId && (clientId == 'aviva') ? '' : 'lines2'">
         <div></div>
       </div>
       <div class="slider_page">
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'">✓</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page-count-active' : 'page_Count_active'">2</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'">3</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'">4</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'">5</p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'"
+        >
+          ✓
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page-count-active' : 'page_Count_active'"
+        >
+          2
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'"
+        >
+          3
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'"
+        >
+          4
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page_Count' : 'page_Count'"
+        >
+          5
+        </p>
       </div>
     </div>
-    <div class="content_div" [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}">
+    <div
+      class="content_div"
+      [ngStyle]="from && {'border-radius':'0px','min-height':'100%'}"
+    >
       <div class="w_100 right" *ngIf="from" style="padding-right: 5%">
-        <ion-icon class="close_modal_icon" name="close-circle" (click)="modalClose()"></ion-icon>
+        <ion-icon
+          class="close_modal_icon"
+          name="close-circle"
+          (click)="modalClose()"
+        ></ion-icon>
       </div>
       <p class="title-text">
         We need some of your basic information to provide you correct analysis
       </p>
       <p class="title">Gender</p>
       <div class="content_sub_div">
-        <ion-radio-group [value]="gender" [(ngModel)]="gender" (ionChange)="selectGender($event)">
+        <ion-radio-group
+          [value]="gender"
+          [(ngModel)]="gender"
+          (ionChange)="selectGender($event)"
+        >
           <ion-grid class="pad_0">
             <ion-row>
               <!-- FEMALE -->
               <ion-col size="6" style="padding-right: 7px">
                 <div class="card_div" (click)="gender = 'G2'">
-                  <ion-img *ngIf="!isChild" src="../../../assets/newImages/female.png" class="female_image"></ion-img>
-                  <ion-img *ngIf="isChild" src="../../../assets/child/child-7.jpeg" class="female_image"></ion-img>
+                  <ion-img
+                    *ngIf="!isChild"
+                    src="../../../assets/newImages/female.png"
+                    class="female_image"
+                  ></ion-img>
+                  <ion-img
+                    *ngIf="isChild"
+                    src="../../../assets/child/child-7.jpeg"
+                    class="female_image"
+                  ></ion-img>
                   <p class="label">Female</p>
-                  <ion-card class="section-card" [ngClass]="gender === 'G2' && 'card_Border'">
+                  <ion-card
+                    class="section-card"
+                    [ngClass]="gender === 'G2' && 'card_Border'"
+                  >
                     <div class="h_100">
-                      <ion-radio value="G2" mode="ios" style="--color-checked: var(--theme-color);"></ion-radio>
+                      <ion-radio
+                        value="G2"
+                        mode="ios"
+                        style="--color-checked: var(--theme-color)"
+                      ></ion-radio>
                     </div>
                   </ion-card>
                 </div>
@@ -41,15 +89,33 @@
 
               <!-- MALE -->
               <ion-col size="6" style="padding-left: 7px">
-                <div class="card_div" [class.disabled]="profileData?.profile?.category === 'pcos'"
-                  (click)="profileData?.profile?.category !== 'pcos' && (gender = 'G1')">
-                  <ion-img *ngIf="!isChild" src="../../../assets/newImages/male.png" class="male_image"></ion-img>
-                  <ion-img *ngIf="isChild" src="../../../assets/child/child-5.jpeg" class="female_image"></ion-img>
+                <div
+                  class="card_div"
+                  [class.disabled]="profileData?.profile?.category === 'pcos'"
+                  (click)="profileData?.profile?.category !== 'pcos' && (gender = 'G1')"
+                >
+                  <ion-img
+                    *ngIf="!isChild"
+                    src="../../../assets/newImages/male.png"
+                    class="male_image"
+                  ></ion-img>
+                  <ion-img
+                    *ngIf="isChild"
+                    src="../../../assets/child/child-5.png"
+                    class="female_image"
+                  ></ion-img>
                   <p class="label">Male</p>
-                  <ion-card class="section-card" [ngClass]="gender === 'G1' && 'card_Border'">
+                  <ion-card
+                    class="section-card"
+                    [ngClass]="gender === 'G1' && 'card_Border'"
+                  >
                     <div class="h_100">
-                      <ion-radio value="G1" [disabled]="profileData?.profile?.category === 'pcos'" mode="ios"
-                        style="--color-checked: var(--theme-color);"></ion-radio>
+                      <ion-radio
+                        value="G1"
+                        [disabled]="profileData?.profile?.category === 'pcos'"
+                        mode="ios"
+                        style="--color-checked: var(--theme-color)"
+                      ></ion-radio>
                     </div>
                   </ion-card>
                 </div>
@@ -57,28 +123,46 @@
             </ion-row>
           </ion-grid>
         </ion-radio-group>
-
       </div>
 
       <div class="content_sub_div2">
         <div class="header_btn_div">
           <p class="title mar_0">How tall are you?</p>
           <div class="cmfeet_btn_div">
-            <p class="cmfeet_btn" [ngClass]="heightType === 'cm' ? 'activ_cmfeet_btn' : ''"
-              (click)="setHeightType('cm')">Cm</p>
-            <p class="cmfeet_btn" [ngClass]="heightType === 'feet' ? 'activ_cmfeet_btn' : ''"
-              (click)="setHeightType('feet')">Feet</p>
-
+            <p
+              class="cmfeet_btn"
+              [ngClass]="heightType === 'cm' ? 'activ_cmfeet_btn' : ''"
+              (click)="setHeightType('cm')"
+            >
+              Cm
+            </p>
+            <p
+              class="cmfeet_btn"
+              [ngClass]="heightType === 'feet' ? 'activ_cmfeet_btn' : ''"
+              (click)="setHeightType('feet')"
+            >
+              Feet
+            </p>
           </div>
         </div>
         <div class="main_meter_div" *ngIf="heightType==='feet'">
           <div class="meter_box_div">
             <p class="height_value">{{inputHeight}}</p>
-            <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
+            <ion-img
+              src="../../../assets/newImages/scale.png"
+              class="scale_image"
+            ></ion-img>
           </div>
           <div class="range_div">
-            <ion-range [min]="minHight" [max]="maxHight" [(ngModel)]="selectedHeight" [step]="1" mode="ios"
-              class="pad_0" (ionChange)="getHeight()">
+            <ion-range
+              [min]="minHight"
+              [max]="maxHight"
+              [(ngModel)]="selectedHeight"
+              [step]="1"
+              mode="ios"
+              class="pad_0"
+              (ionChange)="getHeight()"
+            >
             </ion-range>
             <!--  -->
           </div>
@@ -86,26 +170,44 @@
         <div class="main_meter_div" *ngIf="heightType==='cm'">
           <div class="meter_box_div">
             <p class="height_value">{{inputHeight}}</p>
-            <ion-img src="../../../assets/newImages/scale.png" class="scale_image"></ion-img>
+            <ion-img
+              src="../../../assets/newImages/scale.png"
+              class="scale_image"
+            ></ion-img>
           </div>
           <div class="range_div">
-            <ion-range min="122" max="213" [value]="parseint()" [(ngModel)]="selectedHeight" mode="ios" class="pad_0"
-              [step]="1" (ionChange)="getHeight()">
+            <ion-range
+              [min]="minHight"
+              [max]="maxHight"
+              [value]="selectedHeight"
+              [(ngModel)]="selectedHeight"
+              mode="ios"
+              class="pad_0"
+              [step]="1"
+              (ionChange)="getHeight()"
+            >
             </ion-range>
             <!--  -->
           </div>
         </div>
       </div>
 
-
       <div class="content_sub_div2" style="background: none">
         <div class="header_btn_div">
           <p class="title mar_0">What is your weight?</p>
           <div class="cmfeet_btn_div">
-            <p class="cmfeet_btn" [ngClass]="weightType==='kg'&& 'activ_cmfeet_btn'" (click)="setweightType('kg')">
+            <p
+              class="cmfeet_btn"
+              [ngClass]="weightType==='kg'&& 'activ_cmfeet_btn'"
+              (click)="setweightType('kg')"
+            >
               Kg
             </p>
-            <p class="cmfeet_btn" [ngClass]="weightType==='lbs'&& 'activ_cmfeet_btn'" (click)="setweightType('lbs')">
+            <p
+              class="cmfeet_btn"
+              [ngClass]="weightType==='lbs'&& 'activ_cmfeet_btn'"
+              (click)="setweightType('lbs')"
+            >
               Lbs
             </p>
           </div>
@@ -114,18 +216,34 @@
           <div class="wight_ui_div">
             <!-- <ion-img src="../../../assets/newImages/squareRing.svg" class="squareRing_img">
             </ion-img> -->
-            <ion-img src="../../../assets/newImages/squareRing.svg" class="square_img">
+            <ion-img
+              src="../../../assets/newImages/squareRing.svg"
+              class="square_img"
+            >
             </ion-img>
-            <ion-input class="weight_value" name="w" (ionBlur)="gotoDemographic()" [(ngModel)]="weight" type="number"
-              inputmode="numeric" pattern="[0-9]*" (keydown)="blockDecimal($event)"
-              (ionInput)="removeDecimals($event,'weight')"></ion-input>
+            <ion-input
+              class="weight_value"
+              name="w"
+              (ionBlur)="gotoDemographic()"
+              [(ngModel)]="weight"
+              type="number"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              (keydown)="blockDecimal($event)"
+              (ionInput)="removeDecimals($event,'weight')"
+            ></ion-input>
           </div>
-
         </div>
-        <div style="text-align: center;color:red;" *ngIf="weightMessage && weightType==='kg'">
+        <div
+          style="text-align: center; color: red"
+          *ngIf="weightMessage && weightType==='kg'"
+        >
           Please select weight more than 19kg.
         </div>
-        <div style="text-align: center;color:red;" *ngIf="weightMessage && weightType==='lbs'">
+        <div
+          style="text-align: center; color: red"
+          *ngIf="weightMessage && weightType==='lbs'"
+        >
           Please select weight more than 43 lbs.
         </div>
       </div>
@@ -148,18 +266,35 @@
           <div class="wight_ui_div">
             <!-- <ion-img src="../../../assets/newImages/squareRing.svg" class="squareRing_img">
             </ion-img> -->
-            <ion-img src="../../../assets/newImages/squareRing.svg" class="square_img">
+            <ion-img
+              src="../../../assets/newImages/squareRing.svg"
+              class="square_img"
+            >
             </ion-img>
-            <ion-input class="weight_value" name="w" [(ngModel)]="targetweight" debounce="100"
-              (ionBlur)="gotoDemographic()" type="number" inputmode="numeric" pattern="[0-9]*"
-              (keydown)="blockDecimal($event)" (ionInput)="removeDecimals($event,'targetweight')"></ion-input>
+            <ion-input
+              class="weight_value"
+              name="w"
+              [(ngModel)]="targetweight"
+              debounce="100"
+              (ionBlur)="gotoDemographic()"
+              type="number"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              (keydown)="blockDecimal($event)"
+              (ionInput)="removeDecimals($event,'targetweight')"
+            ></ion-input>
           </div>
-
         </div>
-        <div style="text-align: center;color:red;" *ngIf="targetweight<20 && weightType==='kg'">
+        <div
+          style="text-align: center; color: red"
+          *ngIf="targetweight<20 && weightType==='kg'"
+        >
           Please select weight more than 19kg.
         </div>
-        <div style="text-align: center;color:red;" *ngIf="targetweight<44 && weightType==='lbs'">
+        <div
+          style="text-align: center; color: red"
+          *ngIf="targetweight<44 && weightType==='lbs'"
+        >
           Please select weight more than 43 lbs.
         </div>
       </div>
@@ -173,18 +308,28 @@
         <div class="main_scroll_Div">
           <div class="scroll_div2 center" style="height: 30px">
             <ion-grid class="">
-              <ion-row class="scroll-x">
-              </ion-row>
+              <ion-row class="scroll-x"> </ion-row>
             </ion-grid>
           </div>
           <div class="born_btn">
-            <ion-input class="weight_value" style="color:var(--theme-newButton) !important;
-                      background: #fff;
-                      width: 105px;
-                      border: 5px solid #ffc893;
-                      border-radius: 1rem;" name="w" [(ngModel)]="targetYear" debounce="1000" type="number"
-              inputmode="numeric" pattern="[0-9]*" (keydown)="blockDecimal($event)"
-              (ionInput)="removeDecimals('targetYear')"></ion-input>
+            <ion-input
+              class="weight_value"
+              style="
+                color: var(--theme-newButton) !important;
+                background: #fff;
+                width: 105px;
+                border: 5px solid #ffc893;
+                border-radius: 1rem;
+              "
+              name="w"
+              [(ngModel)]="targetYear"
+              debounce="1000"
+              type="number"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              (keydown)="blockDecimal($event)"
+              (ionInput)="removeDecimals('targetYear')"
+            ></ion-input>
           </div>
         </div>
       </div>
@@ -194,12 +339,15 @@
           *Your Information is confidential and secured safely with us.
         </p>
 
-        <ion-row style="margin: 0 1rem;">
+        <ion-row style="margin: 0 1rem">
           <ion-col>
             <ion-checkbox [(ngModel)]="terms"></ion-checkbox>
-            <ion-label style="    top: -7px;
-          position: relative; color:#b3b3b3">I agree to accept the <span class="condition" (click)="gotoTerm()">Terms
-                and Conditions</span>.</ion-label>
+            <ion-label style="top: -7px; position: relative; color: #b3b3b3"
+              >I agree to accept the
+              <span class="condition" (click)="gotoTerm()"
+                >Terms and Conditions</span
+              >.</ion-label
+            >
           </ion-col>
         </ion-row>
         <!-- <ion-row>
@@ -224,10 +372,18 @@
           <ion-grid>
             <ion-row>
               <ion-col size="6" class="center">
-                <ion-button class="back_btn" shape="round" fill="outline" (click)="goBack()">Back</ion-button>
+                <ion-button
+                  class="back_btn"
+                  shape="round"
+                  fill="outline"
+                  (click)="goBack()"
+                  >Back</ion-button
+                >
               </ion-col>
               <ion-col size="6" class="center">
-                <ion-button class="go_btn" shape="round" (click)="goNext()">Next</ion-button>
+                <ion-button class="go_btn" shape="round" (click)="goNext()"
+                  >Next</ion-button
+                >
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -237,10 +393,18 @@
           <ion-grid>
             <ion-row>
               <ion-col size="6" class="center">
-                <ion-button class="back_btn" shape="round" fill="outline" (click)="modalClose()">Cancel</ion-button>
+                <ion-button
+                  class="back_btn"
+                  shape="round"
+                  fill="outline"
+                  (click)="modalClose()"
+                  >Cancel</ion-button
+                >
               </ion-col>
               <ion-col size="6" class="center">
-                <ion-button class="go_btn" shape="round" (click)="goNext()">Save</ion-button>
+                <ion-button class="go_btn" shape="round" (click)="goNext()"
+                  >Save</ion-button
+                >
               </ion-col>
             </ion-row>
           </ion-grid>
