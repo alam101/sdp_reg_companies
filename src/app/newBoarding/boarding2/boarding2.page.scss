@@ -81,7 +81,7 @@ ion-content::part(background) {
   width: 20px;
   border: 2px solid var(--white);
   border-radius: 100%;
-  font-size:var(--xsmall-font);
+  font-size: var(--xsmall-font);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +97,7 @@ ion-content::part(background) {
   width: 20px;
   border: 2px solid var(--theme-text-color);
   border-radius: 100%;
-  font-size:var(--xsmall-font);
+  font-size: var(--xsmall-font);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,16 +207,12 @@ ion-content::part(background) {
   border: 2px solid var(--theme-color);
 }
 
-
-
 .female_image {
   height: 78%;
   object-fit: contain;
   position: absolute;
   z-index: 10;
   bottom: 5px;
-  margin-left: 20px;
-  
 }
 
 .male_image {
@@ -345,10 +341,8 @@ ion-range {
 
 .scroll_div {
   // background: var(--theme-newHeader);
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
     linear-gradient(
       to right,
       #ffffff,
@@ -367,10 +361,8 @@ ion-range {
 
 .scroll_div2 {
   // background: var(--theme-newHeader);
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
     linear-gradient(to right, #ffffff, #ffdbb9, #ffc893, #ffdebe, #ffffff);
   // background: linear-gradient(to right, #FFFFFF, #FFEB95, #FDC02F, #FFA439, #FF9200,#E27001,#FFFFFF);
   height: 40px;
@@ -439,7 +431,6 @@ ion-range {
   color: var(--normal-color);
 }
 
-
 ion-checkbox {
   margin-inline-end: 10px;
   --border-radius: 5px;
@@ -458,11 +449,11 @@ ion-checkbox {
   height: 50px;
   width: 70%;
   &::part(native) {
-     --background: var(--profile-color) !important;
-        color:var(--button-text) !important;
+    --background: var(--profile-color) !important;
+    color: var(--button-text) !important;
     text-transform: none;
     box-shadow: var(--btnShaddow);
-    
+
     font-family: var(--theme-newFont);
   }
 }

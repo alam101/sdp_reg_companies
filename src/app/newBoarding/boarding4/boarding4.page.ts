@@ -35,18 +35,17 @@ export class Boarding4Page implements OnInit {
     private cdr: ChangeDetectorRef,
     private modalCtrl: ModalController,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {
     this.clientId = localStorage.getItem("clientId");
-    this.activatedRoute.queryParams.subscribe(res => {
-      this.from = res['from'];
-    })
+    this.activatedRoute.queryParams.subscribe((res) => {
+      this.from = res["from"];
+    });
   }
   goBack() {
     if (this.from) {
-      this.router.navigate(['new-profile']);
-    }
-    else {
+      this.router.navigate(["new-profile"]);
+    } else {
       this.storage.set("pendingPage", "/boarding3");
       this.navCtrl.navigateRoot(["/boarding3"]);
     }
@@ -69,9 +68,9 @@ export class Boarding4Page implements OnInit {
       console.log(res);
       this.profileData = res;
       const loc = this.localData.otherMaster.diseases.filter((f) =>
-        this.profileData ?.lifeStyle ?.diseases ?.includes(f.code)
+        this.profileData?.lifeStyle?.diseases?.includes(f.code),
       );
-      loc ?.forEach((ele) => (ele.isSelected = true));
+      loc?.forEach((ele) => (ele.isSelected = true));
       console.log("loc=============================>", loc);
       if (this.localData.otherMaster.diseases.length > 0) {
         let gender = this.localData.otherMaster.gender.filter((ele) => {
@@ -87,33 +86,44 @@ export class Boarding4Page implements OnInit {
           this.healths = this.localData.otherMaster.diseases.filter((ele) => {
             if (
               ele.code.toLowerCase() != "pd" &&
-                ele.code.toLowerCase() != "k" &&
-                ele.code.toLowerCase() != "p" &&
-                ele.code.toLowerCase() != "m" &&
-                ele.code.toLowerCase() != "l" &&
-                this.clientId === 'lalpathlabs' ?
-                (ele.code.toLowerCase() != "ir" &&
+              ele.code.toLowerCase() != "k" &&
+              ele.code.toLowerCase() != "p" &&
+              ele.code.toLowerCase() != "m" &&
+              ele.code.toLowerCase() != "l" &&
+              this.clientId === "lalpathlabs"
+                ? ele.code.toLowerCase() != "ir" &&
                   ele.code.toLowerCase() != "vb" &&
                   ele.code.toLowerCase() != "vd" &&
                   ele.code.toLowerCase() != "hp" &&
-                  ele.code.toLowerCase() != "cr") : true
-
+                  ele.code.toLowerCase() != "cr"
+                : true
             ) {
               if (
                 ele.value.includes("Allergy") ||
                 ele.value.includes("allergy")
               ) {
-                if (this.clientId === 'traya') {
-                  if (ele.code.toLowerCase() != "f"
-                    && ele.code.toLowerCase() != "so"
-                    && ele.code.toLowerCase() != "sf") {
+                if (this.clientId === "traya") {
+                  if (
+                    ele.code.toLowerCase() != "f" &&
+                    ele.code.toLowerCase() != "so" &&
+                    ele.code.toLowerCase() != "sf"
+                  ) {
                     this.allergies.push(ele);
-                  }
-                  else {
+                  } else {
                     this.trayaAllergies.push(ele);
                   }
-                }
-                else {
+                } else if (this.clientId === "plixkids") {
+                  debugger;
+                  if (
+                    ele.code.toLowerCase() != "f" &&
+                    ele.code.toLowerCase() != "n" &&
+                    ele.code.toLowerCase() != "ml"
+                  ) {
+                    this.allergies.push(ele);
+                  } else {
+                    this.trayaAllergies.push(ele);
+                  }
+                } else {
                   this.allergies.push(ele);
                 }
 
@@ -128,9 +138,7 @@ export class Boarding4Page implements OnInit {
                 return ele;
               }
             }
-
           });
-
 
           if (a.length === 0) {
             this.alergyDisabled = true;
@@ -166,8 +174,8 @@ export class Boarding4Page implements OnInit {
           }
         }
       }
-      if (this.clientId === 'enkeltec') {
-        this.healths = this.healths.filter(item => {
+      if (this.clientId === "enkeltec") {
+        this.healths = this.healths.filter((item) => {
           return (
             item.code === "AN" ||
             item.code === "CR" ||
@@ -178,8 +186,8 @@ export class Boarding4Page implements OnInit {
           );
         });
       }
-      if (this.clientId === 'lalpathlabs') {
-        this.healths = this.healths.filter(item => {
+      if (this.clientId === "lalpathlabs") {
+        this.healths = this.healths.filter((item) => {
           return (
             item.code.toLowerCase() != "ir" &&
             item.code.toLowerCase() != "vb" &&
@@ -187,14 +195,13 @@ export class Boarding4Page implements OnInit {
             item.code.toLowerCase() != "hp" &&
             item.code.toLowerCase() != "cr"
           );
-
         });
       }
     });
   }
 
   modalClose() {
-    this.router.navigate(['new-profile']);
+    this.router.navigate(["new-profile"]);
   }
 
   healthSelection(e, health, diseasesName) {
@@ -203,7 +210,7 @@ export class Boarding4Page implements OnInit {
     if (health.code == "K" || health.code == "L" || health.code == "M") {
       console.log("came in if case");
       this.utilities.presentAlert(
-        `Our solution is currently not optimised for ${diseasesName}, hence we regret to stop the further journey of weight loss by Smart Diet Planner.`
+        `Our solution is currently not optimised for ${diseasesName}, hence we regret to stop the further journey of weight loss by Smart Diet Planner.`,
       );
       // e.detail.checked = false;
       health.isSelected = false;
@@ -234,7 +241,7 @@ export class Boarding4Page implements OnInit {
       console.log("came in if case");
 
       this.utilities.presentAlert(
-        `Our solution is currently not optimised for ${health.value}, hence we regret to stop the further journey of weight loss by Smart Diet Planner.`
+        `Our solution is currently not optimised for ${health.value}, hence we regret to stop the further journey of weight loss by Smart Diet Planner.`,
       );
     } else {
       return;
@@ -275,19 +282,23 @@ export class Boarding4Page implements OnInit {
     });
   }
 
-
   reqBodyDiet = {
-    dietPlanName: 'trayaHealth'
+    dietPlanName: "trayaHealth",
   };
   goNext() {
-    for (let index = 0; index < this.localData.otherMaster.diseases.length; index++) {
+    for (
+      let index = 0;
+      index < this.localData.otherMaster.diseases.length;
+      index++
+    ) {
       for (let b = 0; b < this.trayaAllergies.length; b++) {
-        if (this.localData.otherMaster.diseases[index].code === this.trayaAllergies[b].code) {
+        if (
+          this.localData.otherMaster.diseases[index].code ===
+          this.trayaAllergies[b].code
+        ) {
           this.localData.otherMaster.diseases[index].isSelected = true;
         }
-
       }
-
     }
     if (typeof this.localData.otherMaster !== undefined)
       this.storage.set("localData", JSON.stringify(this.localData));
@@ -297,30 +308,39 @@ export class Boarding4Page implements OnInit {
       if (element.isSelected) {
         data.push(element.code);
       }
-
     });
 
-
     const reqBody = {
-      activities: this.profileData ?.lifeStyle ?.activities,
+      activities: this.profileData?.lifeStyle?.activities,
       diseases: data,
       communities:
-        typeof this.profileData ?.lifeStyle ?.communities === undefined ||
-          this.profileData ?.lifeStyle ?.communities === null
-            ? []
-            : this.profileData ?.lifeStyle ?.communities,
-      country: this.profileData ?.lifeStyle ?.country,
-      foodType: this.profileData ?.lifeStyle ?.foodType,
-      firstConsult: localStorage.getItem("clientId") === "orthocure" ? (this.profileData ?.lifeStyle ?.firstConsult === undefined ? false : this.profileData ?.lifeStyle ?.firstConsult) : null,
-      consultQA: this.profileData ?.lifeStyle ?.consultQA === undefined ? [] : this.profileData ?.lifeStyle ?.consultQA,
-      instructions: this.profileData ?.lifeStyle ?.instructions === undefined ? '' : this.profileData ?.lifeStyle ?.instructions,
-      dietPlanName: this.profileData ?.lifeStyle ?.dietPlanName
+        typeof this.profileData?.lifeStyle?.communities === undefined ||
+        this.profileData?.lifeStyle?.communities === null
+          ? []
+          : this.profileData?.lifeStyle?.communities,
+      country: this.profileData?.lifeStyle?.country,
+      foodType: this.profileData?.lifeStyle?.foodType,
+      firstConsult:
+        localStorage.getItem("clientId") === "orthocure"
+          ? this.profileData?.lifeStyle?.firstConsult === undefined
+            ? false
+            : this.profileData?.lifeStyle?.firstConsult
+          : null,
+      consultQA:
+        this.profileData?.lifeStyle?.consultQA === undefined
+          ? []
+          : this.profileData?.lifeStyle?.consultQA,
+      instructions:
+        this.profileData?.lifeStyle?.instructions === undefined
+          ? ""
+          : this.profileData?.lifeStyle?.instructions,
+      dietPlanName: this.profileData?.lifeStyle?.dietPlanName,
     };
 
     console.log(reqBody);
     this.appservice.postLifeStyle(reqBody).then((success) => {
-      if (localStorage.getItem("clientId") == 'traya') {
-        this.appservice.dietPlan(this.reqBodyDiet).then((res) => { });
+      if (localStorage.getItem("clientId") == "traya") {
+        this.appservice.dietPlan(this.reqBodyDiet).then((res) => {});
       }
     });
     if (this.from) {

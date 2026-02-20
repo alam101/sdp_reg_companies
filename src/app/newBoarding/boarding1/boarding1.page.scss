@@ -97,12 +97,13 @@ ion-content::part(background) {
   margin-left: 10%;
   margin-top: -134px;
 }
-.reg_img_child{
+.reg_img_child {
+  
   width: 80%;
   margin-left: 10%;
   margin-top: -134px;
-  img{
-  border-radius: 12rem;
+  img {
+    border-radius: 12rem;
   }
 }
 .input {
@@ -119,10 +120,10 @@ ion-content::part(background) {
   width: 70%;
   &::part(native) {
     --background: var(--profile-color) !important;
-        color:var(--button-text) !important;
+    color: var(--button-text) !important;
     text-transform: none;
     box-shadow: var(--btnShaddow);
-    
+
     font-family: var(--theme-newFont);
   }
 }

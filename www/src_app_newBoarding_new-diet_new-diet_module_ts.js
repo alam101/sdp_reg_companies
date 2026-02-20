@@ -1402,6 +1402,7 @@ let NewDietPage = class NewDietPage {
     this.isDetox = false;
     this.companyLogoBase64 = "";
     this.company_id = null;
+    this.isBotRegister = false;
     this.randomNumber = Number(Date.now()) * Math.random();
     this.defaultPlanCheck = false;
     this.tempdesease = [];
@@ -1456,6 +1457,8 @@ let NewDietPage = class NewDietPage {
       } else {
         this.company_id = res.companyId;
       }
+
+      this.isBotRegister = res?.isBotRegister === "true" ? true : false;
     });
     localStorage.setItem("currentDate", new Date().getTime() + "");
     this.subscription = this.broadcastService.getMessage().subscribe(res => {
@@ -1596,7 +1599,10 @@ ${url}`;
   }
 
   ngAfterViewInit() {
-    // this.openNutritionModel('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg.webp','','');
+    if (this.isBotRegister) {
+      this.gotoChat();
+    }
+
     if (src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_6__.CONSTANTS.dietDate && this.router.url.includes("refresh")) {
       this.selecteddate = moment__WEBPACK_IMPORTED_MODULE_4___default()(src_app_core_constants_constants__WEBPACK_IMPORTED_MODULE_6__.CONSTANTS.dietDate, "DDMMYYYY").format();
     } else {

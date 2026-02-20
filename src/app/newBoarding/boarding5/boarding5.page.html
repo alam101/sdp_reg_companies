@@ -1,16 +1,40 @@
 <ion-content>
   <div class="mainDiv">
     <div class="slider_div" *ngIf="!from">
-      <div [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'"></div>
-      <div [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines2' : 'lines2'">
+      <div
+        [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines' : 'lines'"
+      ></div>
+      <div
+        [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-lines2' : 'lines2'"
+      >
         <div></div>
       </div>
       <div class="slider_page">
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'">✓</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'">✓</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'">✓</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'">✓</p>
-        <p [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page-count-active' : 'page_Count_active'">5</p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'"
+        >
+          ✓
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'"
+        >
+          ✓
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'"
+        >
+          ✓
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-complete' : 'page_Count_active complete'"
+        >
+          ✓
+        </p>
+        <p
+          [ngClass]="clientId && (clientId == 'aviva') ? 'aviva-page-count-active' : 'page_Count_active'"
+        >
+          5
+        </p>
       </div>
     </div>
     <div
@@ -25,7 +49,9 @@
         ></ion-icon>
       </div>
       <p class="title-text">
-        Finally, we'd like you to tell us about your food and diet preferences.
+        {{clientId==='plixkids'?'Tell us about your kid’s food and regional diet
+        preferences.':'Finally, we\'d like you to tell us about your food and
+        diet preferences.'}}
       </p>
       <p class="title">Diet Preferences</p>
       <div class="content_sub_div">
@@ -99,35 +125,38 @@
         </div>
       </div>
       <p class="title" *ngIf="country?.name === 'India'">
-        Major Regional Preference
+        {{clientId === 'plixkids' ? 'Include regional preference options' :
+        'Major Regional Preference'}}:
       </p>
       <div class="country_pref_div" *ngIf="country?.name === 'India'">
-       <ion-radio-group mode="ios" [(ngModel)]="regionalPref">
-  <ion-grid class="pad_0">
-    <ion-row>
-      <ion-col
-        size="6"
-        style="padding: 3px"
-        *ngFor="let i of localData?.otherMaster?.community"
-      >
-        <ion-card
-          class="regional_card"
-          [ngClass]="regionalPref === i.code && 'card_Border'"
-        >
-          <ion-item lines="none">
-            <ion-label class="country_list_name">{{ i.value }}</ion-label>
-            <ion-radio
-              slot="start"
-              [value]="i.code"
-              mode="ios"
-              class="check-box"
-            ></ion-radio>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-radio-group>
+        <ion-radio-group mode="ios" [(ngModel)]="regionalPref">
+          <ion-grid class="pad_0">
+            <ion-row>
+              <ion-col
+                size="6"
+                style="padding: 3px"
+                *ngFor="let i of localData?.otherMaster?.community"
+              >
+                <ion-card
+                  class="regional_card"
+                  [ngClass]="regionalPref === i.code && 'card_Border'"
+                >
+                  <ion-item lines="none">
+                    <ion-label class="country_list_name"
+                      >{{ i.value }}</ion-label
+                    >
+                    <ion-radio
+                      slot="start"
+                      [value]="i.code"
+                      mode="ios"
+                      class="check-box"
+                    ></ion-radio>
+                  </ion-item>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-radio-group>
       </div>
 
       <div class="go_btn_div" *ngIf="!from">
@@ -173,4 +202,5 @@
       </div>
     </div>
   </div>
+
 </ion-content>

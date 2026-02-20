@@ -76,6 +76,7 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
   subscription: Subscription;
   planName: any;
   company_id = null;
+  isBotRegister = false;
   randomNumber = Number(Date.now()) * Math.random();
   constructor(
     private appServices: AppService,
@@ -98,6 +99,7 @@ export class NewDietPage implements OnInit, AfterViewInit, OnDestroy {
       } else {
         this.company_id = res.companyId;
       }
+      this.isBotRegister = res?.isBotRegister === "true" ? true : false;
     });
     localStorage.setItem("currentDate", new Date().getTime() + "");
     this.subscription = this.broadcastService.getMessage().subscribe((res) => {
@@ -217,7 +219,10 @@ ${url}`;
     this.displayFooter = event;
   }
   ngAfterViewInit() {
-    // this.openNutritionModel('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg.webp','','');
+    if (this.isBotRegister) {
+      this.gotoChat();
+    }
+
     if (CONSTANTS.dietDate && this.router.url.includes("refresh")) {
       this.selecteddate = moment(CONSTANTS.dietDate, "DDMMYYYY").format();
     } else {
