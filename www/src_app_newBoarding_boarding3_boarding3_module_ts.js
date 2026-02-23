@@ -186,7 +186,7 @@ let Boarding3Page = class Boarding3Page {
                     }
                 });
             }
-            else if (this.compConfig.isChild && this.clientId === "plixkids") {
+            else if (this.compConfig.isChild) {
                 this.localData?.otherMaster?.activities.forEach((ele) => {
                     ele.val = ele.value.split("(")[0];
                     ele.sub_val = ele.value.split("(")[1].replace(")", "");
@@ -196,6 +196,17 @@ let Boarding3Page = class Boarding3Page {
                         localStorage.setItem("activities", JSON.stringify(ele));
                     }
                 });
+                if (this.clientId === "plixkids") {
+                    this.compConfig.activies.forEach((ele) => {
+                        ele.val = ele.value.split("(")[0];
+                        //   ele.sub_val = ele.value.split("(")[1].replace(")", "");
+                        if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
+                            ele.isSelected = true;
+                            this.newModal = ele.val;
+                            localStorage.setItem("activities", JSON.stringify(ele));
+                        }
+                    });
+                }
             }
             else {
                 this.compConfig.activies.forEach((ele) => {
@@ -212,7 +223,7 @@ let Boarding3Page = class Boarding3Page {
     }
     selectActivity(e) {
         console.log(e);
-        if (this.clientId !== "enkeltec") {
+        if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
             this.localData?.otherMaster?.activities.forEach((ele) => {
                 if (ele.val === e.detail.value) {
                     ele.isSelected = true;
@@ -239,7 +250,7 @@ let Boarding3Page = class Boarding3Page {
     }
     goNext() {
         let data;
-        if (this.clientId !== "enkeltec") {
+        if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
             data = this.localData.otherMaster?.activities.find((s) => s.isSelected);
         }
         else {

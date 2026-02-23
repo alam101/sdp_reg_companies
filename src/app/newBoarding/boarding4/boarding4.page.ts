@@ -113,7 +113,6 @@ export class Boarding4Page implements OnInit {
                     this.trayaAllergies.push(ele);
                   }
                 } else if (this.clientId === "plixkids") {
-                  debugger;
                   if (
                     ele.code.toLowerCase() != "f" &&
                     ele.code.toLowerCase() != "n" &&

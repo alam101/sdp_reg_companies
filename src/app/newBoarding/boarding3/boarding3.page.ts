@@ -85,6 +85,7 @@ export class Boarding3Page implements OnInit {
         return false;
       }
       this.profileData = res;
+     
       this.localData.otherMaster.bmi.bmi = this.profileData?.demographic?.bmi;
       if (!this.compConfig.isChild) {
         this.localData?.otherMaster?.activities.forEach((ele) => {
@@ -96,7 +97,7 @@ export class Boarding3Page implements OnInit {
             localStorage.setItem("activities", JSON.stringify(ele));
           }
         });
-      } else if (this.compConfig.isChild && this.clientId === "plixkids") {
+      } else if (this.compConfig.isChild) {
         this.localData?.otherMaster?.activities.forEach((ele) => {
           ele.val = ele.value.split("(")[0];
           ele.sub_val = ele.value.split("(")[1].replace(")", "");
@@ -106,6 +107,17 @@ export class Boarding3Page implements OnInit {
             localStorage.setItem("activities", JSON.stringify(ele));
           }
         });
+        if (this.clientId === "plixkids") {
+          this.compConfig.activies.forEach((ele) => {
+          ele.val = ele.value.split("(")[0];
+       //   ele.sub_val = ele.value.split("(")[1].replace(")", "");
+          if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
+            ele.isSelected = true;
+            this.newModal = ele.val;
+            localStorage.setItem("activities", JSON.stringify(ele));
+          }
+        });
+        }
       } else {
         this.compConfig.activies.forEach((ele) => {
           ele.val = ele.value.split("(")[0];
@@ -122,7 +134,7 @@ export class Boarding3Page implements OnInit {
 
   selectActivity(e) {
     console.log(e);
-    if (this.clientId !== "enkeltec") {
+    if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
       this.localData?.otherMaster?.activities.forEach((ele) => {
         if (ele.val === e.detail.value) {
           ele.isSelected = true;
@@ -153,7 +165,7 @@ export class Boarding3Page implements OnInit {
 
   goNext() {
     let data;
-    if (this.clientId !== "enkeltec") {
+    if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
       data = this.localData.otherMaster?.activities.find((s) => s.isSelected);
     } else {
       data = this.compConfig?.activies?.find((s) => s.isSelected);

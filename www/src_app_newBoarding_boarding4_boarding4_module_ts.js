@@ -202,7 +202,6 @@ let Boarding4Page = class Boarding4Page {
                                     }
                                 }
                                 else if (this.clientId === "plixkids") {
-                                    debugger;
                                     if (ele.code.toLowerCase() != "f" &&
                                         ele.code.toLowerCase() != "n" &&
                                         ele.code.toLowerCase() != "ml") {
