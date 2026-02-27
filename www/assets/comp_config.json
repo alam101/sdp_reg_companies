@@ -8084,7 +8084,7 @@
       "profile2": false,
       "consumed_cal": true,
       "cal_count": true,
-      "download": true,
+      "download": false,
       "pie_chart": false,
       "alternative": true,
       "video": true,
@@ -8113,7 +8113,7 @@
       "showWhatsApp": false,
       "dietitianAction": true,
       "bot": false,
-      "scanner": true,
+      "scanner": false,
       "goals": [
         {
           "heading": "Weight Management",

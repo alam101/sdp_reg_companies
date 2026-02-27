@@ -398,7 +398,7 @@ export class Boarding2Page implements OnInit, AfterViewInit {
 
     if (this.isChild) {
       if (
-        new Date().getFullYear() - this.targetYear > 3 &&
+        new Date().getFullYear() - this.targetYear >= 3 &&
         new Date().getFullYear() - this.targetYear < 6
       ) {
         localStorage.setItem("childDietPlan", "SK6");
@@ -478,13 +478,21 @@ export class Boarding2Page implements OnInit, AfterViewInit {
   }
 
   convertToInFromCM() {
-    if (this.heightType === "cm") {
+    if (this.clientId === "plixkids") {
       this.heightTypeForAPI = "cm";
+      if (this.heightType === "feet") {
+        return Math.round(this.selectedHeight * 2.54);
+      }
       return this.selectedHeight;
     } else {
-      this.heightTypeForAPI = "in";
-      console.log(this.heightSplit);
-      return this.selectedHeight;
+      if (this.heightType === "cm") {
+        this.heightTypeForAPI = "cm";
+        return this.selectedHeight;
+      } else {
+        this.heightTypeForAPI = "in";
+        console.log(this.heightSplit);
+        return this.selectedHeight;
+      }
     }
   }
 

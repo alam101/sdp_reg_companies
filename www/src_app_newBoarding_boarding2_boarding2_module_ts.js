@@ -460,7 +460,7 @@ let Boarding2Page = class Boarding2Page {
     }
 
     if (this.isChild) {
-      if (new Date().getFullYear() - this.targetYear > 3 && new Date().getFullYear() - this.targetYear < 6) {
+      if (new Date().getFullYear() - this.targetYear >= 3 && new Date().getFullYear() - this.targetYear < 6) {
         localStorage.setItem("childDietPlan", "SK6");
       } else if (new Date().getFullYear() - this.targetYear > 5 && new Date().getFullYear() - this.targetYear < 9) {
         localStorage.setItem("childDietPlan", "SK9");
@@ -519,13 +519,23 @@ let Boarding2Page = class Boarding2Page {
   }
 
   convertToInFromCM() {
-    if (this.heightType === "cm") {
+    if (this.clientId === "plixkids") {
       this.heightTypeForAPI = "cm";
+
+      if (this.heightType === "feet") {
+        return Math.round(this.selectedHeight * 2.54);
+      }
+
       return this.selectedHeight;
     } else {
-      this.heightTypeForAPI = "in";
-      console.log(this.heightSplit);
-      return this.selectedHeight;
+      if (this.heightType === "cm") {
+        this.heightTypeForAPI = "cm";
+        return this.selectedHeight;
+      } else {
+        this.heightTypeForAPI = "in";
+        console.log(this.heightSplit);
+        return this.selectedHeight;
+      }
     }
   }
 
