@@ -8239,7 +8239,7 @@
           "data": 1.2,
           "isSelected": false,
           "steps": 7500,
-          "sub_val": "Minimal activity. ",
+          "sub_val": "",
           "val": "Mostly Inactive",
           "value": "Mostly Inactive",
           "image": "../../../assets/images/sedentary.png"
@@ -8250,7 +8250,7 @@
           "data": 1.375,
           "isSelected": false,
           "steps": 7500,
-          "sub_val": "Occasional light activities.",
+          "sub_val": "",
           "val": "Moderately Active",
           "value": "Moderately Active",
           "image": "../../../assets/images/light_active.png"
@@ -8262,7 +8262,7 @@
           "data": 1.7,
           "isSelected": false,
           "steps": 10000,
-          "sub_val": "Constantly high energy.",
+          "sub_val": "",
           "val": "Highly Active",
           "value": "Highly Active",
           "image": "../../../assets/images/hyperactive.png"

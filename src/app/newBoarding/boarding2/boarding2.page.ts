@@ -43,8 +43,8 @@ export class Boarding2Page implements OnInit, AfterViewInit {
   inputHeight: any = `2'7"`;
   weight: any = 15.0;
   minWeight: any = 15.0;
-  targetweight: any = 15.0;
-  targetminWeight: any = 15.0;
+  targetweight: any = 30.0;
+  targetminWeight: any = 30.0;
   targetmaxWeight: any = 150.0;
   // targetweightType: any = "kg";
 
@@ -89,7 +89,7 @@ export class Boarding2Page implements OnInit, AfterViewInit {
     } else {
       this.weight = 15.0;
       this.minWeight = 15.0;
-      this.targetweight = 15.0;
+      this.targetweight = 30.0;
       this.inputHeight = `2'7"`;
     }
 
@@ -403,18 +403,18 @@ export class Boarding2Page implements OnInit, AfterViewInit {
       ) {
         localStorage.setItem("childDietPlan", "SK6");
       } else if (
-        new Date().getFullYear() - this.targetYear > 6 &&
+        new Date().getFullYear() - this.targetYear > 5 &&
         new Date().getFullYear() - this.targetYear < 9
       ) {
         localStorage.setItem("childDietPlan", "SK9");
       } else if (
-        new Date().getFullYear() - this.targetYear > 9 &&
+        new Date().getFullYear() - this.targetYear > 8 &&
         new Date().getFullYear() - this.targetYear <= 15 &&
         this.gender == "G1"
       ) {
         localStorage.setItem("childDietPlan", "SKB12");
       } else if (
-        new Date().getFullYear() - this.targetYear > 9 &&
+        new Date().getFullYear() - this.targetYear > 8 &&
         new Date().getFullYear() - this.targetYear <= 15 &&
         this.gender == "G2"
       ) {
@@ -454,6 +454,22 @@ export class Boarding2Page implements OnInit, AfterViewInit {
         );
 
       if (this.from) {
+        if (this.clientId === "plixkids") {
+          const reqBody = {
+            dietPlanName: this.isChild
+              ? localStorage.getItem("childDietPlan")
+              : localStorage.getItem("goals"),
+          };
+
+          console.log(reqBody);
+          this.appService.postLifeStyle(reqBody).then((success) => {
+            if (this.from) {
+              return this.modalClose();
+            }
+            //    this.storage.set("pendingPage", "/boarding4");
+            //    this.navCtrl.navigateForward(["/boarding4"]);
+          });
+        }
         return this.modalClose();
       }
       this.storage.set("pendingPage", "/boarding3");

@@ -164,6 +164,8 @@ export class Boarding3Page implements OnInit {
   }
 
   goNext() {
+    console.log(localStorage.getItem("childDietPlan"));
+    
     let data;
     if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
       data = this.localData.otherMaster?.activities.find((s) => s.isSelected);
@@ -205,7 +207,7 @@ export class Boarding3Page implements OnInit {
             : this.profileData?.lifeStyle?.firstConsult
           : null,
       foodType: this.profileData?.lifeStyle?.foodType,
-      dietPlanName: this.isChild
+      dietPlanName: (this.isChild && this.clientId === "plixkids")
         ? localStorage.getItem("childDietPlan")
         : localStorage.getItem("goals"), //'fatShredding', //localStorage.getItem("goals"),
       consultQA:

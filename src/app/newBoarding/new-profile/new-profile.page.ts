@@ -258,10 +258,18 @@ export class NewProfilePage implements OnInit, AfterViewInit {
             (item) => item.isSelected,
           );
         }
+
         this.profileData.lifeStyle.diseases =
           this.localData?.otherMaster?.diseases.filter((item) =>
             this.profileData?.lifeStyle?.diseases?.includes(item.code),
           );
+        if (this.clientId === "plixkids") {
+          this.profileData.lifeStyle.diseases = [
+            ...this.profileData.lifeStyle.diseases,
+          ].filter((item) => {
+            return item.code !== "F" && item.code !== "N" && item.code !== "ML";
+          });
+        }
       });
       let h: any =
         this.profileData?.demographic?.height?.unit === "in"

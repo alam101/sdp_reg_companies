@@ -146,8 +146,8 @@ let Boarding2Page = class Boarding2Page {
     this.inputHeight = `2'7"`;
     this.weight = 15.0;
     this.minWeight = 15.0;
-    this.targetweight = 15.0;
-    this.targetminWeight = 15.0;
+    this.targetweight = 30.0;
+    this.targetminWeight = 30.0;
     this.targetmaxWeight = 150.0; // targetweightType: any = "kg";
 
     this.weightArray = [0, 1, 2, 3, 4, 5, 6];
@@ -176,7 +176,7 @@ let Boarding2Page = class Boarding2Page {
     } else {
       this.weight = 15.0;
       this.minWeight = 15.0;
-      this.targetweight = 15.0;
+      this.targetweight = 30.0;
       this.inputHeight = `2'7"`;
     }
 
@@ -462,11 +462,11 @@ let Boarding2Page = class Boarding2Page {
     if (this.isChild) {
       if (new Date().getFullYear() - this.targetYear > 3 && new Date().getFullYear() - this.targetYear < 6) {
         localStorage.setItem("childDietPlan", "SK6");
-      } else if (new Date().getFullYear() - this.targetYear > 6 && new Date().getFullYear() - this.targetYear < 9) {
+      } else if (new Date().getFullYear() - this.targetYear > 5 && new Date().getFullYear() - this.targetYear < 9) {
         localStorage.setItem("childDietPlan", "SK9");
-      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == "G1") {
+      } else if (new Date().getFullYear() - this.targetYear > 8 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == "G1") {
         localStorage.setItem("childDietPlan", "SKB12");
-      } else if (new Date().getFullYear() - this.targetYear > 9 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == "G2") {
+      } else if (new Date().getFullYear() - this.targetYear > 8 && new Date().getFullYear() - this.targetYear <= 15 && this.gender == "G2") {
         localStorage.setItem("childDietPlan", "SKG12");
       } else {
         this.utilities.showErrorToast("Please enter correct year for child plan");
@@ -496,6 +496,20 @@ let Boarding2Page = class Boarding2Page {
       });
 
       if (this.from) {
+        if (this.clientId === "plixkids") {
+          const reqBody = {
+            dietPlanName: this.isChild ? localStorage.getItem("childDietPlan") : localStorage.getItem("goals")
+          };
+          console.log(reqBody);
+          this.appService.postLifeStyle(reqBody).then(success => {
+            if (this.from) {
+              return this.modalClose();
+            } //    this.storage.set("pendingPage", "/boarding4");
+            //    this.navCtrl.navigateForward(["/boarding4"]);
+
+          });
+        }
+
         return this.modalClose();
       }
 

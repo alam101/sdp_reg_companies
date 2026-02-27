@@ -154,7 +154,29 @@ export class Boarding4Page implements OnInit {
               ele.value.includes("Allergy") ||
               ele.value.includes("allergy")
             ) {
-              this.allergies.push(ele);
+              if (this.clientId === "traya") {
+                if (
+                  ele.code.toLowerCase() != "f" &&
+                  ele.code.toLowerCase() != "so" &&
+                  ele.code.toLowerCase() != "sf"
+                ) {
+                  this.allergies.push(ele);
+                } else {
+                  this.trayaAllergies.push(ele);
+                }
+              } else if (this.clientId === "plixkids") {
+                if (
+                  ele.code.toLowerCase() != "f" &&
+                  ele.code.toLowerCase() != "n" &&
+                  ele.code.toLowerCase() != "ml"
+                ) {
+                  this.allergies.push(ele);
+                } else {
+                  this.trayaAllergies.push(ele);
+                }
+              } else {
+                this.allergies.push(ele);
+              }
               if (ele.isSelected) {
                 a.push(ele);
               }
@@ -185,6 +207,7 @@ export class Boarding4Page implements OnInit {
           );
         });
       }
+
       if (this.clientId === "lalpathlabs") {
         this.healths = this.healths.filter((item) => {
           return (
@@ -338,15 +361,18 @@ export class Boarding4Page implements OnInit {
 
     console.log(reqBody);
     this.appservice.postLifeStyle(reqBody).then((success) => {
-      if (localStorage.getItem("clientId") == "traya") {
+      if (
+        localStorage.getItem("clientId") == "traya" ||
+        localStorage.getItem("clientId") == "plixkids"
+      ) {
         this.appservice.dietPlan(this.reqBodyDiet).then((res) => {});
       }
+      if (this.from) {
+        return this.modalClose();
+      }
+      this.storage.set("pendingPage", "/boarding5");
+      this.navCtrl.navigateForward(["boarding5"]);
     });
-    if (this.from) {
-      return this.modalClose();
-    }
-    this.storage.set("pendingPage", "/boarding5");
-    this.navCtrl.navigateForward(["boarding5"]);
   }
 
   // selectHealth(health,value) {

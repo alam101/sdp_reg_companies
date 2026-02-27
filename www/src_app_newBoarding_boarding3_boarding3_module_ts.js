@@ -249,6 +249,7 @@ let Boarding3Page = class Boarding3Page {
         }
     }
     goNext() {
+        console.log(localStorage.getItem("childDietPlan"));
         let data;
         if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
             data = this.localData.otherMaster?.activities.find((s) => s.isSelected);
@@ -286,7 +287,7 @@ let Boarding3Page = class Boarding3Page {
                     : this.profileData?.lifeStyle?.firstConsult
                 : null,
             foodType: this.profileData?.lifeStyle?.foodType,
-            dietPlanName: this.isChild
+            dietPlanName: (this.isChild && this.clientId === "plixkids")
                 ? localStorage.getItem("childDietPlan")
                 : localStorage.getItem("goals"),
             consultQA: this.profileData?.lifeStyle?.consultQA === undefined
