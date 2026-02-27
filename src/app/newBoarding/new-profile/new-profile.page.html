@@ -473,9 +473,9 @@
           ></ion-img>
         </div>
         <p class="commonText">
-          Physical Activity: <br /><span style="margin-left: 0%"
-            >{{ profileData?.lifeStyle?.activities?.value?.split('(')[0]
-            }}</span
+          Physical Activity: <br /><span style="margin-left: 0%">
+            {{
+            getActivityLabel(profileData?.lifeStyle?.activities?.value) }}</span
           >
         </p>
       </div>
@@ -507,7 +507,9 @@
             {{clientId==='plixkids'?'Allergies:':'Health Conditions:'}} <br />
 
             <ng-container *ngIf="clientId==='plixkids'; else healthBlock">
-              <span *ngFor="let d of profileData?.lifeStyle?.diseases; let last = last">
+              <span
+                *ngFor="let d of profileData?.lifeStyle?.diseases; let last = last"
+              >
                 {{d.value}}<span *ngIf="!last">,{{' '}}</span>
               </span>
             </ng-container>

@@ -4,7 +4,6 @@ import { Storage } from "@ionic/storage";
 import { AppService } from "../app.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UTILITIES } from "../utils/utilities";
-
 @Component({
   selector: "app-new-profile",
   templateUrl: "./new-profile.page.html",
@@ -234,12 +233,26 @@ export class NewProfilePage implements OnInit, AfterViewInit {
         this.profileData.lifeStyle.country = this.localData?.countries.find(
           (f) => f._id === this.profileData.lifeStyle.country,
         );
-        if (this.clientId !== "enkeltec") {
+        if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
           this.profileData.lifeStyle.activities =
             this.localData?.otherMaster?.activities.find(
               (item) =>
                 this.profileData?.lifeStyle?.activities.code === item.code,
             );
+        } else if (this.clientId === "plixkids") {
+          const activitiesCode = this.profileData?.lifeStyle?.activities?.code;
+
+          this.profileData.lifeStyle.activities =
+            this.compConfig?.activities?.find(
+              (item) => activitiesCode === item.code,
+            );
+
+          console.log(
+            "this.profileData.lifeStyle.activities",
+            activitiesCode,
+            this.compConfig,
+            this.profileData.lifeStyle.activities,
+          );
         } else {
           this.profileData.lifeStyle.activities = this.compConfig.activies.find(
             (item) =>
@@ -295,6 +308,10 @@ export class NewProfilePage implements OnInit, AfterViewInit {
   }
 
   communitiesArr = [];
+  getActivityLabel(value: string): string {
+    return value ? value.split("(")[0] : "";
+  }
+
   getCommunities(communities) {
     for (let index = 0; index < communities.length; index++) {
       if (communities[index] === "P") {
