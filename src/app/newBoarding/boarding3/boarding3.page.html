@@ -57,7 +57,7 @@
         [(ngModel)]="newModal"
         (ionChange)="selectActivity($event)"
       >
-        <span *ngIf="compConfig?.activies===undefined">
+        <span *ngIf="compConfig?.activities===undefined">
           <div
             class="card_div"
             (click)="newModal=activity?.val"
@@ -82,11 +82,11 @@
             </ion-card>
           </div>
         </span>
-        <span *ngIf="compConfig?.activies!==undefined">
+        <span *ngIf="compConfig?.activities!==undefined">
           <div
             class="card_div"
             (click)="newModal=activity?.val"
-            *ngFor="let activity of compConfig?.activies"
+            *ngFor="let activity of compConfig?.activities"
           >
             <ion-radio
               class="radio-button"

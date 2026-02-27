@@ -85,7 +85,7 @@ export class Boarding3Page implements OnInit {
         return false;
       }
       this.profileData = res;
-     
+
       this.localData.otherMaster.bmi.bmi = this.profileData?.demographic?.bmi;
       if (!this.compConfig.isChild) {
         this.localData?.otherMaster?.activities.forEach((ele) => {
@@ -108,18 +108,18 @@ export class Boarding3Page implements OnInit {
           }
         });
         if (this.clientId === "plixkids") {
-          this.compConfig.activies.forEach((ele) => {
-          ele.val = ele.value.split("(")[0];
-       //   ele.sub_val = ele.value.split("(")[1].replace(")", "");
-          if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
-            ele.isSelected = true;
-            this.newModal = ele.val;
-            localStorage.setItem("activities", JSON.stringify(ele));
-          }
-        });
+          this.compConfig.activities.forEach((ele) => {
+            ele.val = ele.value.split("(")[0];
+            //   ele.sub_val = ele.value.split("(")[1].replace(")", "");
+            if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
+              ele.isSelected = true;
+              this.newModal = ele.val;
+              localStorage.setItem("activities", JSON.stringify(ele));
+            }
+          });
         }
       } else {
-        this.compConfig.activies.forEach((ele) => {
+        this.compConfig.activities.forEach((ele) => {
           ele.val = ele.value.split("(")[0];
           ele.sub_val = ele.value.split("(")[1].replace(")", "");
           if (this.profileData?.lifeStyle?.activities?.code == ele.code) {
@@ -148,7 +148,7 @@ export class Boarding3Page implements OnInit {
         }
       });
     } else {
-      this.compConfig?.activies?.forEach((ele) => {
+      this.compConfig?.activities?.forEach((ele) => {
         if (ele.val === e.detail.value) {
           ele.isSelected = true;
           this.selectedValue = ele;
@@ -165,12 +165,12 @@ export class Boarding3Page implements OnInit {
 
   goNext() {
     console.log(localStorage.getItem("childDietPlan"));
-    
+
     let data;
     if (this.clientId !== "enkeltec" && this.clientId !== "plixkids") {
       data = this.localData.otherMaster?.activities.find((s) => s.isSelected);
     } else {
-      data = this.compConfig?.activies?.find((s) => s.isSelected);
+      data = this.compConfig?.activities?.find((s) => s.isSelected);
     }
     if (!data) {
       this.utilities.presentToast("Please select your activity level.");
@@ -207,9 +207,10 @@ export class Boarding3Page implements OnInit {
             : this.profileData?.lifeStyle?.firstConsult
           : null,
       foodType: this.profileData?.lifeStyle?.foodType,
-      dietPlanName: (this.isChild && this.clientId === "plixkids")
-        ? localStorage.getItem("childDietPlan")
-        : localStorage.getItem("goals"), //'fatShredding', //localStorage.getItem("goals"),
+      dietPlanName:
+        this.isChild && this.clientId === "plixkids"
+          ? localStorage.getItem("childDietPlan")
+          : localStorage.getItem("goals"), //'fatShredding', //localStorage.getItem("goals"),
       consultQA:
         this.profileData?.lifeStyle?.consultQA === undefined
           ? []
