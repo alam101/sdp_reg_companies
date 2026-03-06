@@ -265,11 +265,7 @@
       [duration]="plandata?.trail"
     ></app-appointent>
 
-    <div
-      class="meal_workout_title_div"
-      *ngIf="firstConsult!==false"
-      style="margin-bottom: 0.5rem"
-    >
+    <div class="meal_workout_title_div" *ngIf="firstConsult!==false">
       <p class="meal_workout_title" style="white-space: nowrap">
         Diet for {{moment(newSelectedDate).format('DD-MM-YYYY') ===
         moment(today).format('DD-MM-YYYY') ? 'Today' :
@@ -376,7 +372,7 @@
       </div>
     </div>
 
-    <div class="new-search">
+    <div class="new-search" style="margin-bottom: 1.5rem">
       <div
         style="position: relative; display: flex"
         *ngIf="compConfig?.isSearch && !isPlanExpired"
@@ -576,9 +572,7 @@
               </ion-card-content>
             </ion-card>
           </ion-slide>
-          <ion-slide
-            *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'B') || isIncludeDietPlanCondition(dietPlanName)==='pressure'"
-          >
+          <ion-slide>
             <ion-card>
               <ion-card-header> </ion-card-header>
               <ion-card-content>
@@ -594,9 +588,7 @@
               </ion-card-content>
             </ion-card>
           </ion-slide>
-          <ion-slide
-            *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'D') || isIncludeDietPlanCondition(dietPlanName)==='sugar'"
-          >
+          <ion-slide>
             <ion-card>
               <ion-card-header> </ion-card-header>
               <ion-card-content>
@@ -612,9 +604,7 @@
               </ion-card-content>
             </ion-card>
           </ion-slide>
-          <ion-slide
-            *ngIf="isIncludeDesease(profileData?.lifeStyle?.diseases,'C')|| isIncludeDietPlanCondition(dietPlanName)==='cholesterol'"
-          >
+          <ion-slide>
             <ion-card>
               <ion-card-header> </ion-card-header>
               <ion-card-content>
