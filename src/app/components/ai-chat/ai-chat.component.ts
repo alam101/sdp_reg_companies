@@ -36,7 +36,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
     { id: 9, name:"Alcohol Guidance",label: 'Can I drink alcohol? If yes, what’s allowed for my condition?' },
     { id: 10, name:"Weight Loss Tips",label: 'How can I lose weight safely and effectively?' },
     { id: 11, name:"Sleep & Stress",label: 'Share some tips to improve sleep and reduce stress.' }
-    // { id: 12, name:"Start Diet Recall", label: 'Let’s do a diet recall session.' } // 👈 Added recall trigger
+  
   ];
 
   recall = [

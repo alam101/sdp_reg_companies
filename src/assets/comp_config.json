@@ -215,7 +215,7 @@
           "options": [
             {
               "name": "Muscle Building",
-              "value": "muscleGain",
+              "value": "FITTY_Musclebuild",
               "label": "Pump and get stronger",
               "imgUrl": "../../../assets/newImages/aviva-images/goal-2.png"
             }
