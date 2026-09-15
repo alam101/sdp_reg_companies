@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   };
   @ViewChild("testSlider") slider;
   slideIndex: any;
-  token: any; //="eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJlbWFpbCI6IjkxLTk5NTg0Njk4MzQiLCJkZXZpY2VJZCI6IjIxMzIxMzIxIiwiaWF0IjoxNjY4MjQ3NTI2fQ.aHS3MBjX_3yK-VXLUPTDXqvC1-seurwYStS4_iNIvo20miQg2RPSiCXbOaJHqB0l7oHq_RB6JnlP_Eof7R_haA";
+  token: any;
   clientId = "";
   type="1";
   isModalOpen = false;
