@@ -74,12 +74,17 @@ export class AppService {
     response_type,
     design,
   ): Observable<any> {
-    const url =
-      APIS.pithanURL +
-      `${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
-    &dietitian_email=${dietitan_email?.trim()}&response_type=${response_type}&design=${design}`;
-
-    return this.httpClient.get(url, {});
+    return this.httpClient.get(
+      this.buildPdfUrl(
+        comp_id,
+        user_id,
+        dietitian_name,
+        dietitan_email,
+        response_type,
+        design,
+      ),
+      this.pdfRequestOptions(response_type),
+    );
   }
 
   getUserAgentType(ua: string): "Android App" | "IOS App" | "Web" {
@@ -100,12 +105,47 @@ export class AppService {
     response_type,
     design,
   ): Observable<any> {
-    const url =
-      APIS.pithanURL +
-      `${APIS.downloadPdfApiNew}?company_id=${comp_id}&user_id=${user_id.trim()}&trigger_webhook=true&dietitian_name=${dietitian_name}
-    &dietitian_email=${dietitan_email?.trim()}&response_type=${response_type}&design=${design}`;
+    return this.httpClient.get(
+      this.buildPdfUrl(
+        comp_id,
+        user_id,
+        dietitian_name,
+        dietitan_email,
+        response_type,
+        design,
+      ),
+      this.pdfRequestOptions(response_type),
+    );
+  }
 
-    return this.httpClient.get(url, {});
+  private buildPdfUrl(
+    comp_id,
+    user_id,
+    dietitian_name,
+    dietitan_email,
+    response_type,
+    design,
+  ): string {
+    const params = {
+      company_id: comp_id ?? "",
+      user_id: user_id?.trim() ?? "",
+      trigger_webhook: "true",
+      dietitian_name: dietitian_name?.toString()?.trim() ?? "",
+      dietitian_email: dietitan_email?.trim() ?? "",
+      response_type: response_type ?? "",
+      design: design ?? "",
+    };
+    const query = Object.keys(params)
+      .map((key) => `${key}=${encodeURIComponent(params[key])}`)
+      .join("&");
+
+    return `${APIS.pithanURL}${APIS.downloadPdfApiNew}?${query}`;
+  }
+
+  // response_type=file returns raw PDF bytes, so the default JSON parsing has to
+  // be turned off — otherwise Angular fails on "%PDF-1.4" with a status-200 error.
+  private pdfRequestOptions(response_type): any {
+    return response_type === "file" ? { responseType: "blob" } : {};
   }
 
   getDietPlans(isDetox, date, country, recommended) {
