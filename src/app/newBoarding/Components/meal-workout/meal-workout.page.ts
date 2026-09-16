@@ -11,7 +11,7 @@ import { times } from "lodash";
 import moment from "moment";
 import { empty } from "rxjs";
 import { AppService } from "../../../home-service/app.service";
-import { CONSTANTS } from "src/app/core/constants/constants";
+import { CONSTANTS, WELLBEING_UTM_MAP, WELLBEING_UTM_SOURCE } from "src/app/core/constants/constants";
 import { UTILITIES } from "src/app/core/utility/utilities";
 import { PortionCountPage } from "../../Components/alternate-diet/portion-count/portion-count.page";
 import { ViewProductPage } from "../../Components/view-product/view-product.page";
@@ -148,7 +148,17 @@ export class MealWorkoutPage implements OnInit {
     this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
 
   }
-  gotoBuyUrl(url) {
+  gotoBuyUrl(d) {
+    if (!d?.BuyUrl) return;
+    let url = d.BuyUrl;
+    if (this.clientId === "wellbeing") {
+      const foodId = String(d?.itemCode ?? d?.code ?? d?._id ?? "");
+      const utmMedium = WELLBEING_UTM_MAP[foodId];
+      if (utmMedium) {
+        const separator = url.includes("?") ? "&" : "?";
+        url = `${url}${separator}utm_source=${WELLBEING_UTM_SOURCE}&utm_medium=${utmMedium}`;
+      }
+    }
     window.open(url, '_blank');
   }
   videoClick(data) {
