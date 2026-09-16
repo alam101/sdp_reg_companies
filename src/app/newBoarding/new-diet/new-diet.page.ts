@@ -1108,15 +1108,38 @@ ${url}`;
         },
         (error) => {
           this.utilities.hideLdr();
+          this.percentwithPer = "100%";
+          const a = document.createElement("a");
+          console.log("error", error);
+          setTimeout(() => {
+            this.isdoenloadclicked = false;
+          }, 2000);
+          this.downloadPdf(error["url"]);
+          setTimeout(() => {
+            this.isdoenloadclicked = false;
+          }, 2000);
+          clearInterval(this.iscloseInterval);
+          console.log("Page loaded:", event);
+          this.utilities.hideLdr();
           console.error("Error downloading PDF:", error);
         },
       );
   }
 
   downloadPdf(pdfUrl) {
-    let pdfWindow: Window | null = null;
+    if (!pdfUrl) {
+      return;
+    }
     if (this.userAgentType === "Web") {
-      pdfWindow.location.href = pdfUrl;
+      const pdfWindow: Window | null = window.open(pdfUrl, "_blank");
+      if (!pdfWindow) {
+        const a = document.createElement("a");
+        a.href = pdfUrl;
+        a.download = localStorage.getItem("clientId") + "_Dietplan.pdf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
     } else if (this.userAgentType === "Android App") {
       (window as any).MyJSClient?.openPdfFromUrl(pdfUrl);
     } else if (this.userAgentType === "IOS App") {
